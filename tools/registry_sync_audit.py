@@ -16,8 +16,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # certificate-ledger-internal and intentionally excluded.
 ID_RE = re.compile(r"\b(?:WALL|TOOL|RULE|BOOK|OBS|CLAIM|CONSTRAINT|SKILL)-[A-Z0-9]+(?:-[A-Z0-9]+)*")
 PLACEHOLDERS = {"WALL-ID", "TOOL-ID", "RULE-ID", "BOOK-ID", "OBS-ID", "CLAIM-ID", "SKILL-ID"}
-SKIP_DIRS = ("06-book-pipeline",)  # templates hold placeholder IDs
-# Planning/spec docs propose IDs that the implementation may rename; not live references.
+SKIP_DIRS = ()
+# Planning/spec docs and templates hold proposed or placeholder IDs; not live references.
 SKIP_FILES = {"PVG-ANT-Central-Mind-v0.1b-full-spec.md"}
 
 
@@ -26,7 +26,7 @@ def rel(p): return os.path.relpath(p, ROOT).replace("\\", "/")
 
 def load_ids():
     ids, dups = {}, []
-    for path in sorted(glob.glob(os.path.join(ROOT, "01-registries", "*.jsonl"))):
+    for path in sorted(glob.glob(os.path.join(ROOT, "registries", "*.jsonl"))):
         with open(path, encoding="utf-8") as f:
             for i, raw in enumerate(f, 1):
                 line = raw.strip()
@@ -53,7 +53,8 @@ def main():
         if os.sep + ".git" + os.sep in path:
             continue
         relp = rel(path)
-        if relp.split("/")[0] in SKIP_DIRS or os.path.basename(relp) in SKIP_FILES:
+        if (relp.split("/")[0] in SKIP_DIRS or os.path.basename(relp) in SKIP_FILES
+                or relp.endswith("-template.md")):
             continue
         with open(path, encoding="utf-8") as f:
             for i, line in enumerate(f, 1):

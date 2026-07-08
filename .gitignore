@@ -7,3 +7,7 @@ __pycache__/
 # Raw source material (not transformed): keep out of the mind repo
 overholt_ant_skill_package/
 *example*.txt
+
+# Environment / IDE artifacts
+.venv/
+.idea/

@@ -21,7 +21,7 @@ def norm(t): return re.sub(r"[^a-z0-9]", "", t.lower())
 def main():
     by_norm = {}
     problems = []
-    for path in sorted(glob.glob(os.path.join(ROOT, "01-registries", "*.jsonl"))):
+    for path in sorted(glob.glob(os.path.join(ROOT, "registries", "*.jsonl"))):
         with open(path, encoding="utf-8") as f:
             for i, raw in enumerate(f, 1):
                 line = raw.strip()

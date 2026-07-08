@@ -18,9 +18,9 @@ ALLOWED = {
     "Open Problem", "Candidate Mechanism", "New Theorem",
     "Missing Certificate", "Forbidden Claim",
 }
-STATUS_KINDS = {"book", "planned"}
+STATUS_KINDS = {"book", "planned", "frontier", "question"}
 
-CLASSIFY_DIRS = ("02-diagnostic-cards", "03-skill-ledgers")
+CLASSIFY_DIRS = ("installed-skills", "ledgers")
 
 FORBIDDEN = [
     r"proves?\s+(the\s+)?rh", r"proof\s+of\s+rh", r"progress\s+toward",
@@ -31,8 +31,12 @@ FORBIDDEN_RE = [re.compile(p, re.IGNORECASE) for p in FORBIDDEN]
 NEG = re.compile(r"\bno\b|\bnot\b|\bnone\b|does not|n't|\bzero\b|\bnever\b|without|لا\s|بلا|دون|no-progress|forbidden", re.IGNORECASE)
 CLASSIFY_RE = re.compile(r"classification", re.IGNORECASE)
 
-FORBIDDEN_EXEMPT_DIRS = ("00-kernel", "tools", "99-transition-memory")
-FORBIDDEN_EXEMPT_FILES = {os.path.join("05-certificate-ledger", "forbidden-claims.md"), "README.md"}
+FORBIDDEN_EXEMPT_DIRS = ("governance", "tools", "transition-memory")
+FORBIDDEN_EXEMPT_FILES = {
+    os.path.join("governance", "forbidden-claims.md"), "README.md",
+    "central-mind-charter.md", "central-mind-goals.md",
+    "PVG-ANT-Central-Mind-v0.1b-full-spec.md",
+}
 
 
 def rel(p): return os.path.relpath(p, ROOT).replace("\\", "/")
@@ -40,7 +44,7 @@ def rel(p): return os.path.relpath(p, ROOT).replace("\\", "/")
 
 def validate_registries():
     problems, seen = [], {}
-    for path in sorted(glob.glob(os.path.join(ROOT, "01-registries", "*.jsonl"))):
+    for path in sorted(glob.glob(os.path.join(ROOT, "registries", "*.jsonl"))):
         with open(path, encoding="utf-8") as f:
             for i, raw in enumerate(f, 1):
                 line = raw.strip()

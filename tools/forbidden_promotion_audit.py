@@ -26,7 +26,7 @@ def rel(p): return os.path.relpath(p, ROOT).replace("\\", "/")
 def main():
     problems = []
     # registries
-    for path in sorted(glob.glob(os.path.join(ROOT, "01-registries", "*.jsonl"))):
+    for path in sorted(glob.glob(os.path.join(ROOT, "registries", "*.jsonl"))):
         with open(path, encoding="utf-8") as f:
             for i, raw in enumerate(f, 1):
                 line = raw.strip()

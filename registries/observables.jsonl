@@ -1,0 +1,9 @@
+{"kind":"observable","id":"OBS-OMEGA-001","title":"omega(n) distinct prime factors","statement":"PVG support; additive; normal order loglog n (Hardy-Ramanujan); Gaussian fluctuation by Erdos-Kac.","classification":"Known","source":"overholt:ch2"}
+{"kind":"observable","id":"OBS-BIGOMEGA-001","title":"Omega(n) prime factors with multiplicity","statement":"PVG height; additive over prime powers.","classification":"Known","source":"overholt:ch2"}
+{"kind":"observable","id":"OBS-MOBIUS-001","title":"mu(n) Mobius","statement":"PVG phase; multiplicative; cancellation tied to PNT/zero-free.","classification":"Known","source":"overholt:ch1"}
+{"kind":"observable","id":"OBS-LIOUVILLE-001","title":"lambda(n) Liouville","statement":"PVG phase (-1)^Omega(n); sign over prime powers.","classification":"Known","source":"overholt:ch1"}
+{"kind":"observable","id":"OBS-CHARACTER-001","title":"Dirichlet character chi mod q","statement":"PVG residue-fiber phase; diagonalizes congruence conditions; target of Tenenbaum-005-A.","classification":"Known","source":"overholt:ch3"}
+{"kind":"observable","id":"OBS-SQUAREFREE-001","title":"mu^2(n) squarefree indicator","statement":"PVG support layer; density 6/pi^2.","classification":"Known","source":"tenenbaum:004-G"}
+{"kind":"observable","id":"OBS-DIVISOR-001","title":"d(n) divisor function","statement":"PVG divisor box; average order log n.","classification":"Known","source":"tenenbaum:004-G"}
+{"kind":"observable","id":"OBS-TAUK-001","title":"tau_k(n) k-fold divisor","statement":"PVG divisor box of dimension k; F(s)=zeta(s)^k.","classification":"Known","source":"tenenbaum:004-G"}
+{"kind":"observable","id":"OBS-ZOMEGA-001","title":"z^{omega(n)}","statement":"PVG phase/height interpolation; Selberg-Delange with parameter z.","classification":"Known","source":"tenenbaum:004-G"}

@@ -1,20 +1,19 @@
 # PVG–ANT Central Mind — v0.1b Full Integration Specification
 
-> **Reconciliation status (added on save — honest note, not part of the original spec):**
-> Central Mind Integration Pass 001 (v0.1b) is **already implemented and committed** (`e4f266d`)
-> using the numbered 7-layer layout: `00-kernel/ · 01-registries/ · 02-diagnostic-cards/ ·
-> 03-skill-ledgers/ · 04-bridges/ · 05-certificate-ledger/ · 06-book-pipeline/ · tools/ ·
-> 99-transition-memory/`, with six passing guards in `tools/`.
-> This founding spec below describes the same pass with a **named-directory** layout
-> (`installed-skills/ ledgers/ registries/ maps/ governance/ audits/`); the two are
-> functionally equivalent. Where spec and implementation differ (folder names, some skill-IDs
-> such as `SKILL-GOV-BIB-001` here vs `SKILL-GOV-BIBLIO-001` implemented), **the implementation
-> is the source of truth** until a restructure is explicitly chosen.
-> **Honesty carry-over (overrides "installed-interface-card" wording below):** 6 of the 14
-> skills are `conceptual` (prime-valuation-geometry, numerical-assistant, computational-number-theory,
-> combinatorial-sieve, operator-theory, spectral-analysis) — not installed Anthropic skills;
-> their implemented cards carry `status: conceptual` + `backed_by`. "installed-interface-card"
-> below means the *card* exists, not that the underlying skill is installed.
+> **Reconciliation status (honest note, not part of the original spec):**
+> Central Mind Integration Pass 001 (v0.1b) is implemented, and the repository has now been
+> **restructured to match this spec's named layout** (`installed-skills/ ledgers/ registries/
+> maps/ governance/ audits/ + central-mind-charter.md / central-mind-goals.md`), with the
+> spec's skill-IDs adopted (`SKILL-GOV-BIB-001`, `SKILL-GOV-CERT-001`, `SKILL-GOV-NOGO-001`,
+> `SKILL-MATH-COMP-ANT-001`). Six guards in `tools/` pass on the new layout.
+> **Deviations kept (additive, no content lost):** `registries/` also holds the source-of-truth
+> jsonl beyond skills/books/frontiers/queue (walls/tools/rules/observables/claims/planned/constraint);
+> `ledgers/imports/` holds the sieve/spectral/computational imports; `ledgers/books/BOOK-LOGIC-MILETI-001/`
+> holds the deferred Mileti (README + planned-units only); `transition-memory/` holds handoff files.
+> **Honesty carry-over (overrides "installed-interface-card" wording below):** 6 of the 14 skills
+> are `conceptual` (prime-valuation-geometry, numerical-assistant, computational-number-theory,
+> combinatorial-sieve, operator-theory, spectral-analysis) — not installed Anthropic skills; their
+> cards carry `status: conceptual` + `backed_by`. "installed-interface-card" means the *card* exists.
 > Ceiling unchanged: zero RH progress · zero GRH progress · no secured path.
 
 ---

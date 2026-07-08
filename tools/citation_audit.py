@@ -18,7 +18,7 @@ def rel(p): return os.path.relpath(p, ROOT).replace("\\", "/")
 
 def book_ids():
     ids = set()
-    p = os.path.join(ROOT, "01-registries", "books.jsonl")
+    p = os.path.join(ROOT, "registries", "books.jsonl")
     if os.path.exists(p):
         with open(p, encoding="utf-8") as f:
             for line in f:
@@ -34,12 +34,9 @@ def book_ids():
 def main():
     ids = book_ids()
     problems = []
-    # book-ledger index files live at 03-skill-ledgers/<layer>/<book>/index.md
-    for idx in glob.glob(os.path.join(ROOT, "03-skill-ledgers", "*", "*", "index.md")):
+    # book-ledger README files live at ledgers/books/<BOOK-ID>/README.md
+    for idx in glob.glob(os.path.join(ROOT, "ledgers", "books", "*", "README.md")):
         relp = rel(idx)
-        # installed-skills is not a book ledger
-        if "/installed-skills/" in relp:
-            continue
         with open(idx, encoding="utf-8") as f:
             text = f.read()
         if "Source" not in text:
