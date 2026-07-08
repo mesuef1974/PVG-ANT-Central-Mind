@@ -27,9 +27,11 @@ Mileti-001-E  Deduction as Formal Proof Object            (TOOL-DEDUCTION-SYSTEM
 **Audit note (Mileti-001-G):** transformed notes (§3.6 completeness half only, ⊨→⊢); `TOOL-COMPLETENESS-001` promoted planned→live (Diagnostic + role); Compactness kept planned; guards PASS. Boundary held: completeness of the logic ≠ every truth derivable in any theory.
 **Audit note (Mileti-001-H, layer-closing):** transformed notes (§3.7 only); `TOOL-COMPACTNESS-001` promoted planned→live (Diagnostic + role); planned.jsonl now empty; guards PASS. Compactness anatomy documented (finite/global satisfiability, local-to-global cert, model-existence boundary, certifies/does-not-certify). Boundary held: passing finite checks ≠ proof of the intended infinite theorem (model may be nonstandard); no proof-system overclaim; no RH/GRH.
 
-**v0.2-B COMPLETE (001-F/G/H). planned.jsonl empty.**
+**v0.2-B COMPLETE + CLOSED (PASS 7/7, `audits/v0.2-B-closure.md`).**
 
-**Next allowed:** v0.2-B closure review (like v0.2-A), then v0.3: `Tenenbaum-005-A — Dirichlet Characters as Residue-Fiber Observables` — awaiting explicit permission. No expansion before review.
+**Audit note (Tenenbaum-005-A, v0.3):** transformed notes; Dirichlet characters read as residue-fiber observables. Registered+promoted `OBS-RESIDUE-FIBER-001` (Reinterpretation) + `TOOL-CHARACTER-SUM-PHASE-001` (Known); did NOT duplicate existing `OBS-CHARACTER-001`; AP distribution beyond Siegel-Walfisz recorded as missing certificate `MC-005` (GRH-level, not progress). planned.jsonl empty; guards PASS. Ceiling held: characters are observables not results; WALL-SIEGEL / WALL-POSITIVITY-WEIL not crossed; no PNT/AP theorem; no RH/GRH.
+
+**Next allowed:** v0.3 closure review (like v0.2-A/B), then further Tenenbaum units or another book — awaiting explicit permission. No expansion before review.
 
 ## قاعدة البدء
 

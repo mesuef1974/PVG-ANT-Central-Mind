@@ -29,4 +29,8 @@ It turns arithmetic functions into diagnostic objects with:
 geometry, analysis, and certificate status.
 ```
 
+## v0.3 (characters)
+
+`Tenenbaum-005-A` (Dirichlet characters as residue-fiber observables) ingested — see `tenenbaum-005-A.md`. Live: `OBS-RESIDUE-FIBER-001` (Reinterpretation) · `TOOL-CHARACTER-SUM-PHASE-001` (Known). AP/GRH-level distribution recorded as missing certificate `MC-005`. Characters as observables, not results; `WALL-SIEGEL` / `WALL-POSITIVITY-WEIL` not crossed.
+
 **Honest classification:** Known textbook-derived skill extraction + PVG diagnostic reinterpretation. No RH/GRH progress. No complete mastery.
