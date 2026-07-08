@@ -1,0 +1,1 @@
+{"kind":"constraint","id":"CONSTRAINT-NO-CONFLATION","title":"No conflation of walls","statement":"RH != PNT-error != off-diagonal != parity. These four walls are distinct and must never be merged.","classification":"Diagnostic","source":"research-compass"}

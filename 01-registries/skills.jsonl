@@ -1,0 +1,14 @@
+{"id":"SKILL-MATH-ANT-001","kind":"skill","title":"analytic-number-theory","layer":"ant","classification":"Diagnostic","status":"installed"}
+{"id":"SKILL-MATH-PVG-001","kind":"skill","title":"prime-valuation-geometry","layer":"pvg","classification":"Diagnostic","status":"conceptual","backed_by":"project-internal (PVG-Web); no dedicated installed skill"}
+{"id":"SKILL-MATH-RIGOR-001","kind":"skill","title":"solve-math-rigorously","layer":"rigor","classification":"Diagnostic","status":"installed"}
+{"id":"SKILL-MATH-POLYMATH-001","kind":"skill","title":"polymath-advanced-math","layer":"polymath","classification":"Diagnostic","status":"installed"}
+{"id":"SKILL-MATH-LATEX-001","kind":"skill","title":"latex","layer":"output","classification":"Diagnostic","status":"installed"}
+{"id":"SKILL-MATH-NUMERICAL-001","kind":"skill","title":"numerical-assistant","layer":"computational","classification":"Diagnostic","status":"conceptual","backed_by":"exact-count-and-zero-tables + ant_compute.py helper"}
+{"id":"SKILL-MATH-COMPUTATIONAL-NT-001","kind":"skill","title":"computational-number-theory","layer":"computational","classification":"Diagnostic","status":"conceptual","backed_by":"exact-count-and-zero-tables"}
+{"id":"SKILL-MATH-SIEVE-001","kind":"skill","title":"combinatorial-sieve","layer":"sieve","classification":"Diagnostic","status":"conceptual","backed_by":"analytic-number-theory + rigorous-number-theory + sieve books"}
+{"id":"SKILL-MATH-OPERATOR-001","kind":"skill","title":"operator-theory","layer":"spectral","classification":"Diagnostic","status":"conceptual","backed_by":"math-prof + spectral-operator-no-go"}
+{"id":"SKILL-MATH-SPECTRAL-001","kind":"skill","title":"spectral-analysis","layer":"spectral","classification":"Diagnostic","status":"conceptual","backed_by":"spectral-operator-no-go"}
+{"id":"SKILL-GOV-BIBLIO-001","kind":"skill","title":"bibliographic-verification","layer":"governance","classification":"Diagnostic","status":"installed","authority":"high"}
+{"id":"SKILL-GOV-CERTIFICATE-001","kind":"skill","title":"certificate-ledger","layer":"governance","classification":"Diagnostic","status":"installed","authority":"high"}
+{"id":"SKILL-GOV-SPECTRAL-NOGO-001","kind":"skill","title":"spectral-operator-no-go","layer":"governance","classification":"Diagnostic","status":"installed","authority":"high"}
+{"id":"SKILL-GOV-RELEASE-001","kind":"skill","title":"research-release-governance","layer":"governance","classification":"Diagnostic","status":"installed","authority":"high"}

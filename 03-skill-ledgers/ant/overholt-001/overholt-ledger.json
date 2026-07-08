@@ -1,0 +1,25 @@
+{
+  "project": "ANT-Skill Ledger 001 / Overholt",
+  "classification": "Skill atlas / Diagnostic layer / No RH-GRH progress",
+  "chapters": [
+    {"chapter": 1, "title": "Arithmetic Functions", "law": "Convolution is arithmetic geometry", "tools": ["Chebyshev weights", "Möbius inversion", "Dirichlet convolution", "hyperbola method"], "wall": "elementary tools organize mass but do not give deep zero-control"},
+    {"chapter": 2, "title": "Topics on Arithmetic Functions", "law": "Average, typical behavior, concentration, and cancellation are distinct", "tools": ["normal order", "Mertens function", "neighborhood method"], "wall": "average does not imply pointwise cancellation"},
+    {"chapter": 3, "title": "Characters and Euler Products", "law": "Characters are finite Fourier modes", "tools": ["Euler products", "Dirichlet characters", "Gauss sums"], "wall": "non-principal modes require L-function control"},
+    {"chapter": 4, "title": "Circle Method", "law": "local density plus major arcs plus minor-arc cancellation", "tools": ["major arcs", "minor arcs", "Weyl sums", "singular series"], "wall": "minor arcs"},
+    {"chapter": 5, "title": "Contour Integrals", "law": "Counting is residue extraction", "tools": ["Perron", "contour shifting", "L-function bounds"], "wall": "contour and truncation errors"},
+    {"chapter": 6, "title": "Prime Number Theorem", "law": "Pole at 1 gives x; zero-free boundary gives PNT", "tools": ["zero-free region", "smoothing", "desmoothing"], "wall": "zero-free control"},
+    {"chapter": 7, "title": "Siegel-Walfisz", "law": "AP primes are character-mode cancellation", "tools": ["-L'/L", "Landau repulsion", "Borel-Caratheodory"], "wall": "exceptional zeros and ineffectivity"},
+    {"chapter": 8, "title": "Mainly Analysis", "law": "Functional equations require gamma and archimedean structure", "tools": ["Poisson summation", "theta functions", "Hadamard factorization", "Phragmen-Lindelof"], "wall": "convexity/Lindelof boundary"},
+    {"chapter": 9, "title": "Number Fields", "law": "Ideals restore Euler products over number fields", "tools": ["Dedekind zeta", "class number formula", "Prime Ideal Theorem", "Ikehara", "Artin L-functions"], "wall": "regulator, discriminant, Artin holomorphy, zero-control"},
+    {"chapter": 10, "title": "Explicit Formulas", "law": "Poles give main terms; zeros give errors; test functions filter visibility", "tools": ["Riemann explicit formula", "J(x)", "Weil formula", "test functions"], "wall": "zero location and positivity"},
+    {"chapter": 11, "title": "Supplementary Exercises", "law": "Theory becomes operational templates", "tools": ["solution templates", "classification protocol"], "wall": "confusing identity with proof"}
+  ],
+  "pvg_rules": [
+    "No observable without its Dirichlet series or a declared limitation.",
+    "No Euler product without correct axes.",
+    "No main term without pole structure.",
+    "No strong error without zero information.",
+    "No RH positivity without full Weil formula.",
+    "Geometric relabeling does not replace zero-control."
+  ]
+}

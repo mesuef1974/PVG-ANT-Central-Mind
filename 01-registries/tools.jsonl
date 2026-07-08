@@ -1,0 +1,11 @@
+{"kind":"tool","id":"TOOL-EULER-PRODUCT-001","title":"Euler product","statement":"Factorization of a Dirichlet series over prime axes for multiplicative coefficients.","classification":"Known","source":"overholt:ch3"}
+{"kind":"tool","id":"TOOL-MOBIUS-001","title":"Mobius inversion","statement":"F=1*f implies f=mu*F over divisor sums.","classification":"Known","source":"overholt:ch1"}
+{"kind":"tool","id":"TOOL-HYPERBOLA-001","title":"Hyperbola method","statement":"Split a divisor-type sum around sqrt(x) into two regions.","classification":"Known","source":"overholt:ch1"}
+{"kind":"tool","id":"TOOL-PERRON-001","title":"Perron / contour integral","statement":"Turn a partial sum into a contour integral, shift the contour, collect residues.","classification":"Known","source":"overholt:ch5"}
+{"kind":"tool","id":"TOOL-CHARACTER-ORTHOGONALITY-001","title":"Character orthogonality","statement":"1_{n=a mod q} = phi(q)^{-1} sum_chi conj(chi(a)) chi(n).","classification":"Known","source":"overholt:ch3"}
+{"kind":"tool","id":"TOOL-HALASZ-001","title":"Halasz distance","statement":"Mean value of a bounded multiplicative function controlled by pretentious distance to n^{it}.","classification":"Known","source":"tenenbaum:004-B"}
+{"kind":"tool","id":"TOOL-DELANGE-001","title":"Delange mean value criterion","statement":"Mean value of a bounded multiplicative function via a convergent prime series criterion.","classification":"Known","source":"tenenbaum:004-C"}
+{"kind":"tool","id":"TOOL-WIRSING-001","title":"Wirsing theorem","statement":"Mean values of non-negative multiplicative functions with controlled prime averages.","classification":"Known","source":"tenenbaum:004-D"}
+{"kind":"tool","id":"TOOL-SELBERG-DELANGE-001","title":"Selberg-Delange method","statement":"Mean values when F(s)=zeta(s)^z G(s) with z suitable; Euler-singularity engine.","classification":"Known","source":"tenenbaum:004-E"}
+{"kind":"tool","id":"TOOL-TURAN-KUBILIUS-001","title":"Turan-Kubilius inequality","statement":"Variance bound for additive functions; concentration certificate.","classification":"Known","source":"tenenbaum:004-I"}
+{"kind":"tool","id":"TOOL-ERDOS-KAC-001","title":"Erdos-Kac theorem","statement":"omega(n) is asymptotically Gaussian with mean and variance loglog n.","classification":"Known","source":"tenenbaum:004-J"}
