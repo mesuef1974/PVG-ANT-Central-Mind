@@ -1,4 +1,3 @@
-{"id":"RULE-LOGIC-002","kind":"planned","title":"Syntax/Semantics separation","for_version":"v0.2","status":"planned","source":"mileti:1.3"}
 {"id":"RULE-LOGIC-003","kind":"planned","title":"Proof/Deduction/Certificate separation","for_version":"v0.2","status":"planned","source":"mileti:3.5"}
 {"id":"RULE-LOGIC-004","kind":"planned","title":"Metatheory awareness","for_version":"v0.2","status":"planned","source":"mileti:1.3"}
 {"id":"TOOL-GENERATION-001","kind":"planned","title":"Generation / step recursion","for_version":"v0.2","status":"planned","source":"mileti:2.2"}
