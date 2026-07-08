@@ -24,9 +24,11 @@ Mileti-001-E  Deduction as Formal Proof Object            (TOOL-DEDUCTION-SYSTEM
 
 **Audit note (Mileti-001-F):** transformed notes (§3.6 soundness half only); v0.2-B targets registered planned (`RULE-CERT-SOUNDNESS-001`, `TOOL-COMPLETENESS-001`, `TOOL-COMPACTNESS-001`), then `RULE-CERT-SOUNDNESS-001` promoted planned→live as governance rule (Diagnostic + role); Completeness/Compactness kept planned; guards PASS. Ceiling held: derivable ⟹ true under certified semantics; no proof-system overclaim; no RH/GRH.
 
-**Next allowed:** `Mileti-001-G` (Completeness, §3.6 reverse bridge ⊨→⊢ → `TOOL-COMPLETENESS-001`) — awaiting explicit permission per scope-freeze.
+**Audit note (Mileti-001-G):** transformed notes (§3.6 completeness half only, reverse bridge ⊨→⊢); `TOOL-COMPLETENESS-001` promoted planned→live as governance tool (Diagnostic + role); Compactness kept planned; guards PASS. Boundary held: completeness of the logic ≠ promise that every truth is derivable in any theory; semantic consequence ≠ truth-in-intended-structure; no proof-system overclaim; no RH/GRH.
 
-ثمّ `Mileti-001-H` (Compactness §3.7 → `TOOL-COMPACTNESS-001`) · v0.2-B closure · then v0.3: `Tenenbaum-005-A`.
+**Next allowed:** `Mileti-001-H` (Compactness, §3.7 local→global → `TOOL-COMPACTNESS-001`) — final v0.2-B unit — awaiting explicit permission per scope-freeze.
+
+ثمّ v0.2-B closure · then v0.3: `Tenenbaum-005-A`.
 
 ## قاعدة البدء
 

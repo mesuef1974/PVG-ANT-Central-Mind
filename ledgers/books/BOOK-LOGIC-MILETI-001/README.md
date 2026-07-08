@@ -1,7 +1,7 @@
 # Mileti Logic Ledger — Book Logic-001 (v0.2-A COMPLETE)
 
 > **v0.2-A ingested + CLOSED (001-A..E, PASS 7/7).** Live: `RULE-LOGIC-001/002/003/004`, `TOOL-GENERATION-001`, `TOOL-DEDUCTION-SYSTEM-001`.
-> **v0.2-B in progress:** `Mileti-001-F` (Soundness) done → `RULE-CERT-SOUNDNESS-001` live. Planned: `TOOL-COMPLETENESS-001` (001-G), `TOOL-COMPACTNESS-001` (001-H). §3.6–3.7.
+> **v0.2-B in progress:** `Mileti-001-F` (Soundness → `RULE-CERT-SOUNDNESS-001`) + `Mileti-001-G` (Completeness → `TOOL-COMPLETENESS-001`) done. Planned: `TOOL-COMPACTNESS-001` (001-H). §3.6–3.7.
 
 ## Source
 
