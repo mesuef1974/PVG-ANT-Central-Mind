@@ -17,8 +17,9 @@
 | `RULE-OBSERVABLE-ANATOMY-001` | Observable anatomy | كلُّ دالّةٍ تُفحَص عبر: بنية/هندسة/متوسّط/رتبة طبيعيّة/قانون نهائيّ/ذيل/عزوم/رتبة قصوى/جدار/شهادة | Tenenbaum 003-Z |
 | `RULE-PHASE-TEST-001` | Test phase before randomness | اختبر الطورَ (Halász/pretentious) قبل ادّعاء الإلغاء/العشوائيّة | Tenenbaum 004-B |
 | `RULE-AVERAGE-NORMAL-001` | Average ≠ normal order | المتوسّط والرتبةُ الطبيعيّة والتركيزُ والإلغاءُ اختباراتٌ متمايزة | Tenenbaum 004-H |
+| `RULE-LOGIC-001` | Claim/Formalization Separation (Governance / Certificate Discipline) | الادّعاءُ ليس صورنتَه؛ رمِّز اللغةَ والفرضيّاتِ والقواعدَ قبل الاستدلال | Mileti 001-A (§1.1–1.2) |
 
-**مؤجَّلٌ (planned):** قواعدُ المنطق `RULE-LOGIC-001..004` (Claim/Formalization · Syntax/Semantics · Proof/Deduction/Certificate · Metatheory) تُسجَّل في **v0.2** عند إدخال Mileti — ليست ضمن Integration Pass 001. لا توسّعَ بلا وحدة.
+**مؤجَّلٌ (planned، في `planned.jsonl`):** `RULE-LOGIC-002` (Syntax/Semantics) · `RULE-LOGIC-003` (Proof/Deduction/Certificate) · `RULE-LOGIC-004` (Metatheory) · `TOOL-GENERATION-001` · `TOOL-DEDUCTION-SYSTEM-001` — تُرقَّى عند كتابة وحداتها (001-B..E). لا توسّعَ بلا وحدة.
 
 ## بروتوكول الإضافة
 
