@@ -20,10 +20,11 @@
 | `RULE-LOGIC-001` | Claim/Formalization Separation (Governance / Certificate Discipline) | الادّعاءُ ليس صورنتَه؛ رمِّز اللغةَ والفرضيّاتِ والقواعدَ قبل الاستدلال | Mileti 001-A (§1.1–1.2) |
 | `RULE-LOGIC-002` | Syntax/Semantics Separation (Governance / Certificate Discipline) | الصيغةُ (نحو) ليست حقيقتَها (دلالة)؛ العبورُ بمبرهنةٍ مسمّاة | Mileti 001-B (§1.3) |
 | `RULE-LOGIC-004` | Metatheory Awareness (Governance / Certificate Discipline) | ادّعاءٌ داخلَ نظامٍ ≠ ادّعاءٌ مُتحقَّقٌ عن النظام؛ صرِّح بالمستوى | Mileti 001-C (§1.3–1.4) |
+| `RULE-LOGIC-003` | Proof/Deduction/Certificate Separation (Governance / Certificate Discipline) | برهانٌ ≠ استنتاج ≠ تحقّقٌ آليّ ≠ شهادةٌ بحثيّة؛ افحص الاشتقاقَ لا معقوليّةَ الخلاصة | Mileti 001-E (§3.5) |
 
-**أدواتُ المنطق الحيّة (في `tools.jsonl`):** `TOOL-GENERATION-001` (Generation/Step-Recursion، حوكمة/شهادة) — Mileti 001-D (§2.1–2.4).
+**أدواتُ المنطق الحيّة (في `tools.jsonl`):** `TOOL-GENERATION-001` (Generation/Step-Recursion) — 001-D · `TOOL-DEDUCTION-SYSTEM-001` (Formal deduction as certificate object) — 001-E. كلاهما حوكمة/شهادة.
 
-**مؤجَّلٌ (planned، في `planned.jsonl`):** `RULE-LOGIC-003` (Proof/Deduction/Certificate) · `TOOL-DEDUCTION-SYSTEM-001` — تُرقَّيان عند كتابة الوحدة 001-E. لا توسّعَ بلا وحدة.
+**planned (`planned.jsonl`):** فارغٌ — كلُّ معرِّفات v0.2-A رُقِّيت. **v0.2-A مكتملة.** لا توسّعَ بلا وحدة.
 
 ## بروتوكول الإضافة
 

@@ -1,4 +1,8 @@
-# Mileti Logic Ledger — Book Logic-001 (PLANNED, v0.2)
+# Mileti Logic Ledger — Book Logic-001 (v0.2-A COMPLETE)
+
+> **v0.2-A ingested (001-A..E).** Units: `Mileti-001-A.md` … `Mileti-001-E.md`.
+> Live governance rules/tools: `RULE-LOGIC-001/002/003/004`, `TOOL-GENERATION-001`, `TOOL-DEDUCTION-SYSTEM-001`.
+> Deferred: v0.2-B (§3.6–3.7 soundness/completeness/compactness). `planned.jsonl` empty.
 
 ## Source
 
