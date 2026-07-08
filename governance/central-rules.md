@@ -24,9 +24,9 @@
 
 | `RULE-CERT-SOUNDNESS-001` | No-false-certificate / Soundness (Governance / Certificate Discipline) | `⊢ ⟹ ⊨` تحت الدلالة المعتمَدة؛ الاشتقاقُ لا يشهد لباطل | Mileti 001-F (§3.6) |
 
-**أدواتُ المنطق الحيّة (في `tools.jsonl`):** `TOOL-GENERATION-001` (001-D) · `TOOL-DEDUCTION-SYSTEM-001` (001-E) · `TOOL-COMPLETENESS-001` (Completeness ⊨→⊢، 001-G، §3.6). كلُّها حوكمة/شهادة.
+**أدواتُ المنطق الحيّة (في `tools.jsonl`):** `TOOL-GENERATION-001` (001-D) · `TOOL-DEDUCTION-SYSTEM-001` (001-E) · `TOOL-COMPLETENESS-001` (⊨→⊢، 001-G) · `TOOL-COMPACTNESS-001` (local→global، 001-H). كلُّها حوكمة/شهادة.
 
-**planned (`planned.jsonl`، v0.2-B):** `TOOL-COMPACTNESS-001` (001-H، §3.7) — يُرقَّى عند كتابة وحدته. لا توسّعَ بلا وحدة.
+**planned (`planned.jsonl`):** فارغٌ — كلُّ معرِّفات v0.2-B رُقِّيت. **v0.2-A و v0.2-B مكتملتان.** لا توسّعَ بلا وحدة.
 
 ## بروتوكول الإضافة
 
