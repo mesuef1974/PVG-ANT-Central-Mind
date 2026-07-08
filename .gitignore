@@ -11,3 +11,7 @@ overholt_ant_skill_package/
 # Environment / IDE artifacts
 .venv/
 .idea/
+
+# Local book catalog (regenerate from actual scan before tracking)
+Books_catalog.md
+Books_catalog.csv
