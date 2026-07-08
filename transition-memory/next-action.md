@@ -20,9 +20,13 @@ Mileti-001-E  Deduction as Formal Proof Object            (TOOL-DEDUCTION-SYSTEM
 **Audit note (Mileti-001-D):** transformed notes (§2.1–2.4 only); `TOOL-GENERATION-001` promoted planned→live in `tools.jsonl` as a governance/certificate tool (Diagnostic + role), not a universal proof tool; `RULE-LOGIC-003` untouched; guards PASS. Generation anatomy documented. Ceiling held: generation is not automatic truth.
 **Audit note (Mileti-001-E, layer-closing):** transformed notes (§3.5 only); `TOOL-DEDUCTION-SYSTEM-001` (tools) + `RULE-LOGIC-003` (rules) promoted planned→live as governance/certificate (Diagnostic + role); planned.jsonl now empty; guards PASS. Deduction anatomy (premises/language/formation/inference/steps/proof-object/conclusion/soundness-boundary/certifies/does-not-certify) documented. Ceiling held: check the derivation not the plausibility; derivation is not truth unless system+interpretation certified; no proof-system overclaim; no RH/GRH.
 
-**Next allowed:** v0.2-A closure review (like v0.1b), then v0.2-B (§3.6–3.7 soundness/completeness/compactness) — awaiting explicit permission. No expansion before review.
+**v0.2-A CLOSED (PASS 7/7, `audits/v0.2-A-closure.md`). v0.2-B scope frozen, then execution opened.**
 
-ثمّ v0.3: `Tenenbaum-005-A — Dirichlet Characters as Residue-Fiber Observables`.
+**Audit note (Mileti-001-F):** transformed notes (§3.6 soundness half only); v0.2-B targets registered planned (`RULE-CERT-SOUNDNESS-001`, `TOOL-COMPLETENESS-001`, `TOOL-COMPACTNESS-001`), then `RULE-CERT-SOUNDNESS-001` promoted planned→live as governance rule (Diagnostic + role); Completeness/Compactness kept planned; guards PASS. Ceiling held: derivable ⟹ true under certified semantics; no proof-system overclaim; no RH/GRH.
+
+**Next allowed:** `Mileti-001-G` (Completeness, §3.6 reverse bridge ⊨→⊢ → `TOOL-COMPLETENESS-001`) — awaiting explicit permission per scope-freeze.
+
+ثمّ `Mileti-001-H` (Compactness §3.7 → `TOOL-COMPACTNESS-001`) · v0.2-B closure · then v0.3: `Tenenbaum-005-A`.
 
 ## قاعدة البدء
 

@@ -22,9 +22,11 @@
 | `RULE-LOGIC-004` | Metatheory Awareness (Governance / Certificate Discipline) | ادّعاءٌ داخلَ نظامٍ ≠ ادّعاءٌ مُتحقَّقٌ عن النظام؛ صرِّح بالمستوى | Mileti 001-C (§1.3–1.4) |
 | `RULE-LOGIC-003` | Proof/Deduction/Certificate Separation (Governance / Certificate Discipline) | برهانٌ ≠ استنتاج ≠ تحقّقٌ آليّ ≠ شهادةٌ بحثيّة؛ افحص الاشتقاقَ لا معقوليّةَ الخلاصة | Mileti 001-E (§3.5) |
 
+| `RULE-CERT-SOUNDNESS-001` | No-false-certificate / Soundness (Governance / Certificate Discipline) | `⊢ ⟹ ⊨` تحت الدلالة المعتمَدة؛ الاشتقاقُ لا يشهد لباطل | Mileti 001-F (§3.6) |
+
 **أدواتُ المنطق الحيّة (في `tools.jsonl`):** `TOOL-GENERATION-001` (Generation/Step-Recursion) — 001-D · `TOOL-DEDUCTION-SYSTEM-001` (Formal deduction as certificate object) — 001-E. كلاهما حوكمة/شهادة.
 
-**planned (`planned.jsonl`):** فارغٌ — كلُّ معرِّفات v0.2-A رُقِّيت. **v0.2-A مكتملة.** لا توسّعَ بلا وحدة.
+**planned (`planned.jsonl`، v0.2-B):** `TOOL-COMPLETENESS-001` (001-G، §3.6) · `TOOL-COMPACTNESS-001` (001-H، §3.7) — تُرقَّيان عند كتابة وحدتيهما. لا توسّعَ بلا وحدة.
 
 ## بروتوكول الإضافة
 
