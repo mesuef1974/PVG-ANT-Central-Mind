@@ -1,5 +1,8 @@
 # PVG–ANT Central Mind
 
+> **Canonical repository:** `D:\PVG-ANT-Central-Mind`.
+> **Legacy duplicate:** the "The All" in-repo copy (`1b51886`) is **do-not-edit** unless explicitly reactivated.
+
 مستودعُ عقلٍ رياضيّ تراكميّ حيّ. كلُّ كتابٍ أو مهارةٍ يدخل لا كنصٍّ خام، بل كـ **أدوات + قواعد + جدران + شهادات + بطاقاتِ واجهة**. طبقةٌ تشخيصيّة/تعليميّة: zero RH progress · zero GRH progress · no secured path.
 
 المبدأ الحاكم: **الـmarkdown للعرض، والـJSONL للحقيقة، والحارس للإنفاذ** (graph لا pile).
