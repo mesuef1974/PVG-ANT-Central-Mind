@@ -12,6 +12,11 @@ Ledger will contain transformed notes only, no book text.
 
 ## Role
 
-طبقةُ الشهادة (Claim / Proof / Model / Certificate). **مؤجَّلةٌ عمدًا** إلى v0.2 بعد Integration Pass 001. لا وحداتٍ مُدخَلةً بعد؛ الخطّةُ في `planned-units.md`.
+طبقةُ الشهادة (Claim / Proof / Model / Certificate). **v0.2 مفتوحٌ افتتاحًا حوكميًّا فقط** (نطاقٌ وخطّة، لا قراءةَ Mileti بعد):
+- `v0.2-scope.md` — نطاقُ v0.2-A (الوحدات 001-A..E) وحدودُه.
+- `logic-certificate-layer-plan.md` — الـpipeline والتسلسل والترقية.
+- `planned-units.md` — الوحداتُ الخمسُ مُثبَّتةً على فهرس Mileti.
+
+لا وحداتٍ مُدخَلةً بعد؛ لا تبدأ القراءةُ قبل تجميد النطاق.
 
 **Honest classification:** Diagnostic (planned layer). No RH/GRH progress.
