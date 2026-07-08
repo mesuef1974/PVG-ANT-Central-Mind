@@ -2,7 +2,7 @@
 """
 Registry <-> markdown sync audit for PVG-ANT Central Mind.
 
-  - Every registry ID is unique across all 01-registries/*.jsonl.
+  - Every registry ID is unique across all registries/*.jsonl.
   - Every ID token referenced in markdown exists in a registry.
 This is the graph-not-pile enforcer.
 
