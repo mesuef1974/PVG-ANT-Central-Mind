@@ -21,7 +21,9 @@
 | `RULE-LOGIC-002` | Syntax/Semantics Separation (Governance / Certificate Discipline) | الصيغةُ (نحو) ليست حقيقتَها (دلالة)؛ العبورُ بمبرهنةٍ مسمّاة | Mileti 001-B (§1.3) |
 | `RULE-LOGIC-004` | Metatheory Awareness (Governance / Certificate Discipline) | ادّعاءٌ داخلَ نظامٍ ≠ ادّعاءٌ مُتحقَّقٌ عن النظام؛ صرِّح بالمستوى | Mileti 001-C (§1.3–1.4) |
 
-**مؤجَّلٌ (planned، في `planned.jsonl`):** `RULE-LOGIC-003` (Proof/Deduction/Certificate) · `TOOL-GENERATION-001` · `TOOL-DEDUCTION-SYSTEM-001` — تُرقَّى عند كتابة وحداتها (001-D، 001-E). لا توسّعَ بلا وحدة.
+**أدواتُ المنطق الحيّة (في `tools.jsonl`):** `TOOL-GENERATION-001` (Generation/Step-Recursion، حوكمة/شهادة) — Mileti 001-D (§2.1–2.4).
+
+**مؤجَّلٌ (planned، في `planned.jsonl`):** `RULE-LOGIC-003` (Proof/Deduction/Certificate) · `TOOL-DEDUCTION-SYSTEM-001` — تُرقَّيان عند كتابة الوحدة 001-E. لا توسّعَ بلا وحدة.
 
 ## بروتوكول الإضافة
 
