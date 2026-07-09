@@ -1,4 +1,4 @@
-# Montgomery MNT-II Frontier Support Layer — Book ANT (v0.6, first unit ingested)
+# Montgomery MNT-II Frontier Support Layer — Book ANT (v0.6, units A + B ingested)
 
 ## Source
 
@@ -16,6 +16,6 @@ Ledger will contain transformed notes only, no book text.
 
 ## Status
 
-**v0.6 — first mining unit `units/MNTII-006-A.md` ingested** (Montgomery-style analytic tools as distribution diagnostics for `FRONTIER-ANT-PVG-006`). Live output: `TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001` (Diagnostic / Frontier Support). Treasure overlays seeded from unit A; **the rest of the book is unmined** (see `missed-treasures.md`). Plan in `v0.6-scope.md` / `v0.6-scope-freeze.md`. **No MNTII-006-B started.**
+**v0.6 — mining units `units/MNTII-006-A.md` (distribution diagnostics) and `units/MNTII-006-B.md` (distributional limits / barriers) ingested** for `FRONTIER-ANT-PVG-006`. Live outputs: `TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001` and `TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001` (both Diagnostic / Frontier Support). Treasure overlays cover units A + B (`TREASURE-MNTII-001..015`); **the rest of the book is unmined** (see `missed-treasures.md`). Plan in `v0.6-scope.md` / `v0.6-scope-freeze.md`. **No MNTII-006-C started.**
 
-**Honest classification:** Diagnostic (book ledger, v0.6 unit A ingested). No RH/GRH progress. No complete mastery.
+**Honest classification:** Diagnostic (book ledger, v0.6 units A + B ingested). No RH/GRH progress. No complete mastery.
