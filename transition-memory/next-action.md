@@ -47,7 +47,11 @@ Mileti-001-E  Deduction as Formal Proof Object            (TOOL-DEDUCTION-SYSTEM
 
 **Audit note (HARMAN-004-A):** transformed notes; prime-detecting sieve read as information consumption (Type-I linear vs Type-II bilinear), diagnosing the parity barrier and the unconditional sieve ceiling. Registered v0.5 targets (A+B); promoted `TOOL-SIEVE-INFO-CONSUMPTION-001` (Diagnostic) — HARMAN-004-B (`TOOL-TYPE-I-II-DIAGNOSTIC-001`) kept planned; book status → in_progress; guards PASS. Ceiling held: information-consumption diagnostic, not a new prime detector, not parity-breaking, not a theorem improvement, not RH/GRH; `WALL-PARITY` / `WALL-SIEGEL` not crossed; MC-001 unsolved; Type-II is the missing external certificate.
 
-**Next allowed:** `HARMAN-004-B` (Type-I / Type-II information & Harman decomposition, `TOOL-TYPE-I-II-DIAGNOSTIC-001`) — awaiting explicit permission. No independent Type-II expansion, no large sieve unit, no HARMAN-004-C.
+**Audit note (HARMAN-004-B):** transformed notes; Type-I (linear) vs Type-II (bilinear) information and the Harman decomposition read as a diagnostic of what a sieve consumes vs lacks. Promoted `TOOL-TYPE-I-II-DIAGNOSTIC-001` (Diagnostic); planned.jsonl empty; guards PASS. Ceiling held: Type-II is the missing external certificate linked to MC-001, not an independent claim, not parity-breaking by itself, not a prime detector or theorem improvement, not RH/GRH; `WALL-PARITY` / `WALL-SIEGEL` not crossed; large sieve not a separate unit.
+
+**v0.5 HARMAN-004-A/B ingested (frontier 004 support). planned.jsonl empty.**
+
+**Next allowed:** v0.5 closure review (HARMAN-004-A/B), then a further unit or another book — awaiting explicit permission. No HARMAN-004-C, no independent Type-II claim, no large sieve unit, no expansion before review.
 
 ## قاعدة البدء
 

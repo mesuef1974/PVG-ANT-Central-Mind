@@ -16,6 +16,6 @@ Ledger will contain transformed notes only, no book text.
 
 ## Status
 
-**v0.5 in progress.** `HARMAN-004-A` (prime-detecting sieve as information consumption) ingested → `TOOL-SIEVE-INFO-CONSUMPTION-001` (Diagnostic) live. Planned: `TOOL-TYPE-I-II-DIAGNOSTIC-001` (HARMAN-004-B). Missing certificate in play: `MC-001` (parity, unsolved). `WALL-PARITY` / `WALL-SIEVE-CEILING` / `WALL-SIEGEL` not crossed. Plan in `v0.5-scope.md` / `v0.5-scope-freeze.md`.
+**v0.5 in progress (HARMAN-004-A/B ingested).** `HARMAN-004-A` (sieve as information consumption) → `TOOL-SIEVE-INFO-CONSUMPTION-001` · `HARMAN-004-B` (Type-I/II & Harman decomposition) → `TOOL-TYPE-I-II-DIAGNOSTIC-001`. Both **Diagnostic**. Type-II = missing external certificate (linked to `MC-001`, unsolved). Large sieve = not a separate unit. `WALL-PARITY` / `WALL-SIEVE-CEILING` / `WALL-SIEGEL` not crossed. Awaiting v0.5 closure review. Plan in `v0.5-scope.md` / `v0.5-scope-freeze.md`.
 
 **Honest classification:** Diagnostic (book ledger, scope open). No RH/GRH progress. No complete mastery.
