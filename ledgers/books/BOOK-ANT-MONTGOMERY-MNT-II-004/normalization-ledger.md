@@ -1,6 +1,6 @@
 # Montgomery MNT-II — Normalization Ledger
 
-Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 units MNTII-006-A + MNTII-006-B.** كلُّ كنزٍ في `treasure-map.md` ← ماذا صار داخل العقل (معرِّفاتٌ حيّة). المخرجان الأساسان الجديدان: `TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001` (006-A) و`TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001` (006-B) — كلاهما live في `registries/tools.jsonl`.
+Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 units MNTII-006-A + MNTII-006-B + MNTII-006-C.** كلُّ كنزٍ في `treasure-map.md` ← ماذا صار داخل العقل (معرِّفاتٌ حيّة). المخرجاتُ الأساسيّةُ الجديدة: `TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001` (006-A) · `TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001` (006-B) · `TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001` (006-C) — كلُّها live في `registries/tools.jsonl`.
 
 ```text
 TREASURE-MNTII-001  Montgomery-style analytic tools as distribution diagnostics
@@ -80,16 +80,58 @@ TREASURE-MNTII-015  Distributional barriers uncrossed
   → PVG–ANT           : barriers observed, not crossed
 ```
 
-## Live IDs consolidated (units A + B)
+## Unit MNTII-006-C — normalization (large sieve / Bombieri–Vinogradov on-average)
 
 ```text
-Tools (NEW, live) : TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001 (006-A) · TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001 (006-B)   (both Diagnostic / Frontier Support)
+TREASURE-MNTII-016  Large sieve inequality as a mean-value diagnostic
+  → Tool (NEW)        : TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001
+  → Frontier          : FRONTIER-ANT-PVG-006
+  → Wall              : WALL-OFF-DIAGONAL · WALL-DENSITY-HYP
+  → PVG–ANT           : the family/average mean-value inequality on the off-diagonal
+
+TREASURE-MNTII-017  Bombieri–Vinogradov as on-average as-if-GRH
+  → Tool (NEW)        : TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001
+  → Missing Certificate: MC-005  (individual case beyond BV)
+  → PVG–ANT           : unconditional average AP distribution to level 1/2
+
+TREASURE-MNTII-018  Average control ≠ individual GRH certificate
+  → Missing Certificate: MC-005
+  → Wall              : WALL-SIEGEL
+  → PVG–ANT           : family-average observable ≠ individual residue-fiber certificate
+
+TREASURE-MNTII-019  Dispersion method as a bilinear / average diagnostic
+  → Tool (NEW)        : TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001
+  → Wall              : WALL-OFF-DIAGONAL
+  → PVG–ANT           : the bilinear (off-diagonal) route to average control
+
+TREASURE-MNTII-020  Elliott–Halberstam (unproven conjectural extension)
+  → Open Problem      : level 1−ε conjecture — no tool, no certificate (deferred)
+  → PVG–ANT           : a conjectural (not achieved) average-distribution level
+
+TREASURE-MNTII-021  Large sieve = the mean-value inequality behind zero-density
+  → Tool (NEW)        : TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001
+  → Tool (neighbour)  : TOOL-ZERO-DENSITY-DIAGNOSTIC-001 · TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001
+  → Wall              : WALL-DENSITY-HYP
+  → PVG–ANT           : the shared average-control root of the frontier-006 diagnostics
+
+TREASURE-MNTII-022  MC-005 unsolved; walls uncrossed
+  → Missing Certificate: MC-005 — UNSOLVED
+  → Wall              : WALL-SIEGEL · WALL-POSITIVITY-WEIL — UNCROSSED
+  → PVG–ANT           : average control leaves the individual certificate and walls standing
+```
+
+## Live IDs consolidated (units A + B + C)
+
+```text
+Tools (NEW, live) : TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001 (006-A) · TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001 (006-B) · TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001 (006-C)   (all Diagnostic / Frontier Support)
 Tools (neighbour) : TOOL-ZERO-DENSITY-DIAGNOSTIC-001 · TOOL-LARGE-VALUE-DIAGNOSTIC-001
+Observables       : OBS-CHARACTER-001 · OBS-RESIDUE-FIBER-001
 Walls             : WALL-ZERO-FREE · WALL-SIEGEL · WALL-POSITIVITY-WEIL · WALL-DENSITY-HYP · WALL-OFF-DIAGONAL
 Missing           : MC-002 · MC-005   (both UNSOLVED)
 Frontier          : FRONTIER-ANT-PVG-006   (+ bridge FRONTIER-ANT-PVG-004)
+Open problem      : Elliott–Halberstam (unproven; no certificate)
 ```
 
-**Consistency note:** each new tool (`TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001` for 006-A, `TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001` for 006-B) was registered as the single planned target of its unit then promoted to live in `registries/tools.jsonl` on honest completion; `planned.jsonl` is empty. Neighbour ids pre-exist. MC-002 & MC-005 UNSOLVED. RH-conditional distributional statistics are excluded (see missed-treasures.md).
+**Consistency note:** each new tool (006-A DISTRIBUTION-DIAGNOSTIC · 006-B DISTRIBUTION-BARRIER · 006-C LARGE-SIEVE-DIAGNOSTIC) was registered as the single planned target of its unit then promoted to live in `registries/tools.jsonl` on honest completion; `planned.jsonl` is empty. Neighbour / observable ids pre-exist. MC-002 & MC-005 UNSOLVED. Bombieri–Vinogradov is average-not-individual; Elliott–Halberstam is an unproven open problem; RH-conditional statistics are excluded (see missed-treasures.md).
 
-**Honest classification:** Diagnostic / Boundary (normalization ledger, v0.6 units A + B). No RH/GRH progress.
+**Honest classification:** Diagnostic / Boundary (normalization ledger, v0.6 units A + B + C). No RH/GRH progress.

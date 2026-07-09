@@ -1,6 +1,6 @@
 # Montgomery MNT-II — Treasure Map
 
-Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — mining units `MNTII-006-A` (distribution diagnostics) and `MNTII-006-B` (distributional limits / barriers) ingested.** طبقةُ تعدينٍ تحت `governance/book-treasure-extraction-protocol.md`. مؤصَّلٌ على الوحدتين (transformed notes only، PDF خارج git). كنوزٌ محدودةٌ لوحدتين ضيّقتين؛ **باقي الكتاب غيرُ مُعدَّن** (see `missed-treasures.md`). لا نصٌّ خام، لا ادّعاءُ إتقانٍ كامل.
+Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — mining units `MNTII-006-A` (distribution diagnostics), `MNTII-006-B` (distributional limits / barriers), and `MNTII-006-C` (large sieve / Bombieri–Vinogradov on-average) ingested.** طبقةُ تعدينٍ تحت `governance/book-treasure-extraction-protocol.md`. مؤصَّلٌ على الوحدات الثلاث (transformed notes only، PDF خارج git). كنوزٌ محدودةٌ لثلاث وحداتٍ ضيّقة؛ **باقي الكتاب غيرُ مُعدَّن** (see `missed-treasures.md`). لا نصٌّ خام، لا ادّعاءُ إتقانٍ كامل.
 
 ```text
 Treasure ID: TREASURE-MNTII-001
@@ -199,4 +199,97 @@ Classification: Boundary.
 Normalized output: → Wall WALL-POSITIVITY-WEIL, WALL-DENSITY-HYP, WALL-ZERO-FREE, WALL-SIEGEL (uncrossed).
 ```
 
-**Honest classification:** Diagnostic / Boundary (treasure map, v0.6 units A + B). No RH/GRH progress. No zero-density/large-values improvement, no distributional-limit theorem; RH-conditional statistics out of scope. MC-002 & MC-005 unsolved; walls uncrossed.
+## Unit MNTII-006-C — large sieve / Bombieri–Vinogradov on-average (7 cards)
+
+```text
+Treasure ID: TREASURE-MNTII-016
+Treasure:    Large sieve inequality as a mean-value diagnostic
+Source:      MNTII-006-C — transformed notes only
+Type:        mean-value diagnostic
+Why it matters: the large sieve is the duality/bilinear mean-value inequality behind average AP distribution and zero-density — mined now (kept as "context" in IK/Harman).
+ANT role:    a mean-value inequality for Dirichlet polynomials / character sums over well-spaced points.
+PVG translation: the family/average control inequality on the off-diagonal.
+Wall / certificate: WALL-OFF-DIAGONAL · WALL-DENSITY-HYP — uncrossed.
+Classification: Known / Diagnostic.
+Normalized output: → Tool TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001 ; → Frontier FRONTIER-ANT-PVG-006.
+```
+
+```text
+Treasure ID: TREASURE-MNTII-017
+Treasure:    Bombieri–Vinogradov as on-average as-if-GRH
+Source:      MNTII-006-C — transformed notes only
+Type:        on-average distribution diagnostic
+Why it matters: BV gives unconditional average AP distribution to level 1/2 — "as if GRH on average" — the classic AVERAGE substitute for individual GRH.
+ANT role:    Σ_{q≤√x} max_a |ψ(x;q,a) − x/φ(q)| is small (unconditional).
+PVG translation: average residue-fiber distribution, unconditional.
+Wall / certificate: the individual case beyond BV needs GRH — MC-005 (unsolved).
+Classification: Known / Diagnostic / Boundary.
+Normalized output: → Tool TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001 ; → Missing Certificate MC-005.
+```
+
+```text
+Treasure ID: TREASURE-MNTII-018
+Treasure:    Average control ≠ individual GRH certificate
+Source:      MNTII-006-C — transformed notes only
+Type:        no-go boundary
+Why it matters: BV's average-over-q control does NOT certify the individual modulus at GRH strength — the gap is exactly MC-005.
+ANT role:    average-over-q ≠ individual-q GRH-level distribution.
+PVG translation: family-average observable ≠ individual residue-fiber certificate.
+Wall / certificate: WALL-SIEGEL (individual exceptional zeros); MC-005 unsolved.
+Classification: Boundary.
+Normalized output: → Missing Certificate MC-005 ; → Wall WALL-SIEGEL.
+```
+
+```text
+Treasure ID: TREASURE-MNTII-019
+Treasure:    Dispersion method as a bilinear / average diagnostic
+Source:      MNTII-006-C — transformed notes only
+Type:        technique diagnostic
+Why it matters: the Linnik–Bombieri dispersion method is the bilinear/average technique behind BV-type distribution — a diagnostic of how average control is obtained.
+ANT role:    dispersion / bilinear decomposition of the AP error on average.
+PVG translation: the bilinear (off-diagonal) route to average control.
+Wall / certificate: WALL-OFF-DIAGONAL — diagnostic; not individual.
+Classification: Known / Diagnostic.
+Normalized output: → Tool TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001.
+```
+
+```text
+Treasure ID: TREASURE-MNTII-020
+Treasure:    Elliott–Halberstam as an unproven conjectural extension
+Source:      MNTII-006-C — transformed notes only
+Type:        open problem
+Why it matters: EH extends BV to level 1−ε; it is UNPROVEN and provides no unconditional certificate — named as an open problem, not a result.
+ANT role:    the conjectural higher level of distribution beyond Bombieri–Vinogradov.
+PVG translation: a conjectural (not achieved) average-distribution level.
+Wall / certificate: unproven; no certificate; "the sixth wall is empty" (no unconditional sieve reaches RH; EH alone).
+Classification: Open Problem / Boundary.
+Normalized output: → deferred (open problem; no tool, no certificate).
+```
+
+```text
+Treasure ID: TREASURE-MNTII-021
+Treasure:    Large sieve is the mean-value inequality behind zero-density
+Source:      MNTII-006-C — transformed notes only
+Type:        connection diagnostic
+Why it matters: the large sieve is the mean-value inequality that feeds the zero-density estimates of 006-A and the barriers of 006-B — it ties the Montgomery units together.
+ANT role:    large-value / mean-value input → N(σ,T) bounds (IK-006-A/B, MNTII-006-A/B).
+PVG translation: the shared average-control root of the frontier-006 diagnostics.
+Wall / certificate: WALL-DENSITY-HYP (the density floor it feeds) — uncrossed.
+Classification: Diagnostic.
+Normalized output: → Tool TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001 ; relates TOOL-ZERO-DENSITY-DIAGNOSTIC-001, TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001.
+```
+
+```text
+Treasure ID: TREASURE-MNTII-022
+Treasure:    MC-005 unsolved; WALL-SIEGEL / WALL-POSITIVITY-WEIL uncrossed
+Source:      MNTII-006-C — transformed notes only
+Type:        standing certificate + walls
+Why it matters: the large-sieve / BV diagnostic does NOT resolve the individual AP certificate or cross the exceptional-zero / positivity walls.
+ANT role:    individual GRH-level AP (MC-005) and the Siegel / positivity obstructions.
+PVG translation: average control leaves the individual certificate and the walls standing.
+Wall / certificate: WALL-SIEGEL · WALL-POSITIVITY-WEIL — UNCROSSED; MC-005 UNSOLVED.
+Classification: Missing Certificate.
+Normalized output: → Missing Certificate MC-005 ; → Wall WALL-SIEGEL, WALL-POSITIVITY-WEIL (uncrossed).
+```
+
+**Honest classification:** Diagnostic / Boundary (treasure map, v0.6 units A + B + C). No RH/GRH progress. No zero-density/large-values/PNT-AP improvement, no distributional-limit theorem; Bombieri–Vinogradov is average-not-individual; Elliott–Halberstam is an unproven open problem; RH-conditional statistics out of scope. MC-002 & MC-005 unsolved; walls uncrossed.
