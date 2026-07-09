@@ -3,11 +3,11 @@
 ```text
 Version:  v0.6 Montgomery MNT-II (source-grounding-corrected; E CLOSED)
 Home:     D:\PVG-ANT-Central-Mind (standalone git repo)
-HEAD ref: latest baseline = Montgomery Book Coverage Audit 007
-          (audits/montgomery-book-coverage-audit-007.md), after the v0.6-E Closure PASS (9d059f2,
-          third attempt) on top of Correction 006 (fa279a3) -> Repair 006-B (afd5b6c) -> Repair 006-C
-          (959e417). Coverage map: trusted Ch 19-22 (C/D/E) · unmined candidates Ch 17 (strongest),
-          Ch 18, Ch 16 · appendices E-H support-only · zero-density/large-values = later volume.
+HEAD ref: latest baseline = MNTII-006-F intake (Ch 17 prime exponential sums / Type I-II),
+          mined from the explicit ChatGPT Treasure Packet selected via Coverage Audit 007 (90502f2),
+          after the v0.6-E Closure PASS (9d059f2) on the Correction-006 line (fa279a3 -> afd5b6c ->
+          959e417). Remaining unmined: Ch 18, Ch 16 (candidates); appendices E-H support-only;
+          zero-density/large-values = later volume.
 
 Books (registries/books.jsonl is the source of truth):
   Mined, treasure overlay closed (AUDIT-CM-TREASURE-RETROFIT-CLOSURE-001), mastery deferred:
@@ -18,11 +18,12 @@ Books (registries/books.jsonl is the source of truth):
     - Harman     (sieve information / Type-I-II; v0.5 closed)
   Partial overlay (source-grounding-corrected):
     - Montgomery MNT-II (v0.6) — Level 2, sieves-and-gaps pillar (Ch 19-22):
-        TRUSTED source-grounded units (all three closure-reviewed):
+        TRUSTED source-grounded units:
           C (Ch 19-20 large sieve / Bombieri-Vinogradov, v0.6-c-closure PASS),
           D (Ch 21 Selberg / combinatorial sieve, v0.6-d-closure PASS),
-          E (Ch 22 bounded gaps / GPY / Maynard, v0.6-e-closure PASS, third attempt;
-            entered as validated_intake).
+          E (Ch 22 bounded gaps / GPY / Maynard, v0.6-e-closure PASS, third attempt),
+          F (Ch 17 prime exponential sums / Type I-II decomposition) = validated_intake,
+            NOT closed, pending v0.6-F Closure Review (explicit Treasure Packet, Coverage Audit 007).
         QUARANTINED (source-mismatch / cross-volume, NOT trusted):
           A, B (zero-density / large-values / pair-correlation are deferred by the source
             to a LATER volume; prior A/B closure audits were safety/coherence checks only,

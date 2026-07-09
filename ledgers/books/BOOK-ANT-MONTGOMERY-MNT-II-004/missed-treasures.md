@@ -31,8 +31,13 @@ full-book treasure-mining pass. Units A and B, and the legacy off-diagonal E, ar
 - parity-breaking certificates                                  : NOT available (parity uncrossed; MC-001 unsolved).
 - off-diagonal / Kloosterman material                           : not source-grounded in this volume (quarantined).
 - full chapter-by-chapter MNT-II pass                           : deferred.
-- MNTII-006-F                                                   : NOT ALLOWED without an explicit source-grounded
-    ChatGPT Treasure Packet AND explicit permission (the v0.6-E closure condition is met; the packet is not).
+- MNTII-006-F                                                   : EXECUTED as validated_intake from the explicit
+    Ch-17 Treasure Packet (Coverage Audit 007 selection); NOT closed, pending v0.6-F Closure Review.
+- full proof reproduction of all Chapter 17 estimates           : deferred.
+- numerical optimization of all Ch-17 exponents                 : deferred.
+- full treatment of every digit-sum theorem (Ch 17.4)           : deferred.
+- MNTII-006-G                                                   : NOT ALLOWED without an explicit source-grounded
+    ChatGPT Treasure Packet AND explicit permission.
 ```
 
 ## Unmined chapters (Coverage Audit 007 — candidates for FUTURE packets, nothing mined here)
@@ -41,8 +46,9 @@ full-book treasure-mining pass. Units A and B, and the legacy off-diagonal E, ar
 - Ch 16 Exponential Sums I (Van der Corput)  : UNMINED candidate (or support-to-17/18). The quarantined
     legacy-E mixed Ch-16 Weyl/van-der-Corput material with later-volume Kloosterman framing; its quarantine
     does NOT count as Ch-16 coverage. A future unit needs a fresh packet, not a legacy-E revival.
-- Ch 17 Estimates for Sums over Primes       : UNMINED candidate (strongest) — Vinogradov Type I/II
-    decompositions; the analytic source of the Type-II information treated as external in FRONTIER-ANT-PVG-004.
+- Ch 17 Estimates for Sums over Primes       : MINED as MNTII-006-F (validated_intake from the explicit
+    Treasure Packet; NOT closed, pending v0.6-F Closure Review). Full proofs / exponent optimization /
+    complete digit-sum coverage stay deferred (see trusted-path list above).
 - Ch 18 Additive Prime Number Theory         : UNMINED candidate — circle method / three-primes (KNOWN);
     binary Goldbach is OPEN and is never claimed.
 - Appendices E (Harmonic Analysis II), F (Uniform Distribution), G (Bilinear Forms), H (Linear Programming)

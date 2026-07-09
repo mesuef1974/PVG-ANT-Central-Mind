@@ -1,6 +1,6 @@
 # Montgomery MNT-II — Normalization Ledger
 
-Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — source-grounding-corrected (Correction 006).** كلُّ كنزٍ في `treasure-map.md` ← المعرِّفاتُ الحيّة. **المسارُ الموثوقُ المؤصَّلُ على المصدر:** `TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001` (C, Ch 19-20) · `TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001` (D, Ch 21) · `TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001` (E, Ch 22، intake). **محجورٌ (source-mismatch، غيرُ موثوق):** `TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001` (A) · `TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001` (B) · `TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001` (legacy E).
+Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — source-grounding-corrected (Correction 006).** كلُّ كنزٍ في `treasure-map.md` ← المعرِّفاتُ الحيّة. **المسارُ الموثوقُ المؤصَّلُ على المصدر:** `TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001` (C, Ch 19-20) · `TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001` (D, Ch 21) · `TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001` (E, Ch 22، مُغلَقة v0.6-e PASS) · `TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001` (F, Ch 17، intake بانتظار مراجعة الإغلاق). **محجورٌ (source-mismatch، غيرُ موثوق):** `TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001` (A) · `TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001` (B) · `TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001` (legacy E).
 
 ```text
 TREASURE-MNTII-001  Montgomery-style analytic tools as distribution diagnostics
@@ -200,6 +200,41 @@ TREASURE-MNTII-036  Bounded gaps are not twin primes and not a parity breakthrou
   → PVG–ANT           : a prime-rich translate, not a certified prime pair; parity uncrossed
 ```
 
+## Unit MNTII-006-F — normalization (prime exponential sums / Type I-II, Ch 17, source-grounded intake)
+
+```text
+TREASURE-MNTII-037  Prime sums handled through Lambda, not direct prime detection
+  → Tool (NEW)        : TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001
+  → Frontier          : FRONTIER-ANT-PVG-006
+  → PVG–ANT           : Lambda = axial prime-power weight, not a primality certificate
+
+TREASURE-MNTII-038  Vaughan/Vinogradov decomposition -> Type I/II structures
+  → Tool              : TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001
+  → Tool (neighbour)  : TOOL-TYPE-I-II-DIAGNOSTIC-001 (trusted, Harman)
+  → PVG–ANT           : axial weight sliced into structured pieces in the valuation cone
+
+TREASURE-MNTII-039  Type I = structured one-variable / divisor-side control
+  → Tool              : TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001
+  → PVG–ANT           : one-sided divisor geometry
+
+TREASURE-MNTII-040  Type II = bilinear cancellation; THE external certificate sieves need
+  → Tool              : TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001
+  → Frontier          : FRONTIER-ANT-PVG-004
+  → Missing Cert      : MC-001 (context; UNSOLVED — input, not a detector)
+  → Walls             : WALL-PARITY · WALL-SIEVE-CEILING (uncrossed)
+
+TREASURE-MNTII-041  Minor-arc cancellation = analytic certificate, not a PVG identity
+  → Tool              : TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001 (boundary reading)
+  → Wall              : WALL-OFF-DIAGONAL (uncrossed); MC-002 untouched
+
+TREASURE-MNTII-042  Digit-sum applications = transferable machine (KNOWN, cited)
+  → Tool              : TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001 (transfer reading)
+
+TREASURE-MNTII-043  PVG classifies support geometry; cancellation stays analytic
+  → Tool              : TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001 (role-boundary reading)
+  → Walls             : WALL-PARITY · WALL-OFF-DIAGONAL (uncrossed); MC-001 UNSOLVED
+```
+
 ## Normalized phrases (Treasure Packet)
 
 ```text
@@ -212,11 +247,21 @@ TREASURE-MNTII-036  Bounded gaps are not twin primes and not a parity breakthrou
 "legacy off-diagonal E" = Kloosterman / exp-sum unit, source-mismatch (quarantined).
 ```
 
+
+Chapter-17 packet phrases:
+  "Type I"                          = structured one-variable / divisor-side estimate.
+  "Type II"                         = bilinear cancellation estimate.
+  "Vaughan/Vinogradov decomposition" = analytic reduction of Lambda-weighted prime sums.
+  "prime exponential sum"           = oscillatory test of prime distribution.
+  "minor arc estimate"              = cancellation certificate, not a distribution theorem by itself.
+  "digit sums of primes"            = application of the Type I/II machine, not a new PVG theorem.
+
 ## Live IDs consolidated (source-grounding-corrected)
 
 ```text
 Trusted source-grounded tools : TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001 (C, Ch 19-20) ·
-    TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001 (D, Ch 21) · TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001 (E, Ch 22, intake)
+    TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001 (D, Ch 21) · TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001 (E, Ch 22, closed) ·
+    TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001 (F, Ch 17, intake — pending v0.6-F closure review)
 Quarantined tools (source-mismatch) : TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001 (A) ·
     TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001 (B) · TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001 (legacy E)
 Tools (neighbour) : TOOL-ZERO-DENSITY-DIAGNOSTIC-001 · TOOL-LARGE-VALUE-DIAGNOSTIC-001 · TOOL-SIEVE-INFO-CONSUMPTION-001 · TOOL-TYPE-I-II-DIAGNOSTIC-001
@@ -227,6 +272,6 @@ Frozen front      : FRONTIER-ANT-PVG-007 (spectral) — cited, not reopened
 Open problem      : Elliott–Halberstam (unproven; no certificate)
 ```
 
-**Consistency note:** the trusted source-grounded path is C (Ch 19-20) · D (Ch 21) · E bounded gaps (Ch 22, CLOSED v0.6-e-closure PASS; entered as validated_intake). Units A/B and the legacy off-diagonal E are QUARANTINED (cross-volume / source-mismatch); their tools are not trusted. `planned.jsonl` empty. MC-001, MC-002 & MC-005 UNSOLVED. Bounded gaps is a KNOWN theorem, not our result, not twin primes, not a parity break.
+**Consistency note:** the trusted source-grounded path is C (Ch 19-20) · D (Ch 21) · E bounded gaps (Ch 22, CLOSED v0.6-e-closure PASS; entered as validated_intake). F (Ch 17 prime sums / Type I-II) = validated_intake, NOT closed, pending v0.6-F Closure Review. Units A/B and the legacy off-diagonal E are QUARANTINED (cross-volume / source-mismatch); their tools are not trusted. `planned.jsonl` empty. MC-001, MC-002 & MC-005 UNSOLVED. Bounded gaps is a KNOWN theorem, not our result, not twin primes, not a parity break.
 
 **Honest classification:** Diagnostic / Boundary (normalization ledger, source-grounding-corrected). No RH/GRH progress.

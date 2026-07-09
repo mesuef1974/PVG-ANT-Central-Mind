@@ -1,6 +1,6 @@
 # Montgomery MNT-II — Treasure Map
 
-Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — SOURCE-GROUNDING-CORRECTED (Correction 006).** Trusted source-grounded units: `MNTII-006-C` (large sieve / Bombieri–Vinogradov, Ch 19–20), `MNTII-006-D` (Selberg / combinatorial sieve, Ch 21), `MNTII-006-E` (**bounded gaps / GPY / Maynard, Ch 22 — validated_intake, NOT closed**). **Quarantined (cross-volume / source-mismatch, NOT trusted):** `MNTII-006-A`, `MNTII-006-B` (zero-density / large values / pair-correlation — deferred by the source to a later volume) and the legacy off-diagonal E (`units/_quarantine/`). طبقةُ تعدينٍ تحت `governance/book-treasure-extraction-protocol.md`، مؤصَّلةٌ على المصدر (transformed notes only، PDF خارج git). **باقي الكتاب غيرُ مُعدَّن** (see `missed-treasures.md`). لا نصٌّ خام، لا ادّعاءُ إتقانٍ كامل.
+Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — SOURCE-GROUNDING-CORRECTED (Correction 006).** Trusted source-grounded units: `MNTII-006-C` (large sieve / Bombieri–Vinogradov, Ch 19–20; closed), `MNTII-006-D` (Selberg / combinatorial sieve, Ch 21; closed), `MNTII-006-E` (bounded gaps / GPY / Maynard, Ch 22; **CLOSED, v0.6-e-closure PASS**), `MNTII-006-F` (**prime exponential sums / Type I-II, Ch 17 — validated_intake, NOT closed**, pending v0.6-F Closure Review). **Quarantined (cross-volume / source-mismatch, NOT trusted):** `MNTII-006-A`, `MNTII-006-B` (zero-density / large values / pair-correlation — deferred by the source to a later volume) and the legacy off-diagonal E (`units/_quarantine/`). طبقةُ تعدينٍ تحت `governance/book-treasure-extraction-protocol.md`، مؤصَّلةٌ على المصدر (transformed notes only، PDF خارج git). **باقي الكتاب غيرُ مُعدَّن** (see `missed-treasures.md`). لا نصٌّ خام، لا ادّعاءُ إتقانٍ كامل.
 
 ```text
 Treasure ID: TREASURE-MNTII-001
@@ -496,6 +496,99 @@ Classification: Boundary.
 Normalized output: → Wall WALL-PARITY (uncrossed) ; → Missing Certificate MC-001.
 ```
 
+## Unit MNTII-006-F — prime exponential sums / Type I-II decomposition (7 cards, source-grounded intake; Ch 17)
+
+```text
+Treasure ID: TREASURE-MNTII-037
+Treasure:    Prime sums are handled through Lambda, not direct prime detection
+Source:      MNTII-006-F — transformed notes only
+Type:        method principle
+Why it matters: S(alpha) = sum_{n<=N} Lambda(n) e(n alpha) is estimated by decomposing Lambda, never by detecting primes directly — the method's founding move (Ch 17.1).
+ANT role:    von Mangoldt weight as the analytic proxy for primes in exponential sums.
+PVG translation: Lambda is an axial prime-power weight, not a geometric primality certificate.
+Wall / certificate: WALL-PARITY (contextual) — uncrossed.
+Classification: Known / Diagnostic.
+Normalized output: → Tool TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001 ; → Frontier FRONTIER-ANT-PVG-006.
+```
+
+```text
+Treasure ID: TREASURE-MNTII-038
+Treasure:    Vaughan/Vinogradov decomposition turns primes into Type I/II structures
+Source:      MNTII-006-F — transformed notes only
+Type:        analytic reduction
+Why it matters: the decomposition of Lambda reduces prime exponential-sum estimates to controllable Type I and Type II pieces — the chapter's engine (Ch 17.1-17.2).
+ANT role:    Vaughan identity / Vinogradov splitting of Lambda-weighted sums.
+PVG translation: the axial weight is sliced into structured pieces inside the valuation cone.
+Wall / certificate: WALL-OFF-DIAGONAL (bilinear side) — uncrossed.
+Classification: Known / Diagnostic.
+Normalized output: → Tool TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001 ; relates TOOL-TYPE-I-II-DIAGNOSTIC-001 (trusted, Harman).
+```
+
+```text
+Treasure ID: TREASURE-MNTII-039
+Treasure:    Type I sums encode structured divisor-side control
+Source:      MNTII-006-F — transformed notes only
+Type:        information taxonomy
+Why it matters: Type I pieces are one-variable / divisor-like sums controlled by level-of-distribution information — the structured half of the machine.
+ANT role:    linear/smooth sums with divisor-type coefficients.
+PVG translation: one-sided divisor geometry inside the valuation cone.
+Wall / certificate: WALL-DENSITY-HYP (contextual input side) — uncrossed.
+Classification: Known / Diagnostic.
+Normalized output: → Tool TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001.
+```
+
+```text
+Treasure ID: TREASURE-MNTII-040
+Treasure:    Type II sums encode bilinear cancellation — the key external certificate for sieves
+Source:      MNTII-006-F — transformed notes only
+Type:        bridge / missing-certificate context
+Why it matters: Type II bilinear cancellation is exactly the external analytic certificate that prime-detecting sieves consume (Harman) and that remainders cannot supply — the MC-001 context.
+ANT role:    bilinear forms over prime-factor blocks; the hard half of the decomposition.
+PVG translation: bilinear interaction between valuation blocks; PVG labels it, analysis certifies it.
+Wall / certificate: WALL-PARITY · WALL-SIEVE-CEILING — UNCROSSED; MC-001 UNSOLVED.
+Classification: Diagnostic / Boundary.
+Normalized output: → Tool TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001 ; → Frontier FRONTIER-ANT-PVG-004 ; → Missing Certificate MC-001.
+```
+
+```text
+Treasure ID: TREASURE-MNTII-041
+Treasure:    Minor-arc prime cancellation is an analytic certificate, not a PVG identity
+Source:      MNTII-006-F — transformed notes only
+Type:        no-go boundary
+Why it matters: cancellation of S(alpha) on minor arcs / oscillatory phases is proven analytically through the decomposition; it is a cancellation certificate, NOT a distribution theorem and NOT something PVG supplies.
+ANT role:    minor-arc estimates for Lambda-weighted exponential sums.
+PVG translation: PVG cannot replace the cancellation estimate; the certificate stays analytic.
+Wall / certificate: WALL-OFF-DIAGONAL — uncrossed; MC-002 not touched.
+Classification: Boundary.
+Normalized output: → Tool TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001 (boundary reading).
+```
+
+```text
+Treasure ID: TREASURE-MNTII-042
+Treasure:    Digit-sum applications show Type I/II as a transferable machine
+Source:      MNTII-006-F — transformed notes only
+Type:        application scope
+Why it matters: Ch 17.4 (digit sums of primes) shows the decomposition machine transfers to non-classical phases — a method, not a one-problem trick; the results are KNOWN theorems, not ours.
+ANT role:    prime exponential sums with digital/automatic phases.
+PVG translation: the same axial-weight slicing serves new observable families.
+Wall / certificate: none crossed; known applications cited.
+Classification: Known.
+Normalized output: → Tool TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001 (transfer reading).
+```
+
+```text
+Treasure ID: TREASURE-MNTII-043
+Treasure:    PVG can classify support geometry, but cannot replace cancellation estimates
+Source:      MNTII-006-F — transformed notes only
+Type:        role boundary
+Why it matters: fixes the division of labor — PVG names/classifies the Type I/II support geometries; the cancellation certificates remain analytic and external. Prevents any future PVG-proves-cancellation drift.
+ANT role:    the analytic estimates carry the proof burden.
+PVG translation: labeling power without certificate power.
+Wall / certificate: WALL-PARITY · WALL-OFF-DIAGONAL — uncrossed; MC-001 unsolved.
+Classification: Boundary.
+Normalized output: → Tool TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001 (role-boundary reading).
+```
+
 ## Quarantined cards (source-mismatch / cross-volume)
 
 ```text
@@ -504,7 +597,7 @@ TREASURE-MNTII-001..015 (units A/B): CROSS-VOLUME context. Zero-density / large 
   treasure map (units A/B are quarantined — see README / books.jsonl).
 Old TREASURE-MNTII-030..036 (off-diagonal / Kloosterman): superseded / quarantined; preserved in
   units/_quarantine/MNTII-006-E-legacy-offdiagonal-source-mismatch.md.
-Trusted source-grounded Montgomery treasures: C (016-022, Ch 19-20) · D (023-029, Ch 21) · E (030-036, Ch 22 bounded gaps).
+Trusted source-grounded Montgomery treasures: C (016-022, Ch 19-20) · D (023-029, Ch 21) · E (030-036, Ch 22 bounded gaps) · F (037-043, Ch 17 prime sums / Type I-II — intake, pending closure review).
 ```
 
-**Honest classification:** Diagnostic / Boundary (treasure map, **source-grounding-corrected**). Trusted source-grounded = C + D + E (bounded gaps); A/B + legacy off-diagonal E = quarantined (cross-volume / source-mismatch). No RH/GRH progress. No new theorem; **bounded gaps recorded as a KNOWN theorem, not our result, not twin primes, not a parity breakthrough**; Bombieri–Vinogradov = average input; Elliott–Halberstam = conditional. MC-001 & MC-002 & MC-005 unsolved; walls uncrossed.
+**Honest classification:** Diagnostic / Boundary (treasure map, **source-grounding-corrected**). Trusted source-grounded = C + D + E (closed) + F (Ch 17 intake, pending closure review); A/B + legacy off-diagonal E = quarantined (cross-volume / source-mismatch). No RH/GRH progress. No new theorem; **bounded gaps recorded as a KNOWN theorem, not our result, not twin primes, not a parity breakthrough**; Bombieri–Vinogradov = average input; Elliott–Halberstam = conditional. MC-001 & MC-002 & MC-005 unsolved; walls uncrossed.

@@ -44,9 +44,9 @@ No audit, no release.  No RH/GRH progress without proof certificate.
 
 ## Current state & roadmap
 
-**Now (v0.6-E CLOSED — بعد Correction 006 وState-Repair 006-B/C):** خمسةُ كتبٍ مُعدَّنة (treasure overlay مُغلَق): Overholt · Tenenbaum · Mileti · IK · Harman. **Montgomery MNT-II (v0.6)** = partial overlay، **source-grounding-corrected**، Level 2: **الموثوقُ المؤصَّلُ بالمصدر (الثلاثةُ مُراجَعةُ إغلاق)** = C (Ch19-20 الغربال الكبير/BV) · D (Ch21 غرابيل) · **E (Ch22 الفجوات المحدودة GPY/Maynard — مُغلَقةٌ بمراجعة v0.6-E Closure Review PASS، المحاولةُ الثالثة؛ دخلت validated_intake)**. **المحجورُ (source-mismatch/cross-volume، غيرُ موثوق)** = A · B · legacy off-diagonal E (المصدرُ يؤجّل zero-density/large-values/pair-correlation لمجلّدٍ لاحق؛ مراجعاتُ إغلاقِ A/B القديمةُ SUPERSEDED). الحرّاسُ سبعة (+ `state_coherence` بمسحٍ شامل وآلةِ حالةٍ لإغلاق E).
+**Now (MNTII-006-F intake — بعد v0.6-E Closure Review PASS وCoverage Audit 007):** خمسةُ كتبٍ مُعدَّنة (treasure overlay مُغلَق): Overholt · Tenenbaum · Mileti · IK · Harman. **Montgomery MNT-II (v0.6)** = partial overlay، **source-grounding-corrected**، Level 2: **الموثوقُ المؤصَّلُ بالمصدر** = C (Ch19-20 الغربال الكبير/BV، مُغلَقة) · D (Ch21 غرابيل، مُغلَقة) · E (Ch22 الفجوات المحدودة GPY/Maynard — **مُغلَقةٌ بمراجعة v0.6-E Closure Review PASS**) · **F (Ch17 مجاميعُ الأوّليّات الأُسّيّة / Type I-II — validated_intake من Treasure Packet صريح عبر خريطة التغطية 007، غيرُ مُغلَقة)**. **المحجورُ (source-mismatch/cross-volume، غيرُ موثوق)** = A · B · legacy off-diagonal E (مراجعاتُ إغلاقِ A/B القديمةُ SUPERSEDED). الحرّاسُ سبعة (+ `state_coherence` بمسحٍ شامل وآلتَي حالةٍ لإغلاقَي E/F).
 
-**Next:** قرارٌ بإذنٍ صريح — كنزُ Montgomery آخرُ بـTreasure Packet جديد، أو Book Coverage Audit قبل أيّ وحدة. لا MNTII-006-F بلا packet وإذن · لا كتابٌ جديد · لا وحدةٌ جديدة بلا Treasure Packet · لا إعادةَ ثقةٍ بـA/B/legacy-E بلا Packet مؤصَّل.
+**Next:** v0.6-F Closure Review فقط. لا MNTII-006-G · لا كتابٌ جديد · لا وحدةٌ جديدة بلا Treasure Packet · لا إعادةَ ثقةٍ بـA/B/legacy-E بلا Packet مؤصَّل.
 
 **Roles:** ChatGPT = محلّلُ الكنوز الرياضيّة؛ العميلُ المحلّيُّ = مهندسُ المستودع والحوكمة (`governance/state-coherence-policy.md`).
 

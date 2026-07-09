@@ -1,6 +1,6 @@
 # Montgomery MNT-II — Integration Links
 
-Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — source-grounding-corrected (Correction 006).** طبقةُ الدمج: الكنوزُ المؤصَّلةُ على المصدر ← المهاراتُ والجبهاتُ الحيّة. **المسارُ الموثوق:** C (Ch 19-20 large sieve/BV) · D (Ch 21 sieves) · E (Ch 22 bounded gaps / GPY / Maynard, intake). **محجور (cross-volume / source-mismatch):** A · B · legacy off-diagonal E.
+Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — source-grounding-corrected (Correction 006).** طبقةُ الدمج: الكنوزُ المؤصَّلةُ على المصدر ← المهاراتُ والجبهاتُ الحيّة. **المسارُ الموثوق:** C (Ch 19-20 large sieve/BV) · D (Ch 21 sieves) · E (Ch 22 bounded gaps، مُغلَقة) · F (Ch 17 prime sums / Type I-II، intake بانتظار مراجعة الإغلاق). **محجور (cross-volume / source-mismatch):** A · B · legacy off-diagonal E.
 
 ## Trusted source-grounded clusters → skills
 
@@ -8,6 +8,7 @@ Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — source-grounding-corrected
 Large sieve / BV (C: 016-022)                → SKILL-MATH-ANT-001, SKILL-MATH-SIEVE-001
 Classical sieve (D: 023-029)                 → SKILL-MATH-SIEVE-001, SKILL-MATH-ANT-001
 Bounded gaps / GPY / Maynard (E: 030-036)    → SKILL-MATH-SIEVE-001, SKILL-MATH-ANT-001, SKILL-GOV-CERT-001
+Prime sums / Type I-II (F: 037-043, intake)  → SKILL-MATH-ANT-001, SKILL-MATH-SIEVE-001
 ```
 
 ## Quarantined clusters (NOT trusted; source-mismatch)
@@ -35,6 +36,12 @@ FRONTIER-ANT-PVG-006  (distribution input only)
 C → E : level of distribution / Bombieri–Vinogradov feeds the GPY / Maynard sieve (033, 034).
 D → E : sieve weights / parity ceiling — bounded gaps live under the same parity / sieve-ceiling walls (031, 036).
 E → Harman / IK sieve context : TOOL-SIEVE-INFO-CONSUMPTION-001, TOOL-TYPE-I-II-DIAGNOSTIC-001 (Type-II / level input).
+F backward: Ch 16 (Van der Corput) as SUPPORT only (unmined) · C (BV average distribution, 038↔017-range) ·
+            D (sieve ceilings need Type II input, 040) · E (bounded gaps consume distribution/sieve inputs) ·
+            Harman overlay (Type I/II consumption: TOOL-TYPE-I-II-DIAGNOSTIC-001).
+F forward : Ch 18 additive prime number theory (UNMINED; future packet only).
+F note    : the packet's optional additive-interface frontier link was dropped — the existing
+            FRONTIER-ANT-PVG-003 is a different topic (Mobius/Liouville); reported, not invented.
 No RH/GRH progress links.
 ```
 
@@ -62,11 +69,11 @@ WALL-PARITY · WALL-SIEVE-CEILING · WALL-OFF-DIAGONAL · WALL-DENSITY-HYP   the
 ## Scope honesty (v0.6, source-grounding-corrected)
 
 ```text
-Trusted source-grounded units (all closure-reviewed): C (Ch 19-20), D (Ch 21), E (Ch 22 bounded gaps,
-CLOSED v0.6-e-closure PASS; entered as validated_intake).
+Trusted source-grounded units: C (Ch 19-20, closed), D (Ch 21, closed), E (Ch 22 bounded gaps,
+CLOSED v0.6-e-closure PASS), F (Ch 17 prime sums / Type I-II, validated_intake, NOT closed,
+pending v0.6-F Closure Review — created from an explicit ChatGPT Treasure Packet with permission).
 Quarantined (source-mismatch): A, B (cross-volume: zero-density / large values / pair-correlation deferred to a
-later volume) and the legacy off-diagonal E (Kloosterman). No MNTII-006-F without an explicit Treasure Packet
-and permission. No new book. Bounded gaps is a KNOWN theorem, not our result, not twin primes, not a parity breakthrough; BV = average
+later volume) and the legacy off-diagonal E (Kloosterman). No MNTII-006-G. No new book. Bounded gaps is a KNOWN theorem, not our result, not twin primes, not a parity breakthrough; BV = average
 input; EH = conditional. No RH/GRH progress.
 ```
 

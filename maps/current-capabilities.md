@@ -19,7 +19,10 @@ Live installed capabilities of the Central Mind (from the mined books and regist
    TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001 (C, Ch19-20 large sieve / Bombieri-Vinogradov, closed),
    TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001 (D, Ch21 Selberg / combinatorial sieve, closed),
    TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001 (E, Ch22 bounded gaps / GPY / Maynard —
-   source-grounded; entered as validated_intake, CLOSED: v0.6-e-closure PASS, third attempt).
+   source-grounded; entered as validated_intake, CLOSED: v0.6-e-closure PASS, third attempt),
+   TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001 (F, Ch17 prime exponential sums /
+   Type I-II decomposition — source-grounded intake from the explicit Treasure Packet,
+   validated_intake, NOT closed, pending v0.6-F Closure Review).
    [QUARANTINED, source-mismatch / cross-volume — NOT trusted capabilities:
    TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001 (A), TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001 (B),
    TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001 (legacy off-diagonal E).]

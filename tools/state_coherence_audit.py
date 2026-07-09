@@ -147,12 +147,44 @@ if e_intake:
     if E_CLOSED:
         need(re.search(r"\*\*Status:\*\*\s*CLOSED", e_intake),
              "v0.6-e-closure PASS exists but MNTII-006-E is not marked Status: CLOSED")
+        # no live line may still call the closed E 'NOT closed' (stale-layer class)
+        for rel in [os.path.join(MONT, "treasure-map.md"), os.path.join(MONT, "README.md"),
+                    os.path.join(MONT, "normalization-ledger.md"),
+                    os.path.join(MONT, "integration-links.md"), "maps/current-capabilities.md"]:
+            for j, lnj in enumerate((read(rel) or "").splitlines()):
+                if "MNTII-006-E" in lnj and "NOT closed" in lnj and "MNTII-006-F" not in lnj:
+                    need("closure" in lnj.lower() or "entered as" in lnj or "legacy" in lnj.lower(),
+                         "%s:%d: still calls the CLOSED unit E 'NOT closed'" % (rel, j + 1))
     else:
-        need("validated_intake" in e_intake, "MNTII-006-E (intake) is not marked validated_intake")
+        need(not re.search(r"\*\*Status:\*\*\s*CLOSED", e_intake),
+             "MNTII-006-E is marked Status: CLOSED but no v0.6-e-closure PASS exists")
+        need(re.search(r"\*\*Status:\*\*[^\n]*validated_intake", e_intake),
+             "MNTII-006-E (intake) Status line is not validated_intake")
         need("not closed" in e_intake.lower(), "MNTII-006-E (intake) is not marked NOT closed")
-# MNTII-006-F must not exist (no new unit after the correction)
-need(not os.path.isfile(os.path.join(ROOT, MONT, "units", "MNTII-006-F.md")),
-     "MNTII-006-F unit exists; no new Montgomery unit is allowed after Correction 006")
+# F state machine: F may exist ONLY as the packet-grounded Ch-17 unit selected via
+# Coverage Audit 007; before a v0.6-f-closure PASS it stays validated_intake NOT closed.
+f_txt = read(os.path.join(MONT, "units", "MNTII-006-F.md"))
+if f_txt is not None:
+    need(os.path.isfile(os.path.join(ROOT, "audits", "montgomery-book-coverage-audit-007.md")),
+         "MNTII-006-F exists without the coverage audit that authorized its selection")
+    need("Treasure Packet" in f_txt and "Ch 17" in f_txt,
+         "MNTII-006-F is not grounded in the Ch-17 Treasure Packet")
+    f_closure = read(os.path.join("audits", "v0.6-f-closure.md"))
+    F_CLOSED = f_closure is not None and "PASS" in f_closure
+    if f_closure is not None:
+        need("PASS" in f_closure, "audits/v0.6-f-closure.md exists but does not record PASS")
+    if F_CLOSED:
+        need(re.search(r"\*\*Status:\*\*\s*CLOSED", f_txt),
+             "v0.6-f-closure PASS exists but MNTII-006-F is not marked Status: CLOSED")
+    else:
+        need(not re.search(r"\*\*Status:\*\*\s*CLOSED", f_txt),
+             "MNTII-006-F is marked Status: CLOSED but no v0.6-f-closure PASS exists")
+        need(re.search(r"\*\*Status:\*\*[^\n]*validated_intake", f_txt),
+             "MNTII-006-F (intake) Status line is not validated_intake")
+        need("not closed" in f_txt.lower(), "MNTII-006-F (intake) is not marked NOT closed")
+# no MNTII-006-G (no further unit without a packet and explicit permission)
+need(not os.path.isfile(os.path.join(ROOT, MONT, "units", "MNTII-006-G.md")),
+     "MNTII-006-G unit exists; no further Montgomery unit is allowed without a packet and permission")
 
 # STATE-REPAIR 006-B invariants: quarantine must propagate to tools.jsonl and maps/
 QUARANTINED_TOOLS = (

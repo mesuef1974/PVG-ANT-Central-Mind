@@ -80,7 +80,7 @@ See audits/montgomery-source-grounding-correction-006.md and audits/v0.6-e-closu
 
 ## Next valid action
 
-**Superseded (historical):** the v0.6-E Closure Review is complete (**PASS**, `audits/v0.6-e-closure.md`). What follows requires an explicit decision: a further Montgomery treasure via a NEW ChatGPT Treasure Packet, or a Book Coverage Audit before any new unit. No MNTII-006-F without an explicit packet and permission; no new book; no full book mining.
+**Superseded (historical):** the v0.6-E Closure Review is complete (**PASS**, `audits/v0.6-e-closure.md`). MNTII-006-F was later executed from the explicit Ch-17 Treasure Packet (Coverage Audit 007 selection) as validated_intake, pending v0.6-F Closure Review. No MNTII-006-G without an explicit packet and permission; no new book; no full book mining.
 
 ## Audit checklist
 
