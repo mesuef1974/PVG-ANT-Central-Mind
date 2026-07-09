@@ -199,7 +199,7 @@ by six-guard PASS.
 
 This checkpoint does not open any book. It only ranks candidates.
 
-**Rank 1 — Montgomery, Multiplicative Number Theory II** (`BOOK-ANT-MONTGOMERY2-001`).
+**Rank 1 — Montgomery, Multiplicative Number Theory II** (`BOOK-ANT-MONTGOMERY-MNT-II-004`).
 Role: deepen Frontier 006 after Iwaniec-Kowalski. Frontier 006 now has zero-density and large/mean-value diagnostics; MNT-II strengthens infrastructure around primes, sieves, and analytic estimates without reopening the spectral front. Risk: may tempt theorem-improvement language; must remain diagnostic/certificate infrastructure only.
 
 **Rank 2 — Motohashi, Lectures on Sieve Methods and Prime Number Theory** (`BOOK-SIEVE-MOTOHASHI-001`).
