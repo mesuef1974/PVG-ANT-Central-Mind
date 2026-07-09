@@ -2,6 +2,8 @@
 
 كيف تدخل الكتب بأمان. القوالبُ التشغيليّة: `governance/section-extraction-template.md` و`governance/book-ingestion-template.md`.
 
+> **يحكمه:** `governance/book-treasure-extraction-protocol.md` — الاستيرادُ **تعدينُ كنوزٍ عميقٌ + تطبيع** (كلُّ كنزٍ يُطبَّع أو يُصفّ أو يُؤجَّل صراحةً)، لا تلخيصٌ انتقائيّ ولا نسخٌ خام ولا ادّعاءُ إتقانٍ كامل. كلُّ كتابٍ يحتاج `treasure-map.md` + `normalization-ledger.md` + `missed-treasures.md`.
+
 ## القواعد
 
 ```text
