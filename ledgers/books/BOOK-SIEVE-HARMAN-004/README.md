@@ -16,6 +16,6 @@ Ledger will contain transformed notes only, no book text.
 
 ## Status
 
-**v0.5 scope open (not read, no units yet).** Scope + freeze only; execution awaits explicit permission. Plan in `v0.5-scope.md` / `v0.5-scope-freeze.md`.
+**v0.5 in progress.** `HARMAN-004-A` (prime-detecting sieve as information consumption) ingested → `TOOL-SIEVE-INFO-CONSUMPTION-001` (Diagnostic) live. Planned: `TOOL-TYPE-I-II-DIAGNOSTIC-001` (HARMAN-004-B). Missing certificate in play: `MC-001` (parity, unsolved). `WALL-PARITY` / `WALL-SIEVE-CEILING` / `WALL-SIEGEL` not crossed. Plan in `v0.5-scope.md` / `v0.5-scope-freeze.md`.
 
 **Honest classification:** Diagnostic (book ledger, scope open). No RH/GRH progress. No complete mastery.

@@ -43,7 +43,11 @@ Mileti-001-E  Deduction as Formal Proof Object            (TOOL-DEDUCTION-SYSTEM
 
 **v0.4 IK-006-A/B ingested (frontier 006 support). planned.jsonl empty.**
 
-**Next allowed:** v0.4 closure review (IK-006-A/B), then a further IK unit or another book — awaiting explicit permission. No IK-006-C, no large sieve as a separate unit, no expansion before review.
+**v0.4 CLOSED (PASS 8/8). v0.5 Harman opened for frontier 004.**
+
+**Audit note (HARMAN-004-A):** transformed notes; prime-detecting sieve read as information consumption (Type-I linear vs Type-II bilinear), diagnosing the parity barrier and the unconditional sieve ceiling. Registered v0.5 targets (A+B); promoted `TOOL-SIEVE-INFO-CONSUMPTION-001` (Diagnostic) — HARMAN-004-B (`TOOL-TYPE-I-II-DIAGNOSTIC-001`) kept planned; book status → in_progress; guards PASS. Ceiling held: information-consumption diagnostic, not a new prime detector, not parity-breaking, not a theorem improvement, not RH/GRH; `WALL-PARITY` / `WALL-SIEGEL` not crossed; MC-001 unsolved; Type-II is the missing external certificate.
+
+**Next allowed:** `HARMAN-004-B` (Type-I / Type-II information & Harman decomposition, `TOOL-TYPE-I-II-DIAGNOSTIC-001`) — awaiting explicit permission. No independent Type-II expansion, no large sieve unit, no HARMAN-004-C.
 
 ## قاعدة البدء
 
