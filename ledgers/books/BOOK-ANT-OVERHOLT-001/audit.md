@@ -22,6 +22,16 @@ Claims forbidden:
 - No new theorem. No RH/GRH progress. No complete mastery.
 ```
 
+## Provenance
+
+```text
+Overholt raw extracted package removed from working tree.
+Canonical transformed content remains in BOOK-ANT-OVERHOLT-001.
+Original raw archive remains outside git in Downloads/overholt_ant_skill_package.zip.
+No knowledge loss.
+No raw prompt/web dump imported (skill.md, web/index.html excluded per what-not-to-import).
+```
+
 **Safe framing:** baseline analytic number theory training source; known textbook-derived skill extraction + PVG diagnostic reinterpretation. NOT complete mastery, NOT fully absorbed, NOT a source of new theorems.
 
 **Honest classification:** Skill atlas / Diagnostic. No RH/GRH progress.
