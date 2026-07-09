@@ -72,7 +72,7 @@ Serves   : FRONTIER-ANT-PVG-006, deepening after v0.4 Iwaniec–Kowalski
 
 ## Next valid action
 
-**Superseded (historical):** this unit is closure-reviewed (`v0.6-a-closure.md` PASS); MNTII-006-B was later executed and closed. No full book mining; no expansion without explicit permission.
+**Historical unit record (QUARANTINED — source-mismatch).** The prior closure audit (`v0.6-a-closure.md`) is SOURCE-GROUNDING-SUPERSEDED. This file does not define the current live next action. The only authoritative live next action is: `transition-memory/next-action.md`.
 
 ## Audit checklist
 

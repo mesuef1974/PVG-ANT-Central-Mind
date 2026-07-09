@@ -1,7 +1,7 @@
 # MNTII-006-D — Selberg / Combinatorial Sieve and the Fundamental Lemma as a Bounded-Reach Diagnostic
 
 **Registry ID:** MNTII-006-D
-**Status:** Ingested (v0.6)
+**Status:** CLOSED — v0.6-D Closure Review PASS (`audits/v0.6-d-closure.md`)
 **Classification:** **Diagnostic / Boundary** (known classical sieve machinery read as a bounded-reach diagnostic; not results)
 
 **Source Coverage:** Hugh Montgomery, *Multiplicative Number Theory II: Primes and Sieves*, the classical upper/lower-bound sieve machinery — the Selberg Λ²-sieve, the Brun combinatorial sieve, the fundamental lemma, and the sieve dimension κ (as recorded in transformed notes). **Transformed notes only — no raw text, no copied passages, no general book summary.** Book ID `BOOK-ANT-MONTGOMERY-MNT-II-004`. Local PDF outside git.
@@ -69,7 +69,7 @@ Reading            : bounds + almost-primes, NOT primes (parity); κ is the diag
 
 ## Next valid action
 
-**Superseded (historical):** MNTII-006-D is closure-reviewed (`v0.6-d-closure.md` PASS). After Source-Grounding Correction 006, the live MNTII-006-E is the **bounded-gaps (GPY/Maynard, Ch 22) source-grounded intake — validated_intake, NOT closed**, pending v0.6-E Closure Review; the old off-diagonal E is quarantined in `units/_quarantine/`. No full book mining; no expansion without explicit permission.
+**Historical unit record.** MNTII-006-D was closure-reviewed (`v0.6-d-closure.md` PASS). This file does not define the current live next action. The only authoritative live next action is: `transition-memory/next-action.md`.
 
 ## Audit checklist
 

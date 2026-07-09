@@ -1,7 +1,7 @@
 # MNTII-006-C — Large Sieve and Bombieri–Vinogradov as On-Average Distribution Diagnostics
 
 **Registry ID:** MNTII-006-C
-**Status:** Ingested (v0.6)
+**Status:** CLOSED — v0.6-C Closure Review PASS (`audits/v0.6-c-closure.md`)
 **Classification:** **Diagnostic / Boundary** (known large-sieve / Bombieri–Vinogradov machinery read as an on-average diagnostic; not results)
 
 **Source Coverage:** Hugh Montgomery, *Multiplicative Number Theory II: Primes and Sieves*, the large-sieve inequality and the Bombieri–Vinogradov theorem (as recorded in transformed notes). **Transformed notes only — no raw text, no copied passages, no general book summary.** Book ID `BOOK-ANT-MONTGOMERY-MNT-II-004`. Local PDF outside git.
@@ -69,7 +69,7 @@ Reading             : average / family control, NOT individual-modulus GRH
 
 ## Next valid action
 
-**Superseded (historical):** MNTII-006-C is closure-reviewed (`v0.6-c-closure.md` PASS); MNTII-006-D was later executed and closed. No full book mining; no expansion without explicit permission.
+**Historical unit record.** MNTII-006-C was closure-reviewed (`v0.6-c-closure.md` PASS). This file does not define the current live next action. The only authoritative live next action is: `transition-memory/next-action.md`.
 
 ## Audit checklist
 

@@ -73,7 +73,7 @@ Zero-free limit          : WALL-ZERO-FREE — the barrier to a pointwise ψ(x)�
 
 ## Next valid action
 
-**Superseded (historical):** MNTII-006-B is closure-reviewed (`v0.6-b-closure.md` PASS); MNTII-006-C was later executed and closed. No full book mining; no expansion without explicit permission.
+**Historical unit record (QUARANTINED — source-mismatch).** The prior closure audit (`v0.6-b-closure.md`) is SOURCE-GROUNDING-SUPERSEDED. This file does not define the current live next action. The only authoritative live next action is: `transition-memory/next-action.md`.
 
 ## Audit checklist
 

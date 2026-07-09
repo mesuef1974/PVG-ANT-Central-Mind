@@ -78,7 +78,7 @@ Reading            : cancellation feeds bilinear / Type-II; NOT prime detection
 
 ## Next valid action
 
-**Superseded (historical) — none.** This unit is QUARANTINED (source-mismatch); it has no continuation path. The live E is the bounded-gaps intake (`units/MNTII-006-E.md`, pending v0.6-E Closure Review). **No MNTII-006-F, no new book, no re-trusting this unit without a source-grounded Treasure Packet.**
+**Historical unit record (QUARANTINED legacy — source-mismatch).** A pinned quarantine exhibit with no continuation path; no re-trusting without a source-grounded Treasure Packet. This file does not define the current live next action. The only authoritative live next action is: `transition-memory/next-action.md`.
 
 ## Audit checklist
 

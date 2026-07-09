@@ -147,14 +147,8 @@ if e_intake:
     if E_CLOSED:
         need(re.search(r"\*\*Status:\*\*\s*CLOSED", e_intake),
              "v0.6-e-closure PASS exists but MNTII-006-E is not marked Status: CLOSED")
-        # no live line may still call the closed E 'NOT closed' (stale-layer class)
-        for rel in [os.path.join(MONT, "treasure-map.md"), os.path.join(MONT, "README.md"),
-                    os.path.join(MONT, "normalization-ledger.md"),
-                    os.path.join(MONT, "integration-links.md"), "maps/current-capabilities.md"]:
-            for j, lnj in enumerate((read(rel) or "").splitlines()):
-                if "MNTII-006-E" in lnj and "NOT closed" in lnj and "MNTII-006-F" not in lnj:
-                    need("closure" in lnj.lower() or "entered as" in lnj or "legacy" in lnj.lower(),
-                         "%s:%d: still calls the CLOSED unit E 'NOT closed'" % (rel, j + 1))
+        # stale live-state claims about closed units are caught by the repo-wide
+        # closed-unit scan below (State-Repair 006-D) — no file whitelist here.
     else:
         need(not re.search(r"\*\*Status:\*\*\s*CLOSED", e_intake),
              "MNTII-006-E is marked Status: CLOSED but no v0.6-e-closure PASS exists")
@@ -357,6 +351,71 @@ for i, ln in enumerate(tm_lines):
         w = " ".join(tm_lines[i:i + 3]).lower()
         need("quarantin" in w,
              "treasure-map.md card TREASURE-MNTII-%s lacks a QUARANTINED status marker" % m.group(1))
+
+# ---- STATE-REPAIR 006-D: single-source live state --------------------------------
+# (a) Closed-unit stale-claim scan (repo-wide, NO superseded/closure exemptions):
+#     once a unit is closure-reviewed PASS, no live line may describe it in present
+#     tense as validated_intake / NOT closed / pending its review. Only past-lineage
+#     phrasing ("entered as", Arabic equivalent) or an explicit "stale finding" note
+#     is allowed. Historical audit reports (audits/) are pinned records and exempt.
+CLOSURE_AUDITS = {"C": "v0.6-c-closure.md", "D": "v0.6-d-closure.md",
+                  "E": "v0.6-e-closure.md", "F": "v0.6-f-closure.md"}
+closed_letters = []
+for L, aud in CLOSURE_AUDITS.items():
+    a = read(os.path.join("audits", aud))
+    if a is not None and "PASS" in a:
+        closed_letters.append(L)
+for rel in story_files():
+    if rel.startswith("audits/"):
+        continue
+    text = read(rel)
+    if text is None:
+        continue
+    for i, ln in enumerate(text.splitlines()):
+        # segment-scoped: a claim belongs to the unit mentioned before it, up to the
+        # next unit mention on the same line (multi-unit summary lines stay precise).
+        for mm in re.finditer(r"MNTII-006-([A-F])(?![-A-Za-z])", ln):
+            L = mm.group(1)
+            if L not in closed_letters:
+                continue
+            rest = ln[mm.end():]
+            nxt = re.search(r"MNTII-006-[A-F]", rest)
+            seg = rest[:nxt.start()] if nxt else rest
+            seg_low = seg.lower()
+            stale = ("validated_intake" in seg_low or "not closed" in seg_low
+                     or ("pending v0.6-%s closure review" % L.lower()) in seg_low)
+            if stale:
+                exempt = ("entered as" in seg_low) or ("دخلت" in seg) or ("stale finding" in seg_low)
+                need(exempt,
+                     "%s:%d: describes CLOSED unit MNTII-006-%s as intake/NOT-closed/pending (stale live-state claim)"
+                     % (rel, i + 1, L))
+# (b) every closed unit's Status line must say CLOSED (uniform vocabulary)
+for L in closed_letters:
+    u = read(os.path.join(MONT, "units", "MNTII-006-%s.md" % L))
+    if u is not None:
+        need(re.search(r"\*\*Status:\*\*\s*CLOSED", u),
+             "unit MNTII-006-%s is closure-reviewed PASS but its Status line is not CLOSED" % L)
+# (c) unit files are historical records: their 'Next valid action' section must point
+#     to the single live source, never define the live next action directly.
+unit_globs = (glob.glob(os.path.join(ROOT, MONT, "units", "MNTII-006-*.md"))
+              + glob.glob(os.path.join(ROOT, MONT, "units", "_quarantine", "*.md")))
+for p in unit_globs:
+    rel = os.path.relpath(p, ROOT).replace(os.sep, "/")
+    txt = read(rel) or ""
+    m = re.search(r"## Next valid action\s*\n+((?:.*\n){1,5})", txt)
+    if m:
+        need("transition-memory/next-action.md" in m.group(1),
+             "%s: 'Next valid action' does not point to transition-memory/next-action.md (live state must have one source)" % rel)
+# (d) if F exists as intake, the live layers must not omit it from the Montgomery path
+if f_txt is not None and not F_CLOSED:
+    need(any(tok.startswith("F") for tok in trusted_tokens),
+         "books.jsonl trusted_source_units omits the F intake while units/MNTII-006-F.md exists")
+    need("TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001" in (caps or ""),
+         "maps/current-capabilities.md omits the F-intake tool")
+    need("MNTII-006-F" in (read(os.path.join(MONT, "missed-treasures.md")) or ""),
+         "missed-treasures.md omits MNTII-006-F")
+    need("v0.6-F Closure Review" in readme,
+         "root README.md does not point to the v0.6-F Closure Review track")
 
 if issues:
     print("FAIL - %d state-coherence issue(s):" % len(issues))

@@ -80,7 +80,7 @@ See audits/montgomery-source-grounding-correction-006.md and audits/v0.6-e-closu
 
 ## Next valid action
 
-**Superseded (historical):** the v0.6-E Closure Review is complete (**PASS**, `audits/v0.6-e-closure.md`). MNTII-006-F was later executed from the explicit Ch-17 Treasure Packet (Coverage Audit 007 selection) as validated_intake, pending v0.6-F Closure Review. No MNTII-006-G without an explicit packet and permission; no new book; no full book mining.
+**Historical unit record.** MNTII-006-E was closure-reviewed (`v0.6-e-closure.md` PASS, third attempt). This file does not define the current live next action. The only authoritative live next action is: `transition-memory/next-action.md`.
 
 ## Audit checklist
 

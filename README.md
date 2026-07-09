@@ -13,7 +13,7 @@
 |---|---|
 | `central-mind-charter.md`, `central-mind-goals.md` | الدستور والهدف الأعلى |
 | `installed-skills/{math,governance}` | 14 بطاقةَ واجهةِ مهارة (الحوكمة أعلى سلطة) |
-| `ledgers/books/` | مُعدَّنة (treasure overlay مُغلَق): Overholt · Tenenbaum · Mileti · IK · Harman · **Montgomery MNT-II (v0.6، source-grounding-corrected: الموثوقُ C/D/E مُغلَقةً · المحجورُ A/B/legacy-E)**؛ + 8 كتب `available_not_imported` |
+| `ledgers/books/` | مُعدَّنة (treasure overlay مُغلَق): Overholt · Tenenbaum · Mileti · IK · Harman · **Montgomery MNT-II (v0.6، source-grounding-corrected: الموثوقُ C/D/E مُغلَقةً + F-intake · المحجورُ A/B/legacy-E)**؛ + 8 كتب `available_not_imported` |
 | `ledgers/imports/` | sieve · spectral-no-go · computational |
 | `registries/` | مصدرُ الحقيقة (JSONL): skills · books · research-frontiers · open-questions-queue · walls · tools · rules · observables · claims · planned · registry(constraint) |
 | `maps/` | skill-stack-map · skill-dependency-graph · query-routing-guide · current-capabilities · pvg-to-ant |

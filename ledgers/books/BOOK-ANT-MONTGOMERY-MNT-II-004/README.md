@@ -1,10 +1,10 @@
-# Montgomery MNT-II Frontier Support Layer — Book ANT (v0.6, source-grounding-corrected: trusted C/D/E, quarantined A/B + legacy E)
+# Montgomery MNT-II Frontier Support Layer — Book ANT (v0.6, source-grounding-corrected: trusted C/D/E closed + F intake, quarantined A/B + legacy E)
 
 ## Source
 
 ```text
 Hugh Montgomery (with R. Vaughan lineage), Multiplicative Number Theory II: Primes and Sieves.
-Book ID: BOOK-ANT-MONTGOMERY-MNT-II-004.  Status: partial_overlay / source-grounding-corrected (trusted C/D/E, all closure-reviewed; quarantined A/B + legacy E).
+Book ID: BOOK-ANT-MONTGOMERY-MNT-II-004.  Status: partial_overlay / source-grounding-corrected (trusted C/D/E closed + F validated_intake; quarantined A/B + legacy E).
 Local source present outside git in Books_others/.
 PDF is excluded from repository by .gitignore.
 Ledger will contain transformed notes only, no book text.

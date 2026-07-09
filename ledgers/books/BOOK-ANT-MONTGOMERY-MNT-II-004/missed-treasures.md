@@ -5,10 +5,12 @@ Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — source-grounding-corrected
 ## Required judgment
 
 ```text
-Montgomery MNT-II source-grounded extraction is deep only for the sieves-and-gaps pillar
-(C: Ch 19-20 large sieve / BV, D: Ch 21 sieves, E: Ch 22 bounded gaps intake) and is NOT a
-full-book treasure-mining pass. Units A and B, and the legacy off-diagonal E, are QUARANTINED
-(cross-volume / source-mismatch) and are NOT part of the trusted source-grounded overlay.
+Montgomery MNT-II source-grounded extraction covers the sieves-and-gaps pillar plus the Ch-17
+bridge (C: Ch 19-20 large sieve / BV, closed; D: Ch 21 sieves, closed; E: Ch 22 bounded gaps,
+CLOSED v0.6-e-closure PASS; F: Ch 17 prime sums / Type I-II, validated_intake pending
+v0.6-F Closure Review) and is NOT a full-book treasure-mining pass. Units A and B, and the
+legacy off-diagonal E, are QUARANTINED (cross-volume / source-mismatch) and are NOT part of
+the trusted source-grounded overlay.
 ```
 
 ## Quarantined (source-mismatch, not trusted)
@@ -59,8 +61,10 @@ See audits/montgomery-book-coverage-audit-007.md.
 ## Level assessment
 
 ```text
-Source-grounded overlay = 3 trusted closure-reviewed units (C, D, E) on the sieves-and-gaps pillar, plus
-2 quarantined cross-volume units (A, B) and 1 quarantined legacy unit (off-diagonal E).
+Source-grounded overlay = 3 trusted closure-reviewed units (C, D, E) + 1 pending intake
+(F: Ch 17, validated_intake, pending v0.6-F Closure Review), plus 2 quarantined cross-volume
+units (A, B) and 1 quarantined legacy unit (off-diagonal E). MNTII-006-G is not allowed
+before the F closure review passes AND an explicit Treasure Packet exists.
 Level 2; a partial, source-grounding-corrected overlay — NOT full-book mastery, NOT book overlay closure.
 ```
 

@@ -97,7 +97,7 @@ link was conditioned on existence; the actual FRONTIER-ANT-PVG-003 is a differen
 
 ## Next valid action
 
-**v0.6-F Closure Review only** (on explicit permission). No MNTII-006-G, no new book, no full book mining.
+**Pending unit.** This unit awaits its v0.6-F Closure Review (see the Status line). This file does not define the current live next action. The only authoritative live next action is: `transition-memory/next-action.md`.
 
 ## Audit checklist
 
