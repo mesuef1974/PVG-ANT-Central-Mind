@@ -1,7 +1,12 @@
-# MNTII-006-B — Distributional Limits and Barriers as Frontier-Support Diagnostics
+# MNTII-006-B (QUARANTINED — source-mismatch / cross-volume) — Distributional Limits and Barriers
+
+> **Status: source-mismatch / cross-volume-context / not trusted.** Zero-density / large values / pair-correlation
+> are deferred by the Montgomery MNT-II source to a LATER volume; this unit was invented before source grounding.
+> Prior B closure audit was a safety/coherence check only and is SUPERSEDED by Source-Grounding Correction 006;
+> it does NOT certify source-grounded Montgomery extraction. See `audits/montgomery-source-grounding-correction-006.md`.
 
 **Registry ID:** MNTII-006-B
-**Status:** Ingested (v0.6)
+**Status:** QUARANTINED (source-mismatch / cross-volume)
 **Classification:** **Diagnostic / Boundary** (the LIMITS of known MNT-II machinery read as diagnostic barriers; not results)
 
 **Source Coverage:** Hugh Montgomery, *Multiplicative Number Theory II: Primes and Sieves*, the distributional limits / barriers of the mean-value and large-value machinery (as recorded in transformed notes). **Transformed notes only — no raw text, no copied passages, no general book summary.** Book ID `BOOK-ANT-MONTGOMERY-MNT-II-004`. Local PDF outside git.

@@ -1,9 +1,9 @@
 # Latest State
 
 ```text
-Version:  v0.6 Montgomery MNT-II frontier-support mining (after Central Mind Coherence Audit 005)
+Version:  v0.6 Montgomery MNT-II (SOURCE-GROUNDING-CORRECTED, Correction 006)
 Home:     D:\PVG-ANT-Central-Mind (standalone git repo)
-HEAD ref: latest coherence baseline = Central Mind Coherence Audit 005
+HEAD ref: latest baseline = Montgomery Source-Grounding Correction 006
 
 Books (registries/books.jsonl is the source of truth):
   Mined, treasure overlay closed (AUDIT-CM-TREASURE-RETROFIT-CLOSURE-001), mastery deferred:
@@ -12,11 +12,19 @@ Books (registries/books.jsonl is the source of truth):
     - Mileti     (logic / certificate; v0.2-A/B closed)
     - Iwaniec-Kowalski (zero-density / large values; v0.4 closed)
     - Harman     (sieve information / Type-I-II; v0.5 closed)
-  Partial overlay (in progress):
-    - Montgomery MNT-II (v0.6) — Level 2:
-        units A/B/C/D CLOSURE-REVIEWED (v0.6-a/b/c/d-closure PASS),
-        unit E (MNTII-006-E) EXISTS but QUARANTINED / unvalidated / pre-packet
-        (created before the corrected protocol; NOT closure-reviewed; NOT a trusted mined unit).
+  Partial overlay (source-grounding-corrected):
+    - Montgomery MNT-II (v0.6) — Level 2, sieves-and-gaps pillar (Ch 19-22):
+        TRUSTED source-grounded units:
+          C (Ch 19-20 large sieve / Bombieri-Vinogradov, v0.6-c-closure PASS),
+          D (Ch 21 Selberg / combinatorial sieve, v0.6-d-closure PASS),
+          E (Ch 22 bounded gaps / GPY / Maynard) = validated_intake, NOT closed,
+            pending v0.6-E Closure Review.
+        QUARANTINED (source-mismatch / cross-volume, NOT trusted):
+          A, B (zero-density / large-values / pair-correlation are deferred by the source
+            to a LATER volume; prior A/B closure audits were safety/coherence checks only,
+            SUPERSEDED by Correction 006, do NOT certify source-grounded extraction),
+          legacy off-diagonal E (Kloosterman) in units/_quarantine/.
+        NOT book_overlay_closed; the rest of the book is unmined.
   Available, not imported: Motohashi, Opera de Cribro, Hodel, Mendelson, Buss, Kossak, Stewart, Fesenko.
 
 Governing protocol:

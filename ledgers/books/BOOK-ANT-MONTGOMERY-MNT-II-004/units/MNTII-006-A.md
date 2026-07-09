@@ -1,7 +1,12 @@
-# MNTII-006-A — Montgomery-style Analytic Tools as Frontier-Support Diagnostics
+# MNTII-006-A (QUARANTINED — source-mismatch / cross-volume) — Montgomery-style Analytic Tools
+
+> **Status: source-mismatch / cross-volume-context / not trusted.** Zero-density / large values / pair-correlation
+> are deferred by the Montgomery MNT-II source to a LATER volume; this unit was invented before source grounding.
+> Prior A closure audit was a safety/coherence check only and is SUPERSEDED by Source-Grounding Correction 006;
+> it does NOT certify source-grounded Montgomery extraction. See `audits/montgomery-source-grounding-correction-006.md`.
 
 **Registry ID:** MNTII-006-A
-**Status:** Ingested (v0.6)
+**Status:** QUARANTINED (source-mismatch / cross-volume)
 **Classification:** **Diagnostic / Boundary** (known MNT-II analytic tools read as frontier-support diagnostics; not results)
 
 **Source Coverage:** Hugh Montgomery, *Multiplicative Number Theory II: Primes and Sieves*, the mean-value / large-value / zero-density machinery and the primes-and-sieves interface (as recorded in transformed notes). **Transformed notes only — no raw text, no copied passages, no general book summary.** Book ID `BOOK-ANT-MONTGOMERY-MNT-II-004`. Local PDF outside git.

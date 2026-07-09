@@ -1,6 +1,6 @@
 # Montgomery MNT-II — Treasure Map
 
-Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — mining units `MNTII-006-A` (distribution diagnostics), `MNTII-006-B` (distributional limits / barriers), `MNTII-006-C` (large sieve / Bombieri–Vinogradov on-average), `MNTII-006-D` (Selberg / combinatorial sieve, bounded reach), and `MNTII-006-E` (exponential / Kloosterman sums, off-diagonal cancellation) ingested.** طبقةُ تعدينٍ تحت `governance/book-treasure-extraction-protocol.md`. مؤصَّلٌ على الوحدات الخمس (transformed notes only، PDF خارج git). كنوزٌ محدودةٌ لخمس وحداتٍ ضيّقة؛ **باقي الكتاب غيرُ مُعدَّن** (see `missed-treasures.md`). لا نصٌّ خام، لا ادّعاءُ إتقانٍ كامل.
+Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — SOURCE-GROUNDING-CORRECTED (Correction 006).** Trusted source-grounded units: `MNTII-006-C` (large sieve / Bombieri–Vinogradov, Ch 19–20), `MNTII-006-D` (Selberg / combinatorial sieve, Ch 21), `MNTII-006-E` (**bounded gaps / GPY / Maynard, Ch 22 — validated_intake, NOT closed**). **Quarantined (cross-volume / source-mismatch, NOT trusted):** `MNTII-006-A`, `MNTII-006-B` (zero-density / large values / pair-correlation — deferred by the source to a later volume) and the legacy off-diagonal E (`units/_quarantine/`). طبقةُ تعدينٍ تحت `governance/book-treasure-extraction-protocol.md`، مؤصَّلةٌ على المصدر (transformed notes only، PDF خارج git). **باقي الكتاب غيرُ مُعدَّن** (see `missed-treasures.md`). لا نصٌّ خام، لا ادّعاءُ إتقانٍ كامل.
 
 ```text
 Treasure ID: TREASURE-MNTII-001
@@ -385,97 +385,111 @@ Classification: Missing Certificate.
 Normalized output: → Missing Certificate MC-001 ; → Wall WALL-PARITY, WALL-SIEVE-CEILING (uncrossed).
 ```
 
-## Unit MNTII-006-E — exponential / Kloosterman sums, off-diagonal cancellation (7 cards)
+## Unit MNTII-006-E — bounded gaps / GPY / Maynard (7 cards, source-grounded intake; Ch 22)
+
+> **Source-Grounding Correction 006:** these seven cards replace the quarantined off-diagonal / Kloosterman
+> cards (topic deferred by the source to a later volume). Unit E status = **validated_intake, NOT closed**.
 
 ```text
 Treasure ID: TREASURE-MNTII-030
-Treasure:    Exponential sums (Weyl / van der Corput) as a cancellation diagnostic
-Source:      MNTII-006-E — transformed notes only
-Type:        cancellation diagnostic
-Why it matters: the Weyl and van der Corput methods bound exponential sums by cancellation — the analytic measure of off-diagonal oscillation.
-ANT role:    bounds for Σ e(f(n)) via differencing / stationary phase.
-PVG translation: an oscillation / cancellation observable on the off-diagonal.
-Wall / certificate: WALL-OFF-DIAGONAL — diagnostic.
+Treasure:    Admissible tuples as local obstruction geometry
+Source:      MNTII-006-E (Ch 22) — transformed notes only
+Type:        object / support geometry
+Why it matters: an admissible k-tuple avoids a local residue obstruction at every prime; it is NOT a guaranteed all-prime tuple.
+ANT role:    H is admissible iff for every prime p the tuple does not cover all residue classes mod p.
+PVG translation: a shifted support configuration avoiding local residue obstructions.
+Wall / certificate: local admissibility is necessary, not sufficient; WALL-PARITY.
 Classification: Known / Diagnostic.
-Normalized output: → Tool TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001 ; → Frontier FRONTIER-ANT-PVG-004.
+Normalized output: → Tool TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001 ; → Frontier FRONTIER-ANT-PVG-004.
 ```
 
 ```text
 Treasure ID: TREASURE-MNTII-031
-Treasure:    Kloosterman sums and the Weil bound (square-root cancellation)
-Source:      MNTII-006-E — transformed notes only
-Type:        cancellation bound
-Why it matters: the Weil bound |Kl(a,b;p)| ≤ 2√p gives square-root cancellation — the deep pointwise cancellation for Kloosterman sums.
-ANT role:    Kl(a,b;p) = Σ_x e((ax + b·x⁻¹)/p); |Kl| ≤ 2√p (Weil).
-PVG translation: square-root cancellation on the residue-fiber off-diagonal.
-Wall / certificate: WALL-OFF-DIAGONAL — a known bound, not a crossing.
+Treasure:    GPY weights as a prime-rich-tuple diagnostic
+Source:      MNTII-006-E (Ch 22, §22.1) — transformed notes only
+Type:        sieve-weight diagnostic
+Why it matters: the GPY sieve weights select translates n+H richer in primes than average — a weighting device, NOT a prime detector.
+ANT role:    Selberg-type weights over the tuple, tuned to prime indicators.
+PVG translation: an optimization weight over residue-filtered boxes, NOT a primality certificate.
+Wall / certificate: WALL-SIEVE-CEILING; MC-001 (weights are not prime detectors).
 Classification: Known / Diagnostic.
-Normalized output: → Tool TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001.
+Normalized output: → Tool TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001.
 ```
 
 ```text
 Treasure ID: TREASURE-MNTII-032
-Treasure:    Cancellation feeds Type-II / bilinear information
-Source:      MNTII-006-E — transformed notes only
-Type:        connection diagnostic
-Why it matters: exponential / Kloosterman cancellation is the analytic source of the bilinear (Type-II) information that crosses parity in Harman's decomposition and powers dispersion / BV.
-ANT role:    cancellation → bilinear sum estimates → Type-II input.
-PVG translation: the off-diagonal cancellation feeding the Type-II certificate (not producing it alone).
-Wall / certificate: WALL-PARITY (Type-II crosses it, cancellation feeds it); MC-001.
-Classification: Diagnostic.
-Normalized output: → Tool TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001 ; relates TOOL-TYPE-I-II-DIAGNOSTIC-001 (Harman, 006-D).
+Treasure:    Maynard multidimensional sieve optimization
+Source:      MNTII-006-E (Ch 22, §22.2) — transformed notes only
+Type:        method (KNOWN theorem)
+Why it matters: Maynard's multidimensional weights optimize the count of primes in a translate, yielding bounded gaps from a positive level of distribution — a KNOWN theorem, NOT our result.
+ANT role:    variational optimization over multidimensional sieve weights.
+PVG translation: optimization over residue-filtered boxes; the decisive certificate stays analytic.
+Wall / certificate: needs an external level of distribution; WALL-SIEVE-CEILING.
+Classification: Known.
+Normalized output: → Tool TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001.
 ```
 
 ```text
 Treasure ID: TREASURE-MNTII-033
-Treasure:    Deshouillers–Iwaniec spectral bounds — cited external input (front 007 stays frozen)
-Source:      MNTII-006-E — transformed notes only
-Type:        boundary / external citation
-Why it matters: bounds on sums of Kloosterman sums (Deshouillers–Iwaniec, via automorphic-form spectral theory) are the deep external input for the strongest Type-II estimates.
-ANT role:    averaged Kloosterman-sum bounds beyond Weil, used in Type-II (e.g. Bombieri–Friedlander–Iwaniec).
-PVG translation: an external deep input, cited — not our result.
-Wall / certificate: the PVG spectral front FRONTIER-ANT-PVG-007 is FROZEN and is NOT reopened by citing this.
-Classification: Known / Boundary.
-Normalized output: → cited external input ; FRONTIER-ANT-PVG-007 stays frozen (no reopening).
+Treasure:    Level of distribution as external certificate
+Source:      MNTII-006-E (Ch 20 / 22) — transformed notes only
+Type:        external input
+Why it matters: the sieve needs a positive level of distribution for the primes as EXTERNAL input; it does not produce it.
+ANT role:    the level parameter controlling average distribution over moduli.
+PVG translation: the analytic distribution certificate the weighted sieve consumes.
+Wall / certificate: Bombieri–Vinogradov supplies level 1/2 unconditionally (on average); MC-005 (individual) unsolved.
+Classification: Known / Diagnostic.
+Normalized output: → Tool TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001 ; relates TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001 (006-C).
 ```
 
 ```text
 Treasure ID: TREASURE-MNTII-034
-Treasure:    Cancellation is not prime detection — parity still blocks
-Source:      MNTII-006-E — transformed notes only
-Type:        no-go boundary
-Why it matters: off-diagonal cancellation feeds bilinear information but does NOT detect primes by itself; the parity barrier still blocks prime detection.
-ANT role:    cancellation ≠ prime detection; Type-II is still the missing external certificate.
-PVG translation: an oscillation observable, not a prime count.
-Wall / certificate: WALL-PARITY — uncrossed; MC-001 unsolved.
-Classification: Boundary.
-Normalized output: → Wall WALL-PARITY ; → Missing Certificate MC-001.
+Treasure:    BV gives bounded gaps through average distribution, not GRH
+Source:      MNTII-006-E (Ch 22, §22.4 notes) — transformed notes only
+Type:        boundary
+Why it matters: with Bombieri–Vinogradov as input, Maynard obtains bounded gaps UNCONDITIONALLY — via average distribution, NOT individual GRH.
+ANT role:    BV (average, level 1/2) feeds the sieve; no individual GRH is used.
+PVG translation: average residue-fiber distribution, not individual control.
+Wall / certificate: individual case — WALL-SIEGEL; MC-005 unsolved.
+Classification: Known / Boundary.
+Normalized output: → Missing Certificate MC-005 ; relates TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001.
 ```
 
 ```text
 Treasure ID: TREASURE-MNTII-035
-Treasure:    Exponential-sum cancellation behind the large sieve / dispersion
-Source:      MNTII-006-E — transformed notes only
-Type:        connection diagnostic
-Why it matters: the cancellation this unit measures is the analytic root of the large-sieve inequality (006-C) and the dispersion method — it ties the Montgomery analytic and sieve units together.
-ANT role:    exponential-sum cancellation → mean / large-value → large sieve / dispersion.
-PVG translation: the shared cancellation source behind frontiers 006 and 004.
-Wall / certificate: WALL-OFF-DIAGONAL — diagnostic.
-Classification: Diagnostic.
-Normalized output: → Tool TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001 ; relates TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001 (006-C).
+Treasure:    EH-dependent improvements are conditional only
+Source:      MNTII-006-E (Ch 22, §22.3/22.4) — transformed notes only
+Type:        open problem / conditional
+Why it matters: stronger bounded-gap conclusions under Elliott–Halberstam-type hypotheses are CONDITIONAL — EH is unproven.
+ANT role:    EH (level 1−ε) would sharpen the gap; it is not available unconditionally.
+PVG translation: a conditional (not achieved) sharpening.
+Wall / certificate: EH unproven; no unconditional certificate; WALL-DENSITY-HYP context.
+Classification: Open Problem / Boundary.
+Normalized output: → deferred (open problem; no certificate).
 ```
 
 ```text
 Treasure ID: TREASURE-MNTII-036
-Treasure:    MC-001 unsolved; WALL-OFF-DIAGONAL / WALL-PARITY uncrossed; FRONTIER-007 frozen
-Source:      MNTII-006-E — transformed notes only
-Type:        standing certificate + walls
-Why it matters: the cancellation diagnostic does NOT resolve parity or reopen the spectral front.
-ANT role:    the parity break (MC-001) and the off-diagonal / spectral boundaries.
-PVG translation: cancellation observed; parity and the frozen spectral front standing.
-Wall / certificate: WALL-OFF-DIAGONAL · WALL-PARITY — UNCROSSED; MC-001 UNSOLVED; FRONTIER-ANT-PVG-007 FROZEN.
-Classification: Missing Certificate.
-Normalized output: → Missing Certificate MC-001 ; → Wall WALL-OFF-DIAGONAL, WALL-PARITY (uncrossed).
+Treasure:    Bounded gaps are not twin primes and not a parity breakthrough
+Source:      MNTII-006-E (Ch 22) — transformed notes only
+Type:        no-go boundary
+Why it matters: bounded gaps between primes is a KNOWN theorem; it is NOT the twin-prime conjecture and does NOT break the parity barrier.
+ANT role:    a finite gap bound, not gap = 2; the parity obstruction stands.
+PVG translation: a prime-rich translate, not a certified prime pair; parity uncrossed.
+Wall / certificate: WALL-PARITY — UNCROSSED; MC-001 UNSOLVED.
+Classification: Boundary.
+Normalized output: → Wall WALL-PARITY (uncrossed) ; → Missing Certificate MC-001.
 ```
 
-**Honest classification:** Diagnostic / Boundary (treasure map, v0.6 units A + B + C + D + E). No RH/GRH progress. No zero-density/large-values/PNT-AP improvement, no distributional-limit theorem, no sieve theorem, no exponential-sum theorem, no prime detector; Bombieri–Vinogradov is average-not-individual; Elliott–Halberstam is an unproven open problem; classical sieves give bounds/almost-primes not primes (parity); exponential/Kloosterman cancellation feeds Type-II but is not prime detection; the spectral front FRONTIER-ANT-PVG-007 stays frozen. MC-001 & MC-002 & MC-005 unsolved; walls uncrossed.
+## Quarantined cards (source-mismatch / cross-volume)
+
+```text
+TREASURE-MNTII-001..015 (units A/B): CROSS-VOLUME context. Zero-density / large values / pair-correlation
+  are deferred by the source to a later volume; these are NOT counted in the trusted source-grounded
+  treasure map (units A/B are quarantined — see README / books.jsonl).
+Old TREASURE-MNTII-030..036 (off-diagonal / Kloosterman): superseded / quarantined; preserved in
+  units/_quarantine/MNTII-006-E-legacy-offdiagonal-source-mismatch.md.
+Trusted source-grounded Montgomery treasures: C (016-022, Ch 19-20) · D (023-029, Ch 21) · E (030-036, Ch 22 bounded gaps).
+```
+
+**Honest classification:** Diagnostic / Boundary (treasure map, **source-grounding-corrected**). Trusted source-grounded = C + D + E (bounded gaps); A/B + legacy off-diagonal E = quarantined (cross-volume / source-mismatch). No RH/GRH progress. No new theorem; **bounded gaps recorded as a KNOWN theorem, not our result, not twin primes, not a parity breakthrough**; Bombieri–Vinogradov = average input; Elliott–Halberstam = conditional. MC-001 & MC-002 & MC-005 unsolved; walls uncrossed.

@@ -1,88 +1,96 @@
-# MNTII-006-E — Exponential and Kloosterman Sums as an Off-Diagonal Cancellation Diagnostic
+# MNTII-006-E — Bounded Gaps between Primes as a GPY / Maynard Sieve Diagnostic
 
 **Registry ID:** MNTII-006-E
-**Status:** Ingested (v0.6)
-**Classification:** **Diagnostic / Boundary** (known exponential-sum / Kloosterman machinery read as a cancellation diagnostic; not results)
+**Status:** validated_intake (from ChatGPT Treasure Packet) — **NOT closed, NOT PASS, pending v0.6-E Closure Review**
+**Classification:** **Diagnostic / Boundary** (the KNOWN bounded-gaps theorem read as a sieve diagnostic; not a new result)
 
-**Source Coverage:** Hugh Montgomery, *Multiplicative Number Theory II: Primes and Sieves*, exponential sums (Weyl / van der Corput) and Kloosterman sums with the Weil bound (as recorded in transformed notes). **Transformed notes only — no raw text, no copied passages, no general book summary.** Book ID `BOOK-ANT-MONTGOMERY-MNT-II-004`. Local PDF outside git.
+**Source Coverage:** Montgomery–Vaughan, *Multiplicative Number Theory II: Primes and Sieves*, **Chapter 22 (Bounded Gaps between Primes)**: §22.1 the GPY sieve, §22.2 the proof of Maynard's theorem, §22.3 consequences, §22.4 notes. Dependency: Ch 20 Bombieri–Vinogradov (level of distribution), Ch 21 sieve framework / fixed-dimension sieves. **Transformed notes only — no raw text, no copied passages, no general book summary.** Book ID `BOOK-ANT-MONTGOMERY-MNT-II-004`. Local PDF outside git.
 
 ## Object
 
-المجاميعُ الأُسّيّة (Weyl / van der Corput) ومجاميعُ Kloosterman مع حدِّ Weil، مقروءةً **كمرصدِ إلغاءٍ لاقطريّ** — المصدرِ التحليليِّ للمعلومة الثنائيّة (Type-II) التي تُغذّي الغربالَ الكبيرَ وطريقةَ التشتّت. الكنزُ المؤجَّل «exponential / Kloosterman sums» يُعدَّن الآن.
+أوزانُ الغربال متعدّدِ الأبعاد (GPY / Maynard) على k-tuples **مقبولة (admissible)**، مقروءةً **كمرصدٍ تشخيصيّ**: كشفٌ موزونٌ للإزاحاتِ الغنيّةِ بالأوّليّات `n + H`، بمستوى توزيعٍ للأوّليّات كمدخلٍ خارجيّ. **الكنزُ الصحيحُ للفصل 22** (يستبدلُ وحدةَ E القديمةَ المحجورةَ عن الإلغاء اللاقطريّ).
 
-## Classical role
+## Classical role (KNOWN, cited)
 
-Weyl / van der Corput يحدّان المجاميعَ الأُسّيّةَ بالإلغاء؛ حدُّ Weil يعطي **إلغاءَ الجذر التربيعيّ** لمجاميع Kloosterman: `|Kl(a,b;p)| ≤ 2√p`. **معروفةٌ، مُستشهَدة.** هذا الإلغاءُ هو ما يُشغّل التقديراتِ الثنائيّةَ (Type-II) وطريقةَ التشتّت (BV، 006-C).
+الفصلُ 22 يعرضُ الفجواتِ المحدودةَ **كنتيجةِ غربالٍ من مدخلٍ توزيعيّ**: مبرهنةُ Maynard تستعملُ مستوى توزيعٍ موجبًا للأوّليّات؛ **بـBombieri–Vinogradov مدخلًا، يحصلُ Maynard على فجواتٍ محدودةٍ لاشرطيًّا** (مبرهنةٌ كلاسيكيّةٌ معروفة، **لا نتيجةٌ لنا**). تحسيناتُ Elliott–Halberstam تبقى **مشروطة**.
 
-## Off-diagonal cancellation diagnostic role
+## Diagnostic role
 
-مرصدُ الإلغاء على المحور اللاقطريّ (`WALL-OFF-DIAGONAL`): يقيسُ كم من الإلغاء متاح، وهو **مصدرُ Type-II** الذي يعبر التكافؤ (Harman، 006-D). `TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001`.
+يشرحُ كيف يُنتج **متوسّطُ معلومةِ التوزيع + أوزانٌ مُحسَّنة** ثلاثيّاتٍ مقبولةً غنيّةً بالأوّليّات. **ليس كاشفًا للأوّليّات · ليس مبرهنةَ توائم · ليس تقدّمَ RH/GRH · لا يحلّ حاجزَ التكافؤ بالمعنى الكلاسيكيِّ لكشف الأوّليّات.** `TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001`.
 
-## Cancellation view
+## Sieve view
 
 ```text
-Exponential sums   : Weyl / van der Corput cancellation
-Kloosterman sums   : Weil bound |Kl| ≤ 2√p (square-root cancellation)
-Sums of Kloosterman: Deshouillers–Iwaniec (uses automorphic-form spectral theory) — cited KNOWN external
-                     input; does NOT reopen the frozen spectral front FRONTIER-ANT-PVG-007
-Reading            : cancellation feeds bilinear / Type-II; NOT prime detection
+Admissible k-tuple H : a tuple with no local residue obstruction (NOT a guaranteed all-prime tuple)
+GPY / Maynard weights: optimization devices over residue-filtered boxes (NOT primality certificates)
+Level of distribution: EXTERNAL input (Bombieri–Vinogradov supplies it unconditionally, on average)
+Reading             : average distribution + optimized weights -> a prime-rich translate n+H (a bounded gap)
 ```
 
 ## PVG–ANT connection
 
-مرصدُ الإلغاء اللاقطريّ لجبهة الغربلة `FRONTIER-ANT-PVG-004`: يُغذّي Type-II (`TOOL-TYPE-I-II-DIAGNOSTIC-001`, 006-D) وطريقةَ التشتّت خلفَ الغربال الكبير (006-C). جسرٌ إلى جبهة 006 عبر متباينات المتوسّط.
+بلغة PVG: الثلاثيّاتُ المقبولةُ **تكويناتُ دعمٍ مُزاحةٌ تتجنّبُ عوائقَ البواقي المحلّيّة**؛ أوزانُ GPY/Maynard **أدواتُ تحسينٍ فوق صناديقَ مُرشَّحةٍ بالبواقي، لا شهاداتُ أوّليّةٍ مباشرة**. الشهادةُ الحاسمةُ تبقى **تحليليّة**: توزيعٌ متوسّطٌ + مقارباتُ الغربال الموزونة. يربطُ الغربالَ الكبير/BV (`FRONTIER-ANT-PVG-006`) بجبهة الغربلة (`FRONTIER-ANT-PVG-004`).
 
 ## What it can diagnose
 
-- كم من الإلغاء اللاقطريّ متاحٌ (حدُّ Weil).
-- أيَّ تقديراتٍ ثنائيّةً (Type-II) يُغذّي.
-- الجسرَ إلى الغربال الكبير / التشتّت.
+- كيف يتحوّلُ مستوى التوزيع + الأوزان إلى فجوةٍ محدودة.
+- لماذا الثلاثيّةُ المقبولةُ ليست ضمانًا بأوّليّةِ كلِّ مركّباتها.
+- أينَ يبقى الشرطُ (EH) وأينَ اللاشرط (BV).
 
 ## What it cannot prove
 
-- **الإلغاءُ ليس كشفًا للأوّليّات** · التكافؤُ ما زال يمنع (`WALL-PARITY`).
-- لا يبرهن RH/GRH · لا يُعيدُ فتحَ الجبهة الطيفيّة المجمَّدة (`FRONTIER-ANT-PVG-007`).
-- لا يحلّ `MC-001`.
+- **ليست مبرهنةَ توائم** · ليست تحسينًا للفجوات المحدودة · ليست كشفًا للأوّليّات.
+- لا تكسرُ التكافؤ · لا تقدّمَ RH/GRH · لا تحسينَ PNT/AP.
+- لا تحلّ `MC-001` ولا `MC-005`.
 
 ## Related walls
 
-`WALL-OFF-DIAGONAL` · `WALL-PARITY`. **لا يُعبَر أيٌّ منها.** الجبهةُ الطيفيّةُ `FRONTIER-ANT-PVG-007` تبقى **مجمَّدة** (لا تُعاد).
+`WALL-PARITY` · `WALL-SIEVE-CEILING` · `WALL-OFF-DIAGONAL` · `WALL-DENSITY-HYP`. **لا يُعبَر أيٌّ منها.**
 
 ## Related missing certificates
 
-`MC-001` (كسرُ parity غيرُ مشروط) — تبقى غيرَ محلولة؛ **Type-II هي الشهادةُ الخارجيّةُ الناقصة**، والإلغاءُ يُغذّيها لكنّه لا يكسر التكافؤ وحدَه.
+`MC-001` (كسرُ parity غيرُ مشروط) — تبقى غيرَ محلولة (الأوزانُ ليست كواشفَ أوّليّات). `MC-005` (توزيعُ AP الفرديّ GRH-level) — تبقى غيرَ محلولة (المتوسّطُ ليس تحكّمًا فرديًّا). `MC-002` لا تُمَسّ ولا تُعَدُّ محلولة.
 
 ## Claim classification
 
-**Diagnostic / Boundary.** حدُّ Weil ومجاميعُ Kloosterman معروفةٌ ومُستشهَدة؛ المخرجُ مرصدُ إلغاءٍ وحدٌّ، لا New Theorem ولا Candidate Mechanism.
+**Diagnostic / Boundary.** مبرهنةُ الفجوات المحدودة (Maynard/GPY) **معروفةٌ (Known) ومُستشهَدةٌ للمصدر**؛ مخرجُ الوحدة قراءةٌ تشخيصيّةٌ لها، لا New Theorem ولا Candidate Mechanism ولا نتيجةٌ لنا.
 
 ## No-Go notes
 
 ```text
-- exponential / Kloosterman cancellation is a diagnostic of off-diagonal cancellation, NOT prime detection.
-- cancellation feeds bilinear / Type-II information; it does not break parity by itself (MC-001).
-- Deshouillers–Iwaniec spectral bounds are cited as a KNOWN external input; the spectral front
-  FRONTIER-ANT-PVG-007 stays FROZEN and is NOT reopened.
-- not an exponential-sum / sieve theorem improvement; not a prime detector; not RH/GRH progress.
-- no crossing WALL-PARITY / WALL-OFF-DIAGONAL.
-- MC-001 stays unsolved.
+- bounded gaps (GPY / Maynard) is a KNOWN classical theorem recorded as known mathematics; NOT our result.
+- bounded gaps are NOT twin primes and NOT a parity breakthrough.
+- GPY / Maynard weights are optimization devices, NOT prime detectors / primality certificates.
+- Bombieri–Vinogradov is average distribution input, NOT individual GRH; Elliott–Halberstam is conditional only.
+- no new theorem; no bounded-gaps improvement; no PNT/AP improvement; no RH/GRH progress.
+- no crossing WALL-PARITY / WALL-SIEVE-CEILING / WALL-OFF-DIAGONAL / WALL-DENSITY-HYP.
+- MC-001 and MC-005 stay unsolved; MC-002 not marked solved.
 - no raw copyrighted text; transformed notes only.
+```
+
+## Intake / Validation note
+
+```text
+Created by SOURCE-GROUNDED intake from a ChatGPT Treasure Packet (Ch 22), replacing the legacy
+MNTII-006-E (exponential / Kloosterman off-diagonal), which is quarantined as source-mismatch
+(units/_quarantine/MNTII-006-E-legacy-offdiagonal-source-mismatch.md). Status = validated_intake:
+NOT closed, NOT PASS, pending v0.6-E Closure Review.
+See audits/montgomery-source-grounding-correction-006.md.
 ```
 
 ## Next valid action
 
-candidate v0.6-E closure review (MNTII-006-E), then a further Montgomery unit or another book or freeze — on explicit permission. **No MNTII-006-F, no full book mining, no expansion before review.**
+**v0.6-E Closure Review only** (on explicit permission). No MNTII-006-F, no new book, no full book mining.
 
 ## Audit checklist
 
 - [x] Registry ID present · classification present (Diagnostic / Boundary)
-- [x] Transformed notes only (no raw text, no copied passages, no general summary)
-- [x] No RH/GRH progress · no prime detector · no exponential-sum/sieve theorem · no new theorem
-- [x] Cancellation feeds Type-II but does not break parity; Weil bound cited as a known result
-- [x] Deshouillers–Iwaniec cited as external input; FRONTIER-ANT-PVG-007 stays frozen (not reopened)
-- [x] No crossing WALL-PARITY / WALL-OFF-DIAGONAL · MC-001 unsolved
-- [x] Target registered planned → live on honest completion: `TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001`; planned.jsonl empty
-- [x] MNTII-006-F not started · no full book mining
-- [x] Six guards PASS after this unit
+- [x] SOURCE-GROUNDED from Treasure Packet (Ch 22); transformed notes only
+- [x] Known bounded-gaps theorem recorded as Known; NOT our result; NOT twin primes; NOT a parity breakthrough
+- [x] BV = average input; EH = conditional; NOT individual GRH
+- [x] No crossing WALL-PARITY / WALL-SIEVE-CEILING / WALL-OFF-DIAGONAL / WALL-DENSITY-HYP · MC-001 & MC-005 unsolved
+- [x] Status = validated_intake (NOT closed, NOT PASS); pending v0.6-E Closure Review
+- [x] Legacy off-diagonal E quarantined; TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001 registered
+- [x] Seven guards PASS after this intake
 
-**Ceiling:** exponential and Kloosterman sums enter as an off-diagonal cancellation diagnostic feeding the bilinear / Type-II information behind the large sieve — cancellation, not prime detection; the parity barrier is uncrossed and the spectral front FRONTIER-ANT-PVG-007 stays frozen. No RH/GRH progress.
+**Ceiling:** bounded gaps (GPY / Maynard) enter as a KNOWN theorem read as a sieve diagnostic — not our result, not twin primes, not a parity breakthrough, not RH/GRH progress. Weights are optimization devices, not prime detectors. MC-001 / MC-005 unsolved; walls uncrossed. No RH/GRH progress.

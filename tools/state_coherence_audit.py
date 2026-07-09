@@ -55,7 +55,8 @@ need(("Montgomery" in latest) or ("v0.6" in latest),
 
 # 3. next-action reflects the actual next action
 nexta = read("transition-memory/next-action.md") or ""
-need(("Intake" in nexta) or ("Coherence Audit 005" in nexta),
+need(("Intake" in nexta) or ("Coherence Audit 005" in nexta) or ("Closure Review" in nexta)
+     or ("Correction 006" in nexta),
      "transition-memory/next-action.md does not reflect the actual next action")
 
 # 8. planned.jsonl empty must be reflected in next-action
@@ -111,23 +112,43 @@ if letters:
     need("partial_overlay" in mont_line,
          "books.jsonl Montgomery should be 'partial_overlay' (has units, overlay in progress)")
 
-# E QUARANTINE: E exists without a closure -> must be marked quarantined, never trusted/closed
-e_exists = os.path.isfile(os.path.join(ROOT, MONT, "units", "MNTII-006-E.md"))
-e_closed = os.path.isfile(os.path.join(ROOT, "audits", "v0.6-e-closure.md"))
-if e_exists and not e_closed:
-    qwords = ("quarantin", "unvalidated", "pre-packet", "pending validation")
-    for rel in [os.path.join(MONT, "README.md"), "registries/books.jsonl", "transition-memory/next-action.md"]:
-        t = (read(rel) or "").lower()
-        need(any(q in t for q in qwords),
-             "unit E exists without closure but %s does not mark E quarantined/unvalidated/pre-packet" % rel)
-    try:
-        obj = json.loads(mont_line) if mont_line.strip() else {}
-    except Exception:
-        obj = {}
-    need("E" not in str(obj.get("trusted_closed_units", "")),
-         "books.jsonl lists quarantined unit E among trusted_closed_units")
-    need("E" in str(obj.get("quarantined_units", "")),
-         "books.jsonl does not list unit E under quarantined_units")
+# SOURCE-GROUNDING CORRECTION 006 invariants (source is the governor, not miner speed)
+try:
+    obj = json.loads(mont_line) if mont_line.strip() else {}
+except Exception:
+    obj = {}
+trusted = str(obj.get("trusted_source_units", "")) or str(obj.get("trusted_closed_units", ""))
+quarant = str(obj.get("quarantined_units", ""))
+trusted_tokens = [t.strip() for t in trusted.replace("+", ",").split(",") if t.strip()]
+# A and B must NOT be counted as trusted source-grounded units (cross-volume source-mismatch)
+need("A" not in trusted_tokens, "books.jsonl counts quarantined unit A among trusted source units")
+need("B" not in trusted_tokens, "books.jsonl counts quarantined unit B among trusted source units")
+# A and B must be marked quarantined
+need("A" in quarant, "books.jsonl does not mark unit A quarantined (source-mismatch)")
+need("B" in quarant, "books.jsonl does not mark unit B quarantined (source-mismatch)")
+# The legacy off-diagonal E must not be trusted; it must be quarantined
+need("legacy" not in trusted.lower(), "books.jsonl counts the legacy off-diagonal E among trusted units")
+need("legacy" in quarant.lower(), "books.jsonl does not mark the legacy off-diagonal E quarantined")
+# Montgomery must not be called a full book closure (check structured fields, not prose)
+need(obj.get("status") != "book_overlay_closed"
+     and "closed" not in str(obj.get("overlay", "")).lower(),
+     "books.jsonl Montgomery is marked as a full book closure; must be partial_overlay")
+# The E intake must not be called closed/PASS before its Closure Review
+need(not os.path.isfile(os.path.join(ROOT, "audits", "v0.6-e-closure.md")),
+     "v0.6-e-closure.md exists but the bounded-gaps E intake must not be closed before v0.6-E Closure Review")
+e_intake = read(os.path.join(MONT, "units", "MNTII-006-E.md")) or ""
+if e_intake:
+    need("validated_intake" in e_intake, "MNTII-006-E (intake) is not marked validated_intake")
+    need("not closed" in e_intake.lower(), "MNTII-006-E (intake) is not marked NOT closed")
+# MNTII-006-F must not exist (no new unit after the correction)
+need(not os.path.isfile(os.path.join(ROOT, MONT, "units", "MNTII-006-F.md")),
+     "MNTII-006-F unit exists; no new Montgomery unit is allowed after Correction 006")
+# The state files must carry the quarantine / source-mismatch markers
+qwords = ("quarantin", "source-mismatch", "unvalidated", "pre-packet")
+for rel in [os.path.join(MONT, "README.md"), "registries/books.jsonl", "transition-memory/next-action.md"]:
+    t = (read(rel) or "").lower()
+    need(any(q in t for q in qwords),
+         "%s does not carry the quarantine / source-mismatch markers" % rel)
 
 if issues:
     print("FAIL - %d state-coherence issue(s):" % len(issues))

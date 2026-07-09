@@ -1,6 +1,6 @@
 # Montgomery MNT-II — Normalization Ledger
 
-Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 units MNTII-006-A + MNTII-006-B + MNTII-006-C + MNTII-006-D + MNTII-006-E.** كلُّ كنزٍ في `treasure-map.md` ← ماذا صار داخل العقل (معرِّفاتٌ حيّة). المخرجاتُ الأساسيّةُ الجديدة: `TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001` (006-A) · `TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001` (006-B) · `TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001` (006-C) · `TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001` (006-D) · `TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001` (006-E) — كلُّها live في `registries/tools.jsonl`.
+Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — source-grounding-corrected (Correction 006).** كلُّ كنزٍ في `treasure-map.md` ← المعرِّفاتُ الحيّة. **المسارُ الموثوقُ المؤصَّلُ على المصدر:** `TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001` (C, Ch 19-20) · `TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001` (D, Ch 21) · `TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001` (E, Ch 22، intake). **محجورٌ (source-mismatch، غيرُ موثوق):** `TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001` (A) · `TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001` (B) · `TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001` (legacy E).
 
 ```text
 TREASURE-MNTII-001  Montgomery-style analytic tools as distribution diagnostics
@@ -159,61 +159,74 @@ TREASURE-MNTII-029  MC-001 unsolved; walls uncrossed
   → PVG–ANT           : parity uncrossed; sieve reach bounded
 ```
 
-## Unit MNTII-006-E — normalization (exponential / Kloosterman sums, off-diagonal cancellation)
+## Unit MNTII-006-E — normalization (bounded gaps / GPY / Maynard, Ch 22, source-grounded intake)
 
 ```text
-TREASURE-MNTII-030  Exponential sums (Weyl / van der Corput)
-  → Tool (NEW)        : TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001
+TREASURE-MNTII-030  Admissible tuples as local obstruction geometry
+  → Tool (NEW)        : TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001
   → Frontier          : FRONTIER-ANT-PVG-004
-  → Wall              : WALL-OFF-DIAGONAL
-  → PVG–ANT           : oscillation / cancellation observable on the off-diagonal
-
-TREASURE-MNTII-031  Kloosterman sums / Weil bound (√ cancellation)
-  → Tool (NEW)        : TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001
-  → Wall              : WALL-OFF-DIAGONAL
-  → PVG–ANT           : square-root cancellation on the residue-fiber off-diagonal
-
-TREASURE-MNTII-032  Cancellation feeds Type-II / bilinear
-  → Tool (NEW)        : TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001
-  → Tool (neighbour)  : TOOL-TYPE-I-II-DIAGNOSTIC-001 (Harman, 006-D)
   → Wall              : WALL-PARITY
+  → PVG–ANT           : shifted support configuration avoiding local residue obstructions
+
+TREASURE-MNTII-031  GPY weights as a prime-rich-tuple diagnostic
+  → Tool (NEW)        : TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001
+  → Wall              : WALL-SIEVE-CEILING
   → Missing Certificate: MC-001
-  → PVG–ANT           : the off-diagonal cancellation feeding the Type-II certificate
+  → PVG–ANT           : optimization weight over residue-filtered boxes, NOT a primality certificate
 
-TREASURE-MNTII-033  Deshouillers–Iwaniec spectral bounds (external; 007 frozen)
-  → External (cited)  : known input; FRONTIER-ANT-PVG-007 stays FROZEN (not reopened)
-  → PVG–ANT           : a deep external input, cited — not our result
+TREASURE-MNTII-032  Maynard multidimensional sieve optimization (KNOWN theorem)
+  → Tool (NEW)        : TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001
+  → Wall              : WALL-SIEVE-CEILING
+  → PVG–ANT           : optimization over residue-filtered boxes; decisive certificate is analytic
 
-TREASURE-MNTII-034  Cancellation ≠ prime detection (parity)
-  → Wall              : WALL-PARITY
-  → Missing Certificate: MC-001
-  → PVG–ANT           : an oscillation observable, not a prime count
+TREASURE-MNTII-033  Level of distribution as external certificate
+  → Tool (NEW)        : TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001
+  → Tool (neighbour)  : TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001 (006-C, BV level 1/2)
+  → Missing Certificate: MC-005 (individual)
+  → PVG–ANT           : the analytic distribution certificate the weighted sieve consumes
 
-TREASURE-MNTII-035  Cancellation behind the large sieve / dispersion
-  → Tool (NEW)        : TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001
+TREASURE-MNTII-034  BV gives bounded gaps through average distribution, not GRH
+  → Missing Certificate: MC-005
   → Tool (neighbour)  : TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001 (006-C)
-  → PVG–ANT           : the shared cancellation source behind frontiers 006 and 004
+  → PVG–ANT           : average residue-fiber distribution, not individual control
 
-TREASURE-MNTII-036  MC-001 unsolved; walls uncrossed; 007 frozen
+TREASURE-MNTII-035  EH-dependent improvements are conditional only
+  → Open Problem      : Elliott–Halberstam (unproven) — no tool, no certificate (deferred)
+  → PVG–ANT           : a conditional (not achieved) sharpening
+
+TREASURE-MNTII-036  Bounded gaps are not twin primes and not a parity breakthrough
+  → Wall              : WALL-PARITY — UNCROSSED
   → Missing Certificate: MC-001 — UNSOLVED
-  → Wall              : WALL-OFF-DIAGONAL · WALL-PARITY — UNCROSSED
-  → Frontier (frozen) : FRONTIER-ANT-PVG-007 — FROZEN (not reopened)
-  → PVG–ANT           : cancellation observed; parity and frozen spectral front standing
+  → PVG–ANT           : a prime-rich translate, not a certified prime pair; parity uncrossed
 ```
 
-## Live IDs consolidated (units A + B + C + D + E)
+## Normalized phrases (Treasure Packet)
 
 ```text
-Tools (NEW, live) : TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001 (006-A) · TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001 (006-B) · TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001 (006-C) · TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001 (006-D) · TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001 (006-E)   (all Diagnostic / Frontier Support)
+"bounded gaps"     = known classical theorem, NOT a PVG result.
+"Maynard theorem"  = known theorem (Maynard / Montgomery–Vaughan exposition), NOT a new result.
+"BV input"         = average distribution input (level 1/2, unconditional on average), NOT individual GRH.
+"EH"               = conjectural / conditional strengthening (unproven).
+"admissible tuple" = local obstruction-free tuple, NOT a guaranteed all-prime tuple.
+"A/B legacy"       = cross-volume context, NOT source-grounded MNT-II units (quarantined).
+"legacy off-diagonal E" = Kloosterman / exp-sum unit, source-mismatch (quarantined).
+```
+
+## Live IDs consolidated (source-grounding-corrected)
+
+```text
+Trusted source-grounded tools : TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001 (C, Ch 19-20) ·
+    TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001 (D, Ch 21) · TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001 (E, Ch 22, intake)
+Quarantined tools (source-mismatch) : TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001 (A) ·
+    TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001 (B) · TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001 (legacy E)
 Tools (neighbour) : TOOL-ZERO-DENSITY-DIAGNOSTIC-001 · TOOL-LARGE-VALUE-DIAGNOSTIC-001 · TOOL-SIEVE-INFO-CONSUMPTION-001 · TOOL-TYPE-I-II-DIAGNOSTIC-001
-Observables       : OBS-CHARACTER-001 · OBS-RESIDUE-FIBER-001
 Walls             : WALL-ZERO-FREE · WALL-SIEGEL · WALL-POSITIVITY-WEIL · WALL-DENSITY-HYP · WALL-OFF-DIAGONAL · WALL-PARITY · WALL-SIEVE-CEILING
 Missing           : MC-001 · MC-002 · MC-005   (all UNSOLVED)
-Frontier          : FRONTIER-ANT-PVG-006 (A/B/C) · FRONTIER-ANT-PVG-004 (D/E) (+ bridge)
+Frontier          : FRONTIER-ANT-PVG-004 (C/D/E sieves) · FRONTIER-ANT-PVG-006 (distribution input)
 Frozen front      : FRONTIER-ANT-PVG-007 (spectral) — cited, not reopened
 Open problem      : Elliott–Halberstam (unproven; no certificate)
 ```
 
-**Consistency note:** each new tool (006-A/B/C/D + 006-E EXPSUM-DIAGNOSTIC) was registered as the single planned target of its unit then promoted to live in `registries/tools.jsonl` on honest completion; `planned.jsonl` is empty. Neighbour / observable ids pre-exist. MC-001, MC-002 & MC-005 UNSOLVED. Cancellation feeds Type-II but does not break parity; Deshouillers–Iwaniec cited as external input with FRONTIER-ANT-PVG-007 frozen; Bombieri–Vinogradov average-not-individual; Elliott–Halberstam unproven; classical sieves bounds / almost-primes not primes.
+**Consistency note:** the trusted source-grounded path is C (Ch 19-20) · D (Ch 21) · E bounded gaps (Ch 22, validated_intake, NOT closed). Units A/B and the legacy off-diagonal E are QUARANTINED (cross-volume / source-mismatch); their tools are not trusted. `planned.jsonl` empty. MC-001, MC-002 & MC-005 UNSOLVED. Bounded gaps is a KNOWN theorem, not our result, not twin primes, not a parity break.
 
-**Honest classification:** Diagnostic / Boundary (normalization ledger, v0.6 units A + B + C + D + E). No RH/GRH progress.
+**Honest classification:** Diagnostic / Boundary (normalization ledger, source-grounding-corrected). No RH/GRH progress.
