@@ -1,4 +1,4 @@
-# Montgomery MNT-II Ledger — Book ANT (v0.6, scope open)
+# Montgomery MNT-II Frontier Support Layer — Book ANT (v0.6, first unit ingested)
 
 ## Source
 
