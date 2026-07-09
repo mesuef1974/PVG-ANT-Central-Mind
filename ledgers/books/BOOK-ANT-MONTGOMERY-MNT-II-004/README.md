@@ -1,4 +1,4 @@
-# Montgomery MNT-II Frontier Support Layer — Book ANT (v0.6, units A + B + C + D ingested)
+# Montgomery MNT-II Frontier Support Layer — Book ANT (v0.6, units A + B + C + D + E ingested)
 
 ## Source
 
@@ -16,6 +16,6 @@ Ledger will contain transformed notes only, no book text.
 
 ## Status
 
-**v0.6 — mining units `units/MNTII-006-A.md` (distribution diagnostics), `units/MNTII-006-B.md` (distributional limits / barriers), `units/MNTII-006-C.md` (large sieve / Bombieri–Vinogradov on-average), and `units/MNTII-006-D.md` (Selberg / combinatorial sieve, bounded reach) ingested** — feeding `FRONTIER-ANT-PVG-006` (A/B/C) and `FRONTIER-ANT-PVG-004` (D). Live outputs: `TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001`, `TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001`, `TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001`, and `TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001` (all Diagnostic / Frontier Support). Treasure overlays cover units A + B + C + D (`TREASURE-MNTII-001..029`); **the rest of the book is unmined** (see `missed-treasures.md`) — progress toward a fuller overlay across the "Primes" (006) and "Sieves" (004) pillars, not a complete book-mining pass. Plan in `v0.6-scope.md` / `v0.6-scope-freeze.md`. **No MNTII-006-E started.**
+**v0.6 — mining units `units/MNTII-006-A.md` (distribution diagnostics), `units/MNTII-006-B.md` (distributional limits / barriers), `units/MNTII-006-C.md` (large sieve / Bombieri–Vinogradov on-average), `units/MNTII-006-D.md` (Selberg / combinatorial sieve, bounded reach), and `units/MNTII-006-E.md` (exponential / Kloosterman sums, off-diagonal cancellation) ingested** — feeding `FRONTIER-ANT-PVG-006` (A/B/C) and `FRONTIER-ANT-PVG-004` (D/E). Live outputs: `TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001`, `TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001`, `TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001`, `TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001`, and `TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001` (all Diagnostic / Frontier Support). Treasure overlays cover units A + B + C + D + E (`TREASURE-MNTII-001..036`); **the rest of the book is unmined** (see `missed-treasures.md`) — a partial overlay across the "Primes" (006) and "Sieves" (004) pillars, not a complete book-mining pass. The spectral front `FRONTIER-ANT-PVG-007` stays frozen (Deshouillers–Iwaniec cited only). Plan in `v0.6-scope.md` / `v0.6-scope-freeze.md`. **No MNTII-006-F started.**
 
-**Honest classification:** Diagnostic (book ledger, v0.6 units A + B + C + D ingested). No RH/GRH progress. No complete mastery.
+**Honest classification:** Diagnostic (book ledger, v0.6 units A + B + C + D + E ingested). No RH/GRH progress. No complete mastery.

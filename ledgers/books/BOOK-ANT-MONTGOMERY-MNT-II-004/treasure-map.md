@@ -1,6 +1,6 @@
 # Montgomery MNT-II — Treasure Map
 
-Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — mining units `MNTII-006-A` (distribution diagnostics), `MNTII-006-B` (distributional limits / barriers), `MNTII-006-C` (large sieve / Bombieri–Vinogradov on-average), and `MNTII-006-D` (Selberg / combinatorial sieve, bounded reach) ingested.** طبقةُ تعدينٍ تحت `governance/book-treasure-extraction-protocol.md`. مؤصَّلٌ على الوحدات الأربع (transformed notes only، PDF خارج git). كنوزٌ محدودةٌ لأربع وحداتٍ ضيّقة؛ **باقي الكتاب غيرُ مُعدَّن** (see `missed-treasures.md`). لا نصٌّ خام، لا ادّعاءُ إتقانٍ كامل.
+Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — mining units `MNTII-006-A` (distribution diagnostics), `MNTII-006-B` (distributional limits / barriers), `MNTII-006-C` (large sieve / Bombieri–Vinogradov on-average), `MNTII-006-D` (Selberg / combinatorial sieve, bounded reach), and `MNTII-006-E` (exponential / Kloosterman sums, off-diagonal cancellation) ingested.** طبقةُ تعدينٍ تحت `governance/book-treasure-extraction-protocol.md`. مؤصَّلٌ على الوحدات الخمس (transformed notes only، PDF خارج git). كنوزٌ محدودةٌ لخمس وحداتٍ ضيّقة؛ **باقي الكتاب غيرُ مُعدَّن** (see `missed-treasures.md`). لا نصٌّ خام، لا ادّعاءُ إتقانٍ كامل.
 
 ```text
 Treasure ID: TREASURE-MNTII-001
@@ -385,4 +385,97 @@ Classification: Missing Certificate.
 Normalized output: → Missing Certificate MC-001 ; → Wall WALL-PARITY, WALL-SIEVE-CEILING (uncrossed).
 ```
 
-**Honest classification:** Diagnostic / Boundary (treasure map, v0.6 units A + B + C + D). No RH/GRH progress. No zero-density/large-values/PNT-AP improvement, no distributional-limit theorem, no sieve theorem, no prime detector; Bombieri–Vinogradov is average-not-individual; Elliott–Halberstam is an unproven open problem; classical sieves give bounds/almost-primes not primes (parity); RH-conditional statistics out of scope. MC-001 & MC-002 & MC-005 unsolved; walls uncrossed.
+## Unit MNTII-006-E — exponential / Kloosterman sums, off-diagonal cancellation (7 cards)
+
+```text
+Treasure ID: TREASURE-MNTII-030
+Treasure:    Exponential sums (Weyl / van der Corput) as a cancellation diagnostic
+Source:      MNTII-006-E — transformed notes only
+Type:        cancellation diagnostic
+Why it matters: the Weyl and van der Corput methods bound exponential sums by cancellation — the analytic measure of off-diagonal oscillation.
+ANT role:    bounds for Σ e(f(n)) via differencing / stationary phase.
+PVG translation: an oscillation / cancellation observable on the off-diagonal.
+Wall / certificate: WALL-OFF-DIAGONAL — diagnostic.
+Classification: Known / Diagnostic.
+Normalized output: → Tool TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001 ; → Frontier FRONTIER-ANT-PVG-004.
+```
+
+```text
+Treasure ID: TREASURE-MNTII-031
+Treasure:    Kloosterman sums and the Weil bound (square-root cancellation)
+Source:      MNTII-006-E — transformed notes only
+Type:        cancellation bound
+Why it matters: the Weil bound |Kl(a,b;p)| ≤ 2√p gives square-root cancellation — the deep pointwise cancellation for Kloosterman sums.
+ANT role:    Kl(a,b;p) = Σ_x e((ax + b·x⁻¹)/p); |Kl| ≤ 2√p (Weil).
+PVG translation: square-root cancellation on the residue-fiber off-diagonal.
+Wall / certificate: WALL-OFF-DIAGONAL — a known bound, not a crossing.
+Classification: Known / Diagnostic.
+Normalized output: → Tool TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001.
+```
+
+```text
+Treasure ID: TREASURE-MNTII-032
+Treasure:    Cancellation feeds Type-II / bilinear information
+Source:      MNTII-006-E — transformed notes only
+Type:        connection diagnostic
+Why it matters: exponential / Kloosterman cancellation is the analytic source of the bilinear (Type-II) information that crosses parity in Harman's decomposition and powers dispersion / BV.
+ANT role:    cancellation → bilinear sum estimates → Type-II input.
+PVG translation: the off-diagonal cancellation feeding the Type-II certificate (not producing it alone).
+Wall / certificate: WALL-PARITY (Type-II crosses it, cancellation feeds it); MC-001.
+Classification: Diagnostic.
+Normalized output: → Tool TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001 ; relates TOOL-TYPE-I-II-DIAGNOSTIC-001 (Harman, 006-D).
+```
+
+```text
+Treasure ID: TREASURE-MNTII-033
+Treasure:    Deshouillers–Iwaniec spectral bounds — cited external input (front 007 stays frozen)
+Source:      MNTII-006-E — transformed notes only
+Type:        boundary / external citation
+Why it matters: bounds on sums of Kloosterman sums (Deshouillers–Iwaniec, via automorphic-form spectral theory) are the deep external input for the strongest Type-II estimates.
+ANT role:    averaged Kloosterman-sum bounds beyond Weil, used in Type-II (e.g. Bombieri–Friedlander–Iwaniec).
+PVG translation: an external deep input, cited — not our result.
+Wall / certificate: the PVG spectral front FRONTIER-ANT-PVG-007 is FROZEN and is NOT reopened by citing this.
+Classification: Known / Boundary.
+Normalized output: → cited external input ; FRONTIER-ANT-PVG-007 stays frozen (no reopening).
+```
+
+```text
+Treasure ID: TREASURE-MNTII-034
+Treasure:    Cancellation is not prime detection — parity still blocks
+Source:      MNTII-006-E — transformed notes only
+Type:        no-go boundary
+Why it matters: off-diagonal cancellation feeds bilinear information but does NOT detect primes by itself; the parity barrier still blocks prime detection.
+ANT role:    cancellation ≠ prime detection; Type-II is still the missing external certificate.
+PVG translation: an oscillation observable, not a prime count.
+Wall / certificate: WALL-PARITY — uncrossed; MC-001 unsolved.
+Classification: Boundary.
+Normalized output: → Wall WALL-PARITY ; → Missing Certificate MC-001.
+```
+
+```text
+Treasure ID: TREASURE-MNTII-035
+Treasure:    Exponential-sum cancellation behind the large sieve / dispersion
+Source:      MNTII-006-E — transformed notes only
+Type:        connection diagnostic
+Why it matters: the cancellation this unit measures is the analytic root of the large-sieve inequality (006-C) and the dispersion method — it ties the Montgomery analytic and sieve units together.
+ANT role:    exponential-sum cancellation → mean / large-value → large sieve / dispersion.
+PVG translation: the shared cancellation source behind frontiers 006 and 004.
+Wall / certificate: WALL-OFF-DIAGONAL — diagnostic.
+Classification: Diagnostic.
+Normalized output: → Tool TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001 ; relates TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001 (006-C).
+```
+
+```text
+Treasure ID: TREASURE-MNTII-036
+Treasure:    MC-001 unsolved; WALL-OFF-DIAGONAL / WALL-PARITY uncrossed; FRONTIER-007 frozen
+Source:      MNTII-006-E — transformed notes only
+Type:        standing certificate + walls
+Why it matters: the cancellation diagnostic does NOT resolve parity or reopen the spectral front.
+ANT role:    the parity break (MC-001) and the off-diagonal / spectral boundaries.
+PVG translation: cancellation observed; parity and the frozen spectral front standing.
+Wall / certificate: WALL-OFF-DIAGONAL · WALL-PARITY — UNCROSSED; MC-001 UNSOLVED; FRONTIER-ANT-PVG-007 FROZEN.
+Classification: Missing Certificate.
+Normalized output: → Missing Certificate MC-001 ; → Wall WALL-OFF-DIAGONAL, WALL-PARITY (uncrossed).
+```
+
+**Honest classification:** Diagnostic / Boundary (treasure map, v0.6 units A + B + C + D + E). No RH/GRH progress. No zero-density/large-values/PNT-AP improvement, no distributional-limit theorem, no sieve theorem, no exponential-sum theorem, no prime detector; Bombieri–Vinogradov is average-not-individual; Elliott–Halberstam is an unproven open problem; classical sieves give bounds/almost-primes not primes (parity); exponential/Kloosterman cancellation feeds Type-II but is not prime detection; the spectral front FRONTIER-ANT-PVG-007 stays frozen. MC-001 & MC-002 & MC-005 unsolved; walls uncrossed.
