@@ -16,6 +16,6 @@ Ledger will contain transformed notes only, no book text.
 
 ## Status
 
-**v0.4 in progress.** `IK-006-A` (zero-density estimates as diagnostic tools) ingested → `TOOL-ZERO-DENSITY-DIAGNOSTIC-001` (Diagnostic) live. Planned: `TOOL-LARGE-VALUE-DIAGNOSTIC-001` (IK-006-B). Missing certificates in play: `MC-002` (unsolved), `MC-005` (unsolved). `WALL-SIEGEL` / `WALL-POSITIVITY-WEIL` not crossed. Plan in `v0.4-scope.md` / `v0.4-scope-freeze.md`.
+**v0.4 in progress (IK-006-A/B ingested).** `IK-006-A` (zero-density) → `TOOL-ZERO-DENSITY-DIAGNOSTIC-001` · `IK-006-B` (large-value / mean-value) → `TOOL-LARGE-VALUE-DIAGNOSTIC-001`. Both **Diagnostic**. Large sieve = ambient context, not a separate unit. Missing certificates in play: `MC-002` (unsolved), `MC-005` (unsolved). `WALL-SIEGEL` / `WALL-POSITIVITY-WEIL` not crossed. Awaiting v0.4 closure review. Plan in `v0.4-scope.md` / `v0.4-scope-freeze.md`.
 
 **Honest classification:** Diagnostic (book ledger, scope open). No RH/GRH progress. No complete mastery.

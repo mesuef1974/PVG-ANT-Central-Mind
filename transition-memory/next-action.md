@@ -39,7 +39,11 @@ Mileti-001-E  Deduction as Formal Proof Object            (TOOL-DEDUCTION-SYSTEM
 
 **Audit note (IK-006-A):** transformed notes; zero-density estimates N(σ,T) read as a frontier diagnostic / conditional-average substitute for RH in error terms. Registered v0.4 targets (A+B); promoted `TOOL-ZERO-DENSITY-DIAGNOSTIC-001` (Diagnostic) — IK-006-B (`TOOL-LARGE-VALUE-DIAGNOSTIC-001`) kept planned; book status → in_progress; guards PASS. Ceiling held: zero-density is diagnostic/conditional support, not RH/GRH progress, not a PNT/AP improvement, not a new theorem; `WALL-SIEGEL` / `WALL-POSITIVITY-WEIL` not crossed; MC-002 & MC-005 unsolved.
 
-**Next allowed:** `IK-006-B` (large-value / mean-value machinery, `TOOL-LARGE-VALUE-DIAGNOSTIC-001`) — awaiting explicit permission. No large values / large sieve yet.
+**Audit note (IK-006-B):** transformed notes; large-value / mean-value (second-moment) machinery read as diagnostic support feeding zero-density N(σ,T). Promoted `TOOL-LARGE-VALUE-DIAGNOSTIC-001` (Diagnostic); planned.jsonl empty; large sieve kept as ambient context (not a separate unit); guards PASS. Ceiling held: diagnostic/conditional support, not RH/GRH progress, not a large-values theorem or zero-density/PNT/AP improvement; `WALL-SIEGEL` / `WALL-POSITIVITY-WEIL` not crossed; MC-002 & MC-005 unsolved.
+
+**v0.4 IK-006-A/B ingested (frontier 006 support). planned.jsonl empty.**
+
+**Next allowed:** v0.4 closure review (IK-006-A/B), then a further IK unit or another book — awaiting explicit permission. No IK-006-C, no large sieve as a separate unit, no expansion before review.
 
 ## قاعدة البدء
 
