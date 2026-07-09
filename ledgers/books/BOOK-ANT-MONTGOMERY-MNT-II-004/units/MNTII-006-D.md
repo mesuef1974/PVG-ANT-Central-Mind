@@ -69,7 +69,7 @@ Reading            : bounds + almost-primes, NOT primes (parity); κ is the diag
 
 ## Next valid action
 
-candidate v0.6-D closure review (MNTII-006-D), then a further Montgomery unit or another book or freeze — on explicit permission. **No MNTII-006-E, no full book mining, no expansion before review.**
+**Superseded (historical):** MNTII-006-D is closure-reviewed (`v0.6-d-closure.md` PASS); MNTII-006-E was later executed but is **QUARANTINED / unvalidated** (pre-packet), not closure-reviewed. No full book mining; no expansion without explicit permission.
 
 ## Audit checklist
 

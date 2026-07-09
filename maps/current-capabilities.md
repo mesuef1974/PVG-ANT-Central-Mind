@@ -1,25 +1,48 @@
 # Current Capabilities
 
-The Central Mind can currently:
+Live installed capabilities of the Central Mind (from the mined books and registered tools). Diagnostic snapshot — see `registries/*.jsonl` for the source of truth.
 
-1. Classify arithmetic functions by PVG geometry.
-2. Build Dirichlet series / Euler product diagnostics.
-3. Route multiplicative functions through: Halász / Delange / Wirsing / Selberg–Delange.
-4. Separate average order from normal order.
-5. Use Turán–Kubilius as a concentration certificate.
-6. Read Erdős–Kac as a Gaussian shell law.
-7. Audit tail, moments, and maximal order separately.
-8. Prevent RH/GRH promotion claims (guards + certificate ledger).
-9. Track missing certificates.
-10. Route through 14 skill interface cards, with governance skills holding higher authority.
+## Installed live layers
 
-## Current weakness
+```text
+1. Logic / certificate discipline (Mileti A-H): formalization · syntax/semantics · metatheory ·
+   induction/recursion (generation) · deduction as a checkable proof object · soundness · completeness ·
+   compactness. Rules RULE-LOGIC-001..004, RULE-CERT-SOUNDNESS-001; tools TOOL-GENERATION-001,
+   TOOL-DEDUCTION-SYSTEM-001, TOOL-COMPLETENESS-001, TOOL-COMPACTNESS-001. Governance substrate.
+2. ANT operational tools (Overholt): Euler product · Mobius · hyperbola · Perron · character orthogonality.
+3. Multiplicative-function / probabilistic diagnostics (Tenenbaum): observable ladder · decision tree ·
+   Halasz/Delange/Wirsing/Selberg-Delange · Turan-Kubilius · Erdos-Kac · residue-fiber observables · L(s,chi).
+4. Zero-density / large-values frontier diagnostics (IK): TOOL-ZERO-DENSITY-DIAGNOSTIC-001,
+   TOOL-LARGE-VALUE-DIAGNOSTIC-001.
+5. Sieve-information diagnostics (Harman): TOOL-SIEVE-INFO-CONSUMPTION-001, TOOL-TYPE-I-II-DIAGNOSTIC-001.
+6. Montgomery MNT-II frontier-support tools (v0.6): TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001 (A),
+   TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001 (B), TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001 (C),
+   TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001 (D). [MNTII-006-E / TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001
+   exist but are QUARANTINED / unvalidated — pending source-grounded intake; not a trusted capability.]
+7. Zero-density-impact operating rule: RULE-ZERO-DENSITY-IMPACT-001 (a zero-density set may still
+   dominate averages of unbounded observables).
+8. Governance discipline: missing-certificate ledger (MC-001..005) · wall registry · claim-classification
+   matrix · treasure-extraction protocol · state-coherence policy.
+```
 
-- Logic certificate layer is not yet installed (Mileti planned, v0.2).
-- Residue-fiber Dirichlet character layer is next after the logic seed (Tenenbaum-005-A, v0.3).
+## Ceiling — what the mind is NOT
 
-## Ceiling
+```text
+- NOT a proof engine.
+- NOT RH/GRH progress (zero RH progress, zero GRH progress, no secured path).
+- NOT a prime detector (classical sieves count almost-primes; the parity barrier is uncrossed).
+- NOT a zero-density improvement machine (zero-density enters as a diagnostic, not a result).
+- NOT a replacement for classical certificates (missing certificates stay missing until externally certified).
+- NOT individual-modulus GRH (Bombieri-Vinogradov is average control only).
+- The spectral front FRONTIER-ANT-PVG-007 is FROZEN (Deshouillers-Iwaniec cited, not reopened).
+```
 
-zero RH progress · zero GRH progress · no secured path.
+## Standing limits
+
+```text
+Missing certificates (all UNSOLVED): MC-001 · MC-002 · MC-003 · MC-004 · MC-005.
+Walls: all uncrossed.
+Quarantine: MNTII-006-E (pre-packet, unvalidated).
+```
 
 **Honest classification:** Diagnostic (capability snapshot). No RH/GRH progress.

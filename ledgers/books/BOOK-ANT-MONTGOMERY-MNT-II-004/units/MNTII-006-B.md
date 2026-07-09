@@ -68,7 +68,7 @@ Zero-free limit          : WALL-ZERO-FREE — the barrier to a pointwise ψ(x)�
 
 ## Next valid action
 
-candidate v0.6-B closure review (MNTII-006-B), then MNTII-006-C or another book or freeze — on explicit permission. **No MNTII-006-C, no full book mining, no expansion before review.**
+**Superseded (historical):** MNTII-006-B is closure-reviewed (`v0.6-b-closure.md` PASS); MNTII-006-C was later executed and closed. No full book mining; no expansion without explicit permission.
 
 ## Audit checklist
 

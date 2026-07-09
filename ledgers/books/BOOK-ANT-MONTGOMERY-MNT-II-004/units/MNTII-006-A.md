@@ -67,7 +67,7 @@ Serves   : FRONTIER-ANT-PVG-006, deepening after v0.4 Iwaniec–Kowalski
 
 ## Next valid action
 
-candidate v0.6 closure review (MNTII-006-A), then MNTII-006-B or another book — on explicit permission. **No MNTII-006-B, no full book mining, no expansion before review.**
+**Superseded (historical):** this unit is closure-reviewed (`v0.6-a-closure.md` PASS); MNTII-006-B was later executed and closed. No full book mining; no expansion without explicit permission.
 
 ## Audit checklist
 

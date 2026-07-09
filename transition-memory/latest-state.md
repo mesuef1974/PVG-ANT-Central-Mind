@@ -1,34 +1,38 @@
 # Latest State
 
 ```text
-Version:        Central Mind Integration Pass 001 (v0.1b) — restructured to spec layout
-Home:           D:\PVG-ANT-Central-Mind (standalone git repo)
+Version:  v0.6 Montgomery MNT-II frontier-support mining (after Central Mind Coherence Audit 005)
+Home:     D:\PVG-ANT-Central-Mind (standalone git repo)
+HEAD ref: latest coherence baseline = Central Mind Coherence Audit 005
 
-Layout (spec named directories):
-  central-mind-charter.md · central-mind-goals.md · PVG-ANT-Central-Mind-v0.1b-full-spec.md
-  installed-skills/{math(10), governance(4)} + index
-  ledgers/books/{BOOK-ANT-OVERHOLT-001, BOOK-ANT-TENENBAUM-002, BOOK-LOGIC-MILETI-001(planned)}
-  ledgers/imports/{sieve, spectral-no-go, computational}
-  registries/  (11 jsonl + walls-registry.md; 86 canonical ids)
-  maps/ · governance/ · audits/ · transition-memory/ · tools/(6 guards)
+Books (registries/books.jsonl is the source of truth):
+  Mined, treasure overlay closed (AUDIT-CM-TREASURE-RETROFIT-CLOSURE-001), mastery deferred:
+    - Overholt   (ANT operational; reference model)
+    - Tenenbaum  (probabilistic / observable)
+    - Mileti     (logic / certificate; v0.2-A/B closed)
+    - Iwaniec-Kowalski (zero-density / large values; v0.4 closed)
+    - Harman     (sieve information / Type-I-II; v0.5 closed)
+  Partial overlay (in progress):
+    - Montgomery MNT-II (v0.6) — Level 2:
+        units A/B/C/D CLOSURE-REVIEWED (v0.6-a/b/c/d-closure PASS),
+        unit E (MNTII-006-E) EXISTS but QUARANTINED / unvalidated / pre-packet
+        (created before the corrected protocol; NOT closure-reviewed; NOT a trusted mined unit).
+  Available, not imported: Motohashi, Opera de Cribro, Hodel, Mendelson, Buss, Kossak, Stewart, Fesenko.
 
-Completed this pass:
-  - Integrated 14 skill interface cards (8 installed, 6 conceptual with backed_by)
-  - Overholt retrofit ledger; Tenenbaum partial through 004-Z (+ observable-ladder, master sheet)
-  - Added spec-required files: research-frontiers.jsonl (8), open-questions-queue.jsonl (4),
-    no-go-memory, claim-classification-matrix, certificate-funnel, book-import-protocol,
-    query-routing-guide, skill-dependency-graph, central-mind-goals, v0.1b-audit-checklist
-  - Restructured from numbered 7-layer to spec named layout; renamed 4 skill IDs
-  - Six guards PASS on new layout; adversarially self-tested
+Governing protocol:
+  Book import = treasure mining + normalization + integration + missed-treasures + guards + closure
+  (governance/book-treasure-extraction-protocol.md). From Course Correction 005:
+    ChatGPT   = mathematical treasure analyst / PVG-ANT interpreter (supplies Treasure Packets).
+    Local agent = repository engineer / registry maintainer / guard runner / coherence auditor.
+  No new mathematical unit without a ChatGPT Treasure Packet.
 
-Governance:
-  standalone repo · no PDFs tracked (.gitignore: Books_others, .venv, .idea, *.pdf) · no tag · no merge
-  NOTE: Books_catalog.md/csv exist at root but are left UNTRACKED (not authored here).
-Ceiling:
-  zero RH progress · zero GRH progress · no secured path
+Guards (7): honesty · registry_sync · no_pdf · forbidden_promotion · duplicate_concept · citation · state_coherence.
 
-Roadmap:
-  v0.1b = this pass (restructured)
-  v0.2  = Mileti logic certificate layer (Mileti-001-A..E; ledgers/books/BOOK-LOGIC-MILETI-001)
-  v0.3  = Tenenbaum-005-A Dirichlet characters as residue-fiber observables
+Standing missing certificates (all UNSOLVED): MC-001 (parity) · MC-002 (psi(x)-x / RH) ·
+  MC-003 (Weil positivity) · MC-004 (Artin holomorphy) · MC-005 (AP / GRH-level).
+Walls: all uncrossed. Frontier FRONTIER-ANT-PVG-007 (spectral) = FROZEN (cited, not reopened).
+
+Ceiling: zero RH progress · zero GRH progress · no secured path.
 ```
+
+**Honest classification:** Diagnostic (state snapshot). No RH/GRH progress.

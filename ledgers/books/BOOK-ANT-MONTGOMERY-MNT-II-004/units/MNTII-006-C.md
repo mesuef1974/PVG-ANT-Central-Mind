@@ -69,7 +69,7 @@ Reading             : average / family control, NOT individual-modulus GRH
 
 ## Next valid action
 
-candidate v0.6-C closure review (MNTII-006-C), then a further Montgomery unit or another book or freeze — on explicit permission. **No MNTII-006-D, no full book mining, no expansion before review.**
+**Superseded (historical):** MNTII-006-C is closure-reviewed (`v0.6-c-closure.md` PASS); MNTII-006-D was later executed and closed. No full book mining; no expansion without explicit permission.
 
 ## Audit checklist
 

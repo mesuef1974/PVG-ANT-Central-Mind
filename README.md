@@ -13,14 +13,14 @@
 |---|---|
 | `central-mind-charter.md`, `central-mind-goals.md` | الدستور والهدف الأعلى |
 | `installed-skills/{math,governance}` | 14 بطاقةَ واجهةِ مهارة (الحوكمة أعلى سلطة) |
-| `ledgers/books/` | Overholt (retrofit) · Tenenbaum (حتى 004-Z) · Mileti (planned) |
+| `ledgers/books/` | مُعدَّنة (treasure overlay مُغلَق): Overholt · Tenenbaum · Mileti · IK · Harman · **Montgomery MNT-II (v0.6, partial: A–D مُغلَقة، E محجورة)**؛ + 8 كتب `available_not_imported` |
 | `ledgers/imports/` | sieve · spectral-no-go · computational |
 | `registries/` | مصدرُ الحقيقة (JSONL): skills · books · research-frontiers · open-questions-queue · walls · tools · rules · observables · claims · planned · registry(constraint) |
 | `maps/` | skill-stack-map · skill-dependency-graph · query-routing-guide · current-capabilities · pvg-to-ant |
 | `governance/` | claim-classification-matrix · certificate-funnel · book-import-protocol · what-not-to-import · no-go-memory · classification-system · honesty-policy · central-rules · missing/forbidden · templates |
 | `audits/` | v0.1b-audit-checklist |
 | `transition-memory/` | latest-state · next-action · compressed-prompt |
-| `tools/` | ستّةُ حرّاس |
+| `tools/` | سبعةُ حرّاس (+ `state_coherence`) |
 | `Books_others/` | **مكتبةُ PDF محلّيّة — مستبعَدةٌ من git** |
 
 ## الحرّاس
@@ -32,6 +32,7 @@ python tools/no_pdf_audit.py              # لا PDF متعقَّب
 python tools/forbidden_promotion_audit.py # لا ترقية بلا شهادة
 python tools/duplicate_concept_audit.py   # لا مفهوم مكرَّر
 python tools/citation_audit.py            # كل سجلِّ كتابٍ موثَّقُ المصدر
+python tools/state_coherence_audit.py     # حالةُ العقل صادقةٌ ومحدَّثة (repository-truth)
 ```
 
 ## القانون النهائي
@@ -41,6 +42,12 @@ No registry, no entry.  No classification, no claim.  No certificate, no theorem
 No audit, no release.  No RH/GRH progress without proof certificate.
 ```
 
-## Roadmap
+## Current state & roadmap
 
-`v0.1b` Integration Pass 001 → `v0.2` Mileti Logic Certificate Layer → `v0.3` Tenenbaum-005-A Dirichlet characters. بلا tag · لا merge إلّا بمراجعة. المواصفةُ الكاملة: `PVG-ANT-Central-Mind-v0.1b-full-spec.md`.
+**Now (Central Mind Coherence Audit 005 complete):** خمسةُ كتبٍ مُعدَّنة (treasure overlay مُغلَق): Overholt · Tenenbaum · Mileti · IK · Harman. **Montgomery MNT-II (v0.6)** = partial overlay، Level 2: الوحداتُ A–D مُراجَعةُ إغلاق (v0.6-a/b/c/d PASS)، و**الوحدةُ E محجورةٌ / غيرُ مُصدَّقة** (pre-packet، بانتظار تأصيلٍ من المصدر). الحرّاسُ سبعة (+ `state_coherence`).
+
+**Next:** MNTII-006-E Intake / Validation (ChatGPT Treasure Packet). لا v0.6-E closure قبل التأصيل · لا كتابٌ جديد · لا وحدةٌ جديدة بلا Treasure Packet.
+
+**Roles:** ChatGPT = محلّلُ الكنوز الرياضيّة؛ العميلُ المحلّيُّ = مهندسُ المستودع والحوكمة (`governance/state-coherence-policy.md`).
+
+المسار: `v0.1b` → v0.2 Mileti → v0.3 Tenenbaum-005 → v0.4 IK → v0.5 Harman → treasure retrofit → v0.6 Montgomery. بلا tag · لا merge إلّا بمراجعة. المواصفةُ الكاملة: `PVG-ANT-Central-Mind-v0.1b-full-spec.md`.
