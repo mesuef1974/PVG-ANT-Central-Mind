@@ -17,3 +17,4 @@ Tenenbaum_PVG_ANT_extraction_status/
 # Local book catalog (regenerate from actual scan before tracking)
 Books_catalog.md
 Books_catalog.csv
+*.stackdump
