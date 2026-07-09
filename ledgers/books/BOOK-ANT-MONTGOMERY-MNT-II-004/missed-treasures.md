@@ -1,13 +1,52 @@
-# Montgomery MNT-II — Missed Treasures (scope-only placeholder / honesty file)
+# Montgomery MNT-II — Missed Treasures (honesty file)
 
-Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`.
+Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 unit MNTII-006-A.** هذا سجلُّ ما لم يُستخرَج بعدُ ولماذا — الصدقُ إلزاميّ. (MNT-II كتابٌ مرجعيٌّ ضخم؛ عُدِّن منه **بذرةٌ تشخيصيّةٌ واحدةٌ ضيّقة**.)
+
+## Required judgment
 
 ```text
-Status: scope-only / no treasures extracted yet
+Montgomery MNT-II extraction is deep only for the selected v0.6 distribution-diagnostic seed
+(unit MNTII-006-A), and is not a full-book treasure-mining pass.
 ```
 
-الحالةُ الصادقة: **الكتابُ كلُّه غيرُ مُعدَّنٍ الآن.** لا شيءَ استُخرِج، فكلُّ شيءٍ مؤجَّلٌ بانتظار التنفيذ (scope-only + freeze). لا إتقانَ، ولا حتى استخراجٌ جزئيٌّ بعد.
+## What was actually mined vs the book
 
-عند فتح التنفيذ، يسجّل هذا الملفُّ ما يبقى مؤجَّلًا بعد كلِّ وحدة (طبقةُ الصدق).
+```text
+Mined: one narrow unit — Montgomery-style analytic tools read as distribution diagnostics /
+       certificate pressure for FRONTIER-ANT-PVG-006 (unit MNTII-006-A).
+Not mined: essentially all of MNT-II "Primes and Sieves" — the detailed mean-value and
+       large-value theory, the sieve chapters, zero-density proofs, exponential sums, the
+       primes-and-sieves machinery at proof level, and everything else. All deferred.
+```
 
-**Honest classification:** Diagnostic (scope-only placeholder, honesty file). No RH/GRH progress.
+## Deferred / not-yet-mined treasure classes
+
+```text
+- full chapter-by-chapter MNT-II pass                         : deferred.
+- MNTII-006-B (deeper mean / large-value diagnostic unit)      : deferred (not started).
+- detailed mean-value / large-value proof architecture         : deferred (tools cited, not re-proved).
+- detailed zero-density proof architecture                     : deferred.
+- sieve chapters of MNT-II (primes-and-sieves at depth)         : deferred.
+- exponential sums and their estimates                         : not mined.
+- exercises                                                    : not mined.
+- proof-level extraction of selected results                    : deferred.
+```
+
+## Level assessment
+
+```text
+Level 2 (a single distribution-diagnostic seed normalized into one tool),
+far from Level 5 (full-book mastery): nearly the entire book remains unmined by design.
+```
+
+## Explicit non-claims
+
+```text
+MNT-II is not mined beyond one unit; this ledger is not a substitute for the book.
+No zero-density improvement claim. No large-values theorem. No PNT/AP improvement.
+No GRH/RH progress. MC-002 and MC-005 stay UNSOLVED.
+WALL-SIEGEL, WALL-POSITIVITY-WEIL, WALL-ZERO-FREE stay UNCROSSED.
+No raw text, no copied passages; transformed notes only.
+```
+
+**Honest classification:** Diagnostic / Boundary (missed-treasures honesty file, v0.6 unit A). No RH/GRH progress.

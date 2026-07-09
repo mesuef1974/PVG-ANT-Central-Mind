@@ -16,6 +16,6 @@ Ledger will contain transformed notes only, no book text.
 
 ## Status
 
-**v0.6 scope open (not read, no units yet).** Scope + freeze only; execution awaits explicit permission. Plan in `v0.6-scope.md` / `v0.6-scope-freeze.md`.
+**v0.6 — first mining unit `units/MNTII-006-A.md` ingested** (Montgomery-style analytic tools as distribution diagnostics for `FRONTIER-ANT-PVG-006`). Live output: `TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001` (Diagnostic / Frontier Support). Treasure overlays seeded from unit A; **the rest of the book is unmined** (see `missed-treasures.md`). Plan in `v0.6-scope.md` / `v0.6-scope-freeze.md`. **No MNTII-006-B started.**
 
-**Honest classification:** Diagnostic (book ledger, scope open). No RH/GRH progress. No complete mastery.
+**Honest classification:** Diagnostic (book ledger, v0.6 unit A ingested). No RH/GRH progress. No complete mastery.
