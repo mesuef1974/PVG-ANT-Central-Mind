@@ -1,4 +1,4 @@
-# Montgomery MNT-II Frontier Support Layer — Book ANT (v0.6, units A + B + C ingested)
+# Montgomery MNT-II Frontier Support Layer — Book ANT (v0.6, units A + B + C + D ingested)
 
 ## Source
 
@@ -16,6 +16,6 @@ Ledger will contain transformed notes only, no book text.
 
 ## Status
 
-**v0.6 — mining units `units/MNTII-006-A.md` (distribution diagnostics), `units/MNTII-006-B.md` (distributional limits / barriers), and `units/MNTII-006-C.md` (large sieve / Bombieri–Vinogradov on-average) ingested** for `FRONTIER-ANT-PVG-006`. Live outputs: `TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001`, `TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001`, and `TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001` (all Diagnostic / Frontier Support). Treasure overlays cover units A + B + C (`TREASURE-MNTII-001..022`); **the rest of the book is unmined** (see `missed-treasures.md`) — this is progress toward a fuller overlay, not a complete book-mining pass. Plan in `v0.6-scope.md` / `v0.6-scope-freeze.md`. **No MNTII-006-D started.**
+**v0.6 — mining units `units/MNTII-006-A.md` (distribution diagnostics), `units/MNTII-006-B.md` (distributional limits / barriers), `units/MNTII-006-C.md` (large sieve / Bombieri–Vinogradov on-average), and `units/MNTII-006-D.md` (Selberg / combinatorial sieve, bounded reach) ingested** — feeding `FRONTIER-ANT-PVG-006` (A/B/C) and `FRONTIER-ANT-PVG-004` (D). Live outputs: `TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001`, `TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001`, `TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001`, and `TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001` (all Diagnostic / Frontier Support). Treasure overlays cover units A + B + C + D (`TREASURE-MNTII-001..029`); **the rest of the book is unmined** (see `missed-treasures.md`) — progress toward a fuller overlay across the "Primes" (006) and "Sieves" (004) pillars, not a complete book-mining pass. Plan in `v0.6-scope.md` / `v0.6-scope-freeze.md`. **No MNTII-006-E started.**
 
-**Honest classification:** Diagnostic (book ledger, v0.6 units A + B + C ingested). No RH/GRH progress. No complete mastery.
+**Honest classification:** Diagnostic (book ledger, v0.6 units A + B + C + D ingested). No RH/GRH progress. No complete mastery.

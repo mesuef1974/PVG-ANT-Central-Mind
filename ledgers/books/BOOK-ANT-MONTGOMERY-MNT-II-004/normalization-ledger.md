@@ -1,6 +1,6 @@
 # Montgomery MNT-II — Normalization Ledger
 
-Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 units MNTII-006-A + MNTII-006-B + MNTII-006-C.** كلُّ كنزٍ في `treasure-map.md` ← ماذا صار داخل العقل (معرِّفاتٌ حيّة). المخرجاتُ الأساسيّةُ الجديدة: `TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001` (006-A) · `TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001` (006-B) · `TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001` (006-C) — كلُّها live في `registries/tools.jsonl`.
+Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 units MNTII-006-A + MNTII-006-B + MNTII-006-C + MNTII-006-D.** كلُّ كنزٍ في `treasure-map.md` ← ماذا صار داخل العقل (معرِّفاتٌ حيّة). المخرجاتُ الأساسيّةُ الجديدة: `TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001` (006-A) · `TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001` (006-B) · `TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001` (006-C) · `TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001` (006-D) — كلُّها live في `registries/tools.jsonl`.
 
 ```text
 TREASURE-MNTII-001  Montgomery-style analytic tools as distribution diagnostics
@@ -120,18 +120,57 @@ TREASURE-MNTII-022  MC-005 unsolved; walls uncrossed
   → PVG–ANT           : average control leaves the individual certificate and walls standing
 ```
 
-## Live IDs consolidated (units A + B + C)
+## Unit MNTII-006-D — normalization (Selberg / combinatorial sieve, bounded reach)
 
 ```text
-Tools (NEW, live) : TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001 (006-A) · TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001 (006-B) · TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001 (006-C)   (all Diagnostic / Frontier Support)
-Tools (neighbour) : TOOL-ZERO-DENSITY-DIAGNOSTIC-001 · TOOL-LARGE-VALUE-DIAGNOSTIC-001
+TREASURE-MNTII-023  Selberg Λ²-sieve (upper bound)
+  → Tool (NEW)        : TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001
+  → Frontier          : FRONTIER-ANT-PVG-004
+  → Wall              : WALL-SIEVE-CEILING
+  → PVG–ANT           : an upper-bound observable on the sifted support
+
+TREASURE-MNTII-024  Brun combinatorial sieve (upper + lower bounds)
+  → Tool (NEW)        : TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001
+  → Wall              : WALL-SIEVE-CEILING
+  → PVG–ANT           : truncated inclusion–exclusion on the support
+
+TREASURE-MNTII-025  Fundamental lemma of sieve theory
+  → Tool (NEW)        : TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001
+  → Wall              : WALL-PARITY (beyond the small-sieve range)
+  → PVG–ANT           : the small sieve to level of distribution D
+
+TREASURE-MNTII-026  Sieve dimension κ (diagnostic parameter)
+  → Tool (NEW)        : TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001
+  → PVG–ANT           : the dimension parameter governing sieve reach
+
+TREASURE-MNTII-027  Almost-primes, not primes — parity barrier
+  → Wall              : WALL-PARITY
+  → Missing Certificate: MC-001
+  → Tool (neighbour)  : TOOL-SIEVE-INFO-CONSUMPTION-001 · TOOL-TYPE-I-II-DIAGNOSTIC-001 (Harman)
+  → PVG–ANT           : Type-II is the missing external certificate (not from the sieve)
+
+TREASURE-MNTII-028  Brun–Titchmarsh (upper bound, not asymptotic)
+  → Wall              : WALL-SIEVE-CEILING
+  → PVG–ANT           : an upper bound with no main term
+
+TREASURE-MNTII-029  MC-001 unsolved; walls uncrossed
+  → Missing Certificate: MC-001 — UNSOLVED
+  → Wall              : WALL-PARITY · WALL-SIEVE-CEILING — UNCROSSED
+  → PVG–ANT           : parity uncrossed; sieve reach bounded
+```
+
+## Live IDs consolidated (units A + B + C + D)
+
+```text
+Tools (NEW, live) : TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001 (006-A) · TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001 (006-B) · TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001 (006-C) · TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001 (006-D)   (all Diagnostic / Frontier Support)
+Tools (neighbour) : TOOL-ZERO-DENSITY-DIAGNOSTIC-001 · TOOL-LARGE-VALUE-DIAGNOSTIC-001 · TOOL-SIEVE-INFO-CONSUMPTION-001 · TOOL-TYPE-I-II-DIAGNOSTIC-001
 Observables       : OBS-CHARACTER-001 · OBS-RESIDUE-FIBER-001
-Walls             : WALL-ZERO-FREE · WALL-SIEGEL · WALL-POSITIVITY-WEIL · WALL-DENSITY-HYP · WALL-OFF-DIAGONAL
-Missing           : MC-002 · MC-005   (both UNSOLVED)
-Frontier          : FRONTIER-ANT-PVG-006   (+ bridge FRONTIER-ANT-PVG-004)
+Walls             : WALL-ZERO-FREE · WALL-SIEGEL · WALL-POSITIVITY-WEIL · WALL-DENSITY-HYP · WALL-OFF-DIAGONAL · WALL-PARITY · WALL-SIEVE-CEILING
+Missing           : MC-001 · MC-002 · MC-005   (all UNSOLVED)
+Frontier          : FRONTIER-ANT-PVG-006 (A/B/C) · FRONTIER-ANT-PVG-004 (D) (+ bridge)
 Open problem      : Elliott–Halberstam (unproven; no certificate)
 ```
 
-**Consistency note:** each new tool (006-A DISTRIBUTION-DIAGNOSTIC · 006-B DISTRIBUTION-BARRIER · 006-C LARGE-SIEVE-DIAGNOSTIC) was registered as the single planned target of its unit then promoted to live in `registries/tools.jsonl` on honest completion; `planned.jsonl` is empty. Neighbour / observable ids pre-exist. MC-002 & MC-005 UNSOLVED. Bombieri–Vinogradov is average-not-individual; Elliott–Halberstam is an unproven open problem; RH-conditional statistics are excluded (see missed-treasures.md).
+**Consistency note:** each new tool (006-A DISTRIBUTION-DIAGNOSTIC · 006-B DISTRIBUTION-BARRIER · 006-C LARGE-SIEVE-DIAGNOSTIC · 006-D SIEVE-DIAGNOSTIC) was registered as the single planned target of its unit then promoted to live in `registries/tools.jsonl` on honest completion; `planned.jsonl` is empty. Neighbour / observable ids pre-exist. MC-001, MC-002 & MC-005 UNSOLVED. Bombieri–Vinogradov is average-not-individual; Elliott–Halberstam is an unproven open problem; classical sieves give bounds / almost-primes not primes (parity); RH-conditional statistics are excluded.
 
-**Honest classification:** Diagnostic / Boundary (normalization ledger, v0.6 units A + B + C). No RH/GRH progress.
+**Honest classification:** Diagnostic / Boundary (normalization ledger, v0.6 units A + B + C + D). No RH/GRH progress.

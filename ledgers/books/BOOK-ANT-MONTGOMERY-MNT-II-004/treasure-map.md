@@ -1,6 +1,6 @@
 # Montgomery MNT-II — Treasure Map
 
-Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — mining units `MNTII-006-A` (distribution diagnostics), `MNTII-006-B` (distributional limits / barriers), and `MNTII-006-C` (large sieve / Bombieri–Vinogradov on-average) ingested.** طبقةُ تعدينٍ تحت `governance/book-treasure-extraction-protocol.md`. مؤصَّلٌ على الوحدات الثلاث (transformed notes only، PDF خارج git). كنوزٌ محدودةٌ لثلاث وحداتٍ ضيّقة؛ **باقي الكتاب غيرُ مُعدَّن** (see `missed-treasures.md`). لا نصٌّ خام، لا ادّعاءُ إتقانٍ كامل.
+Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — mining units `MNTII-006-A` (distribution diagnostics), `MNTII-006-B` (distributional limits / barriers), `MNTII-006-C` (large sieve / Bombieri–Vinogradov on-average), and `MNTII-006-D` (Selberg / combinatorial sieve, bounded reach) ingested.** طبقةُ تعدينٍ تحت `governance/book-treasure-extraction-protocol.md`. مؤصَّلٌ على الوحدات الأربع (transformed notes only، PDF خارج git). كنوزٌ محدودةٌ لأربع وحداتٍ ضيّقة؛ **باقي الكتاب غيرُ مُعدَّن** (see `missed-treasures.md`). لا نصٌّ خام، لا ادّعاءُ إتقانٍ كامل.
 
 ```text
 Treasure ID: TREASURE-MNTII-001
@@ -292,4 +292,97 @@ Classification: Missing Certificate.
 Normalized output: → Missing Certificate MC-005 ; → Wall WALL-SIEGEL, WALL-POSITIVITY-WEIL (uncrossed).
 ```
 
-**Honest classification:** Diagnostic / Boundary (treasure map, v0.6 units A + B + C). No RH/GRH progress. No zero-density/large-values/PNT-AP improvement, no distributional-limit theorem; Bombieri–Vinogradov is average-not-individual; Elliott–Halberstam is an unproven open problem; RH-conditional statistics out of scope. MC-002 & MC-005 unsolved; walls uncrossed.
+## Unit MNTII-006-D — Selberg / combinatorial sieve, bounded reach (7 cards)
+
+```text
+Treasure ID: TREASURE-MNTII-023
+Treasure:    Selberg Λ²-sieve as an upper-bound diagnostic
+Source:      MNTII-006-D — transformed notes only
+Type:        sieve diagnostic (upper bound)
+Why it matters: the Selberg sieve optimizes Λ² weights for an upper bound on sifted sets — the workhorse upper-bound sieve.
+ANT role:    quadratic (Λ²) optimization giving Brun–Titchmarsh-type upper bounds.
+PVG translation: an upper-bound observable on the sifted support.
+Wall / certificate: upper bound only — no main term; WALL-SIEVE-CEILING.
+Classification: Known / Diagnostic.
+Normalized output: → Tool TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001 ; → Frontier FRONTIER-ANT-PVG-004.
+```
+
+```text
+Treasure ID: TREASURE-MNTII-024
+Treasure:    Brun combinatorial sieve (upper and lower bounds)
+Source:      MNTII-006-D — transformed notes only
+Type:        sieve diagnostic (two-sided)
+Why it matters: truncated inclusion–exclusion gives BOTH upper and lower bounds — the combinatorial route to almost-primes.
+ANT role:    Brun's truncation of the Legendre sieve; upper/lower sieve bounds.
+PVG translation: two-sided bounds on the sifted support.
+Wall / certificate: bounds only; WALL-SIEVE-CEILING.
+Classification: Known / Diagnostic.
+Normalized output: → Tool TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001.
+```
+
+```text
+Treasure ID: TREASURE-MNTII-025
+Treasure:    The fundamental lemma of sieve theory
+Source:      MNTII-006-D — transformed notes only
+Type:        sieve law
+Why it matters: for a small sieve (bounded dimension) up to level of distribution D, the sifted count matches the expected main term with a controlled error.
+ANT role:    the small-sieve asymptotic to level D, dimension κ.
+PVG translation: the reach of the sieve as a function of the level of distribution.
+Wall / certificate: valid only in the small-sieve range; parity beyond — WALL-PARITY.
+Classification: Known / Diagnostic.
+Normalized output: → Tool TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001.
+```
+
+```text
+Treasure ID: TREASURE-MNTII-026
+Treasure:    Sieve dimension κ as the diagnostic parameter
+Source:      MNTII-006-D — transformed notes only
+Type:        diagnostic parameter
+Why it matters: the sieve dimension κ (e.g. κ=1 linear sieve) governs what the sieve can deliver and where lower bounds hold.
+ANT role:    κ = average number of residue classes removed per prime.
+PVG translation: the parameter tuning sieve reach on the support geometry.
+Wall / certificate: κ bounds the reach; parity independent — WALL-PARITY.
+Classification: Known / Diagnostic.
+Normalized output: → Tool TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001.
+```
+
+```text
+Treasure ID: TREASURE-MNTII-027
+Treasure:    Sieves count almost-primes, not primes — the parity barrier
+Source:      MNTII-006-D — transformed notes only
+Type:        no-go boundary
+Why it matters: classical sieves cannot distinguish numbers with an even vs odd number of prime factors — the parity barrier blocks prime detection without external Type-II.
+ANT role:    the parity obstruction; Type-II is the missing external certificate (Harman).
+PVG translation: the wall the sieve observes but does not cross; Type-II crosses it.
+Wall / certificate: WALL-PARITY — uncrossed; MC-001 unsolved.
+Classification: Boundary.
+Normalized output: → Wall WALL-PARITY ; → Missing Certificate MC-001 ; relates TOOL-SIEVE-INFO-CONSUMPTION-001, TOOL-TYPE-I-II-DIAGNOSTIC-001.
+```
+
+```text
+Treasure ID: TREASURE-MNTII-028
+Treasure:    Brun–Titchmarsh as an upper bound, not an asymptotic
+Source:      MNTII-006-D — transformed notes only
+Type:        no-go boundary
+Why it matters: Brun–Titchmarsh bounds π(x;q,a) from above by ~2x/(φ(q) log(x/q)) — an UPPER bound with a factor ~2, not a main-term asymptotic.
+ANT role:    the sieve upper bound for primes in APs; no lower/main term.
+PVG translation: a ceiling observable, not a count.
+Wall / certificate: WALL-SIEVE-CEILING — uncrossed.
+Classification: Boundary.
+Normalized output: → Wall WALL-SIEVE-CEILING.
+```
+
+```text
+Treasure ID: TREASURE-MNTII-029
+Treasure:    MC-001 unsolved; WALL-PARITY / WALL-SIEVE-CEILING uncrossed
+Source:      MNTII-006-D — transformed notes only
+Type:        standing certificate + walls
+Why it matters: the classical-sieve diagnostic does NOT break parity or supply the external Type-II certificate.
+ANT role:    the unconditional parity break (MC-001) and the sieve ceiling.
+PVG translation: sieve reach bounded; parity uncrossed.
+Wall / certificate: WALL-PARITY · WALL-SIEVE-CEILING — UNCROSSED; MC-001 UNSOLVED.
+Classification: Missing Certificate.
+Normalized output: → Missing Certificate MC-001 ; → Wall WALL-PARITY, WALL-SIEVE-CEILING (uncrossed).
+```
+
+**Honest classification:** Diagnostic / Boundary (treasure map, v0.6 units A + B + C + D). No RH/GRH progress. No zero-density/large-values/PNT-AP improvement, no distributional-limit theorem, no sieve theorem, no prime detector; Bombieri–Vinogradov is average-not-individual; Elliott–Halberstam is an unproven open problem; classical sieves give bounds/almost-primes not primes (parity); RH-conditional statistics out of scope. MC-001 & MC-002 & MC-005 unsolved; walls uncrossed.
