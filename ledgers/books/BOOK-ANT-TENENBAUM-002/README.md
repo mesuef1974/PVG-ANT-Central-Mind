@@ -31,6 +31,6 @@ geometry, analysis, and certificate status.
 
 ## v0.3 (characters)
 
-`Tenenbaum-005-A` (Dirichlet characters as residue-fiber observables) ingested — see `tenenbaum-005-A.md`. Live: `OBS-RESIDUE-FIBER-001` (Reinterpretation) · `TOOL-CHARACTER-SUM-PHASE-001` (Known). AP/GRH-level distribution recorded as missing certificate `MC-005`. Characters as observables, not results; `WALL-SIEGEL` / `WALL-POSITIVITY-WEIL` not crossed.
+`Tenenbaum-005-A` (Dirichlet characters as residue-fiber observables) — `OBS-RESIDUE-FIBER-001` · `TOOL-CHARACTER-SUM-PHASE-001`. `Tenenbaum-005-B` (Dirichlet L-functions as residue-fiber generating objects) — `TOOL-LFUNCTION-GENERATING-001`. AP/GRH-level distribution recorded as missing certificate `MC-005` (unsolved). Characters/L as observables and generating objects, not results; `WALL-SIEGEL` / `WALL-POSITIVITY-WEIL` not crossed.
 
 **Honest classification:** Known textbook-derived skill extraction + PVG diagnostic reinterpretation. No RH/GRH progress. No complete mastery.

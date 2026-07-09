@@ -12,7 +12,7 @@ Book ID: `BOOK-ANT-TENENBAUM-002` · **Opening only: scope, no unit writing yet,
 |---|---|---|---|
 | Tenenbaum-005-B | Dirichlet L-functions as residue-fiber generating objects | `OBS-CHARACTER-001` · `OBS-RESIDUE-FIBER-001` · `TOOL-CHARACTER-SUM-PHASE-001` · `TOOL-EULER-PRODUCT-001` | an L(s,χ) generating-object reading · a residue-fiber Euler/Dirichlet organizing tool · AP/GRH-level distribution stays as `MC-005` (not solved) |
 
-**Registration:** لا معرِّفٌ جديدٌ في `planned.jsonl` الآن (النطاقُ فقط)؛ يُسجَّل عند فتح التنفيذ.
+**Registration (execution opened):** `TOOL-LFUNCTION-GENERATING-001` (Known) سُجِّل ورُقِّي مع `Tenenbaum-005-B`. المراصدُ القائمة أُعيد استعمالُها لا تكرارُها؛ `MC-005` تبقى شهادةً ناقصةً غيرَ محلولة.
 
 ## Ceiling (نافذ)
 

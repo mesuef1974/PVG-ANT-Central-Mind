@@ -31,7 +31,11 @@ Mileti-001-E  Deduction as Formal Proof Object            (TOOL-DEDUCTION-SYSTEM
 
 **Audit note (Tenenbaum-005-A, v0.3):** transformed notes; Dirichlet characters read as residue-fiber observables. Registered+promoted `OBS-RESIDUE-FIBER-001` (Reinterpretation) + `TOOL-CHARACTER-SUM-PHASE-001` (Known); did NOT duplicate existing `OBS-CHARACTER-001`; AP distribution beyond Siegel-Walfisz recorded as missing certificate `MC-005` (GRH-level, not progress). planned.jsonl empty; guards PASS. Ceiling held: characters are observables not results; WALL-SIEGEL / WALL-POSITIVITY-WEIL not crossed; no PNT/AP theorem; no RH/GRH.
 
-**Next allowed:** v0.3 closure review (like v0.2-A/B), then further Tenenbaum units or another book — awaiting explicit permission. No expansion before review.
+**v0.3 CLOSED (PASS 7/7). Frontier Review Layer 001 executed (map). Tenenbaum-005-B ingested.**
+
+**Audit note (Tenenbaum-005-B):** transformed notes; `L(s,χ)` read as a residue-fiber generating object (Dirichlet series + Euler product packaging character-weighted info). Registered+promoted `TOOL-LFUNCTION-GENERATING-001` (Known); existing observables reused, not duplicated; `MC-005` kept unsolved (GRH-level; generating structure organizes, does not control zeros). planned.jsonl empty; guards PASS. Ceiling held: L is a generating/organizing object, not a proof engine; no new L-function theorem; `WALL-SIEGEL` / `WALL-POSITIVITY-WEIL` not crossed; no RH/GRH.
+
+**Next allowed:** closure review of the Tenenbaum characters/L line, or a next unit/book (frontier-review top candidate was 005-B; next per map: new book for frontier 006/004, or freeze 007) — awaiting explicit permission. No expansion before review.
 
 ## قاعدة البدء
 
