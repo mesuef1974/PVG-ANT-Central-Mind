@@ -271,12 +271,12 @@ Treasure ID: TREASURE-MNTII-021
 Treasure:    Large sieve is the mean-value inequality behind zero-density
 Source:      MNTII-006-C — transformed notes only
 Type:        connection diagnostic
-Why it matters: the large sieve is the mean-value inequality that feeds the zero-density estimates of 006-A and the barriers of 006-B — it ties the Montgomery units together.
-ANT role:    large-value / mean-value input → N(σ,T) bounds (IK-006-A/B, MNTII-006-A/B).
+Why it matters: the large sieve is the mean-value inequality behind zero-density estimates; the trusted neighbours are the IK zero-density diagnostics (the MNTII-006-A/B readings are QUARANTINED, cross-volume).
+ANT role:    large-value / mean-value input → N(σ,T) bounds (IK-006-A/B; the MNTII-006-A/B framing is quarantined).
 PVG translation: the shared average-control root of the frontier-006 diagnostics.
 Wall / certificate: WALL-DENSITY-HYP (the density floor it feeds) — uncrossed.
 Classification: Diagnostic.
-Normalized output: → Tool TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001 ; relates TOOL-ZERO-DENSITY-DIAGNOSTIC-001, TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001.
+Normalized output: → Tool TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001 ; relates TOOL-ZERO-DENSITY-DIAGNOSTIC-001 (trusted, IK) and TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001 (QUARANTINED, source-mismatch — cited as history, not as a live neighbour).
 ```
 
 ```text

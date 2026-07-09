@@ -78,7 +78,7 @@ Reading            : cancellation feeds bilinear / Type-II; NOT prime detection
 
 ## Next valid action
 
-candidate v0.6-E closure review (MNTII-006-E), then a further Montgomery unit or another book or freeze — on explicit permission. **No MNTII-006-F, no full book mining, no expansion before review.**
+**Superseded (historical) — none.** This unit is QUARANTINED (source-mismatch); it has no continuation path. The live E is the bounded-gaps intake (`units/MNTII-006-E.md`, pending v0.6-E Closure Review). **No MNTII-006-F, no new book, no re-trusting this unit without a source-grounded Treasure Packet.**
 
 ## Audit checklist
 

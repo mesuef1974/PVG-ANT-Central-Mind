@@ -15,10 +15,14 @@ Live installed capabilities of the Central Mind (from the mined books and regist
 4. Zero-density / large-values frontier diagnostics (IK): TOOL-ZERO-DENSITY-DIAGNOSTIC-001,
    TOOL-LARGE-VALUE-DIAGNOSTIC-001.
 5. Sieve-information diagnostics (Harman): TOOL-SIEVE-INFO-CONSUMPTION-001, TOOL-TYPE-I-II-DIAGNOSTIC-001.
-6. Montgomery MNT-II frontier-support tools (v0.6): TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001 (A),
-   TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001 (B), TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001 (C),
-   TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001 (D). [MNTII-006-E / TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001
-   exist but are QUARANTINED / unvalidated — pending source-grounded intake; not a trusted capability.]
+6. Montgomery MNT-II sieves-and-gaps tools (v0.6, source-grounding-corrected):
+   TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001 (C, Ch19-20 large sieve / Bombieri-Vinogradov, closed),
+   TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001 (D, Ch21 Selberg / combinatorial sieve, closed),
+   TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001 (E, Ch22 bounded gaps / GPY / Maynard —
+   source-grounded E-intake, validated_intake, NOT closed, pending v0.6-E Closure Review).
+   [QUARANTINED, source-mismatch / cross-volume — NOT trusted capabilities:
+   TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001 (A), TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001 (B),
+   TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001 (legacy off-diagonal E).]
 7. Zero-density-impact operating rule: RULE-ZERO-DENSITY-IMPACT-001 (a zero-density set may still
    dominate averages of unbounded observables).
 8. Governance discipline: missing-certificate ledger (MC-001..005) · wall registry · claim-classification
@@ -42,7 +46,10 @@ Live installed capabilities of the Central Mind (from the mined books and regist
 ```text
 Missing certificates (all UNSOLVED): MC-001 · MC-002 · MC-003 · MC-004 · MC-005.
 Walls: all uncrossed.
-Quarantine: MNTII-006-E (pre-packet, unvalidated).
+Quarantine (source-mismatch / cross-volume, NOT trusted): MNTII-006-A · MNTII-006-B ·
+  legacy off-diagonal MNTII-006-E (units/_quarantine/) and their three tools.
+New MNTII-006-E (bounded gaps / GPY / Maynard) = validated_intake, NOT closed,
+  pending v0.6-E Closure Review — NOT quarantined, NOT yet a closed capability.
 ```
 
 **Honest classification:** Diagnostic (capability snapshot). No RH/GRH progress.

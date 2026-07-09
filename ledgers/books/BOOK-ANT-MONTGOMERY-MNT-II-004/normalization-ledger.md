@@ -110,7 +110,7 @@ TREASURE-MNTII-020  Elliott–Halberstam (unproven conjectural extension)
 
 TREASURE-MNTII-021  Large sieve = the mean-value inequality behind zero-density
   → Tool (NEW)        : TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001
-  → Tool (neighbour)  : TOOL-ZERO-DENSITY-DIAGNOSTIC-001 · TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001
+  → Tool (neighbour)  : TOOL-ZERO-DENSITY-DIAGNOSTIC-001 (trusted, IK) · TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001 (QUARANTINED, source-mismatch)
   → Wall              : WALL-DENSITY-HYP
   → PVG–ANT           : the shared average-control root of the frontier-006 diagnostics
 

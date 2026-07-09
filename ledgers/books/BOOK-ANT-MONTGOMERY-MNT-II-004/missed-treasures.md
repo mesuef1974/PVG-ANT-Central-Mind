@@ -31,7 +31,8 @@ full-book treasure-mining pass. Units A and B, and the legacy off-diagonal E, ar
 - parity-breaking certificates                                  : NOT available (parity uncrossed; MC-001 unsolved).
 - off-diagonal / Kloosterman material                           : not source-grounded in this volume (quarantined).
 - full chapter-by-chapter MNT-II pass                           : deferred.
-- MNTII-006-F                                                   : deferred (not started).
+- MNTII-006-F                                                   : NOT ALLOWED until the v0.6-E Closure
+    Review passes and an explicit source-grounded Treasure Packet exists for it.
 ```
 
 ## Level assessment

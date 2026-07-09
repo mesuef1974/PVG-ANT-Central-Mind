@@ -143,6 +143,59 @@ if e_intake:
 # MNTII-006-F must not exist (no new unit after the correction)
 need(not os.path.isfile(os.path.join(ROOT, MONT, "units", "MNTII-006-F.md")),
      "MNTII-006-F unit exists; no new Montgomery unit is allowed after Correction 006")
+
+# STATE-REPAIR 006-B invariants: quarantine must propagate to tools.jsonl and maps/
+QUARANTINED_TOOLS = (
+    "TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001",   # unit A
+    "TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001",      # unit B
+    "TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001",         # legacy off-diagonal E
+)
+BOUNDED_GAPS_TOOL = "TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001"
+tools_by_id = {}
+for line in (read("registries/tools.jsonl") or "").splitlines():
+    if not line.strip():
+        continue
+    try:
+        t = json.loads(line)
+        tools_by_id[t.get("id", "")] = t
+    except Exception:
+        pass
+for tid in QUARANTINED_TOOLS:
+    t = tools_by_id.get(tid)
+    if t is None:
+        continue
+    need(t.get("status") == "quarantined_source_mismatch",
+         "tools.jsonl: %s is not stamped status=quarantined_source_mismatch" % tid)
+    need("quarantin" in str(t.get("role", "")).lower(),
+         "tools.jsonl: %s role does not carry the quarantine marker (treated as live/trusted)" % tid)
+bg = tools_by_id.get(BOUNDED_GAPS_TOOL)
+need(bg is not None, "tools.jsonl: bounded-gaps tool %s is missing" % BOUNDED_GAPS_TOOL)
+if bg is not None:
+    need(bg.get("status") != "quarantined_source_mismatch",
+         "tools.jsonl: bounded-gaps tool is wrongly quarantined")
+
+caps = read("maps/current-capabilities.md")
+need(caps is not None, "maps/current-capabilities.md is missing")
+if caps is not None:
+    need(BOUNDED_GAPS_TOOL in caps,
+         "maps/current-capabilities.md does not list the bounded-gaps tool (capability map stale)")
+    need("pre-packet" not in caps,
+         "maps/current-capabilities.md still carries the stale 'pre-packet' E description")
+    cap_lines = caps.splitlines()
+    for i, ln in enumerate(cap_lines):
+        # every mention of a quarantined tool must sit inside a QUARANTINED-marked window
+        for tid in QUARANTINED_TOOLS:
+            if tid in ln:
+                window = " ".join(cap_lines[max(0, i - 2):i + 1]).lower()
+                need("quarantin" in window,
+                     "maps/current-capabilities.md lists quarantined tool %s as installed live" % tid)
+        # the new E must not be called quarantined/unvalidated (only the legacy E may be)
+        low = ln.lower()
+        if "mntii-006-e" in low and ("quarantin" in low or "unvalidated" in low):
+            need("legacy" in low or "not quarantin" in low,
+                 "maps/current-capabilities.md calls the new MNTII-006-E quarantined/unvalidated")
+    need("validated_intake" in caps,
+         "maps/current-capabilities.md does not record the new E as validated_intake")
 # The state files must carry the quarantine / source-mismatch markers
 qwords = ("quarantin", "source-mismatch", "unvalidated", "pre-packet")
 for rel in [os.path.join(MONT, "README.md"), "registries/books.jsonl", "transition-memory/next-action.md"]:
