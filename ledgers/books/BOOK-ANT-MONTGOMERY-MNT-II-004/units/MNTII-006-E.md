@@ -1,7 +1,7 @@
 # MNTII-006-E — Bounded Gaps between Primes as a GPY / Maynard Sieve Diagnostic
 
 **Registry ID:** MNTII-006-E
-**Status:** validated_intake (from ChatGPT Treasure Packet) — **NOT closed, NOT PASS, pending v0.6-E Closure Review**
+**Status:** CLOSED — v0.6-E Closure Review **PASS** (`audits/v0.6-e-closure.md`, AUDIT-CM-V06-E-CLOSURE-001, HEAD 959e417, third attempt); entered as validated_intake from the ChatGPT Treasure Packet
 **Classification:** **Diagnostic / Boundary** (the KNOWN bounded-gaps theorem read as a sieve diagnostic; not a new result)
 
 **Source Coverage:** Montgomery–Vaughan, *Multiplicative Number Theory II: Primes and Sieves*, **Chapter 22 (Bounded Gaps between Primes)**: §22.1 the GPY sieve, §22.2 the proof of Maynard's theorem, §22.3 consequences, §22.4 notes. Dependency: Ch 20 Bombieri–Vinogradov (level of distribution), Ch 21 sieve framework / fixed-dimension sieves. **Transformed notes only — no raw text, no copied passages, no general book summary.** Book ID `BOOK-ANT-MONTGOMERY-MNT-II-004`. Local PDF outside git.
@@ -73,14 +73,14 @@ Reading             : average distribution + optimized weights -> a prime-rich t
 ```text
 Created by SOURCE-GROUNDED intake from a ChatGPT Treasure Packet (Ch 22), replacing the legacy
 MNTII-006-E (exponential / Kloosterman off-diagonal), which is quarantined as source-mismatch
-(units/_quarantine/MNTII-006-E-legacy-offdiagonal-source-mismatch.md). Status = validated_intake:
-NOT closed, NOT PASS, pending v0.6-E Closure Review.
-See audits/montgomery-source-grounding-correction-006.md.
+(units/_quarantine/MNTII-006-E-legacy-offdiagonal-source-mismatch.md). Entered as validated_intake;
+CLOSED after the third v0.6-E Closure Review (3 auditors PASS + falsifier unrefuted + 7/7 guards).
+See audits/montgomery-source-grounding-correction-006.md and audits/v0.6-e-closure.md.
 ```
 
 ## Next valid action
 
-**v0.6-E Closure Review only** (on explicit permission). No MNTII-006-F, no new book, no full book mining.
+**Superseded (historical):** the v0.6-E Closure Review is complete (**PASS**, `audits/v0.6-e-closure.md`). What follows requires an explicit decision: a further Montgomery treasure via a NEW ChatGPT Treasure Packet, or a Book Coverage Audit before any new unit. No MNTII-006-F without an explicit packet and permission; no new book; no full book mining.
 
 ## Audit checklist
 
@@ -89,7 +89,7 @@ See audits/montgomery-source-grounding-correction-006.md.
 - [x] Known bounded-gaps theorem recorded as Known; NOT our result; NOT twin primes; NOT a parity breakthrough
 - [x] BV = average input; EH = conditional; NOT individual GRH
 - [x] No crossing WALL-PARITY / WALL-SIEVE-CEILING / WALL-OFF-DIAGONAL / WALL-DENSITY-HYP · MC-001 & MC-005 unsolved
-- [x] Status = validated_intake (NOT closed, NOT PASS); pending v0.6-E Closure Review
+- [x] Entered as validated_intake; CLOSED by v0.6-E Closure Review PASS (3 auditors + falsifier unrefuted)
 - [x] Legacy off-diagonal E quarantined; TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001 registered
 - [x] Seven guards PASS after this intake
 

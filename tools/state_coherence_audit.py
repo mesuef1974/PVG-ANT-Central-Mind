@@ -135,13 +135,21 @@ need("legacy" in quarant.lower(), "books.jsonl does not mark the legacy off-diag
 need(obj.get("status") != "book_overlay_closed"
      and "closed" not in str(obj.get("overlay", "")).lower(),
      "books.jsonl Montgomery is marked as a full book closure; must be partial_overlay")
-# The E intake must not be called closed/PASS before its Closure Review
-need(not os.path.isfile(os.path.join(ROOT, "audits", "v0.6-e-closure.md")),
-     "v0.6-e-closure.md exists but the bounded-gaps E intake must not be closed before v0.6-E Closure Review")
+# E closure state machine: BEFORE a v0.6-e-closure PASS, E = validated_intake NOT closed;
+# AFTER it, E must be marked CLOSED and every layer must reflect the closure.
+e_closure_txt = read(os.path.join("audits", "v0.6-e-closure.md"))
+E_CLOSED = e_closure_txt is not None and "PASS" in e_closure_txt
+if e_closure_txt is not None:
+    need("PASS" in e_closure_txt,
+         "audits/v0.6-e-closure.md exists but does not record PASS")
 e_intake = read(os.path.join(MONT, "units", "MNTII-006-E.md")) or ""
 if e_intake:
-    need("validated_intake" in e_intake, "MNTII-006-E (intake) is not marked validated_intake")
-    need("not closed" in e_intake.lower(), "MNTII-006-E (intake) is not marked NOT closed")
+    if E_CLOSED:
+        need(re.search(r"\*\*Status:\*\*\s*CLOSED", e_intake),
+             "v0.6-e-closure PASS exists but MNTII-006-E is not marked Status: CLOSED")
+    else:
+        need("validated_intake" in e_intake, "MNTII-006-E (intake) is not marked validated_intake")
+        need("not closed" in e_intake.lower(), "MNTII-006-E (intake) is not marked NOT closed")
 # MNTII-006-F must not exist (no new unit after the correction)
 need(not os.path.isfile(os.path.join(ROOT, MONT, "units", "MNTII-006-F.md")),
      "MNTII-006-F unit exists; no new Montgomery unit is allowed after Correction 006")
@@ -198,8 +206,12 @@ if caps is not None:
         if "mntii-006-e" in low and ("quarantin" in low or "unvalidated" in low):
             need("legacy" in low or "not quarantin" in low,
                  "maps/current-capabilities.md calls the new MNTII-006-E quarantined/unvalidated")
-    need("validated_intake" in caps,
-         "maps/current-capabilities.md does not record the new E as validated_intake")
+    if E_CLOSED:
+        need("v0.6-e-closure" in caps,
+             "maps/current-capabilities.md does not reflect the closed E (v0.6-e-closure PASS)")
+    else:
+        need("validated_intake" in caps,
+             "maps/current-capabilities.md does not record the new E as validated_intake")
 # The state files must carry the quarantine / source-mismatch markers
 qwords = ("quarantin", "source-mismatch", "unvalidated", "pre-packet")
 for rel in [os.path.join(MONT, "README.md"), "registries/books.jsonl", "transition-memory/next-action.md"]:

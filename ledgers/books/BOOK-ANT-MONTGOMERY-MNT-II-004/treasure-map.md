@@ -403,7 +403,7 @@ Normalized output: → Missing Certificate MC-001 ; → Wall WALL-PARITY, WALL-S
 ## Unit MNTII-006-E — bounded gaps / GPY / Maynard (7 cards, source-grounded intake; Ch 22)
 
 > **Source-Grounding Correction 006:** these seven cards replace the quarantined off-diagonal / Kloosterman
-> cards (topic deferred by the source to a later volume). Unit E status = **validated_intake, NOT closed**.
+> cards (topic deferred by the source to a later volume). Unit E status = **CLOSED (v0.6-e-closure PASS; entered as validated_intake)**.
 
 ```text
 Treasure ID: TREASURE-MNTII-030

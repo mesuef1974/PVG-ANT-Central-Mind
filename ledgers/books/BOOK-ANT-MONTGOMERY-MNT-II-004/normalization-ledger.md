@@ -227,6 +227,6 @@ Frozen front      : FRONTIER-ANT-PVG-007 (spectral) — cited, not reopened
 Open problem      : Elliott–Halberstam (unproven; no certificate)
 ```
 
-**Consistency note:** the trusted source-grounded path is C (Ch 19-20) · D (Ch 21) · E bounded gaps (Ch 22, validated_intake, NOT closed). Units A/B and the legacy off-diagonal E are QUARANTINED (cross-volume / source-mismatch); their tools are not trusted. `planned.jsonl` empty. MC-001, MC-002 & MC-005 UNSOLVED. Bounded gaps is a KNOWN theorem, not our result, not twin primes, not a parity break.
+**Consistency note:** the trusted source-grounded path is C (Ch 19-20) · D (Ch 21) · E bounded gaps (Ch 22, CLOSED v0.6-e-closure PASS; entered as validated_intake). Units A/B and the legacy off-diagonal E are QUARANTINED (cross-volume / source-mismatch); their tools are not trusted. `planned.jsonl` empty. MC-001, MC-002 & MC-005 UNSOLVED. Bounded gaps is a KNOWN theorem, not our result, not twin primes, not a parity break.
 
 **Honest classification:** Diagnostic / Boundary (normalization ledger, source-grounding-corrected). No RH/GRH progress.

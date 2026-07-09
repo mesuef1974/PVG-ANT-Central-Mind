@@ -62,10 +62,11 @@ WALL-PARITY · WALL-SIEVE-CEILING · WALL-OFF-DIAGONAL · WALL-DENSITY-HYP   the
 ## Scope honesty (v0.6, source-grounding-corrected)
 
 ```text
-Trusted source-grounded units: C (Ch 19-20), D (Ch 21), E (Ch 22 bounded gaps, validated_intake, NOT closed).
+Trusted source-grounded units (all closure-reviewed): C (Ch 19-20), D (Ch 21), E (Ch 22 bounded gaps,
+CLOSED v0.6-e-closure PASS; entered as validated_intake).
 Quarantined (source-mismatch): A, B (cross-volume: zero-density / large values / pair-correlation deferred to a
-later volume) and the legacy off-diagonal E (Kloosterman). No MNTII-006-F. No new book. No v0.6-E closure before
-review. Bounded gaps is a KNOWN theorem, not our result, not twin primes, not a parity breakthrough; BV = average
+later volume) and the legacy off-diagonal E (Kloosterman). No MNTII-006-F without an explicit Treasure Packet
+and permission. No new book. Bounded gaps is a KNOWN theorem, not our result, not twin primes, not a parity breakthrough; BV = average
 input; EH = conditional. No RH/GRH progress.
 ```
 

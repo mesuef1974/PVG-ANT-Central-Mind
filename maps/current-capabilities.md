@@ -19,7 +19,7 @@ Live installed capabilities of the Central Mind (from the mined books and regist
    TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001 (C, Ch19-20 large sieve / Bombieri-Vinogradov, closed),
    TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001 (D, Ch21 Selberg / combinatorial sieve, closed),
    TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001 (E, Ch22 bounded gaps / GPY / Maynard —
-   source-grounded E-intake, validated_intake, NOT closed, pending v0.6-E Closure Review).
+   source-grounded; entered as validated_intake, CLOSED: v0.6-e-closure PASS, third attempt).
    [QUARANTINED, source-mismatch / cross-volume — NOT trusted capabilities:
    TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001 (A), TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001 (B),
    TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001 (legacy off-diagonal E).]
@@ -48,8 +48,8 @@ Missing certificates (all UNSOLVED): MC-001 · MC-002 · MC-003 · MC-004 · MC-
 Walls: all uncrossed.
 Quarantine (source-mismatch / cross-volume, NOT trusted): MNTII-006-A · MNTII-006-B ·
   legacy off-diagonal MNTII-006-E (units/_quarantine/) and their three tools.
-New MNTII-006-E (bounded gaps / GPY / Maynard) = validated_intake, NOT closed,
-  pending v0.6-E Closure Review — NOT quarantined, NOT yet a closed capability.
+New MNTII-006-E (bounded gaps / GPY / Maynard) = CLOSED (v0.6-e-closure PASS;
+  entered as validated_intake) — NOT quarantined.
 ```
 
 **Honest classification:** Diagnostic (capability snapshot). No RH/GRH progress.

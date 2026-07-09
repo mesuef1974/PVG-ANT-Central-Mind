@@ -38,7 +38,7 @@ full-book treasure-mining pass. Units A and B, and the legacy off-diagonal E, ar
 ## Level assessment
 
 ```text
-Source-grounded overlay = 3 trusted units (C, D, E-intake) on the sieves-and-gaps pillar, plus
+Source-grounded overlay = 3 trusted closure-reviewed units (C, D, E) on the sieves-and-gaps pillar, plus
 2 quarantined cross-volume units (A, B) and 1 quarantined legacy unit (off-diagonal E).
 Level 2; a partial, source-grounding-corrected overlay — NOT full-book mastery, NOT book overlay closure.
 ```

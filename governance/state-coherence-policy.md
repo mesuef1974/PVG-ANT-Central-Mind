@@ -56,8 +56,8 @@ Current quarantine (after Source-Grounding Correction 006): **MNTII-006-A**, **M
 (cross-volume source-mismatch) and the **legacy off-diagonal E**
 (`units/_quarantine/MNTII-006-E-legacy-offdiagonal-source-mismatch.md`), with their three tools
 stamped `quarantined_source_mismatch` in `registries/tools.jsonl`.
-The live `MNTII-006-E` (bounded gaps / GPY / Maynard, Ch 22) is **validated_intake — NOT quarantined**
-and NOT closed; it awaits its v0.6-E Closure Review.
+The live `MNTII-006-E` (bounded gaps / GPY / Maynard, Ch 22) entered as **validated_intake — NOT quarantined** —
+and is now **CLOSED** (`audits/v0.6-e-closure.md` PASS, third attempt).
 
 ## Enforcement
 
