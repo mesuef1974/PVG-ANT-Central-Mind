@@ -69,7 +69,7 @@ Reading            : bounds + almost-primes, NOT primes (parity); κ is the diag
 
 ## Next valid action
 
-**Superseded (historical):** MNTII-006-D is closure-reviewed (`v0.6-d-closure.md` PASS); MNTII-006-E was later executed but is **QUARANTINED / unvalidated** (pre-packet), not closure-reviewed. No full book mining; no expansion without explicit permission.
+**Superseded (historical):** MNTII-006-D is closure-reviewed (`v0.6-d-closure.md` PASS). After Source-Grounding Correction 006, the live MNTII-006-E is the **bounded-gaps (GPY/Maynard, Ch 22) source-grounded intake — validated_intake, NOT closed**, pending v0.6-E Closure Review; the old off-diagonal E is quarantined in `units/_quarantine/`. No full book mining; no expansion without explicit permission.
 
 ## Audit checklist
 

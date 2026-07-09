@@ -4,6 +4,7 @@ Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — SOURCE-GROUNDING-CORRECTED
 
 ```text
 Treasure ID: TREASURE-MNTII-001
+Status:      QUARANTINED (source-mismatch / cross-volume — historical card, not a live route)
 Treasure:    Montgomery-style analytic tools as distribution diagnostics
 Source:      MNTII-006-A — transformed notes only
 Type:        frontier-support diagnostic
@@ -17,6 +18,7 @@ Normalized output: → Tool TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001 ; → Fr
 
 ```text
 Treasure ID: TREASURE-MNTII-002
+Status:      QUARANTINED (source-mismatch / cross-volume — historical card, not a live route)
 Treasure:    Distribution estimates as certificate pressure, not proof
 Source:      MNTII-006-A — transformed notes only
 Type:        no-go boundary
@@ -30,6 +32,7 @@ Normalized output: → Tool TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001 (pressur
 
 ```text
 Treasure ID: TREASURE-MNTII-003
+Status:      QUARANTINED (source-mismatch / cross-volume — historical card, not a live route)
 Treasure:    Mean / large-value control as family-level support
 Source:      MNTII-006-A — transformed notes only
 Type:        diagnostic support
@@ -43,6 +46,7 @@ Normalized output: → Tool TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001 ; relate
 
 ```text
 Treasure ID: TREASURE-MNTII-004
+Status:      QUARANTINED (source-mismatch / cross-volume — historical card, not a live route)
 Treasure:    Zero-density context as partial support, not pointwise resolution
 Source:      MNTII-006-A — transformed notes only
 Type:        no-go boundary
@@ -56,6 +60,7 @@ Normalized output: → Missing Certificate MC-002 ; relates TOOL-ZERO-DENSITY-DI
 
 ```text
 Treasure ID: TREASURE-MNTII-005
+Status:      QUARANTINED (source-mismatch / cross-volume — historical card, not a live route)
 Treasure:    Prime / sieve interface as diagnostic bridge
 Source:      MNTII-006-A — transformed notes only
 Type:        bridge / diagnostic
@@ -69,6 +74,7 @@ Normalized output: → Frontier FRONTIER-ANT-PVG-006 (bridge to FRONTIER-ANT-PVG
 
 ```text
 Treasure ID: TREASURE-MNTII-006
+Status:      QUARANTINED (source-mismatch / cross-volume — historical card, not a live route)
 Treasure:    MC-002 remains unsolved
 Source:      MNTII-006-A — transformed notes only
 Type:        missing certificate (standing)
@@ -82,6 +88,7 @@ Normalized output: → Missing Certificate MC-002 (governance/missing-certificat
 
 ```text
 Treasure ID: TREASURE-MNTII-007
+Status:      QUARANTINED (source-mismatch / cross-volume — historical card, not a live route)
 Treasure:    MC-005 remains unsolved
 Source:      MNTII-006-A — transformed notes only
 Type:        missing certificate (standing)
@@ -95,6 +102,7 @@ Normalized output: → Missing Certificate MC-005 (governance/missing-certificat
 
 ```text
 Treasure ID: TREASURE-MNTII-008
+Status:      QUARANTINED (source-mismatch / cross-volume — historical card, not a live route)
 Treasure:    WALL-SIEGEL / WALL-POSITIVITY-WEIL / WALL-ZERO-FREE remain uncrossed
 Source:      MNTII-006-A — transformed notes only
 Type:        standing walls
@@ -106,10 +114,11 @@ Classification: Boundary.
 Normalized output: → Wall WALL-SIEGEL, WALL-POSITIVITY-WEIL, WALL-ZERO-FREE (uncrossed).
 ```
 
-## Unit MNTII-006-B — distributional limits / barriers (7 cards)
+## Unit MNTII-006-B (QUARANTINED — source-mismatch / cross-volume) — distributional limits / barriers (7 cards)
 
 ```text
 Treasure ID: TREASURE-MNTII-009
+Status:      QUARANTINED (source-mismatch / cross-volume — historical card, not a live route)
 Treasure:    Distributional limits as diagnostic barriers
 Source:      MNTII-006-B — transformed notes only
 Type:        barrier diagnostic
@@ -123,6 +132,7 @@ Normalized output: → Tool TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001 ; → Front
 
 ```text
 Treasure ID: TREASURE-MNTII-010
+Status:      QUARANTINED (source-mismatch / cross-volume — historical card, not a live route)
 Treasure:    Density-hypothesis floor as an explicit barrier
 Source:      MNTII-006-B — transformed notes only
 Type:        standing wall
@@ -136,6 +146,7 @@ Normalized output: → Wall WALL-DENSITY-HYP.
 
 ```text
 Treasure ID: TREASURE-MNTII-011
+Status:      QUARANTINED (source-mismatch / cross-volume — historical card, not a live route)
 Treasure:    Positivity / Weil wall as the distributional barrier
 Source:      MNTII-006-B — transformed notes only
 Type:        standing wall
@@ -149,6 +160,7 @@ Normalized output: → Wall WALL-POSITIVITY-WEIL.
 
 ```text
 Treasure ID: TREASURE-MNTII-012
+Status:      QUARANTINED (source-mismatch / cross-volume — historical card, not a live route)
 Treasure:    Zero-free limit as the barrier to a pointwise error
 Source:      MNTII-006-B — transformed notes only
 Type:        standing wall
@@ -162,6 +174,7 @@ Normalized output: → Wall WALL-ZERO-FREE ; → Missing Certificate MC-002.
 
 ```text
 Treasure ID: TREASURE-MNTII-013
+Status:      QUARANTINED (source-mismatch / cross-volume — historical card, not a live route)
 Treasure:    RH-conditional distributional statistics are out of unconditional scope
 Source:      MNTII-006-B — transformed notes only
 Type:        no-go boundary (conditional exclusion)
@@ -175,6 +188,7 @@ Normalized output: → deferred (see missed-treasures.md); no unconditional tool
 
 ```text
 Treasure ID: TREASURE-MNTII-014
+Status:      QUARANTINED (source-mismatch / cross-volume — historical card, not a live route)
 Treasure:    Barriers do not resolve MC-002 / MC-005
 Source:      MNTII-006-B — transformed notes only
 Type:        missing certificates (standing)
@@ -188,6 +202,7 @@ Normalized output: → Missing Certificate MC-002, MC-005 (governance/missing-ce
 
 ```text
 Treasure ID: TREASURE-MNTII-015
+Status:      QUARANTINED (source-mismatch / cross-volume — historical card, not a live route)
 Treasure:    The distributional barriers remain uncrossed
 Source:      MNTII-006-B — transformed notes only
 Type:        standing walls
@@ -353,7 +368,7 @@ Source:      MNTII-006-D — transformed notes only
 Type:        no-go boundary
 Why it matters: classical sieves cannot distinguish numbers with an even vs odd number of prime factors — the parity barrier blocks prime detection without external Type-II.
 ANT role:    the parity obstruction; Type-II is the missing external certificate (Harman).
-PVG translation: the wall the sieve observes but does not cross; Type-II crosses it.
+PVG translation: the wall the sieve observes but does not cross; external proven Type-II information is what WOULD cross it — a missing certificate (MC-001), WALL-PARITY uncrossed.
 Wall / certificate: WALL-PARITY — uncrossed; MC-001 unsolved.
 Classification: Boundary.
 Normalized output: → Wall WALL-PARITY ; → Missing Certificate MC-001 ; relates TOOL-SIEVE-INFO-CONSUMPTION-001, TOOL-TYPE-I-II-DIAGNOSTIC-001.

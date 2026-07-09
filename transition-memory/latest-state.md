@@ -1,9 +1,11 @@
 # Latest State
 
 ```text
-Version:  v0.6 Montgomery MNT-II (SOURCE-GROUNDING-CORRECTED, Correction 006)
+Version:  v0.6 Montgomery MNT-II (SOURCE-GROUNDING-CORRECTED, Correction 006 + State-Repair 006-B/006-C)
 Home:     D:\PVG-ANT-Central-Mind (standalone git repo)
-HEAD ref: latest baseline = Montgomery Source-Grounding Correction 006
+HEAD ref: latest baseline = State-Repair 006-C (after Correction 006 fa279a3 and Repair 006-B afd5b6c;
+          two v0.6-E closure attempts were BLOCKED on repository-state grounds — E's mathematics was
+          clean both times; the stale truth layers are now repaired and guarded repo-wide)
 
 Books (registries/books.jsonl is the source of truth):
   Mined, treasure overlay closed (AUDIT-CM-TREASURE-RETROFIT-CLOSURE-001), mastery deferred:

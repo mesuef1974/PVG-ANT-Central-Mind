@@ -2,9 +2,10 @@
 """state_coherence_audit.py -- repository-truth checker (Coherence PASS).
 
 Not a mathematical-completeness checker. It fails on stale-state contradictions
-between the audits, book READMEs, registries, transition-memory, and unit files:
-closure<->README, registry<->ledger, transition-memory truth, unit-existence vs
-"No MNTII-006-X" phrases, and the quarantine markers for a pre-packet unit.
+between the audits, book READMEs, registries, maps, governance, transition-memory,
+and unit files — and (since State-Repair 006-C) runs a repo-wide stale-story sweep
+over every tracked md/jsonl file: stale Montgomery story patterns are forbidden
+outside explicit historical / superseded / quarantined contexts.
 
 stdlib only. Run from anywhere: python tools/state_coherence_audit.py
 """
@@ -13,6 +14,7 @@ import sys
 import glob
 import re
 import json
+import subprocess
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MONT = "ledgers/books/BOOK-ANT-MONTGOMERY-MNT-II-004"
@@ -162,6 +164,8 @@ for line in (read("registries/tools.jsonl") or "").splitlines():
         pass
 for tid in QUARANTINED_TOOLS:
     t = tools_by_id.get(tid)
+    need(t is not None,
+         "tools.jsonl: quarantined tool %s is missing (quarantine history must not be erased)" % tid)
     if t is None:
         continue
     need(t.get("status") == "quarantined_source_mismatch",
@@ -203,10 +207,117 @@ for rel in [os.path.join(MONT, "README.md"), "registries/books.jsonl", "transiti
     need(any(q in t for q in qwords),
          "%s does not carry the quarantine / source-mismatch markers" % rel)
 
+# ---- STATE-REPAIR 006-C: repo-wide stale-story sweep -------------------------
+# Every tracked md/jsonl file must tell the legal Montgomery story. Stale-story
+# patterns are allowed ONLY inside explicit historical / superseded / quarantined
+# contexts (audits/, units/_quarantine/, or a marked line/window).
+
+def story_files():
+    files = []
+    try:
+        r = subprocess.run(["git", "ls-files"], cwd=ROOT,
+                           capture_output=True, text=True, timeout=30)
+        if r.returncode == 0:
+            files = [f.strip() for f in r.stdout.splitlines() if f.strip()]
+    except Exception:
+        files = []
+    if not files:  # fallback: filesystem walk minus non-repo dirs
+        for dp, dns, fns in os.walk(ROOT):
+            dns[:] = [d for d in dns if d not in
+                      (".git", "Books_others", ".venv", ".idea", "node_modules")]
+            for fn in fns:
+                files.append(os.path.relpath(os.path.join(dp, fn), ROOT).replace(os.sep, "/"))
+    return [f for f in files if f.endswith((".md", ".jsonl"))]
+
+
+HIST_LINE_TOKENS = ("historical", "supersed", "stale", "blocked review",
+                    "legacy", "not quarantin", "quarantined legacy")
+
+
+def line_in_historical_context(lines, i):
+    w = " ".join(lines[max(0, i - 3):i + 1]).lower()
+    return any(tok in w for tok in HIST_LINE_TOKENS)
+
+
+STALE_LINE_PATTERNS = [
+    (re.compile(r"A[–-]D\s*(closed|مُغلَقة|مغلقة)"),
+     "stale 'A-D closed' story (A/B are quarantined)"),
+    (re.compile(r"A\s*\+\s*B\s*\+\s*C\s*\+\s*D"),
+     "stale 'A+B+C+D trusted' story (A/B are quarantined)"),
+    (re.compile(r"Next[:*\s]+MNTII-006-E\s+Intake"),
+     "stale 'Next: E Intake' pointer (current next action is the v0.6-E Closure Review track)"),
+    (re.compile(r"MNTII-006-F\s*:?\s*deferred"),
+     "stale 'MNTII-006-F deferred' (F is NOT ALLOWED, not deferred)"),
+]
+
+QUAR_WORDS = ("quarantin", "pre-packet", "محجورة", "غير مُصدَّقة")
+
+for rel in story_files():
+    if rel.startswith("audits/") or "/_quarantine/" in rel:
+        continue  # pinned historical records / quarantined legacy notes
+    text = read(rel)
+    if text is None:
+        continue
+    lines = text.splitlines()
+    for i, ln in enumerate(lines):
+        low = ln.lower()
+        for pat, msg in STALE_LINE_PATTERNS:
+            if pat.search(ln) and not line_in_historical_context(lines, i):
+                need(False, "%s:%d: %s" % (rel, i + 1, msg))
+        # the new E must never be called quarantined/pre-packet without naming legacy-E
+        if "mntii-006-e" in low and any(q in low for q in QUAR_WORDS):
+            if not line_in_historical_context(lines, i):
+                need(False,
+                     "%s:%d: calls MNTII-006-E quarantined/pre-packet without specifying legacy-E" % (rel, i + 1))
+        # Montgomery must never be called a full book closure in prose either
+        if ("montgomery" in low or "mnt-ii" in low or "mntii" in low) and "book_overlay_closed" in low:
+            if "not book_overlay" not in low and not line_in_historical_context(lines, i):
+                need(False, "%s:%d: calls Montgomery book_overlay_closed" % (rel, i + 1))
+        # a quarantined tool must not be presented live in navigation/truth layers
+        if (rel == "README.md" or rel.startswith(("maps/", "transition-memory/", "governance/"))):
+            for tid in QUARANTINED_TOOLS:
+                if tid in ln:
+                    w = " ".join(lines[max(0, i - 2):i + 1]).lower()
+                    need("quarantin" in w,
+                         "%s:%d: lists quarantined tool %s as live" % (rel, i + 1, tid))
+
+# root README must tell the corrected story (must not contradict books.jsonl)
+need("source-grounding-corrected" in readme,
+     "root README.md does not tell the source-grounding-corrected Montgomery story")
+need("v0.6-E Closure Review" in readme,
+     "root README.md does not point to the v0.6-E Closure Review track")
+
+# governance policy must list the actual quarantine set (must not contradict transition-memory)
+pol = read("governance/state-coherence-policy.md") or ""
+for tok in ("MNTII-006-A", "MNTII-006-B", "legacy"):
+    need(tok in pol,
+         "governance/state-coherence-policy.md current-quarantine does not name %s" % tok)
+need("validated_intake" in pol,
+     "governance/state-coherence-policy.md does not record the live E as validated_intake")
+
+# compressed-prompt must hand off the CURRENT phase, not an old one
+cp = read("transition-memory/compressed-prompt.md") or ""
+need("v0.6" in cp,
+     "transition-memory/compressed-prompt.md does not reflect the current v0.6 phase")
+need(not re.search(r"التالي[^\n]{0,40}v0\.[0-5]\b", cp),
+     "transition-memory/compressed-prompt.md points to an old v0.x phase as the next action")
+need("v0.2 = Mileti" not in cp,
+     "transition-memory/compressed-prompt.md still hands off to v0.2 Mileti (v0.1-era prompt)")
+
+# quarantined treasure cards 001-015 must each carry a QUARANTINED status marker
+tm_text = read(os.path.join(MONT, "treasure-map.md")) or ""
+tm_lines = tm_text.splitlines()
+for i, ln in enumerate(tm_lines):
+    m = re.match(r"Treasure ID:\s*TREASURE-MNTII-(\d{3})\s*$", ln.strip())
+    if m and 1 <= int(m.group(1)) <= 15:
+        w = " ".join(tm_lines[i:i + 3]).lower()
+        need("quarantin" in w,
+             "treasure-map.md card TREASURE-MNTII-%s lacks a QUARANTINED status marker" % m.group(1))
+
 if issues:
     print("FAIL - %d state-coherence issue(s):" % len(issues))
     for i in issues:
         print("  [coherence]", i)
     sys.exit(1)
-print("PASS - state coherence: repository state files are consistent (repository-truth check).")
+print("PASS - state coherence: repository state files are consistent (repository-truth check, repo-wide sweep).")
 sys.exit(0)

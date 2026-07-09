@@ -40,22 +40,28 @@ mastery_deferred        : a marker; full-book proof/exercise coverage not claime
 
 A book with unit files and passed closure audits must NOT be described as `scope_open` or `not_started`.
 
-## Quarantine (pre-packet / unvalidated units)
+## Quarantine (pre-packet / unvalidated / source-mismatch units)
 
-A unit created before, or outside, the Treasure-Packet protocol — or otherwise not yet validated from source — is **quarantined**:
+A unit created before, or outside, the Treasure-Packet protocol — or later found to mismatch its declared source (cross-volume content) — is **quarantined**:
 
 ```text
 - it EXISTS in the repository (reality is not denied),
 - but it is NOT trusted as a mined treasure, NOT closure-reviewed, NOT promoted to closed / PASS,
-- README, registry, and transition-memory MUST mark it quarantined / unvalidated / pre-packet,
+- README, registries (books AND tools), maps, and transition-memory MUST mark it quarantined
+  (unvalidated / pre-packet / source-mismatch as applicable) — quarantine must propagate to EVERY truth layer,
 - it is NOT eligible for its closure review until validated from source (ChatGPT Treasure Packet).
 ```
 
-Current quarantine: **MNTII-006-E** (exists at HEAD; no v0.6-e-closure; pending source-grounded intake).
+Current quarantine (after Source-Grounding Correction 006): **MNTII-006-A**, **MNTII-006-B**
+(cross-volume source-mismatch) and the **legacy off-diagonal E**
+(`units/_quarantine/MNTII-006-E-legacy-offdiagonal-source-mismatch.md`), with their three tools
+stamped `quarantined_source_mismatch` in `registries/tools.jsonl`.
+The live `MNTII-006-E` (bounded gaps / GPY / Maynard, Ch 22) is **validated_intake — NOT quarantined**
+and NOT closed; it awaits its v0.6-E Closure Review.
 
 ## Enforcement
 
-`tools/state_coherence_audit.py` fails on stale-state contradictions (closure↔README, registry↔ledger, transition-memory truth, unit-existence↔"No unit X" phrases, and the quarantine markers). It is a **repository-truth checker**, not a mathematical-completeness checker. It joins the guard set (now seven).
+`tools/state_coherence_audit.py` fails on stale-state contradictions (closure↔README, registry↔ledger, transition-memory truth, unit-existence↔"No unit X" phrases, and the quarantine markers), and — since State-Repair 006-C — runs a **repo-wide stale-story sweep** over every tracked markdown/JSONL file: stale Montgomery story patterns are forbidden outside explicit historical / superseded / quarantined contexts, and quarantine must propagate to tools.jsonl, maps, README, governance, and transition-memory alike. It is a **repository-truth checker**, not a mathematical-completeness checker. It joins the guard set (now seven).
 
 **Ceiling (unchanged):** zero RH progress · zero GRH progress · no secured path.
 
