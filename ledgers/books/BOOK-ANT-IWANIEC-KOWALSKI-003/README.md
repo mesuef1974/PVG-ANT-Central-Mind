@@ -16,6 +16,6 @@ Ledger will contain transformed notes only, no book text.
 
 ## Status
 
-**v0.4 scope open (not read, no units yet).** Scope + freeze only; execution awaits explicit permission. Plan in `v0.4-scope.md` / `v0.4-scope-freeze.md`.
+**v0.4 in progress.** `IK-006-A` (zero-density estimates as diagnostic tools) ingested → `TOOL-ZERO-DENSITY-DIAGNOSTIC-001` (Diagnostic) live. Planned: `TOOL-LARGE-VALUE-DIAGNOSTIC-001` (IK-006-B). Missing certificates in play: `MC-002` (unsolved), `MC-005` (unsolved). `WALL-SIEGEL` / `WALL-POSITIVITY-WEIL` not crossed. Plan in `v0.4-scope.md` / `v0.4-scope-freeze.md`.
 
 **Honest classification:** Diagnostic (book ledger, scope open). No RH/GRH progress. No complete mastery.

@@ -35,7 +35,11 @@ Mileti-001-E  Deduction as Formal Proof Object            (TOOL-DEDUCTION-SYSTEM
 
 **Audit note (Tenenbaum-005-B):** transformed notes; `L(s,χ)` read as a residue-fiber generating object (Dirichlet series + Euler product packaging character-weighted info). Registered+promoted `TOOL-LFUNCTION-GENERATING-001` (Known); existing observables reused, not duplicated; `MC-005` kept unsolved (GRH-level; generating structure organizes, does not control zeros). planned.jsonl empty; guards PASS. Ceiling held: L is a generating/organizing object, not a proof engine; no new L-function theorem; `WALL-SIEGEL` / `WALL-POSITIVITY-WEIL` not crossed; no RH/GRH.
 
-**Next allowed:** closure review of the Tenenbaum characters/L line, or a next unit/book (frontier-review top candidate was 005-B; next per map: new book for frontier 006/004, or freeze 007) — awaiting explicit permission. No expansion before review.
+**Tenenbaum 005-A/B CLOSED (PASS 8/8). Frontier 007 FROZEN. v0.4 Iwaniec-Kowalski opened for frontier 006.**
+
+**Audit note (IK-006-A):** transformed notes; zero-density estimates N(σ,T) read as a frontier diagnostic / conditional-average substitute for RH in error terms. Registered v0.4 targets (A+B); promoted `TOOL-ZERO-DENSITY-DIAGNOSTIC-001` (Diagnostic) — IK-006-B (`TOOL-LARGE-VALUE-DIAGNOSTIC-001`) kept planned; book status → in_progress; guards PASS. Ceiling held: zero-density is diagnostic/conditional support, not RH/GRH progress, not a PNT/AP improvement, not a new theorem; `WALL-SIEGEL` / `WALL-POSITIVITY-WEIL` not crossed; MC-002 & MC-005 unsolved.
+
+**Next allowed:** `IK-006-B` (large-value / mean-value machinery, `TOOL-LARGE-VALUE-DIAGNOSTIC-001`) — awaiting explicit permission. No large values / large sieve yet.
 
 ## قاعدة البدء
 
