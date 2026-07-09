@@ -31,8 +31,23 @@ full-book treasure-mining pass. Units A and B, and the legacy off-diagonal E, ar
 - parity-breaking certificates                                  : NOT available (parity uncrossed; MC-001 unsolved).
 - off-diagonal / Kloosterman material                           : not source-grounded in this volume (quarantined).
 - full chapter-by-chapter MNT-II pass                           : deferred.
-- MNTII-006-F                                                   : NOT ALLOWED until the v0.6-E Closure
-    Review passes and an explicit source-grounded Treasure Packet exists for it.
+- MNTII-006-F                                                   : NOT ALLOWED without an explicit source-grounded
+    ChatGPT Treasure Packet AND explicit permission (the v0.6-E closure condition is met; the packet is not).
+```
+
+## Unmined chapters (Coverage Audit 007 — candidates for FUTURE packets, nothing mined here)
+
+```text
+- Ch 16 Exponential Sums I (Van der Corput)  : UNMINED candidate (or support-to-17/18). The quarantined
+    legacy-E mixed Ch-16 Weyl/van-der-Corput material with later-volume Kloosterman framing; its quarantine
+    does NOT count as Ch-16 coverage. A future unit needs a fresh packet, not a legacy-E revival.
+- Ch 17 Estimates for Sums over Primes       : UNMINED candidate (strongest) — Vinogradov Type I/II
+    decompositions; the analytic source of the Type-II information treated as external in FRONTIER-ANT-PVG-004.
+- Ch 18 Additive Prime Number Theory         : UNMINED candidate — circle method / three-primes (KNOWN);
+    binary Goldbach is OPEN and is never claimed.
+- Appendices E (Harmonic Analysis II), F (Uniform Distribution), G (Bilinear Forms), H (Linear Programming)
+                                             : support_appendix only; no standalone units absent a promoting packet.
+See audits/montgomery-book-coverage-audit-007.md.
 ```
 
 ## Level assessment

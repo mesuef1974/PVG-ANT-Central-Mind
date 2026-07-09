@@ -3,10 +3,11 @@
 ```text
 Version:  v0.6 Montgomery MNT-II (source-grounding-corrected; E CLOSED)
 Home:     D:\PVG-ANT-Central-Mind (standalone git repo)
-HEAD ref: latest baseline = v0.6-E Closure (PASS, third attempt, audits/v0.6-e-closure.md), on top of
-          Correction 006 (fa279a3) -> Repair 006-B (afd5b6c) -> Repair 006-C (959e417).
-          Attempts 1-2 were blocked on repository-state grounds only; E's mathematics was clean
-          throughout. The stale-truth-layer class is guarded repo-wide.
+HEAD ref: latest baseline = Montgomery Book Coverage Audit 007
+          (audits/montgomery-book-coverage-audit-007.md), after the v0.6-E Closure PASS (9d059f2,
+          third attempt) on top of Correction 006 (fa279a3) -> Repair 006-B (afd5b6c) -> Repair 006-C
+          (959e417). Coverage map: trusted Ch 19-22 (C/D/E) · unmined candidates Ch 17 (strongest),
+          Ch 18, Ch 16 · appendices E-H support-only · zero-density/large-values = later volume.
 
 Books (registries/books.jsonl is the source of truth):
   Mined, treasure overlay closed (AUDIT-CM-TREASURE-RETROFIT-CLOSURE-001), mastery deferred:

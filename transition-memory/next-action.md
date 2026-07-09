@@ -1,18 +1,16 @@
 # Next Action
 
 ```text
-Current baseline: v0.6-E Closure Review = COMPLETE, PASS (third attempt; audits/v0.6-e-closure.md).
-                  Unit MNTII-006-E (bounded gaps / GPY / Maynard, Ch 22) is CLOSED — 3 adversarial
-                  auditors PASS + falsifier unrefuted + 7/7 guards. A, B, and the legacy off-diagonal E
-                  stay QUARANTINED (cross-volume source-mismatch) at EVERY truth layer.
-                  Attempts 1-2 were blocked on repository-state grounds; both classes are now
-                  guarded repo-wide (State-Repair 006-B/006-C).
+Current baseline: Montgomery Book Coverage Audit 007 = COMPLETE
+                  (audits/montgomery-book-coverage-audit-007.md), after the v0.6-E Closure Review PASS
+                  (third attempt). Trusted C/D/E cover Ch 19-22; Ch 16-18 are UNMINED candidates
+                  (17 strongest, then 18, then 16); appendices E-H support-only; A/B/legacy-E stay
+                  QUARANTINED at every truth layer.
 
 Next action:
-  DECISION required (explicit permission from Sufyan):
-    (a) a further Montgomery treasure unit — only via a NEW ChatGPT Treasure Packet, or
-    (b) a Book Coverage Audit for Montgomery MNT-II before any new unit.
-  Nothing proceeds without the explicit order.
+  ChatGPT selects the next Treasure Packet candidate FROM the coverage audit
+  (Ch 17 recommended; Ch 18 / Ch 16 alternatives), then Sufyan gives explicit permission.
+  Only then may a new unit (e.g. MNTII-006-F) be mined — from that packet, one unit, then stop.
 
 Not allowed:
   - MNTII-006-F without an explicit Treasure Packet and permission.
