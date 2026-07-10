@@ -367,8 +367,11 @@ for rel in story_files():
                 need(False,
                      "%s:%d: calls MNTII-006-E quarantined/pre-packet without specifying legacy-E" % (rel, i + 1))
         # Montgomery must never be called a full book closure in prose either
+        # (STRICT: only an explicit negation or a same-line historical marker exempts —
+        #  the neighbourhood exemption was demonstrated to shield a live claim)
         if ("montgomery" in low or "mnt-ii" in low or "mntii" in low) and "book_overlay_closed" in low:
-            if "not book_overlay" not in low and not line_in_historical_context(lines, i):
+            if ("not book_overlay" not in low and "historical" not in low
+                    and "تاريخي" not in ln):
                 need(False, "%s:%d: calls Montgomery book_overlay_closed" % (rel, i + 1))
         # a quarantined tool must not be presented live in navigation/truth layers
         if (rel == "README.md" or rel.startswith(("maps/", "transition-memory/", "governance/"))):
