@@ -2,8 +2,8 @@
 
 Book ID: `BOOK-SIEVE-OPERA-001` · Unit: `OPERA-004-A` · Version: v0.7.
 
-**Status:** validated_intake — NOT closed — pending v0.7-A Closure Review.
-`primary_class = core_certificate_theory` · `secondary_role = reference_integration` · `packet_mismatch = false`.
+**Status:** validated_intake — NOT closed — pending v0.7-A Closure Review (Attempt 2).
+`primary_class = core_certificate_theory` · `secondary_role = reference_integration` · `packet_mismatch = true (routing_split)`.
 
 ## Source packet (provenance)
 
@@ -156,9 +156,9 @@ reason:
 ```
 
 The frozen hypothesis is preserved verbatim above; it was not erased, only demoted to the secondary
-role. (This corrects the v0.7-A Attempt-1 blocker: the earlier "refinement, not contradiction /
-packet_mismatch = false" phrasing was a retroactive justification — refinement requires the primary
-class to be unchanged, and here it changed.)
+role. (This corrects the v0.7-A Attempt-1 blocker: the earlier phrasing recorded the mismatch as
+absent by calling it a mere refinement — but refinement requires the primary class to be unchanged,
+and here the primary class changed, so it is a routing_split and the mismatch is true.)
 
 ## 10. Load-bearing linkage
 
