@@ -15,7 +15,8 @@ Live installed capabilities of the Central Mind (from the mined books and regist
 4. Zero-density / large-values frontier diagnostics (IK): TOOL-ZERO-DENSITY-DIAGNOSTIC-001,
    TOOL-LARGE-VALUE-DIAGNOSTIC-001.
 5. Sieve-information diagnostics (Harman): TOOL-SIEVE-INFO-CONSUMPTION-001, TOOL-TYPE-I-II-DIAGNOSTIC-001.
-6. Montgomery MNT-II sieves-and-gaps tools (v0.6, source-grounding-corrected):
+6. Montgomery MNT-II sieves-and-gaps tools (v0.6, source-grounding-corrected; book overlay
+   CLOSED per AUDIT-CM-MONTGOMERY-OVERLAY-008, mastery deferred):
    TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001 (C, Ch19-20 large sieve / Bombieri-Vinogradov, closed),
    TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001 (D, Ch21 Selberg / combinatorial sieve, closed),
    TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001 (E, Ch22 bounded gaps / GPY / Maynard —

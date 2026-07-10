@@ -1,11 +1,13 @@
 # Latest State
 
 ```text
-Version:  v0.6 Montgomery MNT-II (source-grounding-corrected; C/D/E/F/G/H CLOSED — content chapters complete)
+Version:  v0.6 Montgomery MNT-II (source-grounding-corrected; C/D/E/F/G/H CLOSED; book_overlay_closed, mastery deferred)
 Home:     D:\PVG-ANT-Central-Mind (standalone git repo)
-HEAD ref: latest baseline = v0.6-H Closure (PASS, second attempt, audits/v0.6-h-closure.md),
-          after State-Repair 006-F (53a5787) on the H-intake (8274e39) and the v0.6-G Closure
-          PASS (5f4863c). Every content chapter 16-22 is closure-reviewed.
+HEAD ref: latest baseline = Montgomery BOOK OVERLAY CLOSURE (governance order on the unanimous
+          AUDIT-CM-MONTGOMERY-OVERLAY-008 recommendation, at e5c57cb), after the v0.6-H Closure
+          PASS. Every content chapter 16-22 is closure-reviewed; the four-file overlay is closed;
+          mastery stays deferred. book_overlay_closed = coverage-layer closure ONLY: binary
+          Goldbach stays OPEN, MC-001..005 unsolved, walls uncrossed, zero RH/GRH progress.
           Remaining unmined: appendices E-H support-only (all content chapters 16-22 now
           have source-grounded units); zero-density/large-values = later volume.
 
@@ -16,7 +18,7 @@ Books (registries/books.jsonl is the source of truth):
     - Mileti     (logic / certificate; v0.2-A/B closed)
     - Iwaniec-Kowalski (zero-density / large values; v0.4 closed)
     - Harman     (sieve information / Type-I-II; v0.5 closed)
-  Partial overlay (source-grounding-corrected):
+  Overlay CLOSED (book_overlay_closed per AUDIT-CM-MONTGOMERY-OVERLAY-008; mastery deferred):
     - Montgomery MNT-II (v0.6) — Level 2, sieves-and-gaps pillar (Ch 19-22):
         TRUSTED source-grounded units (all six closure-reviewed):
           C (Ch 19-20 large sieve / Bombieri-Vinogradov, v0.6-c-closure PASS),
@@ -35,7 +37,8 @@ Books (registries/books.jsonl is the source of truth):
             to a LATER volume; prior A/B closure audits were safety/coherence checks only,
             SUPERSEDED by Correction 006, do NOT certify source-grounded extraction),
           legacy off-diagonal E (Kloosterman) in units/_quarantine/.
-        NOT book_overlay_closed; the rest of the book is unmined.
+        Book overlay CLOSED (audit 008); appendices E-H = documented support-only deferrals;
+        mastery deferred; the missed-treasures deferrals remain open and auditable.
   Available, not imported: Motohashi, Opera de Cribro, Hodel, Mendelson, Buss, Kossak, Stewart, Fesenko.
 
 Governing protocol:

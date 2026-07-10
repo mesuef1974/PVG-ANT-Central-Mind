@@ -89,7 +89,8 @@ v0.6-g-closure PASS), H (Ch 18 additive / circle method, v0.6-h-closure PASS; fr
 ChatGPT Treasure Packet; binary Goldbach stays OPEN, never claimed) — all six closure-reviewed.
 Quarantined (source-mismatch): A, B (cross-volume: zero-density / large values / pair-correlation deferred to a
 later volume) and the legacy off-diagonal E (Kloosterman — NOT revived by the Ch-16 unit). No MNTII-006-I without an explicit Treasure Packet and permission; after the H closure the next step is a post-H coverage/overlay audit. No new book. Bounded gaps is a KNOWN theorem, not our result, not twin primes, not a parity breakthrough; BV = average
-input; EH = conditional. No RH/GRH progress.
+input; EH = conditional. Book overlay: CLOSED per AUDIT-CM-MONTGOMERY-OVERLAY-008 (coverage-layer
+closure only; mastery deferred; binary Goldbach stays OPEN). No RH/GRH progress.
 ```
 
 **Honest classification:** Diagnostic / Boundary (integration links, source-grounding-corrected). No RH/GRH progress.

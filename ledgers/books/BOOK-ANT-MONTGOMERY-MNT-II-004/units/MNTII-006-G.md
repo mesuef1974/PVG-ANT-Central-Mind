@@ -81,7 +81,7 @@ exponent pair             :  reusable bound-profile for classes of exponential s
   material is NOT now trusted; it stays quarantined/postponed until its correct source.
 - Ch 16 gives NO Goldbach application (historical note: Ch 18 was later mined as the MNTII-006-H intake) and NO PNT/AP improvement.
 - no new exponential-sum bound; no exponent-pair improvement; no RH/GRH progress.
-- the Montgomery overlay is NOT closed (partial_overlay stands).
+- historical note (time of this unit's audit): the Montgomery overlay was not yet closed; it was later closed as book_overlay_closed per AUDIT-CM-MONTGOMERY-OVERLAY-008 (mastery deferred).
 - no crossing WALL-OFF-DIAGONAL / WALL-SIEVE-CEILING / WALL-PARITY / WALL-DENSITY-HYP.
 - MC-001, MC-002, MC-005 stay unsolved.
 - no raw copyrighted text; transformed notes only.

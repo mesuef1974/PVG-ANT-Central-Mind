@@ -82,7 +82,7 @@ Ch 18 (H) : the APPLICATION layer consuming them — not a new foundational tool
   the problem; minor arcs are NOT solved by PVG — they are the missing cancellation certificate.
 - prime k-tuples are NOT proved; short-interval conjectures are NOT proved — frontier interfaces only.
 - Ch 18 does NOT revive A/B or legacy-E; no twin primes; no PNT/AP improvement; no RH/GRH progress.
-- the Montgomery overlay is NOT closed (partial_overlay stands until a post-H coverage audit).
+- historical note (time of this unit's audit): the Montgomery overlay was not yet closed; the post-H coverage audit later recommended and governance ordered book_overlay_closed (AUDIT-CM-MONTGOMERY-OVERLAY-008; mastery deferred).
 - no crossing WALL-OFF-DIAGONAL / WALL-SIEVE-CEILING / WALL-PARITY / WALL-DENSITY-HYP / WALL-ZERO-FREE.
 - MC-001, MC-002, MC-005 stay unsolved.
 - no raw copyrighted text; transformed notes only.

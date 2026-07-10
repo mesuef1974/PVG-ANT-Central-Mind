@@ -13,7 +13,7 @@
 |---|---|
 | `central-mind-charter.md`, `central-mind-goals.md` | الدستور والهدف الأعلى |
 | `installed-skills/{math,governance}` | 14 بطاقةَ واجهةِ مهارة (الحوكمة أعلى سلطة) |
-| `ledgers/books/` | مُعدَّنة (treasure overlay مُغلَق): Overholt · Tenenbaum · Mileti · IK · Harman · **Montgomery MNT-II (v0.6، source-grounding-corrected: الموثوقُ C/D/E/F/G/H مُغلَقةً · المحجورُ A/B/legacy-E)**؛ + 8 كتب `available_not_imported` |
+| `ledgers/books/` | مُعدَّنة (treasure overlay مُغلَق): Overholt · Tenenbaum · Mileti · IK · Harman · **Montgomery MNT-II (v0.6، source-grounding-corrected؛ book_overlay_closed وmastery مؤجَّلة: الموثوقُ C/D/E/F/G/H مُغلَقةً · المحجورُ A/B/legacy-E)**؛ + 8 كتب `available_not_imported` |
 | `ledgers/imports/` | sieve · spectral-no-go · computational |
 | `registries/` | مصدرُ الحقيقة (JSONL): skills · books · research-frontiers · open-questions-queue · walls · tools · rules · observables · claims · planned · registry(constraint) |
 | `maps/` | skill-stack-map · skill-dependency-graph · query-routing-guide · current-capabilities · pvg-to-ant |
@@ -44,9 +44,9 @@ No audit, no release.  No RH/GRH progress without proof certificate.
 
 ## Current state & roadmap
 
-**Now (v0.6-H CLOSED — ستُّ وحداتٍ موثوقةٍ مُغلَقة، فصولُ المحتوى 16–22 كاملة):** خمسةُ كتبٍ مُعدَّنة (treasure overlay مُغلَق): Overholt · Tenenbaum · Mileti · IK · Harman. **Montgomery MNT-II (v0.6)** = partial overlay، **source-grounding-corrected**، Level 2: **الموثوقُ المؤصَّلُ بالمصدر (الستّةُ مُراجَعةُ إغلاق)** = G (Ch16 Van der Corput دعمًا؛ v0.6-g PASS) · F (Ch17 مجاميعُ الأوّليّات / Type I-II؛ v0.6-f PASS) · **H (Ch18 الجمعيّات / طريقةُ الدائرة؛ v0.6-h PASS — Goldbach الثنائيُّ مفتوحٌ لا يُدَّعى)** · C (Ch19-20 الغربال الكبير/BV) · D (Ch21 غرابيل) · E (Ch22 الفجوات المحدودة؛ v0.6-e PASS). **المحجورُ (source-mismatch/cross-volume، غيرُ موثوق)** = A · B · legacy off-diagonal E (مراجعاتُ إغلاقِ A/B القديمةُ SUPERSEDED). الحرّاسُ سبعة (+ `state_coherence` بمسحٍ شامل، وآلاتِ حالةِ إغلاق، وحقيقةِ الفصل↔الوحدة، ومصدرٍ واحدٍ للحالة الحيّة).
+**Now (v0.6-H CLOSED — ستُّ وحداتٍ موثوقةٍ مُغلَقة، فصولُ المحتوى 16–22 كاملة):** خمسةُ كتبٍ مُعدَّنة (treasure overlay مُغلَق): Overholt · Tenenbaum · Mileti · IK · Harman. **Montgomery MNT-II (v0.6)** = **book_overlay_closed** (AUDIT-CM-MONTGOMERY-OVERLAY-008؛ mastery مؤجَّلة)، **source-grounding-corrected**، Level 2: **الموثوقُ المؤصَّلُ بالمصدر (الستّةُ مُراجَعةُ إغلاق)** = G (Ch16 Van der Corput دعمًا؛ v0.6-g PASS) · F (Ch17 مجاميعُ الأوّليّات / Type I-II؛ v0.6-f PASS) · **H (Ch18 الجمعيّات / طريقةُ الدائرة؛ v0.6-h PASS — Goldbach الثنائيُّ مفتوحٌ لا يُدَّعى)** · C (Ch19-20 الغربال الكبير/BV) · D (Ch21 غرابيل) · E (Ch22 الفجوات المحدودة؛ v0.6-e PASS). **المحجورُ (source-mismatch/cross-volume، غيرُ موثوق)** = A · B · legacy off-diagonal E (مراجعاتُ إغلاقِ A/B القديمةُ SUPERSEDED). الحرّاسُ سبعة (+ `state_coherence` بمسحٍ شامل، وآلاتِ حالةِ إغلاق، وحقيقةِ الفصل↔الوحدة، ومصدرٍ واحدٍ للحالة الحيّة).
 
-**Next:** **Montgomery post-H coverage/overlay audit** (بإذنٍ صريح) — هو صاحبُ حكمِ book_overlay أمام الملاحق وmissed-treasures؛ لا MNTII-006-I بلا packet وإذن · لا كتابٌ جديد · لا إعادةَ ثقةٍ بـA/B/legacy-E بلا Packet مؤصَّل. (سجلُّ المراجعات: v0.6-E Closure Review PASS · v0.6-F Closure Review PASS · v0.6-G Closure Review PASS · v0.6-H Closure Review PASS.)
+**Next:** لا وحدةَ ولا كتابَ ولا تدقيقَ جديدًا بلا إذنٍ مستقلّ — **طبقةُ Montgomery مُغلَقة (book_overlay_closed، تدقيق 008) وmastery مؤجَّلة؛ الإغلاقُ تغطيةٌ لا رياضيّات: Goldbach الثنائيُّ مفتوح · MC-001..005 unsolved · الجدرانُ uncrossed · zero RH/GRH**؛ لا MNTII-006-I بلا packet وإذن · الملاحقُ E–H دعمٌ مؤجَّلٌ لا يُرقّى بلا packet · لا إعادةَ ثقةٍ بـA/B/legacy-E بلا Packet مؤصَّل. (سجلُّ المراجعات: v0.6-E Closure Review PASS · v0.6-F Closure Review PASS · v0.6-G Closure Review PASS · v0.6-H Closure Review PASS · Overlay Audit 008.)
 
 **Roles:** ChatGPT = محلّلُ الكنوز الرياضيّة؛ العميلُ المحلّيُّ = مهندسُ المستودع والحوكمة (`governance/state-coherence-policy.md`).
 

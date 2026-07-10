@@ -87,7 +87,8 @@ Source-grounded overlay = 6 trusted closure-reviewed units (C, D, E, F, G, H), p
 Historical record: the MNTII-006-H precondition WAS MET — the explicit Ch-18 Treasure Packet
 arrived and explicit permission was given; H was executed as validated_intake. Only MNTII-006-I
 stays not allowed without an explicit Treasure Packet AND explicit permission.
-Level 2; a partial, source-grounding-corrected overlay — NOT full-book mastery, NOT book overlay closure.
+Level 2; source-grounding-corrected; book overlay CLOSED per AUDIT-CM-MONTGOMERY-OVERLAY-008 —
+NOT full-book mastery (mastery deferred); the deferrals in this file remain open and auditable.
 ```
 
 ## Explicit non-claims

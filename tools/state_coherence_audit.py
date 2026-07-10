@@ -108,11 +108,22 @@ mont_line = ""
 for line in books.splitlines():
     if "BOOK-ANT-MONTGOMERY-MNT-II-004" in line:
         mont_line = line
+# Book-overlay closure authorization (AUDIT-CM-MONTGOMERY-OVERLAY-008):
+# the overlay may be marked closed ONLY on the authorizing audit's recommendation.
+overlay_audit_txt = read("audits/montgomery-post-h-overlay-audit-008.md")
+OVERLAY_AUTHORIZED = (overlay_audit_txt is not None
+                      and "RECOMMEND book_overlay_closed" in overlay_audit_txt)
+MONT_OVERLAY_CLOSED = '"status": "book_overlay_closed"' in mont_line
+
 if letters:
     need('"status": "scope_open"' not in mont_line,
          "books.jsonl Montgomery status is still 'scope_open' but units exist")
-    need("partial_overlay" in mont_line,
-         "books.jsonl Montgomery should be 'partial_overlay' (has units, overlay in progress)")
+    if MONT_OVERLAY_CLOSED:
+        need(OVERLAY_AUTHORIZED,
+             "books.jsonl Montgomery is book_overlay_closed without the authorizing overlay audit")
+    else:
+        need("partial_overlay" in mont_line,
+             "books.jsonl Montgomery should be 'partial_overlay' (has units, overlay in progress)")
 
 # SOURCE-GROUNDING CORRECTION 006 invariants (source is the governor, not miner speed)
 try:
@@ -131,10 +142,11 @@ need("B" in quarant, "books.jsonl does not mark unit B quarantined (source-misma
 # The legacy off-diagonal E must not be trusted; it must be quarantined
 need("legacy" not in trusted.lower(), "books.jsonl counts the legacy off-diagonal E among trusted units")
 need("legacy" in quarant.lower(), "books.jsonl does not mark the legacy off-diagonal E quarantined")
-# Montgomery must not be called a full book closure (check structured fields, not prose)
-need(obj.get("status") != "book_overlay_closed"
-     and "closed" not in str(obj.get("overlay", "")).lower(),
-     "books.jsonl Montgomery is marked as a full book closure; must be partial_overlay")
+# Montgomery must not be called a full book closure UNLESS the overlay audit authorized it
+if not OVERLAY_AUTHORIZED:
+    need(obj.get("status") != "book_overlay_closed"
+         and "closed" not in str(obj.get("overlay", "")).lower(),
+         "books.jsonl Montgomery is marked as a full book closure; must be partial_overlay")
 # E closure state machine: BEFORE a v0.6-e-closure PASS, E = validated_intake NOT closed;
 # AFTER it, E must be marked CLOSED and every layer must reflect the closure.
 e_closure_txt = read(os.path.join("audits", "v0.6-e-closure.md"))
@@ -366,12 +378,12 @@ for rel in story_files():
             if not line_in_historical_context(lines, i):
                 need(False,
                      "%s:%d: calls MNTII-006-E quarantined/pre-packet without specifying legacy-E" % (rel, i + 1))
-        # Montgomery must never be called a full book closure in prose either
+        # Montgomery must never be called a full book closure in prose UNLESS authorized
         # (STRICT: only an explicit negation or a same-line historical marker exempts —
         #  the neighbourhood exemption was demonstrated to shield a live claim)
         if ("montgomery" in low or "mnt-ii" in low or "mntii" in low) and "book_overlay_closed" in low:
-            if ("not book_overlay" not in low and "historical" not in low
-                    and "تاريخي" not in ln):
+            if (not OVERLAY_AUTHORIZED and "not book_overlay" not in low
+                    and "historical" not in low and "تاريخي" not in ln):
                 need(False, "%s:%d: calls Montgomery book_overlay_closed" % (rel, i + 1))
         # a quarantined tool must not be presented live in navigation/truth layers
         if (rel == "README.md" or rel.startswith(("maps/", "transition-memory/", "governance/"))):
@@ -571,6 +583,47 @@ for rel in story_files():
                 need(line_marked_historical(ln),
                      "%s:%d: closed-unit count '%s' contradicts the actual closed count (%d)"
                      % (rel, i + 1, m.group(1), n_closed))
+
+# ---- BOOK-OVERLAY CLOSURE truth (after AUDIT-CM-MONTGOMERY-OVERLAY-008) -----------
+# Once the Montgomery overlay is closed, live layers must not contradict it, and the
+# closure must never be read as mathematical closure.
+if MONT_OVERLAY_CLOSED:
+    # every PASS closure audit must still have its unit file (no chapter silently dropped
+    # while an all-chapters claim stands)
+    for L, aud in CLOSURE_AUDITS.items():
+        a = read(os.path.join("audits", aud))
+        if a is not None and "PASS" in a:
+            need(os.path.isfile(os.path.join(ROOT, MONT, "units", "MNTII-006-%s.md" % L)),
+                 "closure audit %s is PASS but units/MNTII-006-%s.md is missing" % (aud, L))
+    NEG_TOKENS = ("not ", "no ", "never", "open", "unsolved", "uncrossed", "deferred",
+                  "zero", "≠", "historical", "لا", "مفتوح", "تاريخي", "مؤجَّل")
+    for rel in story_files():
+        if rel.startswith("audits/") or "/_quarantine/" in rel:
+            continue
+        text = read(rel)
+        if text is None:
+            continue
+        for i, ln in enumerate(text.splitlines()):
+            low = ln.lower()
+            mont_ctx = ("montgomery" in low or "mnt-ii" in low or "mntii" in low)
+            # (1) no live partial-overlay claim after closure
+            if mont_ctx and ("partial_overlay" in low or "partial overlay" in low):
+                need(line_marked_historical(ln),
+                     "%s:%d: live partial-overlay claim after book_overlay_closed" % (rel, i + 1))
+            # (2) no live 'NOT book_overlay_closed' after closure
+            if mont_ctx and ("not book_overlay" in low or "not book overlay" in low):
+                need(line_marked_historical(ln),
+                     "%s:%d: live NOT-book_overlay_closed claim after closure" % (rel, i + 1))
+            # (3) no live 'Actually missing' item may coexist with the closed overlay
+            if "actually missing" in low:
+                need(line_marked_historical(ln) or ("zero" in low) or ("none" in low)
+                     or ("فارغ" in ln),
+                     "%s:%d: live 'Actually missing' item coexists with book_overlay_closed" % (rel, i + 1))
+            # (4) overlay closure must never pair with Goldbach/RH/GRH/wall claims un-negated
+            if "book_overlay_closed" in low and any(
+                    k in low for k in ("goldbach", "rh ", "grh", "riemann", "wall")):
+                need(any((n in low) or (n in ln) for n in NEG_TOKENS),
+                     "%s:%d: book_overlay_closed paired with a Goldbach/RH/GRH/wall claim" % (rel, i + 1))
 
 if issues:
     print("FAIL - %d state-coherence issue(s):" % len(issues))
