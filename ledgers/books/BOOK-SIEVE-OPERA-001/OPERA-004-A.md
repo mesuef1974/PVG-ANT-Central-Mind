@@ -2,8 +2,8 @@
 
 Book ID: `BOOK-SIEVE-OPERA-001` · Unit: `OPERA-004-A` · Version: v0.7.
 
-**Status:** validated_intake — NOT closed — pending v0.7-A Closure Review (Attempt 2).
-`primary_class = core_certificate_theory` · `secondary_role = reference_integration` · `packet_mismatch = true (routing_split)`.
+**Status:** CLOSED — v0.7-A Closure Review PASS (AUDIT-CM-V07-A-CLOSURE-001; Attempt 3, HEAD a319df4 reviewed).
+`primary_class = core_certificate_theory` · `secondary_role = reference_integration` · `packet_mismatch = true (routing_split)` · `trusted_status = closure_approved`.
 
 ## Source packet (provenance)
 
@@ -205,22 +205,25 @@ MC-001 progress:    none.
 RH/GRH progress:    zero RH progress, zero GRH progress.
 ```
 
-## 13. Prior review effect (intake correction, NOT a State-Repair)
+## 13. Review trail (intake corrections, NOT a State-Repair)
 
 ```text
-v0.7-A Closure Review — Attempt 1
-  result             = RETURN to validated_intake
-  blocking_issue     = incorrect packet_mismatch classification (asserted false; must be routing_split true)
-  additional_correction = over-early parity-wall mapping avoided (formulation-vs-certificate NOT mapped
-                          to WALL-PARITY; deferred to the parity-grounding packet)
+Attempt 1 = RETURN to validated_intake
+  blocking_issue = incorrect packet_mismatch (asserted false; must be routing_split true)
+  additional_correction = over-early parity-wall mapping avoided (formulation NOT mapped to WALL-PARITY)
+1572da0 intake correction = routing §9 + boundary fates fixed, but LEFT the status header stale
+  (packet_mismatch=false) — internally incomplete (header vs body contradicted)
+Attempt 2 = BLOCK — committed header/body contradiction at 1572da0
+a319df4 consistency fixup = header / §9 / §13 + all three ledgers made uniform (packet_mismatch=true routing_split)
+Attempt 3 = SAFE TO CLOSE on committed state a319df4 → CLOSED (AUDIT-CM-V07-A-CLOSURE-001)
 ```
 
-This is an intake correction: no closed unit and no trusted claim was altered (the unit was never closed).
-It is NOT a State-Repair — no guard invariant or cross-repo truth layer was structurally wrong.
+These were intake corrections: no closed unit and no trusted claim was altered (the unit was never closed
+during them). NOT a State-Repair — no guard invariant or cross-repo truth layer was structurally wrong.
 
 ## Next valid action
 
-This unit is a historical intake record. The only authoritative live next action is
-`transition-memory/next-action.md` (the v0.7-A Closure Review re-run is pending; this intake does not close it).
+This unit is a historical record. The only authoritative live next action is
+`transition-memory/next-action.md` (v0.7-A Closure Review PASS; this unit is CLOSED).
 
 **Honest classification:** Reinterpretation / Diagnostic (unit intake, NOT closed). No RH progress. No GRH progress. No mastery.

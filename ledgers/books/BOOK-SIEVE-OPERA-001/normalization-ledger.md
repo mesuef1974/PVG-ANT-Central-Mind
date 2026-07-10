@@ -1,6 +1,6 @@
 # Opera de Cribro — Normalization Ledger
 
-Book ID: `BOOK-SIEVE-OPERA-001` · Version: v0.7 · **partial_overlay — one intake unit (`OPERA-004-A`, not closed).** Routing: `packet_mismatch = true`, `routing_split`.
+Book ID: `BOOK-SIEVE-OPERA-001` · Version: v0.7 · **partial_overlay — one CLOSED unit (`OPERA-004-A`, v0.7-A Closure Review PASS).** Routing: `packet_mismatch = true`, `routing_split`.
 
 Each treasure in `treasure-map.md` normalized against the twelve targets. No new `TOOL-ID` and no new `WALL-ID` in this intake; reference material links to already-installed tools, the genuinely new content is carried as `provisional_intake` cards, and the three boundaries stay Boundaries (zero silent wall widening) pending the closure review.
 

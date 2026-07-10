@@ -1,7 +1,7 @@
 # Latest State
 
 ```text
-Version:  v0.7 Opera de Cribro partial_overlay (OPERA-004-A intake, 2026-07-10) over v0.6 Montgomery MNT-II CLOSED (book_overlay_closed, mastery deferred)
+Version:  v0.7 Opera de Cribro partial_overlay (OPERA-004-A CLOSED, 2026-07-11) over v0.6 Montgomery MNT-II CLOSED (book_overlay_closed, mastery deferred)
 Home:     D:\PVG-ANT-Central-Mind (standalone git repo)
 HEAD ref: latest baseline = Montgomery BOOK OVERLAY CLOSURE (governance order on the unanimous
           AUDIT-CM-MONTGOMERY-OVERLAY-008 recommendation, at e5c57cb), after the v0.6-H Closure
@@ -39,17 +39,17 @@ Books (registries/books.jsonl is the source of truth):
           legacy off-diagonal E (Kloosterman) in units/_quarantine/.
         Book overlay CLOSED (audit 008); appendices E-H = documented support-only deferrals;
         mastery deferred; the missed-treasures deferrals remain open and auditable.
-  Partial overlay (one intake unit, not closed):
+  Partial overlay (one CLOSED unit):
     - Opera de Cribro (v0.7) — Friedlander-Iwaniec, AMS Colloquium 57 (2010), identity verified.
         Sieve / parity / distribution certificate-theory layer, deepening the Harman-Montgomery
         pillar (FRONTIER-ANT-PVG-004). OPERA-004-A (Sifting Sequences as Main-Term/Remainder
-        Certificates) from OPERA-TREASURE-PACKET-001 (Ch 1 §§1.1-1.4) = validated_intake, NOT closed;
-        packet_mismatch TRUE / routing_split (primary core_certificate_theory, secondary
-        reference_integration). No new TOOL-ID; zero new WALL-ID (three boundaries stay Boundaries;
-        aggregate-remainder NOT mapped to WALL-SIEVE-CEILING; formulation NOT mapped to WALL-PARITY).
-        LB-01..06 frozen; scope-amendment + debt + C_sieve governance active
-        (governance/scope-amendment-and-debt-policy.md). Unit prefix OPERA-004.
-        Next: v0.7-A Closure Review Attempt 2 (Attempt 1 = RETURN, intake corrected).
+        Certificates) from OPERA-TREASURE-PACKET-001 (Ch 1 §§1.1-1.4) = CLOSED, v0.7-A Closure Review
+        PASS (AUDIT-CM-V07-A-CLOSURE-001); packet_mismatch TRUE / routing_split (primary
+        core_certificate_theory, secondary reference_integration); 7 cards closure_approved.
+        No new TOOL-ID; zero new WALL-ID (three boundaries stay Boundaries; aggregate-remainder NOT
+        mapped to WALL-SIEVE-CEILING; formulation NOT mapped to WALL-PARITY). LB-01..06 frozen;
+        scope-amendment + debt + C_sieve governance active. Unit prefix OPERA-004.
+        Next: NONE — awaiting an independently authorized next Treasure Packet.
   Available, not imported: Motohashi, Hodel, Mendelson, Buss, Kossak, Stewart, Fesenko.
 
 Governing protocol:
