@@ -1,6 +1,6 @@
 # Montgomery MNT-II — Treasure Map
 
-Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — SOURCE-GROUNDING-CORRECTED (Correction 006).** Trusted source-grounded units: `MNTII-006-C` (large sieve / Bombieri–Vinogradov, Ch 19–20; closed), `MNTII-006-D` (Selberg / combinatorial sieve, Ch 21; closed), `MNTII-006-E` (bounded gaps / GPY / Maynard, Ch 22; **CLOSED, v0.6-e-closure PASS**), `MNTII-006-F` (prime exponential sums / Type I-II, Ch 17; **CLOSED, v0.6-f-closure PASS**), `MNTII-006-G` (exponential sums / Van der Corput support, Ch 16; **CLOSED, v0.6-g-closure PASS**). **Quarantined (cross-volume / source-mismatch, NOT trusted):** `MNTII-006-A`, `MNTII-006-B` (zero-density / large values / pair-correlation — deferred by the source to a later volume) and the legacy off-diagonal E (`units/_quarantine/`). طبقةُ تعدينٍ تحت `governance/book-treasure-extraction-protocol.md`، مؤصَّلةٌ على المصدر (transformed notes only، PDF خارج git). **باقي الكتاب غيرُ مُعدَّن** (see `missed-treasures.md`). لا نصٌّ خام، لا ادّعاءُ إتقانٍ كامل.
+Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — SOURCE-GROUNDING-CORRECTED (Correction 006).** Trusted source-grounded units: `MNTII-006-C` (large sieve / Bombieri–Vinogradov, Ch 19–20; closed), `MNTII-006-D` (Selberg / combinatorial sieve, Ch 21; closed), `MNTII-006-E` (bounded gaps / GPY / Maynard, Ch 22; **CLOSED, v0.6-e-closure PASS**), `MNTII-006-F` (prime exponential sums / Type I-II, Ch 17; **CLOSED, v0.6-f-closure PASS**), `MNTII-006-G` (exponential sums / Van der Corput support, Ch 16; **CLOSED, v0.6-g-closure PASS**), `MNTII-006-H` (**additive prime number theory / circle method, Ch 18 — validated_intake, NOT closed**, pending v0.6-H Closure Review). **Quarantined (cross-volume / source-mismatch, NOT trusted):** `MNTII-006-A`, `MNTII-006-B` (zero-density / large values / pair-correlation — deferred by the source to a later volume) and the legacy off-diagonal E (`units/_quarantine/`). طبقةُ تعدينٍ تحت `governance/book-treasure-extraction-protocol.md`، مؤصَّلةٌ على المصدر (transformed notes only، PDF خارج git). **باقي الكتاب غيرُ مُعدَّن** (see `missed-treasures.md`). لا نصٌّ خام، لا ادّعاءُ إتقانٍ كامل.
 
 ```text
 Treasure ID: TREASURE-MNTII-001
@@ -695,6 +695,125 @@ Classification: Boundary.
 Normalized output: → quarantine boundary (units/_quarantine/ stays quarantined).
 ```
 
+## Unit MNTII-006-H — additive prime number theory / circle method (9 cards, source-grounded intake; Ch 18)
+
+```text
+Treasure ID: TREASURE-MNTII-052
+Treasure:    Additive prime problems convert prime support into representation counts
+Source:      MNTII-006-H — transformed notes only
+Type:        application principle
+Why it matters: N = p1+...+pk turns questions about the prime support set into counting representations - the founding move of additive prime number theory (Ch 18 opening).
+ANT role:    circle-method generating functions for prime sums.
+PVG translation: structured sums of axial prime-support points.
+Wall / certificate: none crossed; application reading only.
+Classification: Known / Diagnostic.
+Normalized output: -> Tool TOOL-MONTGOMERY-ADDITIVE-PRIME-CIRCLE-METHOD-DIAGNOSTIC-001 ; -> Frontier FRONTIER-ANT-PVG-006.
+```
+
+```text
+Treasure ID: TREASURE-MNTII-053
+Treasure:    Circle method separates major-arc structure from minor-arc cancellation
+Source:      MNTII-006-H — transformed notes only
+Type:        method principle
+Why it matters: major arcs deliver the local/main-term structure; minor arcs are exactly where a cancellation certificate is required - the division of labor of the method.
+ANT role:    Hardy-Littlewood decomposition with Vinogradov modification.
+PVG translation: major arcs = local structure; minor arcs = the missing cancellation certificate.
+Wall / certificate: WALL-OFF-DIAGONAL (contextual) - uncrossed.
+Classification: Known / Diagnostic.
+Normalized output: -> Tool TOOL-MONTGOMERY-ADDITIVE-PRIME-CIRCLE-METHOD-DIAGNOSTIC-001.
+```
+
+```text
+Treasure ID: TREASURE-MNTII-054
+Treasure:    Ternary Goldbach is known source mathematics, not a PVG result
+Source:      MNTII-006-H — transformed notes only
+Type:        known theorem (recorded)
+Why it matters: sums of three primes succeed under the circle method (Ch 18.1) - recorded as a KNOWN cited theorem; no improvement is claimed.
+ANT role:    the three-primes theorem as presented by the source.
+PVG translation: a known certificate recorded, not produced.
+Wall / certificate: none crossed; no ownership.
+Classification: Known.
+Normalized output: -> Tool TOOL-MONTGOMERY-ADDITIVE-PRIME-CIRCLE-METHOD-DIAGNOSTIC-001 (known-theorem reading).
+```
+
+```text
+Treasure ID: TREASURE-MNTII-055
+Treasure:    Binary Goldbach remains open; only average/almost-all forms are source-grounded here
+Source:      MNTII-006-H — transformed notes only
+Type:        no-go boundary (central fencing)
+Why it matters: the direct method FAILS for two primes (Ch 18.2); the source proves an average / almost-all statement - almost all even numbers does NOT mean all; binary Goldbach is OPEN and is never claimed.
+ANT role:    the boundary between the proven average form and the open pointwise conjecture.
+PVG translation: average representation control is not a pointwise representation certificate.
+Wall / certificate: the open binary-Goldbach boundary - no crossing claimed.
+Classification: Open Problem (recorded) / Boundary.
+Normalized output: -> Tool TOOL-MONTGOMERY-ADDITIVE-PRIME-CIRCLE-METHOD-DIAGNOSTIC-001 (fencing reading).
+```
+
+```text
+Treasure ID: TREASURE-MNTII-056
+Treasure:    Von Mangoldt weighted binary correlations encode average additive behavior
+Source:      MNTII-006-H — transformed notes only
+Type:        method principle
+Why it matters: the almost-all result runs through Lambda-weighted correlations - the analytic carrier of the average statement (Ch 18.2).
+ANT role:    weighted correlation sums behind the average two-primes result.
+PVG translation: axial-weight correlations as the average-behavior observable.
+Wall / certificate: none crossed.
+Classification: Known / Diagnostic.
+Normalized output: -> Tool TOOL-MONTGOMERY-ADDITIVE-PRIME-CIRCLE-METHOD-DIAGNOSTIC-001.
+```
+
+```text
+Treasure ID: TREASURE-MNTII-057
+Treasure:    Conditional estimates must remain explicitly conditional
+Source:      MNTII-006-H — transformed notes only
+Type:        no-go boundary
+Why it matters: the conditional estimates of Ch 18.3 are conditional - they are never promoted to theorems in this ledger.
+ANT role:    hypothesis-conditioned refinements of additive results.
+PVG translation: a conditional certificate is not a certificate.
+Wall / certificate: none crossed; conditionality preserved.
+Classification: Boundary.
+Normalized output: -> Tool TOOL-MONTGOMERY-ADDITIVE-PRIME-CIRCLE-METHOD-DIAGNOSTIC-001 (conditionality reading).
+```
+
+```text
+Treasure ID: TREASURE-MNTII-058
+Treasure:    Prime k-tuples and short intervals are frontier interfaces, not completed certificates
+Source:      MNTII-006-H — transformed notes only
+Type:        frontier interface
+Why it matters: Ch 18.5-18.6 present k-tuples and short-interval distributions as conjectural/frontier material - recorded as interfaces, with no theorem claimed.
+ANT role:    the k-tuple conjecture context; short-interval distribution questions.
+PVG translation: frontier interfaces on the prime-support geometry.
+Wall / certificate: WALL-DENSITY-HYP (contextual) - uncrossed.
+Classification: Open Problem (recorded) / Diagnostic.
+Normalized output: -> Tool TOOL-MONTGOMERY-ADDITIVE-PRIME-CIRCLE-METHOD-DIAGNOSTIC-001 (interface reading).
+```
+
+```text
+Treasure ID: TREASURE-MNTII-059
+Treasure:    Singular series records local congruence geometry, not global proof by itself
+Source:      MNTII-006-H — transformed notes only
+Type:        role boundary
+Why it matters: the singular series is the local density/congruence factor of the major arcs - it does NOT prove the representation on its own.
+ANT role:    local densities aggregated over residue classes.
+PVG translation: congruence geometry of the local obstructions; not a global certificate.
+Wall / certificate: none crossed.
+Classification: Known / Boundary.
+Normalized output: -> Tool TOOL-MONTGOMERY-ADDITIVE-PRIME-CIRCLE-METHOD-DIAGNOSTIC-001 (singular-series reading).
+```
+
+```text
+Treasure ID: TREASURE-MNTII-060
+Treasure:    PVG can classify additive support geometry but cannot replace minor-arc estimates
+Source:      MNTII-006-H — transformed notes only
+Type:        role boundary
+Why it matters: fixes the division of labor for the application layer - same rule as cards 043 (Ch 17) and 050 (Ch 16): labeling power without certificate power.
+ANT role:    the circle-method estimates carry the proof burden.
+PVG translation: labeling power without certificate power.
+Wall / certificate: WALL-OFF-DIAGONAL - WALL-PARITY - uncrossed.
+Classification: Boundary.
+Normalized output: -> Tool TOOL-MONTGOMERY-ADDITIVE-PRIME-CIRCLE-METHOD-DIAGNOSTIC-001 (role-boundary reading).
+```
+
 ## Quarantined cards (source-mismatch / cross-volume)
 
 ```text
@@ -703,7 +822,7 @@ TREASURE-MNTII-001..015 (units A/B): CROSS-VOLUME context. Zero-density / large 
   treasure map (units A/B are quarantined — see README / books.jsonl).
 Old TREASURE-MNTII-030..036 (off-diagonal / Kloosterman): superseded / quarantined; preserved in
   units/_quarantine/MNTII-006-E-legacy-offdiagonal-source-mismatch.md.
-Trusted source-grounded Montgomery treasures: C (016-022, Ch 19-20) · D (023-029, Ch 21) · E (030-036, Ch 22 bounded gaps) · F (037-043, Ch 17 prime sums / Type I-II) · G (044-051, Ch 16 Van der Corput support) — all five units closure-reviewed.
+Trusted source-grounded Montgomery treasures: C (016-022, Ch 19-20) · D (023-029, Ch 21) · E (030-036, Ch 22 bounded gaps) · F (037-043, Ch 17 prime sums / Type I-II) · G (044-051, Ch 16 Van der Corput support) — closure-reviewed — plus H (052-060, Ch 18 additive / circle method — intake, pending closure review).
 ```
 
-**Honest classification:** Diagnostic / Boundary (treasure map, **source-grounding-corrected**). Trusted source-grounded = C + D + E + F + G (all closure-reviewed); A/B + legacy off-diagonal E = quarantined (cross-volume / source-mismatch). No RH/GRH progress. No new theorem; **bounded gaps recorded as a KNOWN theorem, not our result, not twin primes, not a parity breakthrough**; Bombieri–Vinogradov = average input; Elliott–Halberstam = conditional. MC-001 & MC-002 & MC-005 unsolved; walls uncrossed.
+**Honest classification:** Diagnostic / Boundary (treasure map, **source-grounding-corrected**). Trusted source-grounded = C + D + E + F + G (closure-reviewed) + H (Ch 18 application intake, pending closure review); A/B + legacy off-diagonal E = quarantined (cross-volume / source-mismatch). No RH/GRH progress. No new theorem; **bounded gaps recorded as a KNOWN theorem, not our result, not twin primes, not a parity breakthrough**; Bombieri–Vinogradov = average input; Elliott–Halberstam = conditional. MC-001 & MC-002 & MC-005 unsolved; walls uncrossed.

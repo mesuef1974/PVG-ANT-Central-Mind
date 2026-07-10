@@ -205,9 +205,39 @@ if g_txt is not None:
              "missed-treasures.md omits MNTII-006-G")
         need("v0.6-G Closure Review" in readme,
              "root README.md does not point to the v0.6-G Closure Review track")
-# no MNTII-006-H (no further unit without a packet and explicit permission)
-need(not os.path.isfile(os.path.join(ROOT, MONT, "units", "MNTII-006-H.md")),
-     "MNTII-006-H unit exists; no further Montgomery unit is allowed without a packet and permission")
+# H state machine: H may exist ONLY as the packet-grounded Ch-18 application unit;
+# before a v0.6-h-closure PASS it stays validated_intake NOT closed.
+h_txt = read(os.path.join(MONT, "units", "MNTII-006-H.md"))
+if h_txt is not None:
+    need("Treasure Packet" in h_txt and "Ch 18" in h_txt,
+         "MNTII-006-H is not grounded in the Ch-18 Treasure Packet")
+    need("binary Goldbach" in h_txt and "open" in h_txt.lower(),
+         "MNTII-006-H does not carry the binary-Goldbach-is-OPEN fencing")
+    h_closure = read(os.path.join("audits", "v0.6-h-closure.md"))
+    H_CLOSED = h_closure is not None and "PASS" in h_closure
+    if h_closure is not None:
+        need("PASS" in h_closure, "audits/v0.6-h-closure.md exists but does not record PASS")
+    if H_CLOSED:
+        need(re.search(r"\*\*Status:\*\*\s*CLOSED", h_txt),
+             "v0.6-h-closure PASS exists but MNTII-006-H is not marked Status: CLOSED")
+    else:
+        need(not re.search(r"\*\*Status:\*\*\s*CLOSED", h_txt),
+             "MNTII-006-H is marked Status: CLOSED but no v0.6-h-closure PASS exists")
+        need(re.search(r"\*\*Status:\*\*[^\n]*validated_intake", h_txt),
+             "MNTII-006-H (intake) Status line is not validated_intake")
+        need("not closed" in h_txt.lower(), "MNTII-006-H (intake) is not marked NOT closed")
+        need(any(tok.startswith("H") for tok in trusted_tokens),
+             "books.jsonl trusted_source_units omits the H intake while units/MNTII-006-H.md exists")
+        need("TOOL-MONTGOMERY-ADDITIVE-PRIME-CIRCLE-METHOD-DIAGNOSTIC-001" in (read("maps/current-capabilities.md") or ""),
+             "maps/current-capabilities.md omits the H-intake tool")
+        need("MNTII-006-H" in (read(os.path.join(MONT, "missed-treasures.md")) or ""),
+             "missed-treasures.md omits MNTII-006-H")
+        need("v0.6-H Closure Review" in readme,
+             "root README.md does not point to the v0.6-H Closure Review track")
+# no MNTII-006-I (no further unit without a packet and explicit permission;
+# after the H closure the next step is a post-H coverage/overlay audit, not unit I)
+need(not os.path.isfile(os.path.join(ROOT, MONT, "units", "MNTII-006-I.md")),
+     "MNTII-006-I unit exists; no further Montgomery unit is allowed without a packet and permission")
 
 # STATE-REPAIR 006-B invariants: quarantine must propagate to tools.jsonl and maps/
 QUARANTINED_TOOLS = (
@@ -389,7 +419,7 @@ for i, ln in enumerate(tm_lines):
 #     is allowed. Historical audit reports (audits/) are pinned records and exempt.
 CLOSURE_AUDITS = {"C": "v0.6-c-closure.md", "D": "v0.6-d-closure.md",
                   "E": "v0.6-e-closure.md", "F": "v0.6-f-closure.md",
-                  "G": "v0.6-g-closure.md"}
+                  "G": "v0.6-g-closure.md", "H": "v0.6-h-closure.md"}
 closed_letters = []
 for L, aud in CLOSURE_AUDITS.items():
     a = read(os.path.join("audits", aud))
@@ -404,12 +434,12 @@ for rel in story_files():
     for i, ln in enumerate(text.splitlines()):
         # segment-scoped: a claim belongs to the unit mentioned before it, up to the
         # next unit mention on the same line (multi-unit summary lines stay precise).
-        for mm in re.finditer(r"MNTII-006-([A-H])(?![-A-Za-z])", ln):
+        for mm in re.finditer(r"MNTII-006-([A-Z])(?![-A-Za-z])", ln):
             L = mm.group(1)
             if L not in closed_letters:
                 continue
             rest = ln[mm.end():]
-            nxt = re.search(r"MNTII-006-[A-H]", rest)
+            nxt = re.search(r"MNTII-006-[A-Z]", rest)
             seg = rest[:nxt.start()] if nxt else rest
             seg_low = seg.lower()
             stale = ("validated_intake" in seg_low or "not closed" in seg_low
@@ -453,6 +483,7 @@ if f_txt is not None and not F_CLOSED:
 # a valid Ch-18 unit exists. 'unmined' is allowed only in historical/superseded/
 # blocked-review contexts (audits/ and _quarantine/ are pinned records).
 CHAPTER_UNITS = [("16", "MNTII-006-G.md"), ("17", "MNTII-006-F.md"),
+                 ("18", "MNTII-006-H.md"),
                  ("19", "MNTII-006-C.md"), ("20", "MNTII-006-C.md"),
                  ("21", "MNTII-006-D.md"), ("22", "MNTII-006-E.md")]
 mined_chapters = [ch for ch, u in CHAPTER_UNITS

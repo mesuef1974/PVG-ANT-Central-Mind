@@ -1,13 +1,13 @@
 # Latest State
 
 ```text
-Version:  v0.6 Montgomery MNT-II (source-grounding-corrected; C/D/E/F/G CLOSED)
+Version:  v0.6 Montgomery MNT-II (source-grounding-corrected; C/D/E/F/G CLOSED + H-intake)
 Home:     D:\PVG-ANT-Central-Mind (standalone git repo)
-HEAD ref: latest baseline = v0.6-G Closure (PASS, second attempt, audits/v0.6-g-closure.md),
-          after State-Repair 006-E (b6219c3, chapter<->unit truth) on the G-intake (c91213e)
-          and the v0.6-F Closure PASS (b9f2f66).
-          Remaining unmined: Ch 18 (deferred until after the G closure); appendices E-H
-          support-only; zero-density/large-values = later volume.
+HEAD ref: latest baseline = MNTII-006-H intake (Ch 18 additive prime number theory /
+          circle-method APPLICATION layer — the FINAL content chapter), mined from the explicit
+          ChatGPT Treasure Packet on top of the v0.6-G Closure PASS (5f4863c).
+          Remaining unmined: appendices E-H support-only (all content chapters 16-22 now
+          have source-grounded units); zero-density/large-values = later volume.
 
 Books (registries/books.jsonl is the source of truth):
   Mined, treasure overlay closed (AUDIT-CM-TREASURE-RETROFIT-CLOSURE-001), mastery deferred:
@@ -27,6 +27,10 @@ Books (registries/books.jsonl is the source of truth):
           G (Ch 16 exponential sums / Van der Corput cancellation SUPPORT layer,
             v0.6-g-closure PASS, second attempt; explicit Treasure Packet;
             does NOT revive the quarantined legacy-E).
+        PENDING intake:
+          H (Ch 18 additive prime number theory / circle method) = validated_intake,
+            NOT closed, pending v0.6-H Closure Review (explicit Treasure Packet;
+            binary Goldbach stays OPEN, never claimed; almost-all is average, not all).
         QUARANTINED (source-mismatch / cross-volume, NOT trusted):
           A, B (zero-density / large-values / pair-correlation are deferred by the source
             to a LATER volume; prior A/B closure audits were safety/coherence checks only,

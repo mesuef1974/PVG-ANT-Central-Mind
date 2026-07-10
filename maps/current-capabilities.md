@@ -26,7 +26,11 @@ Live installed capabilities of the Central Mind (from the mined books and regist
    TOOL-MONTGOMERY-VDC-EXPONENTIAL-SUMS-DIAGNOSTIC-001 (G / MNTII-006-G, Ch16 exponential
    sums / Van der Corput cancellation SUPPORT layer — source-grounded from the explicit
    Treasure Packet; entered as validated_intake, CLOSED: v0.6-g-closure PASS, second attempt;
-   does NOT revive the quarantined legacy off-diagonal material).
+   does NOT revive the quarantined legacy off-diagonal material),
+   TOOL-MONTGOMERY-ADDITIVE-PRIME-CIRCLE-METHOD-DIAGNOSTIC-001 (H / MNTII-006-H, Ch18
+   additive prime number theory / circle-method APPLICATION layer — source-grounded intake
+   from the explicit Treasure Packet, validated_intake, NOT closed, pending v0.6-H Closure
+   Review; binary Goldbach stays OPEN and is never claimed).
    [QUARANTINED, source-mismatch / cross-volume — NOT trusted capabilities:
    TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001 (A), TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001 (B),
    TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001 (legacy off-diagonal E).]
