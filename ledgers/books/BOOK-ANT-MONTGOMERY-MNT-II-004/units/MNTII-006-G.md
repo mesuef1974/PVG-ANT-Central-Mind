@@ -39,7 +39,7 @@ exponent pair             :  reusable bound-profile for classes of exponential s
 
 بلغة PVG: الفصلُ 16 **لا يصنّف دعمَ التقييم أساسًا — بل يورّد شهادةَ إلغاءِ طورٍ تحليليّة**. يستطيع PVG تسميةَ مواضعِ تطبيق الاختبارات التذبذبيّة على مجاميعَ مفهرسةٍ بالتقييم، ويمكن قراءةُ تفريقِ van der Corput **مقارنةَ شرائحَ مُزاحةٍ من إشارةٍ حسابيّةٍ مفهرسة** — لكنّ **شهادةَ الإلغاء تبقى تحليليّةً**: لا يستبدل PVG اختباراتِ المشتقّات ولا تقديراتِ أزواج الأُسس.
 
-جسرُ ANT: يركّب لغةَ الإلغاء التي يستهلكها `MNTII-006-F` (Ch 17: مجاميعُ الأوّليّات وType I/II) وتطبيقاتُ Ch 18 المؤجَّلة؛ دعمٌ جانبيٌّ من الملحق E (توافقيّات/مثلّثيّات) والملحق G (ثنائيّات/معايير) عند الحاجة — **الملاحقُ دعمٌ فقط، لا وحدات**.
+جسرُ ANT: يركّب لغةَ الإلغاء التي يستهلكها `MNTII-006-F` (Ch 17: مجاميعُ الأوّليّات وType I/II) وتطبيقاتُ Ch 18 (عُدِّنت لاحقًا وحدةَ MNTII-006-H — ملاحظةٌ تاريخيّة)؛ دعمٌ جانبيٌّ من الملحق E (توافقيّات/مثلّثيّات) والملحق G (ثنائيّات/معايير) عند الحاجة — **الملاحقُ دعمٌ فقط، لا وحدات**.
 
 ## Frontier links
 
@@ -56,7 +56,7 @@ exponent pair             :  reusable bound-profile for classes of exponential s
 
 - **لا حدَّ جديدًا** لمجموعٍ أُسّيّ · **لا تحسينَ أزواجِ أُسس** · لا اختراقَ Type II.
 - **لا يُحيي legacy-E**: موادُّ Kloosterman/Weil/Deshouillers–Iwaniec اللاقطريّة **تبقى محجورةً/مؤجَّلةً** حتى يأتي مصدرُها الصحيح — الفصلُ 16 لا يبرّر إعادتَها للمسار الموثوق.
-- لا كسرَ تكافؤ · لا تحسينَ PNT/AP · **لا تطبيقَ Goldbach بعدُ** (Ch 18 مؤجَّل) · لا تقدّمَ RH/GRH.
+- لا كسرَ تكافؤ · لا تحسينَ PNT/AP · **لا تطبيقَ Goldbach من هذه الوحدة** (سجلٌّ تاريخيّ: كان Ch 18 مؤجَّلًا عند إغلاقها ثمّ عُدِّن وحدةَ MNTII-006-H) · لا تقدّمَ RH/GRH.
 - لا يحلّ `MC-001` (الإلغاءُ يغذّي حججَ الغربال لكنّه لا يجعلها كواشفَ أوّليّات) ولا `MC-005` (الإلغاءُ الأُسّيّ ليس تحكّمًا فرديًّا GRH/AP) ولا `MC-002`.
 
 ## Related walls
@@ -79,7 +79,7 @@ exponent pair             :  reusable bound-profile for classes of exponential s
   exponential sums do NOT break parity.
 - Ch 16 does NOT revive legacy-E: Kloosterman/Weil/Deshouillers-Iwaniec off-diagonal
   material is NOT now trusted; it stays quarantined/postponed until its correct source.
-- Ch 16 gives NO Goldbach application (Ch 18 not mined) and NO PNT/AP improvement.
+- Ch 16 gives NO Goldbach application (historical note: Ch 18 was later mined as the MNTII-006-H intake) and NO PNT/AP improvement.
 - no new exponential-sum bound; no exponent-pair improvement; no RH/GRH progress.
 - the Montgomery overlay is NOT closed (partial_overlay stands).
 - no crossing WALL-OFF-DIAGONAL / WALL-SIEVE-CEILING / WALL-PARITY / WALL-DENSITY-HYP.
@@ -107,10 +107,10 @@ see audits/v0.6-g-closure.md). Guard focus of this packet: legacy-E is NOT reviv
 - [x] SOURCE-GROUNDED from Treasure Packet (Ch 16, §16.1–16.5); transformed notes only
 - [x] Known machinery recorded as Known; no new bound; no exponent-pair improvement; not a PVG result
 - [x] legacy-E NOT revived (Kloosterman/Weil/off-diagonal stays quarantined/postponed)
-- [x] No Goldbach application; Ch 18 not mined; no Type II breakthrough; no parity break
+- [x] No Goldbach application (historical checklist: Ch 18 later mined as MNTII-006-H); no Type II breakthrough; no parity break
 - [x] No crossing WALL-OFF-DIAGONAL / WALL-SIEVE-CEILING / WALL-PARITY / WALL-DENSITY-HYP · MC-001/002/005 unsolved
 - [x] Entered as validated_intake; CLOSED by v0.6-G Closure Review PASS (3 auditors + falsifier unrefuted)
 - [x] TOOL-MONTGOMERY-VDC-EXPONENTIAL-SUMS-DIAGNOSTIC-001 registered; cards 044–051; planned.jsonl empty
-- [x] MNTII-006-H not started · no full book mining · Seven guards PASS after this intake
+- [x] MNTII-006-H not started at the time of this audit (historical record; later executed) · no full book mining · Seven guards PASS after this intake
 
 **Ceiling:** Chapter-16 machinery enters as a KNOWN cancellation SUPPORT layer — derivative tests, van der Corput differencing, and exponent pairs are analytic certificates that PVG can label but cannot replace. No new bound, no exponent-pair improvement, no Type II breakthrough, no legacy-E revival, no Goldbach application, no PNT/AP improvement. MC-001/002/005 unsolved; walls uncrossed. No RH/GRH progress.

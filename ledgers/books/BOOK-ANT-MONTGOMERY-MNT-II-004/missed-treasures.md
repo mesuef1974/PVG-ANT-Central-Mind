@@ -7,7 +7,7 @@ Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — source-grounding-corrected
 ```text
 Montgomery MNT-II source-grounded extraction covers the sieves-and-gaps pillar plus the Ch-17
 bridge (C: Ch 19-20 large sieve / BV; D: Ch 21 sieves; E: Ch 22 bounded gaps, v0.6-e-closure PASS;
-F: Ch 17 prime sums / Type I-II, v0.6-f-closure PASS — all four closure-reviewed; plus G: Ch 16
+F: Ch 17 prime sums / Type I-II, v0.6-f-closure PASS; G: Ch 16
 Van der Corput support, v0.6-g-closure PASS — all five closure-reviewed; plus H: Ch 18 additive /
 circle method, validated_intake pending v0.6-H Closure Review) and is NOT a full-book
 treasure-mining pass. Units A and B, and the
@@ -84,8 +84,9 @@ See audits/montgomery-book-coverage-audit-007.md.
 Source-grounded overlay = 5 trusted closure-reviewed units (C, D, E, F, G) + 1 pending intake
 (H: Ch 18 additive / circle method, validated_intake, pending v0.6-H Closure Review), plus
 2 quarantined cross-volume units (A, B) and 1 quarantined legacy unit (off-diagonal E).
-MNTII-006-H is not allowed without an explicit Treasure Packet AND explicit permission
-(the G-closure precondition is met; the Ch-18 packet and the permission are not).
+Historical record: the MNTII-006-H precondition WAS MET — the explicit Ch-18 Treasure Packet
+arrived and explicit permission was given; H was executed as validated_intake. Only MNTII-006-I
+stays not allowed without an explicit Treasure Packet AND explicit permission.
 Level 2; a partial, source-grounding-corrected overlay — NOT full-book mastery, NOT book overlay closure.
 ```
 

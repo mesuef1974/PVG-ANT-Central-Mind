@@ -512,6 +512,63 @@ for rel in story_files():
                 need(False,
                      "%s:%d: calls Ch 18 mined/closed before a valid Ch-18 unit exists" % (rel, i + 1))
 
+# ---- STATE-REPAIR 006-F: executed-unit stale-denial + closed-count consistency ----
+# STRICT exemption: these two checks accept ONLY a same-line historical marker.
+# (The broad neighbourhood exemption tokens — especially 'legacy' — were demonstrated
+#  to shield live defects whose lines merely mention the quarantined legacy-E.)
+def line_marked_historical(ln):
+    low = ln.lower()
+    return ("historical" in low) or ("تاريخي" in ln)
+
+
+# (a) Executed-unit stale-denial: a unit that EXISTS may never be described in a live
+#     layer with denial phrases (not allowed / packet absent / permission not met /
+#     not mined, or Arabic equivalents) unless the line itself is marked historical.
+existing_letters = [L for L in "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                    if os.path.isfile(os.path.join(ROOT, MONT, "units", "MNTII-006-%s.md" % L))]
+DENIAL_KEYS = ("not allowed", "packet absent", "permission not met",
+               "the permission are not", "not mined", "غير مسموح", "لم يصدر إذن")
+for rel in story_files():
+    if rel.startswith("audits/") or "/_quarantine/" in rel:
+        continue
+    text = read(rel)
+    if text is None:
+        continue
+    lines = text.splitlines()
+    for i, ln in enumerate(lines):
+        low = ln.lower()
+        for L in existing_letters:
+            uid = "mntii-006-%s" % L.lower()
+            if uid in low and (uid + "-legacy") not in low:
+                if any((k in low) or (k in ln) for k in DENIAL_KEYS):
+                    need(line_marked_historical(ln),
+                         "%s:%d: describes EXECUTED unit MNTII-006-%s with a stale denial phrase"
+                         % (rel, i + 1, L))
+# (b) Closed-count consistency: textual counts of closed units in live layers must
+#     match the actual number of closure-reviewed units.
+WORD_NUM = {"three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8,
+            "ثلاث": 3, "أربع": 4, "خمس": 5, "ست": 6, "سبع": 7, "ثمان": 8}
+COUNT_PATTERNS = [
+    re.compile(r"all (three|four|five|six|seven|eight) closure-reviewed", re.I),
+    re.compile(r"(three|four|five|six|seven|eight) trusted units closed", re.I),
+    re.compile(r"(ثلاث|أربع|خمس|ست|سبع|ثمان)[ُ]?\s+وحداتٍ\s+(?:موثوقةٍ\s+)?مُغلَقة"),
+]
+n_closed = len(closed_letters)
+for rel in story_files():
+    if rel.startswith("audits/") or "/_quarantine/" in rel:
+        continue
+    text = read(rel)
+    if text is None:
+        continue
+    lines = text.splitlines()
+    for i, ln in enumerate(lines):
+        for pat in COUNT_PATTERNS:
+            m = pat.search(ln)
+            if m and WORD_NUM.get(m.group(1).lower(), -1) != n_closed:
+                need(line_marked_historical(ln),
+                     "%s:%d: closed-unit count '%s' contradicts the actual closed count (%d)"
+                     % (rel, i + 1, m.group(1), n_closed))
+
 if issues:
     print("FAIL - %d state-coherence issue(s):" % len(issues))
     for i in issues:

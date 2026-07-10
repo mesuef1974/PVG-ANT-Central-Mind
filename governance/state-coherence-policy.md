@@ -60,13 +60,15 @@ The live `MNTII-006-E` (bounded gaps / GPY / Maynard, Ch 22) entered as **valida
 and is now **CLOSED** (`audits/v0.6-e-closure.md` PASS, third attempt). The live `MNTII-006-F`
 (prime sums / Type I-II, Ch 17) likewise entered as validated_intake — NOT quarantined — and is now
 **CLOSED** (`audits/v0.6-f-closure.md` PASS, second attempt), as is `MNTII-006-G` (Van der Corput
-support, Ch 16; `audits/v0.6-g-closure.md` PASS, second attempt; no legacy-E revival).
+support, Ch 16; `audits/v0.6-g-closure.md` PASS, second attempt; no legacy-E revival). The live
+`MNTII-006-H` (additive prime / circle method, Ch 18) entered as validated_intake — NOT quarantined,
+NOT closed — pending its v0.6-H Closure Review (binary Goldbach stays OPEN, never claimed).
 Unit files are historical records: the only authoritative live next action is
 `transition-memory/next-action.md`.
 
 ## Enforcement
 
-`tools/state_coherence_audit.py` fails on stale-state contradictions (closure↔README, registry↔ledger, transition-memory truth, unit-existence↔"No unit X" phrases, and the quarantine markers), and — since State-Repair 006-C — runs a **repo-wide stale-story sweep** over every tracked markdown/JSONL file: stale Montgomery story patterns are forbidden outside explicit historical / superseded / quarantined contexts, and quarantine must propagate to tools.jsonl, maps, README, governance, and transition-memory alike. It is a **repository-truth checker**, not a mathematical-completeness checker. It joins the guard set (now seven).
+`tools/state_coherence_audit.py` fails on stale-state contradictions (closure↔README, registry↔ledger, transition-memory truth, unit-existence↔"No unit X" phrases, and the quarantine markers), and — since State-Repair 006-C — runs a **repo-wide stale-story sweep** over every tracked markdown/JSONL file: stale Montgomery story patterns are forbidden outside explicit historical / superseded / quarantined contexts, and quarantine must propagate to tools.jsonl, maps, README, governance, and transition-memory alike. Since State-Repair 006-F it also enforces two general truth rules: **executed-unit stale-denial** (a unit that exists may never be described alive with "not allowed / packet absent / permission not met / not mined" phrasing outside an explicit historical marker) and **closed-count consistency** (any textual count of closed units in a live layer must equal the actual number of closure-reviewed units). It is a **repository-truth checker**, not a mathematical-completeness checker. It joins the guard set (now seven).
 
 **Ceiling (unchanged):** zero RH progress · zero GRH progress · no secured path.
 

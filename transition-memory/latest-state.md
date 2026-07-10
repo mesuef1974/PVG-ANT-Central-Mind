@@ -18,7 +18,7 @@ Books (registries/books.jsonl is the source of truth):
     - Harman     (sieve information / Type-I-II; v0.5 closed)
   Partial overlay (source-grounding-corrected):
     - Montgomery MNT-II (v0.6) — Level 2, sieves-and-gaps pillar (Ch 19-22):
-        TRUSTED source-grounded units (all four closure-reviewed):
+        TRUSTED source-grounded units (all five closure-reviewed):
           C (Ch 19-20 large sieve / Bombieri-Vinogradov, v0.6-c-closure PASS),
           D (Ch 21 Selberg / combinatorial sieve, v0.6-d-closure PASS),
           E (Ch 22 bounded gaps / GPY / Maynard, v0.6-e-closure PASS, third attempt),

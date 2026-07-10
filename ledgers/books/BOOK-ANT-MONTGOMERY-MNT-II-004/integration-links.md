@@ -76,17 +76,18 @@ Elliott–Halberstam (level 1−ε)  ← 035   UNPROVEN conjecture; EH-dependent
 
 ```text
 WALL-PARITY · WALL-SIEVE-CEILING · WALL-OFF-DIAGONAL · WALL-DENSITY-HYP   the sieve / gaps walls (frontier 004)
-(the frontier-006 walls WALL-ZERO-FREE / WALL-SIEGEL / WALL-POSITIVITY-WEIL belong to the quarantined A/B context)
+WALL-ZERO-FREE   in play (uncrossed) via the trusted H unit (Ch 18 related wall, per its packet)
+(WALL-SIEGEL / WALL-POSITIVITY-WEIL belong to the quarantined A/B context only)
 ```
 
 ## Scope honesty (v0.6, source-grounding-corrected)
 
 ```text
 Trusted source-grounded units: C (Ch 19-20), D (Ch 21), E (Ch 22 bounded gaps, v0.6-e-closure PASS),
-F (Ch 17 prime sums / Type I-II, v0.6-f-closure PASS) — all four closure-reviewed — plus
-G (Ch 16 Van der Corput support, v0.6-g-closure PASS) — all five closure-reviewed — plus
-H (Ch 18 additive / circle method, validated_intake, NOT closed, pending v0.6-H Closure Review;
-from an explicit ChatGPT Treasure Packet; binary Goldbach stays OPEN, never claimed).
+F (Ch 17 prime sums / Type I-II, v0.6-f-closure PASS), G (Ch 16 Van der Corput support,
+v0.6-g-closure PASS) — all five closure-reviewed — plus H (Ch 18 additive / circle method,
+validated_intake, NOT closed, pending v0.6-H Closure Review; from an explicit ChatGPT Treasure
+Packet; binary Goldbach stays OPEN, never claimed).
 Quarantined (source-mismatch): A, B (cross-volume: zero-density / large values / pair-correlation deferred to a
 later volume) and the legacy off-diagonal E (Kloosterman — NOT revived by the Ch-16 unit). No MNTII-006-I without an explicit Treasure Packet and permission; after the H closure the next step is a post-H coverage/overlay audit. No new book. Bounded gaps is a KNOWN theorem, not our result, not twin primes, not a parity breakthrough; BV = average
 input; EH = conditional. No RH/GRH progress.
