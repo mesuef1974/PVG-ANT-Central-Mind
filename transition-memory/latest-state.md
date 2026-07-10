@@ -1,11 +1,11 @@
 # Latest State
 
 ```text
-Version:  v0.6 Montgomery MNT-II (source-grounding-corrected; C/D/E/F/G CLOSED + H-intake)
+Version:  v0.6 Montgomery MNT-II (source-grounding-corrected; C/D/E/F/G/H CLOSED — content chapters complete)
 Home:     D:\PVG-ANT-Central-Mind (standalone git repo)
-HEAD ref: latest baseline = MNTII-006-H intake (Ch 18 additive prime number theory /
-          circle-method APPLICATION layer — the FINAL content chapter), mined from the explicit
-          ChatGPT Treasure Packet on top of the v0.6-G Closure PASS (5f4863c).
+HEAD ref: latest baseline = v0.6-H Closure (PASS, second attempt, audits/v0.6-h-closure.md),
+          after State-Repair 006-F (53a5787) on the H-intake (8274e39) and the v0.6-G Closure
+          PASS (5f4863c). Every content chapter 16-22 is closure-reviewed.
           Remaining unmined: appendices E-H support-only (all content chapters 16-22 now
           have source-grounded units); zero-density/large-values = later volume.
 
@@ -18,7 +18,7 @@ Books (registries/books.jsonl is the source of truth):
     - Harman     (sieve information / Type-I-II; v0.5 closed)
   Partial overlay (source-grounding-corrected):
     - Montgomery MNT-II (v0.6) — Level 2, sieves-and-gaps pillar (Ch 19-22):
-        TRUSTED source-grounded units (all five closure-reviewed):
+        TRUSTED source-grounded units (all six closure-reviewed):
           C (Ch 19-20 large sieve / Bombieri-Vinogradov, v0.6-c-closure PASS),
           D (Ch 21 Selberg / combinatorial sieve, v0.6-d-closure PASS),
           E (Ch 22 bounded gaps / GPY / Maynard, v0.6-e-closure PASS, third attempt),
@@ -27,10 +27,9 @@ Books (registries/books.jsonl is the source of truth):
           G (Ch 16 exponential sums / Van der Corput cancellation SUPPORT layer,
             v0.6-g-closure PASS, second attempt; explicit Treasure Packet;
             does NOT revive the quarantined legacy-E).
-        PENDING intake:
-          H (Ch 18 additive prime number theory / circle method) = validated_intake,
-            NOT closed, pending v0.6-H Closure Review (explicit Treasure Packet;
-            binary Goldbach stays OPEN, never claimed; almost-all is average, not all).
+          H (Ch 18 additive prime number theory / circle method, v0.6-h-closure PASS,
+            second attempt; explicit Treasure Packet; binary Goldbach stays OPEN,
+            never claimed; almost-all is average, not all).
         QUARANTINED (source-mismatch / cross-volume, NOT trusted):
           A, B (zero-density / large-values / pair-correlation are deferred by the source
             to a LATER volume; prior A/B closure audits were safety/coherence checks only,

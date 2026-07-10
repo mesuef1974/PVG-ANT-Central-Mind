@@ -1,6 +1,6 @@
 # Montgomery MNT-II — Integration Links
 
-Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — source-grounding-corrected (Correction 006).** طبقةُ الدمج: الكنوزُ المؤصَّلةُ على المصدر ← المهاراتُ والجبهاتُ الحيّة. **المسارُ الموثوق:** C (Ch 19-20 large sieve/BV) · D (Ch 21 sieves) · E (Ch 22 bounded gaps) · F (Ch 17 prime sums / Type I-II) · G (Ch 16 Van der Corput support) — الخمسةُ مُغلَقةٌ مُراجَعة — + H (Ch 18 additive / circle method، intake بانتظار مراجعة الإغلاق). **محجور (cross-volume / source-mismatch):** A · B · legacy off-diagonal E.
+Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — source-grounding-corrected (Correction 006).** طبقةُ الدمج: الكنوزُ المؤصَّلةُ على المصدر ← المهاراتُ والجبهاتُ الحيّة. **المسارُ الموثوق:** C (Ch 19-20 large sieve/BV) · D (Ch 21 sieves) · E (Ch 22 bounded gaps) · F (Ch 17 prime sums / Type I-II) · G (Ch 16 Van der Corput support)  · H (Ch 18 additive / circle method) — الستّةُ مُغلَقةٌ مُراجَعة. **محجور (cross-volume / source-mismatch):** A · B · legacy off-diagonal E.
 
 ## Trusted source-grounded clusters → skills
 
@@ -10,7 +10,7 @@ Classical sieve (D: 023-029)                 → SKILL-MATH-SIEVE-001, SKILL-MAT
 Bounded gaps / GPY / Maynard (E: 030-036)    → SKILL-MATH-SIEVE-001, SKILL-MATH-ANT-001, SKILL-GOV-CERT-001
 Prime sums / Type I-II (F: 037-043)          → SKILL-MATH-ANT-001, SKILL-MATH-SIEVE-001
 VdC cancellation support (G: 044-051)         → SKILL-MATH-ANT-001
-Additive / circle method (H: 052-060, intake) → SKILL-MATH-ANT-001, SKILL-MATH-SIEVE-001
+Additive / circle method (H: 052-060)         → SKILL-MATH-ANT-001, SKILL-MATH-SIEVE-001
 ```
 
 ## Quarantined clusters (NOT trusted; source-mismatch)
@@ -85,9 +85,8 @@ WALL-ZERO-FREE   in play (uncrossed) via the trusted H unit (Ch 18 related wall,
 ```text
 Trusted source-grounded units: C (Ch 19-20), D (Ch 21), E (Ch 22 bounded gaps, v0.6-e-closure PASS),
 F (Ch 17 prime sums / Type I-II, v0.6-f-closure PASS), G (Ch 16 Van der Corput support,
-v0.6-g-closure PASS) — all five closure-reviewed — plus H (Ch 18 additive / circle method,
-validated_intake, NOT closed, pending v0.6-H Closure Review; from an explicit ChatGPT Treasure
-Packet; binary Goldbach stays OPEN, never claimed).
+v0.6-g-closure PASS), H (Ch 18 additive / circle method, v0.6-h-closure PASS; from an explicit
+ChatGPT Treasure Packet; binary Goldbach stays OPEN, never claimed) — all six closure-reviewed.
 Quarantined (source-mismatch): A, B (cross-volume: zero-density / large values / pair-correlation deferred to a
 later volume) and the legacy off-diagonal E (Kloosterman — NOT revived by the Ch-16 unit). No MNTII-006-I without an explicit Treasure Packet and permission; after the H closure the next step is a post-H coverage/overlay audit. No new book. Bounded gaps is a KNOWN theorem, not our result, not twin primes, not a parity breakthrough; BV = average
 input; EH = conditional. No RH/GRH progress.

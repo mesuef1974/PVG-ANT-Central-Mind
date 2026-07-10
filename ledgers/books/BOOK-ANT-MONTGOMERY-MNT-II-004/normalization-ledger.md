@@ -1,6 +1,6 @@
 # Montgomery MNT-II — Normalization Ledger
 
-Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — source-grounding-corrected (Correction 006).** كلُّ كنزٍ في `treasure-map.md` ← المعرِّفاتُ الحيّة. **المسارُ الموثوقُ المؤصَّلُ على المصدر:** `TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001` (C, Ch 19-20) · `TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001` (D, Ch 21) · `TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001` (E, Ch 22، مُغلَقة v0.6-e PASS) · `TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001` (F, Ch 17، مُغلَقة v0.6-f PASS) · `TOOL-MONTGOMERY-VDC-EXPONENTIAL-SUMS-DIAGNOSTIC-001` (G, Ch 16، مُغلَقة v0.6-g PASS) · `TOOL-MONTGOMERY-ADDITIVE-PRIME-CIRCLE-METHOD-DIAGNOSTIC-001` (H, Ch 18، intake بانتظار مراجعة الإغلاق). **محجورٌ (source-mismatch، غيرُ موثوق):** `TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001` (A) · `TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001` (B) · `TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001` (legacy E).
+Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — source-grounding-corrected (Correction 006).** كلُّ كنزٍ في `treasure-map.md` ← المعرِّفاتُ الحيّة. **المسارُ الموثوقُ المؤصَّلُ على المصدر:** `TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001` (C, Ch 19-20) · `TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001` (D, Ch 21) · `TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001` (E, Ch 22، مُغلَقة v0.6-e PASS) · `TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001` (F, Ch 17، مُغلَقة v0.6-f PASS) · `TOOL-MONTGOMERY-VDC-EXPONENTIAL-SUMS-DIAGNOSTIC-001` (G, Ch 16، مُغلَقة v0.6-g PASS) · `TOOL-MONTGOMERY-ADDITIVE-PRIME-CIRCLE-METHOD-DIAGNOSTIC-001` (H, Ch 18، مُغلَقة v0.6-h PASS). **محجورٌ (source-mismatch، غيرُ موثوق):** `TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001` (A) · `TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001` (B) · `TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001` (legacy E).
 
 ```text
 TREASURE-MNTII-001  Montgomery-style analytic tools as distribution diagnostics
@@ -357,7 +357,7 @@ Trusted source-grounded tools : TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001 (C, C
     TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001 (D, Ch 21) · TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001 (E, Ch 22, closed) ·
     TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001 (F, Ch 17, closed — v0.6-f-closure PASS) ·
     TOOL-MONTGOMERY-VDC-EXPONENTIAL-SUMS-DIAGNOSTIC-001 (G, Ch 16, closed — v0.6-g-closure PASS) ·
-    TOOL-MONTGOMERY-ADDITIVE-PRIME-CIRCLE-METHOD-DIAGNOSTIC-001 (H, Ch 18, intake — pending v0.6-H closure review)
+    TOOL-MONTGOMERY-ADDITIVE-PRIME-CIRCLE-METHOD-DIAGNOSTIC-001 (H, Ch 18, closed — v0.6-h-closure PASS)
 Quarantined tools (source-mismatch) : TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001 (A) ·
     TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001 (B) · TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001 (legacy E)
 Tools (neighbour) : TOOL-ZERO-DENSITY-DIAGNOSTIC-001 · TOOL-LARGE-VALUE-DIAGNOSTIC-001 · TOOL-SIEVE-INFO-CONSUMPTION-001 · TOOL-TYPE-I-II-DIAGNOSTIC-001
@@ -368,6 +368,6 @@ Frozen front      : FRONTIER-ANT-PVG-007 (spectral) — cited, not reopened
 Open problem      : Elliott–Halberstam (unproven; no certificate)
 ```
 
-**Consistency note:** the trusted source-grounded path is C (Ch 19-20) · D (Ch 21) · E bounded gaps (Ch 22, CLOSED v0.6-e-closure PASS; entered as validated_intake). F (Ch 17 prime sums / Type I-II) = CLOSED (v0.6-f-closure PASS; entered as validated_intake). G (Ch 16 Van der Corput support) = CLOSED (v0.6-g-closure PASS); it does NOT revive the quarantined legacy off-diagonal material. H (Ch 18 additive / circle method) = validated_intake, NOT closed, pending v0.6-H Closure Review; binary Goldbach stays OPEN and is never claimed. Units A/B and the legacy off-diagonal E are QUARANTINED (cross-volume / source-mismatch); their tools are not trusted. `planned.jsonl` empty. MC-001, MC-002 & MC-005 UNSOLVED. Bounded gaps is a KNOWN theorem, not our result, not twin primes, not a parity break.
+**Consistency note:** the trusted source-grounded path is C (Ch 19-20) · D (Ch 21) · E bounded gaps (Ch 22, CLOSED v0.6-e-closure PASS; entered as validated_intake). F (Ch 17 prime sums / Type I-II) = CLOSED (v0.6-f-closure PASS; entered as validated_intake). G (Ch 16 Van der Corput support) = CLOSED (v0.6-g-closure PASS); it does NOT revive the quarantined legacy off-diagonal material. H (Ch 18 additive / circle method) = CLOSED (v0.6-h-closure PASS; entered as validated_intake); binary Goldbach stays OPEN and is never claimed. Units A/B and the legacy off-diagonal E are QUARANTINED (cross-volume / source-mismatch); their tools are not trusted. `planned.jsonl` empty. MC-001, MC-002 & MC-005 UNSOLVED. Bounded gaps is a KNOWN theorem, not our result, not twin primes, not a parity break.
 
 **Honest classification:** Diagnostic / Boundary (normalization ledger, source-grounding-corrected). No RH/GRH progress.

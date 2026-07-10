@@ -8,8 +8,8 @@ Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — source-grounding-corrected
 Montgomery MNT-II source-grounded extraction covers the sieves-and-gaps pillar plus the Ch-17
 bridge (C: Ch 19-20 large sieve / BV; D: Ch 21 sieves; E: Ch 22 bounded gaps, v0.6-e-closure PASS;
 F: Ch 17 prime sums / Type I-II, v0.6-f-closure PASS; G: Ch 16
-Van der Corput support, v0.6-g-closure PASS — all five closure-reviewed; plus H: Ch 18 additive /
-circle method, validated_intake pending v0.6-H Closure Review) and is NOT a full-book
+Van der Corput support, v0.6-g-closure PASS; plus H: Ch 18 additive /
+circle method, v0.6-h-closure PASS — all six closure-reviewed) and is NOT a full-book
 treasure-mining pass. Units A and B, and the
 legacy off-diagonal E, are QUARANTINED (cross-volume / source-mismatch) and are NOT part of
 the trusted source-grounded overlay.
@@ -47,7 +47,9 @@ the trusted source-grounded overlay.
 - zeta-function exponent-pair applications beyond support role  : deferred.
 - Kloosterman/Weil/Deshouillers-Iwaniec off-diagonal theory     : quarantined/postponed (NOT revived by Ch 16).
 - MNTII-006-H                                                   : EXECUTED from the explicit Ch-18 Treasure
-    Packet; validated_intake, NOT closed, pending v0.6-H Closure Review.
+    Packet; CLOSED at v0.6-h-closure PASS (entered as validated_intake).
+- section 18.4 error-term lower bound (Omega-result)            : recorded as source material only;
+    no card claims it; deferred.
 - full proof reproduction of all circle-method estimates        : deferred.
 - full treatment of the Ch-18 conditional estimates             : conditional / deferred.
 - detailed prime k-tuples conjectural framework                 : deferred (frontier interface).
@@ -70,9 +72,8 @@ the trusted source-grounded overlay.
 - Ch 17 Estimates for Sums over Primes       : MINED as MNTII-006-F (from the explicit Treasure Packet;
     CLOSED, v0.6-f-closure PASS). Full proofs / exponent optimization / complete digit-sum coverage
     stay deferred (see trusted-path list above).
-- Ch 18 Additive Prime Number Theory         : MINED as MNTII-006-H (from the explicit Treasure Packet;
-    validated_intake, NOT closed, pending v0.6-H Closure Review). Ternary = KNOWN source theorem;
-    binary Goldbach is OPEN and is never claimed; almost-all ≠ all.
+- Ch 18 Additive Prime Number Theory         : MINED and CLOSED as MNTII-006-H (v0.6-h-closure PASS).
+    Ternary = KNOWN source theorem; binary Goldbach is OPEN and is never claimed; almost-all ≠ all.
 - Appendices E (Harmonic Analysis II), F (Uniform Distribution), G (Bilinear Forms), H (Linear Programming)
                                              : support_appendix only; no standalone units absent a promoting packet.
 See audits/montgomery-book-coverage-audit-007.md.
@@ -81,8 +82,7 @@ See audits/montgomery-book-coverage-audit-007.md.
 ## Level assessment
 
 ```text
-Source-grounded overlay = 5 trusted closure-reviewed units (C, D, E, F, G) + 1 pending intake
-(H: Ch 18 additive / circle method, validated_intake, pending v0.6-H Closure Review), plus
+Source-grounded overlay = 6 trusted closure-reviewed units (C, D, E, F, G, H), plus
 2 quarantined cross-volume units (A, B) and 1 quarantined legacy unit (off-diagonal E).
 Historical record: the MNTII-006-H precondition WAS MET — the explicit Ch-18 Treasure Packet
 arrived and explicit permission was given; H was executed as validated_intake. Only MNTII-006-I

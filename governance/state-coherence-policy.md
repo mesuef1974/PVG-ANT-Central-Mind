@@ -61,8 +61,9 @@ and is now **CLOSED** (`audits/v0.6-e-closure.md` PASS, third attempt). The live
 (prime sums / Type I-II, Ch 17) likewise entered as validated_intake — NOT quarantined — and is now
 **CLOSED** (`audits/v0.6-f-closure.md` PASS, second attempt), as is `MNTII-006-G` (Van der Corput
 support, Ch 16; `audits/v0.6-g-closure.md` PASS, second attempt; no legacy-E revival). The live
-`MNTII-006-H` (additive prime / circle method, Ch 18) entered as validated_intake — NOT quarantined,
-NOT closed — pending its v0.6-H Closure Review (binary Goldbach stays OPEN, never claimed).
+`MNTII-006-H` (additive prime / circle method, Ch 18) likewise entered as validated_intake — NOT
+quarantined — and is now **CLOSED** (`audits/v0.6-h-closure.md` PASS, second attempt; binary
+Goldbach stays OPEN, never claimed).
 Unit files are historical records: the only authoritative live next action is
 `transition-memory/next-action.md`.
 

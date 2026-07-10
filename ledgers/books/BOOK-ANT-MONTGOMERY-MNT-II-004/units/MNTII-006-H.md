@@ -1,7 +1,7 @@
 # MNTII-006-H — Additive Prime Number Theory as Circle-Method Application Layer
 
 **Registry ID:** MNTII-006-H
-**Status:** validated_intake (from ChatGPT Treasure Packet, Ch 18) — **NOT closed, NOT PASS, pending v0.6-H Closure Review**
+**Status:** CLOSED — v0.6-H Closure Review **PASS** (`audits/v0.6-h-closure.md`, AUDIT-CM-V06-H-CLOSURE-001, HEAD 53a5787, second attempt); entered as validated_intake from the ChatGPT Treasure Packet (Ch 18)
 **Classification:** **Diagnostic / Boundary** (KNOWN circle-method applications read as an application layer; not results)
 **Unit role:** application_unit — source-grounded; the FINAL content-chapter unit; not a book closure.
 
@@ -93,8 +93,9 @@ Ch 18 (H) : the APPLICATION layer consuming them — not a new foundational tool
 ```text
 Created by SOURCE-GROUNDED intake from a ChatGPT Treasure Packet (Ch 18: Additive Prime Number
 Theory) — the FINAL content-chapter unit, mined on the completed support base (G: Ch 16 cancellation,
-F: Ch 17 prime sums, C: Ch 19-20 average distribution). Status = validated_intake: NOT closed,
-NOT PASS, pending v0.6-H Closure Review.
+F: Ch 17 prime sums, C: Ch 19-20 average distribution). Entered as validated_intake; CLOSED
+after the second v0.6-H Closure Review (3 auditors PASS + falsifier unrefuted + 7/7 guards;
+see audits/v0.6-h-closure.md).
 Central fencing of this packet: binary Goldbach is OPEN and is never claimed; 'almost all' is an
 average statement; conditional estimates stay conditional.
 Packet deviation (reported, not silently resolved): the conditional additive-prime frontier link
@@ -106,7 +107,7 @@ automatic MNTII-006-I.
 
 ## Next valid action
 
-**Pending unit.** This unit awaits its v0.6-H Closure Review (see the Status line). This file does not define the current live next action. The only authoritative live next action is: `transition-memory/next-action.md`.
+**Historical unit record.** MNTII-006-H was closure-reviewed (`v0.6-h-closure.md` PASS, second attempt). This file does not define the current live next action. The only authoritative live next action is: `transition-memory/next-action.md`.
 
 ## Audit checklist
 
@@ -116,7 +117,7 @@ automatic MNTII-006-I.
 - [x] Conditional estimates stay conditional; k-tuples / short intervals = frontier interfaces only
 - [x] No revival of A/B/legacy-E; no twin primes; no minor-arc/singular-series/PNT/AP claims
 - [x] No crossing the five listed walls · MC-001/002/005 unsolved
-- [x] Status = validated_intake (NOT closed, NOT PASS); pending v0.6-H Closure Review
+- [x] Entered as validated_intake; CLOSED by v0.6-H Closure Review PASS (3 auditors + falsifier unrefuted)
 - [x] TOOL-MONTGOMERY-ADDITIVE-PRIME-CIRCLE-METHOD-DIAGNOSTIC-001 registered; cards 052–060; planned.jsonl empty
 - [x] MNTII-006-I not started · post-H step = coverage/overlay audit · Seven guards PASS after this intake
 
