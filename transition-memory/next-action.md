@@ -9,10 +9,15 @@ Current baseline: v0.6-F Closure Review = COMPLETE, PASS (second attempt; audits
                   live-state source and guarded the class repo-wide.
 
 Next action:
-  EXPLICIT DECISION via the Coverage Audit 007 map (after the v0.6-F Closure Review PASS):
-  ChatGPT proposes the next chapter Treasure Packet — Ch 18 (additive prime number theory)
-  or a Ch 16 support packet (Van der Corput) — and Sufyan gives explicit permission.
-  Nothing is mined without the packet and the permission.
+  DECISION TAKEN (Sufyan, after the v0.6-F Closure Review PASS, via the Coverage Audit 007 map):
+    MNTII-006-G = Chapter 16 (Exponential Sums I: Van der Corput's Method) — ONE support unit,
+    packet title "Exponential Sums and Van der Corput Cancellation Support Layer".
+    Reason: stabilize the support layer feeding Ch 17/18 BEFORE any additive (Ch 18) unit —
+    Ch 18 carries Goldbach-claim risk and will come later as an applications unit on a clean base.
+  AWAITING: the full ChatGPT TREASURE_PACKET for G. Nothing is mined before the packet arrives;
+  the guard forbids the MNTII-006-G file until the packet-grounded execution.
+  Declared ceiling for G: no new bound · no exponential-sum improvement · no Type-II breakthrough ·
+  no Goldbach application · no PNT/AP improvement · no RH/GRH progress.
 
 Not allowed:
   - MNTII-006-G without an explicit Treasure Packet and permission.

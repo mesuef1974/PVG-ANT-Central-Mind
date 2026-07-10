@@ -46,7 +46,7 @@ No audit, no release.  No RH/GRH progress without proof certificate.
 
 **Now (v0.6-F CLOSED — أربعُ وحداتٍ موثوقةٍ مُغلَقة):** خمسةُ كتبٍ مُعدَّنة (treasure overlay مُغلَق): Overholt · Tenenbaum · Mileti · IK · Harman. **Montgomery MNT-II (v0.6)** = partial overlay، **source-grounding-corrected**، Level 2: **الموثوقُ المؤصَّلُ بالمصدر (الأربعةُ مُراجَعةُ إغلاق)** = C (Ch19-20 الغربال الكبير/BV) · D (Ch21 غرابيل) · E (Ch22 الفجوات المحدودة GPY/Maynard؛ v0.6-e PASS) · **F (Ch17 مجاميعُ الأوّليّات الأُسّيّة / Vaughan-Vinogradov / Type I-II؛ v0.6-f PASS، من Treasure Packet صريح عبر خريطة التغطية 007)**. **المحجورُ (source-mismatch/cross-volume، غيرُ موثوق)** = A · B · legacy off-diagonal E (مراجعاتُ إغلاقِ A/B القديمةُ SUPERSEDED). الحرّاسُ سبعة (+ `state_coherence` بمسحٍ شامل، وآلاتِ حالةِ إغلاق، ومصدرٍ واحدٍ للحالة الحيّة).
 
-**Next:** قرارٌ صريحٌ عبر خريطة Coverage Audit 007 — ChatGPT يقترح packet الفصلَ التالي (Ch18 أو دعم Ch16) وسفيانُ يأذن. لا MNTII-006-G بلا packet وإذن · لا كتابٌ جديد · لا وحدةٌ جديدة بلا Treasure Packet · لا إعادةَ ثقةٍ بـA/B/legacy-E بلا Packet مؤصَّل. (سجلُّ المراجعات: v0.6-E Closure Review PASS · v0.6-F Closure Review PASS.)
+**Next:** اختار سفيان **MNTII-006-G = الفصل 16 (Van der Corput، وحدةُ دعمٍ واحدة)** — بانتظار TREASURE_PACKET الكامل قبل أيّ تعدين؛ لا Ch18 الآن (يأتي لاحقًا وحدةَ تطبيقاتٍ على أساسٍ نظيف). لا كتابٌ جديد · لا وحدةٌ جديدة بلا Treasure Packet · لا إعادةَ ثقةٍ بـA/B/legacy-E بلا Packet مؤصَّل. (سجلُّ المراجعات: v0.6-E Closure Review PASS · v0.6-F Closure Review PASS.)
 
 **Roles:** ChatGPT = محلّلُ الكنوز الرياضيّة؛ العميلُ المحلّيُّ = مهندسُ المستودع والحوكمة (`governance/state-coherence-policy.md`).
 
