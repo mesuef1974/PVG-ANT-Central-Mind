@@ -26,14 +26,16 @@ The honesty ledger of what was NOT extracted (yet) and why. No load-bearing node
   candidates requiring the full C_sieve record; not started.
 ```
 
-## Deferred registrations (named debts of this intake)
+## Boundary / registration status (v0.7-A adjudicated)
 
 ```text
-- Three candidate walls (aggregate-remainder · local-model · formulation-vs-certificate) are described
-  in OPERA-004-A but NOT registered as WALL-IDs. Registration is deferred (as TOOL-IDs are) pending the
-  v0.7-A Closure Review and an explicit authorization to edit walls.jsonl. Recorded so the deferral is
-  visible, not silent.
-- The model-subtraction diagnostic (TREASURE-OPERA-007) is a candidate treasure, not yet a TOOL-ID;
+- The three boundaries (aggregate-remainder · local-model · formulation-vs-certificate) were adjudicated
+  by the v0.7-A Closure Review: all stay Boundaries, ZERO new WALL-IDs, and no existing wall is widened.
+  aggregate-remainder is NOT mapped to WALL-SIEVE-CEILING (its registered text is about the RH ceiling,
+  not aggregate remainder failure). formulation-vs-certificate is NOT mapped to WALL-PARITY — that
+  re-examination is DEFERRED to the packet that source-grounds the parity phenomenon (a named, visible
+  deferral, not a silent one).
+- The model-subtraction diagnostic (TREASURE-OPERA-007) is a provisional-intake card, not yet a TOOL-ID;
   it is subject to duplicate_concept_audit and returns in the Chapter 18 material.
 ```
 

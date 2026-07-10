@@ -112,34 +112,53 @@ same local density + normalized reference sequence
 
 This is a diagnostic re-organization of the source material, not a new theorem for the project.
 
-## 8. Candidate walls exposed by the packet (not yet registered)
+## 8. Boundaries exposed by the packet (v0.7-A adjudicated: zero new WALL-IDs, zero silent widening)
 
-The packet exposes three obstruction descriptions. They are recorded here as **candidate walls,
-NOT registered WALL-IDs** — registration is deferred (as TOOL-IDs are) pending the closure review and
-an explicit authorization to touch `walls.jsonl`:
-
-```text
-aggregate-remainder wall        : individual r_d control does not give control of their sieve sum.
-local-model wall                : multiplicative g is a local model, not global arithmetic independence.
-formulation-vs-certificate wall : rewriting a prime problem as a sieve supplies no estimate to solve it.
-```
-
-The registered parity barrier `WALL-PARITY` is NOT crossed here; this unit only builds the language in
-which that barrier will later appear.
-
-## 9. Packet-grounded classification
+The packet exposes three obstruction descriptions. The v0.7-A Closure Review adjudicated each by exact
+semantic comparison against the registered walls. Outcome: **zero new WALL-IDs and no silent widening of
+an existing wall** — all three stay Boundaries:
 
 ```text
-packet_grounded_classification = core_certificate_theory
-secondary_role                 = reference_integration
-packet_mismatch                = false
+aggregate-remainder            : individual r_d control does not give control of their sieve sum.
+  fate = Boundary. WALL-SIEVE-CEILING's registered text ("no unconditional sieve reaches RH; only EH
+  crosses") speaks of the RH ceiling, NOT of aggregate remainder failure — so NO mapping, no silent widening.
+local-model                    : multiplicative g is a local model, not global arithmetic independence.
+  fate = Boundary + governance caution. Repairable via external inputs (LB-05) — the opposite of a wall.
+formulation-vs-certificate     : rewriting a prime problem as a sieve supplies no estimate to solve it.
+  fate = Boundary + governance caution. NOT mapped to WALL-PARITY: this packet has not reached the parity
+  mechanism itself, and the formulation/certificate gap is more general than parity (remainder distribution,
+  level of distribution, local obstructions, external inputs). Re-examining its relation to WALL-PARITY is
+  DEFERRED to the packet that source-grounds the parity phenomenon — not to the mere appearance of prime examples.
 ```
 
-Provisional TOC routing hypothesis for the early chapters was `reference_integration`. The packet
-CONFIRMS that secondary role AND grounds a primary `core_certificate_theory` role, because §1.4 fixes
-the minimal structure of a sieve INPUT certificate and the reference-sequence model that returns in the
-asymptotic sieve for primes. This is a refinement, not a contradiction — `packet_mismatch = false`
-(recorded per the source-first / provisional-routing rule).
+The registered parity barrier `WALL-PARITY` is NOT crossed here, and this unit maps NO boundary onto it;
+the unit only builds the language in which such barriers are later adjudicated.
+
+## 9. Packet-grounded classification (routing_split recorded)
+
+```text
+packet_mismatch = true
+mismatch_type   = routing_split
+
+original_hypothesis  (v0.7-scope.md, "Early: inclusion-exclusion, Brun, Selberg" row, verbatim):
+  primary = reference_integration   ("duplicate-pressure vs Harman / Montgomery D", provisional)
+
+packet_grounded_classification:
+  primary   = core_certificate_theory
+  secondary = reference_integration
+
+reason:
+  the packet established a load-bearing certificate architecture (the sieve INPUT certificate law
+  (A,g,X,{r_d}), the model-subtraction diagnostic, three boundary cards) while retaining the expected
+  duplicate-pressure integration role only as SECONDARY. The PRIMARY axis changed
+  (reference_integration -> core_certificate_theory), so this is routing_split — recorded per the
+  source-first / provisional-routing rule, NOT silently rewritten.
+```
+
+The frozen hypothesis is preserved verbatim above; it was not erased, only demoted to the secondary
+role. (This corrects the v0.7-A Attempt-1 blocker: the earlier "refinement, not contradiction /
+packet_mismatch = false" phrasing was a retroactive justification — refinement requires the primary
+class to be unchanged, and here it changed.)
 
 ## 10. Load-bearing linkage
 
@@ -167,9 +186,10 @@ model-subtraction (B, c_n)       -> candidate treasure, subject to duplicate_con
                                     diagnostic card, NOT yet a tool (returns in Ch 18 per the source).
 ```
 
-Genuinely new (non-duplicate) organizing content promoted as cards: the Sieve Input Certificate Law
-`(A,g,X,{r_d})`, the model-subtraction diagnostic, and the three candidate walls. Everything else is
-an integration / normalization link to an already-installed tool.
+Genuinely new (non-duplicate) organizing content, recorded as provisional-intake cards: the Sieve Input
+Certificate Law `(A,g,X,{r_d})` and the model-subtraction diagnostic, plus three boundary cards
+(aggregate-remainder, local-model, formulation-vs-certificate). Everything else is an integration /
+normalization link to an already-installed tool. No card is trusted / closure-approved before the review.
 
 ## 12. Scientific classification
 
@@ -185,9 +205,22 @@ MC-001 progress:    none.
 RH/GRH progress:    zero RH progress, zero GRH progress.
 ```
 
+## 13. Prior review effect (intake correction, NOT a State-Repair)
+
+```text
+v0.7-A Closure Review — Attempt 1
+  result             = RETURN to validated_intake
+  blocking_issue     = incorrect packet_mismatch classification (asserted false; must be routing_split true)
+  additional_correction = over-early parity-wall mapping avoided (formulation-vs-certificate NOT mapped
+                          to WALL-PARITY; deferred to the parity-grounding packet)
+```
+
+This is an intake correction: no closed unit and no trusted claim was altered (the unit was never closed).
+It is NOT a State-Repair — no guard invariant or cross-repo truth layer was structurally wrong.
+
 ## Next valid action
 
 This unit is a historical intake record. The only authoritative live next action is
-`transition-memory/next-action.md` (the v0.7-A Closure Review is pending; this intake does not close it).
+`transition-memory/next-action.md` (the v0.7-A Closure Review re-run is pending; this intake does not close it).
 
 **Honest classification:** Reinterpretation / Diagnostic (unit intake, NOT closed). No RH progress. No GRH progress. No mastery.

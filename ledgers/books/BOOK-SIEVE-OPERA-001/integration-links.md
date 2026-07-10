@@ -1,6 +1,6 @@
 # Opera de Cribro — Integration Links
 
-Book ID: `BOOK-SIEVE-OPERA-001` · Version: v0.7 · **partial_overlay — one intake unit (`OPERA-004-A`, not closed).**
+Book ID: `BOOK-SIEVE-OPERA-001` · Version: v0.7 · **partial_overlay — one intake unit (`OPERA-004-A`, not closed).** Routing: `packet_mismatch = true`, `routing_split`.
 
 Links added AFTER normalization (promotion rule: project-governed, post-mining), never as a pre-mining selection criterion. `MC-001` appears here as standing context only — it did not drive what was mined.
 
@@ -16,14 +16,20 @@ TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001             ← OPERA-004-A §1 combinatori
 
 These are terminology-reconciliation links, not new tools: the exact-decomposition and level-of-distribution machinery is already installed; Opera's contribution here is the certificate-input framing.
 
-## Frontier and walls
+## Frontier and walls (v0.7-A adjudicated: zero new WALL-ID, zero silent widening)
 
 ```text
 FRONTIER-ANT-PVG-004 (sieve information / support geometry) — the pillar this unit deepens.
-WALL-PARITY        — registered, uncrossed; the unit builds the language in which it later appears.
-WALL-SIEVE-CEILING — registered, uncrossed; aggregate-remainder failure is a face of it.
-Candidate walls (NOT registered; registration deferred pending closure + authorization to edit walls.jsonl):
-  aggregate-remainder · local-model · formulation-vs-certificate.
+WALL-PARITY        — registered, uncrossed. This unit maps NO boundary onto it; the parity mechanism
+                     is not reached by this packet.
+WALL-SIEVE-CEILING — registered, uncrossed. Its text ("no unconditional sieve reaches RH; only EH
+                     crosses") concerns the RH ceiling, NOT aggregate remainder failure — so the
+                     aggregate-remainder boundary is NOT mapped onto it (no silent widening).
+Boundaries (this intake; all Boundaries, zero new WALL-ID):
+  aggregate-remainder        — Boundary (no wall mapping).
+  local-model                — Boundary + governance caution (repairable via LB-05).
+  formulation-vs-certificate — Boundary + governance caution; re-examination of its relation to
+                               WALL-PARITY DEFERRED to the parity-grounding packet (not mapped now).
 ```
 
 ## Load-bearing linkage

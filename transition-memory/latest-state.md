@@ -44,11 +44,12 @@ Books (registries/books.jsonl is the source of truth):
         Sieve / parity / distribution certificate-theory layer, deepening the Harman-Montgomery
         pillar (FRONTIER-ANT-PVG-004). OPERA-004-A (Sifting Sequences as Main-Term/Remainder
         Certificates) from OPERA-TREASURE-PACKET-001 (Ch 1 §§1.1-1.4) = validated_intake, NOT closed;
-        primary_class core_certificate_theory, secondary reference_integration, packet_mismatch false.
-        No new TOOL-ID minted; three candidate walls described, not registered. LB-01..06 frozen;
-        four unit classes; scope-amendment + debt + C_sieve governance active
+        packet_mismatch TRUE / routing_split (primary core_certificate_theory, secondary
+        reference_integration). No new TOOL-ID; zero new WALL-ID (three boundaries stay Boundaries;
+        aggregate-remainder NOT mapped to WALL-SIEVE-CEILING; formulation NOT mapped to WALL-PARITY).
+        LB-01..06 frozen; scope-amendment + debt + C_sieve governance active
         (governance/scope-amendment-and-debt-policy.md). Unit prefix OPERA-004.
-        Next: v0.7-A Closure Review (pending an explicit order).
+        Next: v0.7-A Closure Review Attempt 2 (Attempt 1 = RETURN, intake corrected).
   Available, not imported: Motohashi, Hodel, Mendelson, Buss, Kossak, Stewart, Fesenko.
 
 Governing protocol:
