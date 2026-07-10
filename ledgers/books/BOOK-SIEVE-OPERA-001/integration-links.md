@@ -1,6 +1,6 @@
 # Opera de Cribro — Integration Links
 
-Book ID: `BOOK-SIEVE-OPERA-001` · Version: v0.7 · **partial_overlay — one CLOSED unit (`OPERA-004-A`, v0.7-A Closure Review PASS).** Routing: `packet_mismatch = true`, `routing_split`.
+Book ID: `BOOK-SIEVE-OPERA-001` · Version: v0.7 · **partial_overlay — `OPERA-004-A` CLOSED (v0.7-A PASS) + `OPERA-004-B` validated_intake (v0.7-B pending).** Routing (both units): `packet_mismatch = true`, `routing_split`.
 
 Links added AFTER normalization (promotion rule: project-governed, post-mining), never as a pre-mining selection criterion. `MC-001` appears here as standing context only — it did not drive what was mined.
 
@@ -39,6 +39,35 @@ LB-04 (level of distribution) = primary anchor of this intake (validity range of
 LB-02 (bilinear remainders)   = precursor (remainder layer named; bilinear structure not yet reached).
 LB-01 / LB-03 / LB-05         = not yet reached by A.
 LB-06 (application transfer)  = examples expose non-transfer; no application certificate yet.
+```
+
+## OPERA-004-B integration (LB-03, provisional_intake)
+
+### Links to installed tools
+```text
+TOOL-SIEVE-INFO-CONSUMPTION-001 (Harman)   ← B one-sided certificate C_± (integration-heavy); the
+                                             Positivity Information-Loss diagnostic is absorbed here (no new tool).
+TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001 ← normalization: z (sifting) != level of distribution; D consumes the budget.
+```
+
+### Frontier, walls, and the LB-03 boundary
+```text
+FRONTIER-ANT-PVG-004 (sieve information / support geometry) — the pillar B deepens.
+WALL-PARITY        — registered, uncrossed. B maps NO boundary onto it. The prime-asymptotic gap and the
+                     target-purity gap are Boundaries INSIDE LB-03, NOT parity claims; z>sqrt(x) avoids the
+                     question (drops s), and parity re-examination is DEFERRED to the parity-grounding packet.
+WALL-SIEVE-CEILING — registered, uncrossed; not mapped here.
+Boundaries (B; all Boundaries, zero new WALL-ID):
+  positive-lower-bound gate (a lower formula != a positive lower bound)
+  prime-asymptotic gap (Boundary inside LB-03, the three-level ladder)
+```
+
+### Load-bearing linkage (B)
+```text
+LB-03 (upper/lower vs asymptotic prime sieve) = PRIMARY anchor of B (one-sided certificates, the ladder,
+       sandwich-collapse, positive-lower gate, target-purity gap).
+LB-04 (level of distribution) = reused via s = log D / log z and V^±.
+LB-01 / LB-02 / LB-05 / LB-06 = not reached by B.
 ```
 
 ## Standing missing certificate (context only)

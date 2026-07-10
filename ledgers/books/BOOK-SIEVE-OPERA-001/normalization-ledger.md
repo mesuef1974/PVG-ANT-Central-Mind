@@ -1,6 +1,6 @@
 # Opera de Cribro — Normalization Ledger
 
-Book ID: `BOOK-SIEVE-OPERA-001` · Version: v0.7 · **partial_overlay — one CLOSED unit (`OPERA-004-A`, v0.7-A Closure Review PASS).** Routing: `packet_mismatch = true`, `routing_split`.
+Book ID: `BOOK-SIEVE-OPERA-001` · Version: v0.7 · **partial_overlay — `OPERA-004-A` CLOSED (v0.7-A PASS) + `OPERA-004-B` validated_intake (v0.7-B pending).** Routing (both units): `packet_mismatch = true`, `routing_split`.
 
 Each treasure in `treasure-map.md` normalized against the twelve targets. No new `TOOL-ID` and no new `WALL-ID` in this intake; reference material links to already-installed tools, the genuinely new content is carried as `provisional_intake` cards, and the three boundaries stay Boundaries (zero silent wall widening) pending the closure review.
 
@@ -51,6 +51,42 @@ TREASURE-OPERA-007  Model-subtraction diagnostic ( B , c_n )              [dupli
   → Classification    : Diagnostic
 ```
 
-**Duplicate-audit outcome:** 001-002 normalize onto installed tools (Möbius / sieve-info / level-of-distribution) — `integration_only`, no new tool. 003-007 are genuinely new (`new_function`): one Reinterpretation law, three boundaries, one diagnostic — none minted as a `TOOL-ID` or `WALL-ID`. All cards `provisional_intake`.
+## OPERA-004-B normalization (provisional_intake, v0.7-B pending)
+
+```text
+TREASURE-OPERA-008  One-Sided Sieve Certificate C_± = (C_input, λ^±, sign, V^±, R^±)  [duplicate_status=new_function]
+  → Tool (link)       : TOOL-SIEVE-INFO-CONSUMPTION-001 (Harman) — integration-heavy; C_± is the new record
+  → Load-bearing      : LB-03 (primary)
+  → PVG–ANT           : direction comes only via weight support + convolution sign + orientation
+
+TREASURE-OPERA-009  Three-Level Certificate Ladder                                    [duplicate_status=new_function]
+  → Load-bearing      : LB-03 (primary)
+  → PVG–ANT           : bound / sifted-set asymptotic / prime-producing asymptotic — the gap is two steps
+
+TREASURE-OPERA-010  Sandwich-Collapse Criterion                                        [duplicate_status=new_function]
+  → Tool (compare)    : Fundamental Lemma cards — collapse-as-criterion is the new framing, not the lemma
+  → Load-bearing      : LB-03
+  → PVG–ANT           : V^± = V(z)(1+o(1)) + R^± = o(XV(z)) is a criterion to meet, not automatic
+
+TREASURE-OPERA-011  Positive Lower-Bound Gate                                          [duplicate_status=new_function]
+  → Load-bearing      : LB-03
+  → PVG–ANT           : a lower formula != a positive lower bound (tied to the sifting limit)
+
+TREASURE-OPERA-012  Sifting-Budget Ratio s = log D / log z                             [duplicate_status=integration_only]
+  → Normalize         : z != level of distribution (vs Montgomery / Harman); D consumes the distribution budget
+  → Load-bearing      : LB-03
+  → PVG–ANT           : C_input + D + z + λ^± => the type of result possible
+
+TREASURE-OPERA-013  Target-Purity Certificate                                          [duplicate_status=new_function]
+  → Certificate slot  : survivors-are-primes (a named gap, level 2 -> level 3)
+  → Wall              : none — Boundary inside LB-03; NOT mapped to WALL-PARITY (z>sqrt(x) avoids, not answers)
+  → PVG–ANT           : sifted-set asymptotic + target-purity => prime-producing asymptotic
+
+TREASURE-OPERA-014  Positivity Information-Loss Diagnostic                             [duplicate_status=absorbed]
+  → Tool (absorbed)   : TOOL-SIEVE-INFO-CONSUMPTION-001 — no new tool
+  → PVG–ANT           : what is discarded for a valid bound is not recoverable for an asymptotic
+```
+
+**Duplicate-audit outcome:** A cards 001-002 = `integration_only`, 003-007 = `new_function` (all now `closure_approved`, v0.7-A). B cards: 008/009/010/011/013 = `new_function` (one-sided certificate record, ladder, sandwich-collapse, positive-lower gate, target-purity slot); 012 = `integration_only` (s is standard); 014 = `absorbed` (into TOOL-SIEVE-INFO-CONSUMPTION-001). No `TOOL-ID` or `WALL-ID` minted; B cards `provisional_intake`.
 
 **Honest classification:** Reinterpretation / Diagnostic (normalization ledger, intake). No RH progress. No GRH progress.

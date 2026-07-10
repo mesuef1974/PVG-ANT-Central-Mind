@@ -656,10 +656,19 @@ if opera_line:
         A_CLOSED = a_closure is not None and "PASS" in a_closure
         if a_closure is not None:
             need("PASS" in a_closure, "audits/v0.7-a-closure.md exists but does not record PASS")
-        if not A_CLOSED:
-            # an un-closed intake keeps the book at partial_overlay (not scope_open, not closed)
+        # OPERA-004-B state machine (packet-002 grounded intake -> closure)
+        b_txt = read(os.path.join(OPERA, "OPERA-004-B.md"))
+        b_closure = read(os.path.join("audits", "v0.7-b-closure.md"))
+        B_CLOSED = b_closure is not None and "PASS" in b_closure
+        if b_closure is not None:
+            need("PASS" in b_closure, "audits/v0.7-b-closure.md exists but does not record PASS")
+        # any un-closed unit keeps the book at partial_overlay (not scope_open, not book_overlay_closed)
+        a_open = a_txt is not None and not A_CLOSED
+        b_open = b_txt is not None and not B_CLOSED
+        if a_open or b_open:
             need(opera_status == "partial_overlay",
-                 "Opera has an un-closed intake unit but status is '%s' (should be partial_overlay)" % opera_status)
+                 "Opera has an un-closed unit but status is '%s' (should be partial_overlay)" % opera_status)
+        # A state machine
         if a_txt is not None:
             need("Treasure Packet" in a_txt and "OPERA-TREASURE-PACKET-001" in a_txt,
                  "OPERA-004-A is not grounded in OPERA-TREASURE-PACKET-001")
@@ -672,14 +681,30 @@ if opera_line:
                 need(re.search(r"\*\*Status:\*\*[^\n]*validated_intake", a_txt),
                      "OPERA-004-A (intake) Status line is not validated_intake")
                 need("not closed" in a_txt.lower(), "OPERA-004-A (intake) is not marked NOT closed")
-            # unit is a historical record: its Next valid action must point to the single live source
             m = re.search(r"## Next valid action\s*\n+((?:.*\n){1,6})", a_txt)
             if m:
                 need("transition-memory/next-action.md" in m.group(1),
                      "OPERA-004-A 'Next valid action' does not point to transition-memory/next-action.md")
-        # one unit per authorized packet: no OPERA-004-B before an explicit packet + permission
-        need(not os.path.isfile(os.path.join(ROOT, OPERA, "OPERA-004-B.md")),
-             "OPERA-004-B exists; no further Opera unit is allowed without a packet and permission")
+        # B state machine
+        if b_txt is not None:
+            need("Treasure Packet" in b_txt and "OPERA-TREASURE-PACKET-002" in b_txt,
+                 "OPERA-004-B is not grounded in OPERA-TREASURE-PACKET-002")
+            if B_CLOSED:
+                need(re.search(r"\*\*Status:\*\*\s*CLOSED", b_txt),
+                     "v0.7-b-closure PASS exists but OPERA-004-B is not marked Status: CLOSED")
+            else:
+                need(not re.search(r"\*\*Status:\*\*\s*CLOSED", b_txt),
+                     "OPERA-004-B is marked Status: CLOSED but no v0.7-b-closure PASS exists")
+                need(re.search(r"\*\*Status:\*\*[^\n]*validated_intake", b_txt),
+                     "OPERA-004-B (intake) Status line is not validated_intake")
+                need("not closed" in b_txt.lower(), "OPERA-004-B (intake) is not marked NOT closed")
+            m = re.search(r"## Next valid action\s*\n+((?:.*\n){1,6})", b_txt)
+            if m:
+                need("transition-memory/next-action.md" in m.group(1),
+                     "OPERA-004-B 'Next valid action' does not point to transition-memory/next-action.md")
+        # one unit per authorized packet: no OPERA-004-C before an explicit packet + permission
+        need(not os.path.isfile(os.path.join(ROOT, OPERA, "OPERA-004-C.md")),
+             "OPERA-004-C exists; no further Opera unit is allowed without a packet and permission")
     else:
         # scope-only: status must be exactly scope_open (never mined / partial / closed)
         need(opera_status == "scope_open",
