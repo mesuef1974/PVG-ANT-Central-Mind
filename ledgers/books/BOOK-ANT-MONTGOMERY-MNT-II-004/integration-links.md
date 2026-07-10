@@ -37,7 +37,7 @@ FRONTIER-ANT-PVG-006  (distribution input only)
 C → E : level of distribution / Bombieri–Vinogradov feeds the GPY / Maynard sieve (033, 034).
 D → E : sieve weights / parity ceiling — bounded gaps live under the same parity / sieve-ceiling walls (031, 036).
 E → Harman / IK sieve context : TOOL-SIEVE-INFO-CONSUMPTION-001, TOOL-TYPE-I-II-DIAGNOSTIC-001 (Type-II / level input).
-F backward: Ch 16 (Van der Corput) as SUPPORT only (unmined) · C (BV average distribution, 038↔017-range) ·
+F backward: Ch 16 (Van der Corput support — now mined as MNTII-006-G intake, pending v0.6-G Closure Review) · C (BV average distribution, 038↔017-range) ·
             D (sieve ceilings need Type II input, 040) · E (bounded gaps consume distribution/sieve inputs) ·
             Harman overlay (Type I/II consumption: TOOL-TYPE-I-II-DIAGNOSTIC-001).
 F forward : Ch 18 additive prime number theory (UNMINED; future packet only).

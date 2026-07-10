@@ -16,7 +16,7 @@ Ledger will contain transformed notes only, no book text.
 
 ## Status
 
-**v0.6 — SOURCE-GROUNDING-CORRECTED (Correction 006) + E CLOSED (v0.6-e-closure PASS).**
+**v0.6 — SOURCE-GROUNDING-CORRECTED (Correction 006); trusted closed C/D/E/F + G-intake (pending v0.6-G Closure Review).**
 
 **Trusted source-grounded units**: `units/MNTII-006-C.md` (large sieve / Bombieri–Vinogradov, Ch 19–20; v0.6-c PASS) → `TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001`; `units/MNTII-006-D.md` (Selberg / combinatorial sieve, Ch 21; v0.6-d PASS) → `TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001`; `units/MNTII-006-E.md` (bounded gaps / GPY / Maynard, Ch 22; **CLOSED, v0.6-e-closure PASS**, third attempt) → `TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001`; `units/MNTII-006-F.md` (prime exponential sums / Type I-II decomposition, Ch 17; **CLOSED, v0.6-f-closure PASS**, second attempt; from the explicit Treasure Packet selected via Coverage Audit 007) → `TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001`; `units/MNTII-006-G.md` (**exponential sums / Van der Corput cancellation SUPPORT layer, Ch 16 — validated_intake, NOT closed**, pending v0.6-G Closure Review; from the explicit Treasure Packet after Sufyan's selection; does NOT revive legacy-E) → `TOOL-MONTGOMERY-VDC-EXPONENTIAL-SUMS-DIAGNOSTIC-001`. Trusted treasure cards `TREASURE-MNTII-016..051` (C 016–022 · D 023–029 · E 030–036 · F 037–043 · G support 044–051).
 
@@ -24,4 +24,4 @@ Ledger will contain transformed notes only, no book text.
 
 **partial_overlay, Level 2, source-grounding-corrected** — NOT book_overlay_closure, NOT mastery. The rest of the book is unmined (see `missed-treasures.md`). Bounded gaps is a KNOWN theorem — not our result, not twin primes, not a parity breakthrough; BV = average input; EH = conditional. Plan in `v0.6-scope.md` / `v0.6-scope-freeze.md` (superseded banners). **Four trusted units closed (C/D/E/F) + G executed from the explicit Ch-16 Treasure Packet as validated_intake. Next = v0.6-G Closure Review only. No MNTII-006-H without a packet and permission; no Ch 18 mining before the G closure; no new book. Remaining unmined: Ch 18; appendices E–H support-only.**
 
-**Honest classification:** Diagnostic (book ledger, source-grounding-corrected; trusted C/D/E closed, quarantined A/B + legacy E). No RH/GRH progress. No complete mastery.
+**Honest classification:** Diagnostic (book ledger, source-grounding-corrected; trusted C/D/E/F closed + G validated_intake, quarantined A/B + legacy E). No RH/GRH progress. No complete mastery.

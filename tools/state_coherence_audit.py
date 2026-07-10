@@ -447,6 +447,40 @@ if f_txt is not None and not F_CLOSED:
     need("v0.6-F Closure Review" in readme,
          "root README.md does not point to the v0.6-F Closure Review track")
 
+# ---- STATE-REPAIR 006-E: chapter-status truth (chapter <-> unit map) --------------
+# Coverage Audit 007 made chapter<->unit part of the truth. A live layer must never
+# call a chapter 'unmined' while its unit exists, nor call Ch 18 mined/closed before
+# a valid Ch-18 unit exists. 'unmined' is allowed only in historical/superseded/
+# blocked-review contexts (audits/ and _quarantine/ are pinned records).
+CHAPTER_UNITS = [("16", "MNTII-006-G.md"), ("17", "MNTII-006-F.md"),
+                 ("19", "MNTII-006-C.md"), ("20", "MNTII-006-C.md"),
+                 ("21", "MNTII-006-D.md"), ("22", "MNTII-006-E.md")]
+mined_chapters = [ch for ch, u in CHAPTER_UNITS
+                  if os.path.isfile(os.path.join(ROOT, MONT, "units", u))]
+ch18_unit_exists = any(
+    "Ch 18" in (read(os.path.relpath(p, ROOT).replace(os.sep, "/")) or "")
+    for p in glob.glob(os.path.join(ROOT, MONT, "units", "MNTII-006-[H-Z].md")))
+for rel in story_files():
+    if rel.startswith("audits/") or "/_quarantine/" in rel:
+        continue
+    text = read(rel)
+    if text is None:
+        continue
+    lines = text.splitlines()
+    for i, ln in enumerate(lines):
+        low = ln.lower()
+        # a mined chapter must not be called unmined in a live layer
+        if ("unmined" in low) or ("غير مُعدَّن" in ln) or ("غير معدن" in ln):
+            for ch in mined_chapters:
+                if re.search(r"ch\s*%s\b" % ch, low) and not line_in_historical_context(lines, i):
+                    need(False,
+                         "%s:%d: calls mined chapter Ch %s 'unmined' while its unit exists" % (rel, i + 1, ch))
+        # Ch 18 must not be called mined/closed before a valid Ch-18 unit exists
+        if not ch18_unit_exists and re.search(r"ch\s*18\b[^\n]{0,60}\b(mined|closed)\b", low):
+            if "unmined" not in low and not line_in_historical_context(lines, i):
+                need(False,
+                     "%s:%d: calls Ch 18 mined/closed before a valid Ch-18 unit exists" % (rel, i + 1))
+
 if issues:
     print("FAIL - %d state-coherence issue(s):" % len(issues))
     for i in issues:

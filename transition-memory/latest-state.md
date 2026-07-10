@@ -1,7 +1,7 @@
 # Latest State
 
 ```text
-Version:  v0.6 Montgomery MNT-II (source-grounding-corrected; E CLOSED)
+Version:  v0.6 Montgomery MNT-II (source-grounding-corrected; C/D/E/F CLOSED + G-intake)
 Home:     D:\PVG-ANT-Central-Mind (standalone git repo)
 HEAD ref: latest baseline = MNTII-006-G intake (Ch 16 exponential sums / Van der Corput
           cancellation SUPPORT layer), mined from the explicit ChatGPT Treasure Packet after
