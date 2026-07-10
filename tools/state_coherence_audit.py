@@ -58,7 +58,7 @@ need(("Montgomery" in latest) or ("v0.6" in latest),
 # 3. next-action reflects the actual next action
 nexta = read("transition-memory/next-action.md") or ""
 need(("Intake" in nexta) or ("Coherence Audit 005" in nexta) or ("Closure Review" in nexta)
-     or ("Correction 006" in nexta),
+     or ("Correction 006" in nexta) or ("Treasure Packet" in nexta) or ("Opening Pass" in nexta),
      "transition-memory/next-action.md does not reflect the actual next action")
 
 # 8. planned.jsonl empty must be reflected in next-action
@@ -624,6 +624,48 @@ if MONT_OVERLAY_CLOSED:
                     k in low for k in ("goldbach", "rh ", "grh", "riemann", "wall")):
                 need(any((n in low) or (n in ln) for n in NEG_TOKENS),
                      "%s:%d: book_overlay_closed paired with a Goldbach/RH/GRH/wall claim" % (rel, i + 1))
+
+# ---- OPERA DE CRIBRO Opening Pass: scope-only guard (v0.7) --------------------
+# Opera is opened scope-only: registered with a verified bibliographic identity, scope
+# frozen, doctrine seeded — but NO mining, NO units, and NO trusted chapter classification
+# before an authorized Treasure Packet. This guard protects that invariant.
+OPERA = "ledgers/books/BOOK-SIEVE-OPERA-001"
+opera_line = ""
+for line in books.splitlines():
+    if "BOOK-SIEVE-OPERA-001" in line:
+        opera_line = line
+if opera_line:
+    try:
+        opera_obj = json.loads(opera_line)
+    except Exception:
+        opera_obj = {}
+    opera_status = opera_obj.get("status", "")
+    opera_units = glob.glob(os.path.join(ROOT, OPERA, "OPERA-004-*.md"))
+    if opera_units:
+        # a real unit exists -> scope-only is over; status must have advanced past it
+        need(opera_status not in ("available_not_imported", "scope_open"),
+             "Opera unit file(s) exist but books.jsonl still says scope-only (mining left no status advance)")
+    else:
+        # scope-only: status must be exactly scope_open (never mined / partial / closed)
+        need(opera_status == "scope_open",
+             "Opera has no units yet but books.jsonl status is '%s' (Opening Pass must stay scope_open)"
+             % opera_status)
+        for doc in ("v0.7-scope.md", "v0.7-scope-freeze.md"):
+            need(os.path.isfile(os.path.join(ROOT, OPERA, doc)),
+                 "Opera scope_open but %s is missing" % doc)
+        for ov in ("treasure-map.md", "normalization-ledger.md",
+                   "integration-links.md", "missed-treasures.md"):
+            ovt = read(os.path.join(OPERA, ov))
+            need(ovt is not None, "Opera overlay %s is missing" % ov)
+            if ovt is not None:
+                low = ovt.lower()
+                need("scope-only" in low or "no treasures extracted" in low,
+                     "Opera overlay %s is not marked scope-only / empty" % ov)
+        need(os.path.isfile(os.path.join(ROOT, "governance",
+             "scope-amendment-and-debt-policy.md")),
+             "Opera opened but governance/scope-amendment-and-debt-policy.md is missing")
+        need("Opera" in nexta and "Packet" in nexta,
+             "next-action.md does not reflect the Opera scope-only wait (awaiting the first packet)")
 
 if issues:
     print("FAIL - %d state-coherence issue(s):" % len(issues))
