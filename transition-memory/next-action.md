@@ -1,42 +1,40 @@
 # Next Action
 
 ```text
-Current baseline: Opera de Cribro SECOND INTAKE done (v0.7, 2026-07-11).
-                  OPERA-004-B (One-Sided Sieve Certificates and the Prime-Asymptotic Gap) written from
-                  OPERA-TREASURE-PACKET-002 (Ch 5 §§5.2-5.4 + Ch 6 §§6.1/6.5, Brun's pure sieve +
-                  Fundamental Lemma) as validated_intake — NOT closed. Target LB-03.
-                  packet_mismatch = true / routing_split (recorded from the packet: frozen hypothesis
-                  primary reference_integration; packet grounded primary core_certificate_theory,
-                  secondary reference_integration) — written in every layer, not §9 alone.
-                  Cards 008-014 provisional_intake. Zero new TOOL-ID, zero new WALL-ID (prime-asymptotic
-                  gap and target-purity gap are Boundaries INSIDE LB-03; NOT mapped to WALL-PARITY;
-                  z>sqrt(x) avoids the question, not answers it). Selberg deferred (not rejected);
-                  model-subtraction (A) NOT reused here = open named test debt.
+Current baseline: Opera de Cribro SECOND UNIT CLOSED (v0.7, 2026-07-11).
+                  OPERA-004-B (One-Sided Sieve Certificates and the Prime-Asymptotic Gap) = CLOSED,
+                  v0.7-B Closure Review PASS (AUDIT-CM-V07-B-CLOSURE-001; MEDIUM distributed governance:
+                  independent refuter SAFE + routing-split audit + strict LB-03 semantic audit +
+                  committed-state consistency + bureaucratic-function test — all PASS).
+                  packet_mismatch = true / routing_split. Cards 008-014 closure_approved.
+                  Zero new TOOL-ID, zero new WALL-ID. B closed the STRUCTURAL LB-03 gate ONLY — it did
+                  NOT fill C_sieve with applied numerical values; model-subtraction (A) stays an OPEN
+                  named test debt; Selberg stays deferred; the three-level ladder
+                  (one-sided bound != sifted-set asymptotic != prime-producing asymptotic) stands;
+                  target-purity is a Boundary inside LB-03, NOT mapped to WALL-PARITY.
 
-                  OPERA-004-A remains CLOSED (v0.7-A Closure Review PASS). Montgomery MNT-II remains
-                  BOOK OVERLAY CLOSED (AUDIT-CM-MONTGOMERY-OVERLAY-008, mastery deferred), untouched.
-                  Ceiling: one-sided bound != sifted-set asymptotic != prime-producing asymptotic;
-                  sieve formulation is not prime production; no parity crossing; MC-001..005 unsolved;
-                  walls uncrossed; zero RH progress; zero GRH progress.
+                  OPERA-004-A remains CLOSED (v0.7-A). Montgomery MNT-II remains BOOK OVERLAY CLOSED
+                  (AUDIT-CM-MONTGOMERY-OVERLAY-008, mastery deferred), untouched.
+                  Ceiling: sieve formulation is not prime production; no parity crossing; MC-001..005
+                  unsolved; walls uncrossed; zero RH progress; zero GRH progress.
 
 Next action:
-  v0.7-B Closure Review of OPERA-004-B ONLY — deterministic audit + one independent falsifier + an
-  explicit routing-split audit + a strict LB-03 semantic check + a short state-transition matrix;
-  automatic escalation on internal contradiction / overclaim / inconsistent committed state. If PASS:
-  closure report + flip layers + one commit; if blocked: NO commit, report the finding only.
+  NONE — awaiting an independently authorized next Opera Treasure Packet from Sufyan.
+  No new unit, no new book, no new audit starts without it.
 
-Not allowed (this phase, without an explicit packet and permission):
-  - closing OPERA-004-B in the intake round (closure is a separate ordered review).
+Not allowed (without an explicit packet and permission):
   - OPERA-004-C, a third packet, Selberg, or Chapter 16.
   - a new TOOL-ID, or any new WALL-ID; mapping any boundary to WALL-PARITY.
+  - starting the next application_specific_certificate (it would fill C_sieve, still within the known,
+    but it needs its own packet and order).
   - book-overlay closure of Opera, or flipping declared_objective_coverage.complete.
-  - putting MC-001 into the mining-selection criterion.
   - MNTII-006-I or any Montgomery change; re-trusting quarantined A / B / legacy-E.
 
 State:
-  planned.jsonl = OPERA-004-B (validated_intake, not closed; packet_mismatch=true routing_split; target LB-03).
-  Opera de Cribro (BOOK-SIEVE-OPERA-001) = partial_overlay (v0.7); OPERA-004-A CLOSED, OPERA-004-B intake;
-    unit prefix OPERA-004; LB-01..06 frozen; governance/scope-amendment-and-debt-policy.md active.
+  planned.jsonl = empty.
+  Opera de Cribro (BOOK-SIEVE-OPERA-001) = partial_overlay (v0.7); OPERA-004-A and OPERA-004-B both
+    CLOSED; unit prefix OPERA-004; LB-01..06 frozen (LB-03 structural gate built, not an applied
+    certificate); governance/scope-amendment-and-debt-policy.md active.
   Montgomery MNT-II = book_overlay_closed (AUDIT-CM-MONTGOMERY-OVERLAY-008), Level 2,
     source-grounding-corrected, mastery deferred; trusted units C, D, E, F, G, H;
     quarantined A, B, E-legacy (source-mismatch / unvalidated).

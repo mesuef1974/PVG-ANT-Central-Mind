@@ -1,10 +1,10 @@
 # Opera de Cribro — Treasure Map
 
-Book ID: `BOOK-SIEVE-OPERA-001` · Version: v0.7 · **Status: partial_overlay — `OPERA-004-A` CLOSED (v0.7-A PASS) + `OPERA-004-B` validated_intake (v0.7-B pending).**
+Book ID: `BOOK-SIEVE-OPERA-001` · Version: v0.7 · **Status: partial_overlay — `OPERA-004-A` CLOSED (v0.7-A PASS) + `OPERA-004-B` CLOSED (v0.7-B PASS).**
 
 First mined unit `OPERA-004-A` (Sifting Sequences as Main-Term/Remainder Certificates), grounded in `OPERA-TREASURE-PACKET-001` (Preface + Ch 1 §§1.1-1.4), transformed notes only, PDF outside git. **Routing (v0.7-A adjudicated): `packet_mismatch = true`, `mismatch_type = routing_split`** — the frozen hypothesis predicted primary `reference_integration`; the packet grounded primary `core_certificate_theory` with `reference_integration` retained as secondary. Cards are classified from the packet content, not the table of contents. No new `TOOL-ID` minted; **zero new `WALL-ID` and no silent widening** of an existing wall (all three boundaries stay Boundaries). A's cards (001-007) are `trusted_status = closure_approved` (v0.7-A Closure Review PASS, AUDIT-CM-V07-A-CLOSURE-001).
 
-**Second unit `OPERA-004-B`** (One-Sided Sieve Certificates and the Prime-Asymptotic Gap), grounded in `OPERA-TREASURE-PACKET-002` (Ch 5 §§5.2-5.4 + Ch 6 §§6.1/6.5, Brun's pure sieve + Fundamental Lemma), transformed notes only. **Routing: `packet_mismatch = true`, `mismatch_type = routing_split`** (frozen hypothesis primary `reference_integration`; packet grounded primary `core_certificate_theory`, secondary `reference_integration`) — recorded from the packet, not discovered late. Target `LB-03`. No new `TOOL-ID`, no new `WALL-ID` (the prime-asymptotic gap is a Boundary INSIDE LB-03, not a wall; no link to WALL-PARITY). B's cards (008-014) are `trusted_status = provisional_intake` (v0.7-B pending).
+**Second unit `OPERA-004-B`** (One-Sided Sieve Certificates and the Prime-Asymptotic Gap), grounded in `OPERA-TREASURE-PACKET-002` (Ch 5 §§5.2-5.4 + Ch 6 §§6.1/6.5, Brun's pure sieve + Fundamental Lemma), transformed notes only. **Routing: `packet_mismatch = true`, `mismatch_type = routing_split`** (frozen hypothesis primary `reference_integration`; packet grounded primary `core_certificate_theory`, secondary `reference_integration`) — recorded from the packet, not discovered late. Target `LB-03`. No new `TOOL-ID`, no new `WALL-ID` (the prime-asymptotic gap is a Boundary INSIDE LB-03, not a wall; no link to WALL-PARITY). B's cards (008-014) are `trusted_status = closure_approved` (v0.7-B Closure Review PASS, AUDIT-CM-V07-B-CLOSURE-001).
 
 ```text
 Treasure ID: TREASURE-OPERA-001
@@ -125,11 +125,11 @@ Review fields: source_grounded=true · duplicate_status=new_function · scientif
 Normalized output: → LB-02 / LB-06 precursor ; forward link to Ch 18.
 ```
 
-## OPERA-004-B cards (provisional_intake, v0.7-B pending)
+## OPERA-004-B cards (closure_approved, v0.7-B PASS)
 
 ```text
 Treasure ID: TREASURE-OPERA-008
-Status:      validated_intake (live intake route; OPERA-004-B not yet closed)
+Status:      closure_approved (v0.7-B Closure Review PASS; unit closed)
 Treasure:    One-Sided Sieve Certificate  C_± = (C_input, λ^±, sign(θ^±), V^±, R^±)
 Source:      OPERA-004-B (Ch 5 §§5.2-5.4) — transformed notes only
 Type:        reinterpretation (organizing record)
@@ -139,13 +139,13 @@ ANT role:    weighted sieve sums S^± = X V^± + R^±, sandwich S^- <= S <= S^+.
 PVG translation: direction comes only from weight support + convolution sign + orientation.
 Wall / certificate: none crossed; a direction record, not a bound value.
 Classification: Reinterpretation.
-Review fields: source_grounded=true · duplicate_status=new_function · scientific_class=Reinterpretation · trusted_status=provisional_intake
+Review fields: source_grounded=true · duplicate_status=new_function · scientific_class=Reinterpretation · trusted_status=closure_approved
 Normalized output: → LB-03 (primary) ; integration-heavy vs Harman upper/lower handling ; mirrors C_input (A).
 ```
 
 ```text
 Treasure ID: TREASURE-OPERA-009
-Status:      validated_intake (live intake route; OPERA-004-B not yet closed)
+Status:      closure_approved (v0.7-B Closure Review PASS; unit closed)
 Treasure:    Three-Level Certificate Ladder
 Source:      OPERA-004-B (Ch 5-6 ladder) — transformed notes only
 Type:        diagnostic
@@ -155,13 +155,13 @@ ANT role:    bound -> (collapse) -> sifted asymptotic -> (target-purity) -> prim
 PVG translation: each level requires strictly more; naming the ladder blocks silent promotion.
 Wall / certificate: prime-asymptotic gap = Boundary INSIDE LB-03 (not a wall).
 Classification: Diagnostic.
-Review fields: source_grounded=true · duplicate_status=new_function · scientific_class=Diagnostic · trusted_status=provisional_intake
+Review fields: source_grounded=true · duplicate_status=new_function · scientific_class=Diagnostic · trusted_status=closure_approved
 Normalized output: → LB-03 (primary) ; anchor of the LB-03 semantic check.
 ```
 
 ```text
 Treasure ID: TREASURE-OPERA-010
-Status:      validated_intake (live intake route; OPERA-004-B not yet closed)
+Status:      closure_approved (v0.7-B Closure Review PASS; unit closed)
 Treasure:    Sandwich-Collapse Criterion
 Source:      OPERA-004-B (Ch 6 §6.5, Fundamental Lemma) — transformed notes only
 Type:        diagnostic
@@ -171,13 +171,13 @@ ANT role:    collapse of V^+ and V^- with negligible weighted remainders.
 PVG translation: collapse is a criterion to be met, not an automatic consequence of having weights.
 Wall / certificate: none crossed; a criterion, not a result.
 Classification: Diagnostic.
-Review fields: source_grounded=true · duplicate_status=new_function · scientific_class=Diagnostic · trusted_status=provisional_intake
+Review fields: source_grounded=true · duplicate_status=new_function · scientific_class=Diagnostic · trusted_status=closure_approved
 Normalized output: → LB-03 ; checked vs Fundamental Lemma cards (collapse-as-criterion is the new framing).
 ```
 
 ```text
 Treasure ID: TREASURE-OPERA-011
-Status:      validated_intake (live intake route; OPERA-004-B not yet closed)
+Status:      closure_approved (v0.7-B Closure Review PASS; unit closed)
 Treasure:    Positive Lower-Bound Gate
 Source:      OPERA-004-B (Ch 5-6, lower sieve) — transformed notes only
 Type:        boundary / diagnostic
@@ -187,13 +187,13 @@ ANT role:    positivity of the lower main term as a separate gate.
 PVG translation: "we have a lower bound" != "we have a positive lower bound".
 Wall / certificate: Boundary; ties to the sifting limit, not a wall.
 Classification: Boundary.
-Review fields: source_grounded=true · duplicate_status=new_function · scientific_class=Boundary · trusted_status=provisional_intake
+Review fields: source_grounded=true · duplicate_status=new_function · scientific_class=Boundary · trusted_status=closure_approved
 Normalized output: → LB-03 ; → sifting-limit context.
 ```
 
 ```text
 Treasure ID: TREASURE-OPERA-012
-Status:      validated_intake (live intake route; OPERA-004-B not yet closed)
+Status:      closure_approved (v0.7-B Closure Review PASS; unit closed)
 Treasure:    Sifting-Budget Ratio  s = log D / log z
 Source:      OPERA-004-B (§7 packet) — transformed notes only
 Type:        known / reinterpretation (integration)
@@ -203,13 +203,13 @@ ANT role:    large s -> bounds approach; small s -> gap persists, lower main ter
 PVG translation: C_input + D + z + λ^± => the TYPE of result possible.
 Wall / certificate: none crossed; a standard ratio, recorded not minted.
 Classification: Known / Reinterpretation.
-Review fields: source_grounded=true · duplicate_status=integration_only · scientific_class=Reinterpretation · trusted_status=provisional_intake
+Review fields: source_grounded=true · duplicate_status=integration_only · scientific_class=Reinterpretation · trusted_status=closure_approved
 Normalized output: → LB-03 ; z != level of distribution (normalization vs Montgomery / Harman).
 ```
 
 ```text
 Treasure ID: TREASURE-OPERA-013
-Status:      validated_intake (live intake route; OPERA-004-B not yet closed)
+Status:      closure_approved (v0.7-B Closure Review PASS; unit closed)
 Treasure:    Target-Purity Certificate
 Source:      OPERA-004-B (level-3 packet) — transformed notes only
 Type:        reinterpretation (named certificate slot)
@@ -219,13 +219,13 @@ ANT role:    survivors-are-primes as a named, missing certificate slot.
 PVG translation: sifted-set asymptotic + target-purity => prime-producing asymptotic; without it, no primes claim.
 Wall / certificate: Boundary inside LB-03; z>sqrt(x) AVOIDS the question (drops s), NOT a parity claim; NOT mapped to WALL-PARITY.
 Classification: Reinterpretation.
-Review fields: source_grounded=true · duplicate_status=new_function · scientific_class=Reinterpretation · trusted_status=provisional_intake
+Review fields: source_grounded=true · duplicate_status=new_function · scientific_class=Reinterpretation · trusted_status=closure_approved
 Normalized output: → LB-03 ; parity re-examination DEFERRED to the parity-grounding packet.
 ```
 
 ```text
 Treasure ID: TREASURE-OPERA-014
-Status:      validated_intake (live intake route; OPERA-004-B not yet closed)
+Status:      closure_approved (v0.7-B Closure Review PASS; unit closed)
 Treasure:    Positivity Information-Loss Diagnostic
 Source:      OPERA-004-B (Ch 6 §6.1, Brun) — transformed notes only
 Type:        diagnostic (absorbed)
@@ -235,10 +235,10 @@ ANT role:    the epistemic price of positivity.
 PVG translation: what is discarded for a valid bound is not recoverable for an asymptotic.
 Wall / certificate: none crossed; a diagnostic.
 Classification: Diagnostic.
-Review fields: source_grounded=true · duplicate_status=absorbed · scientific_class=Diagnostic · trusted_status=provisional_intake
+Review fields: source_grounded=true · duplicate_status=absorbed · scientific_class=Diagnostic · trusted_status=closure_approved
 Normalized output: → absorbed by TOOL-SIEVE-INFO-CONSUMPTION-001 (no new tool).
 ```
 
-**Card summary:** A (001-007, `closure_approved`): 5 new_function + 2 integration_only. B (008-014, `provisional_intake`, v0.7-B pending): 5 new_function (008 one-sided certificate · 009 ladder · 010 sandwich-collapse · 011 positive-lower-gate · 013 target-purity) + 1 integration_only (012 sifting-budget ratio) + 1 absorbed (014 positivity info-loss). **Zero new TOOL-ID, zero new WALL-ID across both units.**
+**Card summary:** A (001-007, `closure_approved`): 5 new_function + 2 integration_only. B (008-014, `closure_approved`, v0.7-B PASS): 5 new_function (008 one-sided certificate · 009 ladder · 010 sandwich-collapse · 011 positive-lower-gate · 013 target-purity) + 1 integration_only (012 sifting-budget ratio) + 1 absorbed (014 positivity info-loss). **Zero new TOOL-ID, zero new WALL-ID across both units.**
 
-**Honest classification:** Reinterpretation / Diagnostic (treasure map; A closed, B intake NOT closed). No RH progress. No GRH progress. No new tool minted; no new wall.
+**Honest classification:** Reinterpretation / Diagnostic (treasure map; A and B both closure-reviewed CLOSED). No RH progress. No GRH progress. No new tool minted; no new wall.

@@ -1,6 +1,6 @@
 # Opera de Cribro — Integration Links
 
-Book ID: `BOOK-SIEVE-OPERA-001` · Version: v0.7 · **partial_overlay — `OPERA-004-A` CLOSED (v0.7-A PASS) + `OPERA-004-B` validated_intake (v0.7-B pending).** Routing (both units): `packet_mismatch = true`, `routing_split`.
+Book ID: `BOOK-SIEVE-OPERA-001` · Version: v0.7 · **partial_overlay — `OPERA-004-A` CLOSED (v0.7-A PASS) + `OPERA-004-B` CLOSED (v0.7-B PASS).** Routing (both units): `packet_mismatch = true`, `routing_split`.
 
 Links added AFTER normalization (promotion rule: project-governed, post-mining), never as a pre-mining selection criterion. `MC-001` appears here as standing context only — it did not drive what was mined.
 

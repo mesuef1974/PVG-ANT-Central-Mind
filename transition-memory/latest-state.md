@@ -1,7 +1,7 @@
 # Latest State
 
 ```text
-Version:  v0.7 Opera de Cribro partial_overlay (OPERA-004-A CLOSED + OPERA-004-B intake, 2026-07-11) over v0.6 Montgomery MNT-II CLOSED (book_overlay_closed, mastery deferred)
+Version:  v0.7 Opera de Cribro partial_overlay (OPERA-004-A + OPERA-004-B both CLOSED, 2026-07-11) over v0.6 Montgomery MNT-II CLOSED (book_overlay_closed, mastery deferred)
 Home:     D:\PVG-ANT-Central-Mind (standalone git repo)
 HEAD ref: latest baseline = Montgomery BOOK OVERLAY CLOSURE (governance order on the unanimous
           AUDIT-CM-MONTGOMERY-OVERLAY-008 recommendation, at e5c57cb), after the v0.6-H Closure
@@ -39,20 +39,23 @@ Books (registries/books.jsonl is the source of truth):
           legacy off-diagonal E (Kloosterman) in units/_quarantine/.
         Book overlay CLOSED (audit 008); appendices E-H = documented support-only deferrals;
         mastery deferred; the missed-treasures deferrals remain open and auditable.
-  Partial overlay (one CLOSED unit + one intake):
+  Partial overlay (two CLOSED units):
     - Opera de Cribro (v0.7) — Friedlander-Iwaniec, AMS Colloquium 57 (2010), identity verified.
         Sieve / parity / distribution certificate-theory layer, deepening the Harman-Montgomery
         pillar (FRONTIER-ANT-PVG-004).
         OPERA-004-A (Sifting Sequences...) from PACKET-001 (Ch 1 §§1.1-1.4) = CLOSED, v0.7-A PASS;
           packet_mismatch TRUE / routing_split; 7 cards closure_approved.
         OPERA-004-B (One-Sided Sieve Certificates and the Prime-Asymptotic Gap) from PACKET-002
-          (Ch 5 §§5.2-5.4 + Ch 6 §§6.1/6.5, Brun + Fundamental Lemma) = validated_intake, NOT closed;
-          target LB-03; packet_mismatch TRUE / routing_split (written in every layer); cards 008-014
-          provisional_intake; zero new TOOL/WALL (prime-asymptotic + target-purity gaps are Boundaries
-          inside LB-03, NOT mapped to WALL-PARITY); Selberg deferred; model-subtraction (A) not reused = open debt.
-        LB-01..06 frozen; scope-amendment + debt + C_sieve governance active. Unit prefix OPERA-004.
-        Next: v0.7-B Closure Review of OPERA-004-B (medium governance: one falsifier + routing-split
-          audit + strict LB-03 semantic check + short matrix; escalate on contradiction/overclaim).
+          (Ch 5 §§5.2-5.4 + Ch 6 §§6.1/6.5, Brun + Fundamental Lemma) = CLOSED, v0.7-B PASS
+          (AUDIT-CM-V07-B-CLOSURE-001, four lenses + independent refuter, MEDIUM governance);
+          target LB-03; packet_mismatch TRUE / routing_split; cards 008-014 closure_approved; zero new
+          TOOL/WALL. B closed the STRUCTURAL LB-03 gate ONLY — did NOT fill C_sieve with applied values;
+          three-level ladder stands (one-sided != sifted-set asymptotic != prime-producing); target-purity
+          a Boundary inside LB-03, NOT mapped to WALL-PARITY; Selberg deferred; model-subtraction (A)
+          not reused = open test debt.
+        LB-01..06 frozen (LB-03 structural gate built, not an applied certificate); scope-amendment +
+          debt + C_sieve governance active. Unit prefix OPERA-004.
+        Next: NONE — awaiting an independently authorized next Treasure Packet.
   Available, not imported: Motohashi, Hodel, Mendelson, Buss, Kossak, Stewart, Fesenko.
 
 Governing protocol:

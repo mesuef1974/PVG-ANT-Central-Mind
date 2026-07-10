@@ -1,6 +1,6 @@
 # Opera de Cribro — Missed Treasures (honesty ledger)
 
-Book ID: `BOOK-SIEVE-OPERA-001` · Version: v0.7 · **partial_overlay — `OPERA-004-A` CLOSED (v0.7-A PASS) + `OPERA-004-B` validated_intake (v0.7-B pending).**
+Book ID: `BOOK-SIEVE-OPERA-001` · Version: v0.7 · **partial_overlay — `OPERA-004-A` CLOSED (v0.7-A PASS) + `OPERA-004-B` CLOSED (v0.7-B PASS).**
 
 The honesty ledger of what was NOT extracted (yet) and why. No load-bearing node (`LB-01..06`) may be closed while deferred here; book-overlay closure can never be reached by silently deferring load-bearing material.
 

@@ -2,8 +2,8 @@
 
 Book ID: `BOOK-SIEVE-OPERA-001` · Unit: `OPERA-004-B` · Version: v0.7.
 
-**Status:** validated_intake — NOT closed — pending v0.7-B Closure Review.
-`primary_class = core_certificate_theory` · `secondary_role = reference_integration` · `packet_mismatch = true (routing_split)` · `trusted_status = provisional_intake` · `load_bearing_target = LB-03`.
+**Status:** CLOSED — v0.7-B Closure Review PASS (AUDIT-CM-V07-B-CLOSURE-001; four lenses + independent refuter; HEAD 29f045f reviewed).
+`primary_class = core_certificate_theory` · `secondary_role = reference_integration` · `packet_mismatch = true (routing_split)` · `trusted_status = closure_approved` · `load_bearing_target = LB-03`.
 
 ## Source packet (provenance)
 
@@ -233,7 +233,8 @@ RH/GRH progress:     zero RH progress, zero GRH progress.
 
 ## Next valid action
 
-This unit is a historical intake record. The only authoritative live next action is
-`transition-memory/next-action.md` (the v0.7-B Closure Review is pending; this intake does not close it).
+This unit is a historical record. The only authoritative live next action is
+`transition-memory/next-action.md` (v0.7-B Closure Review PASS; this unit is CLOSED — it closed the
+STRUCTURAL LB-03 gate only, not an applied C_sieve; model-subtraction stays an open test debt).
 
 **Honest classification:** Reinterpretation / Diagnostic (unit intake, NOT closed). No RH progress. No GRH progress. No mastery.
