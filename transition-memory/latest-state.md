@@ -1,11 +1,11 @@
 # Latest State
 
 ```text
-Version:  v0.6 Montgomery MNT-II (source-grounding-corrected; C/D/E/F CLOSED + G-intake)
+Version:  v0.6 Montgomery MNT-II (source-grounding-corrected; C/D/E/F/G CLOSED)
 Home:     D:\PVG-ANT-Central-Mind (standalone git repo)
-HEAD ref: latest baseline = MNTII-006-G intake (Ch 16 exponential sums / Van der Corput
-          cancellation SUPPORT layer), mined from the explicit ChatGPT Treasure Packet after
-          Sufyan's recorded selection (4a042b5), on top of the v0.6-F Closure PASS (b9f2f66).
+HEAD ref: latest baseline = v0.6-G Closure (PASS, second attempt, audits/v0.6-g-closure.md),
+          after State-Repair 006-E (b6219c3, chapter<->unit truth) on the G-intake (c91213e)
+          and the v0.6-F Closure PASS (b9f2f66).
           Remaining unmined: Ch 18 (deferred until after the G closure); appendices E-H
           support-only; zero-density/large-values = later volume.
 
@@ -24,10 +24,9 @@ Books (registries/books.jsonl is the source of truth):
           E (Ch 22 bounded gaps / GPY / Maynard, v0.6-e-closure PASS, third attempt),
           F (Ch 17 prime exponential sums / Type I-II decomposition, v0.6-f-closure PASS,
             second attempt; explicit Treasure Packet, Coverage Audit 007).
-        PENDING intake:
-          G (Ch 16 exponential sums / Van der Corput cancellation SUPPORT layer) =
-            validated_intake, NOT closed, pending v0.6-G Closure Review
-            (explicit Treasure Packet; does NOT revive the quarantined legacy-E).
+          G (Ch 16 exponential sums / Van der Corput cancellation SUPPORT layer,
+            v0.6-g-closure PASS, second attempt; explicit Treasure Packet;
+            does NOT revive the quarantined legacy-E).
         QUARANTINED (source-mismatch / cross-volume, NOT trusted):
           A, B (zero-density / large-values / pair-correlation are deferred by the source
             to a LATER volume; prior A/B closure audits were safety/coherence checks only,

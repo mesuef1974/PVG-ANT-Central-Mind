@@ -1,7 +1,7 @@
 # MNTII-006-G — Exponential Sums and Van der Corput Cancellation Support Layer
 
 **Registry ID:** MNTII-006-G
-**Status:** validated_intake (from ChatGPT Treasure Packet, Ch 16; selection recorded at 4a042b5) — **NOT closed, NOT PASS, pending v0.6-G Closure Review**
+**Status:** CLOSED — v0.6-G Closure Review **PASS** (`audits/v0.6-g-closure.md`, AUDIT-CM-V06-G-CLOSURE-001, HEAD b6219c3, second attempt); entered as validated_intake from the ChatGPT Treasure Packet (Ch 16; selection recorded at 4a042b5)
 **Classification:** **Diagnostic / Boundary** (KNOWN cancellation machinery read as a SUPPORT layer; not results, not an application closure)
 **Unit role:** support_unit — source-grounded; feeds Ch 17 / Ch 18; not a standalone theorem unit.
 
@@ -92,14 +92,14 @@ exponent pair             :  reusable bound-profile for classes of exponential s
 ```text
 Created by SOURCE-GROUNDED intake from a ChatGPT Treasure Packet (Ch 16: Exponential Sums I —
 Van der Corput's Method), after Sufyan's explicit selection (recorded at 4a042b5): stabilize the
-support layer feeding Ch 17/18 BEFORE any additive (Ch 18) unit. Status = validated_intake:
-NOT closed, NOT PASS, pending v0.6-G Closure Review.
-Guard focus of this packet: legacy-E is NOT revived by Ch 16.
+support layer feeding Ch 17/18 BEFORE any additive (Ch 18) unit. Entered as validated_intake;
+CLOSED after the second v0.6-G Closure Review (3 auditors PASS + falsifier unrefuted + 7/7 guards;
+see audits/v0.6-g-closure.md). Guard focus of this packet: legacy-E is NOT revived by Ch 16.
 ```
 
 ## Next valid action
 
-**Pending unit.** This unit awaits its v0.6-G Closure Review (see the Status line). This file does not define the current live next action. The only authoritative live next action is: `transition-memory/next-action.md`.
+**Historical unit record.** MNTII-006-G was closure-reviewed (`v0.6-g-closure.md` PASS, second attempt). This file does not define the current live next action. The only authoritative live next action is: `transition-memory/next-action.md`.
 
 ## Audit checklist
 
@@ -109,7 +109,7 @@ Guard focus of this packet: legacy-E is NOT revived by Ch 16.
 - [x] legacy-E NOT revived (Kloosterman/Weil/off-diagonal stays quarantined/postponed)
 - [x] No Goldbach application; Ch 18 not mined; no Type II breakthrough; no parity break
 - [x] No crossing WALL-OFF-DIAGONAL / WALL-SIEVE-CEILING / WALL-PARITY / WALL-DENSITY-HYP · MC-001/002/005 unsolved
-- [x] Status = validated_intake (NOT closed, NOT PASS); pending v0.6-G Closure Review
+- [x] Entered as validated_intake; CLOSED by v0.6-G Closure Review PASS (3 auditors + falsifier unrefuted)
 - [x] TOOL-MONTGOMERY-VDC-EXPONENTIAL-SUMS-DIAGNOSTIC-001 registered; cards 044–051; planned.jsonl empty
 - [x] MNTII-006-H not started · no full book mining · Seven guards PASS after this intake
 

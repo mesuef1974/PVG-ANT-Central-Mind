@@ -23,9 +23,9 @@ Live installed capabilities of the Central Mind (from the mined books and regist
    TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001 (F, Ch17 prime exponential sums /
    Type I-II decomposition — source-grounded from the explicit Treasure Packet; entered as
    validated_intake, CLOSED: v0.6-f-closure PASS, second attempt),
-   TOOL-MONTGOMERY-VDC-EXPONENTIAL-SUMS-DIAGNOSTIC-001 (G, Ch16 exponential sums /
-   Van der Corput cancellation SUPPORT layer — source-grounded intake from the explicit
-   Treasure Packet, validated_intake, NOT closed, pending v0.6-G Closure Review;
+   TOOL-MONTGOMERY-VDC-EXPONENTIAL-SUMS-DIAGNOSTIC-001 (G / MNTII-006-G, Ch16 exponential
+   sums / Van der Corput cancellation SUPPORT layer — source-grounded from the explicit
+   Treasure Packet; entered as validated_intake, CLOSED: v0.6-g-closure PASS, second attempt;
    does NOT revive the quarantined legacy off-diagonal material).
    [QUARANTINED, source-mismatch / cross-volume — NOT trusted capabilities:
    TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001 (A), TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001 (B),

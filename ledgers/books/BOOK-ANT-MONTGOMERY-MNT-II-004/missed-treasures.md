@@ -8,7 +8,7 @@ Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — source-grounding-corrected
 Montgomery MNT-II source-grounded extraction covers the sieves-and-gaps pillar plus the Ch-17
 bridge (C: Ch 19-20 large sieve / BV; D: Ch 21 sieves; E: Ch 22 bounded gaps, v0.6-e-closure PASS;
 F: Ch 17 prime sums / Type I-II, v0.6-f-closure PASS — all four closure-reviewed; plus G: Ch 16
-Van der Corput support, validated_intake pending v0.6-G Closure Review) and is NOT a full-book
+Van der Corput support, v0.6-g-closure PASS — all five closure-reviewed) and is NOT a full-book
 treasure-mining pass. Units A and B, and the
 legacy off-diagonal E, are QUARANTINED (cross-volume / source-mismatch) and are NOT part of
 the trusted source-grounded overlay.
@@ -40,7 +40,7 @@ the trusted source-grounded overlay.
 - numerical optimization of all Ch-17 exponents                 : deferred.
 - full treatment of every digit-sum theorem (Ch 17.4)           : deferred.
 - MNTII-006-G                                                   : EXECUTED from the explicit Ch-16 Treasure
-    Packet (Sufyan's selection, 4a042b5); validated_intake, NOT closed, pending v0.6-G Closure Review.
+    Packet (Sufyan's selection, 4a042b5); CLOSED at v0.6-g-closure PASS (entered as validated_intake).
 - complete proof reproduction of all derivative-test estimates  : deferred.
 - exhaustive exponent-pair optimization                         : deferred.
 - zeta-function exponent-pair applications beyond support role  : deferred.
@@ -49,11 +49,11 @@ the trusted source-grounded overlay.
     ChatGPT Treasure Packet AND explicit permission.
 ```
 
-## Unmined chapters (Coverage Audit 007 — candidates for FUTURE packets, nothing mined here)
+## Chapter coverage (after Coverage Audit 007; mining status per chapter)
 
 ```text
-- Ch 16 Exponential Sums I (Van der Corput)  : MINED as MNTII-006-G (from the explicit Treasure Packet;
-    validated_intake, NOT closed, pending v0.6-G Closure Review). NOT a legacy-E revival: the quarantined
+- Ch 16 Exponential Sums I (Van der Corput)  : MINED and CLOSED as MNTII-006-G (v0.6-g-closure PASS).
+    NOT a legacy-E revival: the quarantined
     Kloosterman/Weil framing stays quarantined. Full derivative-test proofs / exponent-pair optimization
     stay deferred (see trusted-path list above).
 - Ch 17 Estimates for Sums over Primes       : MINED as MNTII-006-F (from the explicit Treasure Packet;
@@ -69,11 +69,10 @@ See audits/montgomery-book-coverage-audit-007.md.
 ## Level assessment
 
 ```text
-Source-grounded overlay = 4 trusted closure-reviewed units (C, D, E, F) + 1 pending intake
-(G: Ch 16 Van der Corput support, validated_intake, pending v0.6-G Closure Review), plus
+Source-grounded overlay = 5 trusted closure-reviewed units (C, D, E, F, G), plus
 2 quarantined cross-volume units (A, B) and 1 quarantined legacy unit (off-diagonal E).
-MNTII-006-H is not allowed without an explicit Treasure Packet AND explicit permission;
-no Ch 18 mining before the G closure.
+MNTII-006-H is not allowed without an explicit Treasure Packet AND explicit permission
+(the G-closure precondition is met; the Ch-18 packet and the permission are not).
 Level 2; a partial, source-grounding-corrected overlay — NOT full-book mastery, NOT book overlay closure.
 ```
 
