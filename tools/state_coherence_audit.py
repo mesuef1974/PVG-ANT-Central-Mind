@@ -176,9 +176,38 @@ if f_txt is not None:
         need(re.search(r"\*\*Status:\*\*[^\n]*validated_intake", f_txt),
              "MNTII-006-F (intake) Status line is not validated_intake")
         need("not closed" in f_txt.lower(), "MNTII-006-F (intake) is not marked NOT closed")
-# no MNTII-006-G (no further unit without a packet and explicit permission)
-need(not os.path.isfile(os.path.join(ROOT, MONT, "units", "MNTII-006-G.md")),
-     "MNTII-006-G unit exists; no further Montgomery unit is allowed without a packet and permission")
+# G state machine: G may exist ONLY as the packet-grounded Ch-16 support unit (selection
+# recorded at 4a042b5); before a v0.6-g-closure PASS it stays validated_intake NOT closed.
+g_txt = read(os.path.join(MONT, "units", "MNTII-006-G.md"))
+if g_txt is not None:
+    need("Treasure Packet" in g_txt and "Ch 16" in g_txt,
+         "MNTII-006-G is not grounded in the Ch-16 Treasure Packet")
+    need("legacy" in g_txt.lower(),
+         "MNTII-006-G does not carry the no-legacy-E-revival guard note")
+    g_closure = read(os.path.join("audits", "v0.6-g-closure.md"))
+    G_CLOSED = g_closure is not None and "PASS" in g_closure
+    if g_closure is not None:
+        need("PASS" in g_closure, "audits/v0.6-g-closure.md exists but does not record PASS")
+    if G_CLOSED:
+        need(re.search(r"\*\*Status:\*\*\s*CLOSED", g_txt),
+             "v0.6-g-closure PASS exists but MNTII-006-G is not marked Status: CLOSED")
+    else:
+        need(not re.search(r"\*\*Status:\*\*\s*CLOSED", g_txt),
+             "MNTII-006-G is marked Status: CLOSED but no v0.6-g-closure PASS exists")
+        need(re.search(r"\*\*Status:\*\*[^\n]*validated_intake", g_txt),
+             "MNTII-006-G (intake) Status line is not validated_intake")
+        need("not closed" in g_txt.lower(), "MNTII-006-G (intake) is not marked NOT closed")
+        need(any(tok.startswith("G") for tok in trusted_tokens),
+             "books.jsonl trusted_source_units omits the G intake while units/MNTII-006-G.md exists")
+        need("TOOL-MONTGOMERY-VDC-EXPONENTIAL-SUMS-DIAGNOSTIC-001" in (read("maps/current-capabilities.md") or ""),
+             "maps/current-capabilities.md omits the G-intake tool")
+        need("MNTII-006-G" in (read(os.path.join(MONT, "missed-treasures.md")) or ""),
+             "missed-treasures.md omits MNTII-006-G")
+        need("v0.6-G Closure Review" in readme,
+             "root README.md does not point to the v0.6-G Closure Review track")
+# no MNTII-006-H (no further unit without a packet and explicit permission)
+need(not os.path.isfile(os.path.join(ROOT, MONT, "units", "MNTII-006-H.md")),
+     "MNTII-006-H unit exists; no further Montgomery unit is allowed without a packet and permission")
 
 # STATE-REPAIR 006-B invariants: quarantine must propagate to tools.jsonl and maps/
 QUARANTINED_TOOLS = (
@@ -359,7 +388,8 @@ for i, ln in enumerate(tm_lines):
 #     phrasing ("entered as", Arabic equivalent) or an explicit "stale finding" note
 #     is allowed. Historical audit reports (audits/) are pinned records and exempt.
 CLOSURE_AUDITS = {"C": "v0.6-c-closure.md", "D": "v0.6-d-closure.md",
-                  "E": "v0.6-e-closure.md", "F": "v0.6-f-closure.md"}
+                  "E": "v0.6-e-closure.md", "F": "v0.6-f-closure.md",
+                  "G": "v0.6-g-closure.md"}
 closed_letters = []
 for L, aud in CLOSURE_AUDITS.items():
     a = read(os.path.join("audits", aud))
@@ -374,12 +404,12 @@ for rel in story_files():
     for i, ln in enumerate(text.splitlines()):
         # segment-scoped: a claim belongs to the unit mentioned before it, up to the
         # next unit mention on the same line (multi-unit summary lines stay precise).
-        for mm in re.finditer(r"MNTII-006-([A-F])(?![-A-Za-z])", ln):
+        for mm in re.finditer(r"MNTII-006-([A-H])(?![-A-Za-z])", ln):
             L = mm.group(1)
             if L not in closed_letters:
                 continue
             rest = ln[mm.end():]
-            nxt = re.search(r"MNTII-006-[A-F]", rest)
+            nxt = re.search(r"MNTII-006-[A-H]", rest)
             seg = rest[:nxt.start()] if nxt else rest
             seg_low = seg.lower()
             stale = ("validated_intake" in seg_low or "not closed" in seg_low

@@ -1,6 +1,6 @@
 # Montgomery MNT-II — Treasure Map
 
-Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — SOURCE-GROUNDING-CORRECTED (Correction 006).** Trusted source-grounded units: `MNTII-006-C` (large sieve / Bombieri–Vinogradov, Ch 19–20; closed), `MNTII-006-D` (Selberg / combinatorial sieve, Ch 21; closed), `MNTII-006-E` (bounded gaps / GPY / Maynard, Ch 22; **CLOSED, v0.6-e-closure PASS**), `MNTII-006-F` (prime exponential sums / Type I-II, Ch 17; **CLOSED, v0.6-f-closure PASS**). **Quarantined (cross-volume / source-mismatch, NOT trusted):** `MNTII-006-A`, `MNTII-006-B` (zero-density / large values / pair-correlation — deferred by the source to a later volume) and the legacy off-diagonal E (`units/_quarantine/`). طبقةُ تعدينٍ تحت `governance/book-treasure-extraction-protocol.md`، مؤصَّلةٌ على المصدر (transformed notes only، PDF خارج git). **باقي الكتاب غيرُ مُعدَّن** (see `missed-treasures.md`). لا نصٌّ خام، لا ادّعاءُ إتقانٍ كامل.
+Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — SOURCE-GROUNDING-CORRECTED (Correction 006).** Trusted source-grounded units: `MNTII-006-C` (large sieve / Bombieri–Vinogradov, Ch 19–20; closed), `MNTII-006-D` (Selberg / combinatorial sieve, Ch 21; closed), `MNTII-006-E` (bounded gaps / GPY / Maynard, Ch 22; **CLOSED, v0.6-e-closure PASS**), `MNTII-006-F` (prime exponential sums / Type I-II, Ch 17; **CLOSED, v0.6-f-closure PASS**), `MNTII-006-G` (**exponential sums / Van der Corput support, Ch 16 — validated_intake, NOT closed**, pending v0.6-G Closure Review). **Quarantined (cross-volume / source-mismatch, NOT trusted):** `MNTII-006-A`, `MNTII-006-B` (zero-density / large values / pair-correlation — deferred by the source to a later volume) and the legacy off-diagonal E (`units/_quarantine/`). طبقةُ تعدينٍ تحت `governance/book-treasure-extraction-protocol.md`، مؤصَّلةٌ على المصدر (transformed notes only، PDF خارج git). **باقي الكتاب غيرُ مُعدَّن** (see `missed-treasures.md`). لا نصٌّ خام، لا ادّعاءُ إتقانٍ كامل.
 
 ```text
 Treasure ID: TREASURE-MNTII-001
@@ -589,6 +589,112 @@ Classification: Boundary.
 Normalized output: → Tool TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001 (role-boundary reading).
 ```
 
+## Unit MNTII-006-G — exponential sums / Van der Corput cancellation support (8 cards, source-grounded intake; Ch 16)
+
+```text
+Treasure ID: TREASURE-MNTII-044
+Treasure:    Exponential sums measure oscillatory cancellation before arithmetic extraction
+Source:      MNTII-006-G — transformed notes only
+Type:        support principle
+Why it matters: integral e(f(x)) dx and sum e(f(n)) are tested by their PHASE — cancellation is installed before any prime/arithmetic structure is added (Ch 16.1-16.2).
+ANT role:    exponential integrals and elementary estimates as the base layer of the cancellation language.
+PVG translation: oscillatory tests on indexed sums, prior to valuation structure.
+Wall / certificate: none crossed; support only.
+Classification: Known / Diagnostic.
+Normalized output: → Tool TOOL-MONTGOMERY-VDC-EXPONENTIAL-SUMS-DIAGNOSTIC-001 ; → Frontier FRONTIER-ANT-PVG-006.
+```
+
+```text
+Treasure ID: TREASURE-MNTII-045
+Treasure:    Derivative tests turn phase variation into cancellation certificates
+Source:      MNTII-006-G — transformed notes only
+Type:        method principle
+Why it matters: first/second-derivative tests convert monotonic or curved phase into explicit cancellation bounds — the analytic certificate mechanism of Ch 16.
+ANT role:    van der Corput derivative lemmas for exponential integrals and sums.
+PVG translation: phase variation = the source of the analytic certificate; PVG does not generate it.
+Wall / certificate: none crossed.
+Classification: Known.
+Normalized output: → Tool TOOL-MONTGOMERY-VDC-EXPONENTIAL-SUMS-DIAGNOSTIC-001.
+```
+
+```text
+Treasure ID: TREASURE-MNTII-046
+Treasure:    Van der Corput differencing compares shifted slices of a sum
+Source:      MNTII-006-G — transformed notes only
+Type:        method principle
+Why it matters: the fundamental van der Corput inequality reduces a sum to shifted self-correlations — trading length for smoother phases (Ch 16.3).
+ANT role:    A/B-process differencing behind the exponent-pair machine.
+PVG translation: comparing shifted slices of an indexed arithmetic signal; the certificate stays analytic.
+Wall / certificate: none crossed.
+Classification: Known / Diagnostic.
+Normalized output: → Tool TOOL-MONTGOMERY-VDC-EXPONENTIAL-SUMS-DIAGNOSTIC-001.
+```
+
+```text
+Treasure ID: TREASURE-MNTII-047
+Treasure:    Exponent pairs summarize reusable cancellation strength
+Source:      MNTII-006-G — transformed notes only
+Type:        reusable summary
+Why it matters: an exponent pair packages the cancellation obtainable for a whole class of exponential sums — a transferable bound-profile, not a per-problem trick.
+ANT role:    exponent-pair transformations from the A/B processes.
+PVG translation: a reusable cancellation profile attached to families of indexed sums.
+Wall / certificate: none crossed; no exponent-pair improvement claimed.
+Classification: Known.
+Normalized output: → Tool TOOL-MONTGOMERY-VDC-EXPONENTIAL-SUMS-DIAGNOSTIC-001.
+```
+
+```text
+Treasure ID: TREASURE-MNTII-048
+Treasure:    Chapter 16 is support machinery for Ch 17 prime sums, not a prime-sum theorem itself
+Source:      MNTII-006-G — transformed notes only
+Type:        role boundary
+Why it matters: the cancellation language installed here is CONSUMED by the Ch 17 Type I/II machine and the deferred Ch 18 applications — Ch 16 itself proves no prime statement.
+ANT role:    support layer under MNTII-006-F and the future additive packet.
+PVG translation: support geometry only; no arithmetic conclusion.
+Wall / certificate: WALL-PARITY (contextual) — uncrossed.
+Classification: Diagnostic / Boundary.
+Normalized output: → Tool TOOL-MONTGOMERY-VDC-EXPONENTIAL-SUMS-DIAGNOSTIC-001 ; relates TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001 (trusted, F).
+```
+
+```text
+Treasure ID: TREASURE-MNTII-049
+Treasure:    Oscillatory cancellation is not a sieve parity breakthrough
+Source:      MNTII-006-G — transformed notes only
+Type:        no-go boundary
+Why it matters: cancellation in phases does not detect primes and does not cross the parity barrier — MC-001 stays exactly where it was.
+ANT role:    the boundary between analytic cancellation and sieve prime-detection.
+PVG translation: phase cancellation ≠ parity crossing.
+Wall / certificate: WALL-PARITY · WALL-SIEVE-CEILING — UNCROSSED; MC-001 UNSOLVED.
+Classification: Boundary.
+Normalized output: → Missing Certificate MC-001 (context; unsolved).
+```
+
+```text
+Treasure ID: TREASURE-MNTII-050
+Treasure:    PVG can name the indexed geometry, but cannot replace analytic cancellation estimates
+Source:      MNTII-006-G — transformed notes only
+Type:        role boundary
+Why it matters: fixes the division of labor for the support layer — labeling power without certificate power (same rule as card 043 for Ch 17).
+ANT role:    derivative/exponent-pair estimates carry the proof burden.
+PVG translation: labeling power without certificate power.
+Wall / certificate: none crossed.
+Classification: Boundary.
+Normalized output: → Tool TOOL-MONTGOMERY-VDC-EXPONENTIAL-SUMS-DIAGNOSTIC-001 (role-boundary reading).
+```
+
+```text
+Treasure ID: TREASURE-MNTII-051
+Treasure:    Legacy off-diagonal/Kloosterman material is not revived by Ch 16
+Source:      MNTII-006-G — transformed notes only
+Type:        quarantine guard
+Why it matters: Ch 16 contains in-volume Weyl/van der Corput machinery, but it does NOT re-trust the quarantined legacy-E framing (Kloosterman/Weil/Deshouillers-Iwaniec) — that stays quarantined/postponed until its correct source arrives.
+ANT role:    guard card: in-volume support ≠ cross-volume revival.
+PVG translation: the quarantine boundary survives the support layer.
+Wall / certificate: WALL-OFF-DIAGONAL — uncrossed; quarantine intact.
+Classification: Boundary.
+Normalized output: → quarantine boundary (units/_quarantine/ stays quarantined).
+```
+
 ## Quarantined cards (source-mismatch / cross-volume)
 
 ```text
@@ -597,7 +703,7 @@ TREASURE-MNTII-001..015 (units A/B): CROSS-VOLUME context. Zero-density / large 
   treasure map (units A/B are quarantined — see README / books.jsonl).
 Old TREASURE-MNTII-030..036 (off-diagonal / Kloosterman): superseded / quarantined; preserved in
   units/_quarantine/MNTII-006-E-legacy-offdiagonal-source-mismatch.md.
-Trusted source-grounded Montgomery treasures: C (016-022, Ch 19-20) · D (023-029, Ch 21) · E (030-036, Ch 22 bounded gaps) · F (037-043, Ch 17 prime sums / Type I-II) — all four units closure-reviewed.
+Trusted source-grounded Montgomery treasures: C (016-022, Ch 19-20) · D (023-029, Ch 21) · E (030-036, Ch 22 bounded gaps) · F (037-043, Ch 17 prime sums / Type I-II) — closure-reviewed — plus G (044-051, Ch 16 Van der Corput support — intake, pending closure review).
 ```
 
-**Honest classification:** Diagnostic / Boundary (treasure map, **source-grounding-corrected**). Trusted source-grounded = C + D + E + F (all closure-reviewed); A/B + legacy off-diagonal E = quarantined (cross-volume / source-mismatch). No RH/GRH progress. No new theorem; **bounded gaps recorded as a KNOWN theorem, not our result, not twin primes, not a parity breakthrough**; Bombieri–Vinogradov = average input; Elliott–Halberstam = conditional. MC-001 & MC-002 & MC-005 unsolved; walls uncrossed.
+**Honest classification:** Diagnostic / Boundary (treasure map, **source-grounding-corrected**). Trusted source-grounded = C + D + E + F (closure-reviewed) + G (Ch 16 support intake, pending closure review); A/B + legacy off-diagonal E = quarantined (cross-volume / source-mismatch). No RH/GRH progress. No new theorem; **bounded gaps recorded as a KNOWN theorem, not our result, not twin primes, not a parity breakthrough**; Bombieri–Vinogradov = average input; Elliott–Halberstam = conditional. MC-001 & MC-002 & MC-005 unsolved; walls uncrossed.

@@ -1,6 +1,6 @@
 # Montgomery MNT-II — Normalization Ledger
 
-Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — source-grounding-corrected (Correction 006).** كلُّ كنزٍ في `treasure-map.md` ← المعرِّفاتُ الحيّة. **المسارُ الموثوقُ المؤصَّلُ على المصدر:** `TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001` (C, Ch 19-20) · `TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001` (D, Ch 21) · `TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001` (E, Ch 22، مُغلَقة v0.6-e PASS) · `TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001` (F, Ch 17، مُغلَقة v0.6-f PASS). **محجورٌ (source-mismatch، غيرُ موثوق):** `TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001` (A) · `TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001` (B) · `TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001` (legacy E).
+Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — source-grounding-corrected (Correction 006).** كلُّ كنزٍ في `treasure-map.md` ← المعرِّفاتُ الحيّة. **المسارُ الموثوقُ المؤصَّلُ على المصدر:** `TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001` (C, Ch 19-20) · `TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001` (D, Ch 21) · `TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001` (E, Ch 22، مُغلَقة v0.6-e PASS) · `TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001` (F, Ch 17، مُغلَقة v0.6-f PASS) · `TOOL-MONTGOMERY-VDC-EXPONENTIAL-SUMS-DIAGNOSTIC-001` (G, Ch 16، intake بانتظار مراجعة الإغلاق). **محجورٌ (source-mismatch، غيرُ موثوق):** `TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001` (A) · `TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001` (B) · `TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001` (legacy E).
 
 ```text
 TREASURE-MNTII-001  Montgomery-style analytic tools as distribution diagnostics
@@ -235,6 +235,40 @@ TREASURE-MNTII-043  PVG classifies support geometry; cancellation stays analytic
   → Walls             : WALL-PARITY · WALL-OFF-DIAGONAL (uncrossed); MC-001 UNSOLVED
 ```
 
+## Unit MNTII-006-G — normalization (exponential sums / Van der Corput support, Ch 16, source-grounded intake)
+
+```text
+TREASURE-MNTII-044  Exponential sums = oscillatory cancellation before arithmetic extraction
+  → Tool (NEW)        : TOOL-MONTGOMERY-VDC-EXPONENTIAL-SUMS-DIAGNOSTIC-001
+  → Frontier          : FRONTIER-ANT-PVG-006
+  → PVG–ANT           : oscillatory tests on indexed sums, prior to valuation structure
+
+TREASURE-MNTII-045  Derivative tests = cancellation certificates from phase variation
+  → Tool              : TOOL-MONTGOMERY-VDC-EXPONENTIAL-SUMS-DIAGNOSTIC-001
+
+TREASURE-MNTII-046  van der Corput differencing = shifted self-correlation for cancellation
+  → Tool              : TOOL-MONTGOMERY-VDC-EXPONENTIAL-SUMS-DIAGNOSTIC-001
+  → PVG–ANT           : comparing shifted slices of an indexed arithmetic signal
+
+TREASURE-MNTII-047  Exponent pairs = reusable bound-profiles (no improvement claimed)
+  → Tool              : TOOL-MONTGOMERY-VDC-EXPONENTIAL-SUMS-DIAGNOSTIC-001
+
+TREASURE-MNTII-048  Ch 16 = support machinery for Ch 17 prime sums, not a prime-sum theorem
+  → Tool              : TOOL-MONTGOMERY-VDC-EXPONENTIAL-SUMS-DIAGNOSTIC-001
+  → Tool (consumer)   : TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001 (trusted, F)
+  → Wall              : WALL-PARITY (contextual) — uncrossed
+
+TREASURE-MNTII-049  Oscillatory cancellation is NOT a sieve parity breakthrough
+  → Missing Certificate: MC-001 — UNSOLVED
+  → Wall              : WALL-PARITY · WALL-SIEVE-CEILING — UNCROSSED
+
+TREASURE-MNTII-050  PVG names indexed geometry; analytic cancellation estimates are irreplaceable
+  → Tool              : TOOL-MONTGOMERY-VDC-EXPONENTIAL-SUMS-DIAGNOSTIC-001 (role-boundary reading)
+
+TREASURE-MNTII-051  Legacy off-diagonal/Kloosterman is NOT revived by Ch 16
+  → Quarantine        : units/_quarantine/ stays quarantined; WALL-OFF-DIAGONAL uncrossed
+```
+
 ## Normalized phrases (Treasure Packet)
 
 ```text
@@ -256,12 +290,23 @@ Chapter-17 packet phrases:
   "minor arc estimate"              = cancellation certificate, not a distribution theorem by itself.
   "digit sums of primes"            = application of the Type I/II machine, not a new PVG theorem.
 
+
+Chapter-16 packet phrases:
+  "exponential sum"            = oscillatory sum tested by a phase, not automatically an arithmetic
+                                 distribution theorem.
+  "derivative test"            = analytic cancellation certificate from phase variation.
+  "van der Corput differencing" = shifted self-correlation/differencing method for cancellation.
+  "exponent pair"              = reusable bound-profile for classes of exponential sums.
+  "Ch16 support"               = in-volume cancellation machinery supporting Ch17 and Ch18.
+  "legacy-E off-diagonal/Kloosterman" = remains quarantined; not validated by Ch16.
+
 ## Live IDs consolidated (source-grounding-corrected)
 
 ```text
 Trusted source-grounded tools : TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001 (C, Ch 19-20) ·
     TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001 (D, Ch 21) · TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001 (E, Ch 22, closed) ·
-    TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001 (F, Ch 17, closed — v0.6-f-closure PASS)
+    TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001 (F, Ch 17, closed — v0.6-f-closure PASS) ·
+    TOOL-MONTGOMERY-VDC-EXPONENTIAL-SUMS-DIAGNOSTIC-001 (G, Ch 16, intake — pending v0.6-G closure review)
 Quarantined tools (source-mismatch) : TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001 (A) ·
     TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001 (B) · TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001 (legacy E)
 Tools (neighbour) : TOOL-ZERO-DENSITY-DIAGNOSTIC-001 · TOOL-LARGE-VALUE-DIAGNOSTIC-001 · TOOL-SIEVE-INFO-CONSUMPTION-001 · TOOL-TYPE-I-II-DIAGNOSTIC-001
@@ -272,6 +317,6 @@ Frozen front      : FRONTIER-ANT-PVG-007 (spectral) — cited, not reopened
 Open problem      : Elliott–Halberstam (unproven; no certificate)
 ```
 
-**Consistency note:** the trusted source-grounded path is C (Ch 19-20) · D (Ch 21) · E bounded gaps (Ch 22, CLOSED v0.6-e-closure PASS; entered as validated_intake). F (Ch 17 prime sums / Type I-II) = CLOSED (v0.6-f-closure PASS; entered as validated_intake). Units A/B and the legacy off-diagonal E are QUARANTINED (cross-volume / source-mismatch); their tools are not trusted. `planned.jsonl` empty. MC-001, MC-002 & MC-005 UNSOLVED. Bounded gaps is a KNOWN theorem, not our result, not twin primes, not a parity break.
+**Consistency note:** the trusted source-grounded path is C (Ch 19-20) · D (Ch 21) · E bounded gaps (Ch 22, CLOSED v0.6-e-closure PASS; entered as validated_intake). F (Ch 17 prime sums / Type I-II) = CLOSED (v0.6-f-closure PASS; entered as validated_intake). G (Ch 16 Van der Corput support) = validated_intake, NOT closed, pending v0.6-G Closure Review; it does NOT revive the quarantined legacy off-diagonal material. Units A/B and the legacy off-diagonal E are QUARANTINED (cross-volume / source-mismatch); their tools are not trusted. `planned.jsonl` empty. MC-001, MC-002 & MC-005 UNSOLVED. Bounded gaps is a KNOWN theorem, not our result, not twin primes, not a parity break.
 
 **Honest classification:** Diagnostic / Boundary (normalization ledger, source-grounding-corrected). No RH/GRH progress.
