@@ -6,9 +6,9 @@ Book ID: `BOOK-ANT-MONTGOMERY-MNT-II-004`. **v0.6 — source-grounding-corrected
 
 ```text
 Montgomery MNT-II source-grounded extraction covers the sieves-and-gaps pillar plus the Ch-17
-bridge (C: Ch 19-20 large sieve / BV, closed; D: Ch 21 sieves, closed; E: Ch 22 bounded gaps,
-CLOSED v0.6-e-closure PASS; F: Ch 17 prime sums / Type I-II, validated_intake pending
-v0.6-F Closure Review) and is NOT a full-book treasure-mining pass. Units A and B, and the
+bridge (C: Ch 19-20 large sieve / BV; D: Ch 21 sieves; E: Ch 22 bounded gaps, v0.6-e-closure PASS;
+F: Ch 17 prime sums / Type I-II, v0.6-f-closure PASS — all four closure-reviewed) and is NOT a
+full-book treasure-mining pass. Units A and B, and the
 legacy off-diagonal E, are QUARANTINED (cross-volume / source-mismatch) and are NOT part of
 the trusted source-grounded overlay.
 ```
@@ -33,8 +33,8 @@ the trusted source-grounded overlay.
 - parity-breaking certificates                                  : NOT available (parity uncrossed; MC-001 unsolved).
 - off-diagonal / Kloosterman material                           : not source-grounded in this volume (quarantined).
 - full chapter-by-chapter MNT-II pass                           : deferred.
-- MNTII-006-F                                                   : EXECUTED as validated_intake from the explicit
-    Ch-17 Treasure Packet (Coverage Audit 007 selection); NOT closed, pending v0.6-F Closure Review.
+- MNTII-006-F                                                   : EXECUTED from the explicit Ch-17 Treasure
+    Packet (Coverage Audit 007 selection); CLOSED at v0.6-f-closure PASS (entered as validated_intake).
 - full proof reproduction of all Chapter 17 estimates           : deferred.
 - numerical optimization of all Ch-17 exponents                 : deferred.
 - full treatment of every digit-sum theorem (Ch 17.4)           : deferred.
@@ -48,9 +48,9 @@ the trusted source-grounded overlay.
 - Ch 16 Exponential Sums I (Van der Corput)  : UNMINED candidate (or support-to-17/18). The quarantined
     legacy-E mixed Ch-16 Weyl/van-der-Corput material with later-volume Kloosterman framing; its quarantine
     does NOT count as Ch-16 coverage. A future unit needs a fresh packet, not a legacy-E revival.
-- Ch 17 Estimates for Sums over Primes       : MINED as MNTII-006-F (validated_intake from the explicit
-    Treasure Packet; NOT closed, pending v0.6-F Closure Review). Full proofs / exponent optimization /
-    complete digit-sum coverage stay deferred (see trusted-path list above).
+- Ch 17 Estimates for Sums over Primes       : MINED as MNTII-006-F (from the explicit Treasure Packet;
+    CLOSED, v0.6-f-closure PASS). Full proofs / exponent optimization / complete digit-sum coverage
+    stay deferred (see trusted-path list above).
 - Ch 18 Additive Prime Number Theory         : UNMINED candidate — circle method / three-primes (KNOWN);
     binary Goldbach is OPEN and is never claimed.
 - Appendices E (Harmonic Analysis II), F (Uniform Distribution), G (Bilinear Forms), H (Linear Programming)
@@ -61,10 +61,9 @@ See audits/montgomery-book-coverage-audit-007.md.
 ## Level assessment
 
 ```text
-Source-grounded overlay = 3 trusted closure-reviewed units (C, D, E) + 1 pending intake
-(F: Ch 17, validated_intake, pending v0.6-F Closure Review), plus 2 quarantined cross-volume
-units (A, B) and 1 quarantined legacy unit (off-diagonal E). MNTII-006-G is not allowed
-before the F closure review passes AND an explicit Treasure Packet exists.
+Source-grounded overlay = 4 trusted closure-reviewed units (C, D, E, F), plus 2 quarantined
+cross-volume units (A, B) and 1 quarantined legacy unit (off-diagonal E). MNTII-006-G is not
+allowed without an explicit Treasure Packet AND explicit permission.
 Level 2; a partial, source-grounding-corrected overlay — NOT full-book mastery, NOT book overlay closure.
 ```
 

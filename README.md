@@ -13,7 +13,7 @@
 |---|---|
 | `central-mind-charter.md`, `central-mind-goals.md` | الدستور والهدف الأعلى |
 | `installed-skills/{math,governance}` | 14 بطاقةَ واجهةِ مهارة (الحوكمة أعلى سلطة) |
-| `ledgers/books/` | مُعدَّنة (treasure overlay مُغلَق): Overholt · Tenenbaum · Mileti · IK · Harman · **Montgomery MNT-II (v0.6، source-grounding-corrected: الموثوقُ C/D/E مُغلَقةً + F-intake · المحجورُ A/B/legacy-E)**؛ + 8 كتب `available_not_imported` |
+| `ledgers/books/` | مُعدَّنة (treasure overlay مُغلَق): Overholt · Tenenbaum · Mileti · IK · Harman · **Montgomery MNT-II (v0.6، source-grounding-corrected: الموثوقُ C/D/E/F مُغلَقةً · المحجورُ A/B/legacy-E)**؛ + 8 كتب `available_not_imported` |
 | `ledgers/imports/` | sieve · spectral-no-go · computational |
 | `registries/` | مصدرُ الحقيقة (JSONL): skills · books · research-frontiers · open-questions-queue · walls · tools · rules · observables · claims · planned · registry(constraint) |
 | `maps/` | skill-stack-map · skill-dependency-graph · query-routing-guide · current-capabilities · pvg-to-ant |
@@ -44,9 +44,9 @@ No audit, no release.  No RH/GRH progress without proof certificate.
 
 ## Current state & roadmap
 
-**Now (MNTII-006-F intake — بعد v0.6-E Closure Review PASS وCoverage Audit 007):** خمسةُ كتبٍ مُعدَّنة (treasure overlay مُغلَق): Overholt · Tenenbaum · Mileti · IK · Harman. **Montgomery MNT-II (v0.6)** = partial overlay، **source-grounding-corrected**، Level 2: **الموثوقُ المؤصَّلُ بالمصدر** = C (Ch19-20 الغربال الكبير/BV، مُغلَقة) · D (Ch21 غرابيل، مُغلَقة) · E (Ch22 الفجوات المحدودة GPY/Maynard — **مُغلَقةٌ بمراجعة v0.6-E Closure Review PASS**) · **F (Ch17 مجاميعُ الأوّليّات الأُسّيّة / Type I-II — validated_intake من Treasure Packet صريح عبر خريطة التغطية 007، غيرُ مُغلَقة)**. **المحجورُ (source-mismatch/cross-volume، غيرُ موثوق)** = A · B · legacy off-diagonal E (مراجعاتُ إغلاقِ A/B القديمةُ SUPERSEDED). الحرّاسُ سبعة (+ `state_coherence` بمسحٍ شامل وآلتَي حالةٍ لإغلاقَي E/F).
+**Now (v0.6-F CLOSED — أربعُ وحداتٍ موثوقةٍ مُغلَقة):** خمسةُ كتبٍ مُعدَّنة (treasure overlay مُغلَق): Overholt · Tenenbaum · Mileti · IK · Harman. **Montgomery MNT-II (v0.6)** = partial overlay، **source-grounding-corrected**، Level 2: **الموثوقُ المؤصَّلُ بالمصدر (الأربعةُ مُراجَعةُ إغلاق)** = C (Ch19-20 الغربال الكبير/BV) · D (Ch21 غرابيل) · E (Ch22 الفجوات المحدودة GPY/Maynard؛ v0.6-e PASS) · **F (Ch17 مجاميعُ الأوّليّات الأُسّيّة / Vaughan-Vinogradov / Type I-II؛ v0.6-f PASS، من Treasure Packet صريح عبر خريطة التغطية 007)**. **المحجورُ (source-mismatch/cross-volume، غيرُ موثوق)** = A · B · legacy off-diagonal E (مراجعاتُ إغلاقِ A/B القديمةُ SUPERSEDED). الحرّاسُ سبعة (+ `state_coherence` بمسحٍ شامل، وآلاتِ حالةِ إغلاق، ومصدرٍ واحدٍ للحالة الحيّة).
 
-**Next:** v0.6-F Closure Review فقط. لا MNTII-006-G · لا كتابٌ جديد · لا وحدةٌ جديدة بلا Treasure Packet · لا إعادةَ ثقةٍ بـA/B/legacy-E بلا Packet مؤصَّل.
+**Next:** قرارٌ صريحٌ عبر خريطة Coverage Audit 007 — ChatGPT يقترح packet الفصلَ التالي (Ch18 أو دعم Ch16) وسفيانُ يأذن. لا MNTII-006-G بلا packet وإذن · لا كتابٌ جديد · لا وحدةٌ جديدة بلا Treasure Packet · لا إعادةَ ثقةٍ بـA/B/legacy-E بلا Packet مؤصَّل. (سجلُّ المراجعات: v0.6-E Closure Review PASS · v0.6-F Closure Review PASS.)
 
 **Roles:** ChatGPT = محلّلُ الكنوز الرياضيّة؛ العميلُ المحلّيُّ = مهندسُ المستودع والحوكمة (`governance/state-coherence-policy.md`).
 

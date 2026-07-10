@@ -3,10 +3,10 @@
 ```text
 Version:  v0.6 Montgomery MNT-II (source-grounding-corrected; E CLOSED)
 Home:     D:\PVG-ANT-Central-Mind (standalone git repo)
-HEAD ref: latest baseline = MNTII-006-F intake (Ch 17 prime exponential sums / Type I-II),
-          mined from the explicit ChatGPT Treasure Packet selected via Coverage Audit 007 (90502f2),
-          after the v0.6-E Closure PASS (9d059f2) on the Correction-006 line (fa279a3 -> afd5b6c ->
-          959e417). Remaining unmined: Ch 18, Ch 16 (candidates); appendices E-H support-only;
+HEAD ref: latest baseline = v0.6-F Closure (PASS, second attempt, audits/v0.6-f-closure.md),
+          after State-Repair 006-D (b85c1e4, single live-state source) on the Correction-006 line
+          (fa279a3 -> afd5b6c -> 959e417 -> 9d059f2 E-closure -> 90502f2 coverage -> 7477ab2 F-intake).
+          Remaining unmined: Ch 18, Ch 16 (candidates); appendices E-H support-only;
           zero-density/large-values = later volume.
 
 Books (registries/books.jsonl is the source of truth):
@@ -18,12 +18,12 @@ Books (registries/books.jsonl is the source of truth):
     - Harman     (sieve information / Type-I-II; v0.5 closed)
   Partial overlay (source-grounding-corrected):
     - Montgomery MNT-II (v0.6) — Level 2, sieves-and-gaps pillar (Ch 19-22):
-        TRUSTED source-grounded units:
+        TRUSTED source-grounded units (all four closure-reviewed):
           C (Ch 19-20 large sieve / Bombieri-Vinogradov, v0.6-c-closure PASS),
           D (Ch 21 Selberg / combinatorial sieve, v0.6-d-closure PASS),
           E (Ch 22 bounded gaps / GPY / Maynard, v0.6-e-closure PASS, third attempt),
-          F (Ch 17 prime exponential sums / Type I-II decomposition) = validated_intake,
-            NOT closed, pending v0.6-F Closure Review (explicit Treasure Packet, Coverage Audit 007).
+          F (Ch 17 prime exponential sums / Type I-II decomposition, v0.6-f-closure PASS,
+            second attempt; explicit Treasure Packet, Coverage Audit 007).
         QUARANTINED (source-mismatch / cross-volume, NOT trusted):
           A, B (zero-density / large-values / pair-correlation are deferred by the source
             to a LATER volume; prior A/B closure audits were safety/coherence checks only,

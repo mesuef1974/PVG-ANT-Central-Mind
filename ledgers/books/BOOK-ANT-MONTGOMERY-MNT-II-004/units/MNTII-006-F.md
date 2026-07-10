@@ -1,7 +1,7 @@
 # MNTII-006-F — Prime Exponential Sums and Type I/II Decomposition Diagnostic
 
 **Registry ID:** MNTII-006-F
-**Status:** validated_intake (from ChatGPT Treasure Packet, Ch 17; selected via Coverage Audit 007) — **NOT closed, NOT PASS, pending v0.6-F Closure Review**
+**Status:** CLOSED — v0.6-F Closure Review **PASS** (`audits/v0.6-f-closure.md`, AUDIT-CM-V06-F-CLOSURE-001, HEAD b85c1e4, second attempt); entered as validated_intake from the ChatGPT Treasure Packet (Ch 17; selected via Coverage Audit 007)
 **Classification:** **Diagnostic / Boundary** (KNOWN analytic methods read as a bridge diagnostic; not results)
 
 **Source Coverage:** Montgomery–Vaughan, *Multiplicative Number Theory II: Primes and Sieves*, **Chapter 17 (Estimates for Sums over Primes)**: §17.1 principles of the method, §17.2 an exponential sum formed with primes, §17.3 further applications, §17.4 digit sums of primes, §17.5 notes, §17.6 references. **Transformed notes only — no raw text, no copied passages, no general book summary.** Book ID `BOOK-ANT-MONTGOMERY-MNT-II-004`. Local PDF outside git.
@@ -89,7 +89,8 @@ minor-arc estimate: a cancellation CERTIFICATE, not a distribution theorem by it
 ```text
 Created by SOURCE-GROUNDED intake from a ChatGPT Treasure Packet (Ch 17: Estimates for Sums
 over Primes), selected via Coverage Audit 007 (AUDIT-CM-MONTGOMERY-COVERAGE-007) with explicit
-permission. Status = validated_intake: NOT closed, NOT PASS, pending v0.6-F Closure Review.
+permission. Entered as validated_intake; CLOSED after the second v0.6-F Closure Review
+(3 auditors PASS + falsifier unrefuted + 7/7 guards; see audits/v0.6-f-closure.md).
 Packet deviation (reported, not silently resolved): the optional additive-interface frontier
 link was conditioned on existence; the actual FRONTIER-ANT-PVG-003 is a different topic
 (Mobius/Liouville), so the optional link was dropped.
@@ -97,7 +98,7 @@ link was conditioned on existence; the actual FRONTIER-ANT-PVG-003 is a differen
 
 ## Next valid action
 
-**Pending unit.** This unit awaits its v0.6-F Closure Review (see the Status line). This file does not define the current live next action. The only authoritative live next action is: `transition-memory/next-action.md`.
+**Historical unit record.** MNTII-006-F was closure-reviewed (`v0.6-f-closure.md` PASS, second attempt). This file does not define the current live next action. The only authoritative live next action is: `transition-memory/next-action.md`.
 
 ## Audit checklist
 
@@ -106,7 +107,7 @@ link was conditioned on existence; the actual FRONTIER-ANT-PVG-003 is a differen
 - [x] Known methods recorded as Known; no new theorem; no improved bound; not a PVG result
 - [x] Type II = input to sieves, NOT a prime detector; minor arcs = certificate, not theorem
 - [x] No crossing WALL-OFF-DIAGONAL / WALL-PARITY / WALL-SIEVE-CEILING / WALL-DENSITY-HYP · MC-001/002/005 unsolved
-- [x] Status = validated_intake (NOT closed, NOT PASS); pending v0.6-F Closure Review
+- [x] Entered as validated_intake; CLOSED by v0.6-F Closure Review PASS (3 auditors + falsifier unrefuted)
 - [x] TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001 registered; cards 037–043; planned.jsonl empty
 - [x] MNTII-006-G not started · no full book mining · Seven guards PASS after this intake
 
