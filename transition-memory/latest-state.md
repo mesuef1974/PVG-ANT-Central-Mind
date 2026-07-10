@@ -1,7 +1,7 @@
 # Latest State
 
 ```text
-Version:  v0.7 Opera de Cribro scope-only (Opening Pass, 2026-07-10) over v0.6 Montgomery MNT-II CLOSED (book_overlay_closed, mastery deferred)
+Version:  v0.7 Opera de Cribro partial_overlay (OPERA-004-A intake, 2026-07-10) over v0.6 Montgomery MNT-II CLOSED (book_overlay_closed, mastery deferred)
 Home:     D:\PVG-ANT-Central-Mind (standalone git repo)
 HEAD ref: latest baseline = Montgomery BOOK OVERLAY CLOSURE (governance order on the unanimous
           AUDIT-CM-MONTGOMERY-OVERLAY-008 recommendation, at e5c57cb), after the v0.6-H Closure
@@ -39,14 +39,16 @@ Books (registries/books.jsonl is the source of truth):
           legacy off-diagonal E (Kloosterman) in units/_quarantine/.
         Book overlay CLOSED (audit 008); appendices E-H = documented support-only deferrals;
         mastery deferred; the missed-treasures deferrals remain open and auditable.
-  Scope opened (scope-only, no units yet):
+  Partial overlay (one intake unit, not closed):
     - Opera de Cribro (v0.7) — Friedlander-Iwaniec, AMS Colloquium 57 (2010), identity verified.
         Sieve / parity / distribution certificate-theory layer, deepening the Harman-Montgomery
-        pillar (FRONTIER-ANT-PVG-004). Declared objective = the certificate theory the mind needs,
-        NOT sieve mastery, NOT an MC-001 solution program. LB-01..06 frozen; four unit classes;
-        provisional TOC routing; scope-amendment + debt + C_sieve governance active
+        pillar (FRONTIER-ANT-PVG-004). OPERA-004-A (Sifting Sequences as Main-Term/Remainder
+        Certificates) from OPERA-TREASURE-PACKET-001 (Ch 1 §§1.1-1.4) = validated_intake, NOT closed;
+        primary_class core_certificate_theory, secondary reference_integration, packet_mismatch false.
+        No new TOOL-ID minted; three candidate walls described, not registered. LB-01..06 frozen;
+        four unit classes; scope-amendment + debt + C_sieve governance active
         (governance/scope-amendment-and-debt-policy.md). Unit prefix OPERA-004.
-        Awaiting the first authorized Treasure Packet; no mining, no units yet.
+        Next: v0.7-A Closure Review (pending an explicit order).
   Available, not imported: Motohashi, Hodel, Mendelson, Buss, Kossak, Stewart, Fesenko.
 
 Governing protocol:

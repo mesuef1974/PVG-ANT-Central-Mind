@@ -606,10 +606,15 @@ if MONT_OVERLAY_CLOSED:
         for i, ln in enumerate(text.splitlines()):
             low = ln.lower()
             mont_ctx = ("montgomery" in low or "mnt-ii" in low or "mntii" in low)
-            # (1) no live partial-overlay claim after closure
-            if mont_ctx and ("partial_overlay" in low or "partial overlay" in low):
+            # (1) no live partial-overlay claim about MONTGOMERY after its closure.
+            #     Opera (v0.7) legitimately re-introduced partial_overlay as a live state for a
+            #     different book; a line naming Opera attributes the partial_overlay there and is
+            #     exempt — the Montgomery ban is what this check enforces.
+            opera_ctx = ("opera" in low or "book-sieve-opera" in low or "opera-004" in low)
+            if (mont_ctx and not opera_ctx
+                    and ("partial_overlay" in low or "partial overlay" in low)):
                 need(line_marked_historical(ln),
-                     "%s:%d: live partial-overlay claim after book_overlay_closed" % (rel, i + 1))
+                     "%s:%d: live partial-overlay claim about Montgomery after book_overlay_closed" % (rel, i + 1))
             # (2) no live 'NOT book_overlay_closed' after closure
             if mont_ctx and ("not book_overlay" in low or "not book overlay" in low):
                 need(line_marked_historical(ln),
@@ -645,6 +650,36 @@ if opera_line:
         # a real unit exists -> scope-only is over; status must have advanced past it
         need(opera_status not in ("available_not_imported", "scope_open"),
              "Opera unit file(s) exist but books.jsonl still says scope-only (mining left no status advance)")
+        # OPERA-004-A state machine: packet-grounded intake -> closure (mirrors the Montgomery machines)
+        a_txt = read(os.path.join(OPERA, "OPERA-004-A.md"))
+        a_closure = read(os.path.join("audits", "v0.7-a-closure.md"))
+        A_CLOSED = a_closure is not None and "PASS" in a_closure
+        if a_closure is not None:
+            need("PASS" in a_closure, "audits/v0.7-a-closure.md exists but does not record PASS")
+        if not A_CLOSED:
+            # an un-closed intake keeps the book at partial_overlay (not scope_open, not closed)
+            need(opera_status == "partial_overlay",
+                 "Opera has an un-closed intake unit but status is '%s' (should be partial_overlay)" % opera_status)
+        if a_txt is not None:
+            need("Treasure Packet" in a_txt and "OPERA-TREASURE-PACKET-001" in a_txt,
+                 "OPERA-004-A is not grounded in OPERA-TREASURE-PACKET-001")
+            if A_CLOSED:
+                need(re.search(r"\*\*Status:\*\*\s*CLOSED", a_txt),
+                     "v0.7-a-closure PASS exists but OPERA-004-A is not marked Status: CLOSED")
+            else:
+                need(not re.search(r"\*\*Status:\*\*\s*CLOSED", a_txt),
+                     "OPERA-004-A is marked Status: CLOSED but no v0.7-a-closure PASS exists")
+                need(re.search(r"\*\*Status:\*\*[^\n]*validated_intake", a_txt),
+                     "OPERA-004-A (intake) Status line is not validated_intake")
+                need("not closed" in a_txt.lower(), "OPERA-004-A (intake) is not marked NOT closed")
+            # unit is a historical record: its Next valid action must point to the single live source
+            m = re.search(r"## Next valid action\s*\n+((?:.*\n){1,6})", a_txt)
+            if m:
+                need("transition-memory/next-action.md" in m.group(1),
+                     "OPERA-004-A 'Next valid action' does not point to transition-memory/next-action.md")
+        # one unit per authorized packet: no OPERA-004-B before an explicit packet + permission
+        need(not os.path.isfile(os.path.join(ROOT, OPERA, "OPERA-004-B.md")),
+             "OPERA-004-B exists; no further Opera unit is allowed without a packet and permission")
     else:
         # scope-only: status must be exactly scope_open (never mined / partial / closed)
         need(opera_status == "scope_open",
