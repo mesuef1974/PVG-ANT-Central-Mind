@@ -56,6 +56,12 @@ No RH/GRH progress without a complete proof certificate.
 ## Current strategic state
 
 ```text
+Current main HEAD:
+  56e00f4 — Add Lean P3 valuation mass geometry (LEAN-P3-PASS-008).
+
+Latest closed research baseline:
+  a0f93f4 — Close Dataset 003 independent replication.
+
 Strategic goal:
   GOAL-PVG-ANT-STRATEGIC-001 — original ANT contribution through materially useful PVG.
 
@@ -115,6 +121,8 @@ Local availability is not integration; integration is not task-specific mastery.
 The repository retains the completed/validated layers from Overholt, Tenenbaum, Mileti, Iwaniec–Kowalski, Harman, Montgomery MNT-II v0.6, and Opera de Cribro v0.7. Their purpose is to supply prerequisites and tools on demand, not to define project success.
 
 Historical source-grounding safeguards remain active, including Montgomery v0.6-G Closure Review and the quarantine of mismatched A/B/legacy-E material.
+
+The Lean P3 layer through PASS 008 supplies reusable formal infrastructure. It formalizes known valuation geometry and is not itself original ANT progress. New Lean work requires an active research lemma.
 
 ## Reproducible research state
 
