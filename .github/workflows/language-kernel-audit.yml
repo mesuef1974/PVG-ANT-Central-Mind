@@ -1,0 +1,40 @@
+name: PVG ANT Language Kernel Audit
+
+on:
+  pull_request:
+    paths:
+      - "maps/pvg-ant-language-kernel-v1.md"
+      - "maps/pvg-ant-language-kernel-v1-release-index.md"
+      - "maps/bridges/**"
+      - "maps/bridge-example-expected.json"
+      - "registries/pvg-ant-bridges.jsonl"
+      - "tools/pvg_ant_kernel_examples.py"
+      - "tools/language_kernel_audit.py"
+      - ".github/workflows/language-kernel-audit.yml"
+  workflow_dispatch:
+
+jobs:
+  audit-language-kernel:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate and verify finite bridge examples
+        run: python tools/pvg_ant_kernel_examples.py
+
+      - name: Audit bridge registry, cards, examples, and ceilings
+        run: python tools/language_kernel_audit.py
+
+      - name: Upload generated bridge certificate
+        uses: actions/upload-artifact@v4
+        with:
+          name: pvg-ant-language-kernel-${{ github.sha }}
+          path: maps/bridge-example-results.json
+          if-no-files-found: error
+          retention-days: 30
