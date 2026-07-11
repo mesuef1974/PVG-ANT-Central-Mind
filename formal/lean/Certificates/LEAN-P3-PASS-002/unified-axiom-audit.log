@@ -1,0 +1,2 @@
+'PVGLEAN.pvg_valuation_gcd_eq_min' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PVGLEAN.pvg_valuation_lcm_eq_max' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -44,7 +44,6 @@ theorem pvg_valuation_gcd_eq_min
     congrArg
       (fun f : ℕ →₀ ℕ => f p)
       (Nat.factorization_gcd ha hb)
-
   simpa using h
 
 /--
@@ -65,7 +64,6 @@ theorem pvg_valuation_lcm_eq_max
     congrArg
       (fun f : ℕ →₀ ℕ => f p)
       (Nat.factorization_lcm ha hb)
-
   simpa using h
 
 end PVGLEAN
