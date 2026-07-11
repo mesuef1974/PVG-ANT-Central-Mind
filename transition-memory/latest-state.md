@@ -7,7 +7,10 @@ Operating version:
 Repository:
   D:\PVG-ANT-Central-Mind
 
-Main scientific baseline:
+Current main HEAD:
+  56e00f4 — Add Lean P3 valuation mass geometry (LEAN-P3-PASS-008).
+
+Latest closed research baseline:
   a0f93f4 — Close Dataset 003 independent replication.
 
 Strategic goal:
@@ -51,6 +54,11 @@ Knowledge substrate retained for on-demand activation:
   Overholt, Tenenbaum, Mileti, Iwaniec–Kowalski, Harman, Montgomery MNT-II v0.6,
   Opera de Cribro v0.7, Lean P3, computational/statistical and governance layers.
   Source availability is not operational readiness.
+
+Formal layer:
+  Lean P3 has advanced through valuation support, support cardinality, multiplication, powers,
+  division conditions, and valuation mass geometry. These are formalized known results and reusable
+  infrastructure, not original ANT progress. No new Lean pass starts unless an active research lemma needs it.
 
 Reproducible local-prime-density state:
   Dataset 001: negative diagnostic.
