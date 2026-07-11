@@ -1,0 +1,24 @@
+name: Dataset 003 Protocol Validation
+
+on:
+  pull_request:
+    paths:
+      - "research/local-prime-density/VRP002/Dataset003/**"
+      - ".github/workflows/dataset003-protocol-validation.yml"
+  workflow_dispatch:
+
+jobs:
+  validate-protocol:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate frozen protocol
+        run: python research/local-prime-density/VRP002/Dataset003/validate_protocol.py

@@ -1,0 +1,93 @@
+{
+  "protocol_id": "PVG-LPD-DATASET-003-PROTOCOL-001",
+  "research_front": "PVG-LOCAL-PRIME-DENSITY-001",
+  "vertical_pass": "VRP002",
+  "status": "FROZEN_BEFORE_DATA",
+  "parent_merge_commit": "10adf018a0c96f8317897d968870216a07ba35ec",
+  "parent_result": "CLOSE VRP001 — PASS",
+  "data_generation_allowed_before_protocol_merge": false,
+  "numerical_range": {
+    "start_inclusive": 10000000,
+    "end_exclusive": 100000000,
+    "disjoint_from_previous": true
+  },
+  "window_design": {
+    "theta_families": [0.5, 0.6666666666666666, 0.75],
+    "windows_per_family": 160,
+    "expected_total_windows": 480,
+    "minimum_complete_list_size": 175,
+    "limiting_family": 0.75,
+    "non_overlapping_within_family": true,
+    "selection": "deterministic_evenly_spaced_indices_from_complete_nonoverlapping_list"
+  },
+  "primary_response": "(prime_count - li_expected) / sqrt(li_expected)",
+  "training_source": "Dataset002 train + validation only",
+  "models": {
+    "classical": {
+      "algorithm": "StandardScaler + Ridge",
+      "alpha": 300.0,
+      "features": ["log_x", "log_h", "theta_empirical"]
+    },
+    "primary_candidate": {
+      "algorithm": "StandardScaler + Ridge",
+      "alpha": 3000.0,
+      "feature_groups": [
+        "classical",
+        "past_lambda_h_2h_4h",
+        "past_characters_mod_3_4_5_7_8_11",
+        "past_reduced_residue_energy_mod_3_4_5_7_8_11"
+      ],
+      "current_window_vsds_included": false
+    },
+    "secondary_descriptive": {
+      "algorithm": "StandardScaler + Ridge",
+      "alpha": 1000.0,
+      "feature_groups": ["classical", "past_lambda_h_2h_4h"],
+      "can_trigger_promotion": false
+    }
+  },
+  "bootstrap": {
+    "type": "paired_stratified_block_bootstrap_by_theta_family",
+    "resample_count_per_family": 160,
+    "replicates": 10000,
+    "seed": 20260712,
+    "confidence_level": 0.95
+  },
+  "primary_statistic": "rmse_classical - rmse_primary_candidate",
+  "promotion_rule": {
+    "overall_improvement_positive": true,
+    "bootstrap_lower_bound_strictly_positive": true,
+    "improvement_positive_in_each_theta_family": true,
+    "no_post_freeze_design_change": true,
+    "python_r_agreement_required": true,
+    "success_label": "REPLICATED CANDIDATE SIGNAL"
+  },
+  "failure_labels": {
+    "overall_pass_family_fail": "HETEROGENEOUS EXPLORATORY REPLICATION — NOT PROMOTED",
+    "confidence_interval_contains_zero": "UNRESOLVED IN INDEPENDENT REPLICATION",
+    "confidence_interval_upper_at_most_zero": "NEGATIVE INDEPENDENT REPLICATION"
+  },
+  "secondary_residue_endpoint": {
+    "status": "exploratory_non_promotional",
+    "moduli": [3, 4, 5, 7, 8, 11],
+    "reduced_residues_only": true,
+    "response": "[psi_interval_q_a - h/phi(q)] / sqrt(h*log(x)/phi(q))",
+    "individual_claims_require_multiplicity_correction": true
+  },
+  "forbidden_after_freeze": [
+    "new_moduli",
+    "new_lags",
+    "new_features",
+    "new_interactions",
+    "new_model_classes",
+    "alpha_retuning",
+    "window_reselection",
+    "test_set_scaling_or_fitting",
+    "success_rule_substitution"
+  ],
+  "scientific_ceiling": [
+    "No theorem from the protocol",
+    "No RH/GRH progress",
+    "No claim that PVG predicts local prime counts before independent success"
+  ]
+}
