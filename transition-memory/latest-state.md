@@ -7,102 +7,82 @@ Operating version:
 Repository:
   D:\PVG-ANT-Central-Mind
 
-Canonical main baseline before this closure PR:
-  c9f940c — Integrate legacy research assets into the Central Mind.
+Canonical main baseline before this PR:
+  c7a2b58 — Close scale heterogeneity diagnostic after repair.
 
 Latest formal baseline:
   56e00f4 — Add Lean P3 valuation mass geometry (LEAN-P3-PASS-008).
-
-Latest closed research sequence:
-  a0f93f4 — Close Dataset 003 independent replication.
-  Scale-Heterogeneity closure certificate is committed in the current closure PR.
 
 Strategic goal:
   GOAL-PVG-ANT-STRATEGIC-001 = active_fixed.
   Produce an original, correct, modest ANT contribution in which PVG contributes materially.
 
-Research operating mode:
-  Task first.
-  Prerequisite/readiness audit before execution.
-  Minimum-sufficient targeted knowledge acquisition.
-  PVG ↔ ANT translation through a reusable language kernel.
-  One active original-research front.
-  Proof/test/certificate followed by knowledge return.
-  Stage ceiling escalates after each closure.
-
-Closed operational goal:
+Closed operational sequence:
   GOAL-OP-SCALE-HETEROGENEITY-CLOSE-001 = closed.
-  Decision: PASS AS DIAGNOSTIC, NOT AS MECHANISM.
-  Reproduction run: 29168930360 = SUCCESS.
-  Artifact: 8252969380; digest sha256:5276945f2f8a2d872b6c0493572580071d4f76a66c4aca9b24d84a416e6c6eb1.
+  GOAL-OP-LANGUAGE-KERNEL-V1-001 = closed in the current PR.
+
+Language Kernel v1 closure:
+  eight canonical families;
+  one L1 expository family;
+  seven L2 structural/analytic families;
+  zero L3 transfer principles;
+  eight deterministic examples matching a committed certificate;
+  registry/cards/release-index/CI audit = PASS.
 
 Active operational goal:
-  GOAL-OP-LANGUAGE-KERNEL-V1-001 = active.
+  GOAL-OP-ORIGINAL-LEMMA-SELECTION-001 = active.
   Readiness: READY.
-  Deliverable: eight audited PVG–ANT bridge families with exact maps, loss audits,
-  analytic transforms, simplification-gain labels, examples, and certificates.
+  Required output: 10 precise candidates → kill audit → 3 finalists → 1 frozen target.
 
 Blocked sequence:
-  GOAL-OP-ORIGINAL-LEMMA-SELECTION-001
-  → GOAL-OP-ONE-THEOREM-001
+  GOAL-OP-ONE-THEOREM-001
   → GOAL-OP-FORMAL-PUBLICATION-001.
 
 Current maturity:
   L0 Vocabulary              strong
-  L1 Exact translation       partial-to-strong in multiplicative core
-  L2 Structural gain         partial
-  L3 Transfer principles     early
+  L1 Exact translation       certified declared core
+  L2 Structural/analytic     certified for seven families
+  L3 Transfer principles     none certified
   L4 Research mechanism      unconfirmed
   L5 Original lemma          none certified
   L6 Original theorem        none certified
 
-Knowledge substrate retained for on-demand activation:
-  Overholt, Tenenbaum, Mileti, Iwaniec–Kowalski, Harman, Montgomery MNT-II v0.6,
-  Opera de Cribro v0.7, Lean P3, computational/statistical and governance layers.
-  Source availability is not operational readiness.
+Strongest lemma-selection domains:
+  sieve aggregation information loss;
+  residue-fiber geometric conditioning;
+  nonlinear divisor-box observables;
+  coordinate-factorizable observables and Euler interfaces.
 
-Legacy Research Assets Reconciliation 001:
-  integrated support pass; no active legacy front.
-  Eleven external assets are registered and routed on demand.
-  Six legacy bridges were returned to the canonical kernel.
-  Negative/known-confirmation paths are stored in registries/negative-results.jsonl.
+Knowledge substrate:
+  Overholt, Tenenbaum, Mileti, Iwaniec–Kowalski, Harman, Montgomery MNT-II,
+  Opera de Cribro, Lean P3, reproducible computation, legacy assets, and negative-result memory.
+  All remain task-triggered; availability is not operational mastery.
 
-Local-prime-density closure state:
-  Dataset 001: negative diagnostic.
-  Dataset 002: unresolved exploratory signal.
-  Dataset 003: UNRESOLVED IN INDEPENDENT REPLICATION.
-  Scale-Heterogeneity: exact/empirical/conditional layers separated and reproducibly closed.
-  Adjacent anti-correlation remains an empirical observation; the -hX log 2 bridge is conditional.
-  PVG necessity is not established. Dataset 004 is not authorized.
+Local-prime-density state:
+  Dataset 001 negative;
+  Dataset 002 unresolved exploratory;
+  Dataset 003 unresolved independent replication;
+  Scale-Heterogeneity closed as diagnostic, not mechanism;
+  Dataset 004 unauthorized.
 
-Language state:
-  Canonical kernel: maps/pvg-ant-language-kernel-v1.md.
-  Kernel readiness: governance/readiness/GOAL-OP-LANGUAGE-KERNEL-V1-001.md.
-  Legacy routing: maps/legacy-assets-routing.md.
-  External asset truth: registries/external-research-assets.jsonl.
-  Negative-result memory: registries/negative-results.jsonl.
-  Machine goals: registries/program-goals.jsonl.
+Language references:
+  maps/pvg-ant-language-kernel-v1.md
+  maps/pvg-ant-language-kernel-v1-release-index.md
+  registries/pvg-ant-bridges.jsonl
+  governance/closures/PVG-ANT-LANGUAGE-KERNEL-V1-CLOSURE.md
+  governance/readiness/GOAL-OP-ORIGINAL-LEMMA-SELECTION-001.md
 
 Formal layer:
-  Lean P3 remains reusable infrastructure for known valuation geometry.
-  No new Lean pass is active; elementary Scale-Heterogeneity identities are not formalized merely because they are easy.
-
-Legacy/source safeguards:
-  Montgomery trusted C/D/E/F/G/H; quarantined A/B/legacy-E.
-  Opera de Cribro OPERA-004-A/B remain CLOSED; no automatic OPERA-004-C.
-  Historical phase rules are provenance only; Research Compass v1 governs current work.
-  formal/lean/ is the only canonical formal kernel.
-
-Guards:
-  honesty · registry_sync · no_pdf · forbidden_promotion · duplicate_concept · citation ·
-  state_coherence · research_compass · legacy_assets · Dataset003/Scale reproduction.
+  Lean P3 remains reusable infrastructure.
+  No Lean pass is active during lemma selection.
 
 Ceiling:
+  no L3 bridge certified;
   no original lemma certified;
   no original theorem certified;
-  no confirmed PVG mechanism for local prime density;
+  no confirmed PVG local-prime mechanism;
   zero RH progress;
   zero GRH progress.
 ```
 
-**Honest classification:** Diagnostic repository-state snapshot.
+**Classification:** Diagnostic repository-state snapshot.
