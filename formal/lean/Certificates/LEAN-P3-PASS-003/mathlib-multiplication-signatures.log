@@ -1,0 +1,37 @@
+Nat.exponent_eq_exponent_mul_factorization_of_prime_pow_eq_base_pow {p a m n : ℕ} (hp : Nat.Prime p)
+  (h : p ^ m = a ^ n) : m = n * a.factorization p
+@Nat.exponent_eq_exponent_mul_factorization_of_prime_pow_eq_base_pow : ∀ {p a m n : ℕ},
+  Nat.Prime p → p ^ m = a ^ n → m = n * a.factorization p
+Nat.factorization_eq_primeFactorsList_multiset (n : ℕ) : n.factorization = Multiset.toFinsupp ↑n.primeFactorsList
+Nat.factorization_eq_primeFactorsList_multiset : ∀ (n : ℕ), n.factorization = Multiset.toFinsupp ↑n.primeFactorsList
+Nat.factorization_le_factorization_mul_left {a b : ℕ} (hb : b ≠ 0) : a.factorization ≤ (a * b).factorization
+@Nat.factorization_le_factorization_mul_left : ∀ {a b : ℕ}, b ≠ 0 → a.factorization ≤ (a * b).factorization
+Nat.factorization_le_factorization_mul_right {a b : ℕ} (ha : a ≠ 0) : b.factorization ≤ (a * b).factorization
+@Nat.factorization_le_factorization_mul_right : ∀ {a b : ℕ}, a ≠ 0 → b.factorization ≤ (a * b).factorization
+Nat.factorization_mul {a b : ℕ} (ha : a ≠ 0) (hb : b ≠ 0) : (a * b).factorization = a.factorization + b.factorization
+@Nat.factorization_mul : ∀ {a b : ℕ}, a ≠ 0 → b ≠ 0 → (a * b).factorization = a.factorization + b.factorization
+Nat.factorization_mul_apply_of_coprime {p a b : ℕ} (hab : a.Coprime b) :
+  (a * b).factorization p = a.factorization p + b.factorization p
+@Nat.factorization_mul_apply_of_coprime : ∀ {p a b : ℕ},
+  a.Coprime b → (a * b).factorization p = a.factorization p + b.factorization p
+Nat.factorization_mul_of_coprime {a b : ℕ} (hab : a.Coprime b) :
+  (a * b).factorization = a.factorization + b.factorization
+@Nat.factorization_mul_of_coprime : ∀ {a b : ℕ}, a.Coprime b → (a * b).factorization = a.factorization + b.factorization
+Nat.factorizationLCMLeft_mul_factorizationLCMRight {a b : ℕ} (ha : a ≠ 0) (hb : b ≠ 0) :
+  a.factorizationLCMLeft b * a.factorizationLCMRight b = a.lcm b
+@Nat.factorizationLCMLeft_mul_factorizationLCMRight : ∀ {a b : ℕ},
+  a ≠ 0 → b ≠ 0 → a.factorizationLCMLeft b * a.factorizationLCMRight b = a.lcm b
+Nat.multiplicative_factorization.{u_1} {β : Type u_1} [CommMonoid β] (f : ℕ → β)
+  (h_mult : ∀ (x y : ℕ), x.Coprime y → f (x * y) = f x * f y) (hf : f 1 = 1) {n : ℕ} :
+  n ≠ 0 → f n = n.factorization.prod fun p k => f (p ^ k)
+@Nat.multiplicative_factorization : ∀ {β : Type u_1} [inst : CommMonoid β] (f : ℕ → β),
+  (∀ (x y : ℕ), x.Coprime y → f (x * y) = f x * f y) →
+    f 1 = 1 → ∀ {n : ℕ}, n ≠ 0 → f n = n.factorization.prod fun p k => f (p ^ k)
+Nat.multiplicative_factorization'.{u_1} {n : ℕ} {β : Type u_1} [CommMonoid β] (f : ℕ → β)
+  (h_mult : ∀ (x y : ℕ), x.Coprime y → f (x * y) = f x * f y) (hf0 : f 0 = 1) (hf1 : f 1 = 1) :
+  f n = n.factorization.prod fun p k => f (p ^ k)
+@Nat.multiplicative_factorization' : ∀ {n : ℕ} {β : Type u_1} [inst : CommMonoid β] (f : ℕ → β),
+  (∀ (x y : ℕ), x.Coprime y → f (x * y) = f x * f y) →
+    f 0 = 1 → f 1 = 1 → f n = n.factorization.prod fun p k => f (p ^ k)
+Nat.multiplicity_eq_factorization {n p : ℕ} (pp : Nat.Prime p) (hn : n ≠ 0) : multiplicity p n = n.factorization p
+@Nat.multiplicity_eq_factorization : ∀ {n p : ℕ}, Nat.Prime p → n ≠ 0 → multiplicity p n = n.factorization p

@@ -1,0 +1,2 @@
+'PVGLEAN.pvg_factorization_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PVGLEAN.pvg_valuation_mul_eq_add' depends on axioms: [propext, Classical.choice, Quot.sound]

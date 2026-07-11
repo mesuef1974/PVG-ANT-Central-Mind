@@ -1,0 +1,217 @@
+LEAN-P3-PASS-003 local Mathlib source exploration
+Timestamp: 2026-07-11T18:30:01+03:00
+Central Mind HEAD: 6ac6a34d1316943c9c4c8fb02575ca43fecd1acb
+Mathlib source: D:\PVG-ANT-Central-Mind\formal\lean\.lake\packages\mathlib\Mathlib
+
+Search results:
+
+
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:32:  dvd_of_mem_primeFactorsList <| mem_primeFactors_iff_mem_primeFactorsList.1 <| mem_support_iff.2 hn
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:33:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:34:theorem factorization_eq_zero_iff_remainder {p r : ℕ} (i : ℕ) (pp : p.Prime) (hr0 : r ≠ 0) :
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:35:    ¬p ∣ r ↔ (p * i + r).factorization p = 0 := by
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:36:  refine ⟨factorization_eq_zero_of_remainder i, fun h => ?_⟩
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:37:  rw [factorization_eq_zero_iff] at h
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:38:  contrapose! h
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:39:  refine ⟨pp, ?_, ?_⟩
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:40:  · rwa [← Nat.dvd_add_iff_right (dvd_mul_right p i)]
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:41:  · contrapose hr0
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:49:/-! ## Lemmas about factorizations of products and powers -/
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:50:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:51:/-- Modified version of `factorization_prod` that accounts for inputs. -/
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:52:theorem factorization_prod_apply {α : Type*} {p : ℕ}
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:53:    {S : Finset α} {g : α → ℕ} (hS : ∀ x ∈ S, g x ≠ 0) :
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:54:    (S.prod g).factorization p = S.sum fun x => (g x).factorization p := by
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:55:  rw [factorization_prod hS, finsetSum_apply]
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:56:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:57:/-- A product over `n.factorization` can be written as a product over `n.primeFactors`; -/
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:58:lemma prod_factorization_eq_prod_primeFactors {β : Type*} [CommMonoid β] (f : ℕ → ℕ → β) :
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:59:    n.factorization.prod f = ∏ p ∈ n.primeFactors, f p (n.factorization p) := rfl
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:60:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:61:/-- A product over `n.primeFactors` can be written as a product over `n.factorization`; -/
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:62:lemma prod_primeFactors_prod_factorization {β : Type*} [CommMonoid β] (f : ℕ → β) :
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:63:    ∏ p ∈ n.primeFactors, f p = n.factorization.prod (fun p _ ↦ f p) := rfl
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:64:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:65:/-! ## Lemmas about factorizations of primes and prime powers -/
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:66:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:67:/-- The multiplicity of prime `p` in `p` is `1` -/
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:68:theorem Prime.factorization_self {p : ℕ} (hp : Prime p) : p.factorization p = 1 := by simp [hp]
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:149:  simp_rw [factorization_eq_zero_of_not_prime _ hp]
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:150:  rfl
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:151:
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:152:theorem factorization_le_factorization_mul_left {a b : ℕ} (hb : b ≠ 0) :
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:153:    a.factorization ≤ (a * b).factorization := by
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:154:  rcases eq_or_ne a 0 with (rfl | ha)
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:155:  · simp
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:156:  rw [factorization_le_iff_dvd ha <| mul_ne_zero ha hb]
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:157:  exact Dvd.intro b rfl
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:158:
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:159:theorem factorization_le_factorization_mul_right {a b : ℕ} (ha : a ≠ 0) :
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:160:    b.factorization ≤ (a * b).factorization := by
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:161:  rw [mul_comm]
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:162:  apply factorization_le_factorization_mul_left ha
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:163:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:164:theorem Prime.pow_dvd_iff_le_factorization {p k n : ℕ} (pp : Prime p) (hn : n ≠ 0) :
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:165:    p ^ k ∣ n ↔ k ≤ n.factorization p := by
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:166:  rw [← factorization_le_iff_dvd (Nat.pow_pos pp.pos).ne' hn, pp.factorization_pow, single_le_iff]
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:439:/-- If `p` is a prime factor of `a` then the power of `p` in `a` is the same that in `a * b`,
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:440:for any `b` coprime to `a`. -/
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:441:theorem factorization_eq_of_coprime_left {p a b : ℕ} (hab : Coprime a b)
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:442:    (hpa : p ∈ a.primeFactorsList) : (a * b).factorization p = a.factorization p := by
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:443:  rw [factorization_mul_apply_of_coprime hab, ← primeFactorsList_count_eq,
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:444:    ← primeFactorsList_count_eq,
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:445:    count_eq_zero_of_not_mem (coprime_primeFactorsList_disjoint hab hpa), add_zero]
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:446:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:447:/-- If `p` is a prime factor of `b` then the power of `p` in `b` is the same that in `a * b`,
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:448:for any `a` coprime to `b`. -/
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:449:theorem factorization_eq_of_coprime_right {p a b : ℕ} (hab : Coprime a b)
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:450:    (hpb : p ∈ b.primeFactorsList) : (a * b).factorization p = b.factorization p := by
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:451:  rw [mul_comm]
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:452:  exact factorization_eq_of_coprime_left (coprime_comm.mp hab) hpb
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:453:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:454:/-- Two positive naturals are equal if their prime padic valuations are equal -/
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:455:theorem eq_iff_prime_padicValNat_eq (a b : ℕ) (ha : a ≠ 0) (hb : b ≠ 0) :
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:456:    a = b ↔ ∀ p : ℕ, p.Prime → padicValNat p a = padicValNat p b := by
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:16:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:17:`n.factorization` is the finitely supported function `ℕ →₀ ℕ`
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:18:mapping each prime factor of `n` to its multiplicity in `n`.  For example, since 2000 = 2^4 * 5^3,
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:19:* `factorization 2000 2` is 4
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:20:* `factorization 2000 5` is 3
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:21:* `factorization 2000 k` is 0 for all other `k : ℕ`.
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:22:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:23:## TODO
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:24:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:25:* As discussed in this Zulip thread:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:26:  https://leanprover.zulipchat.com/#narrow/stream/217875/topic/Multiplicity.20in.20the.20naturals
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:27:  We have lots of disparate ways of talking about the multiplicity of a prime
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:30:  prove results about the relationships between these definitions,
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:31:  and (where appropriate) choose a uniform canonical way of expressing these ideas.
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:32:
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:33:* Moreover, the results here should be generalised to an arbitrary unique factorization monoid
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:34:  with a normalization function, and then deduplicated.  The basics of this have been started in
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:35:  `Mathlib/RingTheory/UniqueFactorizationDomain/`.
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:36:
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:37:* Extend the inductions to any `NormalizationMonoid` with unique factorization.
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:38:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:39:-/
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:40:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:41:@[expose] public section
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:42:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:43:open Nat Finset List Finsupp
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:77:    have := h.count_le p
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:78:    simp at this
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:79:
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:80:theorem factorization_eq_primeFactorsList_multiset (n : ℕ) :
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:81:    n.factorization = Multiset.toFinsupp (n.primeFactorsList : Multiset ℕ) := by
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:82:  ext p
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:83:  simp
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:84:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:85:theorem Prime.factorization_pos_of_dvd {n p : ℕ} (hp : p.Prime) (hn : n ≠ 0) (h : p ∣ n) :
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:86:    0 < n.factorization p := by
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:87:  rwa [← primeFactorsList_count_eq, count_pos_iff, mem_primeFactorsList_iff_dvd hn hp]
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:88:
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:89:theorem multiplicity_eq_factorization {n p : ℕ} (pp : p.Prime) (hn : n ≠ 0) :
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:90:    multiplicity p n = n.factorization p := by
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:91:  simp [factorization, pp, padicValNat_def' pp.ne_one hn]
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:92:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:93:/-! ### Basic facts about factorization -/
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:94:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:95:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:144:  simp [factorization_eq_zero_iff, h]
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:145:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:146:theorem factorization_eq_zero_of_remainder {p r : ℕ} (i : ℕ) (hr : ¬p ∣ r) :
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:147:    (p * i + r).factorization p = 0 := by
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:148:  apply factorization_eq_zero_of_not_dvd
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:149:  rwa [← Nat.dvd_add_iff_right (Dvd.intro i rfl)]
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:150:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:151:/-! ## Lemmas about factorizations of products and powers -/
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:152:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:153:/-- For nonzero `a` and `b`, the power of `p` in `a * b` is the sum of the powers in `a` and `b` -/
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:154:@[simp]
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:155:theorem factorization_mul {a b : ℕ} (ha : a ≠ 0) (hb : b ≠ 0) :
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:156:    (a * b).factorization = a.factorization + b.factorization := by
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:157:  ext p
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:158:  simp only [add_apply, ← primeFactorsList_count_eq,
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:159:    perm_iff_count.mp (perm_primeFactorsList_mul ha hb) p, count_append]
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:160:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:161:theorem factorization_le_iff_dvd {d n : ℕ} (hd : d ≠ 0) (hn : n ≠ 0) :
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:162:    d.factorization ≤ n.factorization ↔ d ∣ n := by
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:170:/-- For any `p : ℕ` and any function `g : α → ℕ` that's non-zero on `S : Finset α`,
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:171:the power of `p` in `S.prod g` equals the sum over `x ∈ S` of the powers of `p` in `g x`.
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:172:Generalises `factorization_mul`, which is the special case where `#S = 2` and `g = id`. -/
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:173:theorem factorization_prod {α : Type*} {S : Finset α} {g : α → ℕ} (hS : ∀ x ∈ S, g x ≠ 0) :
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:174:    (S.prod g).factorization = S.sum fun x => (g x).factorization := by
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:175:  classical
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:176:    refine Finset.induction_on' S ?_ ?_
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:177:    · simp
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:178:    · intro x T hxS hTS hxT IH
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:179:      have hT : T.prod g ≠ 0 := prod_ne_zero_iff.mpr fun x hx => hS x (hTS hx)
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:270:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:271:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:272:/-- For coprime `a` and `b`, the power of `p` in `a * b` is the sum of the powers in `a` and `b` -/
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:273:theorem factorization_mul_apply_of_coprime {p a b : ℕ} (hab : Coprime a b) :
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:274:    (a * b).factorization p = a.factorization p + b.factorization p := by
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:275:  simp only [← primeFactorsList_count_eq,
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:276:    perm_iff_count.mp (perm_primeFactorsList_mul_of_coprime hab), count_append]
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:277:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:278:/-- For coprime `a` and `b`, the power of `p` in `a * b` is the sum of the powers in `a` and `b` -/
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:279:theorem factorization_mul_of_coprime {a b : ℕ} (hab : Coprime a b) :
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:280:    (a * b).factorization = a.factorization + b.factorization := by
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:281:  ext q
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:282:  rw [Finsupp.add_apply, factorization_mul_apply_of_coprime hab]
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:283:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:284:/-! ### Generalisation of the "even part" and "odd part" of a natural number -/
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:285:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:286:/-- We introduce the notations `ordProj[p] n` for the largest power of the prime `p` that
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:321:`kᵢ = mᵢ` if `nᵢ < mᵢ` and `0` otherwise. Note that the product is over the divisors of `lcm a b`,
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:322:so if one of `a` or `b` is `0` then the result is `1`.
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:323:
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:324:Note that `factorizationLCMRight a b` is *not* `factorizationLCMLeft b a`: the difference is
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:325:that in `factorizationLCMLeft a b` there are the primes whose exponent in `a` is bigger or equal
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:326:than the exponent in `b`, while in `factorizationLCMRight a b` there are the primes whose
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:327:exponent in `b` is strictly bigger than in `a`. For example `factorizationLCMLeft 2 2 = 2`, but
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:328:`factorizationLCMRight 2 2 = 1`. -/
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:329:def factorizationLCMRight (a b : ℕ) :=
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:330:  (Nat.lcm a b).factorization.prod fun p n ↦
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Induction.lean:105:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Induction.lean:106:/-- For any multiplicative function `f` with `f 1 = 1` and any `n ≠ 0`,
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Induction.lean:107:we can evaluate `f n` by evaluating `f` at `p ^ k` over the factorization of `n` -/
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Induction.lean:108:theorem multiplicative_factorization {β : Type*} [CommMonoid β] (f : ℕ → β)
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Induction.lean:109:    (h_mult : ∀ x y : ℕ, Coprime x y → f (x * y) = f x * f y) (hf : f 1 = 1) :
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Induction.lean:110:    ∀ {n : ℕ}, n ≠ 0 → f n = n.factorization.prod fun p k => f (p ^ k) := by
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Induction.lean:111:  apply Nat.recOnPosPrimePosCoprime
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Induction.lean:112:  · rintro p k hp - -
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Induction.lean:113:    simp [Prime.factorization_pow hp, Finsupp.prod_single_index _, hf]
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Induction.lean:114:  · simp
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Induction.lean:122:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Induction.lean:123:/-- For any multiplicative function `f` with `f 1 = 1` and `f 0 = 1`,
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Induction.lean:124:we can evaluate `f n` by evaluating `f` at `p ^ k` over the factorization of `n` -/
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Induction.lean:125:theorem multiplicative_factorization' {β : Type*} [CommMonoid β] (f : ℕ → β)
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Induction.lean:126:    (h_mult : ∀ x y : ℕ, Coprime x y → f (x * y) = f x * f y) (hf0 : f 0 = 1) (hf1 : f 1 = 1) :
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Induction.lean:127:    f n = n.factorization.prod fun p k => f (p ^ k) := by
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Induction.lean:128:  obtain rfl | hn := eq_or_ne n 0
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Induction.lean:129:  · simpa
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Induction.lean:130:  · exact multiplicative_factorization _ h_mult hf1 hn
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Induction.lean:131:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\LCM.lean:64:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\LCM.lean:65:variable {a b}
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\LCM.lean:66:
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\LCM.lean:67:lemma factorizationLCMLeft_mul_factorizationLCMRight (ha : a ≠ 0) (hb : b ≠ 0) :
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\LCM.lean:68:    (factorizationLCMLeft a b) * (factorizationLCMRight a b) = lcm a b := by
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\LCM.lean:69:  rw [← prod_factorization_pow_eq_self (lcm_ne_zero ha hb), factorizationLCMLeft,
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\LCM.lean:70:    factorizationLCMRight, ← prod_mul]
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\LCM.lean:71:  congr; ext p n; split_ifs <;> simp
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\LCM.lean:72:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\LCM.lean:73:variable (a b)
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\LCM.lean:74:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:185:variable {p a m n : ℕ} (hp : p.Prime) (hn : n ≠ 0) (h : p ^ m = a ^ n)
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:186:include hp h
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:187:
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:188:theorem exponent_eq_exponent_mul_factorization_of_prime_pow_eq_base_pow :
+> .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:189:    m = n * a.factorization p := by
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:190:  have := congrArg Nat.factorization h
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:191:  rw [Nat.Prime.factorization_pow hp, Nat.factorization_pow] at this
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:192:  simpa using congr($this p)
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:193:
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:194:theorem exponent_dvd_of_prime_pow_eq_pow : n ∣ m :=
+  .lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:195:  Dvd.intro (a.factorization p)
