@@ -57,6 +57,9 @@ No RH/GRH progress without a complete proof certificate.
 
 ```text
 Current main HEAD:
+  1675b67 — Establish PVG-ANT Research Compass v1.0.
+
+Latest formal baseline:
   56e00f4 — Add Lean P3 valuation mass geometry (LEAN-P3-PASS-008).
 
 Latest closed research baseline:
