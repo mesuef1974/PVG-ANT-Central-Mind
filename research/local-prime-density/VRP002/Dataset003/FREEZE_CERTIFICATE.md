@@ -10,7 +10,8 @@
 
 - independent numerical range `[10^7,10^8)`;
 - three deterministic window families `theta = 1/2, 2/3, 3/4`;
-- 240 windows per family;
+- 160 windows per family, 480 total;
+- verified limiting complete-list size: 175 windows for `theta=3/4`;
 - Dataset 002 training source only;
 - classical Ridge alpha `300`;
 - primary candidate Ridge alpha `3000`;
@@ -18,6 +19,7 @@
 - past-only lags `h,2h,4h`;
 - character/residue moduli `3,4,5,7,8,11`;
 - 10,000-replicate paired stratified bootstrap;
+- 160 paired resamples inside each theta family per replicate;
 - bootstrap seed `20260712`;
 - family-stability requirement;
 - Python/R agreement requirement;
