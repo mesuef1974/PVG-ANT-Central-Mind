@@ -1,6 +1,6 @@
 {
   "certificate_id": "CERT-PVG-LPD-VRP001-REPAIR-001",
-  "status": "REPAIR APPLIED / CLOSURE REVIEW PENDING",
+  "status": "REPAIR PASS / AUTOMATED REPRODUCTION PASS / CLOSURE REVIEW PENDING",
   "scope": [
     "Dataset 001 R safety checks",
     "Dataset 002 R safety checks",
@@ -10,7 +10,8 @@
     "Deterministic Dataset 002 builder",
     "Exact Python Ridge and bootstrap analyses",
     "Dataset 002 multiplicity correction",
-    "Dataset 002 classification repair"
+    "Dataset 002 classification repair",
+    "GitHub Actions clean-checkout reproduction"
   ],
   "original_dataset_comparison": {
     "dataset_001": {
@@ -37,6 +38,21 @@
     "dataset_001_certificate_numbers_reproduced": true,
     "dataset_002_certificate_numbers_reproduced": true
   },
+  "github_actions": {
+    "workflow": "VRP001 Reproduction",
+    "run_id": 29159783246,
+    "job_id": 86562760483,
+    "conclusion": "success",
+    "successful_steps": [
+      "Install dependencies",
+      "Build Dataset 001",
+      "Verify Dataset 001",
+      "Analyze Dataset 001",
+      "Build Dataset 002",
+      "Verify Dataset 002",
+      "Analyze Dataset 002"
+    ]
+  },
   "dataset_002_repaired_decision": "UNRESOLVED WITH EXPLORATORY UNADJUSTED SIGNAL",
   "multiplicity_result": {
     "exploratory_model": "Classical + Lambda + characters + residue energy",
@@ -51,10 +67,10 @@
     "Replace Python assert statements with explicit exceptions"
   ],
   "remaining_gates": [
-    "Run the supplementary R scripts in an environment with R installed",
-    "Review the final PR diff before merge"
+    "Final PR closure review",
+    "Optional execution of supplementary R scripts in an R-enabled environment"
   ],
-  "environment_note": "R is not installed in the execution environment; exact certificate numbers are reproduced by the committed Python Ridge/Bootstrap scripts.",
+  "environment_note": "R is not installed in the original execution environment. Exact certificate values are reproduced by the committed Python Ridge/Bootstrap scripts and by GitHub Actions.",
   "scientific_ceiling": [
     "No new theorem",
     "No confirmed Candidate Signal",
