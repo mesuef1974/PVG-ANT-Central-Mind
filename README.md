@@ -1,55 +1,164 @@
 # PVG–ANT Central Mind
 
-> **Canonical repository:** `D:\PVG-ANT-Central-Mind`.
-> **Legacy duplicate:** the "The All" in-repo copy (`1b51886`) is **do-not-edit** unless explicitly reactivated.
+> **Canonical repository:** `D:\PVG-ANT-Central-Mind`  
+> **Purpose:** build a reusable PVG–ANT research language and use it toward an original, correct, modest contribution to analytic number theory.
 
-مستودعُ عقلٍ رياضيّ تراكميّ حيّ. كلُّ كتابٍ أو مهارةٍ يدخل لا كنصٍّ خام، بل كـ **أدوات + قواعد + جدران + شهادات + بطاقاتِ واجهة**. طبقةٌ تشخيصيّة/تعليميّة: zero RH progress · zero GRH progress · no secured path.
+## Research compass v1.0
 
-المبدأ الحاكم: **الـmarkdown للعرض، والـJSONL للحقيقة، والحارس للإنفاذ** (graph لا pile).
+The project is no longer measured by the number of books, units, or files. Knowledge, Lean, Python, R, literature search, and experiments are activated only when an active research task requires them.
 
-## البنية (v0.1b — spec layout)
-
-| مسار | المحتوى |
-|---|---|
-| `central-mind-charter.md`, `central-mind-goals.md` | الدستور والهدف الأعلى |
-| `installed-skills/{math,governance}` | 14 بطاقةَ واجهةِ مهارة (الحوكمة أعلى سلطة) |
-| `ledgers/books/` | مُعدَّنة (treasure overlay مُغلَق): Overholt · Tenenbaum · Mileti · IK · Harman · **Montgomery MNT-II (v0.6، source-grounding-corrected؛ book_overlay_closed وmastery مؤجَّلة: الموثوقُ C/D/E/F/G/H مُغلَقةً · المحجورُ A/B/legacy-E)**؛ + **Opera de Cribro (v0.7 · partial_overlay: OPERA-004-A + OPERA-004-B CLOSED)** + 7 كتب `available_not_imported` |
-| `ledgers/imports/` | sieve · spectral-no-go · computational |
-| `registries/` | مصدرُ الحقيقة (JSONL): skills · books · research-frontiers · open-questions-queue · walls · tools · rules · observables · claims · planned · registry(constraint) |
-| `maps/` | skill-stack-map · skill-dependency-graph · query-routing-guide · current-capabilities · pvg-to-ant |
-| `governance/` | claim-classification-matrix · certificate-funnel · book-import-protocol · what-not-to-import · no-go-memory · classification-system · honesty-policy · central-rules · missing/forbidden · templates |
-| `audits/` | v0.1b-audit-checklist |
-| `transition-memory/` | latest-state · next-action · compressed-prompt |
-| `tools/` | سبعةُ حرّاس (+ `state_coherence`) |
-| `Books_others/` | **مكتبةُ PDF محلّيّة — مستبعَدةٌ من git** |
-
-## الحرّاس
-
-```bash
-python tools/honesty_audit.py             # تصنيف + عبارات محظورة + سلامة السجلّات
-python tools/registry_sync_audit.py       # كل ID في md موجود في السجلّ، لا تكرار
-python tools/no_pdf_audit.py              # لا PDF متعقَّب
-python tools/forbidden_promotion_audit.py # لا ترقية بلا شهادة
-python tools/duplicate_concept_audit.py   # لا مفهوم مكرَّر
-python tools/citation_audit.py            # كل سجلِّ كتابٍ موثَّقُ المصدر
-python tools/state_coherence_audit.py     # حالةُ العقل صادقةٌ ومحدَّثة (repository-truth)
-```
-
-## القانون النهائي
+The governing route is:
 
 ```text
-No registry, no entry.  No classification, no claim.  No certificate, no theorem.
-No audit, no release.  No RH/GRH progress without proof certificate.
+ANT problem
+→ multiplicative core
+→ PVG encoding
+→ geometric decomposition
+→ analytic transform
+→ transfer lemma
+→ proof / test / negative certificate
+→ ANT restatement
+→ originality and PVG-necessity audit
+→ reusable knowledge
 ```
 
-## Current state & roadmap
+Canonical references:
 
-**Now (v0.6-H CLOSED — ستُّ وحداتٍ موثوقةٍ مُغلَقة، فصولُ المحتوى 16–22 كاملة):** خمسةُ كتبٍ مُعدَّنة (treasure overlay مُغلَق): Overholt · Tenenbaum · Mileti · IK · Harman. **Montgomery MNT-II (v0.6)** = **book_overlay_closed** (AUDIT-CM-MONTGOMERY-OVERLAY-008؛ mastery مؤجَّلة)، **source-grounding-corrected**، Level 2: **الموثوقُ المؤصَّلُ بالمصدر (الستّةُ مُراجَعةُ إغلاق)** = G (Ch16 Van der Corput دعمًا؛ v0.6-g PASS) · F (Ch17 مجاميعُ الأوّليّات / Type I-II؛ v0.6-f PASS) · **H (Ch18 الجمعيّات / طريقةُ الدائرة؛ v0.6-h PASS — Goldbach الثنائيُّ مفتوحٌ لا يُدَّعى)** · C (Ch19-20 الغربال الكبير/BV) · D (Ch21 غرابيل) · E (Ch22 الفجوات المحدودة؛ v0.6-e PASS). **المحجورُ (source-mismatch/cross-volume، غيرُ موثوق)** = A · B · legacy off-diagonal E (مراجعاتُ إغلاقِ A/B القديمةُ SUPERSEDED). الحرّاسُ سبعة (+ `state_coherence` بمسحٍ شامل، وآلاتِ حالةِ إغلاق، وحقيقةِ الفصل↔الوحدة، ومصدرٍ واحدٍ للحالة الحيّة).
+- `central-mind-charter.md`
+- `central-mind-goals.md`
+- `governance/pvg-ant-research-compass-v1.md`
+- `maps/pvg-ant-language-kernel-v1.md`
+- `governance/task-triggered-knowledge-activation-policy.md`
+- `governance/stage-review-and-ceiling-escalation-policy.md`
+- `governance/templates/research-readiness-card.md`
+- `registries/program-goals.jsonl`
 
-**Now also (v0.7 — Opera de Cribro، أوّلُ وحدةٍ مُغلَقة):** بأمرٍ مستقلٍّ فُتِح **Opera de Cribro** (Friedlander–Iwaniec، AMS Colloquium 57، 2010؛ هويّةٌ متحقّقة)، ونُفِّذت ثمّ أُغلقت أوّلُ وحدة: **`OPERA-004-A`** (Sifting Sequences as Main-Term/Remainder Certificates) من `OPERA-TREASURE-PACKET-001` (Ch1 §§1.1-1.4) = **CLOSED، v0.7-A Closure Review PASS** (`AUDIT-CM-V07-A-CLOSURE-001`؛ `packet_mismatch=true routing_split`: `core_certificate_theory` أساسًا + `reference_integration` ثانويًّا؛ **ثلاثُ مراجعاتٍ عدائيّةٍ مستقلّة، الثالثةُ SAFE على a319df4** · 7 بطاقات closure_approved · لا TOOL-ID جديد · **صفرُ WALL جديد** — ثلاثةُ boundaries تبقى Boundaries، لا ربطَ مبكرًا بـWALL-PARITY). النطاقُ مُجمَّد والعقيدةُ مزروعة (الهدف · LB-01..06 · فئاتُ الوحدات · تعديلاتُ النطاق/الديون/سجلُّ `C_sieve` في `governance/scope-amendment-and-debt-policy.md`). **الحالة partial_overlay؛ حالةُ Montgomery لم تُمَسّ.** ثمّ نُفِّذت ثمّ أُغلقت **الوحدةُ الثانية `OPERA-004-B`** (One-Sided Sieve Certificates and the Prime-Asymptotic Gap؛ `OPERA-TREASURE-PACKET-002`، **Ch5 §§5.2-5.4 + Ch6 §§6.1/6.5 Brun+Fundamental Lemma**) = **CLOSED، v0.7-B Closure Review PASS** (`AUDIT-CM-V07-B-CLOSURE-001`؛ **حوكمةٌ متوسّطةٌ موزَّعة: مُفنّدٌ مستقلٌّ SAFE + routing-split audit + LB-03 semantic + committed-state + bureaucratic — أربعُ عدساتٍ PASS**)، target **LB-03**، `packet_mismatch=true routing_split` (مُسجَّلٌ في كلِّ الطبقات)، بطاقات 008-014 closure_approved، صفرُ TOOL/WALL؛ **سلّمُ شهاداتٍ ثلاثيّ** `one-sided bound ≠ sifted-set asymptotic ≠ prime-producing asymptotic` (target-purity = Boundary داخل LB-03 لا حكمَ تكافؤ، لا ربطَ بـWALL-PARITY). **B أغلقت بوّابةَ LB-03 البنيويّةَ فقط، لم تملأ `C_sieve` بقيمٍ تطبيقيّة؛** Selberg مؤجَّل · model-subtraction دَينُ اختبارٍ مفتوح. **التالي NONE بانتظار حزمةٍ مستقلّةٍ تالية؛ لا OPERA-004-C.**
+## Supreme law
 
-**Next:** لا وحدةَ ولا كتابَ ولا تدقيقَ جديدًا بلا إذنٍ مستقلّ — **طبقةُ Montgomery مُغلَقة (book_overlay_closed، تدقيق 008) وmastery مؤجَّلة؛ الإغلاقُ تغطيةٌ لا رياضيّات: Goldbach الثنائيُّ مفتوح · MC-001..005 unsolved · الجدرانُ uncrossed · zero RH/GRH**؛ لا MNTII-006-I بلا packet وإذن · الملاحقُ E–H دعمٌ مؤجَّلٌ لا يُرقّى بلا packet · لا إعادةَ ثقةٍ بـA/B/legacy-E بلا Packet مؤصَّل. (سجلُّ المراجعات: v0.6-E Closure Review PASS · v0.6-F Closure Review PASS · v0.6-G Closure Review PASS · v0.6-H Closure Review PASS · Overlay Audit 008.)
+\[
+\boxed{
+\text{Geometry}
+\leftrightarrow
+\text{Analysis}
+\leftrightarrow
+\text{Certificate}
+}
+\]
 
-**Roles:** ChatGPT = محلّلُ الكنوز الرياضيّة؛ العميلُ المحلّيُّ = مهندسُ المستودع والحوكمة (`governance/state-coherence-policy.md`).
+```text
+No registry, no entry.
+No classification, no claim.
+No certificate, no theorem.
+No readiness gate, no research execution.
+No RH/GRH progress without a complete proof certificate.
+```
 
-المسار: `v0.1b` → v0.2 Mileti → v0.3 Tenenbaum-005 → v0.4 IK → v0.5 Harman → treasure retrofit → v0.6 Montgomery → **v0.7 Opera de Cribro (OPERA-004-A + OPERA-004-B CLOSED)**. بلا tag · لا merge إلّا بمراجعة. المواصفةُ الكاملة: `PVG-ANT-Central-Mind-v0.1b-full-spec.md`.
+## Current strategic state
+
+```text
+Strategic goal:
+  GOAL-PVG-ANT-STRATEGIC-001 — original ANT contribution through materially useful PVG.
+
+Active operational goal:
+  GOAL-OP-SCALE-HETEROGENEITY-CLOSE-001.
+
+Queued:
+  GOAL-OP-LANGUAGE-KERNEL-V1-001.
+
+Blocked until prior closure:
+  Original Lemma Selection → One-Theorem Program → Formal/Publication Closure.
+```
+
+Current maturity:
+
+```text
+Vocabulary                         strong
+Exact multiplicative translation   partial-to-strong
+Structural simplification          partial
+Transfer principles                early
+Research mechanism                 unconfirmed
+Original lemma                     none certified
+Original theorem                   none certified
+```
+
+## Repository structure
+
+| Path | Purpose |
+|---|---|
+| `central-mind-charter.md`, `central-mind-goals.md` | strategic constitution and goals |
+| `governance/` | honesty, readiness, stage review, claims, book/source protocols |
+| `registries/` | machine truth: skills, books, rules, goals, claims, tools, fronts, walls |
+| `maps/` | language kernel, routing, capabilities, dependency and translation maps |
+| `installed-skills/` | operational math and governance interfaces |
+| `ledgers/books/`, `ledgers/imports/` | mined source knowledge and integration layers |
+| `research/` | reproducible vertical research passes |
+| `formal/lean/` | formal PVG layer when required by active lemmas |
+| `transition-memory/` | current state and next action |
+| `tools/` | automated guards |
+
+The local PDF library remains excluded from Git.
+
+## Knowledge status discipline
+
+```text
+available
+→ indexed
+→ extracted
+→ integrated
+→ operationally_ready for a named task
+```
+
+Local availability is not integration; integration is not task-specific mastery.
+
+## Installed knowledge substrate
+
+The repository retains the completed/validated layers from Overholt, Tenenbaum, Mileti, Iwaniec–Kowalski, Harman, Montgomery MNT-II v0.6, and Opera de Cribro v0.7. Their purpose is to supply prerequisites and tools on demand, not to define project success.
+
+Historical source-grounding safeguards remain active, including Montgomery v0.6-G Closure Review and the quarantine of mismatched A/B/legacy-E material.
+
+## Reproducible research state
+
+The local-prime-density program completed:
+
+- VRP001 / Dataset 001–002;
+- a pre-data frozen Dataset 003 protocol;
+- independent execution through `10^8`;
+- Python/R agreement and CI;
+- closure as `UNRESOLVED IN INDEPENDENT REPLICATION`.
+
+This is a research-method success and an unresolved scientific result. It is not a confirmed PVG signal and not a theorem.
+
+## Guards
+
+```bash
+python tools/honesty_audit.py
+python tools/registry_sync_audit.py
+python tools/no_pdf_audit.py
+python tools/forbidden_promotion_audit.py
+python tools/duplicate_concept_audit.py
+python tools/citation_audit.py
+python tools/state_coherence_audit.py
+python tools/research_compass_audit.py
+```
+
+## Focus rules
+
+- one active original-research front;
+- task first, prerequisite audit second;
+- minimum sufficient knowledge acquisition;
+- no rebuilding certified bridges;
+- no tool without a named scientific function;
+- every stage has a measurable deliverable and closure rule;
+- the ceiling rises after each maturity level.
+
+## Scientific ceiling
+
+```text
+No original lemma certified yet.
+No original theorem certified yet.
+No claim that PVG predicts local prime counts.
+No RH progress.
+No GRH progress.
+```
+
+**Classification:** Governance / Research Program landing page.
