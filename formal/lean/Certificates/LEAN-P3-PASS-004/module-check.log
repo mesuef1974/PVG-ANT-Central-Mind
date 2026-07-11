@@ -1,0 +1,4 @@
+SUCCESS
+Command: lake env lean .\PVGLEAN\Powers.lean
+Exit code: 0
+Warnings: 0

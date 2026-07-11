@@ -1,0 +1,265 @@
+LEAN-P3-PASS-004 local Mathlib power exploration
+
+Timestamp: 2026-07-11T18:56:04+03:00
+Central Mind HEAD: 99ef1b4b34a09691c9318a69fad01baf36ab8694
+Mathlib source: D:\PVG-ANT-Central-Mind\formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization
+
+
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:67:/-- The multiplicity of prime `p` in `p` is `1` -/
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:68:theorem Prime.factorization_self {p : ℕ} (hp : Prime p) : p.factorization p = 1 := by simp [hp]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:69:
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:70:theorem factorization_pow_self {p n : ℕ} (hp : p.Prime) : (p ^ n).factorization p = n := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:71:  simp [factorization_pow, Prime.factorization_self hp]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:72:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:73:/-- If the factorization of `n` contains just one number `p` then `n` is a power of `p` -/
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:74:theorem eq_pow_of_factorization_eq_single {n p k : ℕ} (hn : n ≠ 0)
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:75:    (h : n.factorization = Finsupp.single p k) : n = p ^ k := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:76:  rw [← Nat.prod_factorization_pow_eq_self hn, h]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:77:  simp
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:78:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:79:/-- The only prime factor of prime `p` is `p` itself. -/
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:80:theorem Prime.eq_of_factorization_pos {p q : ℕ} (hp : Prime p) (h : p.factorization q ≠ 0) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:81:    p = q := by simpa [hp.factorization, single_apply] using h
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:135:  · simpa only [factorization_eq_zero_of_not_prime n pp] using! hn.bot_lt
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:136:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:137:/-- An upper bound on `n.factorization p` -/
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:138:theorem factorization_le_of_le_pow {n p b : ℕ} (hb : n ≤ p ^ b) : n.factorization p ≤ b := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:139:  if hn : n = 0 then simp [hn] else
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:140:  if pp : p.Prime then
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:141:    exact (Nat.pow_le_pow_iff_right pp.one_lt).1 ((ordProj_le p hn).trans hb)
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:142:  else
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:143:    simp [factorization_eq_zero_of_not_prime n pp]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:144:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:145:theorem factorization_prime_le_iff_dvd {d n : ℕ} (hd : d ≠ 0) (hn : n ≠ 0) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:161:  rw [mul_comm]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:162:  apply factorization_le_factorization_mul_left ha
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:163:
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:164:theorem Prime.pow_dvd_iff_le_factorization {p k n : ℕ} (pp : Prime p) (hn : n ≠ 0) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:165:    p ^ k ∣ n ↔ k ≤ n.factorization p := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:166:  rw [← factorization_le_iff_dvd (Nat.pow_pos pp.pos).ne' hn, pp.factorization_pow, single_le_iff]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:167:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:168:theorem Prime.pow_dvd_iff_dvd_ordProj {p k n : ℕ} (pp : Prime p) (hn : n ≠ 0) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:169:    p ^ k ∣ n ↔ p ^ k ∣ ordProj[p] n := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:170:  rw [pow_dvd_pow_iff_le_right pp.one_lt, pp.pow_dvd_iff_le_factorization hn]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:171:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:387:  · simp
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:388:  · rw [primeFactors_mul hm₀ hn₀, primeFactors_gcd hm₀ hn₀, mul_comm, Finset.prod_union_inter]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:389:
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:390:theorem setOf_pow_dvd_eq_Icc_factorization {n p : ℕ} (pp : p.Prime) (hn : n ≠ 0) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:391:    { i : ℕ | i ≠ 0 ∧ p ^ i ∣ n } = Set.Icc 1 (n.factorization p) := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:392:  ext
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:393:  simp [one_le_iff_ne_zero, pp.pow_dvd_iff_le_factorization hn]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:394:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:395:/-- The set of positive powers of prime `p` that divide `n` is exactly the set of
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:396:positive natural numbers up to `n.factorization p`. -/
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:397:theorem Icc_factorization_eq_pow_dvd (n : ℕ) {p : ℕ} (pp : Prime p) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:398:    Icc 1 (n.factorization p) = {i ∈ Ico 1 n | p ^ i ∣ n} := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:399:  rcases eq_or_ne n 0 with (rfl | hn)
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:400:  · simp
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:401:  ext x
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:402:  simp only [mem_Icc, Finset.mem_filter, mem_Ico, and_assoc, and_congr_right_iff,
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:403:    pp.pow_dvd_iff_le_factorization hn, iff_and_self]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:404:  exact fun _ H => lt_of_le_of_lt H (factorization_lt p hn)
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:405:
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:406:theorem factorization_eq_card_pow_dvd (n : ℕ) {p : ℕ} (pp : p.Prime) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:407:    n.factorization p = #{i ∈ Ico 1 n | p ^ i ∣ n} := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:408:  simp [← Icc_factorization_eq_pow_dvd n pp]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:409:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:410:theorem Ico_filter_pow_dvd_eq {n p b : ℕ} (pp : p.Prime) (hn : n ≠ 0) (hb : n ≤ p ^ b) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:411:    {i ∈ Ico 1 n | p ^ i ∣ n} = {i ∈ Icc 1 b | p ^ i ∣ n} := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:412:  ext x
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:413:  simp only [Finset.mem_filter, mem_Ico, mem_Icc, and_congr_left_iff, and_congr_right_iff]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:429:/-- The factorization of `m` in `n` is the number of positive natural numbers `i` such that `m ^ i`
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:430:divides `n`. Note `m` is prime. This set is expressed by filtering `Ico 1 b` where `b` is any bound
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:431:greater than `log m n`. -/
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:432:theorem factorization_eq_card_pow_dvd_of_lt (hm : m.Prime) (hn : 0 < n) (hb : n < m ^ b) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:433:    n.factorization m = #{i ∈ Ico 1 b | m ^ i ∣ n} := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:434:  rwa [factorization_eq_card_pow_dvd n hm, Ico_pow_dvd_eq_Ico_of_lt hm (by lia)]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:435:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:436:/-! ### Factorization and coprimes -/
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:437:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:438:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:439:/-- If `p` is a prime factor of `a` then the power of `p` in `a` is the same that in `a * b`,
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:477:  · intro p hp
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:478:    simp [factorization_def n (prime_of_mem_primeFactors hp)]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:479:
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:480:lemma prod_pow_primeFactors_factorization (hn : n ≠ 0) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:481:    n = ∏ (p : n.primeFactors), (p : ℕ) ^ (n.factorization p) := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:482:  nth_rw 1 [← prod_factorization_pow_eq_self hn]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:483:  rw [prod_factorization_eq_prod_primeFactors _]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:484:  exact prod_subtype n.primeFactors (fun _ ↦ Iff.rfl) fun a ↦ a ^ n.factorization a
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:485:
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:486:lemma pairwise_coprime_pow_primeFactors_factorization :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:487:    Pairwise (Function.onFun Nat.Coprime fun (p : n.primeFactors) ↦ p ^ n.factorization p) := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:488:  intro p1 p2 hp
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:489:  refine Nat.Coprime.pow (n.factorization p1) (n.factorization p2) ?_
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:490:  refine (Nat.coprime_primes ?_ ?_).mpr <| Subtype.coe_ne_coe.mpr hp
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:491:  · exact Nat.prime_of_mem_primeFactors p1.2
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:492:  · exact Nat.prime_of_mem_primeFactors p2.2
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:493:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:94:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:95:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:96:@[simp]
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:97:theorem prod_factorization_pow_eq_self {n : ℕ} (hn : n ≠ 0) : n.factorization.prod (· ^ ·) = n := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:98:  rw [factorization_eq_primeFactorsList_multiset n]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:99:  simp only [← prod_toMultiset, Multiset.prod_coe, Multiset.toFinsupp_toMultiset]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:100:  exact prod_primeFactorsList hn
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:101:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:102:@[deprecated (since := "2026-03-19")]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:103:alias factorization_prod_pow_eq_self := prod_factorization_pow_eq_self
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:104:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:181:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:182:/-- For any `p`, the power of `p` in `n^k` is `k` times the power in `n` -/
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:183:@[simp]
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:184:theorem factorization_pow (n k : ℕ) : factorization (n ^ k) = k • n.factorization := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:185:  induction k with
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:186:  | zero => simp
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:187:  | succ k ih =>
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:188:    rcases eq_or_ne n 0 with (rfl | hn)
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:189:    · simp
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:190:    rw [Nat.pow_succ, mul_comm, factorization_mul hn (pow_ne_zero _ hn), ih,
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:191:      add_smul, one_smul, add_comm]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:201:    if_congr eq_comm] <;> rfl
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:202:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:203:/-- For prime `p` the only prime factor of `p^k` is `p` with multiplicity `k` -/
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:204:theorem Prime.factorization_pow {p k : ℕ} (hp : Prime p) : (p ^ k).factorization = single p k := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:205:  simp [hp]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:206:
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:207:theorem pow_succ_factorization_not_dvd {n p : ℕ} (hn : n ≠ 0) (hp : p.Prime) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:208:    ¬p ^ (n.factorization p + 1) ∣ n := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:209:  intro h
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:210:  rw [← factorization_le_iff_dvd (pow_ne_zero _ hp.ne_zero) hn] at h
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:211:  simpa [hp.factorization] using h p
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:212:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:213:lemma factorization_minFac_ne_zero {n : ℕ} (hn : 1 < n) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:214:    n.factorization n.minFac ≠ 0 := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:223:-- TODO: Rename to `factorization_prod_pow_eq_self`
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:224:/-- Any Finsupp `f : ℕ →₀ ℕ` whose support is in the primes is equal to the factorization of
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:225:the product `∏ (a : ℕ) ∈ f.support, a ^ f a`. -/
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:226:theorem prod_pow_factorization_eq_self (hf : ∀ p ∈ f.support, Prime p) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:227:    (f.prod (· ^ ·)).factorization = f := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:228:  rw [Finsupp.prod, factorization_prod (pow_ne_zero _ <| hf · · |>.ne_zero),
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:229:    sum_congr rfl (hf · · |>.factorization_pow)]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:230:  exact sum_single f
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:231:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:232:theorem eq_factorization_iff (hn : n ≠ 0) (hf : ∀ p ∈ f.support, Prime p) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:233:    f = n.factorization ↔ f.prod (· ^ ·) = n := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:234:  constructor <;> rintro rfl
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:235:  exacts [prod_factorization_pow_eq_self hn, prod_pow_factorization_eq_self hf |>.symm]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:236:
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:237:theorem factorization_prod_pow_eq_self_of_le_factorization (hf : f ≤ n.factorization) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:238:    (f.prod (· ^ ·)).factorization = f :=
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:239:  prod_pow_factorization_eq_self fun _ hp ↦ prime_of_mem_primeFactors <| support_mono hf hp
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:240:
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:241:theorem prod_pow_dvd_of_le_factorization (hf : f ≤ n.factorization) : f.prod (· ^ ·) ∣ n := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:242:  rcases eq_or_ne n 0 with (rfl | hn)
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:243:  · simp
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:244:  rwa [← factorization_le_iff_dvd ?_ hn, factorization_prod_pow_eq_self_of_le_factorization hf]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:245:  refine f.prod_ne_zero_iff.mpr fun _ hp ↦ ?_
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:246:  exact pow_ne_zero _ (prime_of_mem_primeFactors <| support_mono hf hp).ne_zero
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:247:
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:248:theorem dvd_prod_pow_of_factorization_le (hn : n ≠ 0) (hf : n.factorization ≤ f) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:249:    n ∣ f.prod (· ^ ·) := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:250:  rw [← add_tsub_cancel_of_le hf, Finsupp.prod_add_index' (by simp) Nat.pow_add,
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:251:    prod_factorization_pow_eq_self hn]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:252:  apply n.dvd_mul_right
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:253:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:254:theorem dvd_iff_exists_le_factorization {d : ℕ} (hd : d ≠ 0) (hn : n ≠ 0) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Defs.lean:255:    d ∣ n ↔ ∃ f ≤ n.factorization, d = f.prod (· ^ ·) := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:19:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:20:namespace Nat
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:21:
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:22:theorem coe_divisors_eq_prod_pow_le_factorization {n : ℕ} (hn : n ≠ 0) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:23:    n.divisors = { f.prod (· ^ ·) | f ≤ n.factorization } := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:24:  refine Set.ext fun k ↦ ⟨fun h ↦ ?_, fun ⟨f, hle, h⟩ ↦ mem_divisors.mpr ⟨?_, hn⟩⟩
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:25:  · have hdvd := dvd_of_mem_divisors h
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:26:    have hk := ne_zero_of_dvd_ne_zero hn hdvd
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:27:    exact ⟨_, factorization_le_iff_dvd hk hn |>.mpr hdvd, prod_factorization_pow_eq_self hk⟩
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:28:  · rw [← h, ← prod_factorization_pow_eq_self hn]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:29:    exact prod_dvd_prod_of_subset_of_dvd (support_mono hle) fun p _ ↦ Nat.pow_dvd_pow p <| hle p
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:30:
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:31:theorem divisors_eq_image_Iic_factorization_prod_pow {n : ℕ} (hn : n ≠ 0) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:32:    n.divisors = (Finset.Iic n.factorization).image (·.prod (· ^ ·)) := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:33:  apply Finset.coe_inj.mp
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:34:  grind [coe_divisors_eq_prod_pow_le_factorization]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:35:
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:36:theorem Iic_factorization_prod_pow_injective (n : ℕ) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:37:    (·.val.prod (· ^ ·) : Finset.Iic n.factorization → _).Injective := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:38:  grind [Function.Injective, factorization_prod_pow_eq_self_of_le_factorization]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:39:
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:40:theorem divisors_eq_map_attach_Iic_factorization_prod_pow {n : ℕ} (hn : n ≠ 0) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:41:    n.divisors = (Finset.Iic n.factorization).attach.map
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:42:      ⟨(·.val.prod (· ^ ·)), Iic_factorization_prod_pow_injective n⟩ := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:43:  rw [Finset.map_eq_image]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:44:  change _ = (Finset.Iic n.factorization).attach.image ((·.prod (· ^ ·)) ∘ Subtype.val)
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:45:  rw [← Finset.image_image, Finset.attach_image_val]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:46:  exact divisors_eq_image_Iic_factorization_prod_pow hn
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:47:
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:48:theorem coe_properDivisors_eq_prod_pow_lt_factorization {n : ℕ} :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:49:    n.properDivisors = { f.prod (· ^ ·) | f < n.factorization } := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:50:  by_cases hn : n = 0
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:51:  · simp [hn]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:52:  refine Set.ext fun k ↦ ⟨fun h ↦ ?_, fun ⟨f, hlt, h⟩ ↦ ?_⟩
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:53:  · have ⟨hdvd, hlt⟩ := mem_properDivisors.mp h
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:54:    have hk := ne_zero_of_dvd_ne_zero hn hdvd
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:55:    refine ⟨_, ?_, prod_factorization_pow_eq_self hk⟩
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:63:    suffices k.factorization = f from (this ▸ hlt.ne <| congrArg _ ·)
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:64:    exact h ▸ factorization_prod_pow_eq_self_of_le_factorization hlt.le
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:65:
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:66:theorem properDivisors_eq_image_Iio_factorization_prod_pow {n : ℕ} :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:67:    n.properDivisors = (Finset.Iio n.factorization).image (·.prod (· ^ ·)) := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:68:  apply Finset.coe_inj.mp
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:69:  grind [coe_properDivisors_eq_prod_pow_lt_factorization]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:70:
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:71:theorem Iio_factorization_prod_pow_injective (n : ℕ) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:72:    (·.val.prod (· ^ ·) : Finset.Iio n.factorization → _).Injective := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:73:  grind [Function.Injective, factorization_prod_pow_eq_self_of_le_factorization]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:74:
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:75:theorem properDivisors_eq_map_attach_Iio_factorization_prod_pow {n : ℕ} :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:76:    n.properDivisors = (Finset.Iio n.factorization).attach.map
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:77:      ⟨(·.val.prod (· ^ ·)), Iio_factorization_prod_pow_injective n⟩ := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:78:  rw [Finset.map_eq_image]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:79:  change _ = (Finset.Iio n.factorization).attach.image ((·.prod (· ^ ·)) ∘ Subtype.val)
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:80:  rw [← Finset.image_image, Finset.attach_image_val]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:81:  exact properDivisors_eq_image_Iio_factorization_prod_pow
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:82:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:19:@[expose] public section
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:20:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:21:
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:22:theorem IsPrimePow.minFac_pow_factorization_eq {n : ℕ} (hn : IsPrimePow n) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:23:    n.minFac ^ n.factorization n.minFac = n := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:24:  obtain ⟨p, k, hp, hk, rfl⟩ := hn
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:25:  rw [← Nat.prime_iff] at hp
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:26:  rw [hp.pow_minFac hk.ne', hp.factorization_pow, Finsupp.single_eq_same]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:27:
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:28:theorem isPrimePow_of_minFac_pow_factorization_eq {n : ℕ}
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:29:    (h : n.minFac ^ n.factorization n.minFac = n) (hn : n ≠ 1) : IsPrimePow n := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:30:  rcases eq_or_ne n 0 with (rfl | hn')
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:31:  · simp_all
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:32:  refine ⟨_, _, (Nat.minFac_prime hn).prime, ?_, h⟩
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:33:  simp [pos_iff_ne_zero, ← Finsupp.mem_support_iff, Nat.support_factorization, hn',
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:34:    Nat.minFac_prime hn, Nat.minFac_dvd]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:35:
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:36:theorem isPrimePow_iff_minFac_pow_factorization_eq {n : ℕ} (hn : n ≠ 1) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:37:    IsPrimePow n ↔ n.minFac ^ n.factorization n.minFac = n :=
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:38:  ⟨fun h => h.minFac_pow_factorization_eq, fun h => isPrimePow_of_minFac_pow_factorization_eq h hn⟩
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:39:
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:40:theorem isPrimePow_iff_factorization_eq_single {n : ℕ} :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:41:    IsPrimePow n ↔ ∃ p k : ℕ, 0 < k ∧ n.factorization = Finsupp.single p k := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:42:  rw [isPrimePow_nat_iff]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:43:  refine exists₂_congr fun p k => ?_
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:44:  constructor
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:45:  · rintro ⟨hp, hk, hn⟩
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:46:    exact ⟨hk, by rw [← hn, Nat.Prime.factorization_pow hp]⟩
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:47:  · rintro ⟨hk, hn⟩
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:185:variable {p a m n : ℕ} (hp : p.Prime) (hn : n ≠ 0) (h : p ^ m = a ^ n)
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:186:include hp h
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:187:
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:188:theorem exponent_eq_exponent_mul_factorization_of_prime_pow_eq_base_pow :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:189:    m = n * a.factorization p := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:190:  have := congrArg Nat.factorization h
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:191:  rw [Nat.Prime.factorization_pow hp, Nat.factorization_pow] at this
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:192:  simpa using congr($this p)
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:193:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:194:theorem exponent_dvd_of_prime_pow_eq_pow : n ∣ m :=
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\PrimePow.lean:195:  Dvd.intro (a.factorization p)

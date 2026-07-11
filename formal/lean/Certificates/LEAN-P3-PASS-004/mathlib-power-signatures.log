@@ -1,0 +1,6 @@
+Nat.factorization_pow (n k : ℕ) : (n ^ k).factorization = k • n.factorization
+Nat.factorization_pow : ∀ (n k : ℕ), (n ^ k).factorization = k • n.factorization
+Nat.Prime.factorization_pow {p k : ℕ} (hp : Nat.Prime p) : (p ^ k).factorization = Finsupp.single p k
+@Nat.Prime.factorization_pow : ∀ {p k : ℕ}, Nat.Prime p → (p ^ k).factorization = Finsupp.single p k
+Finsupp.smul_apply.{u_1, u_5, u_11} {α : Type u_1} {M : Type u_5} {R : Type u_11} [Zero M] [SMulZeroClass R M] (b : R)
+  (v : α →₀ M) (a : α) : (b • v) a = b • v a
