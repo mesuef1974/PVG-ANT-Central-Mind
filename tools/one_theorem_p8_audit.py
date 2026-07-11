@@ -30,8 +30,8 @@ def main() -> None:
         "PLAUSIBLY NEW MODEST WEIGHTED THEOREM, ORIGINALITY NOT CERTIFIED",
         "PVG role in discovering the observable: material",
         "P8-EXTERNAL-VALIDATION-001",
-        "No RH progress",
-        "No GRH progress",
+        "RH progress: none",
+        "GRH progress: none",
     ]
     for token in required:
         require(token.lower() in combined.lower(), f"Missing P8 token: {token}")
