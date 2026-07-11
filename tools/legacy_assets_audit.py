@@ -12,6 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 ASSETS = ROOT / "registries" / "external-research-assets.jsonl"
 NEGATIVE = ROOT / "registries" / "negative-results.jsonl"
+GOALS = ROOT / "registries" / "program-goals.jsonl"
 KERNEL = ROOT / "maps" / "pvg-ant-language-kernel-v1.md"
 ROUTING = ROOT / "maps" / "legacy-assets-routing.md"
 RECONCILIATION = ROOT / "integration" / "legacy-research-assets-reconciliation-001.md"
@@ -71,6 +72,7 @@ def require(condition: bool, message: str) -> None:
 def main() -> None:
     assets = load_jsonl(ASSETS)
     negatives = load_jsonl(NEGATIVE)
+    goals = load_jsonl(GOALS)
     require(len(assets) >= 10, "Expected at least ten reconciled external assets")
     require(len(negatives) >= 5, "Expected at least five negative/closure records")
 
@@ -96,6 +98,15 @@ def main() -> None:
         for field in ["status", "finding", "reopen_condition", "classification", "source"]:
             require(bool(str(row.get(field, "")).strip()), f"{negative_id} missing {field}")
 
+    active_goals = [
+        row
+        for row in goals
+        if row.get("kind") == "operational_goal" and row.get("status") == "active"
+    ]
+    require(len(active_goals) == 1, f"Expected one active operational goal, found {len(active_goals)}")
+    active_goal_id = str(active_goals[0].get("id", ""))
+    require(active_goal_id.startswith("GOAL-OP-"), "Invalid active operational goal ID")
+
     for path in [KERNEL, ROUTING, RECONCILIATION, NEXT_ACTION]:
         require(path.exists(), f"Missing required file: {path.relative_to(ROOT)}")
 
@@ -111,15 +122,16 @@ def main() -> None:
 
     next_action_text = NEXT_ACTION.read_text(encoding="utf-8")
     require(
-        "GOAL-OP-SCALE-HETEROGENEITY-CLOSE-001" in next_action_text,
-        "Legacy import displaced the active Scale-Heterogeneity goal",
+        active_goal_id in next_action_text,
+        f"Next action does not identify active goal {active_goal_id}",
     )
     require("Dataset 004" in next_action_text, "Dataset 004 prohibition disappeared")
 
     print(
         "legacy_assets_audit: PASS — "
         f"{len(assets)} assets, {len(negatives)} negative records, "
-        f"{len(REQUIRED_BRIDGES)} kernel bridges; no legacy front activated."
+        f"{len(REQUIRED_BRIDGES)} kernel bridges; active goal={active_goal_id}; "
+        "no legacy front activated."
     )
 
 
