@@ -9,10 +9,16 @@ on:
       - "governance/task-triggered-knowledge-activation-policy.md"
       - "governance/stage-review-and-ceiling-escalation-policy.md"
       - "governance/templates/research-readiness-card.md"
+      - "integration/legacy-research-assets-reconciliation-001.md"
       - "maps/pvg-ant-language-kernel-v1.md"
+      - "maps/legacy-assets-routing.md"
       - "registries/program-goals.jsonl"
       - "registries/rules.jsonl"
+      - "registries/external-research-assets.jsonl"
+      - "registries/negative-results.jsonl"
+      - "transition-memory/next-action.md"
       - "tools/research_compass_audit.py"
+      - "tools/legacy_assets_audit.py"
       - ".github/workflows/research-compass-audit.yml"
   workflow_dispatch:
 
@@ -30,3 +36,6 @@ jobs:
 
       - name: Run research compass audit
         run: python tools/research_compass_audit.py
+
+      - name: Run legacy assets audit
+        run: python tools/legacy_assets_audit.py

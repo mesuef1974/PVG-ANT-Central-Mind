@@ -7,8 +7,8 @@ Operating version:
 Repository:
   D:\PVG-ANT-Central-Mind
 
-Current main HEAD:
-  1675b67 — Establish PVG-ANT Research Compass v1.0.
+Canonical baseline before Legacy Reconciliation 001:
+  d8f3118 — Synchronize compass state after v1.0 merge.
 
 Latest formal baseline:
   56e00f4 — Add Lean P3 valuation mass geometry (LEAN-P3-PASS-008).
@@ -58,6 +58,21 @@ Knowledge substrate retained for on-demand activation:
   Opera de Cribro v0.7, Lean P3, computational/statistical and governance layers.
   Source availability is not operational readiness.
 
+Legacy Research Assets Reconciliation 001:
+  integrated support pass; no new active front.
+  Registered external sources include PVG-Web, PVG-Sieve-Interface, PVG-Finite-Atlas,
+  Log2-Bridge, Open-Problems, Zeta-Literature, the external zeta laboratory, legacy Lean/skills,
+  historical reviews, and archived research ideas.
+  Six bridges were returned to the canonical language kernel:
+    sieve level ↔ truncated valuation information;
+    pointwise valuation ↔ aggregated information loss;
+    principal-character removal;
+    residue-fiber variance ↔ character second moment;
+    support/convolution/residue/spectral separation;
+    edge-error ↔ true-barrier separation.
+  Negative and known-confirmation paths are recorded in registries/negative-results.jsonl.
+  External projects remain laboratories/archive and are activated only through a named task.
+
 Formal layer:
   Lean P3 has advanced through valuation support, support cardinality, multiplication, powers,
   division conditions, and valuation mass geometry. These are formalized known results and reusable
@@ -71,6 +86,9 @@ Reproducible local-prime-density state:
 
 Language state:
   Canonical kernel: maps/pvg-ant-language-kernel-v1.md.
+  Legacy routing: maps/legacy-assets-routing.md.
+  External asset truth: registries/external-research-assets.jsonl.
+  Negative-result memory: registries/negative-results.jsonl.
   Canonical compass: governance/pvg-ant-research-compass-v1.md.
   Task readiness: governance/templates/research-readiness-card.md.
   Machine goals: registries/program-goals.jsonl.
@@ -80,10 +98,12 @@ Legacy/source safeguards:
   Trusted C/D/E/F/G/H; quarantined A/B/legacy-E.
   Opera de Cribro OPERA-004-A/B remain CLOSED; no automatic OPERA-004-C.
   Existing walls and missing certificates remain uncrossed/unsolved.
+  Historical PHASE-RULES are provenance only; Research Compass v1 governs current work.
+  The old Lean kernel is superseded; formal/lean/ is canonical.
 
 Guards:
   honesty · registry_sync · no_pdf · forbidden_promotion · duplicate_concept · citation ·
-  state_coherence · research_compass.
+  state_coherence · research_compass · legacy_assets.
 
 Ceiling:
   no original lemma certified;
