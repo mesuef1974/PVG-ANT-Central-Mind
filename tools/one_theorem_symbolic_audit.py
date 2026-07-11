@@ -28,7 +28,7 @@ def first_nonzero_after_constant(expression: sp.Expr, variable: sp.Symbol, cutof
 
 def principal_character_numeric_check(q: int, precision: int = 90) -> None:
     mp.mp.dps = precision
-    primes = [p for p in range(2, q + 1) if q % p == 0 and all(p % d for d in range(2, int(p**0.5) + 1))]
+    primes = sp.primefactors(q)
     rho = mp.mpf(1)
     correction = mp.mpf(0)
     for p in primes:
