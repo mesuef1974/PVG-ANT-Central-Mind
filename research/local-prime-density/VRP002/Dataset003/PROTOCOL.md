@@ -47,12 +47,14 @@ For each family:
 3. form the inclusive window `[x, x+h-1]`;
 4. move the next start to the previous end plus one;
 5. stop before `100,000,000`;
-6. select exactly 240 windows by deterministic evenly spaced indices over the complete non-overlapping list.
+6. select exactly 160 windows by deterministic evenly spaced indices over the complete non-overlapping list.
+
+The complete lists contain at least 160 windows for every family; the limiting `theta=3/4` family contains 175 windows in this range.
 
 Expected confirmatory sample size:
 
 ```text
-240 windows x 3 families = 720 windows
+160 windows x 3 families = 480 windows
 ```
 
 No random subsampling and no post-hoc window deletion are allowed. A window may be removed only for a documented computational corruption, and any removal invalidates confirmatory status until the protocol is amended and re-frozen before analysis.
@@ -144,7 +146,7 @@ The confirmatory alternative is
 H1: Delta > 0
 ```
 
-The primary uncertainty procedure is a paired block bootstrap over windows, stratified by theta family, with a frozen seed and 10,000 replicates.
+The primary uncertainty procedure is a paired block bootstrap over windows, stratified by theta family, with a frozen seed and 10,000 replicates. Each replicate resamples 160 paired observations with replacement inside each family and concatenates the three resampled strata before calculating `Delta`.
 
 Frozen seed:
 
