@@ -31,6 +31,17 @@ def maximum_difference(left: np.ndarray, right: np.ndarray) -> float:
     return float(np.max(np.abs(left - right))) if left.size else 0.0
 
 
+def parse_boolean(value: object) -> bool:
+    if isinstance(value, (bool, np.bool_)):
+        return bool(value)
+    normalized = str(value).strip().lower()
+    if normalized in {"true", "t", "1"}:
+        return True
+    if normalized in {"false", "f", "0"}:
+        return False
+    raise RuntimeError(f"Cannot parse logical value: {value!r}")
+
+
 def main() -> None:
     required = [
         PYTHON_RESULT,
@@ -105,8 +116,9 @@ def main() -> None:
     require(max(bootstrap_differences.values()) <= TOLERANCE, f"Bootstrap outputs differ: {bootstrap_differences}")
 
     r_decision = str(r_bootstrap["decision"])
+    r_family_stable = parse_boolean(r_bootstrap["family_stable"])
     require(python_result["decision"] == r_decision, "Python/R scientific decisions differ")
-    require(bool(python_result["family_stable"]) == bool(r_bootstrap["family_stable"]), "Python/R family-stability flags differ")
+    require(bool(python_result["family_stable"]) == r_family_stable, "Python/R family-stability flags differ")
 
     certificate = {
         "certificate_id": "CERT-PVG-LPD-DATASET003-CROSS-LANGUAGE-001",
