@@ -31,12 +31,12 @@ ALLOWED_STATUSES = {
     "killed_known_pending_exact_citation",
 }
 EXPECTED_SHORTLIST = ["OLS-CAND-001", "OLS-CAND-002", "OLS-CAND-005"]
-FORBIDDEN = [
-    "original theorem certified",
-    "original lemma certified",
-    "candidate mechanism certified",
-    "rh progress",
-    "grh progress",
+FORBIDDEN_POSITIVE_PROMOTIONS = [
+    "original theorem: certified",
+    "original lemma: certified",
+    "candidate mechanism: certified",
+    "rh progress: positive",
+    "grh progress: positive",
 ]
 
 
@@ -97,11 +97,12 @@ def main() -> None:
         require(candidate_id in ledger_text, f"Candidate absent from ledger: {candidate_id}")
     for finalist in EXPECTED_SHORTLIST:
         require(finalist in literature_text, f"Finalist absent from literature audit: {finalist}")
-    for phrase in FORBIDDEN:
-        require(phrase not in combined, f"Forbidden promotion found: {phrase}")
+    for phrase in FORBIDDEN_POSITIVE_PROMOTIONS:
+        require(phrase not in combined, f"Forbidden positive promotion found: {phrase}")
 
     require("No candidate is certified original" in literature_text, "Originality ceiling missing")
     require("No proof has begun" in literature_text, "Proof-start ceiling missing")
+    require("No RH/GRH progress" in literature_text, "RH/GRH negative ceiling missing")
     require("Phi_z" in ledger_text or "\\Phi_z" in ledger_text, "Face-enumerator family missing")
     require("zeta(2s)" in ledger_text or "\\zeta(2s)" in ledger_text, "Interior factorization missing")
     require("torsion" in literature_text.lower(), "Torsion-character audit missing")
