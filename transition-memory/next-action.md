@@ -10,39 +10,39 @@ Current theorem program:
   Frozen target = ONE-LEMMA-TARGET-001.
 
 Internal result:
-  the smooth fixed-q, fixed-r, fixed-W theorem is internally proved;
-  symbolic checks, adversarial review, and second-pass reconstruction pass;
-  P8 classification is complete.
+  fixed-q, fixed-r, fixed-W smooth theorem = internally proved;
+  P0-P8 proof, symbolic, adversarial, and classification audits = PASS.
+
+Completed external step:
+  P8-EXTERNAL-VALIDATION-001 = ONLINE PRIMARY-SOURCE AUDIT PARTIAL PASS;
+  six primary/general source records captured;
+  no exact match located for I_r or the full theorem;
+  method and torsion mechanism confirmed classical.
 
 Current classification:
-  PLAUSIBLY NEW MODEST WEIGHTED THEOREM, ORIGINALITY NOT CERTIFIED.
-
-Known prior art:
-  squarefull and k-full support;
-  quadratic/cubic torsion-character selection;
-  character/L-function treatment of squarefull progressions;
-  Mellin and contour machinery.
-
-Surviving possible contribution:
-  margin-interior divisor-box observable I_r;
-  general 2r and 2r+1 layer hierarchy;
-  explicit smoothed weighted fixed-modulus constants;
-  residual 2r+2 threshold and error.
+  PLAUSIBLY NEW MODEST PVG-DERIVED WEIGHTED THEOREM;
+  ORIGINALITY NOT CERTIFIED.
 
 Immediate next package:
-  P8-EXTERNAL-VALIDATION-001.
+  P8-EXTERNAL-REFEREE-001.
 
-Required actions:
-  1. Complete cited-by and related-item chains for Chan–Tsang and Srichan.
-  2. Search research-grade bibliographic databases for weighted powerful/k-full functions.
-  3. Compare the theorem with general Selberg–Delange and meromorphic Dirichlet-series transfer results.
-  4. Identify whether I_r has an established name or appears as a special Bell-series example.
-  5. Obtain an external line-by-line mathematical referee report.
-  6. Issue one final classification:
+Required external actions:
+  1. Search a research-grade bibliographic database and cited-by chains.
+  2. Check whether I_r has an established name or is an example of a broader theorem.
+  3. Compare exact constants and the 2r/2r+1/2r+2 hierarchy with published weighted k-full results.
+  4. Obtain an external line-by-line mathematical referee report using
+     P8_EXTERNAL_REFEREE_PACKET.md.
+  5. Issue exactly one terminal classification:
        A. original modest theorem;
        B. new PVG-derived application of a known general theorem;
        C. known result in different notation;
-       D. corrected theorem after referee review.
+       D. corrected theorem;
+       E. correct but insufficiently significant without strengthening.
+
+Prepared packet:
+  research/one-theorem/001/P8_EXTERNAL_REFEREE_PACKET.md;
+  research/one-theorem/001/P8_EXTERNAL_VALIDATION_001.md;
+  research/one-theorem/001/P8-external-source-ledger.json.
 
 Do not do yet:
   no second theorem target;
@@ -54,13 +54,15 @@ Do not do yet:
   no RH/GRH-related expansion.
 
 Stop rule:
-  One-Theorem Program 001 closes only after external priority and referee gates produce a final classification.
+  One-Theorem Program 001 closes only after database priority review and an
+  independent human referee decision produce a final classification.
 
 Ceiling:
   internally proved result;
+  online source audit partial pass;
   originality not certified;
-  no publication claim;
+  publication readiness absent;
   no RH/GRH progress.
 ```
 
-**Classification:** External-validation plan for an internally proved candidate theorem.
+**Classification:** External-referee execution plan for an internally proved candidate theorem.

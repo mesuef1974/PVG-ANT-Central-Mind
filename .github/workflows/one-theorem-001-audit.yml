@@ -1,4 +1,4 @@
-name: One-Theorem 001 P0-P8 Audit
+name: One-Theorem 001 P0-P8 External Audit
 
 on:
   pull_request:
@@ -12,11 +12,12 @@ on:
       - "tools/one_theorem_phase_audit.py"
       - "tools/one_theorem_p7_audit.py"
       - "tools/one_theorem_p8_audit.py"
+      - "tools/one_theorem_external_validation_audit.py"
       - ".github/workflows/one-theorem-001-audit.yml"
   workflow_dispatch:
 
 jobs:
-  audit-p0-p8:
+  audit-p0-p8-external:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -42,13 +43,19 @@ jobs:
       - name: Audit P8 internal classification and originality ceiling
         run: python tools/one_theorem_p8_audit.py
 
+      - name: Audit online external validation and remaining gates
+        run: python tools/one_theorem_external_validation_audit.py
+
       - name: Upload One-Theorem certificate package
         uses: actions/upload-artifact@v4
         with:
-          name: one-theorem-001-p0-p8-${{ github.sha }}
+          name: one-theorem-001-p0-p8-external-${{ github.sha }}
           path: |
             research/one-theorem/001/P1-symbolic-results.json
             research/one-theorem/001/P7-source-ledger.json
             research/one-theorem/001/P8_FINAL_CLASSIFICATION.md
+            research/one-theorem/001/P8_EXTERNAL_VALIDATION_001.md
+            research/one-theorem/001/P8-external-source-ledger.json
+            research/one-theorem/001/P8_EXTERNAL_REFEREE_PACKET.md
           if-no-files-found: error
           retention-days: 30

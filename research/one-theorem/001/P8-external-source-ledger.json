@@ -1,0 +1,104 @@
+{
+  "kind": "external_validation_source_ledger",
+  "target_id": "ONE-LEMMA-TARGET-001",
+  "stage": "P8-EXTERNAL-VALIDATION-001",
+  "date": "2026-07-12",
+  "decision": "ONLINE_PRIMARY_SOURCE_AUDIT_PARTIAL_PASS",
+  "sources": [
+    {
+      "id": "SRC-CHAN-2014-SQUAREFULL-AP-II",
+      "title": "Squarefull numbers in arithmetic progression II",
+      "authors": ["Tsz Ho Chan"],
+      "year": 2014,
+      "locator": "arXiv:1407.0054",
+      "role": "direct_prior_art",
+      "finding": "Confirms unweighted squarefull AP layers and explicit quadratic/cubic torsion-character selection.",
+      "direct_match_to_I_r": false
+    },
+    {
+      "id": "SRC-MEEMARK-WONGCHAROENBHORN-2025",
+      "title": "Variance of square-full integers in short intervals and arithmetic progressions",
+      "authors": ["Yotsanan Meemark", "Watcharakiete Wongcharoenbhorn"],
+      "year": 2025,
+      "locator": "arXiv:2504.14511",
+      "role": "recent_adjacent_literature",
+      "finding": "Reviews current unweighted squarefull AP and generalized squarefull literature; no I_r weight located.",
+      "direct_match_to_I_r": false
+    },
+    {
+      "id": "SRC-MUNSCH-SHPARLINSKI-YAU-2018",
+      "title": "Smooth squarefree and square-full integers in arithmetic progressions",
+      "authors": ["Marc Munsch", "Igor E. Shparlinski", "Kam Hung Yau"],
+      "year": 2018,
+      "locator": "arXiv:1810.02573",
+      "role": "adjacent_different_observable",
+      "finding": "Studies smoothness and least squarefull representatives, not the margin-interior weight.",
+      "direct_match_to_I_r": false
+    },
+    {
+      "id": "SRC-CAO-ZHAI-2013",
+      "title": "Conditional Results for a Class of Arithmetic Functions: a variant of H. L. Montgomery and R. C. Vaughan's method",
+      "authors": ["Xiaodong Cao", "Wenguang Zhai"],
+      "year": 2013,
+      "locator": "arXiv:1301.4530",
+      "role": "generalized_squarefull_method_adjacency",
+      "finding": "Treats zeta(as)zeta(bs)/zeta(cs)^k classes and generalized squarefull examples; no exact character-twisted I_r theorem located.",
+      "direct_match_to_I_r": false
+    },
+    {
+      "id": "SRC-BALOG-GRANVILLE-SOUND-2007",
+      "title": "Multiplicative functions in arithmetic progressions",
+      "authors": ["Antal Balog", "Andrew Granville", "K. Soundararajan"],
+      "year": 2007,
+      "locator": "arXiv:math/0702389",
+      "role": "general_ap_framework",
+      "finding": "The stated theory concerns multiplicative functions valued in or on the unit disk; I_r is sparse and unbounded.",
+      "direct_match_to_I_r": false
+    },
+    {
+      "id": "SRC-BRETECHE-TENENBAUM-2020",
+      "title": "Remarks on the Selberg--Delange method",
+      "authors": ["Regis de la Breteche", "Gerald Tenenbaum"],
+      "year": 2020,
+      "locator": "arXiv:2010.12929",
+      "role": "classical_transfer_method",
+      "finding": "Confirms broad classical mean-value transfer from zeta-type factorizations; no exact multi-layer residue-class theorem located.",
+      "direct_match_to_I_r": false
+    }
+  ],
+  "exact_search_targets": [
+    "prod max(alpha_p-2r+1,0)",
+    "tau(n/rad(n)^(2r)) on 2r-full support",
+    "1+y^(2r)/(1-y)^2",
+    "weighted k-full numbers in arithmetic progressions",
+    "margin-interior divisor-box weight"
+  ],
+  "exact_match_located": false,
+  "known_prior_art": {
+    "squarefull_progression_layers": true,
+    "quadratic_cubic_torsion_selection": true,
+    "character_decomposition": true,
+    "mellin_contour_method": true,
+    "generalized_squarefull_support": true
+  },
+  "surviving_possible_contribution": [
+    "PVG-derived margin-interior weight I_r",
+    "general 2r and 2r+1 layer hierarchy",
+    "explicit smooth fixed-modulus weighted constants",
+    "residual 2r+2 threshold and remainder"
+  ],
+  "remaining_gates": [
+    "research-grade bibliographic database search",
+    "external human line-by-line referee review"
+  ],
+  "scientific_ceiling": {
+    "internally_proved_fixed_parameter_theorem": true,
+    "online_primary_source_audit_partial_pass": true,
+    "certified_originality": false,
+    "publication_ready": false,
+    "new_method": false,
+    "new_torsion_mechanism": false,
+    "rh_progress": false,
+    "grh_progress": false
+  }
+}
