@@ -1,0 +1,55 @@
+{
+  "target_id": "ONE-LEMMA-TARGET-001",
+  "audit_stage": "P7",
+  "decision": "SURVIVES_AS_MODEST_WEIGHTED_EXTENSION_ORIGINALITY_UNCERTIFIED",
+  "primary_sources": [
+    {
+      "id": "SRC-CHAN-TSANG-2013",
+      "citation": "T. H. Chan and K. M. Tsang, Squarefull numbers in arithmetic progression, International Journal of Number Theory 9 (2013), no. 4, 885-901",
+      "verified_through": "reference list of Chan 2014 sequel",
+      "load_bearing_known_content": "unweighted squarefull numbers in reduced arithmetic progressions"
+    },
+    {
+      "id": "SRC-SRICHAN-2013",
+      "citation": "T. Srichan, Square-full and Cube-full Numbers in Arithmetic Progressions, Siauliai Mathematical Seminar 8 (16) (2013), 223-248",
+      "verified_through": "reference list and description in Chan 2014 sequel",
+      "load_bearing_known_content": "character/L-function expressions and cubefull progression layer"
+    },
+    {
+      "id": "SRC-CHAN-2014",
+      "citation": "T. H. Chan, Squarefull numbers in arithmetic progression II, arXiv:1407.0054",
+      "url": "https://arxiv.org/abs/1407.0054",
+      "verified_through": "primary full text",
+      "load_bearing_known_content": "explicit G2 and G3 torsion-character sets; improved unweighted error term"
+    }
+  ],
+  "known_not_original": [
+    "quadratic torsion-character selection",
+    "cubic torsion-character selection",
+    "unweighted squarefull progression layers",
+    "character orthogonality in reduced residue classes",
+    "classical Mellin/Dirichlet-L contour machinery"
+  ],
+  "possible_surviving_contribution": [
+    "margin-interior divisor-box weight I_r",
+    "equivalent weight 1_{rad(n)^(2r)|n} tau(n/rad(n)^(2r))",
+    "general 2r and 2r+1 layer factorization",
+    "explicit smooth fixed-modulus weighted formula",
+    "explicit residue constants"
+  ],
+  "remaining_external_gate": [
+    "MathSciNet or zbMATH cited-by audit",
+    "expert review of weighted powerful/k-full literature",
+    "search for a general theorem subsuming the exact local Bell series"
+  ],
+  "scientific_ceiling": {
+    "method_novelty": false,
+    "torsion_mechanism_novelty": false,
+    "statement_novelty": "plausible_not_certified",
+    "pvg_discovery_contribution": "material",
+    "pvg_proof_necessity": "weak",
+    "certified_theorem": false,
+    "rh_progress": false,
+    "grh_progress": false
+  }
+}
