@@ -1,77 +1,93 @@
 # Latest State
 
 ```text
-Version:  v0.7 Opera de Cribro partial_overlay (OPERA-004-A + OPERA-004-B both CLOSED, 2026-07-11) over v0.6 Montgomery MNT-II CLOSED (book_overlay_closed, mastery deferred)
-Home:     D:\PVG-ANT-Central-Mind (standalone git repo)
-HEAD ref: latest baseline = Montgomery BOOK OVERLAY CLOSURE (governance order on the unanimous
-          AUDIT-CM-MONTGOMERY-OVERLAY-008 recommendation, at e5c57cb), after the v0.6-H Closure
-          PASS. Every content chapter 16-22 is closure-reviewed; the four-file overlay is closed;
-          mastery stays deferred. book_overlay_closed = coverage-layer closure ONLY: binary
-          Goldbach stays OPEN, MC-001..005 unsolved, walls uncrossed, zero RH/GRH progress.
-          Remaining unmined: appendices E-H support-only (all content chapters 16-22 now
-          have source-grounded units); zero-density/large-values = later volume.
+Operating version:
+  PVG–ANT Research Compass v1.0.
 
-Books (registries/books.jsonl is the source of truth):
-  Mined, treasure overlay closed (AUDIT-CM-TREASURE-RETROFIT-CLOSURE-001), mastery deferred:
-    - Overholt   (ANT operational; reference model)
-    - Tenenbaum  (probabilistic / observable)
-    - Mileti     (logic / certificate; v0.2-A/B closed)
-    - Iwaniec-Kowalski (zero-density / large values; v0.4 closed)
-    - Harman     (sieve information / Type-I-II; v0.5 closed)
-  Overlay CLOSED (book_overlay_closed per AUDIT-CM-MONTGOMERY-OVERLAY-008; mastery deferred):
-    - Montgomery MNT-II (v0.6) — Level 2, sieves-and-gaps pillar (Ch 19-22):
-        TRUSTED source-grounded units (all six closure-reviewed):
-          C (Ch 19-20 large sieve / Bombieri-Vinogradov, v0.6-c-closure PASS),
-          D (Ch 21 Selberg / combinatorial sieve, v0.6-d-closure PASS),
-          E (Ch 22 bounded gaps / GPY / Maynard, v0.6-e-closure PASS, third attempt),
-          F (Ch 17 prime exponential sums / Type I-II decomposition, v0.6-f-closure PASS,
-            second attempt; explicit Treasure Packet, Coverage Audit 007).
-          G (Ch 16 exponential sums / Van der Corput cancellation SUPPORT layer,
-            v0.6-g-closure PASS, second attempt; explicit Treasure Packet;
-            does NOT revive the quarantined legacy-E).
-          H (Ch 18 additive prime number theory / circle method, v0.6-h-closure PASS,
-            second attempt; explicit Treasure Packet; binary Goldbach stays OPEN,
-            never claimed; almost-all is average, not all).
-        QUARANTINED (source-mismatch / cross-volume, NOT trusted):
-          A, B (zero-density / large-values / pair-correlation are deferred by the source
-            to a LATER volume; prior A/B closure audits were safety/coherence checks only,
-            SUPERSEDED by Correction 006, do NOT certify source-grounded extraction),
-          legacy off-diagonal E (Kloosterman) in units/_quarantine/.
-        Book overlay CLOSED (audit 008); appendices E-H = documented support-only deferrals;
-        mastery deferred; the missed-treasures deferrals remain open and auditable.
-  Partial overlay (two CLOSED units):
-    - Opera de Cribro (v0.7) — Friedlander-Iwaniec, AMS Colloquium 57 (2010), identity verified.
-        Sieve / parity / distribution certificate-theory layer, deepening the Harman-Montgomery
-        pillar (FRONTIER-ANT-PVG-004).
-        OPERA-004-A (Sifting Sequences...) from PACKET-001 (Ch 1 §§1.1-1.4) = CLOSED, v0.7-A PASS;
-          packet_mismatch TRUE / routing_split; 7 cards closure_approved.
-        OPERA-004-B (One-Sided Sieve Certificates and the Prime-Asymptotic Gap) from PACKET-002
-          (Ch 5 §§5.2-5.4 + Ch 6 §§6.1/6.5, Brun + Fundamental Lemma) = CLOSED, v0.7-B PASS
-          (AUDIT-CM-V07-B-CLOSURE-001, four lenses + independent refuter, MEDIUM governance);
-          target LB-03; packet_mismatch TRUE / routing_split; cards 008-014 closure_approved; zero new
-          TOOL/WALL. B closed the STRUCTURAL LB-03 gate ONLY — did NOT fill C_sieve with applied values;
-          three-level ladder stands (one-sided != sifted-set asymptotic != prime-producing); target-purity
-          a Boundary inside LB-03, NOT mapped to WALL-PARITY; Selberg deferred; model-subtraction (A)
-          not reused = open test debt.
-        LB-01..06 frozen (LB-03 structural gate built, not an applied certificate); scope-amendment +
-          debt + C_sieve governance active. Unit prefix OPERA-004.
-        Next: NONE — awaiting an independently authorized next Treasure Packet.
-  Available, not imported: Motohashi, Hodel, Mendelson, Buss, Kossak, Stewart, Fesenko.
+Repository:
+  D:\PVG-ANT-Central-Mind
 
-Governing protocol:
-  Book import = treasure mining + normalization + integration + missed-treasures + guards + closure
-  (governance/book-treasure-extraction-protocol.md). From Course Correction 005:
-    ChatGPT   = mathematical treasure analyst / PVG-ANT interpreter (supplies Treasure Packets).
-    Local agent = repository engineer / registry maintainer / guard runner / coherence auditor.
-  No new mathematical unit without a ChatGPT Treasure Packet.
+Current main HEAD:
+  56e00f4 — Add Lean P3 valuation mass geometry (LEAN-P3-PASS-008).
 
-Guards (7): honesty · registry_sync · no_pdf · forbidden_promotion · duplicate_concept · citation · state_coherence.
+Latest closed research baseline:
+  a0f93f4 — Close Dataset 003 independent replication.
 
-Standing missing certificates (all UNSOLVED): MC-001 (parity) · MC-002 (psi(x)-x / RH) ·
-  MC-003 (Weil positivity) · MC-004 (Artin holomorphy) · MC-005 (AP / GRH-level).
-Walls: all uncrossed. Frontier FRONTIER-ANT-PVG-007 (spectral) = FROZEN (cited, not reopened).
+Strategic goal:
+  GOAL-PVG-ANT-STRATEGIC-001 = active_fixed.
+  Produce an original, correct, modest ANT contribution in which PVG contributes materially.
 
-Ceiling: zero RH progress · zero GRH progress · no secured path.
+Research operating mode:
+  Task first.
+  Prerequisite/readiness audit before execution.
+  Minimum-sufficient targeted knowledge acquisition.
+  PVG ↔ ANT translation through a reusable language kernel.
+  One active original-research front.
+  Proof/test/certificate followed by knowledge return.
+  Stage ceiling escalates after each closure.
+
+Active operational goal:
+  GOAL-OP-SCALE-HETEROGENEITY-CLOSE-001.
+  Research front: PVG-LOCAL-PRIME-DENSITY-001.
+  Required closure: repair + reproducibility + exact/empirical/conditional separation + Closure Review.
+
+Queued operational goal:
+  GOAL-OP-LANGUAGE-KERNEL-V1-001.
+  Eight canonical bridges with forward/reverse maps, information-loss audits, analytic transforms,
+  simplification-gain labels, examples, and certificates.
+
+Blocked sequence:
+  GOAL-OP-ORIGINAL-LEMMA-SELECTION-001
+  → GOAL-OP-ONE-THEOREM-001
+  → GOAL-OP-FORMAL-PUBLICATION-001.
+
+Current maturity:
+  L0 Vocabulary              strong
+  L1 Exact translation       partial-to-strong in multiplicative core
+  L2 Structural gain         partial
+  L3 Transfer principles     early
+  L4 Research mechanism      unconfirmed
+  L5 Original lemma          none certified
+  L6 Original theorem        none certified
+
+Knowledge substrate retained for on-demand activation:
+  Overholt, Tenenbaum, Mileti, Iwaniec–Kowalski, Harman, Montgomery MNT-II v0.6,
+  Opera de Cribro v0.7, Lean P3, computational/statistical and governance layers.
+  Source availability is not operational readiness.
+
+Formal layer:
+  Lean P3 has advanced through valuation support, support cardinality, multiplication, powers,
+  division conditions, and valuation mass geometry. These are formalized known results and reusable
+  infrastructure, not original ANT progress. No new Lean pass starts unless an active research lemma needs it.
+
+Reproducible local-prime-density state:
+  Dataset 001: negative diagnostic.
+  Dataset 002: unresolved with unadjusted exploratory signal.
+  Dataset 003: UNRESOLVED IN INDEPENDENT REPLICATION.
+  No replicated Candidate Signal. No Dataset 004 authorized.
+
+Language state:
+  Canonical kernel: maps/pvg-ant-language-kernel-v1.md.
+  Canonical compass: governance/pvg-ant-research-compass-v1.md.
+  Task readiness: governance/templates/research-readiness-card.md.
+  Machine goals: registries/program-goals.jsonl.
+
+Legacy/source safeguards:
+  Montgomery v0.6 source-grounding correction remains active.
+  Trusted C/D/E/F/G/H; quarantined A/B/legacy-E.
+  Opera de Cribro OPERA-004-A/B remain CLOSED; no automatic OPERA-004-C.
+  Existing walls and missing certificates remain uncrossed/unsolved.
+
+Guards:
+  honesty · registry_sync · no_pdf · forbidden_promotion · duplicate_concept · citation ·
+  state_coherence · research_compass.
+
+Ceiling:
+  no original lemma certified;
+  no original theorem certified;
+  no claim that PVG predicts local prime counts;
+  zero RH progress;
+  zero GRH progress.
 ```
 
-**Honest classification:** Diagnostic (state snapshot). No RH/GRH progress.
+**Honest classification:** Diagnostic repository-state snapshot.

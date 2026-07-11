@@ -1,44 +1,62 @@
 # Next Action
 
 ```text
-Current baseline: Opera de Cribro SECOND UNIT CLOSED (v0.7, 2026-07-11).
-                  OPERA-004-B (One-Sided Sieve Certificates and the Prime-Asymptotic Gap) = CLOSED,
-                  v0.7-B Closure Review PASS (AUDIT-CM-V07-B-CLOSURE-001; MEDIUM distributed governance:
-                  independent refuter SAFE + routing-split audit + strict LB-03 semantic audit +
-                  committed-state consistency + bureaucratic-function test — all PASS).
-                  packet_mismatch = true / routing_split. Cards 008-014 closure_approved.
-                  Zero new TOOL-ID, zero new WALL-ID. B closed the STRUCTURAL LB-03 gate ONLY — it did
-                  NOT fill C_sieve with applied numerical values; model-subtraction (A) stays an OPEN
-                  named test debt; Selberg stays deferred; the three-level ladder
-                  (one-sided bound != sifted-set asymptotic != prime-producing asymptotic) stands;
-                  target-purity is a Boundary inside LB-03, NOT mapped to WALL-PARITY.
+Current main HEAD:
+  56e00f4 — Add Lean P3 valuation mass geometry (LEAN-P3-PASS-008).
 
-                  OPERA-004-A remains CLOSED (v0.7-A). Montgomery MNT-II remains BOOK OVERLAY CLOSED
-                  (AUDIT-CM-MONTGOMERY-OVERLAY-008, mastery deferred), untouched.
-                  Ceiling: sieve formulation is not prime production; no parity crossing; MC-001..005
-                  unsolved; walls uncrossed; zero RH progress; zero GRH progress.
+Latest closed research baseline:
+  a0f93f4 — Close Dataset 003 independent replication.
 
-Next action:
-  NONE — awaiting an independently authorized next Opera Treasure Packet from Sufyan.
-  No new unit, no new book, no new audit starts without it.
+Strategic compass:
+  GOAL-PVG-ANT-STRATEGIC-001 = active_fixed.
+  Original ANT contribution through materially useful PVG.
 
-Not allowed (without an explicit packet and permission):
-  - OPERA-004-C, a third packet, Selberg, or Chapter 16.
-  - a new TOOL-ID, or any new WALL-ID; mapping any boundary to WALL-PARITY.
-  - starting the next application_specific_certificate (it would fill C_sieve, still within the known,
-    but it needs its own packet and order).
-  - book-overlay closure of Opera, or flipping declared_objective_coverage.complete.
-  - MNTII-006-I or any Montgomery change; re-trusting quarantined A / B / legacy-E.
+Active operational goal:
+  GOAL-OP-SCALE-HETEROGENEITY-CLOSE-001 = active.
 
-State:
-  planned.jsonl = empty.
-  Opera de Cribro (BOOK-SIEVE-OPERA-001) = partial_overlay (v0.7); OPERA-004-A and OPERA-004-B both
-    CLOSED; unit prefix OPERA-004; LB-01..06 frozen (LB-03 structural gate built, not an applied
-    certificate); governance/scope-amendment-and-debt-policy.md active.
-  Montgomery MNT-II = book_overlay_closed (AUDIT-CM-MONTGOMERY-OVERLAY-008), Level 2,
-    source-grounding-corrected, mastery deferred; trusted units C, D, E, F, G, H;
-    quarantined A, B, E-legacy (source-mismatch / unvalidated).
-  Guards (7): honesty · registry_sync · no_pdf · forbidden_promotion · duplicate_concept · citation · state_coherence.
+Current research front:
+  PVG-LOCAL-PRIME-DENSITY-001.
+
+Immediate action after this compass PR:
+  1. Repair and close the existing scale-heterogeneity diagnostic branch.
+  2. Run reproducibility/CI and Closure Review.
+  3. Merge only after the exact-identity layer, empirical layer, and conditional analytic bridge
+     are separated and certified.
+
+Queued stage:
+  GOAL-OP-LANGUAGE-KERNEL-V1-001.
+  Release eight reusable PVG–ANT bridges with forward/reverse maps, information-loss audits,
+  analytic transforms, simplification-gain labels, and certificates.
+
+Blocked stages:
+  GOAL-OP-ORIGINAL-LEMMA-SELECTION-001.
+  GOAL-OP-ONE-THEOREM-001.
+  GOAL-OP-FORMAL-PUBLICATION-001.
+
+Not allowed now:
+  - Dataset 004 or model retuning.
+  - A second active original-research front.
+  - Broad book mining without a Research Readiness Card.
+  - New Lean/R/Python work without a named scientific function.
+  - Treating translation, experiment, or formalization as originality.
+  - Rebuilding an already certified bridge from scratch.
+  - Continuing Lean merely because the formal layer can be expanded; the next Lean pass must support
+    a named active research lemma.
+
+Readiness rule:
+  Every new task must pass READY / NOT_READY using
+  governance/templates/research-readiness-card.md.
+
+Knowledge rule:
+  Missing prerequisites are acquired by minimum-sufficient targeted mining and returned to the
+  Central Mind with exact statement, hypotheses, source, limitation, PVG bridge, and operational status.
+
+planned.jsonl:
+  remains empty until a task-specific readiness card and explicit operational authorization create
+  a planned execution entry.
+
+Ceiling:
+  no theorem yet; no certified original lemma; no RH progress; no GRH progress.
 ```
 
-**Honest classification:** Diagnostic (plan). No RH progress. No GRH progress.
+**Honest classification:** Diagnostic plan / research operations.

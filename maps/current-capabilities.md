@@ -1,67 +1,96 @@
 # Current Capabilities
 
-Live installed capabilities of the Central Mind (from the mined books and registered tools). Diagnostic snapshot — see `registries/*.jsonl` for the source of truth.
+Live capability snapshot. Registry files remain the machine truth.
 
-## Installed live layers
+## 1. Research operating capability
 
-```text
-1. Logic / certificate discipline (Mileti A-H): formalization · syntax/semantics · metatheory ·
-   induction/recursion (generation) · deduction as a checkable proof object · soundness · completeness ·
-   compactness. Rules RULE-LOGIC-001..004, RULE-CERT-SOUNDNESS-001; tools TOOL-GENERATION-001,
-   TOOL-DEDUCTION-SYSTEM-001, TOOL-COMPLETENESS-001, TOOL-COMPACTNESS-001. Governance substrate.
-2. ANT operational tools (Overholt): Euler product · Mobius · hyperbola · Perron · character orthogonality.
-3. Multiplicative-function / probabilistic diagnostics (Tenenbaum): observable ladder · decision tree ·
-   Halasz/Delange/Wirsing/Selberg-Delange · Turan-Kubilius · Erdos-Kac · residue-fiber observables · L(s,chi).
-4. Zero-density / large-values frontier diagnostics (IK): TOOL-ZERO-DENSITY-DIAGNOSTIC-001,
-   TOOL-LARGE-VALUE-DIAGNOSTIC-001.
-5. Sieve-information diagnostics (Harman): TOOL-SIEVE-INFO-CONSUMPTION-001, TOOL-TYPE-I-II-DIAGNOSTIC-001.
-6. Montgomery MNT-II sieves-and-gaps tools (v0.6, source-grounding-corrected; book overlay
-   CLOSED per AUDIT-CM-MONTGOMERY-OVERLAY-008, mastery deferred):
-   TOOL-MONTGOMERY-LARGE-SIEVE-DIAGNOSTIC-001 (C, Ch19-20 large sieve / Bombieri-Vinogradov, closed),
-   TOOL-MONTGOMERY-SIEVE-DIAGNOSTIC-001 (D, Ch21 Selberg / combinatorial sieve, closed),
-   TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001 (E, Ch22 bounded gaps / GPY / Maynard —
-   source-grounded; entered as validated_intake, CLOSED: v0.6-e-closure PASS, third attempt),
-   TOOL-MONTGOMERY-PRIME-SUMS-TYPE-II-DIAGNOSTIC-001 (F, Ch17 prime exponential sums /
-   Type I-II decomposition — source-grounded from the explicit Treasure Packet; entered as
-   validated_intake, CLOSED: v0.6-f-closure PASS, second attempt),
-   TOOL-MONTGOMERY-VDC-EXPONENTIAL-SUMS-DIAGNOSTIC-001 (G / MNTII-006-G, Ch16 exponential
-   sums / Van der Corput cancellation SUPPORT layer — source-grounded from the explicit
-   Treasure Packet; entered as validated_intake, CLOSED: v0.6-g-closure PASS, second attempt;
-   does NOT revive the quarantined legacy off-diagonal material),
-   TOOL-MONTGOMERY-ADDITIVE-PRIME-CIRCLE-METHOD-DIAGNOSTIC-001 (H / MNTII-006-H, Ch18
-   additive prime number theory / circle-method APPLICATION layer — source-grounded from the
-   explicit Treasure Packet; entered as validated_intake, CLOSED: v0.6-h-closure PASS, second
-   attempt; binary Goldbach stays OPEN and is never claimed).
-   [QUARANTINED, source-mismatch / cross-volume — NOT trusted capabilities:
-   TOOL-MONTGOMERY-DISTRIBUTION-DIAGNOSTIC-001 (A), TOOL-MONTGOMERY-DISTRIBUTION-BARRIER-001 (B),
-   TOOL-MONTGOMERY-EXPSUM-DIAGNOSTIC-001 (legacy off-diagonal E).]
-7. Zero-density-impact operating rule: RULE-ZERO-DENSITY-IMPACT-001 (a zero-density set may still
-   dominate averages of unbounded observables).
-8. Governance discipline: missing-certificate ledger (MC-001..005) · wall registry · claim-classification
-   matrix · treasure-extraction protocol · state-coherence policy.
-```
-
-## Ceiling — what the mind is NOT
+The Central Mind can now execute the following governed cycle:
 
 ```text
-- NOT a proof engine.
-- NOT RH/GRH progress (zero RH progress, zero GRH progress, no secured path).
-- NOT a prime detector (classical sieves count almost-primes; the parity barrier is uncrossed).
-- NOT a zero-density improvement machine (zero-density enters as a diagnostic, not a result).
-- NOT a replacement for classical certificates (missing certificates stay missing until externally certified).
-- NOT individual-modulus GRH (Bombieri-Vinogradov is average control only).
-- The spectral front FRONTIER-ANT-PVG-007 is FROZEN (Deshouillers-Iwaniec cited, not reopened).
+named task
+→ prerequisite/readiness audit
+→ targeted knowledge activation
+→ PVG–ANT translation
+→ candidate transfer lemma
+→ proof / experiment / negative certificate
+→ reproducibility and adversarial checks
+→ knowledge return
 ```
 
-## Standing limits
+Canonical references:
+
+- `governance/pvg-ant-research-compass-v1.md`
+- `maps/pvg-ant-language-kernel-v1.md`
+- `governance/task-triggered-knowledge-activation-policy.md`
+- `governance/stage-review-and-ceiling-escalation-policy.md`
+- `registries/program-goals.jsonl`
+
+## 2. Translation capability
+
+Current maturity:
 
 ```text
-Missing certificates (all UNSOLVED): MC-001 · MC-002 · MC-003 · MC-004 · MC-005.
-Walls: all uncrossed.
-Quarantine (source-mismatch / cross-volume, NOT trusted): MNTII-006-A · MNTII-006-B ·
-  legacy off-diagonal MNTII-006-E (units/_quarantine/) and their three tools.
-New MNTII-006-E (bounded gaps / GPY / Maynard) = CLOSED (v0.6-e-closure PASS;
-  entered as validated_intake) — NOT quarantined.
+Vocabulary: strong
+Exact multiplicative translation: partial-to-strong
+Structural simplification: partial
+Certified transfer principles: early
+Original research mechanism: unconfirmed
+Original lemma/theorem: none certified
 ```
 
-**Honest classification:** Diagnostic (capability snapshot). No RH/GRH progress.
+The mind has reusable bridges for factorization, multiplication, divisibility, support, height, divisor boxes, convolution, Euler factors, residue fibers, sieve exclusions, and analytic transforms. Additive order, short intervals, phase, and spectral information require named bridges and certificates.
+
+## 3. Installed mathematical layers
+
+1. **Logic / certificate discipline:** formalization, syntax/semantics, metatheory, deduction, soundness, completeness, and compactness.
+2. **ANT operations:** Euler products, Möbius inversion, hyperbola method, Perron, character orthogonality, contour and Tauberian diagnostics.
+3. **Multiplicative/probabilistic diagnostics:** Halász/Delange/Wirsing/Selberg–Delange, Turán–Kubilius, Erdős–Kac, observable ladders, residue-fiber observables, and L-functions.
+4. **Zero-density and large-values diagnostics:** registered IK tools.
+5. **Sieve information diagnostics:** Harman Type I/II and information-consumption layers.
+6. **Montgomery MNT-II v0.6 source-grounded layers:** large sieve/Bombieri–Vinogradov, sieve, bounded gaps, prime sums/Type I–II, Van der Corput, and circle-method application. The required registered support tool remains `TOOL-MONTGOMERY-VDC-EXPONENTIAL-SUMS-DIAGNOSTIC-001`; quarantined source-mismatch A/B/legacy-E remain untrusted.
+7. **Opera de Cribro v0.7:** one-sided sieve certificates, main-term/remainder structure, and the distinction between sifted-set and prime-producing certificates.
+8. **Lean P3 formal layer:** gcd/lcm, multiplication, powers, division conditions, support geometry, and related known valuation laws.
+9. **Reproducible research engine:** deterministic builders, Python/R agreement, Bootstrap, leakage guards, CI, and committed-result certificates for the local-prime-density vertical passes.
+
+## 4. Tool-on-demand rule
+
+Capabilities are not activated automatically:
+
+- Lean only for active research lemmas or reusable high-risk structure;
+- Python for deterministic computation, verification, and CI;
+- R for an independent statistical certificate;
+- literature mining for exact prerequisites, priority, and best ranges;
+- books for minimum sufficient background required by the active task.
+
+## 5. Current active operational goal
+
+Machine truth: `GOAL-OP-SCALE-HETEROGENEITY-CLOSE-001` in `registries/program-goals.jsonl`.
+
+The next queued stage is `GOAL-OP-LANGUAGE-KERNEL-V1-001`, followed by original-lemma selection. No Dataset 004 or unrelated research front is active.
+
+## 6. What the mind is not
+
+```text
+- Not a proof engine by default.
+- Not RH/GRH progress.
+- Not a prime detector.
+- Not a substitute for literature priority checks.
+- Not a theorem generator from experiments.
+- Not a claim that every PVG translation is useful.
+- Not a claim that available sources equal operational mastery.
+```
+
+## 7. Research-success metrics
+
+Primary metrics:
+
+- certified reusable bridges;
+- transfer lemmas;
+- originality-audited questions;
+- proved/refuted lemmas;
+- materially PVG-dependent results;
+- original theorems.
+
+Book count, unit count, commits, and formalized known results are capacity metrics only.
+
+**Honest classification:** Diagnostic capability snapshot. No new theorem. No RH/GRH progress.
