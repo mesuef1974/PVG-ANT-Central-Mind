@@ -49,6 +49,7 @@ Do not do yet:
   no publication drafting;
   no Lean formalization;
   no broad book mining;
+  Dataset 004 remains unauthorized;
   no new dataset or statistical modeling;
   no RH/GRH-related expansion.
 
