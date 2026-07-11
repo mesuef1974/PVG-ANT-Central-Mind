@@ -7,86 +7,86 @@ Operating version:
 Repository:
   D:\PVG-ANT-Central-Mind
 
-Canonical main baseline before this PR:
-  f5d08d7 — Close Original Lemma Selection 001.
-
-Latest formal baseline:
-  56e00f4 — Add Lean P3 valuation mass geometry (LEAN-P3-PASS-008).
+Canonical main baseline before this P8 PR:
+  c918957 — Add P7 source and proof audit for One-Theorem 001.
 
 Strategic goal:
   GOAL-PVG-ANT-STRATEGIC-001 = active_fixed.
   Produce an original, correct, modest ANT contribution in which PVG contributes materially.
 
 Active operational goal:
-  GOAL-OP-ONE-THEOREM-001 = active.
+  GOAL-OP-ONE-THEOREM-001 = active_external_validation_hold.
   Frozen target = ONE-LEMMA-TARGET-001.
 
 Target:
   Smoothed torsion layers of margin-interior divisor boxes in arithmetic progressions.
 
 Geometric observable:
-  I_r(n) = product over p^a||n of max(a-2r+1,0).
-  It counts divisor-box lattice points at coordinate margin at least r from every facet.
+  I_r(n) = product over p^alpha||n of max(alpha-2r+1,0).
+  Equivalent classical form:
+  1_{rad(n)^(2r)|n} * tau(n/rad(n)^(2r)).
 
-Current mathematical checkpoint:
-  P0 priority audit = PASS with narrowed originality claim.
-  P1 independent symbolic audit = PASS.
-  P2 local factorization and convergence = manual proof complete.
-  P3 character decomposition = manual proof complete.
-  P4 Mellin inversion and contour shift = manual proof complete.
-  P5 residue constants and remainder = manual proof complete.
-  P6 internal adversarial logic review = PASS.
+Completed phases:
+  P0 preliminary priority narrowing = PASS.
+  P1 symbolic audit = PASS.
+  P2 local factorization and convergence = PROVED INTERNALLY.
+  P3 character decomposition = PROVED INTERNALLY.
+  P4 Mellin inversion and contour shift = PROVED INTERNALLY.
+  P5 residues and remainder = PROVED INTERNALLY.
+  P6 adversarial review = PASS.
+  P7 source-grounded priority audit = PASS WITH NARROW CLAIM.
+  P7 second-pass proof reconstruction = PASS.
+  P8 internal classification = COMPLETE.
 
-Candidate theorem supported by the manual proof:
-  D_{r,chi}(s)
-  = L(2rs,chi^(2r)) L((2r+1)s,chi^(2r+1))^2 H_{r,chi}(s),
-  with H holomorphic for Re(s)>1/(2r+2), followed by a fixed-q smoothed
-  residue-class expansion with x^(1/(2r)), x^(1/(2r+1)) log x, and
-  O(x^(1/(2r+2)+epsilon)) layers.
+Internal mathematical decision:
+  INTERNALLY PROVED AT FIXED PARAMETERS.
+  No mathematical gap is currently identified in the smooth fixed-q, fixed-r, fixed-W theorem.
 
 Priority correction:
-  quadratic/cubic torsion-character selection is known in classical square-full
-  arithmetic-progression work.
-  Possible contribution is restricted to the divisor-box margin weight,
-  its general 2r/2r+1 hierarchy, explicit smoothed constants, and PVG interpretation.
+  squarefull/k-full support is classical;
+  quadratic/cubic torsion-character selection is classical;
+  character decomposition and contour method are classical.
 
-Automation:
-  symbolic residual order verified for r=1..8;
-  simple/double pole coefficients verified independently;
-  principal-character finite part checked at q=1,2,6,30;
-  CI and phase audit = PASS on the current proof artifacts.
+Surviving possible contribution:
+  the PVG-derived margin-interior divisor-box weight;
+  its general 2r / 2r+1 layer structure;
+  explicit smoothed weighted fixed-modulus constants;
+  the residual 2r+2 threshold and smooth remainder.
 
-Remaining gates:
-  P7 source-grounded external review and older-literature audit;
-  P8 final classification and closure.
+P8 classification:
+  PLAUSIBLY NEW MODEST WEIGHTED THEOREM, ORIGINALITY NOT CERTIFIED.
+  PVG discovery role = material.
+  PVG proof necessity = weak.
+  New analytic method = no.
 
-Current maturity:
-  L0 Vocabulary              strong
-  L1 Exact translation       certified declared core
-  L2 Structural/analytic     certified for seven families
-  L3 Transfer principle      manually proved candidate, not certified original
-  L4 Research mechanism      candidate theorem package under review
-  L5 Original lemma          none certified
-  L6 Original theorem        none certified
+Maturity:
+  L1 exact translation = certified.
+  L2 structural/analytic simplification = certified.
+  L3 proved transfer principle = internally established for this observable.
+  L5 original lemma = not certified.
+  L6 original theorem = not certified.
 
-Tool state:
-  targeted literature/source audit = active next step;
-  independent mathematical reading = required;
-  Python/SymPy = certificate support;
-  R = not required;
-  Lean = deferred;
-  GPU = not required.
+Remaining external gates:
+  research-grade bibliographic/cited-by audit;
+  comparison with general weighted k-full and Selberg–Delange theorems;
+  external line-by-line mathematical referee review.
 
-Local-prime-density state:
-  closed at Scale-Heterogeneity diagnostic;
-  Dataset 004 unauthorized.
+Next controlled package:
+  P8-EXTERNAL-VALIDATION-001.
+
+Restrictions:
+  no second theorem target;
+  no publication claim;
+  no Lean formalization yet;
+  no Dataset 004;
+  no RH or GRH claim.
 
 Ceiling:
-  complete manual proof candidate, not certified theorem;
-  originality plausible and narrowed, not certified;
-  no publication claim;
+  internally proved theorem statement;
+  originality plausible but uncertified;
+  publication readiness absent;
   zero RH progress;
   zero GRH progress.
 ```
 
-**Classification:** Diagnostic repository-state snapshot.
+**Classification:** Internal proof/result checkpoint with external originality and referee gates still open.
