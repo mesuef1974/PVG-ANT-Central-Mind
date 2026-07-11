@@ -1,51 +1,166 @@
-# PVG–ANT Central Mind — Charter (v0.2)
+# PVG–ANT Central Mind — Research Operating Charter v1.0
 
-مستودعُ عقلٍ رياضيّ تراكميّ. كلُّ كتابٍ يدخل لا كملخّص، بل كـ **أدوات + قواعد + جدران + شهادات + بطاقات تشغيل**.
+مستودع عقل رياضي تراكمي وبحثي. المعرفة لا تدخل بوصفها رصيدًا ساكنًا، بل تتحول عند الحاجة إلى **لغة + جسر + أداة + لمّة + شهادة + معرفة تشغيلية قابلة لإعادة الاستخدام**.
 
 ## Supreme law
 
 \[
-\boxed{\ \text{Geometry}\ \leftrightarrow\ \text{Analysis}\ \leftrightarrow\ \text{Certificate}\ }
+\boxed{
+\text{Geometry}
+\leftrightarrow
+\text{Analysis}
+\leftrightarrow
+\text{Certificate}
+}
 \]
 
-الجملةُ الحاكمة: كلُّ معرفةٍ تدخل العقلَ يجب أن تتحوّل إلى هندسةٍ، تحليلٍ، شهادةٍ، وحدِّ ادّعاء.
+ويضاف إليها مسار البحث الحاكم:
 
-## Ceiling (السقف — نافذٌ)
+\[
+\boxed{
+\text{Translation}
+\rightarrow
+\text{Original Question}
+\rightarrow
+\text{Lemma}
+\rightarrow
+\text{Proof/Test}
+\rightarrow
+\text{Certificate}
+\rightarrow
+\text{Reusable Knowledge}
+}
+\]
+
+## Strategic identity
+
+هذا المشروع ليس مشروع تلخيص كتب، ولا تجميع أدوات، ولا formalization لذاته، ولا مختبر تعلم آلي عام.
+
+هدفه:
+
+> تطوير هندسة التقييمات الأولية إلى لغة بحثية تشغيلية ثنائية الاتجاه مع نظرية الأعداد التحليلية، ثم استعمالها لاكتشاف وإثبات مساهمات أصلية صحيحة — ولو صغيرة — في ANT.
+
+## Testable strategic hypothesis
+
+قد تبسط PVG أجزاء من البنية الضربية عبر linearization، decomposition، localization، أو transfer principles. هذه فرضية برنامج تُختبر في كل جسر، ولا تُفترض صحيحة في كل مسألة.
+
+كل ترجمة تسجل مكسبها:
 
 ```text
-This project does not claim RH/GRH progress.
-Reading, diagnostics, experiments, analogies, or PVG/logic reformulations are NOT proofs.
-Every output is classified. No result is upgraded without an external certificate.
+none | expository | structural | analytic | proof-producing
 ```
 
-## Seven layers
+إعادة التسمية أو الصورة الأوضح ليست مبرهنة ولا أصالة.
+
+## Task-first operation
+
+لا يبدأ كتاب، تعدين معرفة، Lean pass، تجربة، Python، R، أو بحث أدبي بلا مهمة بحثية مسماة.
+
+كل مهمة تمر عبر:
+
+1. `Research Readiness Card`؛
+2. prerequisite audit؛
+3. targeted knowledge activation؛
+4. execution؛
+5. certificate؛
+6. knowledge return.
+
+وجود المصدر محليًا لا يعني دمجه، ودمجه لا يعني أنه `operationally_ready` للمهمة الحالية.
+
+## One active research front
+
+جبهة بحث أصلية واحدة فقط تكون نشطة في كل وقت. يجوز بالتوازي إصلاح حوكمة أو CI أو مصدر، بشرط ألا ينشئ سؤالًا بحثيًا ثانيًا.
+
+## Language kernel
+
+يبني العقل `PVG–ANT Language Kernel` مرة واحدة ويعيد استعماله. الجسر المعتمد لا يعاد بناؤه من الصفر. كل جسر جديد يسجل الخريطة الأمامية، العكس أو فقد المعلومات، التحويل التحليلي، المكسب، الأدبيات، والتصنيف.
+
+## Knowledge and tools on demand
+
+- الكتب والمصادر: للحد الأدنى الكافي للمهمة؛
+- Lean: للمّات النشطة والبنى القابلة لإعادة الاستخدام؛
+- Python: للبناء والتحقق والتفنيد وإعادة الإنتاج؛
+- R: لتنفيذ إحصائي مستقل عندما تتطلبه الشهادة؛
+- الأدبيات: للأولوية والشروط وأفضل النطاقات؛
+- التجربة: لاكتشاف أو تفنيد نمط، لا لتعويض البرهان.
+
+كل معرفة مكتسبة تعود إلى العقل بصيغة تشغيلية.
+
+## Maturity ladder
 
 ```text
-central-mind-charter.md / central-mind-goals.md   الدستور والهدف الأعلى
-governance/          الصدق، التصنيف، القواعد، المصفوفة، القمع، بروتوكول الكتب، no-go، missing/forbidden
-registries/          مصدر الحقيقة (JSONL): skills/books/frontiers/queue/walls/tools/rules/observables/claims/planned
-installed-skills/    14 بطاقة واجهة مهارة (math/governance)
-ledgers/books/       سجلات الكتب (Overholt/Tenenbaum/Mileti-planned)  +  ledgers/imports/
-maps/                skill-stack / dependency-graph / query-routing / current-capabilities / pvg-to-ant
-audits/              v0.1b-audit-checklist
-tools/               الحراس الآليون الستة
-transition-memory/   الحالة والفعل التالي و compressed-prompt
+L0 Vocabulary
+L1 Exact translation
+L2 Structural simplification
+L3 Transfer principle
+L4 Research mechanism
+L5 Original lemma
+L6 Original theorem
+L7 Reusable research program
 ```
 
-**المبدأ الحاكم:** الـmarkdown للعرض، والـJSONL للحقيقة، والحارس للإنفاذ.
+بعد إغلاق مستوى، يرتفع سقف المطلوب. تكرار مخرجات المستوى نفسه لا يعد تقدمًا استراتيجيًا إلا إذا كان جزءًا من kernel release محدد مسبقًا.
 
-## Sub-minds (صلاحيات وحدود)
+## Goal architecture
 
-ثمانيةُ عقولٍ فرعيّة، لكلٍّ حدُّه: Logic · ANT · PVG · Sieve · Spectral · Computational · Bibliographic · Release-Governance. أمثلةُ الحدّ: **Computational** يعطي evidence لا مبرهنة؛ **Spectral** لا يعلن آليّةَ Hilbert–Pólya بلا operator certificate؛ **PVG** يشخّص الجدار لا يكسر parity.
+- **Strategic:** ثابتة ولا تتغير إلا بقرار صريح.
+- **General:** طويلة المدى.
+- **Operational:** مرنة، قابلة للإضافة والتحديث بعد Stage Review.
 
-## Governance
+كل هدف تشغيلي يحمل مخرجًا قابلًا للقياس، معيار إغلاق، prerequisites، claim ceiling، maturity target، وحالة في `registries/program-goals.jsonl`.
 
-مستودعٌ مستقلٌّ في `D:\PVG-ANT-Central-Mind` (git خاصّ به). لا يتعقّب git أيَّ PDF (`Books_others/` مستبعَدٌ عبر `.gitignore`؛ يفرضه `no_pdf_audit`). لا tag للمسوّدات. النضج بمعايير `transition-memory/` و`audits/` لا بالإعلان.
+## Stage review
 
-## Invariants (تُفحَص آليًّا)
+بعد كل مرحلة لا يعاد تعريف المشروع. تُراجع فقط:
 
-1. كلُّ بطاقة/سجلٍّ يحمل تصنيفًا من `classification-system.md` (`honesty_audit`).
-2. لا عبارةَ ترقيةٍ محظورة كتوكيدٍ إيجابيّ (`honesty_audit`، `forbidden_promotion_audit`).
-3. لا ترقيةَ إلى Candidate/Theorem بلا `Certificate:` (`forbidden_promotion_audit`).
-4. مصدرُ الحقيقة `registries/*.jsonl`؛ كلُّ ID في markdown موجودٌ فيه (`registry_sync_audit`).
-5. لا PDF متعقَّب (`no_pdf_audit`). لا مفهومٌ مكرَّر (`duplicate_concept_audit`). كلُّ كتابٍ موثَّقُ المصدر (`citation_audit`).
+- المعرفة التشغيلية الجديدة؛
+- الجسور القابلة لإعادة الاستخدام؛
+- ما كان مجرد reinterpretation؛
+- ما صمد كلمّة أو آلية؛
+- ما فشل وشهادته؛
+- prerequisites المرحلة التالية؛
+- السقف الأعلى التالي.
+
+## Strategic success criterion
+
+\[
+\boxed{
+\text{One original, correct, modest ANT theorem in which PVG contributes materially}
+}
+\]
+
+تسبق ذلك نتائج أصغر مقبولة: هوية، متباينة، لمّة نقل، نتيجة متوسطية، تصنيف، أو شهادة استحالة أصلية.
+
+## Ceiling
+
+```text
+No RH/GRH progress without a complete proof certificate.
+Translation is not proof.
+Experiment is not proof.
+Formalization does not create originality.
+A book count is not a research metric.
+A Candidate Mechanism requires literature and certificate gates.
+```
+
+## Governing references
+
+- `central-mind-goals.md`
+- `governance/pvg-ant-research-compass-v1.md`
+- `maps/pvg-ant-language-kernel-v1.md`
+- `governance/task-triggered-knowledge-activation-policy.md`
+- `governance/stage-review-and-ceiling-escalation-policy.md`
+- `governance/templates/research-readiness-card.md`
+- `registries/program-goals.jsonl`
+
+## Repository invariants
+
+1. Markdown للعرض، JSONL للحقيقة، والحراس للإنفاذ.
+2. لا ID بلا سجل، ولا ادعاء بلا تصنيف، ولا ترقية بلا شهادة.
+3. لا PDF متعقب.
+4. لا مفهوم مكرر.
+5. لا مصدر كتاب غير موثق.
+6. هدف بحث أصلي نشط واحد فقط.
+7. لا مهمة بحثية بلا readiness gate ومعيار إغلاق.
+8. لا معرفة جديدة بلا عودة تشغيلية إلى العقل.
+
+**Honest classification:** Governance / Research Program. No theorem. No RH/GRH progress.
