@@ -36,21 +36,24 @@ def main() -> None:
     for token in required:
         require(token.lower() in combined.lower(), f"Missing P8 token: {token}")
 
-    forbidden = [
-        "certified original theorem",
-        "publication-ready theorem",
-        "new torsion mechanism",
-        "new contour method",
+    forbidden_positive_promotions = [
+        "Original theorem: certified",
+        "Original lemma: certified",
+        "Publication ready: yes",
+        "Torsion mechanism novelty: yes",
+        "Contour method novelty: yes",
         "RH progress: positive",
         "GRH progress: positive",
     ]
     lowered = combined.lower()
-    for phrase in forbidden:
+    for phrase in forbidden_positive_promotions:
         require(phrase.lower() not in lowered, f"Forbidden P8 promotion: {phrase}")
 
     require("L3 proved transfer principle" in p8, "L3 internal transfer classification missing")
     require("not as an L5 certified original lemma" in p8, "L5 ceiling missing")
     require("not closed as a certified original-theorem success" in p8, "Program hold missing")
+    require("originality not certified" in p8.lower(), "Originality ceiling missing")
+    require("publication readiness: absent" in p8.lower(), "Publication ceiling missing")
 
     print("one_theorem_p8_audit: PASS — internally proved result retained without originality promotion")
 
