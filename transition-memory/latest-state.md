@@ -7,8 +7,8 @@ Operating version:
 Repository:
   D:\PVG-ANT-Central-Mind
 
-Canonical main baseline before this PR:
-  f5d08d7 — Close Original Lemma Selection 001.
+Canonical main baseline:
+  c918957 — Add P7 source and proof audit for One-Theorem 001.
 
 Latest formal baseline:
   56e00f4 — Add Lean P3 valuation mass geometry (LEAN-P3-PASS-008).
@@ -28,7 +28,12 @@ Geometric observable:
   I_r(n) = product over p^a||n of max(a-2r+1,0).
   It counts divisor-box lattice points at coordinate margin at least r from every facet.
 
-Current mathematical checkpoint:
+Classical equivalent form:
+  I_r(n)
+  = 1_{rad(n)^(2r) | n} * tau(n / rad(n)^(2r)).
+  Thus the target is a weighted theorem on 2r-full integers.
+
+Completed proof-program phases:
   P0 priority audit = PASS with narrowed originality claim.
   P1 independent symbolic audit = PASS.
   P2 local factorization and convergence = manual proof complete.
@@ -36,6 +41,8 @@ Current mathematical checkpoint:
   P4 Mellin inversion and contour shift = manual proof complete.
   P5 residue constants and remainder = manual proof complete.
   P6 internal adversarial logic review = PASS.
+  P7 source-grounded priority audit = PASS WITH NARROWED CLASSIFICATION.
+  P7 second-pass mathematical reconstruction = PASS.
 
 Candidate theorem supported by the manual proof:
   D_{r,chi}(s)
@@ -44,35 +51,51 @@ Candidate theorem supported by the manual proof:
   residue-class expansion with x^(1/(2r)), x^(1/(2r+1)) log x, and
   O(x^(1/(2r+2)+epsilon)) layers.
 
-Priority correction:
-  quadratic/cubic torsion-character selection is known in classical square-full
-  arithmetic-progression work.
-  Possible contribution is restricted to the divisor-box margin weight,
-  its general 2r/2r+1 hierarchy, explicit smoothed constants, and PVG interpretation.
+Known prior art fixed by P7:
+  - unweighted squarefull numbers in arithmetic progressions;
+  - quadratic torsion-character selection chi^2=chi_0;
+  - cubic torsion-character selection chi^3=chi_0;
+  - character/L-function decomposition;
+  - classical Mellin/contour machinery.
+
+Surviving possible contribution:
+  - the exact margin-interior weight I_r;
+  - the general 2r and 2r+1 layer hierarchy;
+  - the explicit smooth fixed-modulus weighted formula and constants;
+  - the PVG derivation and interpretation of the observable.
+
+P7 classification:
+  mathematical coherence at fixed parameters = PASS;
+  method novelty = NO;
+  torsion mechanism novelty = NO;
+  statement/observable novelty = plausible, not certified;
+  PVG discovery contribution = material;
+  PVG necessity for the final contour proof = weak.
 
 Automation:
-  symbolic residual order verified for r=1..8;
-  simple/double pole coefficients verified independently;
-  principal-character finite part checked at q=1,2,6,30;
-  CI and phase audit = PASS on the current proof artifacts.
+  P0-P6 symbolic and phase audit = PASS.
+  P7 source/proof/ceiling audit = PASS.
+  No unresolved review threads at merge.
 
-Remaining gates:
-  P7 source-grounded external review and older-literature audit;
-  P8 final classification and closure.
+Remaining gate:
+  P8 final classification requires one of:
+  - external research-grade bibliographic/expert priority confirmation;
+  - exact known-result attribution;
+  - corrected weaker classification;
+  - or named missing-certificate closure.
 
 Current maturity:
   L0 Vocabulary              strong
   L1 Exact translation       certified declared core
   L2 Structural/analytic     certified for seven families
   L3 Transfer principle      manually proved candidate, not certified original
-  L4 Research mechanism      candidate theorem package under review
+  L4 Research mechanism      candidate theorem package under final classification
   L5 Original lemma          none certified
   L6 Original theorem        none certified
 
 Tool state:
-  targeted literature/source audit = active next step;
-  independent mathematical reading = required;
-  Python/SymPy = certificate support;
+  research-grade bibliography/expert review = required for P8;
+  Python/SymPy = certificate support only;
   R = not required;
   Lean = deferred;
   GPU = not required.
@@ -83,7 +106,8 @@ Local-prime-density state:
 
 Ceiling:
   complete manual proof candidate, not certified theorem;
-  originality plausible and narrowed, not certified;
+  plausible modest statement novelty, not certified originality;
+  no new analytic method;
   no publication claim;
   zero RH progress;
   zero GRH progress.
