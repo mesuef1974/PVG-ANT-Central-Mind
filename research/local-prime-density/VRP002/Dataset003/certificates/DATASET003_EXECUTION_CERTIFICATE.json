@@ -1,0 +1,91 @@
+{
+  "certificate_id": "CERT-PVG-LPD-DATASET003-EXECUTION-001",
+  "protocol_id": "PVG-LPD-DATASET-003-PROTOCOL-001",
+  "status": "UNRESOLVED_IN_INDEPENDENT_REPLICATION",
+  "promoted": false,
+  "parent_protocol_merge_commit": "c591ffbf15d7bc7860f5ccd8deb2787a923c8915",
+  "execution_head": "0317e6f7f0fe8dcbea243b86d8b4a478631c2e10",
+  "github_actions": {
+    "run_id": 29164164106,
+    "job_id": 86574289982,
+    "conclusion": "success",
+    "artifact_id": 8251669818,
+    "artifact_digest": "sha256:3827c6fd94eb493be15b7b480f4973b67b4473bb6049ca31c0b3a1703b01bfb9"
+  },
+  "dataset": {
+    "range_start_inclusive": 10000000,
+    "range_end_exclusive": 100000000,
+    "rows": 480,
+    "columns": 147,
+    "selected_per_family": 160,
+    "complete_window_counts": {
+      "0.5": 13675,
+      "0.666666666667": 746,
+      "0.75": 175
+    },
+    "prime_count_to_limit": 5761455,
+    "lambda_support_count": 5762859,
+    "protocol_sha256": "43649a3a9dbe7683f1486ea24e84c80fd18dc5c6be56f42933c970ca1c0f94b0",
+    "dataset_sha256": "cce7968b95d4ebc18dcc7d3890400e17f753295c973994bceb4695cef78775d8"
+  },
+  "model_results": {
+    "classical": {
+      "features": 3,
+      "alpha": 300.0,
+      "rmse": 0.5305422949233406,
+      "mae": 0.4143279763852793,
+      "r2": -0.015522594499137288
+    },
+    "primary": {
+      "features": 66,
+      "alpha": 3000.0,
+      "rmse": 0.5263936046962887,
+      "mae": 0.40901631442345804,
+      "r2": 0.0002975055165514995
+    },
+    "secondary": {
+      "features": 9,
+      "alpha": 1000.0,
+      "rmse": 0.5275129508866133,
+      "mae": 0.40849561146776586,
+      "r2": -0.003958636380846148
+    }
+  },
+  "overall_delta": 0.004148690227051888,
+  "family_delta": {
+    "x^0.5": -0.007361036848689828,
+    "x^0.666667": 0.01100110326931758,
+    "x^0.75": 0.014884114272684157
+  },
+  "bootstrap": {
+    "replicates": 10000,
+    "seed": 20260712,
+    "ci_lower": -0.0015440013059201756,
+    "median": 0.004176772305558518,
+    "ci_upper": 0.010035743817573954,
+    "probability_better": 0.921
+  },
+  "promotion_gates": {
+    "overall_delta_positive": true,
+    "bootstrap_lower_positive": false,
+    "all_family_deltas_positive": false,
+    "python_r_agreement": true
+  },
+  "cross_language": {
+    "status": "PASS",
+    "tolerance": 1e-7,
+    "maximum_prediction_difference": 6.106226635438361e-16,
+    "maximum_model_metric_difference": 5.551115123125783e-16,
+    "maximum_family_metric_difference": 4.440892098500626e-16,
+    "maximum_bootstrap_difference": 1.8735013540549517e-16
+  },
+  "secondary_residue_target_count": 28,
+  "scientific_classification": [
+    "Independent replication unresolved",
+    "Scale-dependent diagnostic pattern",
+    "No replicated candidate signal",
+    "No new theorem",
+    "No RH/GRH progress"
+  ],
+  "next_gate": "Scale-Heterogeneity Diagnostic and Proof-Strategy Pass"
+}
