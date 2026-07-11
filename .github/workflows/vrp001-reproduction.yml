@@ -10,7 +10,7 @@ on:
 jobs:
   reproduce:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     defaults:
       run:
         working-directory: research/local-prime-density/VRP001
@@ -25,7 +25,7 @@ jobs:
           cache: pip
           cache-dependency-path: research/local-prime-density/VRP001/requirements.txt
 
-      - name: Install dependencies
+      - name: Install Python dependencies
         run: python -m pip install -r requirements.txt
 
       - name: Build Dataset 001
@@ -34,7 +34,7 @@ jobs:
       - name: Verify Dataset 001
         run: python Dataset001/analysis/verify_dataset_001.py
 
-      - name: Analyze Dataset 001
+      - name: Analyze Dataset 001 in Python
         run: python Dataset001/analysis/analyze_dataset_001.py
 
       - name: Build Dataset 002
@@ -43,5 +43,16 @@ jobs:
       - name: Verify Dataset 002
         run: python Dataset002/analysis/verify_dataset_002.py
 
-      - name: Analyze Dataset 002
+      - name: Analyze Dataset 002 in Python
         run: python Dataset002/analysis/analyze_dataset_002.py
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "release"
+
+      - name: Analyze Dataset 001 in R
+        run: Rscript Dataset001/analysis/pvg_lpd_analysis_001.R
+
+      - name: Analyze Dataset 002 in R
+        run: Rscript Dataset002/analysis/pvg_lpd_analysis_002.R
