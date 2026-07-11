@@ -45,9 +45,9 @@ A usable sieve certificate must name the sequence, main-term model, weights, sie
 
 **Analytic diagnostic:** locates exactly where information is lost before assigning a parity or distribution wall.
 
-## Finite counterexample
+## Finite certificate
 
-`EX-SIEVE-LOSS-001`: on `{1,2,3,6}`, weights `(1,-1,-1,1)` are invisible to aggregates at `d=1,2,3` but visible at `d=6`. Thus low-level aggregate data has a nontrivial kernel.
+`EX-SIEVE-LOSS-001` is a counterexample to injectivity after aggregation: on `{1,2,3,6}`, weights `(1,-1,-1,1)` are invisible to aggregates at `d=1,2,3` but visible at `d=6`. Thus low-level aggregate data has a nontrivial kernel.
 
 ## Research use
 
