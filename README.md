@@ -5,7 +5,7 @@
 
 ## Research compass v1.0
 
-The project is no longer measured by the number of books, units, or files. Knowledge, Lean, Python, R, literature search, and experiments are activated only when an active research task requires them.
+The project is no longer measured by the number of books, units, or files. Knowledge, Lean, Python, R, literature search, experiments, and external legacy laboratories are activated only when an active research task requires them.
 
 The governing route is:
 
@@ -32,6 +32,10 @@ Canonical references:
 - `governance/stage-review-and-ceiling-escalation-policy.md`
 - `governance/templates/research-readiness-card.md`
 - `registries/program-goals.jsonl`
+- `integration/legacy-research-assets-reconciliation-001.md`
+- `maps/legacy-assets-routing.md`
+- `registries/external-research-assets.jsonl`
+- `registries/negative-results.jsonl`
 
 ## Supreme law
 
@@ -56,8 +60,8 @@ No RH/GRH progress without a complete proof certificate.
 ## Current strategic state
 
 ```text
-Current main HEAD:
-  1675b67 — Establish PVG-ANT Research Compass v1.0.
+Canonical baseline before Legacy Reconciliation 001:
+  d8f3118 — Synchronize compass state after v1.0 merge.
 
 Latest formal baseline:
   56e00f4 — Add Lean P3 valuation mass geometry (LEAN-P3-PASS-008).
@@ -96,8 +100,9 @@ Original theorem                   none certified
 |---|---|
 | `central-mind-charter.md`, `central-mind-goals.md` | strategic constitution and goals |
 | `governance/` | honesty, readiness, stage review, claims, book/source protocols |
-| `registries/` | machine truth: skills, books, rules, goals, claims, tools, fronts, walls |
-| `maps/` | language kernel, routing, capabilities, dependency and translation maps |
+| `registries/` | machine truth: skills, books, rules, goals, claims, tools, fronts, walls, external assets, negative results |
+| `maps/` | language kernel, legacy routing, capabilities, dependency and translation maps |
+| `integration/` | controlled reconciliation and knowledge-return passes |
 | `installed-skills/` | operational math and governance interfaces |
 | `ledgers/books/`, `ledgers/imports/` | mined source knowledge and integration layers |
 | `research/` | reproducible vertical research passes |
@@ -105,7 +110,7 @@ Original theorem                   none certified
 | `transition-memory/` | current state and next action |
 | `tools/` | automated guards |
 
-The local PDF library remains excluded from Git.
+The local PDF library, heavy numerical data, GPU engines, HTML applications, and duplicate formal kernels remain excluded from the canonical Git repository.
 
 ## Knowledge status discipline
 
@@ -126,6 +131,20 @@ The repository retains the completed/validated layers from Overholt, Tenenbaum, 
 Historical source-grounding safeguards remain active, including Montgomery v0.6-G Closure Review and the quarantine of mismatched A/B/legacy-E material.
 
 The Lean P3 layer through PASS 008 supplies reusable formal infrastructure. It formalizes known valuation geometry and is not itself original ANT progress. New Lean work requires an active research lemma.
+
+## Federated legacy research estate
+
+Legacy projects from `D:\The All` and reviewed archives are registered as external assets rather than parallel live projects.
+
+The reconciliation imported:
+
+- six reusable language bridges;
+- a routing contract for external laboratories;
+- canonical finite-example and bridge-ablation roles;
+- negative-result memory that blocks repeated dead ends;
+- design patterns for formal walls and missing certificates.
+
+No old open-problem execution, Nyman–Beurling production run, zeta island, or Dataset 004 has been activated.
 
 ## Reproducible research state
 
@@ -150,6 +169,7 @@ python tools/duplicate_concept_audit.py
 python tools/citation_audit.py
 python tools/state_coherence_audit.py
 python tools/research_compass_audit.py
+python tools/legacy_assets_audit.py
 ```
 
 ## Focus rules
@@ -158,6 +178,7 @@ python tools/research_compass_audit.py
 - task first, prerequisite audit second;
 - minimum sufficient knowledge acquisition;
 - no rebuilding certified bridges;
+- no external asset without a named missing function;
 - no tool without a named scientific function;
 - every stage has a measurable deliverable and closure rule;
 - the ceiling rises after each maturity level.
