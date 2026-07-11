@@ -1,75 +1,65 @@
 # Next Action
 
 ```text
-Canonical main baseline before this PR:
-  f5d08d7 — Close Original Lemma Selection 001.
-
 Strategic compass:
   GOAL-PVG-ANT-STRATEGIC-001 = active_fixed.
   Original ANT contribution through materially useful PVG.
 
-Active operational goal:
-  GOAL-OP-ONE-THEOREM-001 = active.
+Current theorem program:
+  GOAL-OP-ONE-THEOREM-001 = active_external_validation_hold.
   Frozen target = ONE-LEMMA-TARGET-001.
 
-Completed inside the active program:
-  P0 priority audit with narrowed claim;
-  P1 independent symbolic audit;
-  P2 local factorization and convergence proof;
-  P3 character decomposition;
-  P4 Mellin inversion and contour shift;
-  P5 residue constants and remainder;
-  P6 internal adversarial logic review.
+Internal result:
+  the smooth fixed-q, fixed-r, fixed-W theorem is internally proved;
+  symbolic checks, adversarial review, and second-pass reconstruction pass;
+  P8 classification is complete.
 
-Current result:
-  complete manual proof candidate for the fixed-q smoothed theorem;
-  symbolic and CI certificates PASS;
-  theorem not yet certified original or publication-ready.
+Current classification:
+  PLAUSIBLY NEW MODEST WEIGHTED THEOREM, ORIGINALITY NOT CERTIFIED.
 
-Immediate next action — P7 source-grounded review:
-  1. Inspect Chan–Tsang’s first square-full progression paper.
-  2. Inspect Srichan’s character/L-function formulation and cubefull extension.
-  3. Inspect Liu–Zhang and later cited square-full AP results.
-  4. Search weighted powerful/k-full number literature for the exact local weight
-     max(a-2r+1,0).
-  5. Search divisor-lattice/interior-point terminology and multiplicative-function databases.
-  6. Attach exact citations for fixed-strip Dirichlet-L growth and Mellin inversion.
-  7. Obtain an independent line-by-line mathematical review of P2 and P3–P5.
+Known prior art:
+  squarefull and k-full support;
+  quadratic/cubic torsion-character selection;
+  character/L-function treatment of squarefull progressions;
+  Mellin and contour machinery.
 
-P8 closure choices:
-  A. original theorem certificate;
-  B. new-observable/classical-method theorem classification;
-  C. exact known-result attribution;
-  D. corrected weaker theorem;
-  E. negative certificate or named missing condition.
+Surviving possible contribution:
+  margin-interior divisor-box observable I_r;
+  general 2r and 2r+1 layer hierarchy;
+  explicit smoothed weighted fixed-modulus constants;
+  residual 2r+2 threshold and error.
 
-Priority correction already fixed:
-  quadratic/cubic torsion-character selection is known prior art.
-  Possible novelty is only the divisor-box margin weight, its 2r/2r+1 hierarchy,
-  explicit smoothed constants, and geometric interpretation.
+Immediate next package:
+  P8-EXTERNAL-VALIDATION-001.
 
-Not allowed:
-  - merging this checkpoint as a certified theorem;
-  - publication drafting before P7/P8 closure;
-  - a second active theorem target;
-  - Dataset 004;
-  - claiming a new analytic method;
-  - Lean formalization before source and originality classification.
+Required actions:
+  1. Complete cited-by and related-item chains for Chan–Tsang and Srichan.
+  2. Search research-grade bibliographic databases for weighted powerful/k-full functions.
+  3. Compare the theorem with general Selberg–Delange and meromorphic Dirichlet-series transfer results.
+  4. Identify whether I_r has an established name or appears as a special Bell-series example.
+  5. Obtain an external line-by-line mathematical referee report.
+  6. Issue one final classification:
+       A. original modest theorem;
+       B. new PVG-derived application of a known general theorem;
+       C. known result in different notation;
+       D. corrected theorem after referee review.
 
-Tools:
-  literature/source verification = required;
-  independent mathematical review = required;
-  Python/SymPy = support only;
-  R, Lean, GPU = not required now.
+Do not do yet:
+  no second theorem target;
+  no publication drafting;
+  no Lean formalization;
+  no broad book mining;
+  no new dataset or statistical modeling;
+  no RH/GRH-related expansion.
 
 Stop rule:
-  Program remains open until P8 issues one explicit classification certificate.
+  One-Theorem Program 001 closes only after external priority and referee gates produce a final classification.
 
 Ceiling:
-  complete manual proof candidate;
-  originality plausible but unconfirmed;
-  no certified theorem;
+  internally proved result;
+  originality not certified;
+  no publication claim;
   no RH/GRH progress.
 ```
 
-**Classification:** Diagnostic research-operations plan.
+**Classification:** External-validation plan for an internally proved candidate theorem.
