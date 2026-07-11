@@ -31,7 +31,7 @@ def compare(expected: Any, observed: Any, path: str = "root") -> None:
     if isinstance(expected, list):
         require(isinstance(observed, list), f"Type mismatch at {path}")
         require(len(expected) == len(observed), f"Length mismatch at {path}")
-        for index, (left, right) in enumerate(zip(expected, observed, strict=True)):
+        for index, (left, right) in enumerate(zip(expected, observed)):
             compare(left, right, f"{path}[{index}]")
         return
     if isinstance(expected, dict):
