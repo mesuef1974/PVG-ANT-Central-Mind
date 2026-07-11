@@ -12,7 +12,7 @@
     "Dataset 002 multiplicity correction",
     "Dataset 002 classification repair"
   ],
-  "local_reproduction_checks": {
+  "original_dataset_comparison": {
     "dataset_001": {
       "rows": 829,
       "columns": 65,
@@ -28,6 +28,15 @@
       "same_nonnumeric_values": true
     }
   },
+  "clean_directory_reproduction": {
+    "status": "PASS",
+    "dataset_001_rows": 829,
+    "dataset_002_rows": 829,
+    "dataset_001_sha256": "b74dbd3dbe01c2dddd392f7e1ed166be65c4c86e2181def5979f924103444af4",
+    "dataset_002_sha256": "168d562b23d94d538bc81fc3091a028a36e250f11db5388bf1841d7836c06057",
+    "dataset_001_certificate_numbers_reproduced": true,
+    "dataset_002_certificate_numbers_reproduced": true
+  },
   "dataset_002_repaired_decision": "UNRESOLVED WITH EXPLORATORY UNADJUSTED SIGNAL",
   "multiplicity_result": {
     "exploratory_model": "Classical + Lambda + characters + residue energy",
@@ -36,12 +45,16 @@
     "holm_p": 0.08000000000000007,
     "promoted": false
   },
+  "review_feedback_addressed": [
+    "Fail fast when expected feature groups are empty",
+    "Reject R vector-length mismatch and non-finite metric inputs",
+    "Replace Python assert statements with explicit exceptions"
+  ],
   "remaining_gates": [
-    "Run the R scripts in an environment with R installed",
-    "Run a clean-clone reproduction check",
-    "Update the branch onto the latest main",
+    "Run the supplementary R scripts in an environment with R installed",
     "Review the final PR diff before merge"
   ],
+  "environment_note": "R is not installed in the execution environment; exact certificate numbers are reproduced by the committed Python Ridge/Bootstrap scripts.",
   "scientific_ceiling": [
     "No new theorem",
     "No confirmed Candidate Signal",
