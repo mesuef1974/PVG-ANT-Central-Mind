@@ -1,4 +1,4 @@
-name: One-Theorem 001 P0-P1 Audit
+name: One-Theorem 001 P0-P6 Audit
 
 on:
   pull_request:
@@ -6,13 +6,15 @@ on:
       - "research/one-theorem/001/**"
       - "research/original-lemma-selection/001/ONE-LEMMA-TARGET-001.md"
       - "governance/readiness/ONE-LEMMA-TARGET-001.md"
+      - "transition-memory/**"
+      - "maps/current-capabilities.md"
       - "tools/one_theorem_symbolic_audit.py"
       - "tools/one_theorem_phase_audit.py"
       - ".github/workflows/one-theorem-001-audit.yml"
   workflow_dispatch:
 
 jobs:
-  audit-p0-p1:
+  audit-p0-p6:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -29,13 +31,13 @@ jobs:
       - name: Run independent symbolic audit
         run: python tools/one_theorem_symbolic_audit.py
 
-      - name: Audit priority, symbolic result, and scientific ceiling
+      - name: Audit priority, proof phases, and scientific ceiling
         run: python tools/one_theorem_phase_audit.py
 
-      - name: Upload P0-P1 symbolic certificate
+      - name: Upload P0-P6 symbolic certificate
         uses: actions/upload-artifact@v4
         with:
-          name: one-theorem-001-p0-p1-${{ github.sha }}
+          name: one-theorem-001-p0-p6-${{ github.sha }}
           path: research/one-theorem/001/P1-symbolic-results.json
           if-no-files-found: error
           retention-days: 30
