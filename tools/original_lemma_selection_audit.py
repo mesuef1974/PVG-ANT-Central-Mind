@@ -9,6 +9,10 @@ BASE = ROOT / "research" / "original-lemma-selection" / "001"
 CANDIDATES = BASE / "candidates.jsonl"
 LEDGER = BASE / "CANDIDATE_LEDGER.md"
 LITERATURE = BASE / "PRELIMINARY_LITERATURE_AUDIT.md"
+DEEP_AUDIT = BASE / "FINALIST_DEEP_AUDIT.md"
+TARGET = BASE / "ONE-LEMMA-TARGET-001.md"
+DECISION = BASE / "final-decision.json"
+READINESS = ROOT / "governance" / "readiness" / "ONE-LEMMA-TARGET-001.md"
 EXPECTED = BASE / "candidate-check-expected.json"
 GENERATED = BASE / "candidate-check-results.json"
 
@@ -82,7 +86,7 @@ def main() -> None:
     killed = sum(counts[status] for status in ["killed_trivial", "killed_known", "killed_known_pending_exact_citation"])
     require(killed == 4, "Expected four killed candidates")
 
-    for path in [LEDGER, LITERATURE, EXPECTED, GENERATED]:
+    for path in [LEDGER, LITERATURE, DEEP_AUDIT, TARGET, DECISION, READINESS, EXPECTED, GENERATED]:
         require(path.exists(), f"Missing selection artifact: {path}")
 
     expected = json.loads(EXPECTED.read_text(encoding="utf-8"))
@@ -90,9 +94,19 @@ def main() -> None:
     require(expected == generated, "Generated candidate checks differ from committed expected result")
     require(generated["preliminary_shortlist"] == EXPECTED_SHORTLIST, "Shortlist drift")
 
+    decision = json.loads(DECISION.read_text(encoding="utf-8"))
+    require(decision["selected_candidate"] == "OLS-CAND-005", "Selected candidate drift")
+    require(decision["selected_target"] == "ONE-LEMMA-TARGET-001", "Frozen target drift")
+    require(decision["preliminary_originality"] == "plausible_not_certified", "Originality ceiling drift")
+    require(decision["next_goal"] == "GOAL-OP-ONE-THEOREM-001", "Next-goal drift")
+
     ledger_text = LEDGER.read_text(encoding="utf-8")
     literature_text = LITERATURE.read_text(encoding="utf-8")
-    combined = (ledger_text + "\n" + literature_text).lower()
+    deep_text = DEEP_AUDIT.read_text(encoding="utf-8")
+    target_text = TARGET.read_text(encoding="utf-8")
+    readiness_text = READINESS.read_text(encoding="utf-8")
+    combined = "\n".join([ledger_text, literature_text, deep_text, target_text, readiness_text]).lower()
+
     for candidate_id in ids:
         require(candidate_id in ledger_text, f"Candidate absent from ledger: {candidate_id}")
     for finalist in EXPECTED_SHORTLIST:
@@ -103,11 +117,16 @@ def main() -> None:
     require("No candidate is certified original" in literature_text, "Originality ceiling missing")
     require("No proof has begun" in literature_text, "Proof-start ceiling missing")
     require("No RH/GRH progress" in literature_text, "RH/GRH negative ceiling missing")
-    require("Phi_z" in ledger_text or "\\Phi_z" in ledger_text, "Face-enumerator family missing")
-    require("zeta(2s)" in ledger_text or "\\zeta(2s)" in ledger_text, "Interior factorization missing")
-    require("torsion" in literature_text.lower(), "Torsion-character audit missing")
+    require("OLS-CAND-005 = SELECTED_REFINED" in deep_text, "Finalist decision missing")
+    require("Target: FROZEN FOR READINESS REVIEW" in target_text, "Target freeze missing")
+    require("Decision: READY WITH EXPLICIT PRIORITY AND SYMBOLIC GATES" in readiness_text, "Readiness decision missing")
+    require("No original lemma certified" in target_text, "Target ceiling missing")
+    require("No theorem proved" in readiness_text, "Readiness theorem ceiling missing")
+    require("\\chi^{2r}=\\chi_0" in target_text, "Even torsion layer missing")
+    require("\\chi^{2r+1}=\\chi_0" in target_text, "Odd torsion layer missing")
+    require("x^{1/(2r+2)+\\varepsilon}" in target_text, "Target remainder missing")
 
-    print("original_lemma_selection_audit: PASS — 10 candidates, 4 kills, 3 preliminary finalists, no originality promotion")
+    print("original_lemma_selection_audit: PASS — 10 candidates, 4 kills, 3 finalists, ONE-LEMMA-TARGET-001 frozen without originality promotion")
 
 
 if __name__ == "__main__":
