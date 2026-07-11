@@ -1,0 +1,174 @@
+{
+  "certificate_id": "CERT-PVG-LPD-SCALE-HETEROGENEITY-001",
+  "status": "SCALE_HETEROGENEITY_DIAGNOSTIC_PASS",
+  "parent_research_commit": "a0f93f46b01ba4743c2348e5ddbadf4522aed29a",
+  "source_artifact": {
+    "workflow_run_id": 29164273761,
+    "artifact_id": 8251699912,
+    "artifact_digest": "sha256:9fd56a0b99b198e44ebeaa73fb3bf36b69a5e3d40425e1d7c76cec23a493c889"
+  },
+  "numeric_tolerances": {
+    "finite_gain_identity_atol": 1e-12,
+    "correction_reconstruction_atol": 1e-10,
+    "adjacent_identity_atol": 1e-12,
+    "adjacent_identity_rtol": 5.684341886080802e-14
+  },
+  "exact_identities": {
+    "correction_gain": "E[e_c^2]-E[(e_c-d)^2]=2E[e_c d]-E[d^2]",
+    "positive_correction_criterion": "MSE_primary < MSE_classical iff 2E[e_c d] > E[d^2]",
+    "bias_covariance": "2E[e_c d]=2Cov(e_c,d)+2E[e_c]E[d]",
+    "adjacent_increment": "2AB=(A+B)^2-A^2-B^2",
+    "maximum_gain_identity_abs_error": 1.0061396160665481e-16,
+    "maximum_adjacent_identity_abs_error": 1.862645149230957e-09,
+    "maximum_adjacent_identity_relative_error": 3.7473279654308245e-14,
+    "maximum_correction_reconstruction_error": 2.0261570199409107e-15
+  },
+  "gain_decomposition": {
+    "overall": {
+      "n": 480,
+      "mse_classical": 0.2814751267025249,
+      "mse_primary": 0.2770902270651526,
+      "mse_gain": 0.004384899637372319,
+      "alignment": 0.008346440423593445,
+      "correction_energy": 0.0039615407862212265,
+      "alignment_to_energy_ratio": 2.106867220103726,
+      "two_covariance": 0.0055017604966598535,
+      "two_mean_product": 0.0028446799269335895,
+      "identity_abs_error": 1.0061396160665481e-16
+    },
+    "x^0.5": {
+      "n": 160,
+      "mse_classical": 0.4281196743122372,
+      "mse_primary": 0.4378066378213779,
+      "mse_gain": -0.009686963509140722,
+      "alignment": -0.003229167971967856,
+      "correction_energy": 0.0064577955371728415,
+      "alignment_to_energy_ratio": -0.5000418414271371,
+      "two_covariance": -0.004006114842479139,
+      "two_mean_product": 0.0007769468705112825,
+      "identity_abs_error": 2.42861286636753e-17
+    },
+    "x^0.666667": {
+      "n": 160,
+      "mse_classical": 0.24695295613425464,
+      "mse_primary": 0.23614012435996995,
+      "mse_gain": 0.010812831774284687,
+      "alignment": 0.013940643141599967,
+      "correction_energy": 0.003127811367315264,
+      "alignment_to_energy_ratio": 4.456996124279011,
+      "two_covariance": 0.01002878268336777,
+      "two_mean_product": 0.003911860458232197,
+      "identity_abs_error": 1.5612511283791264e-17
+    },
+    "x^0.75": {
+      "n": 160,
+      "mse_classical": 0.1693527496610826,
+      "mse_primary": 0.15732391901410994,
+      "mse_gain": 0.01202883064697266,
+      "alignment": 0.014327846101148223,
+      "correction_energy": 0.002299015454175574,
+      "alignment_to_energy_ratio": 6.232166067055075,
+      "two_covariance": 0.009599372777362633,
+      "two_mean_product": 0.004728473323785587,
+      "identity_abs_error": 1.0408340855860843e-17
+    }
+  },
+  "lagged_lambda_group": {
+    "overall": {
+      "alignment": 0.0057233309525968066,
+      "self_energy": 0.0025505724782739166,
+      "error_correlation": 0.10654269153449243,
+      "mean_correction": 0.00043399322734933855,
+      "sd_correction": 0.05050132798404941
+    },
+    "x^0.5": {
+      "alignment": -0.0013490655987684814,
+      "self_energy": 0.004845696342424055,
+      "error_correlation": -0.013652371252603782,
+      "mean_correction": -0.0019594416376961894,
+      "sd_correction": 0.06958345299633037
+    },
+    "x^0.666667": {
+      "alignment": 0.008277333821922462,
+      "self_energy": 0.0016919513024302626,
+      "error_correlation": 0.20228945645623939,
+      "mean_correction": 0.0007438655285245774,
+      "sd_correction": 0.041126608983792175
+    },
+    "x^0.75": {
+      "alignment": 0.010241724634636443,
+      "self_energy": 0.0011140697899674327,
+      "error_correlation": 0.36615216899895864,
+      "mean_correction": 0.0025175557912196266,
+      "sd_correction": 0.033282603606171336
+    },
+    "all_six_frozen_coefficients_negative": true
+  },
+  "adjacent_lambda": {
+    "overall": {
+      "n": 480,
+      "covariance": -140273.61245476955,
+      "correlation": -0.215887284502138,
+      "mean_raw_product": -140616.06883866375,
+      "mean_product_over_h_log_x": -0.02815539041127183,
+      "median_product_over_h_log_x": -0.01196999019609641
+    },
+    "x^0.5": {
+      "n": 160,
+      "covariance": -2658.753148388449,
+      "correlation": -0.05333181137009842,
+      "mean_raw_product": -2488.8249531807132,
+      "mean_product_over_h_log_x": -0.012613763210051684,
+      "median_product_over_h_log_x": -0.011363437403110629
+    },
+    "x^0.666667": {
+      "n": 160,
+      "covariance": -61341.794257793554,
+      "correlation": -0.13172311480134363,
+      "mean_raw_product": -61722.791437785,
+      "mean_product_over_h_log_x": -0.02627248251020403,
+      "median_product_over_h_log_x": -0.003973501114493749
+    },
+    "x^0.75": {
+      "n": 160,
+      "covariance": -356217.38611157495,
+      "correlation": -0.24888712441677607,
+      "mean_raw_product": -357636.5901250255,
+      "mean_product_over_h_log_x": -0.04557992551355977,
+      "median_product_over_h_log_x": -0.01439844311937994
+    }
+  },
+  "observed_pattern": {
+    "shortest_family_gain_negative": true,
+    "longer_family_gains_positive": true,
+    "adjacent_lambda_covariance_negative_all_families": true,
+    "interpretation": "The frozen correction behaves as an anti-persistence correction. At x^0.5 its alignment is negative and its energy penalty is largest; at longer scales alignment is positive and exceeds correction energy."
+  },
+  "analytic_bridge": {
+    "exact_statement": "For E_h(x)=psi(x+h)-psi(x)-h, 2E_h(x)E_h(x+h)=E_2h(x)^2-E_h(x)^2-E_h(x+h)^2 pointwise.",
+    "conditional_statement": "A sufficiently uniform variance asymptotic at h and 2h, together with common-domain shift and boundary control, would imply an adjacent covariance asymptotic of schematic size -h X log 2.",
+    "status": "conditional proof strategy only",
+    "missing_certificates": [
+      "uniform short-interval variance asymptotic in the required h range",
+      "shifted versus unshifted second-moment control",
+      "boundary-domain control",
+      "bridge from von Mangoldt covariance to the standardized prime-count residual"
+    ]
+  },
+  "pvg_role": {
+    "current_contribution": "organizes past-only valuation/residue observables and exposes the alignment-versus-energy criterion",
+    "necessity_status": "not established",
+    "originality_status": "no original PVG mechanism certified"
+  },
+  "classification": [
+    "Exact known algebraic identities",
+    "Computational scale-heterogeneity diagnostic",
+    "Observed adjacent von Mangoldt anti-correlation",
+    "Conditional Selberg-variance bridge",
+    "Mechanism not proved",
+    "No theorem about primes",
+    "No RH/GRH progress"
+  ],
+  "closure_decision": "CLOSE SCALE-HETEROGENEITY DIAGNOSTIC — PASS AS DIAGNOSTIC, NOT AS MECHANISM",
+  "next_action": "Complete targeted literature and assumption audit for the shifted Selberg covariance identity; do not start Dataset 004 or a new Lean pass."
+}

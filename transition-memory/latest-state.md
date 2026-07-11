@@ -7,14 +7,15 @@ Operating version:
 Repository:
   D:\PVG-ANT-Central-Mind
 
-Canonical baseline before Legacy Reconciliation 001:
-  d8f3118 — Synchronize compass state after v1.0 merge.
+Canonical main baseline before this closure PR:
+  c9f940c — Integrate legacy research assets into the Central Mind.
 
 Latest formal baseline:
   56e00f4 — Add Lean P3 valuation mass geometry (LEAN-P3-PASS-008).
 
-Latest closed research baseline:
+Latest closed research sequence:
   a0f93f4 — Close Dataset 003 independent replication.
+  Scale-Heterogeneity closure certificate is committed in the current closure PR.
 
 Strategic goal:
   GOAL-PVG-ANT-STRATEGIC-001 = active_fixed.
@@ -29,15 +30,17 @@ Research operating mode:
   Proof/test/certificate followed by knowledge return.
   Stage ceiling escalates after each closure.
 
-Active operational goal:
-  GOAL-OP-SCALE-HETEROGENEITY-CLOSE-001.
-  Research front: PVG-LOCAL-PRIME-DENSITY-001.
-  Required closure: repair + reproducibility + exact/empirical/conditional separation + Closure Review.
+Closed operational goal:
+  GOAL-OP-SCALE-HETEROGENEITY-CLOSE-001 = closed.
+  Decision: PASS AS DIAGNOSTIC, NOT AS MECHANISM.
+  Reproduction run: 29168930360 = SUCCESS.
+  Artifact: 8252969380; digest sha256:5276945f2f8a2d872b6c0493572580071d4f76a66c4aca9b24d84a416e6c6eb1.
 
-Queued operational goal:
-  GOAL-OP-LANGUAGE-KERNEL-V1-001.
-  Eight canonical bridges with forward/reverse maps, information-loss audits, analytic transforms,
-  simplification-gain labels, examples, and certificates.
+Active operational goal:
+  GOAL-OP-LANGUAGE-KERNEL-V1-001 = active.
+  Readiness: READY.
+  Deliverable: eight audited PVG–ANT bridge families with exact maps, loss audits,
+  analytic transforms, simplification-gain labels, examples, and certificates.
 
 Blocked sequence:
   GOAL-OP-ORIGINAL-LEMMA-SELECTION-001
@@ -59,56 +62,45 @@ Knowledge substrate retained for on-demand activation:
   Source availability is not operational readiness.
 
 Legacy Research Assets Reconciliation 001:
-  integrated support pass; no new active front.
-  Registered external sources include PVG-Web, PVG-Sieve-Interface, PVG-Finite-Atlas,
-  Log2-Bridge, Open-Problems, Zeta-Literature, the external zeta laboratory, legacy Lean/skills,
-  historical reviews, and archived research ideas.
-  Six bridges were returned to the canonical language kernel:
-    sieve level ↔ truncated valuation information;
-    pointwise valuation ↔ aggregated information loss;
-    principal-character removal;
-    residue-fiber variance ↔ character second moment;
-    support/convolution/residue/spectral separation;
-    edge-error ↔ true-barrier separation.
-  Negative and known-confirmation paths are recorded in registries/negative-results.jsonl.
-  External projects remain laboratories/archive and are activated only through a named task.
+  integrated support pass; no active legacy front.
+  Eleven external assets are registered and routed on demand.
+  Six legacy bridges were returned to the canonical kernel.
+  Negative/known-confirmation paths are stored in registries/negative-results.jsonl.
 
-Formal layer:
-  Lean P3 has advanced through valuation support, support cardinality, multiplication, powers,
-  division conditions, and valuation mass geometry. These are formalized known results and reusable
-  infrastructure, not original ANT progress. No new Lean pass starts unless an active research lemma needs it.
-
-Reproducible local-prime-density state:
+Local-prime-density closure state:
   Dataset 001: negative diagnostic.
-  Dataset 002: unresolved with unadjusted exploratory signal.
+  Dataset 002: unresolved exploratory signal.
   Dataset 003: UNRESOLVED IN INDEPENDENT REPLICATION.
-  No replicated Candidate Signal. No Dataset 004 authorized.
+  Scale-Heterogeneity: exact/empirical/conditional layers separated and reproducibly closed.
+  Adjacent anti-correlation remains an empirical observation; the -hX log 2 bridge is conditional.
+  PVG necessity is not established. Dataset 004 is not authorized.
 
 Language state:
   Canonical kernel: maps/pvg-ant-language-kernel-v1.md.
+  Kernel readiness: governance/readiness/GOAL-OP-LANGUAGE-KERNEL-V1-001.md.
   Legacy routing: maps/legacy-assets-routing.md.
   External asset truth: registries/external-research-assets.jsonl.
   Negative-result memory: registries/negative-results.jsonl.
-  Canonical compass: governance/pvg-ant-research-compass-v1.md.
-  Task readiness: governance/templates/research-readiness-card.md.
   Machine goals: registries/program-goals.jsonl.
 
+Formal layer:
+  Lean P3 remains reusable infrastructure for known valuation geometry.
+  No new Lean pass is active; elementary Scale-Heterogeneity identities are not formalized merely because they are easy.
+
 Legacy/source safeguards:
-  Montgomery v0.6 source-grounding correction remains active.
-  Trusted C/D/E/F/G/H; quarantined A/B/legacy-E.
+  Montgomery trusted C/D/E/F/G/H; quarantined A/B/legacy-E.
   Opera de Cribro OPERA-004-A/B remain CLOSED; no automatic OPERA-004-C.
-  Existing walls and missing certificates remain uncrossed/unsolved.
-  Historical PHASE-RULES are provenance only; Research Compass v1 governs current work.
-  The old Lean kernel is superseded; formal/lean/ is canonical.
+  Historical phase rules are provenance only; Research Compass v1 governs current work.
+  formal/lean/ is the only canonical formal kernel.
 
 Guards:
   honesty · registry_sync · no_pdf · forbidden_promotion · duplicate_concept · citation ·
-  state_coherence · research_compass · legacy_assets.
+  state_coherence · research_compass · legacy_assets · Dataset003/Scale reproduction.
 
 Ceiling:
   no original lemma certified;
   no original theorem certified;
-  no claim that PVG predicts local prime counts;
+  no confirmed PVG mechanism for local prime density;
   zero RH progress;
   zero GRH progress.
 ```

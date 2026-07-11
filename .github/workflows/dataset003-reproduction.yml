@@ -5,6 +5,7 @@ on:
     paths:
       - "research/local-prime-density/VRP001/**"
       - "research/local-prime-density/VRP002/Dataset003/**"
+      - "research/local-prime-density/VRP003/ScaleHeterogeneity/**"
       - ".github/workflows/dataset003-reproduction.yml"
   workflow_dispatch:
 
@@ -61,15 +62,27 @@ jobs:
       - name: Verify Python and R agreement
         run: python research/local-prime-density/VRP002/Dataset003/analysis/compare_python_r_003.py
 
-      - name: Verify committed scientific result
+      - name: Verify committed Dataset 003 result
         run: python research/local-prime-density/VRP002/Dataset003/analysis/verify_committed_result_003.py
 
-      - name: Upload Dataset 003 generated certificate package
+      - name: Analyze scale heterogeneity
+        run: python research/local-prime-density/VRP003/ScaleHeterogeneity/analysis/analyze_scale_heterogeneity.py
+
+      - name: Verify scale heterogeneity certificate
+        run: python research/local-prime-density/VRP003/ScaleHeterogeneity/analysis/verify_scale_heterogeneity_certificate.py
+
+      - name: Verify scale heterogeneity closure semantics
+        run: python research/local-prime-density/VRP003/ScaleHeterogeneity/analysis/verify_scale_heterogeneity_closure.py
+
+      - name: Upload Dataset 003 and scale-heterogeneity certificate package
         uses: actions/upload-artifact@v4
         with:
-          name: dataset003-reproduction-${{ github.sha }}
+          name: dataset003-scale-heterogeneity-${{ github.sha }}
           path: |
             research/local-prime-density/VRP002/Dataset003/data/
             research/local-prime-density/VRP002/Dataset003/certificates/
+            research/local-prime-density/VRP003/ScaleHeterogeneity/data/
+            research/local-prime-density/VRP003/ScaleHeterogeneity/certificates/
+            research/local-prime-density/VRP003/ScaleHeterogeneity/*.md
           if-no-files-found: error
           retention-days: 30
