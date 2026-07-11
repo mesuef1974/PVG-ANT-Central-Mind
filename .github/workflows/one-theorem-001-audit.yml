@@ -1,4 +1,4 @@
-name: One-Theorem 001 P0-P6 Audit
+name: One-Theorem 001 P0-P8 Audit
 
 on:
   pull_request:
@@ -10,11 +10,13 @@ on:
       - "maps/current-capabilities.md"
       - "tools/one_theorem_symbolic_audit.py"
       - "tools/one_theorem_phase_audit.py"
+      - "tools/one_theorem_p7_audit.py"
+      - "tools/one_theorem_p8_audit.py"
       - ".github/workflows/one-theorem-001-audit.yml"
   workflow_dispatch:
 
 jobs:
-  audit-p0-p6:
+  audit-p0-p8:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -31,13 +33,22 @@ jobs:
       - name: Run independent symbolic audit
         run: python tools/one_theorem_symbolic_audit.py
 
-      - name: Audit priority, proof phases, and scientific ceiling
+      - name: Audit P0-P6 proof phases and scientific ceiling
         run: python tools/one_theorem_phase_audit.py
 
-      - name: Upload P0-P6 symbolic certificate
+      - name: Audit P7 source and second-pass proof review
+        run: python tools/one_theorem_p7_audit.py
+
+      - name: Audit P8 internal classification and originality ceiling
+        run: python tools/one_theorem_p8_audit.py
+
+      - name: Upload One-Theorem certificate package
         uses: actions/upload-artifact@v4
         with:
-          name: one-theorem-001-p0-p6-${{ github.sha }}
-          path: research/one-theorem/001/P1-symbolic-results.json
+          name: one-theorem-001-p0-p8-${{ github.sha }}
+          path: |
+            research/one-theorem/001/P1-symbolic-results.json
+            research/one-theorem/001/P7-source-ledger.json
+            research/one-theorem/001/P8_FINAL_CLASSIFICATION.md
           if-no-files-found: error
           retention-days: 30
