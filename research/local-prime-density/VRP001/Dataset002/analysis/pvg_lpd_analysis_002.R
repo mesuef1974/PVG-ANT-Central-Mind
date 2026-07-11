@@ -1,4 +1,11 @@
-data_path <- "../data/pvg_lpd_dataset_002.csv"
+args <- commandArgs(trailingOnly = FALSE)
+file_arg <- grep("^--file=", args, value = TRUE)
+if (length(file_arg) != 1) stop("Cannot determine the R script path")
+script_dir <- dirname(normalizePath(sub("^--file=", "", file_arg)))
+data_path <- normalizePath(
+  file.path(script_dir, "..", "data", "pvg_lpd_dataset_002.csv"),
+  mustWork = FALSE
+)
 if (!file.exists(data_path)) {
   stop("Dataset 002 is missing. Run build_dataset_002.py before this analysis.")
 }
@@ -137,5 +144,6 @@ cat("Primary model pass:", primary_pass, "\n")
 cat("Exploratory model unadjusted pass:", exploratory_unadjusted_pass, "\n")
 cat("Exploratory model multiplicity-adjusted pass:", exploratory_adjusted_pass, "\n")
 
-write.csv(comparison, "../data/r_model_comparison_002.csv", row.names = FALSE)
-write.csv(bootstrap, "../data/r_bootstrap_002.csv", row.names = FALSE)
+output_dir <- normalizePath(file.path(script_dir, "..", "data"), mustWork = TRUE)
+write.csv(comparison, file.path(output_dir, "r_model_comparison_002.csv"), row.names = FALSE)
+write.csv(bootstrap, file.path(output_dir, "r_bootstrap_002.csv"), row.names = FALSE)
