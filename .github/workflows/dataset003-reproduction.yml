@@ -1,0 +1,72 @@
+name: Dataset 003 Reproduction
+
+on:
+  pull_request:
+    paths:
+      - "research/local-prime-density/VRP001/**"
+      - "research/local-prime-density/VRP002/Dataset003/**"
+      - ".github/workflows/dataset003-reproduction.yml"
+  workflow_dispatch:
+
+jobs:
+  reproduce-dataset003:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: research/local-prime-density/VRP001/requirements.txt
+
+      - name: Install Python dependencies
+        run: python -m pip install -r research/local-prime-density/VRP001/requirements.txt
+
+      - name: Validate frozen Dataset 003 protocol
+        run: python research/local-prime-density/VRP002/Dataset003/validate_protocol.py
+
+      - name: Build Dataset 001 training source
+        run: python research/local-prime-density/VRP001/Dataset001/analysis/build_dataset_001.py
+
+      - name: Verify Dataset 001
+        run: python research/local-prime-density/VRP001/Dataset001/analysis/verify_dataset_001.py
+
+      - name: Build Dataset 002 training source
+        run: python research/local-prime-density/VRP001/Dataset002/analysis/build_dataset_002.py
+
+      - name: Verify Dataset 002
+        run: python research/local-prime-density/VRP001/Dataset002/analysis/verify_dataset_002.py
+
+      - name: Build Dataset 003 by segmented sieve
+        run: python research/local-prime-density/VRP002/Dataset003/analysis/build_dataset_003.py
+
+      - name: Verify Dataset 003 schema and leakage guards
+        run: python research/local-prime-density/VRP002/Dataset003/analysis/verify_dataset_003.py
+
+      - name: Analyze Dataset 003 in Python
+        run: python research/local-prime-density/VRP002/Dataset003/analysis/analyze_dataset_003.py
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "release"
+
+      - name: Analyze Dataset 003 in R
+        run: Rscript research/local-prime-density/VRP002/Dataset003/analysis/pvg_lpd_analysis_003.R
+
+      - name: Verify Python and R agreement
+        run: python research/local-prime-density/VRP002/Dataset003/analysis/compare_python_r_003.py
+
+      - name: Upload Dataset 003 generated certificate package
+        uses: actions/upload-artifact@v4
+        with:
+          name: dataset003-reproduction-${{ github.sha }}
+          path: |
+            research/local-prime-density/VRP002/Dataset003/data/
+            research/local-prime-density/VRP002/Dataset003/certificates/
+          if-no-files-found: error
+          retention-days: 30
