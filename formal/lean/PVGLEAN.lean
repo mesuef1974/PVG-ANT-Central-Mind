@@ -5,3 +5,4 @@ import PVGLEAN.Multiplication
 import PVGLEAN.Powers
 import PVGLEAN.Division
 import PVGLEAN.Support
+import PVGLEAN.SupportCardinality

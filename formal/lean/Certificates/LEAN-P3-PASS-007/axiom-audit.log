@@ -1,0 +1,2 @@
+'PVGLEAN.pvg_factorization_support_card_eq_primeFactors_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PVGLEAN.pvg_active_coordinate_count_eq_primeFactors_card' depends on axioms: [propext, Classical.choice, Quot.sound]

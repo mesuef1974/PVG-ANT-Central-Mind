@@ -1,0 +1,2 @@
+Nat.support_factorization (n : ℕ) : n.factorization.support = n.primeFactors
+Nat.support_factorization : ∀ (n : ℕ), n.factorization.support = n.primeFactors
