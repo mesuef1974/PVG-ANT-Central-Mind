@@ -1,0 +1,4 @@
+Nat.factorization_eq_primeFactorsList_multiset (n : ℕ) : n.factorization = Multiset.toFinsupp ↑n.primeFactorsList
+Nat.factorization_eq_primeFactorsList_multiset : ∀ (n : ℕ), n.factorization = Multiset.toFinsupp ↑n.primeFactorsList
+Finsupp.card_toMultiset.{u_1} {α : Type u_1} (f : α →₀ ℕ) : (Finsupp.toMultiset f).card = f.sum fun x => id
+@Finsupp.card_toMultiset : ∀ {α : Type u_1} (f : α →₀ ℕ), (Finsupp.toMultiset f).card = f.sum fun x => id
