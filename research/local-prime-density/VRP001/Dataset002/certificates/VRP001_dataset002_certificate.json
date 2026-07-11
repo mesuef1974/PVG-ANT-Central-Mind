@@ -1,0 +1,43 @@
+{
+  "certificate_id": "CERT-PVG-LPD-VRP001-002-REPAIRED",
+  "decision": "UNRESOLVED WITH EXPLORATORY UNADJUSTED SIGNAL",
+  "max_n": 10000000,
+  "rows": 829,
+  "research_rows": 775,
+  "train": 319,
+  "validation": 216,
+  "test": 240,
+  "past_only_lags": [1, 2, 4],
+  "character_moduli": [3, 4, 5, 7, 8, 11],
+  "candidate_model_count": 4,
+  "lowest_rmse_model": {
+    "name": "Classical + lagged Lambda",
+    "classical_rmse": 0.5212937225767562,
+    "rmse": 0.5108783058413736,
+    "improvement": 0.010415416735382599,
+    "bootstrap_ci_95": [-0.00089158260574802, 0.021572980629716014],
+    "probability_better": 0.9616666666666667,
+    "passes_unadjusted_rule": false
+  },
+  "exploratory_unadjusted_signal": {
+    "name": "Classical + Lambda + characters + residue energy",
+    "improvement": 0.007472810903149774,
+    "bootstrap_ci_95": [0.00038470110827951165, 0.015105310974818778],
+    "probability_better": 0.98,
+    "one_sided_p": 0.020000000000000018,
+    "bonferroni_p": 0.08000000000000007,
+    "holm_p": 0.08000000000000007,
+    "passes_unadjusted_rule": true,
+    "passes_multiplicity_adjusted_rule": false
+  },
+  "governing_interpretation": "The lowest-RMSE model does not have a strictly positive bootstrap interval. A different exploratory model passes the unadjusted rule but not Bonferroni/Holm correction across four tested model families. Independent replication is required before Candidate Signal promotion.",
+  "classification": [
+    "Unresolved with exploratory unadjusted signal",
+    "Replication required",
+    "No new theorem",
+    "No RH/GRH progress"
+  ],
+  "r_execution": "not_run_in_original_environment",
+  "python_execution": "completed",
+  "repair_pass": "VRP001-REPAIR-PASS-001"
+}

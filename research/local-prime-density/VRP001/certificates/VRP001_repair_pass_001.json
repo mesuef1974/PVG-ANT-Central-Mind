@@ -1,0 +1,84 @@
+{
+  "certificate_id": "CERT-PVG-LPD-VRP001-REPAIR-001",
+  "status": "REPAIR PASS / AUTOMATED PYTHON AND R REPRODUCTION PASS / CLOSURE REVIEW PASS",
+  "scope": [
+    "Dataset 001 R safety checks",
+    "Dataset 002 R safety checks",
+    "Dataset 001 explicit Python verifier",
+    "Dataset 002 explicit Python verifier",
+    "Deterministic Dataset 001 builder",
+    "Deterministic Dataset 002 builder",
+    "Exact Python Ridge and bootstrap analyses",
+    "Supplementary R analyses",
+    "Dataset 002 multiplicity correction",
+    "Dataset 002 classification repair",
+    "GitHub Actions clean-checkout merge-ref reproduction"
+  ],
+  "original_dataset_comparison": {
+    "dataset_001": {
+      "rows": 829,
+      "columns": 65,
+      "same_columns_as_original": true,
+      "maximum_numeric_difference": 0.0,
+      "same_nonnumeric_values": true
+    },
+    "dataset_002": {
+      "rows": 829,
+      "columns": 131,
+      "same_columns_as_original": true,
+      "maximum_numeric_difference": 8.881784197001252e-16,
+      "same_nonnumeric_values": true
+    }
+  },
+  "clean_directory_reproduction": {
+    "status": "PASS",
+    "dataset_001_rows": 829,
+    "dataset_002_rows": 829,
+    "dataset_001_certificate_numbers_reproduced": true,
+    "dataset_002_certificate_numbers_reproduced": true
+  },
+  "github_actions": {
+    "workflow": "VRP001 Reproduction",
+    "run_id": 29160013786,
+    "job_id": 86563374150,
+    "merge_ref_sha": "5910183a3adb8625fb22f97e8a685676819e7d50",
+    "tested_head_sha": "04ac4903174bf3a3e876e1369786408d60a07faf",
+    "tested_base_sha": "501d693f417c2711f6f8d4c410fb9bd231ec573f",
+    "conclusion": "success",
+    "successful_steps": [
+      "Install Python dependencies",
+      "Build Dataset 001",
+      "Verify Dataset 001",
+      "Analyze Dataset 001 in Python",
+      "Build Dataset 002",
+      "Verify Dataset 002",
+      "Analyze Dataset 002 in Python",
+      "Set up R",
+      "Analyze Dataset 001 in R",
+      "Analyze Dataset 002 in R"
+    ]
+  },
+  "dataset_001_decision": "NEGATIVE DIAGNOSTIC / UNRESOLVED",
+  "dataset_002_decision": "UNRESOLVED WITH EXPLORATORY UNADJUSTED SIGNAL",
+  "multiplicity_result": {
+    "exploratory_model": "Classical + Lambda + characters + residue energy",
+    "one_sided_p": 0.020000000000000018,
+    "bonferroni_p": 0.08000000000000007,
+    "holm_p": 0.08000000000000007,
+    "promoted": false
+  },
+  "review_feedback_addressed": [
+    "Fail fast when expected feature groups are empty",
+    "Reject R vector-length mismatch and non-finite metric inputs",
+    "Replace Python assert statements with explicit exceptions",
+    "Resolve R paths relative to the script for clean CI execution"
+  ],
+  "remaining_gates": [
+    "Repository owner changes PR from Draft to Ready and performs the merge"
+  ],
+  "scientific_ceiling": [
+    "No new theorem",
+    "No confirmed Candidate Signal",
+    "No RH/GRH progress"
+  ]
+}

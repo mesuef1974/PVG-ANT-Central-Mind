@@ -1,0 +1,58 @@
+name: VRP001 Reproduction
+
+on:
+  pull_request:
+    paths:
+      - "research/local-prime-density/VRP001/**"
+      - ".github/workflows/vrp001-reproduction.yml"
+  workflow_dispatch:
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: research/local-prime-density/VRP001
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: research/local-prime-density/VRP001/requirements.txt
+
+      - name: Install Python dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Build Dataset 001
+        run: python Dataset001/analysis/build_dataset_001.py
+
+      - name: Verify Dataset 001
+        run: python Dataset001/analysis/verify_dataset_001.py
+
+      - name: Analyze Dataset 001 in Python
+        run: python Dataset001/analysis/analyze_dataset_001.py
+
+      - name: Build Dataset 002
+        run: python Dataset002/analysis/build_dataset_002.py
+
+      - name: Verify Dataset 002
+        run: python Dataset002/analysis/verify_dataset_002.py
+
+      - name: Analyze Dataset 002 in Python
+        run: python Dataset002/analysis/analyze_dataset_002.py
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "release"
+
+      - name: Analyze Dataset 001 in R
+        run: Rscript Dataset001/analysis/pvg_lpd_analysis_001.R
+
+      - name: Analyze Dataset 002 in R
+        run: Rscript Dataset002/analysis/pvg_lpd_analysis_002.R
