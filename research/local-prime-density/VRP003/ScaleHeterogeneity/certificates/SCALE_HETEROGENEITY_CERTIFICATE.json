@@ -1,0 +1,126 @@
+{
+  "certificate_id": "CERT-PVG-LPD-SCALE-HETEROGENEITY-001",
+  "status": "SCALE_HETEROGENEITY_DIAGNOSTIC_PASS",
+  "dataset003_parent_commit": "a0f93f46b01ba4743c2348e5ddbadf4522aed29a",
+  "exact_identities": {
+    "correction_gain": "E[e_c^2]-E[(e_c-d)^2]=2E[e_c d]-E[d^2]",
+    "bias_covariance": "2E[e_c d]=2Cov(e_c,d)+2E[e_c]E[d]",
+    "adjacent_increment": "2AB=(A+B)^2-A^2-B^2",
+    "maximum_gain_identity_error": 2.7755575615628914e-17,
+    "maximum_adjacent_identity_error": 0.0,
+    "maximum_correction_reconstruction_error": 2.0261570199409107e-15
+  },
+  "gain_decomposition": {
+    "overall": {
+      "n": 480,
+      "mse_classical": 0.2814751267025249,
+      "mse_primary": 0.2770902270651526,
+      "mse_gain": 0.004384899637372319,
+      "alignment": 0.008346440423593445,
+      "correction_energy": 0.0039615407862212265,
+      "alignment_to_energy_ratio": 2.106867220103726,
+      "two_covariance": 0.0055017604966598535,
+      "two_mean_product": 0.0028446799269335895
+    },
+    "x^0.5": {
+      "n": 160,
+      "mse_classical": 0.4281196743122372,
+      "mse_primary": 0.4378066378213779,
+      "mse_gain": -0.009686963509140722,
+      "alignment": -0.003229167971967856,
+      "correction_energy": 0.0064577955371728415,
+      "alignment_to_energy_ratio": -0.5000418414271371,
+      "two_covariance": -0.004006114842479139,
+      "two_mean_product": 0.0007769468705112825
+    },
+    "x^0.666667": {
+      "n": 160,
+      "mse_classical": 0.24695295613425464,
+      "mse_primary": 0.23614012435996995,
+      "mse_gain": 0.010812831774284687,
+      "alignment": 0.013940643141599967,
+      "correction_energy": 0.003127811367315264,
+      "alignment_to_energy_ratio": 4.456996124279011,
+      "two_covariance": 0.01002878268336777,
+      "two_mean_product": 0.003911860458232197
+    },
+    "x^0.75": {
+      "n": 160,
+      "mse_classical": 0.1693527496610826,
+      "mse_primary": 0.15732391901410994,
+      "mse_gain": 0.01202883064697266,
+      "alignment": 0.014327846101148223,
+      "correction_energy": 0.002299015454175574,
+      "alignment_to_energy_ratio": 6.232166067055075,
+      "two_covariance": 0.009599372777362633,
+      "two_mean_product": 0.004728473323785587
+    }
+  },
+  "lagged_lambda_group": {
+    "x^0.5": {
+      "alignment": -0.0013488366305004566,
+      "self_energy": 0.004845743779852511,
+      "error_correlation": -0.013651703020587138
+    },
+    "x^0.666667": {
+      "alignment": 0.008277376467540671,
+      "self_energy": 0.0016919748932388744,
+      "error_correlation": 0.2022894474661804
+    },
+    "x^0.75": {
+      "alignment": 0.010241969020750204,
+      "self_energy": 0.0011139946846620868,
+      "error_correlation": 0.3661521629165485
+    },
+    "all_six_frozen_coefficients_negative": true
+  },
+  "adjacent_lambda": {
+    "overall": {
+      "covariance": -140273.6124549696,
+      "correlation": -0.2158868341447935,
+      "mean_product_over_h_log_x": -0.028154688472574303
+    },
+    "x^0.5": {
+      "covariance": -2658.753147577616,
+      "correlation": -0.05333231157170267,
+      "mean_product_over_h_log_x": -0.012613610465585701
+    },
+    "x^0.666667": {
+      "covariance": -61341.79425811838,
+      "correlation": -0.13172293382379318,
+      "mean_product_over_h_log_x": -0.026271559563987725
+    },
+    "x^0.75": {
+      "covariance": -356217.3861116147,
+      "correlation": -0.2488872986607854,
+      "mean_product_over_h_log_x": -0.04557889538814948
+    }
+  },
+  "observed_pattern": {
+    "shortest_family_gain_negative": true,
+    "longer_family_gains_positive": true,
+    "adjacent_lambda_covariance_negative_all_families": true,
+    "interpretation": "The fitted correction exploits anti-persistence rather than positive persistence; at x^0.5 correction energy exceeds alignment."
+  },
+  "literature_bridge": {
+    "variance_model": "H log(N/H)",
+    "conditional_prediction": "adjacent covariance approximately -h X log 2 under stable variance asymptotics and negligible shift boundaries",
+    "classification": "conditional proof strategy, not unconditional theorem"
+  },
+  "classification": [
+    "Exact algebraic diagnostic",
+    "Empirical scale heterogeneity",
+    "Adjacent Lambda anti-correlation observed",
+    "Mechanism not proved",
+    "No theorem about primes",
+    "No RH/GRH progress"
+  ],
+  "next_proof_objects": [
+    "Finite correction-gain identity",
+    "Positive correction criterion",
+    "Adjacent von Mangoldt increment square identity",
+    "Shifted Selberg-integral covariance identity",
+    "Conditional variance-to-anticorrelation transfer"
+  ],
+  "next_gate": "Lean P3 algebraic identity pass plus analytic covariance assumption audit"
+}
