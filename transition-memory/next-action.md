@@ -2,7 +2,7 @@
 
 ```text
 Canonical main baseline before this PR:
-  c7a2b58 — Close scale heterogeneity diagnostic after repair.
+  3a7ac6d — Release PVG–ANT Language Kernel v1.
 
 Strategic compass:
   GOAL-PVG-ANT-STRATEGIC-001 = active_fixed.
@@ -11,69 +11,75 @@ Strategic compass:
 Closed goals:
   GOAL-OP-SCALE-HETEROGENEITY-CLOSE-001.
   GOAL-OP-LANGUAGE-KERNEL-V1-001.
+  GOAL-OP-ORIGINAL-LEMMA-SELECTION-001.
 
 Active operational goal:
-  GOAL-OP-ORIGINAL-LEMMA-SELECTION-001 = active.
-  Front = PVG-ORIGINAL-LEMMA-PROGRAM.
-  Readiness card = READY.
+  GOAL-OP-ONE-THEOREM-001 = active.
+  Front = PVG-ONE-THEOREM-PROGRAM.
+  Frozen target = ONE-LEMMA-TARGET-001.
+  Readiness = READY WITH EXPLICIT PRIORITY AND SYMBOLIC GATES.
 
-Immediate execution:
-  1. Write ten exact candidate lemma statements; domains alone do not count.
-  2. For each candidate identify the governing canonical bridge.
-  3. Run finite counterexample and triviality tests where applicable.
-  4. Find the nearest known theorem and exact literature gap.
-  5. Apply the PVG-necessity test: remove PVG and compare the proof route.
-  6. Score exactness, originality plausibility, tractability, relevance, falsifiability,
-     and negative-result value.
-  7. Reject known, trivial, ill-posed, RH-equivalent, or certificate-heavy candidates.
-  8. Select three finalists.
-  9. Freeze one statement only.
-  10. Create ONE-LEMMA-TARGET-001 readiness card for the One-Theorem Program.
+Frozen target:
+  Smoothed torsion layers of margin-interior divisor boxes in arithmetic progressions.
 
-Priority candidate domains:
-  A. quantitative information loss under sieve aggregation;
-  B. geometric conditioning of residue-fiber character moments;
-  C. nonlinear divisor-box observables and their averages;
-  D. classification of coordinate-factorizable valuation observables;
-  E. squarefree Boolean-support observables;
-  F. convolution geometry and Type-II information;
-  G. generalized valuation-supported desmoothing;
-  H. support-only recoverability limits;
-  I. local/global transfer for a new valuation observable;
-  J. shifted Selberg covariance only if PVG necessity survives.
+Immediate execution order:
+  P0. Deep priority audit:
+      - older weighted powerful/k-full number literature;
+      - divisor-lattice interior terminology;
+      - square-full distributions in fixed residue classes;
+      - exact twisted Dirichlet-series matches.
+  P1. Independent symbolic audit:
+      - local factor identity;
+      - cancellation through degree 2r+1;
+      - first residual order 2r+2;
+      - principal-character residue and finite part;
+      - simple- and double-pole coefficients.
+  P2. Manual proof of factorization and convergence of H_{r,chi}.
+  P3. Character decomposition of the residue-class sum.
+  P4. Mellin inversion and justified contour shift.
+  P5. Explicit residue calculation and remainder.
+  P6. Independent computational verification for small q,r and test weights.
+  P7. Adversarial proof review.
+  P8. Originality classification and closure.
 
-Required record for every candidate:
-  exact quantifiers and ranges;
-  classical statement;
-  PVG statement;
-  bridge IDs;
-  nearest known results;
-  proof idea;
-  missing certificates;
-  kill tests;
-  PVG necessity;
-  honest classification.
+Required knowledge activation:
+  exact fixed-q L-function vertical-growth theorem;
+  Mellin-transform decay lemma for C_c^infinity weights;
+  older powerful-number AP references;
+  any general theorem that may subsume the weighted result.
 
-Not allowed during selection:
-  - starting a proof campaign before one target is frozen;
-  - Dataset 004 or model retuning;
-  - opening OP-005 DS-3, Nyman–Beurling production, or a zeta island;
+Required tools:
+  literature search and source verification;
+  Python/SymPy for symbolic checks;
+  manual proof writing.
+
+Not required now:
+  R;
+  Lean;
+  GPU;
+  new datasets.
+
+Forbidden diversions:
+  - a second active theorem target;
+  - Dataset 004;
+  - OP-005 DS-3 or Nyman–Beurling production;
   - broad book mining;
-  - Lean/R/GPU work without a candidate-specific need;
-  - calling a candidate original before the priority audit;
-  - keeping two finalists active after target freeze.
-
-Readiness contract:
-  governance/readiness/GOAL-OP-ORIGINAL-LEMMA-SELECTION-001.md.
+  - claiming originality from failed exact-search matches;
+  - treating the classical contour method as a new method;
+  - starting publication work before proof and priority closure.
 
 Stop rule:
-  close with one frozen target and an approved ONE-LEMMA-TARGET-001 readiness card,
-  or with a negative selection certificate if no candidate survives.
+  GOAL-OP-ONE-THEOREM-001 closes with one of:
+  complete proof plus priority classification;
+  exact known-result attribution;
+  corrected weaker theorem;
+  negative certificate;
+  or a precisely named missing analytic certificate.
 
 Ceiling:
-  candidate lemma only;
-  no original lemma certified;
-  no theorem;
+  frozen candidate theorem only;
+  originality plausible, not certified;
+  no theorem proved;
   no RH/GRH progress.
 ```
 

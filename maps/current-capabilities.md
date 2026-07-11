@@ -6,120 +6,134 @@ Live capability snapshot. Registry files remain the machine truth.
 
 ```text
 named task
-→ prerequisite/readiness audit
-→ minimum-sufficient knowledge activation
+→ readiness and priority audit
 → certified PVG–ANT bridge selection
-→ candidate statement
-→ proof / experiment / negative certificate
-→ originality and PVG-necessity audit
+→ exact frozen statement
+→ proof / known-result / negative-certificate closure
+→ originality and PVG-necessity review
 → knowledge return
 ```
 
 Canonical references:
 
 - `governance/pvg-ant-research-compass-v1.md`
-- `maps/pvg-ant-language-kernel-v1.md`
 - `maps/pvg-ant-language-kernel-v1-release-index.md`
 - `registries/pvg-ant-bridges.jsonl`
 - `governance/closures/PVG-ANT-LANGUAGE-KERNEL-V1-CLOSURE.md`
+- `governance/closures/ORIGINAL-LEMMA-SELECTION-001-CLOSURE.md`
+- `research/original-lemma-selection/001/ONE-LEMMA-TARGET-001.md`
+- `governance/readiness/ONE-LEMMA-TARGET-001.md`
 - `registries/program-goals.jsonl`
 
 ## 2. Closed Language Kernel v1
 
-The mind now has eight closed canonical bridge families:
+Eight reusable bridge families are closed:
 
 1. multiplication/divisibility/order;
 2. divisor boxes/Dirichlet convolution;
 3. multiplicative observables/Euler factors;
-4. logarithmic half-spaces/weighted lattice sums;
+4. logarithmic half-spaces/weighted sums;
 5. squarefree support/Möbius;
 6. residue fibers/character Fourier coordinates;
 7. sieve visibility/aggregation loss/certificates;
 8. local/global analytic transfer.
 
-Maturity:
+Maturity remains:
 
 ```text
-L1 exact/expository: 1 family
-L2 structural/analytic: 7 families
-L3 proved transfer principles: 0 families
+L1: 1 expository family
+L2: 7 structural/analytic families
+L3: 0 certified families
 ```
 
-The kernel includes deterministic examples, a committed expected certificate, and a CI audit. It explicitly records lost order, phase, residue, convergence, boundary, or target-purity information.
+## 3. Closed Original Lemma Selection 001
 
-## 3. Strongest research-bearing bridges
-
-The next selection stage should prioritize:
-
-- sieve information loss after aggregation;
-- residue-fiber conditioning and character moments;
-- nonlinear divisor-box observables;
-- coordinate-factorizable observables and Euler interfaces.
-
-These are candidate domains only. None is an original lemma yet.
-
-## 4. Installed mathematical substrate
-
-1. logic and certificate discipline;
-2. Euler products, Möbius inversion, convolution, Perron, contour, Tauberian, and character tools;
-3. Halász/Delange/Wirsing/Selberg–Delange and probabilistic number theory;
-4. zero-density and large-values diagnostics;
-5. Harman and Opera sieve information/certificate layers;
-6. source-grounded Montgomery MNT-II layers;
-7. Lean P3 valuation infrastructure;
-8. deterministic Python/R research and CI;
-9. federated legacy assets and negative-result memory.
-
-Knowledge is activated only for a named prerequisite. Availability does not imply operational mastery.
-
-## 5. Closed local-prime-density sequence
-
-- Dataset 001: negative diagnostic;
-- Dataset 002: unresolved exploratory signal;
-- Dataset 003: unresolved independent replication;
-- Scale-Heterogeneity: diagnostic closure, not a mechanism.
-
-The retained covariance object may be audited later, but Dataset 004 is unauthorized and PVG necessity was not established.
-
-## 6. Active operational goal
+The mind produced:
 
 ```text
-GOAL-OP-ORIGINAL-LEMMA-SELECTION-001 = active
+10 exact candidates
+4 killed as known/trivial
+1 dependent corollary
+3 finalists
+1 frozen target
+```
+
+The selected geometric observable is
+
+\[
+I_r(n)=\prod_{p^a\parallel n}\max(a-2r+1,0),
+\]
+
+the number of divisor-box points at coordinate margin at least `r` from every facet.
+
+## 4. Active theorem target
+
+`ONE-LEMMA-TARGET-001` seeks a smoothed fixed-modulus expansion for
+
+\[
+\sum_{n\equiv a\pmod q}I_r(n)W(n/x).
+\]
+
+The proposed twisted factorization is
+
+\[
+D_{r,\chi}(s)=
+L(2rs,\chi^{2r})
+L((2r+1)s,\chi^{2r+1})^2
+H_{r,\chi}(s).
+\]
+
+The target theorem links:
+
+- the `2r` geometric layer to characters with `χ^(2r)=χ₀`;
+- the `2r+1` layer to characters with `χ^(2r+1)=χ₀`;
+- the next local layer `2r+2` to the proposed smoothed remainder.
+
+This is a frozen candidate only. The factorization, constants, remainder, and priority must all be proved or corrected.
+
+## 5. Active operational goal
+
+```text
+GOAL-OP-ONE-THEOREM-001 = active
+GOAL-OP-ORIGINAL-LEMMA-SELECTION-001 = closed
 GOAL-OP-LANGUAGE-KERNEL-V1-001 = closed
-GOAL-OP-SCALE-HETEROGENEITY-CLOSE-001 = closed
 ```
 
-Readiness card:
+Readiness:
 
-`governance/readiness/GOAL-OP-ORIGINAL-LEMMA-SELECTION-001.md`.
+`governance/readiness/ONE-LEMMA-TARGET-001.md` = READY with priority and symbolic gates.
 
-Required output:
+## 6. Available substrate for the proof
+
+- divisor-box geometry and convolution language;
+- Euler-factor and analytic-transfer bridges;
+- character orthogonality and fixed-modulus L-functions;
+- Mellin/Perron/contour tools from the ANT ledgers;
+- powerful/k-full number literature routes;
+- deterministic Python checks and CI;
+- negative-result and source-grounding governance.
+
+## 7. Tool activation
+
+- literature search: required first for priority and exact prerequisites;
+- Python/SymPy: required for local-series and Laurent checks;
+- manual proof: primary execution path;
+- R: not required;
+- Lean: deferred until a complete manual proof and reusable formal value exist;
+- GPU: not required.
+
+## 8. Closed local-prime-density sequence
+
+Dataset 001–003 and Scale-Heterogeneity remain closed at diagnostic ceiling. Dataset 004 is unauthorized.
+
+## 9. Scientific ceiling
 
 ```text
-10 precise candidates
-→ known/trivial/ill-posed kill audit
-→ 3 finalists
-→ 1 frozen lemma target
-```
-
-No One-Theorem execution begins before the frozen target receives its own readiness card.
-
-## 7. Tool-on-demand rule
-
-- literature search: priority and nearest known theorem;
-- books/ledgers: exact hypotheses and proof tools;
-- Python: finite counterexamples and conjecture kill tests;
-- R: only for a named statistical endpoint;
-- Lean: only after a finalist has material formal risk;
-- external assets: smallest sufficient source, example, or laboratory.
-
-## 8. Scientific ceiling
-
-```text
+Originality plausible, not certified.
+No L3 transfer principle certified.
 No original lemma certified.
-No original theorem certified.
-No L3 bridge certified.
-No confirmed PVG local-prime mechanism.
+No theorem proved.
+No publication claim.
 No RH progress.
 No GRH progress.
 ```

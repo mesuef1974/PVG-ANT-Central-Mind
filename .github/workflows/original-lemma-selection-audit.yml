@@ -1,0 +1,36 @@
+name: Original Lemma Selection Audit
+
+on:
+  pull_request:
+    paths:
+      - "research/original-lemma-selection/001/**"
+      - "tools/original_lemma_candidate_checks.py"
+      - "tools/original_lemma_selection_audit.py"
+      - ".github/workflows/original-lemma-selection-audit.yml"
+  workflow_dispatch:
+
+jobs:
+  audit-selection:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run exact candidate identities and kill tests
+        run: python tools/original_lemma_candidate_checks.py
+
+      - name: Audit candidate registry, shortlist, and scientific ceiling
+        run: python tools/original_lemma_selection_audit.py
+
+      - name: Upload generated candidate-check certificate
+        uses: actions/upload-artifact@v4
+        with:
+          name: original-lemma-selection-${{ github.sha }}
+          path: research/original-lemma-selection/001/candidate-check-results.json
+          if-no-files-found: error
+          retention-days: 30
