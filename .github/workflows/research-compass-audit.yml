@@ -1,0 +1,32 @@
+name: Research Compass Audit
+
+on:
+  pull_request:
+    paths:
+      - "central-mind-charter.md"
+      - "central-mind-goals.md"
+      - "governance/pvg-ant-research-compass-v1.md"
+      - "governance/task-triggered-knowledge-activation-policy.md"
+      - "governance/stage-review-and-ceiling-escalation-policy.md"
+      - "governance/templates/research-readiness-card.md"
+      - "maps/pvg-ant-language-kernel-v1.md"
+      - "registries/program-goals.jsonl"
+      - "registries/rules.jsonl"
+      - "tools/research_compass_audit.py"
+      - ".github/workflows/research-compass-audit.yml"
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run research compass audit
+        run: python tools/research_compass_audit.py
