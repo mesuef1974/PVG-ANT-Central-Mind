@@ -1,0 +1,22 @@
+{
+  "certificate_id": "CERT-PVG-LPD-VRP001-002",
+  "decision": "NEGATIVE DIAGNOSTIC / UNRESOLVED",
+  "max_n": 10000000,
+  "rows": 829,
+  "research_rows": 775,
+  "train": 319,
+  "validation": 216,
+  "test": 240,
+  "past_only_lags": [1, 2, 4],
+  "character_moduli": [3, 4, 5, 7, 8, 11],
+  "best_model": "Classical + lagged Lambda",
+  "classical_rmse": 0.5212937225767562,
+  "best_rmse": 0.5108783058413736,
+  "improvement": 0.010415416735382599,
+  "bootstrap_ci_95": [-0.00089158260574802, 0.021572980629716014],
+  "probability_better": 0.9616666666666667,
+  "promotion_rule": {"rmse_lower": true, "bootstrap_ci_lower_gt_zero": false, "probability_better_ge_0_95": true},
+  "classification": ["Negative diagnostic / unresolved", "No new theorem", "No RH/GRH progress"],
+  "r_execution": "not_run_r_unavailable",
+  "python_execution": "completed"
+}

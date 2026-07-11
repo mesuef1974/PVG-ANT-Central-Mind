@@ -1,0 +1,21 @@
+{
+  "certificate_id": "CERT-PVG-LPD-VRP001-001",
+  "research_front": "PVG-LOCAL-PRIME-DENSITY-001",
+  "status": "negative_diagnostic_unresolved",
+  "max_n": 10000000,
+  "total_windows": 829,
+  "calibration_windows": 54,
+  "research_windows": 775,
+  "split_counts": {"train": 319, "validation": 216, "test": 240},
+  "target": "li_std_residual",
+  "vsds_feature_count": 37,
+  "test_rmse_li_zero": 0.5184756737729995,
+  "test_rmse_classical": 0.5212937225767562,
+  "test_rmse_classical_vsds": 0.5215227381618184,
+  "rmse_improvement_full_over_classical": -0.00022901558506216446,
+  "bootstrap_improvement_ci_95": [-0.01695869751708694, 0.015640946914963434],
+  "bootstrap_probability_full_better": 0.4942,
+  "classification": ["Known asymptotic behavior confirmed computationally", "Negative diagnostic", "No new theorem", "No RH/GRH progress"],
+  "r_execution": "not_run_r_unavailable",
+  "python_equivalent_execution": "completed"
+}

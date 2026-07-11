@@ -1,0 +1,13 @@
+d <- read.csv("../data/pvg_lpd_dataset_002.csv", check.names = FALSE)
+research <- subset(d, role == "research")
+train <- subset(research, analysis_split == "train")
+test <- subset(research, analysis_split == "test")
+target <- "li_std_residual"
+classical <- c("log_x", "log_h", "theta_empirical")
+lagLambda <- grep("^pre_lambda_(density|residual_per_sqrt)", names(d), value = TRUE)
+chars <- grep("^pre_(chi|character_energy)", names(d), value = TRUE)
+residue <- grep("^pre_residue_(energy|max)", names(d), value = TRUE)
+rmse <- function(y, p) sqrt(mean((y - p)^2))
+fit <- lm(as.formula(paste(target, "~", paste(c(classical, lagLambda, chars, residue), collapse = "+"))), data = train)
+pred <- predict(fit, newdata = test)
+print(rmse(test[[target]], pred))
