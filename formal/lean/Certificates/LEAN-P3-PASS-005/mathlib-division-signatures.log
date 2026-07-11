@@ -1,0 +1,10 @@
+Nat.factorization_div {d n : ℕ} (h : d ∣ n) : (n / d).factorization = n.factorization - d.factorization
+@Nat.factorization_div : ∀ {d n : ℕ}, d ∣ n → (n / d).factorization = n.factorization - d.factorization
+Nat.dvd_iff_div_factorization_eq_tsub {d n : ℕ} (hd : d ≠ 0) (hdn : d ≤ n) :
+  d ∣ n ↔ (n / d).factorization = n.factorization - d.factorization
+@Nat.dvd_iff_div_factorization_eq_tsub : ∀ {d n : ℕ},
+  d ≠ 0 → d ≤ n → (d ∣ n ↔ (n / d).factorization = n.factorization - d.factorization)
+Nat.factorization_le_iff_dvd {d n : ℕ} (hd : d ≠ 0) (hn : n ≠ 0) : d.factorization ≤ n.factorization ↔ d ∣ n
+@Nat.factorization_le_iff_dvd : ∀ {d n : ℕ}, d ≠ 0 → n ≠ 0 → (d.factorization ≤ n.factorization ↔ d ∣ n)
+Nat.factorization_mul {a b : ℕ} (ha : a ≠ 0) (hb : b ≠ 0) : (a * b).factorization = a.factorization + b.factorization
+@Nat.factorization_mul : ∀ {a b : ℕ}, a ≠ 0 → b ≠ 0 → (a * b).factorization = a.factorization + b.factorization

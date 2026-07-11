@@ -1,0 +1,111 @@
+LEAN-P3-PASS-005 local Mathlib division exploration
+
+Timestamp: 2026-07-11T19:06:45+03:00
+Central Mind HEAD: 90fca92eebb7bb1e6b56bc83b3032820c9b8f73c
+Mathlib source: D:\PVG-ANT-Central-Mind\formal\lean\.lake\packages\mathlib\Mathlib
+
+Search results:
+
+
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:180:  rw [← Finsupp.le_def, factorization_le_iff_dvd hb ha] at hab
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:181:  exact le_of_dvd ha.bot_lt hab
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:182:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:183:@[simp]
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:184:theorem factorization_div {d n : ℕ} (h : d ∣ n) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:185:    (n / d).factorization = n.factorization - d.factorization := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:186:  rcases eq_or_ne d 0 with (rfl | hd); · simp [zero_dvd_iff.mp h]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:187:  rcases eq_or_ne n 0 with (rfl | hn); · simp [tsub_eq_zero_of_le]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:188:  apply add_left_injective d.factorization
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:189:  simp only
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:190:  rw [tsub_add_cancel_of_le <| (Nat.factorization_le_iff_dvd hd hn).mpr h, ←
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:191:    Nat.factorization_mul (Nat.div_pos (Nat.le_of_dvd hn.bot_lt h) hd.bot_lt).ne' hd,
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:192:    Nat.div_mul_cancel h]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:193:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:194:theorem dvd_ordProj_of_dvd {n p : ℕ} (hn : n ≠ 0) (pp : p.Prime) (h : p ∣ n) : p ∣ ordProj[p] n :=
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:195:  dvd_pow_self p (Prime.factorization_pos_of_dvd pp hn h).ne'
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:196:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:197:theorem not_dvd_ordCompl {n p : ℕ} (hp : Prime p) (hn : n ≠ 0) : ¬p ∣ ordCompl[p] n := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:198:  rw [Nat.Prime.dvd_iff_one_le_factorization hp (ordCompl_pos p hn).ne']
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:284:    ∃ k m : ℕ, Odd m ∧ n = 2 ^ k * m :=
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:285:  let ⟨k, m, hm, hn⟩ := exists_eq_pow_mul_and_not_dvd hn 2 (succ_ne_self 1)
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:286:  ⟨k, m, not_even_iff_odd.1 (mt Even.two_dvd hm), hn⟩
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:287:
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:288:theorem dvd_iff_div_factorization_eq_tsub {d n : ℕ} (hd : d ≠ 0) (hdn : d ≤ n) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:289:    d ∣ n ↔ (n / d).factorization = n.factorization - d.factorization := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:290:  refine ⟨factorization_div, ?_⟩
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:291:  rcases eq_or_lt_of_le hdn with (rfl | hd_lt_n); · simp
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:292:  have h1 : n / d ≠ 0 := by simp [*]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:293:  intro h
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:294:  rw [dvd_iff_le_div_mul n d]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:295:  by_contra h2
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:296:  obtain ⟨p, hp⟩ := exists_factorization_lt_of_lt (mul_ne_zero h1 hd) (not_le.mp h2)
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:297:  rwa [factorization_mul h1 hd, add_apply, ← lt_tsub_iff_right, h, tsub_apply,
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:298:    lt_self_iff_false] at hp
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:299:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:300:theorem ordProj_dvd_ordProj_of_dvd {a b : ℕ} (hb0 : b ≠ 0) (hab : a ∣ b) (p : ℕ) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:301:    ordProj[p] a ∣ ordProj[p] b := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:302:  rcases em' p.Prime with (pp | pp); · simp [pp]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:303:  rcases eq_or_ne a 0 with (rfl | ha0); · simp
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:304:  rw [pow_dvd_pow_iff_le_right pp.one_lt]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Basic.lean:305:  exact (factorization_le_iff_dvd ha0 hb0).2 hab p
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:18:open Finsupp
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:19:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:20:namespace Nat
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:21:
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:22:theorem coe_divisors_eq_prod_pow_le_factorization {n : ℕ} (hn : n ≠ 0) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:23:    n.divisors = { f.prod (· ^ ·) | f ≤ n.factorization } := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:24:  refine Set.ext fun k ↦ ⟨fun h ↦ ?_, fun ⟨f, hle, h⟩ ↦ mem_divisors.mpr ⟨?_, hn⟩⟩
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:25:  · have hdvd := dvd_of_mem_divisors h
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:26:    have hk := ne_zero_of_dvd_ne_zero hn hdvd
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:27:    exact ⟨_, factorization_le_iff_dvd hk hn |>.mpr hdvd, prod_factorization_pow_eq_self hk⟩
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:28:  · rw [← h, ← prod_factorization_pow_eq_self hn]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:29:    exact prod_dvd_prod_of_subset_of_dvd (support_mono hle) fun p _ ↦ Nat.pow_dvd_pow p <| hle p
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:30:
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:31:theorem divisors_eq_image_Iic_factorization_prod_pow {n : ℕ} (hn : n ≠ 0) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:32:    n.divisors = (Finset.Iic n.factorization).image (·.prod (· ^ ·)) := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:33:  apply Finset.coe_inj.mp
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:34:  grind [coe_divisors_eq_prod_pow_le_factorization]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:35:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:36:theorem Iic_factorization_prod_pow_injective (n : ℕ) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:37:    (·.val.prod (· ^ ·) : Finset.Iic n.factorization → _).Injective := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:38:  grind [Function.Injective, factorization_prod_pow_eq_self_of_le_factorization]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:39:
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:40:theorem divisors_eq_map_attach_Iic_factorization_prod_pow {n : ℕ} (hn : n ≠ 0) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:41:    n.divisors = (Finset.Iic n.factorization).attach.map
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:42:      ⟨(·.val.prod (· ^ ·)), Iic_factorization_prod_pow_injective n⟩ := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:43:  rw [Finset.map_eq_image]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:44:  change _ = (Finset.Iic n.factorization).attach.image ((·.prod (· ^ ·)) ∘ Subtype.val)
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:45:  rw [← Finset.image_image, Finset.attach_image_val]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:46:  exact divisors_eq_image_Iic_factorization_prod_pow hn
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:47:
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:48:theorem coe_properDivisors_eq_prod_pow_lt_factorization {n : ℕ} :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:49:    n.properDivisors = { f.prod (· ^ ·) | f < n.factorization } := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:50:  by_cases hn : n = 0
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:51:  · simp [hn]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:52:  refine Set.ext fun k ↦ ⟨fun h ↦ ?_, fun ⟨f, hlt, h⟩ ↦ ?_⟩
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:53:  · have ⟨hdvd, hlt⟩ := mem_properDivisors.mp h
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:54:    have hk := ne_zero_of_dvd_ne_zero hn hdvd
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:55:    refine ⟨_, ?_, prod_factorization_pow_eq_self hk⟩
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:56:    apply lt_of_le_of_ne <| factorization_le_iff_dvd hk hn |>.mpr hdvd
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:62:    refine mem_properDivisors.mpr ⟨this, lt_of_le_of_ne (le_of_dvd (Nat.pos_of_ne_zero hn) this) ?_⟩
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:63:    suffices k.factorization = f from (this ▸ hlt.ne <| congrArg _ ·)
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:64:    exact h ▸ factorization_prod_pow_eq_self_of_le_factorization hlt.le
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:65:
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:66:theorem properDivisors_eq_image_Iio_factorization_prod_pow {n : ℕ} :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:67:    n.properDivisors = (Finset.Iio n.factorization).image (·.prod (· ^ ·)) := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:68:  apply Finset.coe_inj.mp
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:69:  grind [coe_properDivisors_eq_prod_pow_lt_factorization]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:70:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:71:theorem Iio_factorization_prod_pow_injective (n : ℕ) :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:72:    (·.val.prod (· ^ ·) : Finset.Iio n.factorization → _).Injective := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:73:  grind [Function.Injective, factorization_prod_pow_eq_self_of_le_factorization]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:74:
+> formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:75:theorem properDivisors_eq_map_attach_Iio_factorization_prod_pow {n : ℕ} :
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:76:    n.properDivisors = (Finset.Iio n.factorization).attach.map
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:77:      ⟨(·.val.prod (· ^ ·)), Iio_factorization_prod_pow_injective n⟩ := by
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:78:  rw [Finset.map_eq_image]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:79:  change _ = (Finset.Iio n.factorization).attach.image ((·.prod (· ^ ·)) ∘ Subtype.val)
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:80:  rw [← Finset.image_image, Finset.attach_image_val]
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:81:  exact properDivisors_eq_image_Iio_factorization_prod_pow
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:82:
+  formal\lean\.lake\packages\mathlib\Mathlib\Data\Nat\Factorization\Divisors.lean:83:end Nat

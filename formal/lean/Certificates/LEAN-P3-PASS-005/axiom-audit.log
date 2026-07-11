@@ -1,0 +1,3 @@
+'PVGLEAN.pvg_factorization_div' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PVGLEAN.pvg_valuation_div_eq_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PVGLEAN.pvg_dvd_iff_factorization_div_eq_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
