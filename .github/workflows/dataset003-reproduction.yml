@@ -71,6 +71,9 @@ jobs:
       - name: Verify scale heterogeneity certificate
         run: python research/local-prime-density/VRP003/ScaleHeterogeneity/analysis/verify_scale_heterogeneity_certificate.py
 
+      - name: Verify scale heterogeneity closure semantics
+        run: python research/local-prime-density/VRP003/ScaleHeterogeneity/analysis/verify_scale_heterogeneity_closure.py
+
       - name: Upload Dataset 003 and scale-heterogeneity certificate package
         uses: actions/upload-artifact@v4
         with:
