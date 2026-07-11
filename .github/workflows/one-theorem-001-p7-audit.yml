@@ -1,0 +1,28 @@
+name: One-Theorem 001 P7 Audit
+
+on:
+  pull_request:
+    paths:
+      - "research/one-theorem/001/P7_*"
+      - "research/one-theorem/001/P7-source-ledger.json"
+      - "research/one-theorem/001/P2_LOCAL_FACTORIZATION_PROOF.md"
+      - "research/one-theorem/001/P3_P5_SMOOTHED_THEOREM_PROOF.md"
+      - "research/one-theorem/001/P6_ADVERSARIAL_PROOF_REVIEW.md"
+      - "tools/one_theorem_p7_audit.py"
+      - ".github/workflows/one-theorem-001-p7-audit.yml"
+  workflow_dispatch:
+
+jobs:
+  audit-p7:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Audit P7 source, proof, and scientific ceiling
+        run: python tools/one_theorem_p7_audit.py
