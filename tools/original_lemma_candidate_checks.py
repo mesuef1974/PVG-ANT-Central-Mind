@@ -62,16 +62,8 @@ def convolve(left: list[int], right: list[int], length: int) -> list[int]:
 
 
 def factor_polynomial(r: int, length: int) -> list[int]:
-    factor = [0] * length
-    factor[0] = 1
     a = 2 * r
     b = 2 * r + 1
-    if a < length:
-        factor[a] -= 1
-    if b < length:
-        factor[b] -= 2
-    if 2 * b < length:
-        factor[2 * b] += 1
     # Multiply (1-x^a) by (1-2x^b+x^(2b)).
     first = [0] * length
     first[0] = 1
@@ -87,7 +79,11 @@ def factor_polynomial(r: int, length: int) -> list[int]:
 
 
 def margin_local_series(r: int, length: int) -> list[int]:
-    return [1 if a == 0 else max(a - 2 * r + 1, 0) for a in range(length)]
+    return [1 if exponent == 0 else max(exponent - 2 * r + 1, 0) for exponent in range(length)]
+
+
+def truncated_margin_series(r: int, y: complex, cutoff: int = 160) -> complex:
+    return 1 + sum((exponent - 2 * r + 1) * y**exponent for exponent in range(2 * r, cutoff + 1))
 
 
 def matrix_rank(matrix: list[list[int]]) -> int:
@@ -118,7 +114,7 @@ def matrix_rank(matrix: list[list[int]]) -> int:
 
 def mobius(n: int) -> int:
     exponents = valuation_exponents(n)
-    if any(a > 1 for a in exponents):
+    if any(exponent > 1 for exponent in exponents):
         return 0
     return -1 if len(exponents) % 2 else 1
 
@@ -143,14 +139,18 @@ def main() -> None:
         require(first == 2 * r + 2, f"Unexpected residual order for r={r}: {first}")
         residual_orders[str(r)] = first
 
+    # Independent numerical check: compare the closed Bell-series formula with
+    # a direct truncated sum of its defining coefficients for several roots of unity.
     for r in [1, 2, 3]:
         for root_index in [0, 1, 2, 3, 4]:
             chi = cmath.exp(2j * cmath.pi * root_index / 5)
             y = chi * 0.07
-            local = 1 + y ** (2 * r) / (1 - y) ** 2
-            h_local = (1 - y ** (2 * r)) * (1 - y ** (2 * r + 1)) ** 2 * local
-            reconstructed = h_local / ((1 - y ** (2 * r)) * (1 - y ** (2 * r + 1)) ** 2)
-            require(abs(local - reconstructed) <= 1e-12, f"Twisted local factor failed for r={r}")
+            closed_form = 1 + y ** (2 * r) / (1 - y) ** 2
+            direct_series = truncated_margin_series(r, y)
+            require(
+                abs(closed_form - direct_series) <= 1e-13,
+                f"Twisted local series failed for r={r}, root={root_index}",
+            )
 
     tested_pairs = [[8, 4], [12, 6], [20, 10]]
     for n_max, d_max in tested_pairs:
