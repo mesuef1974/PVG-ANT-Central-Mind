@@ -61,6 +61,9 @@ jobs:
       - name: Verify Python and R agreement
         run: python research/local-prime-density/VRP002/Dataset003/analysis/compare_python_r_003.py
 
+      - name: Verify committed scientific result
+        run: python research/local-prime-density/VRP002/Dataset003/analysis/verify_committed_result_003.py
+
       - name: Upload Dataset 003 generated certificate package
         uses: actions/upload-artifact@v4
         with:
