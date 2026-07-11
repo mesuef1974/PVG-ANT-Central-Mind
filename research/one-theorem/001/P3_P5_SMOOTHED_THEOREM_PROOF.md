@@ -6,7 +6,7 @@
 
 ## Theorem
 
-Fix integers `q>=1` and `r>=1`, a reduced residue class `(a,q)=1`, and a function
+Fix integers `q>=1` and `r>=1`, a reduced residue class `(a,q)=1`, a real parameter `x>=1`, and a function
 
 \[
 W\in C_c^\infty(0,\infty).
@@ -452,39 +452,58 @@ Using
 we obtain
 
 \[
-\kappa_q
+L(u,\chi_0)
 =
-\rho_q\gamma+E_q'(1)
-=
-\rho_q
-\left(
-\gamma+
-\sum_{p\mid q}\frac{\log p}{p-1}
-\right).
+\frac{\rho_q}{u-1}
++
+\rho_q\left(
+\gamma+\sum_{p\mid q}\frac{\log p}{p-1}
+\right)
++O(u-1),
 \]
 
----
-
-## Parameter and uniformity statement
-
-The theorem is proved only for fixed `q` and fixed `r`. No uniformity in growing modulus or growing margin is asserted. This is essential: the vertical-growth and Euler-product constants are allowed to depend on both.
-
-The residue class `a` enters only through a unit-modulus character coefficient, so the error is uniform over reduced `a mod q` once `q` is fixed.
+which is the stated formula for `kappa_q`.
 
 ---
 
-## Manual-proof status
+## Edge cases
+
+### `q=1`
+
+There is one character, the principal character. Empty products give
+
+\[
+\rho_1=1,
+\qquad
+\kappa_1=\gamma.
+\]
+
+The theorem reduces to the smoothed global formula.
+
+### Vanishing residue coefficient
+
+It may happen that `P_chi(alpha_r)=0` or `Q_chi(beta_r)=0`. The displayed term then vanishes. The pole analysis still remains correct: the product can have a removable singularity after cancellation by a zero in the holomorphic factor. The formula records the actual residue, including the possibility of zero.
+
+### Complex weights
+
+The argument is valid for complex-valued `W`; for real-valued `W`, conjugate character terms combine to give a real result.
+
+---
+
+## Proof classification
 
 ```text
-P2 local factorization and convergence: complete.
-P3 character decomposition: complete.
-P4 Mellin inversion and contour shift: complete at standard fixed-q level.
-P5 residue constants: complete and independently symbolically checked.
-Full smoothed theorem: manual proof candidate complete.
-Adversarial proof review: pending.
-Priority/originality closure: pending.
+Geometric definition: exact.
+Bell series and factorization: proved in P2.
+Character decomposition: proved.
+Mellin inversion: standard and justified by absolute convergence.
+Contour shift: justified by smooth Mellin decay and fixed-q polynomial L-growth.
+Residues: calculated explicitly.
+Remainder: proved for fixed q,r,W.
+Originality: not certified.
+Publication readiness: not certified.
 ```
 
-## Scientific ceiling
+## Ceiling
 
-A complete-looking manual argument is not yet a certified theorem. The proof must pass source-grounded analytic-prerequisite review, adversarial checking, and final priority classification. No RH/GRH progress is involved.
+This is a complete manual proof candidate of the frozen smoothed statement. It is not yet a certified original theorem, and it implies no RH/GRH progress.
