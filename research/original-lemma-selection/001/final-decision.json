@@ -1,0 +1,20 @@
+{
+  "selection_id": "ORIGINAL-LEMMA-SELECTION-001",
+  "status": "TARGET_FROZEN_PENDING_ONE_THEOREM_REVIEW",
+  "selected_candidate": "OLS-CAND-005",
+  "selected_target": "ONE-LEMMA-TARGET-001",
+  "title": "Smoothed torsion layers of margin-interior divisor boxes in arithmetic progressions",
+  "subsumes": [
+    "OLS-CAND-002 smoothed q=1 case",
+    "OLS-CAND-004 twisted factorization prerequisite"
+  ],
+  "deferred": [
+    "OLS-CAND-001 parameterized face-enumerator mean",
+    "OLS-CAND-003 general margin hierarchy beyond the selected theorem"
+  ],
+  "preliminary_originality": "plausible_not_certified",
+  "pvg_necessity": "material_in_observable_and_statement_classical_in_analytic_execution",
+  "proof_readiness": "ready_with_priority_and_symbolic_gates",
+  "claim_ceiling": "candidate theorem package only",
+  "next_goal": "GOAL-OP-ONE-THEOREM-001"
+}
