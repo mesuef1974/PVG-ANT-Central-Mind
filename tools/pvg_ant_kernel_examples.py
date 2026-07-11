@@ -7,6 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "maps" / "bridge-example-results.json"
+EXPECTED = ROOT / "maps" / "bridge-example-expected.json"
 
 
 def require(condition: bool, message: str) -> None:
@@ -65,9 +66,9 @@ def close_complex(left: complex, right: complex, tolerance: float = 1e-12) -> bo
 
 
 def main() -> None:
+    require(EXPECTED.exists(), f"Missing expected certificate: {EXPECTED}")
     results: dict[str, dict[str, object]] = {}
 
-    # EX-MULT-001
     v12 = valuation(12)
     v18 = valuation(18)
     require(add_vectors(v12, v18) == valuation(216), "multiplicative linearization failed")
@@ -75,14 +76,12 @@ def main() -> None:
     require(valuation(math.lcm(12, 18)) == {2: 2, 3: 2}, "lcm/max example failed")
     results["EX-MULT-001"] = {"status": "PASS", "objects": [12, 18, 216]}
 
-    # EX-BOX-001
     ds = divisors(12)
     require(ds == [1, 2, 3, 4, 6, 12], "divisor box enumeration failed")
     require(len(ds) == divisor_count(12) == 6, "box cardinality failed")
-    require(sum(1 for d in ds) == divisor_count(12), "1*1=tau example failed")
+    require(sum(1 for _ in ds) == divisor_count(12), "1*1=tau example failed")
     results["EX-BOX-001"] = {"status": "PASS", "n": 12, "divisors": ds}
 
-    # EX-EULER-001
     require(mobius(30) ** 2 == 1, "squarefree Euler coefficient failed")
     require(mobius(12) ** 2 == 0, "non-squarefree Euler coefficient failed")
     require(all(mobius(p) ** 2 == 1 for p in [2, 3, 5, 7]), "prime local coefficients failed")
@@ -92,32 +91,32 @@ def main() -> None:
         "analytic_gate": "Re(s)>1 for absolute convergence",
     }
 
-    # EX-HALFSPACE-001
     x = 12
     tolerance = 1e-12
     for n in range(1, 20):
         log_weight = sum(exponent * math.log(p) for p, exponent in valuation(n).items())
         require(abs(log_weight - math.log(n)) <= tolerance, f"log weight failed at {n}")
         require((n <= x) == (log_weight <= math.log(x) + tolerance), f"half-space failed at {n}")
-    results["EX-HALFSPACE-001"] = {"status": "PASS", "x": x, "warning": "coarse slabs do not encode additive order"}
+    results["EX-HALFSPACE-001"] = {
+        "status": "PASS",
+        "x": x,
+        "warning": "coarse slabs do not encode additive order",
+    }
 
-    # EX-MOBIUS-001
     require(mobius(30) == -1, "Boolean support parity failed")
     require(mobius(12) == 0, "off-Boolean Möbius zero failed")
     results["EX-MOBIUS-001"] = {"status": "PASS", "mu30": -1, "mu12": 0}
 
-    # EX-RESIDUE-001: character reconstruction on (Z/5Z)^*.
     for target in [1, 2, 3, 4]:
         for value in [1, 2, 3, 4]:
             reconstructed = sum(
                 reduced_character(5, k, value) * reduced_character(5, k, target).conjugate()
                 for k in range(4)
             ) / 4
-            expected = 1 + 0j if value == target else 0j
-            require(close_complex(reconstructed, expected), f"character reconstruction failed for {value},{target}")
+            expected_value = 1 + 0j if value == target else 0j
+            require(close_complex(reconstructed, expected_value), f"character reconstruction failed for {value},{target}")
     results["EX-RESIDUE-001"] = {"status": "PASS", "modulus": 5, "characters": 4}
 
-    # EX-SIEVE-LOSS-001: a nonzero pointwise perturbation invisible to A_1,A_2,A_3.
     universe = [1, 2, 3, 6]
     weights = {1: 1, 2: -1, 3: -1, 6: 1}
     aggregates = {d: sum(weights[n] for n in universe if n % d == 0) for d in [1, 2, 3, 6]}
@@ -125,9 +124,8 @@ def main() -> None:
     require(aggregates[6] == 1, "lost divisibility moment was not detected")
     results["EX-SIEVE-LOSS-001"] = {"status": "PASS", "aggregates": aggregates}
 
-    # EX-TRANSFER-001: finite coefficient identity for zeta(s)^2 before analytic transfer.
-    coefficients = {n: sum(1 for d in range(1, n + 1) if n % d == 0) for n in range(1, 21)}
-    require(all(coefficients[n] == divisor_count(n) for n in coefficients), "zeta-square coefficient identity failed")
+    coefficients = {n: divisor_count(n) for n in range(1, 21)}
+    require(all(coefficients[n] == sum(1 for d in range(1, n + 1) if n % d == 0) for n in coefficients), "zeta-square coefficient identity failed")
     results["EX-TRANSFER-001"] = {
         "status": "PASS",
         "finite_coefficients": coefficients,
@@ -135,8 +133,11 @@ def main() -> None:
     }
 
     require(len(results) == 8, "expected exactly eight bridge examples")
-    OUTPUT.write_text(json.dumps(results, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print("pvg_ant_kernel_examples: PASS — 8 deterministic bridge examples")
+    normalized = json.loads(json.dumps(results))
+    expected = json.loads(EXPECTED.read_text(encoding="utf-8"))
+    require(normalized == expected, "generated bridge examples differ from committed expected certificate")
+    OUTPUT.write_text(json.dumps(normalized, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    print("pvg_ant_kernel_examples: PASS — 8 deterministic examples match committed certificate")
 
 
 if __name__ == "__main__":
