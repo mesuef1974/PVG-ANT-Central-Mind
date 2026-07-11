@@ -1,0 +1,50 @@
+{
+  "certificate_id": "CERT-PVG-LPD-VRP001-REPAIR-001",
+  "status": "REPAIR APPLIED / CLOSURE REVIEW PENDING",
+  "scope": [
+    "Dataset 001 R safety checks",
+    "Dataset 002 R safety checks",
+    "Dataset 001 explicit Python verifier",
+    "Dataset 002 explicit Python verifier",
+    "Deterministic Dataset 001 builder",
+    "Deterministic Dataset 002 builder",
+    "Exact Python Ridge and bootstrap analyses",
+    "Dataset 002 multiplicity correction",
+    "Dataset 002 classification repair"
+  ],
+  "local_reproduction_checks": {
+    "dataset_001": {
+      "rows": 829,
+      "columns": 65,
+      "same_columns_as_original": true,
+      "maximum_numeric_difference": 0.0,
+      "same_nonnumeric_values": true
+    },
+    "dataset_002": {
+      "rows": 829,
+      "columns": 131,
+      "same_columns_as_original": true,
+      "maximum_numeric_difference": 8.881784197001252e-16,
+      "same_nonnumeric_values": true
+    }
+  },
+  "dataset_002_repaired_decision": "UNRESOLVED WITH EXPLORATORY UNADJUSTED SIGNAL",
+  "multiplicity_result": {
+    "exploratory_model": "Classical + Lambda + characters + residue energy",
+    "one_sided_p": 0.020000000000000018,
+    "bonferroni_p": 0.08000000000000007,
+    "holm_p": 0.08000000000000007,
+    "promoted": false
+  },
+  "remaining_gates": [
+    "Run the R scripts in an environment with R installed",
+    "Run a clean-clone reproduction check",
+    "Update the branch onto the latest main",
+    "Review the final PR diff before merge"
+  ],
+  "scientific_ceiling": [
+    "No new theorem",
+    "No confirmed Candidate Signal",
+    "No RH/GRH progress"
+  ]
+}
