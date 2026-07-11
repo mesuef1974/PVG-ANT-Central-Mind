@@ -1,7 +1,10 @@
 # Next Action
 
 ```text
-Current main baseline:
+Current main HEAD:
+  56e00f4 — Add Lean P3 valuation mass geometry (LEAN-P3-PASS-008).
+
+Latest closed research baseline:
   a0f93f4 — Close Dataset 003 independent replication.
 
 Strategic compass:
@@ -37,6 +40,8 @@ Not allowed now:
   - New Lean/R/Python work without a named scientific function.
   - Treating translation, experiment, or formalization as originality.
   - Rebuilding an already certified bridge from scratch.
+  - Continuing Lean merely because the formal layer can be expanded; the next Lean pass must support
+    a named active research lemma.
 
 Readiness rule:
   Every new task must pass READY / NOT_READY using
