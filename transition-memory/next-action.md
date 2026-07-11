@@ -2,6 +2,9 @@
 
 ```text
 Current main HEAD:
+  1675b67 — Establish PVG-ANT Research Compass v1.0.
+
+Latest formal baseline:
   56e00f4 — Add Lean P3 valuation mass geometry (LEAN-P3-PASS-008).
 
 Latest closed research baseline:
@@ -17,7 +20,7 @@ Active operational goal:
 Current research front:
   PVG-LOCAL-PRIME-DENSITY-001.
 
-Immediate action after this compass PR:
+Immediate action:
   1. Repair and close the existing scale-heterogeneity diagnostic branch.
   2. Run reproducibility/CI and Closure Review.
   3. Merge only after the exact-identity layer, empirical layer, and conditional analytic bridge
