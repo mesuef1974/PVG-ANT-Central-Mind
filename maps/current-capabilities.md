@@ -9,46 +9,33 @@ named task
 → readiness and priority audit
 → certified PVG–ANT bridge selection
 → exact frozen statement
-→ proof / known-result / negative-certificate closure
-→ originality and PVG-necessity review
-→ knowledge return
+→ manual proof and independent checks
+→ source/originality classification
+→ theorem / known-result / negative closure
 ```
 
 Canonical references:
 
-- `governance/pvg-ant-research-compass-v1.md`
 - `maps/pvg-ant-language-kernel-v1-release-index.md`
-- `registries/pvg-ant-bridges.jsonl`
-- `governance/closures/PVG-ANT-LANGUAGE-KERNEL-V1-CLOSURE.md`
 - `governance/closures/ORIGINAL-LEMMA-SELECTION-001-CLOSURE.md`
 - `research/original-lemma-selection/001/ONE-LEMMA-TARGET-001.md`
 - `governance/readiness/ONE-LEMMA-TARGET-001.md`
+- `research/one-theorem/001/P0_P6_CHECKPOINT.md`
 - `registries/program-goals.jsonl`
 
 ## 2. Closed Language Kernel v1
 
-Eight reusable bridge families are closed:
+Eight reusable bridge families remain closed: multiplication/order, divisor boxes/convolution, Euler factors, logarithmic size geometry, Möbius support, residue-character Fourier analysis, sieve information, and analytic transfer.
 
-1. multiplication/divisibility/order;
-2. divisor boxes/Dirichlet convolution;
-3. multiplicative observables/Euler factors;
-4. logarithmic half-spaces/weighted sums;
-5. squarefree support/Möbius;
-6. residue fibers/character Fourier coordinates;
-7. sieve visibility/aggregation loss/certificates;
-8. local/global analytic transfer.
-
-Maturity remains:
+Maturity:
 
 ```text
 L1: 1 expository family
 L2: 7 structural/analytic families
-L3: 0 certified families
+L3: 0 certified-original transfer families
 ```
 
 ## 3. Closed Original Lemma Selection 001
-
-The mind produced:
 
 ```text
 10 exact candidates
@@ -58,7 +45,7 @@ The mind produced:
 1 frozen target
 ```
 
-The selected geometric observable is
+The selected observable is
 
 \[
 I_r(n)=\prod_{p^a\parallel n}\max(a-2r+1,0),
@@ -66,73 +53,80 @@ I_r(n)=\prod_{p^a\parallel n}\max(a-2r+1,0),
 
 the number of divisor-box points at coordinate margin at least `r` from every facet.
 
-## 4. Active theorem target
+## 4. Manual theorem-proof capability reached
 
-`ONE-LEMMA-TARGET-001` seeks a smoothed fixed-modulus expansion for
+For fixed `q,r`, reduced `a mod q`, and smooth compactly supported `W`, the repository now contains a complete manual proof candidate for the smoothed sum
 
 \[
-\sum_{n\equiv a\pmod q}I_r(n)W(n/x).
+\sum_{n\equiv a\pmod q} I_r(n)W(n/x).
 \]
 
-The proposed twisted factorization is
+The proved candidate factorization is
 
 \[
 D_{r,\chi}(s)=
 L(2rs,\chi^{2r})
 L((2r+1)s,\chi^{2r+1})^2
-H_{r,\chi}(s).
+H_{r,\chi}(s),
 \]
 
-The target theorem links:
+with `H` holomorphic for `Re(s)>1/(2r+2)`.
 
-- the `2r` geometric layer to characters with `χ^(2r)=χ₀`;
-- the `2r+1` layer to characters with `χ^(2r+1)=χ₀`;
-- the next local layer `2r+2` to the proposed smoothed remainder.
+The manual expansion has:
 
-This is a frozen candidate only. The factorization, constants, remainder, and priority must all be proved or corrected.
+- an `x^(1/(2r))` layer for `chi^(2r)=chi_0`;
+- an `x^(1/(2r+1)) log x` layer for `chi^(2r+1)=chi_0`;
+- a fixed-parameter smoothed error `O(x^(1/(2r+2)+epsilon))`.
 
-## 5. Active operational goal
+## 5. Completed checks
+
+- exact geometric counting and multiplicativity;
+- Bell-series derivation;
+- local residual order and Euler-product convergence;
+- character decomposition;
+- Mellin inversion and contour shift;
+- simple- and double-pole constants;
+- principal-character finite part;
+- independent SymPy/mpmath certificate;
+- internal adversarial proof review;
+- CI phase audit.
+
+## 6. Priority correction
+
+Quadratic/cubic torsion-character selection is known from classical square-full progression work. The possible contribution is narrower:
+
+- the divisor-box margin-interior weight;
+- the general `2r`/`2r+1` hierarchy for that weight;
+- the explicit smoothed weighted constants;
+- the PVG geometric interpretation.
+
+The project does not claim a new torsion mechanism or a new contour method.
+
+## 7. Active operational goal
 
 ```text
 GOAL-OP-ONE-THEOREM-001 = active
-GOAL-OP-ORIGINAL-LEMMA-SELECTION-001 = closed
-GOAL-OP-LANGUAGE-KERNEL-V1-001 = closed
+P0–P6 checkpoint = PASS
+P7 source-grounded external review = next
+P8 final classification = pending
 ```
 
-Readiness:
+## 8. Remaining capabilities needed
 
-`governance/readiness/ONE-LEMMA-TARGET-001.md` = READY with priority and symbolic gates.
+- exact older-literature priority audit;
+- source-grounded citations for standard analytic prerequisites;
+- independent line-by-line mathematical review;
+- final originality classification.
 
-## 6. Available substrate for the proof
-
-- divisor-box geometry and convolution language;
-- Euler-factor and analytic-transfer bridges;
-- character orthogonality and fixed-modulus L-functions;
-- Mellin/Perron/contour tools from the ANT ledgers;
-- powerful/k-full number literature routes;
-- deterministic Python checks and CI;
-- negative-result and source-grounding governance.
-
-## 7. Tool activation
-
-- literature search: required first for priority and exact prerequisites;
-- Python/SymPy: required for local-series and Laurent checks;
-- manual proof: primary execution path;
-- R: not required;
-- Lean: deferred until a complete manual proof and reusable formal value exist;
-- GPU: not required.
-
-## 8. Closed local-prime-density sequence
-
-Dataset 001–003 and Scale-Heterogeneity remain closed at diagnostic ceiling. Dataset 004 is unauthorized.
+R, GPU, and new datasets are not needed. Lean remains deferred until the result is classified and a reusable formal target is justified.
 
 ## 9. Scientific ceiling
 
 ```text
-Originality plausible, not certified.
-No L3 transfer principle certified.
-No original lemma certified.
-No theorem proved.
+Complete manual proof candidate.
+Originality plausible and narrowed, not certified.
+No certified original lemma.
+No certified theorem.
 No publication claim.
 No RH progress.
 No GRH progress.
