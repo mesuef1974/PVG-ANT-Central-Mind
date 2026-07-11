@@ -56,9 +56,11 @@ def read_jsonl(path: Path) -> list[dict[str, object]]:
         if not line.strip():
             continue
         try:
-            rows.append(json.loads(line))
+            value = json.loads(line)
         except json.JSONDecodeError as error:
             raise RuntimeError(f"Invalid JSONL at {path}:{line_number}: {error}") from error
+        require(isinstance(value, dict), f"Expected JSON object at {path}:{line_number}")
+        rows.append(value)
     return rows
 
 
@@ -73,11 +75,18 @@ def main() -> None:
     require(len(families) == len(set(families)), "Duplicate bridge family")
     require(len(examples) == len(set(examples)), "Duplicate finite example ID")
 
+    require(EXPECTED.exists(), f"Expected certificate file not found: {EXPECTED}")
+    require(
+        GENERATED.exists(),
+        f"Generated results file not found: {GENERATED}. Run tools/pvg_ant_kernel_examples.py first.",
+    )
     expected = json.loads(EXPECTED.read_text(encoding="utf-8"))
     generated = json.loads(GENERATED.read_text(encoding="utf-8"))
     require(expected == generated, "Generated bridge examples differ from expected certificate")
     require(set(examples) == set(expected), "Registry/example certificate mismatch")
 
+    require(RELEASE_INDEX.exists(), f"Missing release index: {RELEASE_INDEX}")
+    require(CLOSURE.exists(), f"Missing closure review: {CLOSURE}")
     release_text = RELEASE_INDEX.read_text(encoding="utf-8")
     closure_text = CLOSURE.read_text(encoding="utf-8")
     for row in rows:
