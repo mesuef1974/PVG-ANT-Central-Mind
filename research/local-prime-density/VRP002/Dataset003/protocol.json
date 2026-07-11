@@ -13,8 +13,10 @@
   },
   "window_design": {
     "theta_families": [0.5, 0.6666666666666666, 0.75],
-    "windows_per_family": 240,
-    "expected_total_windows": 720,
+    "windows_per_family": 160,
+    "expected_total_windows": 480,
+    "minimum_complete_list_size": 175,
+    "limiting_family": 0.75,
     "non_overlapping_within_family": true,
     "selection": "deterministic_evenly_spaced_indices_from_complete_nonoverlapping_list"
   },
@@ -46,6 +48,7 @@
   },
   "bootstrap": {
     "type": "paired_stratified_block_bootstrap_by_theta_family",
+    "resample_count_per_family": 160,
     "replicates": 10000,
     "seed": 20260712,
     "confidence_level": 0.95
