@@ -1,0 +1,5 @@
+'PVGLean.logic_composition' does not depend on any axioms
+'PVGLean.equality_transitivity' does not depend on any axioms
+'PVGLean.one_plus_one' does not depend on any axioms
+'PVGLean.pvg_divisibility_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PVGLean.factorization_order_iff_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]
