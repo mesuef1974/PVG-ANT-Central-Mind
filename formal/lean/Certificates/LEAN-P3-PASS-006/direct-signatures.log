@@ -1,0 +1,4 @@
+Nat.support_factorization (n : ℕ) : n.factorization.support = n.primeFactors
+Nat.support_factorization : ∀ (n : ℕ), n.factorization.support = n.primeFactors
+Finsupp.mem_support_iff.{u_1, u_4} {α : Type u_1} {M : Type u_4} [Zero M] {f : α →₀ M} {a : α} : a ∈ f.support ↔ f a ≠ 0
+@Finsupp.mem_support_iff : ∀ {α : Type u_1} {M : Type u_2} [inst : Zero M] {f : α →₀ M} {a : α}, a ∈ f.support ↔ f a ≠ 0
