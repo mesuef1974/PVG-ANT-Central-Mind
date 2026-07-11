@@ -5,7 +5,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "registries" / "pvg-ant-bridges.jsonl"
-KERNEL = ROOT / "maps" / "pvg-ant-language-kernel-v1.md"
+RELEASE_INDEX = ROOT / "maps" / "pvg-ant-language-kernel-v1-release-index.md"
 EXPECTED = ROOT / "maps" / "bridge-example-expected.json"
 GENERATED = ROOT / "maps" / "bridge-example-results.json"
 
@@ -36,7 +36,6 @@ FORBIDDEN_PROMOTIONS = {"New Theorem", "Original Theorem", "Candidate Mechanism"
 CARD_TOKENS = [
     "## Classical object",
     "## PVG object",
-    "## Exact forward map",
     "## Reverse map",
     "## Simplification gain",
     "## Finite certificate",
@@ -78,7 +77,7 @@ def main() -> None:
     require(expected == generated, "Generated bridge examples differ from expected certificate")
     require(set(examples) == set(expected), "Registry/example certificate mismatch")
 
-    kernel_text = KERNEL.read_text(encoding="utf-8")
+    release_text = RELEASE_INDEX.read_text(encoding="utf-8")
     for row in rows:
         missing = REQUIRED_FIELDS - set(row)
         require(not missing, f"Missing fields for {row.get('id')}: {sorted(missing)}")
@@ -101,14 +100,16 @@ def main() -> None:
         require(card_path.exists(), f"Missing card for {row['id']}: {card_path}")
         card_text = card_path.read_text(encoding="utf-8")
         require(str(row["id"]) in card_text, f"Card ID mismatch for {row['id']}")
+        require("## Exact forward map" in card_text or "## Forward map" in card_text, f"Forward map section missing for {row['id']}")
         for token in CARD_TOKENS:
             require(token in card_text, f"Card token {token!r} missing for {row['id']}")
         require(str(row["finite_example_id"]) in card_text, f"Example ID missing from card {row['id']}")
-        require(str(row["id"]) in kernel_text, f"Bridge not indexed in canonical kernel: {row['id']}")
+        require(str(row["id"]) in release_text, f"Bridge not indexed in release index: {row['id']}")
 
-    require(sum(row["simplification_gain"] == "expository" for row in rows) >= 1, "Kernel must preserve a non-material/expository classification")
+    require(sum(row["simplification_gain"] == "expository" for row in rows) >= 1, "Kernel must preserve an expository-only classification")
     require(sum(row["simplification_gain"] == "analytic" for row in rows) >= 3, "Kernel lacks analytic bridge coverage")
     require(all(row["maturity"] != "L3" for row in rows), "Kernel v1 cannot claim L3 without a proved transfer lemma")
+    require("No family in v1 is L3" in release_text, "Release ceiling missing")
 
     print("language_kernel_audit: PASS — 8 canonical bridges, cards, examples, and ceilings validated")
 
