@@ -6,6 +6,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "registries" / "pvg-ant-bridges.jsonl"
 RELEASE_INDEX = ROOT / "maps" / "pvg-ant-language-kernel-v1-release-index.md"
+CLOSURE = ROOT / "governance" / "closures" / "PVG-ANT-LANGUAGE-KERNEL-V1-CLOSURE.md"
 EXPECTED = ROOT / "maps" / "bridge-example-expected.json"
 GENERATED = ROOT / "maps" / "bridge-example-results.json"
 
@@ -78,6 +79,7 @@ def main() -> None:
     require(set(examples) == set(expected), "Registry/example certificate mismatch")
 
     release_text = RELEASE_INDEX.read_text(encoding="utf-8")
+    closure_text = CLOSURE.read_text(encoding="utf-8")
     for row in rows:
         missing = REQUIRED_FIELDS - set(row)
         require(not missing, f"Missing fields for {row.get('id')}: {sorted(missing)}")
@@ -90,7 +92,7 @@ def main() -> None:
         require(gain in ALLOWED_GAINS, f"Invalid gain {gain} for {row['id']}")
         require(maturity in ALLOWED_MATURITY, f"Invalid maturity {maturity} for {row['id']}")
         require(not (maturity == "L3" and gain != "proof-producing"), f"L3 bridge lacks proof-producing gain: {row['id']}")
-        require(str(row["status"]) == "validated_intake", f"Unexpected bridge status for {row['id']}")
+        require(str(row["status"]) == "closed", f"Bridge is not closed: {row['id']}")
 
         combined = json.dumps(row, ensure_ascii=False)
         for phrase in FORBIDDEN_PROMOTIONS:
@@ -105,13 +107,16 @@ def main() -> None:
             require(token in card_text, f"Card token {token!r} missing for {row['id']}")
         require(str(row["finite_example_id"]) in card_text, f"Example ID missing from card {row['id']}")
         require(str(row["id"]) in release_text, f"Bridge not indexed in release index: {row['id']}")
+        require(str(row["id"]) in closure_text, f"Bridge absent from closure review: {row['id']}")
 
-    require(sum(row["simplification_gain"] == "expository" for row in rows) >= 1, "Kernel must preserve an expository-only classification")
-    require(sum(row["simplification_gain"] == "analytic" for row in rows) >= 3, "Kernel lacks analytic bridge coverage")
+    require(sum(row["simplification_gain"] == "expository" for row in rows) == 1, "Kernel must preserve exactly one expository-only family")
+    require(sum(row["simplification_gain"] == "structural" for row in rows) == 3, "Unexpected structural bridge count")
+    require(sum(row["simplification_gain"] == "analytic" for row in rows) == 4, "Unexpected analytic bridge count")
     require(all(row["maturity"] != "L3" for row in rows), "Kernel v1 cannot claim L3 without a proved transfer lemma")
     require("No family in v1 is L3" in release_text, "Release ceiling missing")
+    require("CLOSE LANGUAGE KERNEL v1 — PASS" in closure_text, "Closure decision missing")
 
-    print("language_kernel_audit: PASS — 8 canonical bridges, cards, examples, and ceilings validated")
+    print("language_kernel_audit: PASS — closed Kernel v1 has 8 canonical bridges and no L3 promotion")
 
 
 if __name__ == "__main__":
