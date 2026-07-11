@@ -1,4 +1,11 @@
-data_path <- "../data/pvg_lpd_dataset_001.csv"
+args <- commandArgs(trailingOnly = FALSE)
+file_arg <- grep("^--file=", args, value = TRUE)
+if (length(file_arg) != 1) stop("Cannot determine the R script path")
+script_dir <- dirname(normalizePath(sub("^--file=", "", file_arg)))
+data_path <- normalizePath(
+  file.path(script_dir, "..", "data", "pvg_lpd_dataset_001.csv"),
+  mustWork = FALSE
+)
 if (!file.exists(data_path)) {
   stop("Dataset 001 is missing. Run build_dataset_001.py before this analysis.")
 }
