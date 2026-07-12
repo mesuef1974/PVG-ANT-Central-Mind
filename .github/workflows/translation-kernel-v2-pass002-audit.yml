@@ -29,7 +29,7 @@ jobs:
 
       - name: Re-audit Translation Kernel v2 Pass 001
         run: |
-          python tools/translation_kernel_v2_examples.py
+          python tools/pvg_ant_translation_v2_examples.py
           python tools/translation_kernel_v2_audit.py
 
       - name: Generate Pass 002 examples
