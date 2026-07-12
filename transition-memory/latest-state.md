@@ -33,6 +33,11 @@ Capability maturation:
   CENTRAL-MIND-CONTINUITY-001 = installed_repository_side.
   CENTRAL-MIND-CONTINUITY-CLOSURE-002 = closed.
   Current maturation receipt = MATURATION-RECEIPT-007.
+  PVG-ANT-RESEARCH-MODEL-PROGRAM-001 = active
+    (owner order 2026-07-12; stage S0 foundation; measure-before-training
+     order binding; mandatory comparison arms ARM-BASE / ARM-LOCAL /
+     ARM-CURRENT / ARM-HYBRID; CURRENT-MIND-FREEZE-MANIFEST-001 recorded;
+     charter governance/programs/PVG-ANT-RESEARCH-MODEL-PROGRAM-001.md).
 
 Governance enforcement:
   Ruleset governance-required = ACTIVE on refs/heads/main.
@@ -109,7 +114,9 @@ Benchmark state:
 
 Next capability gate:
   continuity activation and strict hardening = complete;
-  next: design ADVERSARIAL-PVG-ANT-BENCHMARK-002 without adding cards.
+  next: design ADVERSARIAL-PVG-ANT-BENCHMARK-002 without adding cards,
+  executed as stage S1 (2026-07-20 to 2026-08-16) of
+  PVG-ANT-RESEARCH-MODEL-PROGRAM-001 under Roadmap v2.1.
   Required benchmark order:
      raw hidden baseline → immutable error map → morphism composer
      → same-set rerun with contamination accounting → ablation
@@ -125,6 +132,10 @@ Restrictions:
   Dataset 004 remains unauthorized;
   no automatic Lean expansion;
   no Benchmark 002 learning before the raw error map;
+  no training of local components before CURRENT-MIND-RAW-BASELINE-001
+    and IMMUTABLE-ERROR-MAP-002-A;
+  no Researcher naming before the Hidden-Set-B comparison against
+    ARM-CURRENT with independent review;
   no RH or GRH expansion.
 
 Ceiling:

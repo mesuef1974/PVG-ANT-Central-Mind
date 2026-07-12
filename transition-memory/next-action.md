@@ -24,6 +24,9 @@ Capability-maturation state:
   CENTRAL-MIND-CONTINUITY-001 = installed_repository_side.
   CENTRAL-MIND-CONTINUITY-CLOSURE-002 = closed.
   Current maturation receipt = MATURATION-RECEIPT-007.
+  PVG-ANT-RESEARCH-MODEL-PROGRAM-001 = active (stage S0 foundation;
+    owner order 2026-07-12; Roadmap v2.1 is the plan of record;
+    ARM-CURRENT frozen via CURRENT-MIND-FREEZE-MANIFEST-001).
   Translation inventory = 44; native objects = 20; morphisms = 24.
   planned.jsonl = empty (no queued research passes registered).
   Montgomery A/B/legacy-E quarantine (source-mismatch) remains in force.
@@ -56,6 +59,11 @@ External P8 track (under authorized hold until 2026-07-26T19:47:20Z):
 
 Next internal package after continuity activation:
   ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED.
+  It runs as stage S1 (2026-07-20 to 2026-08-16) of
+  PVG-ANT-RESEARCH-MODEL-PROGRAM-001: design and seal A (≥48) and
+  B (≥48, encrypted) per the registered protocol, then the raw baseline
+  of ARM-CURRENT on A (stage S2) before any architecture, corpus,
+  or training decision.
 
 Benchmark 002 order — immutable:
   1. Design at least 48 new held-out cases; prompts separated from gold keys.
@@ -85,6 +93,10 @@ Do not do yet:
   Dataset 004 remains unauthorized;
   no automatic Lean expansion;
   no Benchmark 002 targeted learning before the raw error map;
+  no training of local components (corpus, LoRA, SFT) before
+    CURRENT-MIND-RAW-BASELINE-001 and IMMUTABLE-ERROR-MAP-002-A;
+  no Researcher naming before the Hidden-Set-B comparison against
+    ARM-CURRENT with independent review;
   no RH or GRH expansion.
 
 Ceiling:
