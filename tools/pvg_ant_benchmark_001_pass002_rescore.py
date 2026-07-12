@@ -22,21 +22,21 @@ DIMS = [
 ]
 
 UPGRADES: dict[str, dict[str, object]] = {
-    "B001-GA-07": {"card": "TR-V2-PVG-MATERIALITY-GATE-001", "dims": ["tool_routing"]},
-    "B001-LA-06": {"card": "TR-V2-PRIMITIVE-IMPRIMITIVE-CONDUCTOR-001", "dims": ["reverse_control", "wall_certificate"]},
-    "B001-LA-07": {"card": "TR-V2-GENERAL-THEOREM-SUBSUMPTION-001", "dims": ["forward_translation", "reverse_control"]},
-    "B001-LA-09": {"card": "TR-V2-UNIFORMITY-PARAMETER-TRACKING-001", "dims": ["reverse_control", "tool_routing", "wall_certificate"]},
-    "B001-TR-03": {"card": "TR-V2-SMOOTH-TO-SHARP-DESMOOTHING-001", "dims": ["reverse_control", "tool_routing", "wall_certificate"]},
-    "B001-TR-04": {"card": "TR-V2-VERTICAL-STRIP-CERTIFICATE-001", "dims": ["reverse_control"]},
-    "B001-TR-05": {"card": "TR-V2-TAUBERIAN-BOUNDARY-001", "dims": ["reverse_control", "wall_certificate"]},
-    "B001-TR-06": {"card": "TR-V2-UNIFORMITY-PARAMETER-TRACKING-001", "dims": ["reverse_control", "tool_routing", "wall_certificate"]},
-    "B001-TR-07": {"card": "TR-V2-TAUBERIAN-BOUNDARY-001", "dims": ["reverse_control"]},
-    "B001-RE-06": {"card": "TR-V2-PRIMITIVE-IMPRIMITIVE-CONDUCTOR-001", "dims": ["forward_translation", "reverse_control", "tool_routing"]},
-    "B001-RE-07": {"card": "TR-V2-MOMENT-TO-TAIL-MAX-001", "dims": ["reverse_control", "tool_routing"]},
-    "B001-SI-06": {"card": "TR-V2-SIEVE-DISPERSION-001", "dims": ["forward_translation", "reverse_control", "tool_routing", "wall_certificate"]},
-    "B001-PR-04": {"card": "TR-V2-LOCAL-GLOBAL-PROBABILISTIC-TRANSFER-001", "dims": ["forward_translation", "reverse_control", "tool_routing", "wall_certificate"]},
-    "B001-PR-07": {"card": "TR-V2-SHORT-INTERVAL-ADDITIVE-ORDER-001", "dims": ["reverse_control", "tool_routing", "wall_certificate"]},
-    "B001-PR-08": {"card": "TR-V2-HALASZ-PRETENTIOUS-001", "dims": ["forward_translation", "forward_translation", "reverse_control", "reverse_control", "tool_routing", "tool_routing"]},
+    "B001-GA-07": {"card": "TR-V2-PVG-MATERIALITY-GATE-001", "deltas": {"tool_routing": 1}},
+    "B001-LA-06": {"card": "TR-V2-PRIMITIVE-IMPRIMITIVE-CONDUCTOR-001", "deltas": {"reverse_control": 1, "wall_certificate": 1}},
+    "B001-LA-07": {"card": "TR-V2-GENERAL-THEOREM-SUBSUMPTION-001", "deltas": {"forward_translation": 1, "reverse_control": 1}},
+    "B001-LA-09": {"card": "TR-V2-UNIFORMITY-PARAMETER-TRACKING-001", "deltas": {"reverse_control": 1, "tool_routing": 1, "wall_certificate": 1}},
+    "B001-TR-03": {"card": "TR-V2-SMOOTH-TO-SHARP-DESMOOTHING-001", "deltas": {"reverse_control": 1, "tool_routing": 1, "wall_certificate": 1}},
+    "B001-TR-04": {"card": "TR-V2-VERTICAL-STRIP-CERTIFICATE-001", "deltas": {"reverse_control": 1}},
+    "B001-TR-05": {"card": "TR-V2-TAUBERIAN-BOUNDARY-001", "deltas": {"reverse_control": 1, "wall_certificate": 1}},
+    "B001-TR-06": {"card": "TR-V2-UNIFORMITY-PARAMETER-TRACKING-001", "deltas": {"reverse_control": 1, "tool_routing": 1, "wall_certificate": 1}},
+    "B001-TR-07": {"card": "TR-V2-TAUBERIAN-BOUNDARY-001", "deltas": {"reverse_control": 1}},
+    "B001-RE-06": {"card": "TR-V2-PRIMITIVE-IMPRIMITIVE-CONDUCTOR-001", "deltas": {"forward_translation": 1, "reverse_control": 1, "tool_routing": 1}},
+    "B001-RE-07": {"card": "TR-V2-MOMENT-TO-TAIL-MAX-001", "deltas": {"reverse_control": 1, "tool_routing": 1}},
+    "B001-SI-06": {"card": "TR-V2-SIEVE-DISPERSION-001", "deltas": {"forward_translation": 1, "reverse_control": 1, "tool_routing": 1, "wall_certificate": 1}},
+    "B001-PR-04": {"card": "TR-V2-LOCAL-GLOBAL-PROBABILISTIC-TRANSFER-001", "deltas": {"forward_translation": 1, "reverse_control": 1, "tool_routing": 1, "wall_certificate": 1}},
+    "B001-PR-07": {"card": "TR-V2-SHORT-INTERVAL-ADDITIVE-ORDER-001", "deltas": {"reverse_control": 1, "tool_routing": 1, "wall_certificate": 1}},
+    "B001-PR-08": {"card": "TR-V2-HALASZ-PRETENTIOUS-001", "deltas": {"forward_translation": 2, "reverse_control": 2, "tool_routing": 2}},
 }
 
 
@@ -75,25 +75,35 @@ def main() -> None:
     card_ids = pass2_ids()
     for case_id, upgrade in UPGRADES.items():
         require(str(upgrade["card"]) in card_ids, f"Upgrade card missing for {case_id}")
+        deltas = upgrade["deltas"]
+        require(isinstance(deltas, dict) and deltas, f"Invalid score deltas for {case_id}")
+        require(all(dim in DIMS for dim in deltas), f"Invalid upgraded dimension for {case_id}")
+        require(all(isinstance(delta, int) and delta > 0 for delta in deltas.values()), f"Invalid score delta for {case_id}")
 
     by_domain: dict[str, Counter[str]] = {}
     dimension_points = Counter()
     total = 0
     improvement = 0
+    remaining_imperfect_cases = 0
     applied: list[dict[str, object]] = []
 
     for case in cases:
         case_id = str(case["id"])
         domain = str(case["domain"])
-        scores = {dim: int(case["baseline_dimension_scores"][dim]) for dim in DIMS}
+        baseline_scores = case["baseline_dimension_scores"]
+        require(isinstance(baseline_scores, dict), f"Invalid baseline scores for {case_id}")
+        scores = {dim: int(baseline_scores[dim]) for dim in DIMS}
         before = sum(scores.values())
 
         if case_id in UPGRADES:
             upgrade = UPGRADES[case_id]
-            for dim in upgrade["dims"]:
+            deltas = upgrade["deltas"]
+            require(isinstance(deltas, dict), f"Invalid deltas for {case_id}")
+            for dim, delta in deltas.items():
                 require(dim in DIMS, f"Invalid upgraded dimension {dim} for {case_id}")
-                require(scores[dim] < 2, f"Upgrade would exceed the ceiling for {case_id}:{dim}")
-                scores[dim] += 1
+                require(isinstance(delta, int) and delta > 0, f"Invalid delta for {case_id}:{dim}")
+                require(scores[dim] + delta <= 2, f"Upgrade would exceed the ceiling for {case_id}:{dim}")
+                scores[dim] += delta
             after = sum(scores.values())
             applied.append({
                 "case_id": case_id,
@@ -103,6 +113,8 @@ def main() -> None:
             })
         else:
             after = before
+            if before < 12:
+                remaining_imperfect_cases += 1
 
         improvement += after - before
         total += after
@@ -143,7 +155,7 @@ def main() -> None:
         "domain_scores": domain_scores,
         "dimension_scores": dimension_scores,
         "applied_upgrades": sorted(applied, key=lambda row: str(row["case_id"])),
-        "remaining_imperfect_cases": sum(1 for case in cases if str(case["id"]) not in UPGRADES and int(case["baseline_total"]) < 12),
+        "remaining_imperfect_cases": remaining_imperfect_cases,
         "l3_promotion": False,
         "model_performance_claim": False,
     }
