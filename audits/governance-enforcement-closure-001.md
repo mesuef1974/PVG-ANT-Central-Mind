@@ -11,7 +11,7 @@ authorization; this closure as the first internal package).
 
 ## 1. Verdict
 
-`PENDING FINAL GREEN RUN — review defects repaired; deterministic translation outputs must be recommitted and the complete gate rerun.`
+`PASS — Governance Required Gate run 17 completed successfully from clean GitHub Actions checkouts; ontology checkpoint closed and frozen.`
 
 ## 2. Finding classification
 
@@ -39,7 +39,7 @@ whitelists, no loosening of honesty rules, no silencing.
 | 16 | external PR review | capability map dropped retained Pass 001 and Benchmark 001 checkpoints | repository defect | both `checkpoint_pass` entries restored alongside Pass 002 and the ontology checkpoint. |
 | 17 | external PR review | theorem scope alternated between “fixed-parameter” and fixed `q,r,W` | repository defect | live state, capability map, and P8 validation use the precise fixed-`q`, fixed-`r`, fixed-`W` wording. |
 | 18 | CI review | deterministic generators could pass while leaving an uncommitted diff | guard defect | every generator-bearing CI job now ends with `git diff --exit-code`. Original Lemma Selection and repository-policy checks were added to the aggregate gate. |
-| 19 | final gate run 13 | Translation Kernel generators changed committed result files | repository defect | regenerate with the audited scripts and commit the exact deterministic outputs; retain the diff guard. |
+| 19 | gate run 13 | Translation Kernel generators changed committed result files | repository defect | exact deterministic outputs regenerated and committed; the retained diff guard passed in run 17. |
 
 ## 3. Enforcement wiring
 
@@ -60,9 +60,8 @@ The aggregate `governance-gate` job fails if any required job fails.
 
 Repository-settings follow-up remains necessary: mark `governance-gate` as a
 required status check in branch protection for `main`. The available connector
-cannot change that setting, so the workflow can be present and green while
-branch protection still requires a manual repository-setting change to prevent
-bypass.
+cannot change that setting, so the workflow is present and green while branch
+protection still requires a manual repository-setting change to prevent bypass.
 
 ## 4. PVG-UNDERSTANDING-DEEPENING-001 closure review
 
@@ -77,12 +76,12 @@ Program exit criteria (`governance/programs/PVG-UNDERSTANDING-DEEPENING-001.md`)
 | deterministic audit of examples and non-injectivity witnesses | ontology audit PASS; 16 witnesses; formula-driven Bell witness; generated results equal committed results |
 | readiness decision for Adversarial Benchmark 002 | recorded in transition memory |
 
-Provisional decision pending the final full green run: `checkpoint_candidate → checkpoint_pass`. The ontology
+Decision: `checkpoint_candidate → checkpoint_pass`. The ontology
 (20 objects, 24 morphisms, 16 witnesses, grammar map) is **frozen** before
 Benchmark 002: no card, object, morphism, or witness expansion until the held-out
 error map is produced, absent a separate explicit authorization.
 
-## 5. Required final CI state
+## 5. Verified CI state
 
 ```text
 repository-policy             PASS
