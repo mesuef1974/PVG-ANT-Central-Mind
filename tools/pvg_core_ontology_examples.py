@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+import cmath
 import json
 import math
-from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -48,10 +48,18 @@ def main() -> None:
     # Discrete Fourier transform and inverse on C_4.
     coeffs: list[complex] = []
     for k in range(4):
-        coeffs.append(sum(residue_vector[j] * complex(0, -2 * math.pi * k * j / 4).__exp__() for j in range(4)))
+        coeffs.append(
+            sum(
+                residue_vector[j] * cmath.exp(-2j * math.pi * k * j / 4)
+                for j in range(4)
+            )
+        )
     inverse: list[int] = []
     for j in range(4):
-        value = sum(coeffs[k] * complex(0, 2 * math.pi * k * j / 4).__exp__() for k in range(4)) / 4
+        value = sum(
+            coeffs[k] * cmath.exp(2j * math.pi * k * j / 4)
+            for k in range(4)
+        ) / 4
         inverse.append(round(value.real))
 
     local_i1 = [1, 0, 1, 2, 3, 4]
