@@ -4,101 +4,73 @@
 Operating version:
   PVG–ANT Research Compass v1.0.
 
-Repository:
-  D:\PVG-ANT-Central-Mind
-
-Canonical main baseline before this PR:
-  ea9092e — Add partial external validation for One-Theorem 001.
+Canonical baseline before this PR:
+  c6f373a — Prepare external review outreach for One-Theorem 001.
 
 Strategic goal:
   GOAL-PVG-ANT-STRATEGIC-001 = active_fixed.
-  Produce an original, correct, modest ANT contribution in which PVG contributes materially.
 
-Active operational goal:
+Research front:
   GOAL-OP-ONE-THEOREM-001 = active_external_validation_hold.
-  Frozen target = ONE-LEMMA-TARGET-001.
+  ONE-LEMMA-TARGET-001 remains frozen.
+  Fixed-parameter smooth theorem = internally proved.
+  External outreach = PREPARED_NOT_SENT.
+  External originality and proof certificates = absent.
 
-Target observable:
-  I_r(n) = product over p^alpha||n of max(alpha-2r+1,0).
-  Equivalent form:
-  1_{rad(n)^(2r)|n} * tau(n/rad(n)^(2r)).
+Capability maturation:
+  PVG-ANT-CENTRAL-MIND-MATURATION-002 = active.
+  TRANSLATION-KERNEL-V2-PASS-001 = checkpoint_pass.
 
-Internal mathematical status:
-  fixed-q, fixed-r, fixed-W smooth theorem = INTERNALLY PROVED;
-  P0-P8 internal proof and classification checks = PASS;
-  no mathematical gap currently identified;
-  external peer review absent.
+Translation inventory:
+  closed Language Kernel v1 families = 8;
+  new operational v2 cards = 24;
+  combined inventory = 32;
+  v2 deterministic finite checks = 24;
+  v2 domain registries = 6;
+  L3 promotions in Pass 001 = 0.
 
-External-validation status:
-  P8-EXTERNAL-VALIDATION-001 = ONLINE PRIMARY-SOURCE AUDIT PARTIAL PASS;
-  P8-EXTERNAL-VALIDATION-002 = INTERNAL ROUTING AND SIGNIFICANCE PASS;
-  exact searchable match for I_r or the complete theorem not located;
-  search absence is not an originality certificate.
+V2 domains:
+  geometry_arithmetic = 9;
+  local_analytic = 4;
+  transforms = 2;
+  residues = 3;
+  sieve = 4;
+  probabilistic = 2.
 
-Known prior art:
-  squarefull and k-full support;
-  x^(1/2) and x^(1/3) squarefull layers;
-  quadratic/cubic torsion-character selection;
-  character decomposition and Dirichlet L-functions;
-  Euler-product extraction, Mellin, contour, and Selberg–Delange-type machinery.
+New operational fields:
+  forward translation;
+  reverse translation;
+  preserved information;
+  lost information;
+  trigger;
+  compatible tools;
+  expected output;
+  wall;
+  required certificate;
+  positive example;
+  counterexample;
+  anti-overclaim statement.
 
-Surviving possible contribution:
-  PVG-derived margin-interior divisor-box weight I_r;
-  all-r consecutive 2r / 2r+1 hierarchy;
-  explicit smooth fixed-modulus weighted constants;
-  residual 2r+2 threshold and error.
-
-Current classification:
-  POSSIBLY NEW PVG-DERIVED OBSERVABLE AND MODEST THEOREM;
-  ANALYTIC METHOD CLASSICAL;
-  ORIGINALITY NOT CERTIFIED;
-  PVG DISCOVERY ROLE = MATERIAL;
-  PVG NECESSITY IN FINAL CONTOUR PROOF = WEAK.
-
-Significance risk:
-  even if the exact statement is new, a specialist may classify it as a routine
-  corollary of standard multiplicative Dirichlet-series machinery once I_r is defined.
-
-Prepared external-review assets:
-  P8_EXTERNAL_VALIDATION_001.md;
-  P8_EXTERNAL_VALIDATION_002.md;
-  P8-external-source-ledger.json;
-  P8_EXTERNAL_REFEREE_PACKET.md;
-  P8_REFEREE_CANDIDATES.md;
-  one_theorem_external_validation_audit.py.
-
-Remaining gates:
-  research-grade bibliographic database / cited-by search;
-  one priority/terminology specialist review;
-  one independent line-by-line mathematical proof review;
-  explicit significance classification.
-
-Contingency if classified correct but routine:
-  strengthen the same divisor-box object family through margin profiles,
-  face enumerators, or a general geometric-layer transfer statement;
-  do not open an unrelated theorem target.
-
-Current maturity:
-  L1 exact translation = certified;
-  L2 structural simplification = certified;
-  L3 transfer principle = internally proved;
-  L5 certified original lemma = absent;
-  L6 certified original theorem = absent.
+Next capability gate:
+  PVG-ANT-BENCHMARK-001.
+  No growth to 50+ cards before benchmark failures identify missing translations.
 
 Restrictions:
   no second theorem target;
   no publication claim;
-  no Lean formalization yet;
-  Dataset 004 remains unauthorized;
+  no Lean expansion;
   no broad book mining;
+  Dataset 004 remains unauthorized;
+  no new statistical dataset;
   no RH or GRH expansion.
 
 Ceiling:
-  internally proved fixed-parameter result;
-  online and routing audits complete;
-  external originality and referee certification absent;
+  Translation Kernel v2 Pass 001 = operational checkpoint only;
+  general L3 theorem = absent;
+  certified originality = absent;
+  publication readiness = absent;
   zero RH progress;
   zero GRH progress.
 ```
 
-**Classification:** Internally proved result under final external validation; no originality promotion.
+**Classification:** benchmark-first Central Mind maturation with the theorem program unchanged on external-validation hold.

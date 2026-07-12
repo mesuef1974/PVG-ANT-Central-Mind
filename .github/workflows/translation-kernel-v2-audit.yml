@@ -1,0 +1,55 @@
+name: Translation Kernel v2 Audit
+
+on:
+  pull_request:
+    paths:
+      - "registries/pvg-ant-translation-kernel-v2/**"
+      - "maps/pvg-ant-translation-kernel-v2-seed-catalog.md"
+      - "maps/pvg-ant-translation-ontology-v2.md"
+      - "maps/translation-v2-example-expected.json"
+      - "maps/translation-v2-example-results.json"
+      - "governance/programs/PVG-ANT-CENTRAL-MIND-MATURATION-002.md"
+      - "governance/checkpoints/TRANSLATION-KERNEL-V2-PASS-001.md"
+      - "tools/pvg_ant_translation_v2_examples.py"
+      - "tools/translation_kernel_v2_audit.py"
+      - "transition-memory/**"
+      - "maps/current-capabilities.md"
+      - ".github/workflows/translation-kernel-v2-audit.yml"
+  workflow_dispatch:
+
+jobs:
+  audit-translation-kernel-v2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Regenerate closed v1 finite examples
+        run: python tools/pvg_ant_kernel_examples.py
+
+      - name: Re-audit closed Language Kernel v1
+        run: python tools/language_kernel_audit.py
+
+      - name: Regenerate Translation Kernel v2 examples
+        run: python tools/pvg_ant_translation_v2_examples.py
+
+      - name: Audit Translation Kernel v2 Pass 001
+        run: python tools/translation_kernel_v2_audit.py
+
+      - name: Upload translation certificate package
+        uses: actions/upload-artifact@v4
+        with:
+          name: translation-kernel-v2-pass-001-${{ github.sha }}
+          path: |
+            registries/pvg-ant-translation-kernel-v2/
+            maps/pvg-ant-translation-kernel-v2-seed-catalog.md
+            maps/pvg-ant-translation-ontology-v2.md
+            maps/translation-v2-example-results.json
+            governance/checkpoints/TRANSLATION-KERNEL-V2-PASS-001.md
+          if-no-files-found: error
+          retention-days: 30

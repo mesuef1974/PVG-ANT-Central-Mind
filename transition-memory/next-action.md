@@ -8,70 +8,62 @@ Strategic compass:
 Current theorem program:
   GOAL-OP-ONE-THEOREM-001 = active_external_validation_hold.
   Frozen target = ONE-LEMMA-TARGET-001.
+  Internal fixed-q, fixed-r, fixed-W smooth theorem = proved internally.
+  P8-EXTERNAL-REFEREE-001 = PREPARED_NOT_SENT.
+  Priority review, proof referee, and certified originality = absent.
 
-Internal result:
-  fixed-q, fixed-r, fixed-W smooth theorem = internally proved;
-  P0-P8 proof, symbolic, adversarial, and classification audits = PASS.
+Parallel capability-maturation program:
+  PVG-ANT-CENTRAL-MIND-MATURATION-002 = active.
+  TRANSLATION-KERNEL-V2-PASS-001 = checkpoint_pass.
+  Closed Language Kernel v1 families retained = 8.
+  New operational v2 cards = 24.
+  Combined translation inventory = 32.
+  Deterministic v2 checks = 24.
+  L3 promotions = 0.
 
-Completed external steps:
-  P8-EXTERNAL-VALIDATION-001 = ONLINE PRIMARY-SOURCE AUDIT PARTIAL PASS;
-  P8-EXTERNAL-VALIDATION-002 = INTERNAL ROUTING AND SIGNIFICANCE PASS;
-  no exact match located for I_r or the complete theorem;
-  analytic method and torsion mechanism confirmed classical;
-  observable and statement novelty remain plausible but uncertified.
+What Translation Kernel v2 now enforces:
+  forward and reverse translation;
+  preserved information;
+  lost information;
+  tool trigger and compatible ANT tools;
+  wall or failure mode;
+  required certificate;
+  positive example and counterexample;
+  anti-overclaim statement.
 
-Current classification:
-  POSSIBLY NEW PVG-DERIVED OBSERVABLE AND MODEST THEOREM;
-  ANALYTIC METHOD CLASSICAL;
-  ORIGINALITY NOT CERTIFIED.
+Immediate internal next package:
+  PVG-ANT-BENCHMARK-001.
 
-Immediate external package:
-  P8-EXTERNAL-REFEREE-001.
+Benchmark requirements:
+  1. Build a scored set before adding more cards.
+  2. Test translation accuracy in both directions.
+  3. Test information-loss detection.
+  4. Test ANT tool selection and hypothesis matching.
+  5. Test wall and missing-certificate identification.
+  6. Test rejection of decorative PVG and false originality.
+  7. Use benchmark failures to choose Pass 002 cards.
+  8. Grow toward 50+ cards only after benchmark evidence.
 
-Required actions outside the self-auditing loop:
-  1. Send the compact packet to one priority/terminology specialist.
-  2. Send the complete proof to one independent analytic proof referee.
+Required actions outside the self-auditing theorem loop:
+  1. Send the priority packet to one terminology/prior-art specialist.
+  2. Send the proof packet to one independent ANT referee.
   3. Search a research-grade bibliographic database and cited-by chains.
-  4. Determine whether I_r has an established name or is a routine example of a broader theorem.
-  5. Obtain explicit significance classification: routine / modest / substantive.
-  6. Issue exactly one terminal classification:
-       A. original modest theorem;
-       B. new PVG-derived application of a known general theorem;
-       C. known result in different notation;
-       D. corrected theorem;
-       E. correct but insufficiently significant without strengthening.
-
-Prepared material:
-  research/one-theorem/001/P8_EXTERNAL_REFEREE_PACKET.md;
-  research/one-theorem/001/P8_EXTERNAL_VALIDATION_001.md;
-  research/one-theorem/001/P8_EXTERNAL_VALIDATION_002.md;
-  research/one-theorem/001/P8_REFEREE_CANDIDATES.md;
-  research/one-theorem/001/P8-external-source-ledger.json.
-
-If outcome E occurs:
-  strengthen the same divisor-box object family;
-  do not open an unrelated theorem target;
-  permitted refinement = margin profiles / face enumerators / general geometric-layer transfer.
+  4. Record exactly one terminal theorem classification after responses.
 
 Do not do yet:
   no second theorem target;
-  no publication drafting;
+  no publication claim;
   no Lean formalization;
   no broad book mining;
   Dataset 004 remains unauthorized;
-  no new dataset or statistical modeling;
+  no new statistical dataset;
   no RH/GRH-related expansion.
 
-Stop rule:
-  One-Theorem Program 001 closes only after database priority review and an
-  independent human referee decision produce a final classification.
-
 Ceiling:
-  internally proved result;
-  online and routing audits complete;
-  originality not certified;
-  publication readiness absent;
+  capability maturation = active;
+  theorem originality = not certified;
+  publication readiness = absent;
   no RH/GRH progress.
 ```
 
-**Classification:** external-referee execution plan for an internally proved candidate theorem.
+**Classification:** benchmark-first maturation while One-Theorem 001 remains on external-validation hold.
