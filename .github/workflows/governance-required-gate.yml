@@ -2,9 +2,8 @@ name: Governance Required Gate
 
 # GOVERNANCE-ENFORCEMENT-CLOSURE-001: the supreme law is enforced here, not
 # manually. Every guard runs on every pull request and on every push to main;
-# the aggregate `governance-gate` job fails if any required job fails. Mark
-# `governance-gate` as a required status check in branch protection so that no
-# merge can bypass a failing guard.
+# the aggregate `governance-gate` job fails if any required job fails. Ruleset
+# `governance-required` requires this status on main with no bypass actors.
 
 on:
   pull_request:
@@ -51,6 +50,7 @@ jobs:
           - state_coherence_audit
           - research_compass_audit
           - legacy_assets_audit
+          - central_mind_continuity_audit
     steps:
       - name: Check out repository
         uses: actions/checkout@v4

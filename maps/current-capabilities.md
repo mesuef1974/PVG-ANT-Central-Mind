@@ -1,12 +1,33 @@
 # Current Capabilities
 
-Live capability snapshot. Registry, ontology, and benchmark files remain the machine truth.
+Live capability snapshot. Registry, ontology, maturation receipts, and benchmark files remain the machine truth.
 
-## 1. Governed research cycle
+## 1. Canonical continuity capability
+
+```text
+GOVERNANCE-ENFORCEMENT-CLOSURE-001 = CLOSED
+CENTRAL-MIND-CONTINUITY-001 = installed_repository_side
+current maturation receipt = MATURATION-RECEIPT-006
+ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED
+```
+
+The mind now has one repository-side continuity contract coupling:
+
+- fetched `origin/main` as canonical truth;
+- fast-forward-only safe local synchronization;
+- machine-readable maturation receipts;
+- a sixteen-field PVG–ANT common-language record;
+- a required continuity audit in `governance-gate`.
+
+The repository can verify policy, scripts, receipts, and CI wiring. It cannot infer workstation scheduled-task activation or the external ruleset's strict up-to-date mode; those remain separately verified operational facts.
+
+## 2. Governed research cycle
 
 ```text
 named task
 → readiness and priority audit
+→ targeted knowledge activation
+→ source-grounded ANT normalization
 → PVG object and morphism selection
 → PVG–ANT translation with loss accounting
 → exact frozen statement
@@ -14,9 +35,11 @@ named task
 → source and priority audit
 → external validation
 → theorem / known-result / corrected / negative closure
+→ common-language knowledge return
+→ maturation receipt and synchronized state
 ```
 
-## 2. Translation inventory
+## 3. Translation inventory
 
 ```text
 closed Language Kernel v1 families = 8
@@ -28,9 +51,11 @@ L3 promotions = 0
 
 The translator covers geometry/arithmetic, local Bell/Euler analysis, Mellin/Perron transfer, residues and characters, sieve information, probabilistic transfer, conductors, uniformity, desmoothing, pretentious theory, dispersion, theorem subsumption, and PVG materiality.
 
-## 3. Native PVG Core Ontology v1
+No new translation card is authorized before the raw Benchmark 002 error map.
 
-The mind now has a native language underneath the translation cards.
+## 4. Native PVG Core Ontology v1
+
+The mind has a native language underneath the translation cards.
 
 ```text
 canonical PVG objects = 20
@@ -55,7 +80,7 @@ The registry includes the full valuation vector, labeled support, Boolean suppor
 
 The registry includes multiplication/vector addition, divisibility/order, support and label-forgetting projections, scalar summaries, log mass, divisor-box formation, face and margin projections, radical encoding, residue and character maps, full Fourier inversion, energy projection, sieve truncation, aggregate pushforward, convolution decomposition, bilinear splitting, local-germ restriction, Bell transform, and Euler assembly.
 
-## 4. Reconstruction and loss discipline
+## 5. Reconstruction and loss discipline
 
 ```text
 LOSS-0 exact labeled recovery
@@ -86,7 +111,32 @@ Canonical references:
 - `governance/programs/PVG-UNDERSTANDING-DEEPENING-001.md`
 - `governance/checkpoints/PVG-UNDERSTANDING-DEEPENING-001.md`
 
-## 5. Problem-translator capability
+## 6. Common-language capability
+
+Every operational knowledge return now uses:
+
+```text
+named task
+source-grounded ANT statement/object
+hypotheses, normalization, range, uniformity
+native PVG object
+forward morphism/projection
+preserved information
+lost information and LOSS level
+ANT image
+compatible tools
+main term/output
+error, wall, or missing certificate
+reverse conditions
+counterexample
+PVG materiality
+verification
+classification and source
+```
+
+This does not add mathematical knowledge. It prevents knowledge from remaining as disconnected source notes, analogies, chats, or one-off calculations.
+
+## 7. Problem-translator capability
 
 For a new problem, the mind can now:
 
@@ -98,9 +148,28 @@ For a new problem, the mind can now:
 6. distinguish local algebra from global analytic certification;
 7. provide a counterexample to an invalid inverse;
 8. apply the PVG materiality gate;
-9. classify without theorem or originality promotion.
+9. classify without theorem or originality promotion;
+10. record any new knowledge, failure, or capability in a maturation receipt.
 
-## 6. Benchmark state
+## 8. Maturation and failure-memory capability
+
+The stage history is machine-readable in `registries/maturation-events.jsonl`.
+
+Every future stage closure must state deltas for:
+
+```text
+K — operational knowledge
+L — shared PVG–ANT language
+R — reasoning/composition
+C — certificate and wall discipline
+F — reusable failure memory
+V — verification and reproducibility
+S — repository synchronization
+```
+
+A closure count, book count, or larger registry is not a maturity gain unless a test demonstrates a reusable function.
+
+## 9. Benchmark state
 
 Benchmark 001 remains an immutable sixty-case historical baseline.
 
@@ -108,13 +177,23 @@ Benchmark 001 remains an immutable sixty-case historical baseline.
 historical registry coverage = 662 / 720 = 91.9 percent
 post-Pass-002 registry coverage = 702 / 720 = 97.5 percent
 remaining imperfect known cases = 11
+ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED
 ```
 
 These are registry-coverage measurements, not autonomous performance on hidden problems.
 
-The next evaluation must be Adversarial Benchmark 002 with new multi-step compositions and invalid reverse inferences.
+Benchmark 002 must proceed in this order:
 
-## 7. First complete PVG research-flow instance
+```text
+raw hidden baseline
+→ immutable error map
+→ morphism composer
+→ same-set rerun with contamination accounting
+→ ablation
+→ targeted knowledge and translation learning
+```
+
+## 10. First complete PVG research-flow instance
 
 The mind generated
 
@@ -124,19 +203,21 @@ I_r(n)=\prod_{p^\alpha\parallel n}\max(\alpha-2r+1,0)
 
 from margin-interior divisor-box geometry, translated it to a multiplicative formula, then completed the internal route through Bell series, Euler/L factors, Mellin, residues, proof audits, and an external-review packet. The analytic method is classical and originality remains uncertified.
 
-## 8. Verification capabilities
+## 11. Verification capabilities
 
 - Language Kernel v1 regeneration and closure audit;
 - Translation Kernel v2 Pass 001 and Pass 002 audits;
 - immutable Benchmark 001 regeneration and post-Pass-002 rescore;
 - PVG Core Ontology object/morphism schema audit;
 - object-reference and loss-level validation;
-- 16 deterministic reconstruction and noninjectivity witnesses;
+- sixteen deterministic reconstruction and noninjectivity witnesses;
+- maturation-registry and common-language continuity audit;
+- safe-sync script semantics audit;
 - theorem-hold, Dataset 004, L3, publication, and RH/GRH firewalls.
 
 The installed book-layer substrate (Overholt, Tenenbaum, Mileti, Iwaniec–Kowalski, Harman, Montgomery MNT-II v0.6 with closure-reviewed units through v0.6-e-closure and beyond, Opera de Cribro v0.7) remains available on demand, including the live `TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001` diagnostic. Mismatched Montgomery A/B/legacy-E material remains quarantined (source-mismatch) and is not live.
 
-## 9. Active goals and retained checkpoints
+## 12. Active goals and retained checkpoints
 
 ```text
 GOAL-OP-ONE-THEOREM-001 = active_external_validation_hold
@@ -146,22 +227,28 @@ TRANSLATION-KERNEL-V2-PASS-001 = checkpoint_pass
 PVG-ANT-BENCHMARK-001 = checkpoint_pass
 TRANSLATION-KERNEL-V2-PASS-002 = checkpoint_pass
 PVG-UNDERSTANDING-DEEPENING-001 = checkpoint_pass (ontology frozen)
-GOVERNANCE-ENFORCEMENT-CLOSURE-001 = executed
+GOVERNANCE-ENFORCEMENT-CLOSURE-001 = CLOSED
+CENTRAL-MIND-CONTINUITY-001 = installed_repository_side
+current maturation receipt = MATURATION-RECEIPT-006
 ```
 
-## 10. Current limits
+## 13. Current limits
 
-The ontology does not manufacture analytic continuation, error terms, cancellation, uniformity, priority, or an independent proof certificate. It also does not establish hidden-set model performance. Routing and reconstruction rules create no L3 theorem by themselves.
+The ontology and common-language contract do not manufacture analytic continuation, error terms, cancellation, uniformity, priority, or an independent proof certificate. They also do not establish hidden-set model performance. Routing and reconstruction rules create no L3 theorem by themselves.
 
-R, GPU, broad book mining, and new datasets are not required for this pass. Dataset 004 remains unauthorized. Lean expansion remains forbidden unless an active research lemma and explicit authorization require it.
+The safe synchronization tools cannot prove that a workstation task has been installed, and repository files cannot change the external ruleset's strict up-to-date setting.
 
-## 11. Scientific ceiling
+R, GPU, broad book mining, and new datasets are not required for this continuity pass. Dataset 004 remains unauthorized. Lean expansion remains forbidden unless an active research lemma and explicit authorization require it.
+
+## 14. Scientific ceiling
 
 ```text
 Translation inventory: 44.
 Native PVG objects: 20.
 Native PVG morphisms: 24.
+Maturation receipts: 6.
 Hidden-set autonomous performance: not measured.
+Benchmark 002: NOT_STARTED.
 General L3 theorem: absent.
 Internal fixed-q, fixed-r, fixed-W smooth theorem proof: complete.
 External mathematical certification: absent.
@@ -172,4 +259,4 @@ No RH progress.
 No GRH progress.
 ```
 
-**Classification:** native PVG-language and reconstruction deepening while external theorem validation remains open.
+**Classification:** native PVG language, governed knowledge return, and repository-side continuity while external theorem validation remains open.

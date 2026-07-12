@@ -4,8 +4,9 @@
 Operating version:
   PVG–ANT Research Compass v1.0.
 
-Canonical baseline before this pass:
-  240b363 — Add PVG Core Ontology v1.
+Current merged baseline before this continuity package:
+  0a092f59abfd4febcde96acaa3197ab5656e049d
+  Governance Enforcement Closure 001.
 
 Strategic goal:
   GOAL-PVG-ANT-STRATEGIC-001 = active_fixed.
@@ -24,19 +25,47 @@ Capability maturation:
   PVG-ANT-BENCHMARK-001 = checkpoint_pass.
   TRANSLATION-KERNEL-V2-PASS-002 = checkpoint_pass.
   PVG-UNDERSTANDING-DEEPENING-001 = checkpoint_pass; ontology frozen.
+  GOVERNANCE-ENFORCEMENT-CLOSURE-001 = CLOSED.
+  CENTRAL-MIND-CONTINUITY-001 = installed_repository_side.
+  Current maturation receipt = MATURATION-RECEIPT-006.
 
 Governance enforcement:
-  GOVERNANCE-ENFORCEMENT-CLOSURE-001 = executed.
-  All ten guards PASS from a clean checkout.
+  Ruleset governance-required = ACTIVE on refs/heads/main.
+  Required status = governance-gate.
+  Bypass actors = none.
+  Current user can bypass = never.
+  Push-to-main run 29196256748 = completed success.
+  All ten pre-continuity guards PASS from a clean local checkout.
   Required merge gate = .github/workflows/governance-required-gate.yml.
-  Guard-defect fixes: registry_sync ID tokenizer, no_pdf ignore probe,
-  state-coherence era-pinned checks replaced by registry-derived checks.
-  Registry corrections: canonical classification stamps restored in
-  negative-results and pvg-ant-bridges (original wording preserved in
-  classification_note); external_research_asset documented as a
-  status kind in governance/classification-system.md.
-  Unauthorized LeanP3Pass009Discovery draft removed (no Lean expansion
-  without an active research lemma).
+  LeanP3Pass009Discovery.lean = absent locally and remotely.
+
+Continuity layer:
+  origin/main = canonical repository truth.
+  Local main update = fast-forward only.
+  Destructive automatic repair = forbidden.
+  Safe sync tool = tools/sync_canonical_main.ps1.
+  Windows task installer = tools/install_canonical_sync_task.ps1.
+  Common language = maps/pvg-ant-common-language-contract-v1.md.
+  Maturation registry = registries/maturation-events.jsonl.
+  Mandatory audit = tools/central_mind_continuity_audit.py.
+  Repository-side installation = present in this package.
+  Workstation scheduled-task activation = external fact, pending verification.
+  strict_required_status_checks_policy = false at last operator report;
+  strongest up-to-date enforcement remains an external ruleset hardening action.
+
+Knowledge-to-language law:
+  Knowledge remains indispensable and task-triggered.
+  Every acquired prerequisite must return as:
+    exact ANT object and hypotheses
+    → native PVG object
+    → admissible morphism
+    → preservation/loss
+    → tool/range
+    → wall/certificate
+    → reverse conditions/counterexample
+    → verification
+    → maturation receipt.
+  Broad untargeted book mining remains forbidden.
 
 Translation inventory:
   closed Language Kernel v1 families = 8;
@@ -44,6 +73,7 @@ Translation inventory:
   Pass 002 benchmark-directed cards = 12;
   combined translation inventory = 44;
   L3 promotions = 0.
+  No new translation cards were added by the continuity package.
 
 PVG native-language inventory:
   canonical objects = 20;
@@ -53,26 +83,29 @@ PVG native-language inventory:
                 scalar observable, population pushforward, analytic certificate;
   loss levels = LOSS-0 through LOSS-4.
 
-New understanding installed:
-  prime labels are mathematical data;
-  labeled and unlabeled geometry are distinct;
-  exact objects and scalar summaries are distinct;
-  full Fourier data and Fourier energy are distinct;
-  pointwise truncation and aggregate sieve pushforward are distinct;
-  Bell-series identities and global analytic continuation are distinct;
-  reverse translations carry explicit recovery conditions;
-  PVG materiality is tested by ablation.
+New continuity capability:
+  Every live closed/installed capability stage must have a machine-readable
+  maturation event with knowledge, language, reasoning, certificate,
+  failure-memory, verification, synchronization, and ceiling fields.
+  Current receipt count = 6.
 
 Benchmark state:
   historical baseline = 662 / 720 = 91.9 percent;
   post-Pass-002 registry coverage = 702 / 720 = 97.5 percent;
   these scores are registry coverage, not autonomous model performance.
+  ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED.
+  No hidden prompts, gold keys, raw score, error map, composer, ablation,
+  or targeted learning have been created by this package.
 
 Next capability gate:
-  design ADVERSARIAL-PVG-ANT-BENCHMARK-002 from multi-step compositions,
-  invalid reverse inferences, abstention traps, and edge-certificate gaps;
-  gold keys held out of the answering process with pre-committed hashes.
-  External P8 validation runs in parallel and does not wait for it.
+  1. Verify/activate the local scheduled synchronization task.
+  2. Harden the external ruleset to strict up-to-date mode if authorized.
+  3. Then design ADVERSARIAL-PVG-ANT-BENCHMARK-002 without adding cards.
+  4. Required benchmark order:
+     raw hidden baseline → immutable error map → morphism composer
+     → same-set rerun with contamination accounting → ablation
+     → targeted knowledge and translation learning.
+  External P8 validation remains parallel and unsent.
 
 Restrictions:
   no second theorem target;
@@ -81,10 +114,11 @@ Restrictions:
   no new statistical dataset;
   Dataset 004 remains unauthorized;
   no automatic Lean expansion;
+  no Benchmark 002 learning before the raw error map;
   no RH or GRH expansion.
 
 Ceiling:
-  ontology and routing knowledge create no theorem;
+  continuity and routing knowledge create no theorem;
   hidden-set autonomous performance = not measured;
   certified originality = absent;
   publication readiness = absent;
@@ -92,4 +126,4 @@ Ceiling:
   zero GRH progress.
 ```
 
-**Classification:** governance-enforcement closure on top of the native PVG-language deepening, with the theorem program on external-validation hold.
+**Classification:** repository-side continuity and governed knowledge return installed above the closed governance gate; local scheduled activation and strict up-to-date ruleset mode remain externally verifiable.
