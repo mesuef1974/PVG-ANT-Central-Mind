@@ -113,7 +113,10 @@ def main() -> None:
 
     active_operational = [
         row for row in goals
-        if row.get("kind") == "operational_goal" and row.get("status") == "active"
+        # Stage Review 001 PR-A: operational goals carry qualified active states
+        # (e.g. active_external_validation_hold); the registry is the truth.
+        if row.get("kind") == "operational_goal"
+        and str(row.get("status", "")).startswith("active")
     ]
     require(
         len(active_operational) == 1,

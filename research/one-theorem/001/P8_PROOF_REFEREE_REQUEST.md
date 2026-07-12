@@ -76,3 +76,29 @@ Sincerely,
 - Do not request endorsement of the broader PVG program.
 - Ask permission before quoting or naming the referee publicly.
 - Record only the resulting classification and required repairs in Issue #15 unless the reviewer authorizes more.
+
+## Neutral external classification (Stage Review 001)
+
+State to reviewers exactly:
+
+```text
+Internally proved fixed-parameter weighted ANT result.
+Exact prior-art status unresolved.
+PVG materially contributed to discovery and formulation.
+PVG necessity in the final proof is weak or not established.
+```
+
+Referee questions are separated; answer each independently:
+
+1. Is the statement correct as written?
+2. Is the proof correct?
+3. Is the result known (priority / literature)?
+4. Was the geometric layer (PVG) material - and in which roles?
+
+For question 4, assess each role separately:
+observable selection; formula discovery; local-factor identification;
+proof steering; generalization proposal.
+
+The post-review decision tree is pre-registered in
+`P8_STOPPING_PROTOCOL.md`; no outcome renegotiation.
+

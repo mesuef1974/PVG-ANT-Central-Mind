@@ -51,6 +51,7 @@ jobs:
           - research_compass_audit
           - legacy_assets_audit
           - central_mind_continuity_audit
+          - p8_deadline_audit
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
