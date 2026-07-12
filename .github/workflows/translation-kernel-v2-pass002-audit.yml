@@ -1,0 +1,56 @@
+name: Translation Kernel v2 Pass 002 Audit
+
+on:
+  pull_request:
+    paths:
+      - 'registries/pvg-ant-translation-kernel-v2-pass-002/**'
+      - 'tools/translation_kernel_v2_pass002_*.py'
+      - 'tools/pvg_ant_benchmark_001_pass002_rescore.py'
+      - 'maps/translation-v2-pass002-example-*.json'
+      - 'maps/pvg-ant-translation-kernel-v2-pass002-catalog.md'
+      - 'benchmarks/pvg-ant-001/post-pass002-*'
+      - 'governance/checkpoints/TRANSLATION-KERNEL-V2-PASS-002.md'
+      - 'transition-memory/**'
+      - 'maps/current-capabilities.md'
+      - '.github/workflows/translation-kernel-v2-pass002-audit.yml'
+  workflow_dispatch:
+
+jobs:
+  audit-pass002:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Re-audit Translation Kernel v2 Pass 001
+        run: |
+          python tools/translation_kernel_v2_examples.py
+          python tools/translation_kernel_v2_audit.py
+
+      - name: Generate Pass 002 examples
+        run: python tools/translation_kernel_v2_pass002_examples.py
+
+      - name: Audit Pass 002 registry
+        run: python tools/translation_kernel_v2_pass002_audit.py
+
+      - name: Re-audit Benchmark 001 historical baseline
+        run: python tools/pvg_ant_benchmark_001.py
+
+      - name: Generate and audit post-Pass-002 rescore
+        run: python tools/pvg_ant_benchmark_001_pass002_rescore.py
+
+      - name: Upload Pass 002 certificate package
+        uses: actions/upload-artifact@v4
+        with:
+          name: translation-kernel-v2-pass002-certificates
+          path: |
+            maps/translation-v2-pass002-example-results.json
+            benchmarks/pvg-ant-001/baseline-results.json
+            benchmarks/pvg-ant-001/post-pass002-results.json
+            benchmarks/pvg-ant-001/post-pass002-report.md
+            governance/checkpoints/TRANSLATION-KERNEL-V2-PASS-002.md
