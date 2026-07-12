@@ -1,0 +1,47 @@
+name: PVG-ANT Benchmark 001
+
+on:
+  pull_request:
+    paths:
+      - "benchmarks/pvg-ant-001/**"
+      - "registries/pvg-ant-translation-kernel-v2/**"
+      - "maps/pvg-ant-translation-ontology-v2.md"
+      - "maps/pvg-ant-translation-kernel-v2-seed-catalog.md"
+      - "tools/pvg_ant_benchmark_001.py"
+      - "tools/translation_kernel_v2_audit.py"
+      - "governance/checkpoints/PVG-ANT-BENCHMARK-001.md"
+      - "transition-memory/**"
+      - "maps/current-capabilities.md"
+      - ".github/workflows/pvg-ant-benchmark-001.yml"
+  workflow_dispatch:
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Re-audit Translation Kernel v2
+        run: python tools/translation_kernel_v2_audit.py
+
+      - name: Generate and audit Benchmark 001 baseline
+        run: python tools/pvg_ant_benchmark_001.py
+
+      - name: Upload benchmark certificate
+        uses: actions/upload-artifact@v4
+        with:
+          name: pvg-ant-benchmark-001-${{ github.sha }}
+          path: |
+            benchmarks/pvg-ant-001/cases/*.jsonl
+            benchmarks/pvg-ant-001/baseline-results.json
+            benchmarks/pvg-ant-001/baseline-report.md
+            benchmarks/pvg-ant-001/error-taxonomy.md
+            benchmarks/pvg-ant-001/missing-cards-ranked.md
+          if-no-files-found: error
+          retention-days: 30
