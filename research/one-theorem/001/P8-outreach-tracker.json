@@ -1,0 +1,49 @@
+{
+  "stage": "P8-EXTERNAL-REFEREE-001",
+  "target_id": "ONE-LEMMA-TARGET-001",
+  "status": "PREPARED_NOT_SENT",
+  "priority_review": {
+    "role": "priority_and_significance",
+    "candidate": null,
+    "official_contact_verified": false,
+    "request_sent": false,
+    "sent_date": null,
+    "response_received": false,
+    "outcome": null,
+    "allowed_outcomes": [
+      "NO_EXACT_PRECEDENT_LOCATED",
+      "KNOWN_UNDER_OTHER_NAME",
+      "SUBSUMED_BY_GENERAL_THEOREM",
+      "POSSIBLY_NEW_BUT_ROUTINE",
+      "POSSIBLY_NEW_AND_MODESTLY_SIGNIFICANT",
+      "INSUFFICIENT_INFORMATION"
+    ]
+  },
+  "proof_review": {
+    "role": "independent_proof_referee",
+    "candidate": null,
+    "official_contact_verified": false,
+    "request_sent": false,
+    "sent_date": null,
+    "response_received": false,
+    "outcome": null,
+    "allowed_outcomes": [
+      "PROOF_PASS",
+      "PASS_WITH_MINOR_REPAIRS",
+      "MAJOR_REPAIR_REQUIRED",
+      "STATEMENT_REQUIRES_WEAKENING",
+      "PROOF_FAIL",
+      "INSUFFICIENT_INFORMATION"
+    ]
+  },
+  "scientific_ceiling": {
+    "internal_proof_complete": true,
+    "online_source_audit_partial_pass": true,
+    "priority_review_complete": false,
+    "external_proof_review_complete": false,
+    "certified_originality": false,
+    "publication_ready": false,
+    "rh_progress": false,
+    "grh_progress": false
+  }
+}
