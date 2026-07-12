@@ -1,0 +1,48 @@
+name: Apply Translation Generated State
+
+on:
+  push:
+    branches:
+      - claude/mind-values-assessment-e3a13f
+
+permissions:
+  contents: write
+
+jobs:
+  refresh-generated-results:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out closure branch
+        uses: actions/checkout@v4
+        with:
+          ref: claude/mind-values-assessment-e3a13f
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Regenerate translation certificates
+        run: |
+          set -euo pipefail
+          python tools/pvg_ant_translation_v2_examples.py
+          python tools/translation_kernel_v2_audit.py
+          python tools/translation_kernel_v2_pass002_examples.py
+          python tools/translation_kernel_v2_pass002_audit.py
+
+      - name: Commit exact generated state when needed
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet; then
+            echo "Generated translation state already committed."
+            exit 0
+          fi
+          git diff --name-only
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -u
+          git commit -m "Refresh deterministic translation certificates"
+          git push origin HEAD:claude/mind-values-assessment-e3a13f
