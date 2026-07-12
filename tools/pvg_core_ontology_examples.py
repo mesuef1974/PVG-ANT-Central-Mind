@@ -64,7 +64,10 @@ def main() -> None:
         ) / 4
         inverse.append(round(value.real))
 
-    local_i1 = [1, 0, 1, 2, 3, 4]
+    # Recover the local Bell coefficients from the actual I_r(p^a) formula,
+    # rather than hard-coding the expected sequence. For r=1 the coefficients
+    # are 1,0,1,2,3,4 for a=0,...,5.
+    local_i1 = [i_r(2**a, 1) for a in range(6)]
 
     result = {
         "ontology_id": "PVG-CORE-ONTOLOGY-V1",
