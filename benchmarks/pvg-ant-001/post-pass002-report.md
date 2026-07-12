@@ -47,7 +47,7 @@ The new cards explicitly cover:
 - general-theorem subsumption;
 - PVG materiality and ablation.
 
-## Remaining gaps
+## remaining gaps
 
 Eleven benchmark cases remain below full registry coverage:
 
