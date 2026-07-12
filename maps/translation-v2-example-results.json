@@ -10,11 +10,24 @@
     "different_profiles": true
   },
   "EX2-BELL-R2": {
-    "coefficients": [1, 0, 0, 0, 1, 2, 3, 4, 5],
+    "coefficients": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
     "r": 2
   },
   "EX2-BILINEAR-ROUTING": {
-    "closest_factor_pair": [6, 10],
+    "closest_factor_pair": [
+      6,
+      10
+    ],
     "n": 60
   },
   "EX2-CONVOLUTION-12": {
@@ -76,14 +89,25 @@
     "k": 2
   },
   "EX2-PRINCIPAL-CENTER": {
-    "centered": [-3.0, -1.0, 1.0, 3.0],
+    "centered": [
+      -3.0,
+      -1.0,
+      1.0,
+      3.0
+    ],
     "centered_sum": 0.0,
     "mean": 4.0
   },
   "EX2-RADICAL-72": {
-    "boolean": {"2": 1, "3": 1},
+    "boolean": {
+      "2": 1,
+      "3": 1
+    },
     "rad": 6,
-    "valuation": {"2": 3, "3": 2}
+    "valuation": {
+      "2": 3,
+      "3": 2
+    }
   },
   "EX2-RESIDUAL-R1": {
     "first_residual_degree": 4,
@@ -93,12 +117,21 @@
     "reconstruction_max_error": 0.0
   },
   "EX2-SIEVE-72-D9": {
-    "visible": {"2": 3, "3": 2, "5": 0, "7": 0}
+    "visible": {
+      "2": 3,
+      "3": 2,
+      "5": 0,
+      "7": 0
+    }
   },
   "EX2-SUPPORT-360": {
     "Omega": 6,
     "omega": 3,
     "rad": 30,
-    "valuation": {"2": 3, "3": 2, "5": 1}
+    "valuation": {
+      "2": 3,
+      "3": 2,
+      "5": 1
+    }
   }
 }

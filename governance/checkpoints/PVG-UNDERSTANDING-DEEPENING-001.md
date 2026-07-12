@@ -2,7 +2,17 @@
 
 ## Decision
 
-`CHECKPOINT CANDIDATE — CORE ONTOLOGY AND RECONSTRUCTION LATTICE BUILT`
+`CHECKPOINT PASS — CORE ONTOLOGY AND RECONSTRUCTION LATTICE BUILT AND FROZEN`
+
+Closure review: `audits/governance-enforcement-closure-001.md` (2026-07-12).
+All six program exit criteria were verified; the ontology audit and the sixteen
+deterministic witnesses regenerated from a clean GitHub Actions checkout; the
+closure PR's mandatory governance gate passed. The twenty objects, twenty-four
+morphisms, and sixteen witnesses are frozen: no edit without a new authorized
+program.
+
+Historical note: this decision was first recorded as `CHECKPOINT CANDIDATE`
+at build time and upgraded to PASS by the closure review above.
 
 ## Inventory
 

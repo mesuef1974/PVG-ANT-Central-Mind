@@ -50,16 +50,57 @@ readme = read("README.md") or ""
 need(("Coherence Audit 005" in readme) or ("v0.6" in readme),
      "README.md does not mention the current phase (Coherence Audit 005 / v0.6)")
 
-# 2. latest-state is not stuck in an old era
+# 2/3. transition memory must track the LIVE goal registry, not an era token.
+# (GOVERNANCE-ENFORCEMENT-CLOSURE-001: the previous checks pinned these files to
+#  v0.6/Montgomery-era strings and reported false staleness forever after the
+#  compass-v1.0 transition. The replacement derives the expectation from
+#  registries/program-goals.jsonl: every ACTIVE operational goal must be named
+#  in both latest-state and next-action. Era-neutral and strictly registry-driven.)
 latest = read("transition-memory/latest-state.md") or ""
-need(("Montgomery" in latest) or ("v0.6" in latest),
-     "transition-memory/latest-state.md is stale (no v0.6 / Montgomery)")
-
-# 3. next-action reflects the actual next action
 nexta = read("transition-memory/next-action.md") or ""
-need(("Intake" in nexta) or ("Coherence Audit 005" in nexta) or ("Closure Review" in nexta)
-     or ("Correction 006" in nexta) or ("Treasure Packet" in nexta) or ("Opening Pass" in nexta),
-     "transition-memory/next-action.md does not reflect the actual next action")
+active_op_goals = []
+goals_text = read("registries/program-goals.jsonl") or ""
+for lineno, line in enumerate(goals_text.splitlines(), 1):
+    if not line.strip():
+        continue
+    try:
+        g = json.loads(line)
+    except json.JSONDecodeError as exc:
+        issues.append(
+            "registries/program-goals.jsonl:%d malformed JSON: %s" % (lineno, exc)
+        )
+        continue
+    if not isinstance(g, dict):
+        issues.append(
+            "registries/program-goals.jsonl:%d is not a JSON object" % lineno
+        )
+        continue
+    gid = str(g.get("id", ""))
+    status = str(g.get("status", ""))
+    if gid.startswith("GOAL-OP-") and status.startswith("active"):
+        active_op_goals.append(gid)
+need(bool(active_op_goals),
+     "registries/program-goals.jsonl declares no active operational goal")
+live_state_documents = {
+    "README.md": readme,
+    "maps/current-capabilities.md": read("maps/current-capabilities.md") or "",
+    "transition-memory/latest-state.md": latest,
+    "transition-memory/next-action.md": nexta,
+}
+for gid in active_op_goals:
+    for relpath, document in live_state_documents.items():
+        need(gid in document, "%s omits active operational goal %s" % (relpath, gid))
+
+checkpoint = read("governance/checkpoints/PVG-UNDERSTANDING-DEEPENING-001.md") or ""
+need("CHECKPOINT PASS" in checkpoint and "FROZEN" in checkpoint,
+     "PVG-UNDERSTANDING-DEEPENING-001 checkpoint is not PASS and frozen")
+for relpath, document in {
+    "maps/current-capabilities.md": live_state_documents["maps/current-capabilities.md"],
+    "transition-memory/latest-state.md": latest,
+    "transition-memory/next-action.md": nexta,
+}.items():
+    need("PVG-UNDERSTANDING-DEEPENING-001" in document and "checkpoint_pass" in document,
+         "%s does not reflect the closed PVG understanding checkpoint" % relpath)
 
 # 8. planned.jsonl empty must be reflected in next-action
 planned = read("registries/planned.jsonl") or ""

@@ -60,8 +60,8 @@ No RH/GRH progress without a complete proof certificate.
 ## Current strategic state
 
 ```text
-Canonical baseline before Legacy Reconciliation 001:
-  d8f3118 — Synchronize compass state after v1.0 merge.
+Canonical baseline:
+  240b363 — Add PVG Core Ontology v1.
 
 Latest formal baseline:
   56e00f4 — Add Lean P3 valuation mass geometry (LEAN-P3-PASS-008).
@@ -73,13 +73,21 @@ Strategic goal:
   GOAL-PVG-ANT-STRATEGIC-001 — original ANT contribution through materially useful PVG.
 
 Active operational goal:
-  GOAL-OP-SCALE-HETEROGENEITY-CLOSE-001.
+  GOAL-OP-ONE-THEOREM-001 — external-validation hold
+  (P8 outreach prepared, not sent; originality not certified).
 
-Queued:
-  GOAL-OP-LANGUAGE-KERNEL-V1-001.
+Active capability program:
+  PVG-ANT-CENTRAL-MIND-MATURATION-002 — Translation Kernel v2 Pass 001/002,
+  Benchmark 001, and PVG Core Ontology v1 closed;
+  next gate = ADVERSARIAL-PVG-ANT-BENCHMARK-002 design.
 
-Blocked until prior closure:
-  Original Lemma Selection → One-Theorem Program → Formal/Publication Closure.
+Closed operational goals:
+  GOAL-OP-SCALE-HETEROGENEITY-CLOSE-001;
+  GOAL-OP-LANGUAGE-KERNEL-V1-001;
+  GOAL-OP-ORIGINAL-LEMMA-SELECTION-001.
+
+Blocked until external validation:
+  GOAL-OP-FORMAL-PUBLICATION-001.
 ```
 
 Current maturity:
@@ -88,8 +96,8 @@ Current maturity:
 Vocabulary                         strong
 Exact multiplicative translation   partial-to-strong
 Structural simplification          partial
-Transfer principles                early
-Research mechanism                 unconfirmed
+Transfer principles                one internally proved (I_r observable)
+Research mechanism                 one complete internal crossing; not repeated
 Original lemma                     none certified
 Original theorem                   none certified
 ```
@@ -128,7 +136,7 @@ Local availability is not integration; integration is not task-specific mastery.
 
 The repository retains the completed/validated layers from Overholt, Tenenbaum, Mileti, Iwaniec–Kowalski, Harman, Montgomery MNT-II v0.6, and Opera de Cribro v0.7. Their purpose is to supply prerequisites and tools on demand, not to define project success.
 
-Historical source-grounding safeguards remain active, including Montgomery v0.6-G Closure Review and the quarantine of mismatched A/B/legacy-E material.
+Historical source-grounding safeguards remain active — the source-grounding-corrected Montgomery story: the v0.6-E Closure Review and v0.6-G Closure Review tracks, and the quarantine of mismatched A/B/legacy-E material.
 
 The Lean P3 layer through PASS 008 supplies reusable formal infrastructure. It formalizes known valuation geometry and is not itself original ANT progress. New Lean work requires an active research lemma.
 
@@ -170,7 +178,13 @@ python tools/citation_audit.py
 python tools/state_coherence_audit.py
 python tools/research_compass_audit.py
 python tools/legacy_assets_audit.py
+python tools/pvg_core_ontology_audit.py
 ```
+
+All of the above run as parallel jobs of the required merge gate
+`.github/workflows/governance-required-gate.yml` on every pull request;
+the aggregate `governance-gate` job fails if any guard fails
+(GOVERNANCE-ENFORCEMENT-CLOSURE-001).
 
 ## Focus rules
 

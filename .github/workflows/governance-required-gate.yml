@@ -1,0 +1,241 @@
+name: Governance Required Gate
+
+# GOVERNANCE-ENFORCEMENT-CLOSURE-001: the supreme law is enforced here, not
+# manually. Every guard runs on every pull request and on every push to main;
+# the aggregate `governance-gate` job fails if any required job fails. Mark
+# `governance-gate` as a required status check in branch protection so that no
+# merge can bypass a failing guard.
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  repository-policy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify clean checkout and Lean freeze
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -z "$(git status --porcelain)"
+          if test -e formal/lean/audit/LeanP3Pass009Discovery.lean; then
+            echo "LeanP3Pass009Discovery.lean is not authorized by this closure." >&2
+            exit 1
+          fi
+
+  core-guard:
+    name: guard (${{ matrix.tool }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        tool:
+          - honesty_audit
+          - registry_sync_audit
+          - no_pdf_audit
+          - forbidden_promotion_audit
+          - duplicate_concept_audit
+          - citation_audit
+          - state_coherence_audit
+          - research_compass_audit
+          - legacy_assets_audit
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run ${{ matrix.tool }}
+        run: python tools/${{ matrix.tool }}.py
+
+  language-kernel-v1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Regenerate kernel v1 examples
+        run: python tools/pvg_ant_kernel_examples.py
+
+      - name: Audit Language Kernel v1
+        run: python tools/language_kernel_audit.py
+
+      - name: Verify committed deterministic state
+        run: git diff --exit-code
+
+  translation-kernel-v2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Regenerate Pass 001 examples
+        run: python tools/pvg_ant_translation_v2_examples.py
+
+      - name: Audit Translation Kernel v2 Pass 001
+        run: python tools/translation_kernel_v2_audit.py
+
+      - name: Regenerate Pass 002 examples
+        run: python tools/translation_kernel_v2_pass002_examples.py
+
+      - name: Audit Translation Kernel v2 Pass 002
+        run: python tools/translation_kernel_v2_pass002_audit.py
+
+      - name: Verify committed deterministic state
+        run: git diff --exit-code
+
+  benchmark-001:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Regenerate immutable Benchmark 001 baseline
+        run: python tools/pvg_ant_benchmark_001.py
+
+      - name: Regenerate post-Pass-002 rescore
+        run: python tools/pvg_ant_benchmark_001_pass002_rescore.py
+
+      - name: Verify committed deterministic state
+        run: git diff --exit-code
+
+  pvg-core-ontology:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Regenerate deterministic ontology examples
+        run: python tools/pvg_core_ontology_examples.py
+
+      - name: Audit objects, morphisms, recovery, and loss
+        run: python tools/pvg_core_ontology_audit.py
+
+      - name: Verify committed deterministic state
+        run: git diff --exit-code
+
+  original-lemma-selection:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run candidate identities and kill tests
+        run: python tools/original_lemma_candidate_checks.py
+
+      - name: Audit selection registry and ceiling
+        run: python tools/original_lemma_selection_audit.py
+
+      - name: Verify committed deterministic state
+        run: git diff --exit-code
+
+  one-theorem-hold:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install symbolic dependencies
+        run: python -m pip install sympy mpmath
+
+      - name: Symbolic local-factor audit
+        run: python tools/one_theorem_symbolic_audit.py
+
+      - name: Phase-state audit
+        run: python tools/one_theorem_phase_audit.py
+
+      - name: P7 source audit
+        run: python tools/one_theorem_p7_audit.py
+
+      - name: P8 packet audit
+        run: python tools/one_theorem_p8_audit.py
+
+      - name: External-validation hold audit
+        run: python tools/one_theorem_external_validation_audit.py
+
+      - name: Verify committed deterministic state
+        run: git diff --exit-code
+
+  governance-gate:
+    name: governance-gate
+    runs-on: ubuntu-latest
+    needs:
+      - repository-policy
+      - core-guard
+      - language-kernel-v1
+      - translation-kernel-v2
+      - benchmark-001
+      - pvg-core-ontology
+      - original-lemma-selection
+      - one-theorem-hold
+    if: always()
+    steps:
+      - name: Fail if any required job failed
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "repository-policy:       ${{ needs.repository-policy.result }}"
+          echo "core-guard:              ${{ needs.core-guard.result }}"
+          echo "language-kernel-v1:      ${{ needs.language-kernel-v1.result }}"
+          echo "translation-kernel-v2:   ${{ needs.translation-kernel-v2.result }}"
+          echo "benchmark-001:           ${{ needs.benchmark-001.result }}"
+          echo "pvg-core-ontology:       ${{ needs.pvg-core-ontology.result }}"
+          echo "original-lemma-selection:${{ needs.original-lemma-selection.result }}"
+          echo "one-theorem-hold:        ${{ needs.one-theorem-hold.result }}"
+          if [ "${{ needs.repository-policy.result }}" != "success" ] \
+             || [ "${{ needs.core-guard.result }}" != "success" ] \
+             || [ "${{ needs.language-kernel-v1.result }}" != "success" ] \
+             || [ "${{ needs.translation-kernel-v2.result }}" != "success" ] \
+             || [ "${{ needs.benchmark-001.result }}" != "success" ] \
+             || [ "${{ needs.pvg-core-ontology.result }}" != "success" ] \
+             || [ "${{ needs.original-lemma-selection.result }}" != "success" ] \
+             || [ "${{ needs.one-theorem-hold.result }}" != "success" ]; then
+            echo "GOVERNANCE GATE: FAIL - at least one required job failed."
+            exit 1
+          fi
+          echo "GOVERNANCE GATE: PASS - all required jobs green."
