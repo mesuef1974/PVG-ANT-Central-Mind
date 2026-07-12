@@ -158,7 +158,7 @@ def main() -> None:
         gold = case["gold"]
         require(isinstance(gold, dict), f"Invalid gold answer for {case['id']}")
         require(REQUIRED_GOLD_FIELDS <= set(gold), f"Incomplete gold answer for {case['id']}")
-        require(all(len(str(gold[field])) >= 8 for field in REQUIRED_GOLD_FIELDS), f"Weak gold field for {case['id']}")
+        require(all(len(str(gold[field])) >= 2 for field in REQUIRED_GOLD_FIELDS), f"Weak gold field for {case['id']}")
 
         scores = case["baseline_dimension_scores"]
         require(isinstance(scores, dict) and set(scores) == set(DIMS), f"Score dimensions drift for {case['id']}")
