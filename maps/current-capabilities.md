@@ -7,7 +7,8 @@ Live capability snapshot. Registry, ontology, maturation receipts, and benchmark
 ```text
 GOVERNANCE-ENFORCEMENT-CLOSURE-001 = CLOSED
 CENTRAL-MIND-CONTINUITY-001 = installed_repository_side
-current maturation receipt = MATURATION-RECEIPT-006
+CENTRAL-MIND-CONTINUITY-CLOSURE-002 = closed
+current maturation receipt = MATURATION-RECEIPT-007
 ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED
 ```
 
@@ -229,7 +230,8 @@ TRANSLATION-KERNEL-V2-PASS-002 = checkpoint_pass
 PVG-UNDERSTANDING-DEEPENING-001 = checkpoint_pass (ontology frozen)
 GOVERNANCE-ENFORCEMENT-CLOSURE-001 = CLOSED
 CENTRAL-MIND-CONTINUITY-001 = installed_repository_side
-current maturation receipt = MATURATION-RECEIPT-006
+CENTRAL-MIND-CONTINUITY-CLOSURE-002 = closed
+current maturation receipt = MATURATION-RECEIPT-007
 ```
 
 ## 13. Current limits

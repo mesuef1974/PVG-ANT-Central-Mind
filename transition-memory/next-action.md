@@ -19,22 +19,18 @@ Capability-maturation state:
   PVG-UNDERSTANDING-DEEPENING-001 = checkpoint_pass; ontology frozen.
   GOVERNANCE-ENFORCEMENT-CLOSURE-001 = CLOSED.
   CENTRAL-MIND-CONTINUITY-001 = installed_repository_side.
-  Current maturation receipt = MATURATION-RECEIPT-006.
+  CENTRAL-MIND-CONTINUITY-CLOSURE-002 = closed.
+  Current maturation receipt = MATURATION-RECEIPT-007.
   Translation inventory = 44; native objects = 20; morphisms = 24.
   planned.jsonl = empty (no queued research passes registered).
   Montgomery A/B/legacy-E quarantine (source-mismatch) remains in force.
 
-Continuity activation — next operational actions:
-  1. On the canonical Windows clone, run:
-       powershell -NoProfile -ExecutionPolicy Bypass
-       -File tools/install_canonical_sync_task.ps1
-  2. Read the installed task and execute one SafeSync run.
-  3. Record origin/main SHA, local HEAD, branch, clean-tree state,
-     ahead/behind counts, and task state in a workstation operator receipt.
-  4. Harden ruleset governance-required to
-     strict_required_status_checks_policy = true if authorized, then read
-     rules/branches/main to verify the effective rule.
-  5. Do not silently repair dirty, ahead, or diverged local states.
+Continuity activation = COMPLETE (2026-07-12):
+  scheduled task installed and verified with a successful run;
+  SafeSync -AsJson = clean tree, branch main, head equal to origin/main,
+  ahead 0, behind 0;
+  strict up-to-date mode active on ruleset governance-required;
+  evidence in audits/central-mind-continuity-closure-002.md.
 
 Knowledge and maturation operating law:
   Every stage begins with a named task and prerequisite gap map.
@@ -98,4 +94,4 @@ Ceiling:
   zero GRH progress.
 ```
 
-**Classification:** activate workstation synchronization and strongest up-to-date enforcement, then begin only the design phase of Adversarial Benchmark 002; external P8 validation remains parallel and unsent.
+**Classification:** continuity operationally closed; the next internal package is only the design phase of Adversarial Benchmark 002; external P8 validation remains parallel and unsent.

@@ -1,0 +1,77 @@
+{
+  "EX-MULT-001": {
+    "status": "PASS",
+    "objects": [
+      12,
+      18,
+      216
+    ]
+  },
+  "EX-BOX-001": {
+    "status": "PASS",
+    "n": 12,
+    "divisors": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      12
+    ]
+  },
+  "EX-EULER-001": {
+    "status": "PASS",
+    "formal_identity": "sum mu(n)^2 n^-s = product_p (1+p^-s)",
+    "analytic_gate": "Re(s)>1 for absolute convergence"
+  },
+  "EX-HALFSPACE-001": {
+    "status": "PASS",
+    "x": 12,
+    "warning": "coarse slabs do not encode additive order"
+  },
+  "EX-MOBIUS-001": {
+    "status": "PASS",
+    "mu30": -1,
+    "mu12": 0
+  },
+  "EX-RESIDUE-001": {
+    "status": "PASS",
+    "modulus": 5,
+    "characters": 4
+  },
+  "EX-SIEVE-LOSS-001": {
+    "status": "PASS",
+    "aggregates": {
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "6": 1
+    }
+  },
+  "EX-TRANSFER-001": {
+    "status": "PASS",
+    "finite_coefficients": {
+      "1": 1,
+      "2": 2,
+      "3": 2,
+      "4": 3,
+      "5": 2,
+      "6": 4,
+      "7": 2,
+      "8": 4,
+      "9": 3,
+      "10": 4,
+      "11": 2,
+      "12": 6,
+      "13": 2,
+      "14": 4,
+      "15": 4,
+      "16": 5,
+      "17": 2,
+      "18": 6,
+      "19": 2,
+      "20": 6
+    },
+    "warning": "summatory asymptotics require Perron/Tauberian/contour hypotheses"
+  }
+}
