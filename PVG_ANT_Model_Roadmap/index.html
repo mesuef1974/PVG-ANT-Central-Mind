@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="لوحة تنفيذية مصححة لبناء مكوّن محلي متخصص داخل منظومة PVG–ANT، تبدأ بقرار P8 والقياس قبل التدريب" />
+  <title>PVG–ANT Local Specialist — لوحة التنفيذ المصححة</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --panel: #ffffff;
+      --panel-2: #f8fafc;
+      --text: #172033;
+      --muted: #667085;
+      --line: #e4e7ec;
+      --brand: #2557d6;
+      --brand-2: #6c5ce7;
+      --ok: #16865c;
+      --warn: #b36b00;
+      --danger: #c33a3a;
+      --shadow: 0 10px 35px rgba(17, 24, 39, 0.08);
+      --radius: 18px;
+    }
+    [data-theme="dark"] {
+      --bg: #0d1423;
+      --panel: #131c2f;
+      --panel-2: #182338;
+      --text: #eef2ff;
+      --muted: #aeb8cc;
+      --line: #2a3852;
+      --brand: #7aa2ff;
+      --brand-2: #a78bfa;
+      --ok: #4fd1a5;
+      --warn: #f7b955;
+      --danger: #ff8585;
+      --shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+    a { color: inherit; }
+    .skip-link {
+      position: absolute; top: -100px; right: 16px; z-index: 1000;
+      background: var(--panel); padding: 10px 14px; border-radius: 10px;
+      border: 1px solid var(--line);
+    }
+    .skip-link:focus { top: 16px; }
+    .topbar {
+      position: sticky; top: 0; z-index: 30;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 12px 24px;
+      background: color-mix(in srgb, var(--panel) 91%, transparent);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .brand-mark {
+      width: 42px; height: 42px; display: grid; place-items: center;
+      border-radius: 13px; color: white; font-weight: 800;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      box-shadow: var(--shadow);
+    }
+    .brand h1 { font-size: 1rem; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .brand p { margin: 0; color: var(--muted); font-size: .8rem; }
+    .actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .btn {
+      border: 1px solid var(--line); background: var(--panel); color: var(--text);
+      padding: 9px 12px; border-radius: 11px; transition: .2s ease;
+    }
+    .btn:hover { transform: translateY(-1px); border-color: var(--brand); }
+    .btn.primary { background: var(--brand); color: white; border-color: var(--brand); }
+    .btn.danger { color: var(--danger); }
+    .btn.small { padding: 6px 9px; font-size: .86rem; }
+    .layout { display: grid; grid-template-columns: 280px minmax(0, 1fr); min-height: calc(100vh - 68px); }
+    .sidebar {
+      border-left: 1px solid var(--line); background: var(--panel); padding: 22px 16px;
+      position: sticky; top: 68px; height: calc(100vh - 68px); overflow-y: auto;
+    }
+    .sidebar h2 { font-size: .84rem; color: var(--muted); margin: 0 8px 10px; }
+    .nav-list { display: grid; gap: 6px; }
+    .nav-link {
+      text-decoration: none; padding: 10px 12px; border-radius: 10px;
+      color: var(--muted); display: flex; align-items: center; justify-content: space-between; gap: 8px;
+    }
+    .nav-link:hover, .nav-link.active { background: var(--panel-2); color: var(--text); }
+    .sidebar-note {
+      margin-top: 24px; padding: 14px; border: 1px solid var(--line);
+      border-radius: 14px; background: var(--panel-2); color: var(--muted); font-size: .86rem;
+    }
+    main { padding: 28px; min-width: 0; }
+    .hero {
+      position: relative; overflow: hidden;
+      padding: 30px; border-radius: 26px; color: white;
+      background: linear-gradient(135deg, #183b8f 0%, #2557d6 48%, #6c5ce7 100%);
+      box-shadow: var(--shadow);
+    }
+    .hero::after {
+      content: ""; position: absolute; width: 320px; height: 320px; border-radius: 50%;
+      left: -100px; top: -150px; background: rgba(255,255,255,.12);
+    }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.4fr .6fr; gap: 28px; align-items: center; }
+    .eyebrow { font-size: .82rem; font-weight: 700; letter-spacing: .06em; opacity: .82; }
+    .hero h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); line-height: 1.2; margin: 8px 0 12px; }
+    .hero p { margin: 0; max-width: 850px; opacity: .9; }
+    .hero-meta { display: grid; gap: 10px; }
+    .hero-meta div { padding: 12px 14px; border-radius: 13px; background: rgba(255,255,255,.13); }
+    .hero-meta strong { display: block; font-size: .82rem; opacity: .8; }
+    .critical-banner {
+      position: relative; z-index: 1; margin-top: 18px; padding: 14px 16px; border-radius: 14px;
+      background: rgba(76, 10, 20, .28); border: 1px solid rgba(255,255,255,.34);
+      display: grid; gap: 4px;
+    }
+    .critical-banner strong { font-size: .9rem; }
+    .critical-banner span { opacity: .92; font-size: .88rem; }
+    .identity-strip {
+      margin-top: 16px; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 10px;
+    }
+    .identity-strip div { padding: 11px; border-radius: 12px; background: rgba(255,255,255,.11); font-size: .82rem; }
+    .identity-strip strong { display: block; margin-bottom: 2px; }
+    .section { margin-top: 28px; scroll-margin-top: 95px; }
+    .section-header { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+    .section-header h2 { margin: 0; font-size: 1.35rem; }
+    .section-header p { margin: 2px 0 0; color: var(--muted); }
+    .grid { display: grid; gap: 16px; }
+    .stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .card {
+      background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+      box-shadow: var(--shadow); padding: 18px;
+    }
+    .stat-card { display: flex; flex-direction: column; gap: 6px; }
+    .stat-card .label { color: var(--muted); font-size: .88rem; }
+    .stat-card .value { font-size: 1.8rem; font-weight: 800; }
+    .stat-card .sub { color: var(--muted); font-size: .82rem; }
+    .progress {
+      height: 9px; border-radius: 999px; background: var(--panel-2); overflow: hidden; border: 1px solid var(--line);
+    }
+    .progress > span { display: block; height: 100%; background: linear-gradient(90deg, var(--brand), var(--brand-2)); border-radius: inherit; }
+    .toolbar {
+      display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+      background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 12px;
+    }
+    .toolbar input, .toolbar select {
+      border: 1px solid var(--line); background: var(--panel-2); color: var(--text);
+      padding: 9px 11px; border-radius: 10px; min-width: 160px;
+    }
+    .timeline-wrap { overflow-x: auto; padding-bottom: 8px; }
+    .timeline { min-width: 1050px; display: grid; gap: 10px; }
+    .timeline-head, .timeline-row { display: grid; grid-template-columns: 250px repeat(8, 1fr); gap: 6px; align-items: center; }
+    .timeline-head div { font-size: .78rem; color: var(--muted); text-align: center; }
+    .timeline-label { text-align: right !important; font-weight: 700; color: var(--text) !important; }
+    .timeline-cell { min-height: 34px; border-radius: 8px; background: var(--panel-2); border: 1px solid var(--line); }
+    .timeline-bar {
+      min-height: 34px; border-radius: 8px; padding: 5px 8px; color: white; font-size: .76rem;
+      display: flex; align-items: center; justify-content: center; text-align: center;
+      background: linear-gradient(90deg, var(--brand), var(--brand-2));
+    }
+    .stage-list { display: grid; gap: 16px; }
+    .stage-card { padding: 0; overflow: hidden; }
+    .stage-head {
+      display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 14px; align-items: center;
+      padding: 17px 18px; border-bottom: 1px solid var(--line); background: var(--panel-2);
+    }
+    .stage-index {
+      width: 44px; height: 44px; display: grid; place-items: center; border-radius: 13px;
+      color: white; font-weight: 800; background: linear-gradient(135deg, var(--brand), var(--brand-2));
+    }
+    .stage-title h3 { margin: 0; font-size: 1.05rem; }
+    .stage-title p { margin: 2px 0 0; color: var(--muted); font-size: .85rem; }
+    .status {
+      display: inline-flex; align-items: center; gap: 7px; padding: 6px 10px; border-radius: 999px;
+      font-size: .8rem; font-weight: 700; border: 1px solid transparent;
+    }
+    .status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+    .status.not-started { color: var(--muted); background: var(--panel); border-color: var(--line); }
+    .status.in-progress { color: var(--brand); background: color-mix(in srgb, var(--brand) 10%, transparent); }
+    .status.completed { color: var(--ok); background: color-mix(in srgb, var(--ok) 12%, transparent); }
+    .status.blocked { color: var(--danger); background: color-mix(in srgb, var(--danger) 10%, transparent); }
+    .stage-body { padding: 18px; display: grid; gap: 16px; }
+    .stage-columns { display: grid; grid-template-columns: 1.15fr .85fr; gap: 16px; }
+    .subcard { padding: 14px; border: 1px solid var(--line); border-radius: 13px; background: var(--panel-2); }
+    .subcard h4 { margin: 0 0 8px; font-size: .92rem; }
+    .clean-list { margin: 0; padding: 0 20px 0 0; }
+    .clean-list li { margin: 5px 0; }
+    .task-list { display: grid; gap: 8px; }
+    .task-item {
+      display: grid; grid-template-columns: auto minmax(0,1fr); gap: 9px; align-items: start;
+      padding: 9px 10px; border-radius: 10px; background: var(--panel); border: 1px solid var(--line);
+    }
+    .task-item input { margin-top: 5px; }
+    .task-item.done span { text-decoration: line-through; color: var(--muted); }
+    .stage-controls { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 10px; }
+    .field { display: grid; gap: 5px; }
+    .field label { color: var(--muted); font-size: .78rem; }
+    .field input, .field select, .field textarea {
+      width: 100%; border: 1px solid var(--line); background: var(--panel); color: var(--text);
+      padding: 9px 10px; border-radius: 9px;
+    }
+    .field textarea { min-height: 90px; resize: vertical; }
+    .span-4 { grid-column: 1 / -1; }
+    .span-2 { grid-column: span 2; }
+    .field textarea.sync { direction: ltr; text-align: left; font-family: Consolas, monospace; font-size: .82rem; }
+    .metrics { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    .metric-card h3 { margin: 0 0 4px; font-size: .95rem; }
+    .metric-card p { margin: 0 0 12px; color: var(--muted); font-size: .84rem; }
+    .metric-row { display: flex; justify-content: space-between; gap: 12px; font-size: .9rem; margin-bottom: 8px; }
+    .risk-table { width: 100%; border-collapse: collapse; }
+    .risk-table th, .risk-table td { padding: 11px; text-align: right; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .risk-table th { color: var(--muted); font-size: .8rem; }
+    .pill { display: inline-flex; padding: 4px 8px; border-radius: 999px; font-size: .74rem; font-weight: 700; }
+    .pill.high { color: var(--danger); background: color-mix(in srgb, var(--danger) 11%, transparent); }
+    .pill.medium { color: var(--warn); background: color-mix(in srgb, var(--warn) 12%, transparent); }
+    .pill.low { color: var(--ok); background: color-mix(in srgb, var(--ok) 12%, transparent); }
+    .decision-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .decision-card h3 { margin: 0 0 6px; }
+    .decision-card p { color: var(--muted); margin: 0 0 12px; }
+    .footer { margin-top: 34px; padding: 20px 0 6px; color: var(--muted); font-size: .84rem; text-align: center; }
+    .toast {
+      position: fixed; left: 20px; bottom: 20px; z-index: 100;
+      background: var(--text); color: var(--panel); padding: 11px 14px; border-radius: 11px;
+      opacity: 0; transform: translateY(10px); pointer-events: none; transition: .25s ease;
+    }
+    .toast.show { opacity: 1; transform: translateY(0); }
+    .modal-backdrop {
+      position: fixed; inset: 0; z-index: 80; display: none; place-items: center;
+      background: rgba(0,0,0,.5); padding: 20px;
+    }
+    .modal-backdrop.open { display: grid; }
+    .modal { width: min(700px, 100%); max-height: 85vh; overflow: auto; background: var(--panel); border-radius: 18px; border: 1px solid var(--line); padding: 20px; }
+    .modal h2 { margin-top: 0; }
+    .modal textarea { width: 100%; min-height: 300px; direction: ltr; font-family: Consolas, monospace; border: 1px solid var(--line); background: var(--panel-2); color: var(--text); padding: 12px; border-radius: 10px; }
+    .modal-actions { display: flex; justify-content: flex-start; gap: 8px; margin-top: 12px; }
+    @media (max-width: 1100px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+      .stats { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .hero-grid, .stage-columns { grid-template-columns: 1fr; }
+      .identity-strip { grid-template-columns: 1fr 1fr; }
+      .stage-controls { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .metrics, .decision-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 700px) {
+      .topbar { padding: 10px 12px; align-items: flex-start; }
+      .brand p { display: none; }
+      .actions .hide-mobile { display: none; }
+      main { padding: 16px; }
+      .hero { padding: 22px; }
+      .stats, .metrics, .decision-grid, .identity-strip { grid-template-columns: 1fr; }
+      .stage-head { grid-template-columns: auto 1fr; }
+      .stage-head .status { grid-column: 1 / -1; justify-self: start; }
+      .stage-controls { grid-template-columns: 1fr; }
+      .span-4, .span-2 { grid-column: auto; }
+      .risk-table { display: block; overflow-x: auto; }
+    }
+    @media print {
+      .topbar, .sidebar, .toolbar, .stage-controls, .btn, .footer { display: none !important; }
+      body { background: white; color: #111; }
+      .layout { display: block; }
+      main { padding: 0; }
+      .card, .hero { box-shadow: none; break-inside: avoid; }
+      .hero { color: white; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">تجاوز إلى المحتوى</a>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">PA</div>
+      <div>
+        <h1>PVG–ANT Local Specialist</h1>
+        <p>الخطة المصححة: الحكم والقياس قبل التدريب</p>
+      </div>
+    </div>
+    <div class="actions" aria-label="إجراءات الصفحة">
+      <button class="btn small" id="themeBtn" type="button" aria-label="تبديل المظهر">◐</button>
+      <button class="btn small hide-mobile" id="printBtn" type="button">طباعة</button>
+      <button class="btn small" id="exportBtn" type="button">تصدير JSON</button>
+      <button class="btn small" id="importBtn" type="button">استيراد</button>
+      <button class="btn small danger hide-mobile" id="resetBtn" type="button">إعادة ضبط</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" aria-label="التنقل">
+      <h2>التنقل</h2>
+      <nav class="nav-list">
+        <a class="nav-link active" href="#overview">نظرة عامة <span>01</span></a>
+        <a class="nav-link" href="#timeline">الخط الزمني <span>02</span></a>
+        <a class="nav-link" href="#stages">المراحل التنفيذية <span>03</span></a>
+        <a class="nav-link" href="#metrics">مؤشرات النجاح <span>04</span></a>
+        <a class="nav-link" href="#risks">المخاطر <span>05</span></a>
+        <a class="nav-link" href="#decisions">بوابات القرار <span>06</span></a>
+      </nav>
+      <div class="sidebar-note">
+        <strong>طريقة العمل</strong><br>
+        حدّث حالة كل مرحلة ونسبتها وملاحظاتها. لا تُغلق أي مرحلة دون إيصالي التزامن (قبل/بعد) بإثبات HEAD == origin/main. تُحفظ البيانات تلقائيًا في المتصفح ويمكن تصديرها كملف JSON.
+      </div>
+    </aside>
+
+    <main id="main">
+      <section class="hero" id="overview">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">PVG-ANT-LOCAL-SPECIALIST-PROGRAM-001 · REVISED PLAN v2.1 · SYNC-GOVERNED</div>
+            <h2>من الحكم الخارجي والقياس إلى مكوّن محلي متخصص</h2>
+            <p>المستودع والذاكرة والحوكمة والتقييم هي العقل الدائم. النموذج المحلي عضو متخصص داخل المنظومة؛ يبدأ البرنامج بقرار P8، ثم Benchmark 002 على العقل الحالي، ثم بناء الأصول والتدريب الموجّه بخريطة الأخطاء.</p>
+            <div class="identity-strip">
+              <div><strong>ARM-BASE</strong>النموذج الأساس الخام</div>
+              <div><strong>ARM-LOCAL</strong>المكوّن المحلي المتخصص</div>
+              <div><strong>ARM-CURRENT</strong>العقل الحالي الكامل</div>
+              <div><strong>ARM-HYBRID</strong>العقل الحالي + المحلي</div>
+            </div>
+          </div>
+          <div class="hero-meta">
+            <div><strong>البداية المخططة</strong><span>13 يوليو 2026</span></div>
+            <div><strong>الهوية المستهدفة</strong><span>Local Specialist + Hybrid System</span></div>
+            <div><strong>الاختبار النهائي</strong><span>14 فبراير 2027</span></div>
+          </div>
+        </div>
+        <div class="critical-banner">
+          <strong>بوابة صفر غير قابلة للتجاوز</strong>
+          <span>قبل 19 يوليو 2026 الساعة 23:59:59 بتوقيت قطر: يجب تسجيل P8 = SENT أو HOLD_AUTHORIZED. لا تدريب ولا corpus تخصصية قبل CURRENT-MIND-RAW-BASELINE-001.</span>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="grid stats" id="summaryStats"></div>
+      </section>
+
+      <section class="section" id="timeline">
+        <div class="section-header">
+          <div><h2>الخط الزمني التنفيذي</h2><p>تمثيل بصري يبدأ بحسم P8 وقياس العقل الحالي قبل أي تدريب.</p></div>
+        </div>
+        <div class="card timeline-wrap"><div class="timeline" id="timelineGrid"></div></div>
+      </section>
+
+      <section class="section" id="stages">
+        <div class="section-header">
+          <div><h2>المراحل التنفيذية</h2><p>حدّث الحالة، النسبة، المالك، التواريخ الفعلية، المهام، والملاحظات.</p></div>
+        </div>
+        <div class="toolbar" aria-label="مرشحات المراحل">
+          <input id="searchInput" type="search" placeholder="بحث في المراحل والمهام..." />
+          <select id="statusFilter">
+            <option value="all">كل الحالات</option>
+            <option value="not-started">لم تبدأ</option>
+            <option value="in-progress">قيد التنفيذ</option>
+            <option value="completed">مكتملة</option>
+            <option value="blocked">متوقفة</option>
+          </select>
+          <button class="btn small" id="expandAllBtn" type="button">توسيع الكل</button>
+          <button class="btn small" id="collapseAllBtn" type="button">طي الكل</button>
+        </div>
+        <div class="stage-list" id="stageList"></div>
+      </section>
+
+      <section class="section" id="metrics">
+        <div class="section-header">
+          <div><h2>مؤشرات النجاح والترقية</h2><p>عتبات للسيادة والقدرة والقيمة المضافة؛ لا تسمية باحث قبل المقارنة النهائية على B.</p></div>
+        </div>
+        <div class="grid metrics" id="metricsGrid"></div>
+      </section>
+
+      <section class="section" id="risks">
+        <div class="section-header">
+          <div><h2>سجل المخاطر</h2><p>المخاطر الرئيسية وإجراءات السيطرة عليها.</p></div>
+        </div>
+        <div class="card">
+          <table class="risk-table">
+            <thead><tr><th>الخطر</th><th>الاحتمال</th><th>الأثر</th><th>المعالجة</th><th>المسؤول</th></tr></thead>
+            <tbody id="riskBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" id="decisions">
+        <div class="section-header">
+          <div><h2>بوابات القرار</h2><p>لا عبور تلقائي بين المراحل؛ كل بوابة تحتاج دليلًا قابلًا للتدقيق.</p></div>
+        </div>
+        <div class="grid decision-grid" id="decisionGrid"></div>
+      </section>
+
+      <div class="footer">الخطة المصححة v2.1 — التزامن المحلي–البعيد شرط تشغيلي لكل مرحلة، لا خطوة صيانة. تُحفظ التحديثات محليًا؛ صدّر JSON بعد كل بوابة، ولا تُدمج اللوحة إلا عبر فرع وPR ناجح.</div>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <div class="modal-backdrop" id="importModal" role="dialog" aria-modal="true" aria-labelledby="importTitle">
+    <div class="modal">
+      <h2 id="importTitle">استيراد بيانات الخطة</h2>
+      <p>الصق محتوى ملف JSON المُصدّر سابقًا.</p>
+      <textarea id="importText" spellcheck="false"></textarea>
+      <div class="modal-actions">
+        <button class="btn primary" id="confirmImportBtn" type="button">استيراد</button>
+        <button class="btn" id="closeImportBtn" type="button">إلغاء</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const STORAGE_KEY = 'pvg-ant-roadmap-v2';
+    const statusLabels = {
+      'not-started': 'لم تبدأ',
+      'in-progress': 'قيد التنفيذ',
+      'completed': 'مكتملة',
+      'blocked': 'متوقفة'
+    };
+
+    const stages = [
+      {
+        id: 'S0', index: 0, title: 'إغلاق الاستمرارية وقرار P8',
+        start: '2026-07-13', end: '2026-07-19', month: 0,
+        objective: 'منع افتتاح مشروع داخلي جديد قبل حسم الحكم الخارجي، تنظيف main، وتثبيت بيئة تشغيل قابلة لإعادة الإنتاج.',
+        outputs: ['CENTRAL-MIND-CONTINUITY-CLOSURE-002','MATURATION-RECEIPT-007','P8-DECISION-RECORD','CURRENT-MIND-FREEZE-MANIFEST'],
+        gate: 'الشجرة نظيفة، المزامنة والـstrict ruleset مثبتان، وP8 في حالة SENT أو HOLD_AUTHORIZED قبل المهلة.',
+        tasks: ['إخراج ملفات اللوحة من stage على main وإبقاؤها محلية حتى PR مشروع','تثبيت مهمة المزامنة وتشغيل SafeSync والتحقق من شجرة نظيفة','تفعيل strict_required_status_checks_policy مع بقاء governance-gate بلا bypass','تحييد صياغة حزمتي P8 وتثبيت بروتوكول التوقف الخماسي','تسجيل P8 = SENT أو HOLD_AUTHORIZED قبل 2026-07-19T23:59:59+03:00','تجميد manifest للعقل الحالي: المحرك والمستودع والأدوات والإعدادات كذراع ARM-CURRENT']
+      },
+      {
+        id: 'S1', index: 1, title: 'تصميم وختم Benchmark 002',
+        start: '2026-07-20', end: '2026-08-16', month: 0,
+        objective: 'توحيد القياس مع البروتوكول القانوني القائم وإنشاء مجموعتي A وB قبل التدريب.',
+        outputs: ['BENCHMARK-002-SEALED','HIDDEN-A-MANIFEST','HIDDEN-B-CIPHERTEXT','FROZEN-SCORING-RUBRIC'],
+        gate: 'A وB جديدتان، الأدوار معزولة، B مشفرة، الأدوات والـprompt والمحاولات والـrubric مجمدة.',
+        tasks: ['تأليف Hidden Set A بعدد لا يقل عن 48 حالة','تأليف Hidden Set B بعدد لا يقل عن 48 حالة في الورشة نفسها','فصل case author وkey verifier وanswering agent وscoring agent','تشفير أسئلة B ومفاتيحها offline وحفظ ciphertext + SHA-256 manifest','إجراء فحص تسرب مفاهيمي ضد الأصول السبعة للمشروع','تجميد الأدوات والذاكرة وsystem prompt وعدد المحاولات وإعدادات التصحيح','منع أي بطاقات أو تدريب أو تعلم موجّه قبل الخط الخام']
+      },
+      {
+        id: 'S2', index: 2, title: 'الخط الخام على العقل الحالي',
+        start: '2026-08-17', end: '2026-08-31', month: 1,
+        objective: 'قياس ARM-CURRENT على A أولًا لاكتشاف فجوات المنظومة التي ستحدد ما يُبنى ويُدرّب.',
+        outputs: ['CURRENT-MIND-RAW-BASELINE-001','IMMUTABLE-ERROR-MAP-002-A','CURRENT-MIND-CALIBRATION-REPORT'],
+        gate: 'الإجابات والإعدادات والثقة محفوظة دون تعديل، التصحيح مستقل، وخريطة الأخطاء غير قابلة لإعادة الكتابة.',
+        tasks: ['تشغيل العقل الحالي المجمد على A دون تدخل أثناء التشغيل','حفظ كل الإجابات والثقة والأدوات ومسارات الاستدلال المتاحة','تصحيح مستقل وفق rubric المجمد','تصنيف الفشل: معرفة، ترجمة، تركيب، أداة، عكس غير مشروع، مصدر، معايرة','فتح مفاتيح A بعد الخط الخام ووسمها contaminated development set','تجميد خريطة الأخطاء لتصبح مدخل القرار المعماري والكوربوس']
+      },
+      {
+        id: 'S3', index: 3, title: 'دراسة النماذج والقرار المعماري',
+        start: '2026-09-01', end: '2026-09-21', month: 2,
+        objective: 'دراسة النماذج الرياضية واختيار المكونات استنادًا إلى عناقيد الفشل الفعلية، لا إلى الشهرة.',
+        outputs: ['MATHEMATICAL-MODEL-INTELLIGENCE-001','ARCHITECTURE-DECISION-RECORD-001','BASE-MODEL-SHORTLIST-001'],
+        gate: 'كل مكوّن مقترح مرتبط بفشل مسمى؛ لا وعد بأن LoRA يحل الاستدلال البحثي الطويل.',
+        tasks: ['دراسة Qwen وLlemma والنماذج الرياضية المتاحة وتحديث النتائج قبل القرار','دراسة أنظمة Lean/prover والتصحيح من رسائل المحقق','ربط كل عنقود فشل بحل محتمل: RAG أو translator أو critic أو tool router أو formal prover','اختبار مرشحين 4B–8B محليًا دون تدريب','تسجيل دوافع السيادة التشغيلية منفصلة عن رفع القدرة','اختيار ARM-BASE رئيسي واحتياطي ومعمارية ARM-LOCAL وARM-HYBRID']
+      },
+      {
+        id: 'S4', index: 4, title: 'الأصول الدائمة والكوربوس الموجّه',
+        start: '2026-09-22', end: '2026-10-31', month: 2,
+        objective: 'بناء تقييمات وكوربوس مصدرية مرتبطة بخريطة أخطاء A؛ البيانات والتقييم هما الأصل الدائم.',
+        outputs: ['K0-KNOWLEDGE-SUITE-80','K1-TRANSFER-SUITE-48','R1-RETENTION-SUITE-48','TARGETED-CORPUS-v0.1','TARGETED-CORPUS-POLICY'],
+        gate: 'لا تعدين كتب واسع؛ كل سجل تدريبي مرتبط بفشل مسمى ومصدر، ومفصول عن K1/R1/B.',
+        tasks: ['إنشاء K0 من 80 حالة معرفة حالية عالية الجودة','إنشاء K1 من 48 حالة نقل غير مستخدمة في التدريب','إنشاء R1 من 48 حالة احتفاظ وانحدار','إنشاء 16–24 حالة معايرة للأدوات وLean','إقرار سياسة TARGETED-CORPUS-ENGINEERING عبر Stage Review','استخراج أمثلة تدريب فقط لعناقيد الفشل المثبتة في A','إضافة أمثلة سلبية وأمثلة مضادة ومسارات أدوات مع مراجعة مستقلة','تجميد dataset hashes وتوثيق dedup والتسرب والمصادر']
+      },
+      {
+        id: 'S5', index: 5, title: 'تدريب المكونات المتخصصة',
+        start: '2026-11-01', end: '2026-11-21', month: 4,
+        objective: 'بناء مكوّنات واقعية قابلة للتعلم بدل ادعاء تدريب باحث كامل.',
+        outputs: ['ANT-PVG-TRANSLATOR-v0.1','RESEARCH-CRITIC-v0.1','KNOWLEDGE-RETRIEVER-v0.1','TOOL-ROUTER-v0.1'],
+        gate: 'ARM-LOCAL يتفوق على ARM-BASE في المهام المستهدفة دون تراجع قاتل، وكل تدريب موثق وقابل للرجوع.',
+        tasks: ['تدريب ANT→PVG وPVG→ANT مع LOSS وشروط العكس','تدريب الناقد على الفرضيات والادعاء الزائد والمادية الزخرفية','بناء retriever مصدري قابل للاستشهاد','بناء tool router لـPython وPARI/GP وLean عند الحاجة','تدريب ANT adapter عام فقط إن بررته خريطة أخطاء A','تسجيل base hash وadapter hash وdata hash والإعدادات','رفض التحسن الأسلوبي الذي لا يرفع الصحة أو المعايرة']
+      },
+      {
+        id: 'S6', index: 6, title: 'المقارنة المفتوحة رباعية الأذرع',
+        start: '2026-11-22', end: '2026-12-15', month: 4,
+        objective: 'قياس القيمة الحقيقية للمكوّن المحلي بمقارنته بالأساس والعقل الحالي والنظام الهجين.',
+        outputs: ['FOUR-ARM-COMPARISON-001','SOVEREIGNTY-REPORT-001','CAPABILITY-DELTA-REPORT-001'],
+        gate: 'لا ترقية بلا مقارنة ARM-BASE وARM-LOCAL وARM-CURRENT وARM-HYBRID بنفس الشروط.',
+        tasks: ['تشغيل الأذرع الأربعة على K0 وK1 وR1','توحيد الوقت والأدوات والمصادر وعدد المحاولات قدر الإمكان','قياس القدرة العلمية منفصلة عن السيادة والخصوصية والتكلفة','إجراء ablation: ANT-only وPVG-vocabulary-only وretrieval-only','فحص الانحدار والمعايرة والامتناع وصحة المصادر','السماح بترقية Local Specialist إن هزم الأساس؛ وعدم نشر Hybrid إن أضر بالعقل الحالي']
+      },
+      {
+        id: 'S7', index: 7, title: 'الإصلاح الموجّه والدمج الهجين',
+        start: '2026-12-16', end: '2027-01-15', month: 5,
+        objective: 'إصلاح الفجوات المثبتة في A والمقارنة المفتوحة ودمج المكونات المفيدة فقط داخل العقل.',
+        outputs: ['TARGETED-REPAIR-PACK-001','ARM-LOCAL-CANDIDATE','ARM-HYBRID-CANDIDATE','FINAL-FREEZE-MANIFEST'],
+        gate: 'اجتياز R1، عدم استخدام تحسن A دليلًا على التعميم، وبقاء B مغلقة تمامًا.',
+        tasks: ['ترتيب الفجوات بحسب الأثر والقابلية للإصلاح','إضافة بيانات أو معرفة أو توجيه أدوات موجه فقط','إعادة A بوصفها development set ملوثة','رفض أي مكوّن يضر ARM-HYBRID مقارنة بـARM-CURRENT','تشغيل regression والاحتفاظ والمعايرة','تجميد المرشحين والإعدادات قبل فتح B']
+      },
+      {
+        id: 'S8', index: 8, title: 'الاختبار النهائي على B وقرار التسمية',
+        start: '2027-01-16', end: '2027-02-14', month: 6,
+        objective: 'اختبار التعميم ومادية PVG والقيمة المضافة في مقارنة نهائية محجوبة.',
+        outputs: ['FINAL-B-REPORT','LOCAL-SPECIALIST-DECISION','HYBRID-SYSTEM-DECISION','NAMING-DECISION-RECORD'],
+        gate: 'لا تسمية Researcher إلا إذا نافس ARM-LOCAL أو تفوق على ARM-CURRENT على B مع انضباط ومراجعة مستقلة.',
+        tasks: ['فك B بواسطة custodian فقط بعد تجميد المرشحين','تشغيل ARM-LOCAL وARM-CURRENT وARM-HYBRID بالشروط نفسها','إضافة ARM-BASE كخط مرجعي أدنى','قياس ANT والترجمة وLOSS والتركيب والنقد والمعايرة والمصادر','إصدار قرار: Local Specialist أو Research Assistant أو Retrain/Architecture Hold','منع ادعاء الأصالة أو المبرهنة دون الشهادات المستقلة']
+      }
+    ];
+
+    const metrics = [
+      ['قرار P8','100% قبل المهلة','SENT أو HOLD_AUTHORIZED قبل 19 يوليو 2026'],
+      ['القياس قبل التدريب','إلزامي','CURRENT-MIND-RAW-BASELINE-001 يسبق أي corpus تخصصية'],
+      ['صحة ANT','≥ 80%','صحة النتائج والفرضيات والنطاق على مجموعات غير تدريبية'],
+      ['ANT → PVG','≥ 80%','ترجمة دقيقة مع المعلومات المحفوظة والمفقودة'],
+      ['PVG → ANT','≥ 70%','إنتاج observable وسؤال تحليلي قابل للعمل'],
+      ['LOSS وشروط العكس','≥ 75%','منع قلب ترجمة غير قابلة للعكس'],
+      ['كشف الادعاءات القاتلة','100%','صفر مرور لادعاء علمي قاتل'],
+      ['تراجع الاحتفاظ','≤ 3 نقاط','منع النسيان بعد كل تعديل'],
+      ['ARM-LOCAL مقابل ARM-BASE','تحسن ≥ 8 نقاط','إثبات أثر التدريب على النقل لا الأسلوب فقط'],
+      ['ARM-HYBRID مقابل ARM-CURRENT','لا تراجع مادي','لا نشر لمكوّن محلي يضعف النظام الموجود'],
+      ['مقارنة العقل الحالي','100% من البوابات','ARM-CURRENT حاضر في كل قرار قدرة وترقية'],
+      ['حماية B','100% حتى التجميد','لا أسئلة ولا مفاتيح ولا إشارات تطويرية قبل الاختبار النهائي'],
+      ['ادعاء أصالة بلا شهادة','0','النموذج يولد مرشحًا ولا يصدق الأصالة بنفسه'],
+      ['تسمية Researcher','محظورة افتراضيًا','لا تُبحث إلا بعد منافسة العقل الحالي على B ومراجعة مستقلة']
+    ];
+
+    const risks = [
+      ['تجاوز مهلة P8','عالٍ','عالٍ','اعتبار SENT أو HOLD_AUTHORIZED جزءًا من G0 وفشل البوابة بعد المهلة','Owner + Governance'],
+      ['ملفات مقترح staged على main','متوسط','عالٍ','git restore --staged وإبقاء الملفات محلية أو على فرع مسودة فقط','Local Operator'],
+      ['التدريب قبل قياس العقل الحالي','عالٍ','عالٍ','منع corpus التخصصية قبل خط A الخام وخريطة الأخطاء','Program Gate'],
+      ['تلوث Benchmark B','متوسط','عالٍ','تشفير الأسئلة والمفاتيح وفصل الحافظ وفحص التسرب المفاهيمي','Custodian + Evaluation'],
+      ['الاحتفال أمام خصم ضعيف','عالٍ','عالٍ','إلزام ARM-CURRENT وARM-HYBRID في كل بوابة ترقية','Evaluation Lead'],
+      ['تعدين كتب واسع تحت اسم corpus','متوسط','عالٍ','TARGETED-CORPUS-ENGINEERING مرتبط بفشل مسمى وسياسة Stage Review','Knowledge Lead'],
+      ['تحسن أسلوبي دون قدرة','عالٍ','عالٍ','K1 وR1 ومعايرة ومصحح مستقل ومقارنة رباعية','Research Critic'],
+      ['نسيان القدرات السابقة','متوسط','عالٍ','R1 بعد كل تدريب وحد تراجع ≤3 نقاط','Model Engineer'],
+      ['خلط السيادة بالقدرة البحثية','متوسط','عالٍ','تقارير KPI منفصلة للخصوصية والتكلفة والصحة والنقل','Program Owner'],
+      ['تحويل النموذج إلى هوية العقل','متوسط','عالٍ','تعريف النموذج كعضو قابل للاستبدال والحقيقة في المعرفة والتقييم والسجلات','Architecture Review']
+    ];
+
+    const decisions = [
+      ['G0 — P8 والاستمرارية','هل main نظيف، المزامنة والـstrict مثبتان، وP8 حُسمت قانونيًا؟'],
+      ['G1 — Benchmark مختوم','هل A/B والـrubric والأدوار والأدوات مجمدة وB مشفرة؟'],
+      ['G2 — خط العقل الحالي','هل baseline A وخريطة الأخطاء جُمّدا قبل أي تدريب؟'],
+      ['G3 — القرار المعماري','هل كل مكوّن مقترح يجيب عن فشل مقاس ومسمى؟'],
+      ['G4 — الأصول الدائمة','هل K0/K1/R1 والكوربوس نظيفة ومصدرية ومفصولة؟'],
+      ['G5 — قبول المكونات','هل ARM-LOCAL أفضل من ARM-BASE دون مخالفات أو نسيان؟'],
+      ['G6 — المقارنة الرباعية','هل ARM-CURRENT حاضر وهل ARM-HYBRID يضيف قيمة فعلية؟'],
+      ['G7 — تجميد المرشحين','هل الإصلاح موجّه وB ما زالت محجوبة والانحدار مقبول؟'],
+      ['G8 — قرار B والتسمية','هل النتائج تبرر Local Specialist أو Research Assistant فقط؟']
+    ];
+
+    function defaultState() {
+      const stageState = {};
+      stages.forEach(s => stageState[s.id] = {
+        status: 'not-started', progress: 0, owner: '', actualStart: '', actualEnd: '', notes: '', expanded: true,
+        syncPre: '', syncPost: '',
+        tasks: s.tasks.map(() => false)
+      });
+      return { version: 1, theme: 'light', stageState, updatedAt: new Date().toISOString() };
+    }
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return defaultState();
+        const parsed = JSON.parse(raw);
+        const base = defaultState();
+        stages.forEach(s => {
+          parsed.stageState ??= {};
+          parsed.stageState[s.id] = { ...base.stageState[s.id], ...(parsed.stageState[s.id] || {}) };
+          if (!Array.isArray(parsed.stageState[s.id].tasks) || parsed.stageState[s.id].tasks.length !== s.tasks.length) {
+            parsed.stageState[s.id].tasks = base.stageState[s.id].tasks;
+          }
+        });
+        return { ...base, ...parsed };
+      } catch { return defaultState(); }
+    }
+
+    let state = loadState();
+
+    function saveState(message = 'تم الحفظ تلقائيًا') {
+      state.updatedAt = new Date().toISOString();
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      renderSummary();
+      if (message) toast(message);
+    }
+
+    function toast(message) {
+      const el = document.getElementById('toast');
+      el.textContent = message;
+      el.classList.add('show');
+      clearTimeout(toast.timer);
+      toast.timer = setTimeout(() => el.classList.remove('show'), 1900);
+    }
+
+    function dateAr(iso) {
+      if (!iso) return '—';
+      return new Intl.DateTimeFormat('ar-QA', {year:'numeric',month:'short',day:'numeric'}).format(new Date(iso+'T00:00:00'));
+    }
+
+    function statusClass(status) { return `status ${status}`; }
+
+    function renderSummary() {
+      const values = Object.values(state.stageState);
+      const completed = values.filter(v => v.status === 'completed').length;
+      const active = values.filter(v => v.status === 'in-progress').length;
+      const blocked = values.filter(v => v.status === 'blocked').length;
+      const average = Math.round(values.reduce((sum,v) => sum + Number(v.progress || 0), 0) / values.length);
+      const today = new Date();
+      const overdue = stages.filter(s => {
+        const v = state.stageState[s.id];
+        return new Date(s.end+'T23:59:59') < today && v.status !== 'completed';
+      }).length;
+      const cards = [
+        ['التقدم الكلي', average + '%', `<div class="progress"><span style="width:${average}%"></span></div>`],
+        ['المراحل المكتملة', `${completed} / ${stages.length}`, `قيد التنفيذ: ${active}`],
+        ['المراحل المتأخرة', overdue, blocked ? `متوقفة: ${blocked}` : 'لا توجد مراحل متوقفة'],
+        ['آخر تحديث', new Intl.DateTimeFormat('ar-QA',{dateStyle:'medium',timeStyle:'short'}).format(new Date(state.updatedAt)), 'الحفظ محلي في هذا المتصفح']
+      ];
+      document.getElementById('summaryStats').innerHTML = cards.map(([l,v,s]) => `<article class="card stat-card"><div class="label">${l}</div><div class="value">${v}</div><div class="sub">${s}</div></article>`).join('');
+    }
+
+    function renderTimeline() {
+      const labels = ['يوليو 2026','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر','يناير 2027','فبراير'];
+      let html = `<div class="timeline-head"><div class="timeline-label">المرحلة</div>${labels.map(x=>`<div>${x}</div>`).join('')}</div>`;
+      const monthKeys = ['2026-07','2026-08','2026-09','2026-10','2026-11','2026-12','2027-01','2027-02'];
+      stages.forEach(s => {
+        const st = state.stageState[s.id];
+        const startKey = s.start.slice(0,7);
+        const endKey = s.end.slice(0,7);
+        const startIndex = monthKeys.indexOf(startKey);
+        const endIndex = monthKeys.indexOf(endKey);
+        html += `<div class="timeline-row"><div class="timeline-label">${s.index}. ${s.title}</div>`;
+        labels.forEach((_, i) => {
+          const active = i >= startIndex && i <= endIndex;
+          html += active
+            ? `<div class="timeline-bar" title="${dateAr(s.start)} — ${dateAr(s.end)}">${i === startIndex ? Math.round(st.progress) + '%' : '•'}</div>`
+            : `<div class="timeline-cell"></div>`;
+        });
+        html += `</div>`;
+      });
+      document.getElementById('timelineGrid').innerHTML = html;
+    }
+
+    function renderStages() {
+      const query = document.getElementById('searchInput').value.trim().toLowerCase();
+      const filter = document.getElementById('statusFilter').value;
+      const container = document.getElementById('stageList');
+      container.innerHTML = '';
+      stages.forEach(s => {
+        const st = state.stageState[s.id];
+        const haystack = [s.title,s.objective,s.gate,...s.outputs,...s.tasks,st.notes,st.owner,st.syncPre,st.syncPost].join(' ').toLowerCase();
+        if (query && !haystack.includes(query)) return;
+        if (filter !== 'all' && st.status !== filter) return;
+
+        const card = document.createElement('article');
+        card.className = 'card stage-card';
+        card.dataset.stage = s.id;
+        card.innerHTML = `
+          <div class="stage-head">
+            <div class="stage-index">${s.index}</div>
+            <div class="stage-title"><h3>${s.title}</h3><p>${dateAr(s.start)} — ${dateAr(s.end)} · ${s.id}</p></div>
+            <div class="${statusClass(st.status)}">${statusLabels[st.status]}</div>
+          </div>
+          <div class="stage-body" style="display:${st.expanded ? 'grid' : 'none'}">
+            <div class="stage-columns">
+              <div class="subcard"><h4>الهدف</h4><p>${s.objective}</p><h4>بوابة العبور</h4><p>${s.gate}</p></div>
+              <div class="subcard"><h4>المخرجات</h4><ul class="clean-list">${s.outputs.map(x=>`<li><code>${x}</code></li>`).join('')}</ul></div>
+            </div>
+            <div class="subcard"><h4>المهام</h4><div class="task-list">${s.tasks.map((t,i)=>`<label class="task-item ${st.tasks[i]?'done':''}"><input type="checkbox" data-action="task" data-index="${i}" ${st.tasks[i]?'checked':''}><span>${t}</span></label>`).join('')}</div></div>
+            <div class="stage-controls">
+              <div class="field"><label>الحالة</label><select data-action="status"><option value="not-started" ${st.status==='not-started'?'selected':''}>لم تبدأ</option><option value="in-progress" ${st.status==='in-progress'?'selected':''}>قيد التنفيذ</option><option value="completed" ${st.status==='completed'?'selected':''}>مكتملة</option><option value="blocked" ${st.status==='blocked'?'selected':''}>متوقفة</option></select></div>
+              <div class="field"><label>نسبة الإنجاز</label><input data-action="progress" type="number" min="0" max="100" value="${st.progress}"></div>
+              <div class="field"><label>المالك/المسؤول</label><input data-action="owner" value="${escapeHtml(st.owner)}" placeholder="اسم الدور أو الشخص"></div>
+              <div class="field"><label>إجراء</label><button class="btn" data-action="toggle" type="button">${st.expanded?'طي المرحلة':'توسيع المرحلة'}</button></div>
+              <div class="field"><label>البدء الفعلي</label><input data-action="actualStart" type="date" value="${st.actualStart}"></div>
+              <div class="field"><label>الانتهاء الفعلي</label><input data-action="actualEnd" type="date" value="${st.actualEnd}"></div>
+              <div class="field span-2"><label>Pre-stage sync receipt — إلزامي قبل بدء المرحلة</label><textarea class="sync" data-action="syncPre" placeholder="timestamp:&#10;local HEAD:&#10;origin/main SHA:&#10;branch:&#10;ahead/behind:&#10;tracked-tree status:&#10;scheduled-task status:&#10;last sync result:">${escapeHtml(st.syncPre)}</textarea></div>
+              <div class="field span-2"><label>Post-stage sync receipt — إلزامي لإغلاق المرحلة</label><textarea class="sync" data-action="syncPost" placeholder="timestamp:&#10;local HEAD:&#10;origin/main SHA:&#10;branch:&#10;ahead/behind:&#10;tracked-tree status:&#10;scheduled-task status:&#10;last sync result:">${escapeHtml(st.syncPost)}</textarea></div>
+              <div class="field span-4"><label>ملاحظات التنفيذ والدليل</label><textarea data-action="notes" placeholder="القرارات، الأدلة، الروابط، العوائق، أو ملخص المراجعة...">${escapeHtml(st.notes)}</textarea></div>
+            </div>
+          </div>`;
+        container.appendChild(card);
+      });
+      if (!container.children.length) container.innerHTML = `<div class="card">لا توجد مراحل مطابقة للبحث أو المرشح.</div>`;
+    }
+
+    function renderMetrics() {
+      document.getElementById('metricsGrid').innerHTML = metrics.map(([name,target,desc]) => `
+        <article class="card metric-card"><h3>${name}</h3><p>${desc}</p><div class="metric-row"><span>عتبة الترقية</span><strong>${target}</strong></div><div class="progress"><span style="width:0%"></span></div></article>`).join('');
+    }
+
+    function severityClass(value) { return value === 'عالٍ' ? 'high' : value === 'متوسط' ? 'medium' : 'low'; }
+
+    function renderRisks() {
+      document.getElementById('riskBody').innerHTML = risks.map(r => `<tr><td><strong>${r[0]}</strong></td><td><span class="pill ${severityClass(r[1])}">${r[1]}</span></td><td><span class="pill ${severityClass(r[2])}">${r[2]}</span></td><td>${r[3]}</td><td>${r[4]}</td></tr>`).join('');
+    }
+
+    function renderDecisions() {
+      document.getElementById('decisionGrid').innerHTML = decisions.map(([t,d]) => `<article class="card decision-card"><h3>${t}</h3><p>${d}</p><span class="pill medium">يتطلب دليلًا</span></article>`).join('');
+    }
+
+    function escapeHtml(value='') {
+      return String(value).replace(/[&<>'"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#039;','"':'&quot;'}[ch]));
+    }
+
+    document.getElementById('stageList').addEventListener('change', e => {
+      const card = e.target.closest('[data-stage]'); if (!card) return;
+      const id = card.dataset.stage; const action = e.target.dataset.action; const st = state.stageState[id];
+      if (action === 'task') {
+        st.tasks[Number(e.target.dataset.index)] = e.target.checked;
+        const done = st.tasks.filter(Boolean).length;
+        st.progress = Math.round(done / st.tasks.length * 100);
+        if (st.progress === 100) st.status = 'completed';
+        else if (done > 0 && st.status === 'not-started') st.status = 'in-progress';
+      }
+      if (action === 'status') st.status = e.target.value;
+      if (action === 'progress') {
+        st.progress = Math.max(0, Math.min(100, Number(e.target.value || 0)));
+        if (st.progress === 100) st.status = 'completed';
+        else if (st.progress > 0 && st.status === 'not-started') st.status = 'in-progress';
+      }
+      if (action === 'owner') st.owner = e.target.value;
+      if (action === 'actualStart') st.actualStart = e.target.value;
+      if (action === 'actualEnd') st.actualEnd = e.target.value;
+      if (st.status === 'completed' && !(st.syncPost || '').trim()) {
+        st.status = 'in-progress';
+        saveState(''); renderTimeline(); renderStages();
+        toast('لا إغلاق للمرحلة دون Post-stage sync receipt يثبت تطابق المحلي والبعيد');
+        return;
+      }
+      saveState('تم تحديث المرحلة'); renderTimeline(); renderStages();
+    });
+
+    document.getElementById('stageList').addEventListener('input', e => {
+      const card = e.target.closest('[data-stage]'); if (!card) return;
+      const id = card.dataset.stage; const action = e.target.dataset.action;
+      if (action === 'notes') { state.stageState[id].notes = e.target.value; saveState(''); }
+      if (action === 'owner') { state.stageState[id].owner = e.target.value; saveState(''); }
+      if (action === 'syncPre') { state.stageState[id].syncPre = e.target.value; saveState(''); }
+      if (action === 'syncPost') { state.stageState[id].syncPost = e.target.value; saveState(''); }
+    });
+
+    document.getElementById('stageList').addEventListener('click', e => {
+      const card = e.target.closest('[data-stage]'); if (!card) return;
+      if (e.target.dataset.action === 'toggle') {
+        state.stageState[card.dataset.stage].expanded = !state.stageState[card.dataset.stage].expanded;
+        saveState(''); renderStages();
+      }
+    });
+
+    ['searchInput','statusFilter'].forEach(id => document.getElementById(id).addEventListener(id==='searchInput'?'input':'change', renderStages));
+    document.getElementById('expandAllBtn').addEventListener('click', () => { stages.forEach(s=>state.stageState[s.id].expanded=true); saveState(''); renderStages(); });
+    document.getElementById('collapseAllBtn').addEventListener('click', () => { stages.forEach(s=>state.stageState[s.id].expanded=false); saveState(''); renderStages(); });
+    document.getElementById('printBtn').addEventListener('click', () => window.print());
+
+    document.getElementById('themeBtn').addEventListener('click', () => {
+      state.theme = state.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = state.theme;
+      saveState('تم تغيير المظهر');
+    });
+
+    document.getElementById('exportBtn').addEventListener('click', () => {
+      const payload = { ...state, exportedAt: new Date().toISOString(), program: 'PVG-ANT-LOCAL-SPECIALIST-PROGRAM-001', roadmapVersion: 2.1 };
+      const blob = new Blob([JSON.stringify(payload, null, 2)], {type:'application/json'});
+      const url = URL.createObjectURL(blob); const a = document.createElement('a');
+      a.href = url; a.download = `pvg-ant-roadmap-${new Date().toISOString().slice(0,10)}.json`; a.click();
+      URL.revokeObjectURL(url); toast('تم تصدير ملف JSON');
+    });
+
+    const modal = document.getElementById('importModal');
+    document.getElementById('importBtn').addEventListener('click', () => { modal.classList.add('open'); document.getElementById('importText').focus(); });
+    document.getElementById('closeImportBtn').addEventListener('click', () => modal.classList.remove('open'));
+    modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('open'); });
+    document.getElementById('confirmImportBtn').addEventListener('click', () => {
+      try {
+        const parsed = JSON.parse(document.getElementById('importText').value);
+        if (!parsed.stageState) throw new Error('missing stageState');
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed));
+        state = loadState(); document.documentElement.dataset.theme = state.theme;
+        modal.classList.remove('open'); renderAll(); toast('تم الاستيراد بنجاح');
+      } catch { alert('ملف JSON غير صالح أو غير متوافق.'); }
+    });
+
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      if (!confirm('سيتم حذف كل التحديثات المحلية وإعادة الخطة إلى حالتها الأصلية. متابعة؟')) return;
+      state = defaultState(); localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      document.documentElement.dataset.theme = state.theme; renderAll(); toast('تمت إعادة الضبط');
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') modal.classList.remove('open');
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') { e.preventDefault(); saveState('تم الحفظ'); }
+    });
+
+    function renderAll() {
+      renderSummary(); renderTimeline(); renderStages(); renderMetrics(); renderRisks(); renderDecisions();
+    }
+
+    document.documentElement.dataset.theme = state.theme;
+    renderAll();
+  </script>
+</body>
+</html>
