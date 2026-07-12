@@ -1,0 +1,39 @@
+{
+  "claims": {
+    "grh_progress": false,
+    "model_performance_claim": false,
+    "rh_progress": false,
+    "theorem_promotion": false
+  },
+  "examples": {
+    "aggregate_noninjective": {
+      "distinct": true,
+      "population_a": {
+        "A2": 1,
+        "A3": 1,
+        "size": 2
+      },
+      "population_b": {
+        "A2": 1,
+        "A3": 1,
+        "size": 2
+      }
+    },
+    "bell_coefficient_recovery": true,
+    "convolution_pair_count": true,
+    "energy_does_not_recover_phase": true,
+    "exact_vector_reconstruction": true,
+    "full_fourier_reconstruction": true,
+    "kfull_noninjective": true,
+    "log_mass_identity": true,
+    "log_nearness_not_support_nearness": true,
+    "margin_interior_i1": true,
+    "support_noninjective": true,
+    "support_size_noninjective": true,
+    "tau_noninjective": true,
+    "total_height_noninjective": true,
+    "truncation_noninjective": true,
+    "unlabeled_heights_lose_residue": true
+  },
+  "ontology_id": "PVG-CORE-ONTOLOGY-V1"
+}
