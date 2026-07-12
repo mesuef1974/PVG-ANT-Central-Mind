@@ -45,6 +45,7 @@ jobs:
         run: python tools/pvg_ant_benchmark_001_pass002_rescore.py
 
       - name: Upload Pass 002 certificate package
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: translation-kernel-v2-pass002-certificates
