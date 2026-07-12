@@ -15,39 +15,93 @@ named task
 → theorem / known-result / corrected / negative closure
 ```
 
-Canonical references:
-
-- `maps/pvg-ant-language-kernel-v1-release-index.md`
-- `governance/closures/ORIGINAL-LEMMA-SELECTION-001-CLOSURE.md`
-- `research/original-lemma-selection/001/ONE-LEMMA-TARGET-001.md`
-- `research/one-theorem/001/P8_FINAL_CLASSIFICATION.md`
-- `research/one-theorem/001/P8_EXTERNAL_VALIDATION_001.md`
-- `research/one-theorem/001/P8_EXTERNAL_REFEREE_PACKET.md`
-- `research/one-theorem/001/P8-external-source-ledger.json`
-- `registries/program-goals.jsonl`
-
 ## 2. Closed Language Kernel v1
 
-Eight reusable bridge families remain closed: multiplication/order, divisor
-boxes/convolution, Euler factors, logarithmic size geometry, Möbius support,
-residue-character Fourier analysis, sieve information, and analytic transfer.
+Eight canonical bridge families remain closed and unchanged:
+multiplication/order, divisor boxes/convolution, Euler factors,
+logarithmic size geometry, Möbius support, residue-character Fourier
+analysis, sieve information, and analytic transfer.
+
+## 3. Translation Kernel v2 Pass 001
+
+The mind now has 24 additional operational cards layered over v1,
+for a combined inventory of 32.
 
 ```text
-L1: exact translation available.
-L2: seven structural/analytic bridge families certified.
-L3: one internally proved transfer instance, not certified original.
+geometry_arithmetic = 9
+local_analytic = 4
+transforms = 2
+residues = 3
+sieve = 4
+probabilistic = 2
 ```
 
-## 3. First complete PVG research-flow instance
+Each v2 card records:
 
-The mind generated the observable
+- the PVG object and ANT object;
+- forward and reverse translation;
+- preserved and lost information;
+- problem trigger and compatible tools;
+- expected output;
+- analytic wall or failure mode;
+- required certificate;
+- positive example and counterexample;
+- anti-overclaim statement;
+- deterministic finite check.
+
+Canonical references:
+
+- `registries/pvg-ant-translation-kernel-v2/`
+- `maps/pvg-ant-translation-ontology-v2.md`
+- `maps/pvg-ant-translation-kernel-v2-seed-catalog.md`
+- `governance/programs/PVG-ANT-CENTRAL-MIND-MATURATION-002.md`
+- `governance/checkpoints/TRANSLATION-KERNEL-V2-PASS-001.md`
+
+## 4. Information-loss diagnosis
+
+The translator distinguishes five loss classes:
+
+```text
+LOSS-0 exact labeled recovery
+LOSS-1 summary-statistic loss
+LOSS-2 population aggregation loss
+LOSS-3 phase/sign loss
+LOSS-4 missing analytic certificate
+```
+
+This prevents the mind from treating support as exponent depth,
+aggregate sieve moments as pointwise profiles, second moments as phase
+recovery, or geometric factorization as analytic continuation.
+
+## 5. Problem-translator capability
+
+For a new object, the mind can now:
+
+```text
+identify support / height / label / phase / residue / interaction data
+→ test multiplicativity or additivity
+→ compute prime-power axis data when meaningful
+→ select matching translation cards
+→ intersect preserved information
+→ accumulate losses and walls
+→ route to compatible ANT tools
+→ name the missing certificate
+→ run a finite example and counterexample
+→ classify without automatic theorem promotion
+```
+
+Pass 001 makes no general L3 claim. The next gate is a scored benchmark,
+not additional untested cards.
+
+## 6. First complete PVG research-flow instance
+
+The mind generated
 
 \[
-I_r(n)=\prod_{p^\alpha\parallel n}\max(\alpha-2r+1,0),
+I_r(n)=\prod_{p^\alpha\parallel n}\max(\alpha-2r+1,0)
 \]
 
-from margin-interior geometry of divisor boxes. It then translated the observable
-to the classical weighted `2r`-full form
+from margin-interior divisor-box geometry and translated it to
 
 \[
 I_r(n)=
@@ -55,123 +109,60 @@ I_r(n)=
 \tau\!\left(n/\operatorname{rad}(n)^{2r}\right).
 \]
 
-This is the first project instance to complete:
+It then completed the internal route
 
 ```text
 PVG construction
-→ exact arithmetic observable
-→ Euler/Bell factors
-→ Dirichlet L-functions
-→ smooth residue-class theorem
-→ proof audits
-→ source/originality audit
+→ Bell series
+→ Euler/L factors
+→ Mellin and residues
+→ smooth fixed-parameter theorem
+→ proof and priority audits
+→ prepared external-review packet
 ```
 
-## 4. Internally proved theorem capability
+The analytic method is classical. Originality remains uncertified.
 
-For fixed `q,r`, reduced `a mod q`, fixed `W in C_c^infinity(0,infinity)`,
-and `x->infinity`, the repository internally proves the smooth expansion for
+## 7. Verification capabilities
 
-\[
-\sum_{n\equiv a\pmod q}I_r(n)W(n/x).
-\]
+- v1 finite-example regeneration and closure audit;
+- 24 deterministic v2 example checks;
+- registry schema and uniqueness checks;
+- domain-count and combined-inventory checks;
+- counterexample and required-certificate checks;
+- forbidden-promotion guard;
+- theorem-hold, Dataset 004, and RH/GRH firewalls;
+- GitHub Actions certificate package.
 
-The twisted factorization is
-
-\[
-D_{r,\chi}(s)=
-L(2rs,\chi^{2r})
-L((2r+1)s,\chi^{2r+1})^2
-H_{r,\chi}(s),
-\]
-
-where `H` is holomorphic for `Re(s)>1/(2r+2)`.
-
-The expansion contains:
-
-- an `x^(1/(2r))` layer selected by `chi^(2r)=chi_0`;
-- an `x^(1/(2r+1)) log x` layer selected by
-  `chi^(2r+1)=chi_0`;
-- explicit pole constants;
-- a fixed-parameter smooth error
-  `O(x^(1/(2r+2)+epsilon))`.
-
-## 5. Verification capabilities exercised
-
-- exact divisor-box counting and multiplicativity;
-- Bell-series derivation;
-- residual Euler-product convergence;
-- character decomposition;
-- Mellin inversion and contour shift;
-- simple- and double-pole constants;
-- SymPy/mpmath certificates;
-- internal adversarial review;
-- second independent proof reconstruction;
-- online primary-source and general-framework comparison;
-- CI guards against proof, originality, publication, and RH/GRH overpromotion.
-
-## 6. Priority and originality correction
-
-The project now knows that the following are classical:
-
-- squarefull and k-full support;
-- the `x^(1/2)` and `x^(1/3)` squarefull layers;
-- quadratic/cubic torsion-character selection;
-- character and Dirichlet `L`-function treatment of progressions;
-- Mellin, contour, and Selberg–Delange-type methods.
-
-The only surviving possible contribution is:
-
-- the PVG-derived margin-interior weight `I_r`;
-- the all-`r` `2r` / `2r+1` layer hierarchy;
-- explicit smooth fixed-modulus weighted constants;
-- the residual `2r+2` threshold and error.
-
-## 7. External validation capability reached
-
-`P8-EXTERNAL-VALIDATION-001` records six primary/general sources and an online
-exact-match search. No exact match was located for the weight or full theorem.
-The result is therefore retained as:
-
-```text
-ONLINE PRIMARY-SOURCE AUDIT: PARTIAL PASS
-PLAUSIBLY NEW MODEST PVG-DERIVED WEIGHTED THEOREM
-ORIGINALITY NOT CERTIFIED
-```
-
-The repository also contains a compact external referee packet with ten explicit
-correctness, priority, significance, and PVG-necessity questions.
-
-## 8. Active operational goal
+## 8. Active goals
 
 ```text
 GOAL-OP-ONE-THEOREM-001 = active_external_validation_hold
-P0-P8 internal stages = complete
-online primary-source audit = partial pass
-P8-EXTERNAL-REFEREE-001 = next
+P8-EXTERNAL-REFEREE-001 = PREPARED_NOT_SENT
+PVG-ANT-CENTRAL-MIND-MATURATION-002 = active
+TRANSLATION-KERNEL-V2-PASS-001 = checkpoint_pass
+PVG-ANT-BENCHMARK-001 = next capability package
 ```
 
-## 9. Remaining capabilities needed
+## 9. Current limits
 
-The system cannot internally manufacture the two remaining external
-certificates:
+The system cannot internally manufacture:
 
-- research-grade bibliographic database / cited-by coverage;
-- independent human line-by-line referee review.
+- a research-grade cited-by priority certificate;
+- an independent human proof-referee certificate;
+- a general L3 transfer principle from 24 routing cards;
+- benchmark evidence before the benchmark is built.
 
-Their terminal decision must classify the result as original, a new application
-of a known theorem, known in other notation, corrected, or insufficiently
-significant.
-
-R, GPU, broad book mining, and new datasets are not needed. Lean remains deferred
-until the result receives an external classification and a reusable formal target
-is justified. Dataset 004 remains unauthorized.
+R, GPU, broad book mining, and new datasets are not required for the
+current pass. Lean remains deferred. Dataset 004 remains unauthorized.
 
 ## 10. Scientific ceiling
 
 ```text
+Combined translation inventory: 32.
+Translation Kernel v2 Pass 001: checkpoint pass.
+General L3 theorem: absent.
 Internal fixed-parameter theorem proof: complete.
-Online primary-source audit: partial pass.
 External mathematical certification: absent.
 Certified originality: absent.
 Publication readiness: absent.
@@ -180,4 +171,4 @@ No RH progress.
 No GRH progress.
 ```
 
-**Classification:** Internally proved PVG-derived theorem under final external validation.
+**Classification:** operationally expanded PVG–ANT translator awaiting benchmark and external theorem validation.
