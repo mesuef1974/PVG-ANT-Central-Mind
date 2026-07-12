@@ -72,13 +72,13 @@ Every request must state:
 - no claim of certified originality is being made;
 - the purpose of the request is to determine the correct classification.
 
-Do not use:
+Do not use (every phrase below is forbidden):
 
-- “new theorem” without qualification;
-- “breakthrough”;
-- “new method”;
-- “RH/GRH progress”;
-- “publication ready.”
+- “new theorem” without qualification (forbidden);
+- “breakthrough” (forbidden);
+- “new method” (forbidden);
+- “RH/GRH progress” (forbidden);
+- “publication ready” (forbidden).
 
 ## 5. Reviewer outcomes
 

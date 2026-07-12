@@ -24,6 +24,7 @@
 
 ## للسجلّات (registries/)
 
-- `wall/tool/rule/identity/diagnostic/observable/constraint/claim` → حقلُ `classification` من المجموعة أعلاه.
+- `wall/tool/rule/identity/diagnostic/observable/constraint/claim/bridge/negative_result` → حقلُ `classification` من المجموعة أعلاه. يجوز حفظُ الصياغة الوصفيّة الأصليّة في حقلٍ إضافيٍّ `classification_note` — الحقلُ القانونيُّ هو `classification` وحدَه.
 - `book` → حقلُ `status`. القيمُ المستعملة فعلًا: `available` · `retrofitted` · `in_progress_through_004Z` · `planned_v02_seed` (وعامّةً `planned`/`in_progress`/`ingested`/`closed` عند الحاجة).
 - `frontier` → `status` (`open`/`queued`) · `question` → `status` (`queued`) · `planned` → `status` (`planned`).
+- `external_research_asset` → حقلُ `status` (مؤشّرُ أصلٍ خارجيٍّ ذو دورةِ حياة، ليس ادّعاءً رياضيًّا). القيمُ المستعملة: `integrated_reference` · `external_lab` · `design_pattern` · `archived_negative`. *(تعديلٌ رسميٌّ — GOVERNANCE-ENFORCEMENT-CLOSURE-001، 2026-07-12.)*
