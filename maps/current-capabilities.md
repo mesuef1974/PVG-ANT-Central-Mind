@@ -17,25 +17,24 @@ named task
 
 ## 2. Translation inventory
 
-Eight canonical Language Kernel v1 families remain closed and unchanged. Translation Kernel v2 Pass 001 adds 24 operational cards, for a combined inventory of 32.
+Eight Language Kernel v1 families remain closed. Translation Kernel v2 now contains 24 Pass 001 cards and 12 benchmark-directed Pass 002 cards.
 
 ```text
-geometry_arithmetic = 9
-local_analytic = 4
-transforms = 2
-residues = 3
-sieve = 4
-probabilistic = 2
+closed v1 families = 8
+Pass 001 cards = 24
+Pass 002 cards = 12
+combined translation inventory = 44
+L3 promotions = 0
 ```
 
-Each v2 card records the PVG and ANT objects, forward and reverse maps, preserved and lost information, tool routing, expected output, wall, required certificate, example, counterexample, and anti-overclaim rule.
+Pass 002 adds explicit routes for parameter uniformity, conductors, desmoothing, Tauberian boundaries, contour-strip growth, pretentious theory, Kubilius transfer, short intervals, moment-to-maximal promotion, dispersion, theorem subsumption, and PVG materiality.
 
 Canonical references:
 
 - `registries/pvg-ant-translation-kernel-v2/`
-- `maps/pvg-ant-translation-ontology-v2.md`
-- `maps/pvg-ant-translation-kernel-v2-seed-catalog.md`
-- `governance/checkpoints/TRANSLATION-KERNEL-V2-PASS-001.md`
+- `registries/pvg-ant-translation-kernel-v2-pass-002/`
+- `maps/pvg-ant-translation-kernel-v2-pass002-catalog.md`
+- `governance/checkpoints/TRANSLATION-KERNEL-V2-PASS-002.md`
 
 ## 3. Information-loss diagnosis
 
@@ -47,72 +46,71 @@ LOSS-3 phase/sign loss
 LOSS-4 missing analytic certificate
 ```
 
-This prevents support from being treated as exponent depth, aggregate sieve moments as pointwise profiles, second moments as phase recovery, or geometric factorization as analytic continuation.
+The mind can now add more specific warnings: fixed-to-growing parameter loss, bad-prime/conductor loss, smoothing-boundary loss, local-to-global probabilistic error, L2-to-Linfinity loss, and off-diagonal correlation loss.
 
 ## 4. Problem-translator capability
 
-For a new object, the mind can identify support, height, labels, phase, residue, and interaction data; test multiplicativity or additivity; compute prime-power axis data; select translation cards; accumulate losses and walls; route to ANT tools; name the missing certificate; run examples and counterexamples; and classify without theorem promotion.
+For a new object, the mind can identify support, height, labels, phase, residue, interaction, parameter, conductor, smoothing, and localization data; select single or composite translation cards; accumulate losses; route to ANT tools; name the missing certificate; test a finite example and counterexample; and classify without automatic theorem promotion.
 
-## 5. PVG–ANT Benchmark 001
+## 5. Benchmark 001 and Pass 002 rescore
 
-Benchmark 001 is now a governed suite of 60 cases: ten in each of the six domains. Every case has a gold forward translation, controlled reverse conclusion, preserved/lost information, tool route, wall, certificate, classification, and 0–2 scores on six dimensions.
-
-The baseline is explicitly a **kernel-coverage and diagnostic baseline**, not a language-model performance score.
+Benchmark 001 remains a governed sixty-case historical baseline.
 
 ```text
-Cases = 60
-Maximum = 720
-Coverage baseline = 662 / 720 = 91.9 percent
-False originality promotion in explicit traps = 0
+historical baseline = 662 / 720 = 91.9 percent
+post-Pass-002 coverage = 702 / 720 = 97.5 percent
+points added = 40
+remaining imperfect cases = 11
 ```
 
-Domain coverage:
+This is registry coverage, not a language-model score on hidden questions.
 
-| Domain | Coverage |
-|---|---:|
-| geometry/arithmetic | 97.5% |
-| local analytic | 90.8% |
-| transforms | 88.3% |
-| residues | 95.0% |
-| sieve | 95.8% |
-| probabilistic | 84.2% |
-
-Dimension coverage:
+### Dimension coverage after Pass 002
 
 | Dimension | Coverage |
 |---|---:|
-| forward translation | 93.3% |
-| controlled reverse translation | 80.8% |
+| forward translation | 98.3% |
+| controlled reverse translation | 93.3% |
 | information-loss discipline | 100.0% |
-| ANT tool routing | 87.5% |
-| wall/certificate identification | 90.0% |
+| ANT tool routing | 96.7% |
+| wall/certificate identification | 96.7% |
 | honest classification | 100.0% |
+
+### Domain coverage after Pass 002
+
+| Domain | Coverage |
+|---|---:|
+| geometry/arithmetic | 98.3% |
+| local analytic | 96.7% |
+| transforms | 96.7% |
+| residues | 99.2% |
+| sieve | 99.2% |
+| probabilistic | 95.0% |
 
 Canonical references:
 
-- `benchmarks/pvg-ant-001/cases/`
-- `benchmarks/pvg-ant-001/rubric.md`
 - `benchmarks/pvg-ant-001/baseline-report.md`
-- `benchmarks/pvg-ant-001/error-taxonomy.md`
-- `benchmarks/pvg-ant-001/missing-cards-ranked.md`
-- `governance/checkpoints/PVG-ANT-BENCHMARK-001.md`
+- `benchmarks/pvg-ant-001/post-pass002-report.md`
+- `benchmarks/pvg-ant-001/post-pass002-expected.json`
+- `tools/pvg_ant_benchmark_001_pass002_rescore.py`
 
-## 6. Diagnosed learning priorities
+## 6. Remaining learning gaps
 
-Benchmark 001 shows that the translator is strongest at information-loss warnings and honest classification. Its main weaknesses are controlled reverse translation and advanced tool routing.
+Eleven cases remain below complete registry coverage:
 
-Translation Kernel v2 Pass 002 is restricted to benchmark-justified additions, led by:
+- labeled face-incidence recovery;
+- weighted hyperbola boundary optimization;
+- reverse singularity-to-local inference;
+- reverse continuation-half-plane inference;
+- noncancellation at candidate poles;
+- residue-plus-Mellin composite certification;
+- Mellin endpoint behavior near zero;
+- distribution uniformity over growing moduli;
+- higher-order interactions beyond Type I/II;
+- joint probabilistic observables;
+- character-twisted probabilistic limit laws.
 
-- parameter uniformity and dependency tracking;
-- primitive/imprimitive characters, conductors, and bad-prime factors;
-- smooth-to-sharp desmoothing;
-- Tauberian boundary and converse discipline;
-- Halász and pretentious multiplicative theory;
-- local-to-global probabilistic transfer;
-- short-interval additive order;
-- moment-to-tail or maximal transfer;
-- sieve dispersion;
-- general-theorem subsumption and PVG-materiality gates.
+The next honest evaluation should use hidden adversarial cases and multi-card composition. Adding cards solely to reach fifty is forbidden.
 
 ## 7. First complete PVG research-flow instance
 
@@ -122,38 +120,17 @@ The mind generated
 I_r(n)=\prod_{p^\alpha\parallel n}\max(\alpha-2r+1,0)
 \]
 
-from margin-interior divisor-box geometry and translated it to
-
-\[
-I_r(n)=
-\mathbf1_{\operatorname{rad}(n)^{2r}\mid n}
-\tau\!\left(n/\operatorname{rad}(n)^{2r}\right).
-\]
-
-It completed the internal route
-
-```text
-PVG construction
-→ Bell series
-→ Euler/L factors
-→ Mellin and residues
-→ smooth fixed-parameter theorem
-→ proof and priority audits
-→ prepared external-review packet
-```
-
-The analytic method is classical. Originality remains uncertified.
+from margin-interior divisor-box geometry, translated it to a multiplicative formula, and completed the internal route through Bell series, Euler/L factors, Mellin, residues, proof audits, and a prepared external-review packet. The analytic method is classical and originality remains uncertified.
 
 ## 8. Verification capabilities
 
-- v1 finite-example regeneration and closure audit;
-- 24 deterministic v2 example checks;
-- 60-case benchmark schema and balance audit;
-- deterministic baseline regeneration and expected-certificate comparison;
-- domain and dimension score checks;
-- error taxonomy and ranked learning-gap checks;
-- forbidden-promotion, theorem-hold, Dataset 004, and RH/GRH firewalls;
-- GitHub Actions certificate packages.
+- closed v1 regeneration and audit;
+- Pass 001: 24 deterministic examples and schema audit;
+- Pass 002: 12 deterministic examples and benchmark-justification audit;
+- immutable Benchmark 001 baseline regeneration;
+- post-Pass-002 rescore regeneration and expected-certificate comparison;
+- theorem-hold, Dataset 004, L3, publication, and RH/GRH firewalls;
+- GitHub Actions certificate package.
 
 ## 9. Active goals
 
@@ -163,21 +140,21 @@ P8-EXTERNAL-REFEREE-001 = PREPARED_NOT_SENT
 PVG-ANT-CENTRAL-MIND-MATURATION-002 = active
 TRANSLATION-KERNEL-V2-PASS-001 = checkpoint_pass
 PVG-ANT-BENCHMARK-001 = checkpoint_pass
-TRANSLATION-KERNEL-V2-PASS-002 = next capability package
+TRANSLATION-KERNEL-V2-PASS-002 = checkpoint_pass
 ```
 
 ## 10. Current limits
 
-The system cannot internally manufacture a research-grade cited-by priority certificate, an independent human proof-referee certificate, or autonomous model-performance evidence from a registry-coverage benchmark. Routing cards also do not create L3 theorems.
+The system cannot manufacture external priority or referee certificates. It also has not measured autonomous performance on hidden problems. Routing cards do not create L3 theorems, sharp estimates, uniformity, or cancellation unless the named certificates are supplied.
 
-R, GPU, broad book mining, and new datasets are not required for the current pass. Lean remains deferred. Dataset 004 remains unauthorized.
+R, GPU, broad book mining, and new datasets are not required. Lean remains deferred. Dataset 004 remains unauthorized.
 
 ## 11. Scientific ceiling
 
 ```text
-Combined translation inventory: 32.
-Benchmark 001: checkpoint pass.
-Benchmark score: registry coverage only.
+Combined translation inventory: 44.
+Post-Pass-002 score: registry coverage only.
+Hidden-set autonomous performance: not measured.
 General L3 theorem: absent.
 Internal fixed-parameter theorem proof: complete.
 External mathematical certification: absent.
@@ -188,4 +165,4 @@ No RH progress.
 No GRH progress.
 ```
 
-**Classification:** benchmark-directed PVG–ANT translator maturation while external theorem validation remains open.
+**Classification:** benchmark-directed PVG–ANT translator maturation with Pass 002 complete and external theorem validation still open.
