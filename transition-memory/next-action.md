@@ -13,6 +13,9 @@ Current theorem program:
   Priority review, proof referee, and certified originality = absent.
 
 Capability-maturation state:
+  TRANSLATION-KERNEL-V2-PASS-001 = checkpoint_pass.
+  PVG-ANT-BENCHMARK-001 = checkpoint_pass.
+  TRANSLATION-KERNEL-V2-PASS-002 = checkpoint_pass.
   Translation inventory = 44.
   Benchmark 001 historical baseline = 662 / 720.
   Post-Pass-002 registry coverage = 702 / 720.
