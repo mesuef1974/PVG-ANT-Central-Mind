@@ -16,45 +16,37 @@ Capability-maturation state:
   TRANSLATION-KERNEL-V2-PASS-001 = checkpoint_pass.
   PVG-ANT-BENCHMARK-001 = checkpoint_pass.
   TRANSLATION-KERNEL-V2-PASS-002 = checkpoint_pass.
-  Translation inventory = 44.
-  Benchmark 001 historical baseline = 662 / 720.
-  Post-Pass-002 registry coverage = 702 / 720.
-  PVG-UNDERSTANDING-DEEPENING-001 = checkpoint_candidate.
-  Native PVG objects = 20.
-  Native PVG morphisms/projections = 24.
-  Deterministic recovery/loss witnesses = 16.
-  L3 promotions = 0.
+  PVG-UNDERSTANDING-DEEPENING-001 = checkpoint_pass; ontology frozen.
+  GOVERNANCE-ENFORCEMENT-CLOSURE-001 = executed; all ten guards PASS.
+  Translation inventory = 44; native objects = 20; morphisms = 24.
+  planned.jsonl = empty (no queued passes registered).
+  Montgomery A/B/legacy-E quarantine (source-mismatch) remains in force.
 
-Immediate action:
-  1. Run PVG Core Ontology v1 audit in CI.
-  2. Review object references, inverse conditions, and loss levels.
-  3. Close PVG-UNDERSTANDING-DEEPENING-001 only if all witnesses regenerate.
-  4. Freeze the ontology before designing Benchmark 002.
+Immediate external actions (parallel track; do not wait for internal work):
+  1. Verify current addresses of one terminology/prior-art specialist
+     and one independent ANT proof referee.
+  2. Send the P8 priority packet and the P8 proof packet after explicit
+     CEO authorization.
+  3. Search a research-grade bibliographic database (MathSciNet/zbMATH)
+     and cited-by chains for Chan–Tsang, Srichan, and weighted k-full
+     literature.
+  4. Record exactly one terminal theorem classification after responses.
 
-Next package after closure:
-  ADVERSARIAL-PVG-ANT-BENCHMARK-002.
+Immediate internal package:
+  ADVERSARIAL-PVG-ANT-BENCHMARK-002 design.
+  1. At least 48 new held-out cases; prompts separated from gold keys.
+  2. Gold keys kept outside the answering process; key hashes committed
+     before any scoring run.
+  3. Include abstention traps whose correct answer is a missing
+     certificate or an impossible reverse inference.
+  4. Score multi-card composition, invalid-reverse rejection, and PVG
+     materiality ablation — not single-card retrieval.
+  5. Record the first raw hidden-set score as an immutable baseline.
+  6. No card additions before the held-out error map is produced.
 
-Benchmark 002 must test:
-  labeled versus unlabeled reconstruction;
-  multi-step composition of geometry, residues, local factors, and transforms;
-  invalid reverse translations;
-  noncancellation and continuation certificates;
-  growing-parameter uniformity;
-  higher-order interactions beyond Type I/II;
-  joint and character-twisted probabilistic laws;
-  PVG materiality under ablation.
-
-Benchmark 002 rule:
-  do not rescore only the known sixty cases;
-  do not expose gold answers to the answering process;
-  separate registry coverage from autonomous reasoning performance;
-  no card additions before the held-out error map is produced.
-
-Required external theorem actions remain:
-  send one priority packet;
-  send one independent proof-referee packet;
-  search a research-grade bibliographic database;
-  record one terminal theorem classification after responses.
+After Benchmark 002 (in order):
+  error map → morphism-composer tool → same-set ablation rerun →
+  proof-pattern library from failure clusters → targeted learning.
 
 Do not do yet:
   no second theorem target;
@@ -62,13 +54,17 @@ Do not do yet:
   no broad book mining;
   no new statistical dataset;
   Dataset 004 remains unauthorized;
-  no RH/GRH-related expansion.
+  no automatic Lean expansion;
+  no RH or GRH expansion.
 
 Ceiling:
-  ontology = language and reasoning infrastructure only;
-  theorem originality = not certified;
-  hidden-set model performance = not measured;
-  no RH/GRH progress.
+  ontology and routing knowledge create no theorem;
+  hidden-set autonomous performance = not measured;
+  certified originality = absent;
+  publication readiness = absent;
+  no RH/GRH progress;
+  zero RH progress;
+  zero GRH progress.
 ```
 
-**Classification:** deepen native PVG understanding first, then test composition adversarially.
+**Classification:** post-closure transition state — external P8 validation open in parallel with Adversarial Benchmark 002 design.

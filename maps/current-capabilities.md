@@ -134,6 +134,8 @@ from margin-interior divisor-box geometry, translated it to a multiplicative for
 - 16 deterministic reconstruction and noninjectivity witnesses;
 - theorem-hold, Dataset 004, L3, publication, and RH/GRH firewalls.
 
+The installed book-layer substrate (Overholt, Tenenbaum, Mileti, Iwaniec–Kowalski, Harman, Montgomery MNT-II v0.6 with closure-reviewed units through v0.6-e-closure and beyond, Opera de Cribro v0.7) remains available on demand, including the live `TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001` diagnostic. Mismatched Montgomery A/B/legacy-E material remains quarantined (source-mismatch) and is not live.
+
 ## 9. Active goals
 
 ```text
@@ -141,7 +143,8 @@ GOAL-OP-ONE-THEOREM-001 = active_external_validation_hold
 P8-EXTERNAL-REFEREE-001 = PREPARED_NOT_SENT
 PVG-ANT-CENTRAL-MIND-MATURATION-002 = active
 TRANSLATION-KERNEL-V2-PASS-002 = checkpoint_pass
-PVG-UNDERSTANDING-DEEPENING-001 = checkpoint_candidate
+PVG-UNDERSTANDING-DEEPENING-001 = checkpoint_pass (ontology frozen)
+GOVERNANCE-ENFORCEMENT-CLOSURE-001 = executed
 ```
 
 ## 10. Current limits
