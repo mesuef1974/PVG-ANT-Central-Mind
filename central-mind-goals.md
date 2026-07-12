@@ -34,7 +34,7 @@ Machine truth: `registries/program-goals.jsonl`
 9. بناء ذاكرة تشغيلية تمنع إعادة تعلم الجسور والأدوات نفسها.
 10. الحفاظ على النزاهة: لا RH/GRH progress دون شهادة برهان كاملة.
 
-## 5. Current operational sequence
+## 5. Operational sequence (status as of Stage Review 001, 2026-07-12: O1-O3 closed; O4 on external-validation hold; O5 blocked)
 
 ### O1 — Close the active scale-heterogeneity pass
 
@@ -125,8 +125,9 @@ ANT problem
 Vocabulary: strong
 Exact translation: partial-to-strong in multiplicative core
 Structural simplification: partial
-Transfer principles: early
-Research mechanism: unconfirmed
+Transfer principles: one internally proved (I_r observable)
+Research mechanism: one complete internal crossing; not repeated
+Hidden-set autonomous performance: not measured
 Original lemma: none certified
 Original theorem: none certified
 ```
