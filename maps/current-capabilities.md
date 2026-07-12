@@ -136,12 +136,14 @@ from margin-interior divisor-box geometry, translated it to a multiplicative for
 
 The installed book-layer substrate (Overholt, Tenenbaum, Mileti, Iwaniec–Kowalski, Harman, Montgomery MNT-II v0.6 with closure-reviewed units through v0.6-e-closure and beyond, Opera de Cribro v0.7) remains available on demand, including the live `TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001` diagnostic. Mismatched Montgomery A/B/legacy-E material remains quarantined (source-mismatch) and is not live.
 
-## 9. Active goals
+## 9. Active goals and retained checkpoints
 
 ```text
 GOAL-OP-ONE-THEOREM-001 = active_external_validation_hold
 P8-EXTERNAL-REFEREE-001 = PREPARED_NOT_SENT
 PVG-ANT-CENTRAL-MIND-MATURATION-002 = active
+TRANSLATION-KERNEL-V2-PASS-001 = checkpoint_pass
+PVG-ANT-BENCHMARK-001 = checkpoint_pass
 TRANSLATION-KERNEL-V2-PASS-002 = checkpoint_pass
 PVG-UNDERSTANDING-DEEPENING-001 = checkpoint_pass (ontology frozen)
 GOVERNANCE-ENFORCEMENT-CLOSURE-001 = executed
@@ -151,7 +153,7 @@ GOVERNANCE-ENFORCEMENT-CLOSURE-001 = executed
 
 The ontology does not manufacture analytic continuation, error terms, cancellation, uniformity, priority, or an independent proof certificate. It also does not establish hidden-set model performance. Routing and reconstruction rules create no L3 theorem by themselves.
 
-R, GPU, broad book mining, and new datasets are not required for this pass. Dataset 004 remains unauthorized. Lean remains selective and deferred unless a reusable formal core is identified.
+R, GPU, broad book mining, and new datasets are not required for this pass. Dataset 004 remains unauthorized. Lean expansion remains forbidden unless an active research lemma and explicit authorization require it.
 
 ## 11. Scientific ceiling
 
@@ -161,7 +163,7 @@ Native PVG objects: 20.
 Native PVG morphisms: 24.
 Hidden-set autonomous performance: not measured.
 General L3 theorem: absent.
-Internal fixed-parameter theorem proof: complete.
+Internal fixed-q, fixed-r, fixed-W smooth theorem proof: complete.
 External mathematical certification: absent.
 Certified originality: absent.
 Publication readiness: absent.
