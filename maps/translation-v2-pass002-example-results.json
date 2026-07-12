@@ -1,0 +1,72 @@
+{
+  "EX3-CONDUCTOR-PRINCIPAL-MOD4": {
+    "L_mod4_over_zeta": 0.75,
+    "correction_is_optional": false,
+    "s": 2
+  },
+  "EX3-DISPERSION-OFFDIAGONAL": {
+    "diagonal": 4,
+    "identity_holds": true,
+    "off_diagonal": -4,
+    "square_of_sum": 0
+  },
+  "EX3-LOCAL-GLOBAL-DIVISIBILITY": {
+    "absolute_error": 0.002857142857142836,
+    "empirical_probability": 0.14,
+    "model_probability": 0.14285714285714285,
+    "p": 7,
+    "x": 100
+  },
+  "EX3-MATERIALITY-ABLATION": {
+    "classification": "decorative reinterpretation",
+    "improved_bound": false,
+    "new_invariant": false,
+    "shorter_proof": false,
+    "tool_routing_gain": false
+  },
+  "EX3-MOMENT-MAX-NONUNIQUENESS": {
+    "vector_a_l2_sq": 4,
+    "vector_a_max": 2,
+    "vector_b_l2_sq": 4,
+    "vector_b_max": 1
+  },
+  "EX3-PRETENTIOUS-CHI4": {
+    "distance_sq_chi4_to_one": 1.239462292094,
+    "distance_sq_chi4_to_self": 0.0,
+    "prime_cutoff": 19
+  },
+  "EX3-SHORT-INTERVAL-PARITY": {
+    "global_even_density_first_100": 0.5,
+    "interval_101_101_even_density": 0.0,
+    "interval_102_102_even_density": 1.0
+  },
+  "EX3-SMOOTH-SHARP-BOUNDARY": {
+    "equal": false,
+    "sharp": 4,
+    "triangular_smooth": 1.5,
+    "x": 4
+  },
+  "EX3-SUBSUMPTION-MATRIX": {
+    "classification": "known framework application",
+    "hypotheses_matched": 4,
+    "hypotheses_required": 4,
+    "new_analytic_method": false
+  },
+  "EX3-TAUBERIAN-HYPOTHESIS-LEDGER": {
+    "boundary_control_stated": false,
+    "nonnegative_coefficients": true,
+    "tauberian_transfer_certified": false
+  },
+  "EX3-UNIFORMITY-EXPONENTIAL-CONSTANT": {
+    "C_fixed_r3": 8,
+    "C_growing_r10": 1024,
+    "ratio": 128,
+    "uniform_without_bound": false
+  },
+  "EX3-VERTICAL-DECAY-BALANCE": {
+    "criterion_N_gt_A_plus_1": true,
+    "decay_order_N": 6,
+    "growth_exponent_A": 3,
+    "integrable_tail_exponent": 3
+  }
+}
