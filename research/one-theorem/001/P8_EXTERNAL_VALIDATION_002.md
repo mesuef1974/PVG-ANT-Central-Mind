@@ -21,7 +21,7 @@ Its prime-power Bell series is
 =1+\frac{y^{2r}}{(1-y)^2}.
 \]
 
-The internally proved fixed-parameter smooth theorem is based on
+The internally proved fixed-`q`, fixed-`r`, fixed-`W` smooth theorem is based on
 
 \[
 D_{r,\chi}(s)=
@@ -167,7 +167,7 @@ Second theorem target = forbidden.
 
 ## 10. Scientific ceiling
 
-- internally proved fixed-parameter result;
+- internally proved fixed-`q`, fixed-`r`, fixed-`W` smooth result;
 - no exact match found in directed online searches;
 - classical analytic machinery;
 - plausible observable/statement novelty only;
