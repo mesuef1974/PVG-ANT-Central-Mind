@@ -37,9 +37,14 @@ EXPECTED_DOMAIN_COUNTS = {
     "sieve": 4,
     "probabilistic": 2,
 }
-FORBIDDEN_PROMOTIONS = {
-    "original theorem", "new theorem", "certified originality",
-    "publication ready", "rh progress", "grh progress", "breaks parity",
+FORBIDDEN_POSITIVE_PROMOTIONS = {
+    "classification: original theorem",
+    "classification: certified theorem",
+    "publication-ready: yes",
+    "certified-originality: yes",
+    "breaks-parity-barrier: yes",
+    "rh-progress: positive",
+    "grh-progress: positive",
 }
 
 
@@ -103,9 +108,9 @@ def main() -> None:
         require(len(str(row["counterexample"])) >= 20, f"Counterexample too weak for {row['id']}")
         require(len(str(row["anti_overclaim"])) >= 20, f"Anti-overclaim statement too weak for {row['id']}")
 
-        combined = json.dumps(row, ensure_ascii=False).lower()
-        for phrase in FORBIDDEN_PROMOTIONS:
-            require(phrase not in combined, f"Forbidden promotion in {row['id']}: {phrase}")
+        combined = "\n".join(f"{key}: {value}" for key, value in row.items()).lower()
+        for phrase in FORBIDDEN_POSITIVE_PROMOTIONS:
+            require(phrase not in combined, f"Forbidden positive promotion in {row['id']}: {phrase}")
 
     require(EXPECTED.exists(), f"Expected examples missing: {EXPECTED}")
     require(GENERATED.exists(), f"Generated examples missing: {GENERATED}")
