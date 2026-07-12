@@ -86,7 +86,7 @@ def main() -> None:
         require(str(row["loss_level"]) in ALLOWED_LOSSES, f"Bad loss level for {row['id']}")
         require(len(str(row["recovery"])) >= 12, f"Morphism {row['id']} recovery rule too short")
         require(len(str(row["ant_interface"])) >= 5, f"Morphism {row['id']} ANT interface too short")
-        for token in str(row["source"]).replace("x", " ").split():
+        for token in str(row["source"]).split():
             if token.startswith("PVG-OBJ-"):
                 referenced_object_ids.add(token)
         if str(row["target"]).startswith("PVG-OBJ-"):
