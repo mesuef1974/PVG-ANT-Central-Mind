@@ -70,7 +70,10 @@ def compute(cases: list[dict[str, object]]) -> dict[str, object]:
     total_points = 0
     for case in cases:
         scores = case["baseline_dimension_scores"]
-        assert isinstance(scores, dict)
+        require(
+            isinstance(scores, dict),
+            f"baseline_dimension_scores must be a dict for {case.get('id')}",
+        )
         total = sum(int(scores[dim]) for dim in DIMS)
         require(total == case["baseline_total"], f"Total mismatch for {case['id']}")
         total_points += total
@@ -138,7 +141,11 @@ def main() -> None:
     require(len(cases) == 60, f"Benchmark must contain exactly 60 cases, found {len(cases)}")
 
     ids = [str(case.get("id", "")) for case in cases]
-    require(len(ids) == len(set(ids)), "Duplicate benchmark case ID")
+    duplicates = [item for item, count in Counter(ids).items() if count > 1]
+    require(
+        not duplicates,
+        f"Duplicate benchmark case ID(s) found: {', '.join(duplicates)}",
+    )
 
     counts = Counter(str(case.get("domain", "")) for case in cases)
     require(set(counts) == DOMAINS, f"Domain set drift: {set(counts)}")
