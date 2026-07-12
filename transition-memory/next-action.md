@@ -8,64 +8,67 @@ Strategic compass:
 Current theorem program:
   GOAL-OP-ONE-THEOREM-001 = active_external_validation_hold.
   Frozen target = ONE-LEMMA-TARGET-001.
-  Internal fixed-q, fixed-r, fixed-W smooth theorem = proved internally.
+  Internal fixed-parameter smooth theorem = proved internally.
   P8-EXTERNAL-REFEREE-001 = PREPARED_NOT_SENT.
   Priority review, proof referee, and certified originality = absent.
 
-Parallel capability-maturation program:
-  PVG-ANT-CENTRAL-MIND-MATURATION-002 = active.
+Capability-maturation state:
   TRANSLATION-KERNEL-V2-PASS-001 = checkpoint_pass.
   PVG-ANT-BENCHMARK-001 = checkpoint_pass.
   TRANSLATION-KERNEL-V2-PASS-002 = checkpoint_pass.
-  Closed Language Kernel v1 families = 8.
-  Pass 001 cards = 24.
-  Pass 002 benchmark-justified cards = 12.
-  Combined translation inventory = 44.
-  Pass 002 deterministic checks = 12.
+  Translation inventory = 44.
+  Benchmark 001 historical baseline = 662 / 720.
+  Post-Pass-002 registry coverage = 702 / 720.
+  PVG-UNDERSTANDING-DEEPENING-001 = checkpoint_candidate.
+  Native PVG objects = 20.
+  Native PVG morphisms/projections = 24.
+  Deterministic recovery/loss witnesses = 16.
   L3 promotions = 0.
 
-Benchmark state:
-  historical baseline = 662 / 720 = 91.9 percent;
-  post-Pass-002 coverage rescore = 702 / 720 = 97.5 percent;
-  gain = 40 coverage points;
-  rescore type = registry coverage, not model performance;
-  reverse-control coverage = 93.3 percent;
-  tool-routing coverage = 96.7 percent;
-  remaining imperfect cases = 11.
+Immediate action:
+  1. Run PVG Core Ontology v1 audit in CI.
+  2. Review object references, inverse conditions, and loss levels.
+  3. Close PVG-UNDERSTANDING-DEEPENING-001 only if all witnesses regenerate.
+  4. Freeze the ontology before designing Benchmark 002.
 
-Immediate internal next package:
-  ADVERSARIAL-HIDDEN-BENCHMARK-002 design or TRANSLATION-KERNEL-V2-PASS-003 readiness audit.
+Next package after closure:
+  ADVERSARIAL-PVG-ANT-BENCHMARK-002.
 
-Before any Pass 003:
-  1. Freeze the twelve Pass 002 cards and their examples.
-  2. Build genuinely new hidden cases rather than rescore only known cases.
-  3. Target the eleven remaining composition and edge-certificate gaps.
-  4. Separate memorized card retrieval from multi-card reasoning.
-  5. Do not add cards merely to reach fifty.
-  6. No L3 promotion from routing knowledge alone.
+Benchmark 002 must test:
+  labeled versus unlabeled reconstruction;
+  multi-step composition of geometry, residues, local factors, and transforms;
+  invalid reverse translations;
+  noncancellation and continuation certificates;
+  growing-parameter uniformity;
+  higher-order interactions beyond Type I/II;
+  joint and character-twisted probabilistic laws;
+  PVG materiality under ablation.
 
-Required actions outside the self-auditing theorem loop:
-  1. Send the priority packet to one terminology/prior-art specialist.
-  2. Send the proof packet to one independent ANT referee.
-  3. Search a research-grade bibliographic database and cited-by chains.
-  4. Record exactly one terminal theorem classification after responses.
+Benchmark 002 rule:
+  do not rescore only the known sixty cases;
+  do not expose gold answers to the answering process;
+  separate registry coverage from autonomous reasoning performance;
+  no card additions before the held-out error map is produced.
+
+Required external theorem actions remain:
+  send one priority packet;
+  send one independent proof-referee packet;
+  search a research-grade bibliographic database;
+  record one terminal theorem classification after responses.
 
 Do not do yet:
   no second theorem target;
   no publication claim;
-  no Lean formalization;
   no broad book mining;
-  Dataset 004 remains unauthorized;
   no new statistical dataset;
+  Dataset 004 remains unauthorized;
   no RH/GRH-related expansion.
 
 Ceiling:
-  capability maturation = active;
-  post-Pass-002 score = registry coverage only;
-  autonomous hidden-set performance = not measured;
+  ontology = language and reasoning infrastructure only;
   theorem originality = not certified;
-  publication readiness = absent;
+  hidden-set model performance = not measured;
   no RH/GRH progress.
 ```
 
-**Classification:** benchmark-directed maturation with Pass 002 complete and external theorem validation still open.
+**Classification:** deepen native PVG understanding first, then test composition adversarially.

@@ -1,0 +1,45 @@
+name: PVG Core Ontology v1 Audit
+
+on:
+  pull_request:
+    paths:
+      - 'registries/pvg-core-ontology-v1/**'
+      - 'maps/pvg-core-grammar-v1.md'
+      - 'maps/pvg-core-ontology-example-*.json'
+      - 'tools/pvg_core_ontology_*.py'
+      - 'governance/programs/PVG-UNDERSTANDING-DEEPENING-001.md'
+      - 'governance/checkpoints/PVG-UNDERSTANDING-DEEPENING-001.md'
+      - 'transition-memory/**'
+      - 'maps/current-capabilities.md'
+      - '.github/workflows/pvg-core-ontology-v1-audit.yml'
+  workflow_dispatch:
+
+jobs:
+  audit-pvg-core-ontology:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Generate deterministic ontology examples
+        run: python tools/pvg_core_ontology_examples.py
+
+      - name: Audit objects, morphisms, recovery, and loss
+        run: python tools/pvg_core_ontology_audit.py
+
+      - name: Upload ontology certificate package
+        uses: actions/upload-artifact@v4
+        with:
+          name: pvg-core-ontology-v1-${{ github.sha }}
+          path: |
+            registries/pvg-core-ontology-v1/
+            maps/pvg-core-grammar-v1.md
+            maps/pvg-core-ontology-example-results.json
+            governance/checkpoints/PVG-UNDERSTANDING-DEEPENING-001.md
+          if-no-files-found: error
+          retention-days: 30
