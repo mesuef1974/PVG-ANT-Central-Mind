@@ -13,36 +13,45 @@ Internal result:
   fixed-q, fixed-r, fixed-W smooth theorem = internally proved;
   P0-P8 proof, symbolic, adversarial, and classification audits = PASS.
 
-Completed external step:
+Completed external steps:
   P8-EXTERNAL-VALIDATION-001 = ONLINE PRIMARY-SOURCE AUDIT PARTIAL PASS;
-  six primary/general source records captured;
-  no exact match located for I_r or the full theorem;
-  method and torsion mechanism confirmed classical.
+  P8-EXTERNAL-VALIDATION-002 = INTERNAL ROUTING AND SIGNIFICANCE PASS;
+  no exact match located for I_r or the complete theorem;
+  analytic method and torsion mechanism confirmed classical;
+  observable and statement novelty remain plausible but uncertified.
 
 Current classification:
-  PLAUSIBLY NEW MODEST PVG-DERIVED WEIGHTED THEOREM;
+  POSSIBLY NEW PVG-DERIVED OBSERVABLE AND MODEST THEOREM;
+  ANALYTIC METHOD CLASSICAL;
   ORIGINALITY NOT CERTIFIED.
 
-Immediate next package:
+Immediate external package:
   P8-EXTERNAL-REFEREE-001.
 
-Required external actions:
-  1. Search a research-grade bibliographic database and cited-by chains.
-  2. Check whether I_r has an established name or is an example of a broader theorem.
-  3. Compare exact constants and the 2r/2r+1/2r+2 hierarchy with published weighted k-full results.
-  4. Obtain an external line-by-line mathematical referee report using
-     P8_EXTERNAL_REFEREE_PACKET.md.
-  5. Issue exactly one terminal classification:
+Required actions outside the self-auditing loop:
+  1. Send the compact packet to one priority/terminology specialist.
+  2. Send the complete proof to one independent analytic proof referee.
+  3. Search a research-grade bibliographic database and cited-by chains.
+  4. Determine whether I_r has an established name or is a routine example of a broader theorem.
+  5. Obtain explicit significance classification: routine / modest / substantive.
+  6. Issue exactly one terminal classification:
        A. original modest theorem;
        B. new PVG-derived application of a known general theorem;
        C. known result in different notation;
        D. corrected theorem;
        E. correct but insufficiently significant without strengthening.
 
-Prepared packet:
+Prepared material:
   research/one-theorem/001/P8_EXTERNAL_REFEREE_PACKET.md;
   research/one-theorem/001/P8_EXTERNAL_VALIDATION_001.md;
+  research/one-theorem/001/P8_EXTERNAL_VALIDATION_002.md;
+  research/one-theorem/001/P8_REFEREE_CANDIDATES.md;
   research/one-theorem/001/P8-external-source-ledger.json.
+
+If outcome E occurs:
+  strengthen the same divisor-box object family;
+  do not open an unrelated theorem target;
+  permitted refinement = margin profiles / face enumerators / general geometric-layer transfer.
 
 Do not do yet:
   no second theorem target;
@@ -59,10 +68,10 @@ Stop rule:
 
 Ceiling:
   internally proved result;
-  online source audit partial pass;
+  online and routing audits complete;
   originality not certified;
   publication readiness absent;
   no RH/GRH progress.
 ```
 
-**Classification:** External-referee execution plan for an internally proved candidate theorem.
+**Classification:** external-referee execution plan for an internally proved candidate theorem.
