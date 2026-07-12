@@ -50,16 +50,31 @@ readme = read("README.md") or ""
 need(("Coherence Audit 005" in readme) or ("v0.6" in readme),
      "README.md does not mention the current phase (Coherence Audit 005 / v0.6)")
 
-# 2. latest-state is not stuck in an old era
+# 2/3. transition memory must track the LIVE goal registry, not an era token.
+# (GOVERNANCE-ENFORCEMENT-CLOSURE-001: the previous checks pinned these files to
+#  v0.6/Montgomery-era strings and reported false staleness forever after the
+#  compass-v1.0 transition. The replacement derives the expectation from
+#  registries/program-goals.jsonl: every ACTIVE operational goal must be named
+#  in both latest-state and next-action. Era-neutral and strictly registry-driven.)
 latest = read("transition-memory/latest-state.md") or ""
-need(("Montgomery" in latest) or ("v0.6" in latest),
-     "transition-memory/latest-state.md is stale (no v0.6 / Montgomery)")
-
-# 3. next-action reflects the actual next action
 nexta = read("transition-memory/next-action.md") or ""
-need(("Intake" in nexta) or ("Coherence Audit 005" in nexta) or ("Closure Review" in nexta)
-     or ("Correction 006" in nexta) or ("Treasure Packet" in nexta) or ("Opening Pass" in nexta),
-     "transition-memory/next-action.md does not reflect the actual next action")
+active_op_goals = []
+for line in (read("registries/program-goals.jsonl") or "").splitlines():
+    if not line.strip():
+        continue
+    try:
+        g = json.loads(line)
+    except Exception:
+        continue
+    if str(g.get("id", "")).startswith("GOAL-OP-") and str(g.get("status", "")).startswith("active"):
+        active_op_goals.append(g["id"])
+need(bool(active_op_goals),
+     "registries/program-goals.jsonl declares no active operational goal")
+for gid in active_op_goals:
+    need(gid in latest,
+         "transition-memory/latest-state.md omits active operational goal %s" % gid)
+    need(gid in nexta,
+         "transition-memory/next-action.md omits active operational goal %s" % gid)
 
 # 8. planned.jsonl empty must be reflected in next-action
 planned = read("registries/planned.jsonl") or ""

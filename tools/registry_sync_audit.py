@@ -14,7 +14,10 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Prefixes tracked as canonical registry IDs. MC- (missing certificates) is
 # certificate-ledger-internal and intentionally excluded.
-ID_RE = re.compile(r"\b(?:WALL|TOOL|RULE|BOOK|OBS|CLAIM|CONSTRAINT|SKILL)-[A-Z0-9]+(?:-[A-Z0-9]+)*")
+# The negative lookbehind stops substring captures inside longer hyphenated IDs
+# (e.g. WALL-001 inside EXT-ASSET-LEAN-WALL-001 / TR-V2-PARITY-PHASE-WALL-001 /
+# SHD-WALL-001) — GOVERNANCE-ENFORCEMENT-CLOSURE-001 guard-defect fix.
+ID_RE = re.compile(r"(?<![A-Z0-9-])(?:WALL|TOOL|RULE|BOOK|OBS|CLAIM|CONSTRAINT|SKILL)-[A-Z0-9]+(?:-[A-Z0-9]+)*")
 PLACEHOLDERS = {"WALL-ID", "TOOL-ID", "RULE-ID", "BOOK-ID", "OBS-ID", "CLAIM-ID", "SKILL-ID"}
 SKIP_DIRS = ()
 # Planning/spec docs and templates hold proposed or placeholder IDs; not live references.

@@ -18,7 +18,10 @@ ALLOWED = {
     "Open Problem", "Candidate Mechanism", "New Theorem",
     "Missing Certificate", "Forbidden Claim",
 }
-STATUS_KINDS = {"book", "planned", "frontier", "question"}
+# external_research_asset entries are asset pointers with a lifecycle status,
+# not mathematical claims; vocabulary amendment recorded in
+# governance/classification-system.md (GOVERNANCE-ENFORCEMENT-CLOSURE-001).
+STATUS_KINDS = {"book", "planned", "frontier", "question", "external_research_asset"}
 
 CLASSIFY_DIRS = ("installed-skills", "ledgers")
 

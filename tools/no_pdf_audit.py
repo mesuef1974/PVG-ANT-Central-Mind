@@ -32,8 +32,10 @@ def main():
         for f in out.stdout.splitlines():
             if f.lower().endswith(BAD_EXT):
                 problems.append(f"[pdf-tracked] {f}")
-        # (3) Books_others must be ignored
-        ci = subprocess.run(["git", "-C", ROOT, "check-ignore", "Books_others"], capture_output=True, text=True, timeout=30)
+        # (3) Books_others must be ignored. The trailing slash makes the check
+        # pattern-based, so it also holds in worktrees where the local library
+        # directory does not exist — GOVERNANCE-ENFORCEMENT-CLOSURE-001 fix.
+        ci = subprocess.run(["git", "-C", ROOT, "check-ignore", "Books_others/"], capture_output=True, text=True, timeout=30)
         if ci.returncode != 0:
             problems.append("[gitignore] Books_others/ is NOT ignored (.gitignore insufficient)")
     except (FileNotFoundError, subprocess.SubprocessError):
