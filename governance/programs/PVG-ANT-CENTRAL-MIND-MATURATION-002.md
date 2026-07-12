@@ -1,41 +1,45 @@
 # PVG–ANT Central Mind Maturation Program 002
 
 **Program ID:** `PVG-ANT-CENTRAL-MIND-MATURATION-002`  
-**Current pass:** `TRANSLATION-KERNEL-V2-PASS-001`  
+**Current stage:** `CENTRAL-MIND-CONTINUITY-001`  
+**Current receipt:** `MATURATION-RECEIPT-006`  
 **Status:** active capability maturation  
 **Research-front status:** no new theorem front opened
 
 ## Purpose
 
-Convert the existing PVG–ANT knowledge base from a collection of
-correct bridge cards into a repeatable problem-translator that can:
+Convert the PVG–ANT knowledge base from correct bridge records into a continuously improving research instrument that can:
 
 1. translate in both directions;
-2. state what information survives;
-3. expose lost information before tool selection;
-4. route to a compatible ANT method;
+2. select and compose native PVG objects and morphisms;
+3. state what information survives and what is lost;
+4. route to a compatible ANT method under exact hypotheses;
 5. name the missing certificate;
-6. reject decorative or overclaimed geometry.
+6. reject decorative or overclaimed geometry;
+7. learn from measured failures without contaminating evaluation;
+8. return every acquired prerequisite to a shared operational language;
+9. preserve one canonical remote/local state.
 
-This program runs in parallel with the external-validation hold for
-`ONE-LEMMA-TARGET-001`. It does not change that theorem program.
+This capability program runs in parallel with the external-validation hold for `ONE-LEMMA-TARGET-001`. It does not change that theorem program.
 
-## Pass 001 deliverables
+## Completed maturation chain
 
-- preserve the eight closed Language Kernel v1 families unchanged;
-- create a v2 operational registry directory with 24 new translation cards;
-- cover six domains:
-  geometry/arithmetic, local analytic structure, transforms, residues,
-  sieve, and probabilistic number theory;
-- require positive examples and counterexamples;
-- regenerate 24 deterministic finite checks;
-- add an ontology and a machine audit;
-- add CI without any L3, originality, publication, RH, or GRH promotion.
+```text
+TRANSLATION-KERNEL-V2-PASS-001       = checkpoint_pass
+PVG-ANT-BENCHMARK-001                = checkpoint_pass
+TRANSLATION-KERNEL-V2-PASS-002       = checkpoint_pass
+PVG-UNDERSTANDING-DEEPENING-001      = checkpoint_pass; ontology frozen
+GOVERNANCE-ENFORCEMENT-CLOSURE-001   = CLOSED
+CENTRAL-MIND-CONTINUITY-001          = installed_repository_side
+```
 
-## Quality rule
+The machine-readable history is `registries/maturation-events.jsonl`.
 
-A card is invalid if it merely says that two concepts are analogous.
-A valid card must contain:
+## Pass 001 result
+
+Pass 001 preserved the eight Language Kernel v1 families and installed twenty-four operational translation cards across geometry/arithmetic, local analytic structure, transforms, residues, sieve, and probabilistic number theory.
+
+A valid card contains:
 
 ```text
 PVG object
@@ -57,47 +61,124 @@ source basis
 finite test
 ```
 
-## Success criterion
+## Benchmark 001 and Pass 002 result
 
-Pass 001 succeeds when:
+Benchmark 001 created an immutable historical registry-coverage baseline. Pass 002 used named known-case gaps to add twelve cards, raising the combined translation inventory to forty-four. These scores measure registry coverage, not autonomous hidden-set reasoning.
 
-- all 24 cards satisfy the schema;
-- every card has a unique finite test;
-- the regenerated example certificate equals the committed expected file;
-- all card IDs appear in the catalog;
-- no forbidden promotion appears;
-- the current theorem remains on external-validation hold;
-- Dataset 004 remains unauthorized;
-- the v1 closure remains untouched.
+## Native-language deepening result
+
+PVG Core Ontology v1 installed:
+
+```text
+canonical objects             = 20
+canonical morphisms           = 24
+deterministic witnesses       = 16
+data layers                   = 6
+loss levels                   = LOSS-0 through LOSS-4
+L3 promotions                 = 0
+```
+
+The ontology is frozen. New object or morphism additions require a later authorized stage and cannot be smuggled into Benchmark 002 preparation.
+
+## Governance closure result
+
+The mandatory `governance-gate` now runs all core guards and deterministic generators on pull requests and pushes to `main`. Ruleset `governance-required` requires that status with no bypass actors.
+
+This is repository enforcement, not scientific progress.
+
+## Continuity stage
+
+`CENTRAL-MIND-CONTINUITY-001` couples three previously separate duties:
+
+1. **canonical synchronization** — fetched `origin/main`, fast-forward-only local main, no destructive automatic repair;
+2. **maturation receipts** — every closed stage records a tested capability delta and unchanged ceiling;
+3. **knowledge-to-language return** — every acquired prerequisite is normalized into the common PVG–ANT contract.
+
+Repository-side installation includes:
+
+- `governance/canonical-repository-sync-policy.md`;
+- `tools/sync_canonical_main.ps1`;
+- `tools/install_canonical_sync_task.ps1`;
+- `governance/continuous-mind-maturation-policy.md`;
+- `governance/templates/maturation-receipt.md`;
+- `registries/maturation-events.jsonl`;
+- `maps/pvg-ant-common-language-contract-v1.md`;
+- `tools/central_mind_continuity_audit.py` in the required gate.
+
+Workstation scheduled-task activation and strict up-to-date branch enforcement remain external facts and must be verified separately.
+
+## Knowledge-growth law
+
+Knowledge is indispensable but must be converted into capability.
+
+```text
+named task
+→ readiness/gap map
+→ minimum trusted acquisition
+→ exact ANT normalization
+→ native PVG object and morphism
+→ preservation/loss audit
+→ analytic routing
+→ proof/test/negative certificate
+→ common-language return
+→ maturation receipt
+```
+
+Full-book mining is not the default. Targeted extraction continues whenever an active task, literature gap, wall, or benchmark failure cluster requires it.
+
+## Next evaluation: Adversarial Benchmark 002
+
+`ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED`.
+
+Required order:
+
+```text
+raw hidden baseline
+→ immutable error map
+→ morphism composer
+→ same-set rerun with contamination accounting
+→ ablation
+→ targeted knowledge and translation learning
+```
+
+Separation rules:
+
+- at least forty-eight new held-out cases;
+- prompts and gold keys separated;
+- key hashes committed before scoring;
+- no new translation cards before the first error map;
+- no gold exposure to the answering process;
+- invalid reverse inferences require counterexamples or named missing certificates;
+- registry coverage and autonomous reasoning reported separately;
+- Benchmark 001 remains immutable.
+
+## Roadmap after the raw error map
+
+Only measured failure clusters may authorize:
+
+1. a morphism-composer tool;
+2. targeted knowledge activation;
+3. new or corrected translation records;
+4. proof/failure-pattern extraction;
+5. a later Pass 003 readiness decision.
 
 ## Non-goals
 
 - no second theorem target;
-- no broad book mining;
-- no statistical dataset;
-- no R or GPU requirement;
-- no Lean expansion;
+- no broad untargeted book mining;
+- no new statistical dataset;
+- Dataset 004 remains unauthorized;
+- no automatic Lean expansion;
 - no publication drafting;
 - no originality certification;
 - no RH/GRH expansion.
-
-## Roadmap after Pass 001
-
-`Pass 002 — Benchmark-driven extension`
-
-Create a benchmark before increasing the inventory from 32 combined
-bridges/cards to 50+. New cards should be added only where benchmark
-errors reveal a real missing translation.
-
-`Pass 003 — Proof-pattern library`
-
-Extract reusable proof and failure patterns only after the translator
-can identify the correct objects, losses, and certificates.
 
 ## Ceiling
 
 ```text
 Capability maturation: yes.
+Continuous knowledge return: installed repository-side.
+Hidden-set autonomous performance: not measured.
 New theorem front: no.
 General L3 transfer theorem: no.
 Certified originality: no.
