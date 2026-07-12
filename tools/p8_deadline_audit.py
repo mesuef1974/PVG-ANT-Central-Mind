@@ -22,6 +22,11 @@ ROOT = Path(__file__).resolve().parent.parent
 RECORD = ROOT / "registries" / "p8-outreach-decision.json"
 
 ALLOWED = {"PREPARED_NOT_SENT", "SENT", "HOLD_AUTHORIZED"}
+# The deadline is pinned HERE, not only in the JSON record: silently moving
+# decision_deadline_utc in the registry cannot renegotiate it (adversarial
+# review finding, PR #28). Changing this constant requires editing the guard
+# itself in a reviewed PR.
+PINNED_DEADLINE = "2026-07-19T20:59:59Z"
 MAX_HOLD_DAYS = 14
 
 
@@ -48,6 +53,13 @@ def main() -> int:
         print(f"FAIL - invalid decision_deadline_utc: {exc}")
         return 1
 
+    if status == "PREPARED_NOT_SENT" and record["decision_deadline_utc"] != PINNED_DEADLINE:
+        issues.append(
+            "decision_deadline_utc diverges from the guard-pinned deadline "
+            f"{PINNED_DEADLINE}; the deadline is not renegotiable via the registry"
+        )
+        deadline = parse_utc(PINNED_DEADLINE)
+
     if status == "PREPARED_NOT_SENT" and now > deadline:
         issues.append(
             "P8 decision deadline passed while status is PREPARED_NOT_SENT; "
@@ -57,8 +69,14 @@ def main() -> int:
     if status == "SENT":
         sent = record.get("sent") or {}
         for field in ("priority_packet_sent_utc", "proof_packet_sent_utc"):
-            if not sent.get(field):
+            value = sent.get(field)
+            if not value:
                 issues.append(f"status SENT but sent.{field} is empty")
+            else:
+                try:
+                    parse_utc(value)
+                except Exception:
+                    issues.append(f"sent.{field} is not a valid UTC timestamp: {value!r}")
         if sent.get("recipients_verified") is not True:
             issues.append("status SENT but sent.recipients_verified is not true")
 
@@ -69,8 +87,12 @@ def main() -> int:
             if not hold.get(field):
                 issues.append(f"status HOLD_AUTHORIZED but hold.{field} is empty")
         if not issues:
-            recorded = parse_utc(hold["hold_recorded_utc"])
-            new_deadline = parse_utc(hold["new_decision_deadline_utc"])
+            try:
+                recorded = parse_utc(hold["hold_recorded_utc"])
+                new_deadline = parse_utc(hold["new_decision_deadline_utc"])
+            except Exception as exc:  # noqa: BLE001
+                print(f"FAIL - invalid hold timestamp: {exc}")
+                return 1
             if new_deadline > recorded + timedelta(days=MAX_HOLD_DAYS):
                 issues.append(
                     f"hold.new_decision_deadline_utc exceeds {MAX_HOLD_DAYS} days "
