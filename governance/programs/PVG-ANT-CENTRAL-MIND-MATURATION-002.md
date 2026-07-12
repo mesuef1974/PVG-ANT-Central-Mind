@@ -37,7 +37,7 @@ The machine-readable history is `registries/maturation-events.jsonl`.
 
 ## Pass 001 result
 
-Pass 001 preserved the eight Language Kernel v1 families and installed twenty-four operational translation cards across geometry/arithmetic, local analytic structure, transforms, residues, sieve, and probabilistic number theory.
+Pass 001 preserved the eight Language Kernel v1 families and installed 24 new translation cards across geometry/arithmetic, local analytic structure, transforms, residues, sieve, and probabilistic number theory.
 
 A valid card contains:
 
