@@ -2,7 +2,7 @@
   "id": "P8-OUTREACH-DECISION-001",
   "kind": "outreach_decision",
   "title": "One-Theorem 001 external outreach decision record",
-  "status": "PREPARED_NOT_SENT",
+  "status": "HOLD_AUTHORIZED",
   "decision_deadline_utc": "2026-07-19T20:59:59Z",
   "allowed_states_after_deadline": ["SENT", "HOLD_AUTHORIZED"],
   "sent": {
@@ -11,11 +11,11 @@
     "recipients_verified": false
   },
   "hold": {
-    "authorization_ref": null,
-    "named_blocker": null,
-    "blocker_evidence": null,
-    "hold_recorded_utc": null,
-    "new_decision_deadline_utc": null
+    "authorization_ref": "Owner order AUTHORIZE P8 STRATEGIC HOLD AND START MODEL PROGRAM (2026-07-12)",
+    "named_blocker": "STRATEGIC_REPRIORITIZATION_TO_PVG_ANT_MODEL_PROGRAM",
+    "blocker_evidence": "Explicit written owner authorization dated 2026-07-12: the current strategic priority is building the PVG-ANT specialist-model program and measuring the current mind before any training; P8 is held, not cancelled. No packet is sent during the hold without independent explicit authorization. Owner requested a new deadline of 2026-07-26T23:59:59+03:00 (= 2026-07-26T20:59:59Z); the recorded deadline is clamped to hold_recorded_utc + 14 days as required by tools/p8_deadline_audit.py.",
+    "hold_recorded_utc": "2026-07-12T19:47:20Z",
+    "new_decision_deadline_utc": "2026-07-26T19:47:20Z"
   },
   "rules": {
     "hold_requires": [
@@ -25,8 +25,12 @@
       "new decision deadline at most 14 days after hold_recorded_utc"
     ],
     "guard": "tools/p8_deadline_audit.py",
-    "no_deadlock": "the PR that flips this record to SENT or HOLD_AUTHORIZED passes the guard by construction"
+    "no_deadlock": "the PR that flips this record to SENT or HOLD_AUTHORIZED passes the guard by construction",
+    "hold_constraints": [
+      "no send during the hold without independent explicit authorization",
+      "P8 is not cancelled; a new reviewed decision (SENT or freshly authorized HOLD) is required before new_decision_deadline_utc"
+    ]
   },
   "classification": "Diagnostic",
-  "source": "Stage Review 001 PR-A; CEO order AUTHORIZE CENTRAL-MIND STAGE REVIEW 001 + CONTINUITY CLOSURE"
+  "source": "Stage Review 001 PR-A; CEO order AUTHORIZE CENTRAL-MIND STAGE REVIEW 001 + CONTINUITY CLOSURE; CEO order AUTHORIZE P8 STRATEGIC HOLD AND START MODEL PROGRAM (2026-07-12)"
 }

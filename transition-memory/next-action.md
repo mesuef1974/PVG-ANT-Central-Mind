@@ -9,7 +9,10 @@ Current theorem program:
   GOAL-OP-ONE-THEOREM-001 = active_external_validation_hold.
   Frozen target = ONE-LEMMA-TARGET-001.
   Internal fixed-q, fixed-r, fixed-W smooth theorem = proved internally.
-  P8-EXTERNAL-REFEREE-001 = PREPARED_NOT_SENT.
+  P8-EXTERNAL-REFEREE-001 packets = prepared, unsent.
+  P8-OUTREACH-DECISION-001 = HOLD_AUTHORIZED
+    (named blocker STRATEGIC_REPRIORITIZATION_TO_PVG_ANT_MODEL_PROGRAM;
+     new decision deadline 2026-07-26T19:47:20Z).
   Priority review, proof referee, and certified originality = absent.
 
 Capability-maturation state:
@@ -41,14 +44,14 @@ Knowledge and maturation operating law:
     verification, synchronization, and unchanged scientific ceiling.
   Book/file/card counts alone are not maturity.
 
-Immediate external actions (parallel track; do not wait for internal work):
-  1. Verify current addresses of one terminology/prior-art specialist
-     and one independent ANT proof referee.
-  2. Send the P8 priority packet and the P8 proof packet only after explicit
-     authorization.
-  3. Search a research-grade bibliographic database (MathSciNet/zbMATH)
-     and cited-by chains for Chan–Tsang, Srichan, and weighted k-full
-     literature.
+External P8 track (under authorized hold until 2026-07-26T19:47:20Z):
+  1. No packet is sent during the hold without independent explicit
+     authorization; P8 is not cancelled.
+  2. A new reviewed decision (SENT or freshly authorized HOLD) must be
+     recorded before the new deadline, else the deadline guard fails all CI.
+  3. Preparation-only work stays legal: verify referee addresses and search
+     a research-grade bibliographic database (MathSciNet/zbMATH) and
+     cited-by chains for Chan–Tsang, Srichan, and weighted k-full literature.
   4. Record exactly one terminal theorem classification after responses.
 
 Next internal package after continuity activation:
@@ -94,4 +97,4 @@ Ceiling:
   zero GRH progress.
 ```
 
-**Classification:** continuity operationally closed; the next internal package is only the design phase of Adversarial Benchmark 002; external P8 validation remains parallel and unsent.
+**Classification:** continuity operationally closed; the next internal package is only the design phase of Adversarial Benchmark 002; external P8 validation remains unsent under an authorized hold (new decision deadline 2026-07-26T19:47:20Z).
