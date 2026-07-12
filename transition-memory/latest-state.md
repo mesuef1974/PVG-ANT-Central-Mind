@@ -106,7 +106,7 @@ Benchmark state:
 Next capability gate:
   continuity activation and strict hardening = complete;
   next: design ADVERSARIAL-PVG-ANT-BENCHMARK-002 without adding cards.
-  4. Required benchmark order:
+  Required benchmark order:
      raw hidden baseline → immutable error map → morphism composer
      → same-set rerun with contamination accounting → ablation
      → targeted knowledge and translation learning.
