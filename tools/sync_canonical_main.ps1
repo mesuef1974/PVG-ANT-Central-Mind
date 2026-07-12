@@ -18,7 +18,19 @@ function Invoke-Git {
         [switch]$AllowFailure
     )
 
-    $output = & git @Arguments 2>&1
+    # Windows PowerShell 5.1 wraps native stderr lines redirected by 2>&1 into
+    # ErrorRecords; under ErrorActionPreference=Stop this aborts successful git
+    # commands (for example the "From <url>" line printed by a real fetch).
+    # The exit code below remains the single failure signal.
+    # CENTRAL-MIND-CONTINUITY-CLOSURE-002 guard-defect fix.
+    $previousPreference = $ErrorActionPreference
+    $ErrorActionPreference = "Continue"
+    try {
+        $output = & git @Arguments 2>&1 | ForEach-Object { "$_" }
+    }
+    finally {
+        $ErrorActionPreference = $previousPreference
+    }
     $exitCode = $LASTEXITCODE
     if (-not $AllowFailure -and $exitCode -ne 0) {
         $rendered = ($output | Out-String).Trim()
