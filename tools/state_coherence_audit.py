@@ -59,22 +59,48 @@ need(("Coherence Audit 005" in readme) or ("v0.6" in readme),
 latest = read("transition-memory/latest-state.md") or ""
 nexta = read("transition-memory/next-action.md") or ""
 active_op_goals = []
-for line in (read("registries/program-goals.jsonl") or "").splitlines():
+goals_text = read("registries/program-goals.jsonl") or ""
+for lineno, line in enumerate(goals_text.splitlines(), 1):
     if not line.strip():
         continue
     try:
         g = json.loads(line)
-    except Exception:
+    except json.JSONDecodeError as exc:
+        issues.append(
+            "registries/program-goals.jsonl:%d malformed JSON: %s" % (lineno, exc)
+        )
         continue
-    if str(g.get("id", "")).startswith("GOAL-OP-") and str(g.get("status", "")).startswith("active"):
-        active_op_goals.append(g["id"])
+    if not isinstance(g, dict):
+        issues.append(
+            "registries/program-goals.jsonl:%d is not a JSON object" % lineno
+        )
+        continue
+    gid = str(g.get("id", ""))
+    status = str(g.get("status", ""))
+    if gid.startswith("GOAL-OP-") and status.startswith("active"):
+        active_op_goals.append(gid)
 need(bool(active_op_goals),
      "registries/program-goals.jsonl declares no active operational goal")
+live_state_documents = {
+    "README.md": readme,
+    "maps/current-capabilities.md": read("maps/current-capabilities.md") or "",
+    "transition-memory/latest-state.md": latest,
+    "transition-memory/next-action.md": nexta,
+}
 for gid in active_op_goals:
-    need(gid in latest,
-         "transition-memory/latest-state.md omits active operational goal %s" % gid)
-    need(gid in nexta,
-         "transition-memory/next-action.md omits active operational goal %s" % gid)
+    for relpath, document in live_state_documents.items():
+        need(gid in document, "%s omits active operational goal %s" % (relpath, gid))
+
+checkpoint = read("governance/checkpoints/PVG-UNDERSTANDING-DEEPENING-001.md") or ""
+need("CHECKPOINT PASS" in checkpoint and "FROZEN" in checkpoint,
+     "PVG-UNDERSTANDING-DEEPENING-001 checkpoint is not PASS and frozen")
+for relpath, document in {
+    "maps/current-capabilities.md": live_state_documents["maps/current-capabilities.md"],
+    "transition-memory/latest-state.md": latest,
+    "transition-memory/next-action.md": nexta,
+}.items():
+    need("PVG-UNDERSTANDING-DEEPENING-001" in document and "checkpoint_pass" in document,
+         "%s does not reflect the closed PVG understanding checkpoint" % relpath)
 
 # 8. planned.jsonl empty must be reflected in next-action
 planned = read("registries/planned.jsonl") or ""
