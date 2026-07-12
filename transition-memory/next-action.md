@@ -8,7 +8,7 @@ Strategic compass:
 Current theorem program:
   GOAL-OP-ONE-THEOREM-001 = active_external_validation_hold.
   Frozen target = ONE-LEMMA-TARGET-001.
-  Internal fixed-parameter smooth theorem = proved internally.
+  Internal fixed-q, fixed-r, fixed-W smooth theorem = proved internally.
   P8-EXTERNAL-REFEREE-001 = PREPARED_NOT_SENT.
   Priority review, proof referee, and certified originality = absent.
 
