@@ -15,34 +15,43 @@ Current theorem program:
 Parallel capability-maturation program:
   PVG-ANT-CENTRAL-MIND-MATURATION-002 = active.
   TRANSLATION-KERNEL-V2-PASS-001 = checkpoint_pass.
+  PVG-ANT-BENCHMARK-001 = checkpoint_pass.
   Closed Language Kernel v1 families retained = 8.
-  New operational v2 cards = 24.
+  Operational v2 cards = 24.
   Combined translation inventory = 32.
-  Deterministic v2 checks = 24.
+  Benchmark cases = 60 across six domains.
+  Baseline = 662 / 720 = 91.9 percent.
+  Baseline type = kernel coverage / diagnostic, not model performance.
   L3 promotions = 0.
 
-What Translation Kernel v2 now enforces:
-  forward and reverse translation;
-  preserved information;
-  lost information;
-  tool trigger and compatible ANT tools;
-  wall or failure mode;
-  required certificate;
-  positive example and counterexample;
-  anti-overclaim statement.
+Benchmark findings:
+  information-loss discipline = 100 percent coverage;
+  honest classification = 100 percent coverage;
+  reverse-control coverage = 80.8 percent;
+  tool-routing coverage = 87.5 percent;
+  weakest domain = probabilistic at 84.2 percent;
+  false originality promotion = 0 in explicit registry traps.
 
 Immediate internal next package:
-  PVG-ANT-BENCHMARK-001.
+  TRANSLATION-KERNEL-V2-PASS-002.
 
-Benchmark requirements:
-  1. Build a scored set before adding more cards.
-  2. Test translation accuracy in both directions.
-  3. Test information-loss detection.
-  4. Test ANT tool selection and hypothesis matching.
-  5. Test wall and missing-certificate identification.
-  6. Test rejection of decorative PVG and false originality.
-  7. Use benchmark failures to choose Pass 002 cards.
-  8. Grow toward 50+ cards only after benchmark evidence.
+Benchmark-directed priorities:
+  1. uniformity and parameter-dependence tracking;
+  2. primitive/imprimitive characters and conductor corrections;
+  3. smooth-to-sharp desmoothing;
+  4. Tauberian boundary and converse discipline;
+  5. Halasz/pretentious multiplicative theory;
+  6. local-to-global probabilistic transfer;
+  7. short-interval additive order;
+  8. moment-to-tail or maximal transfer;
+  9. sieve dispersion and off-diagonal routing;
+  10. general-theorem subsumption and PVG materiality gates.
+
+Pass 002 rule:
+  add benchmark-justified cards only;
+  do not add cards merely to reach a numerical target;
+  rerun Benchmark 001 after the additions;
+  no L3 promotion from routing knowledge alone.
 
 Required actions outside the self-auditing theorem loop:
   1. Send the priority packet to one terminology/prior-art specialist.
@@ -61,9 +70,10 @@ Do not do yet:
 
 Ceiling:
   capability maturation = active;
+  benchmark score = registry coverage only;
   theorem originality = not certified;
   publication readiness = absent;
   no RH/GRH progress.
 ```
 
-**Classification:** benchmark-first maturation while One-Theorem 001 remains on external-validation hold.
+**Classification:** benchmark-directed maturation while One-Theorem 001 remains on external-validation hold.
