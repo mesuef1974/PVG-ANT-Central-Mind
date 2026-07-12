@@ -36,7 +36,7 @@ function Get-RepositorySlug {
     param([Parameter(Mandatory = $true)][string]$RemoteUrl)
 
     $trimmed = $RemoteUrl.Trim().Replace("\", "/")
-    if ($trimmed -match "github\.com[:/](?<slug>[^/]+/[^/]+?)(?:\.git)?$") {
+    if ($trimmed -match "github\.com[:/](?<slug>[^/]+/[^/]+?)(?:\.git)?/?$") {
         return $Matches["slug"].TrimEnd("/").ToLowerInvariant()
     }
 
@@ -97,7 +97,7 @@ $statusText = (Invoke-Git -Arguments @("status", "--porcelain=v1")).Text
 $dirty = -not [string]::IsNullOrWhiteSpace($statusText)
 
 $countText = (Invoke-Git -Arguments @("rev-list", "--left-right", "--count", "HEAD...origin/main")).Text
-$countParts = $countText -split "\s+"
+$countParts = -split $countText
 if ($countParts.Count -lt 2) {
     throw "Unexpected ahead/behind output: '$countText'"
 }
@@ -132,7 +132,7 @@ switch ($Mode) {
                 Invoke-Git -Arguments @("merge", "--ff-only", "origin/main") | Out-Null
                 $head = (Invoke-Git -Arguments @("rev-parse", "HEAD")).Text
                 $countText = (Invoke-Git -Arguments @("rev-list", "--left-right", "--count", "HEAD...origin/main")).Text
-                $countParts = $countText -split "\s+"
+                $countParts = -split $countText
                 $ahead = [int]$countParts[0]
                 $behind = [int]$countParts[1]
                 $action = "main-fast-forwarded-or-current"
