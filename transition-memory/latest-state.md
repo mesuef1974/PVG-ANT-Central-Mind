@@ -7,8 +7,8 @@ Operating version:
 Repository:
   D:\PVG-ANT-Central-Mind
 
-Canonical main baseline before this external-validation PR:
-  0972d038 — Classify One-Theorem 001 after P7-P8 review.
+Canonical main baseline before this PR:
+  ea9092e — Add partial external validation for One-Theorem 001.
 
 Strategic goal:
   GOAL-PVG-ANT-STRATEGIC-001 = active_fixed.
@@ -29,10 +29,10 @@ Internal mathematical status:
   no mathematical gap currently identified;
   external peer review absent.
 
-Online external-validation status:
+External-validation status:
   P8-EXTERNAL-VALIDATION-001 = ONLINE PRIMARY-SOURCE AUDIT PARTIAL PASS;
-  six primary/general sources recorded in a machine-readable ledger;
-  exact searchable match for I_r or the full theorem not located;
+  P8-EXTERNAL-VALIDATION-002 = INTERNAL ROUTING AND SIGNIFICANCE PASS;
+  exact searchable match for I_r or the complete theorem not located;
   search absence is not an originality certificate.
 
 Known prior art:
@@ -40,7 +40,7 @@ Known prior art:
   x^(1/2) and x^(1/3) squarefull layers;
   quadratic/cubic torsion-character selection;
   character decomposition and Dirichlet L-functions;
-  Mellin, contour, and Selberg–Delange-type machinery.
+  Euler-product extraction, Mellin, contour, and Selberg–Delange-type machinery.
 
 Surviving possible contribution:
   PVG-derived margin-interior divisor-box weight I_r;
@@ -49,21 +49,34 @@ Surviving possible contribution:
   residual 2r+2 threshold and error.
 
 Current classification:
-  PLAUSIBLY NEW MODEST PVG-DERIVED WEIGHTED THEOREM;
+  POSSIBLY NEW PVG-DERIVED OBSERVABLE AND MODEST THEOREM;
+  ANALYTIC METHOD CLASSICAL;
   ORIGINALITY NOT CERTIFIED;
-  NEW METHOD = NO;
   PVG DISCOVERY ROLE = MATERIAL;
   PVG NECESSITY IN FINAL CONTOUR PROOF = WEAK.
 
+Significance risk:
+  even if the exact statement is new, a specialist may classify it as a routine
+  corollary of standard multiplicative Dirichlet-series machinery once I_r is defined.
+
 Prepared external-review assets:
   P8_EXTERNAL_VALIDATION_001.md;
+  P8_EXTERNAL_VALIDATION_002.md;
   P8-external-source-ledger.json;
   P8_EXTERNAL_REFEREE_PACKET.md;
+  P8_REFEREE_CANDIDATES.md;
   one_theorem_external_validation_audit.py.
 
 Remaining gates:
   research-grade bibliographic database / cited-by search;
-  external human line-by-line mathematical referee review.
+  one priority/terminology specialist review;
+  one independent line-by-line mathematical proof review;
+  explicit significance classification.
+
+Contingency if classified correct but routine:
+  strengthen the same divisor-box object family through margin profiles,
+  face enumerators, or a general geometric-layer transfer statement;
+  do not open an unrelated theorem target.
 
 Current maturity:
   L1 exact translation = certified;
@@ -82,7 +95,7 @@ Restrictions:
 
 Ceiling:
   internally proved fixed-parameter result;
-  online primary-source audit partial pass;
+  online and routing audits complete;
   external originality and referee certification absent;
   zero RH progress;
   zero GRH progress.

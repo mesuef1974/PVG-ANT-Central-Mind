@@ -5,7 +5,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = ROOT / "research" / "one-theorem" / "001"
-DOSSIER = BASE / "P8_EXTERNAL_VALIDATION_001.md"
+DOSSIER_001 = BASE / "P8_EXTERNAL_VALIDATION_001.md"
+DOSSIER_002 = BASE / "P8_EXTERNAL_VALIDATION_002.md"
+ROUTING = BASE / "P8_REFEREE_CANDIDATES.md"
 LEDGER = BASE / "P8-external-source-ledger.json"
 P8 = BASE / "P8_FINAL_CLASSIFICATION.md"
 
@@ -16,10 +18,12 @@ def require(condition: bool, message: str) -> None:
 
 
 def main() -> None:
-    for path in [DOSSIER, LEDGER, P8]:
+    for path in [DOSSIER_001, DOSSIER_002, ROUTING, LEDGER, P8]:
         require(path.exists(), f"Missing external-validation artifact: {path}")
 
-    dossier = DOSSIER.read_text(encoding="utf-8")
+    dossier_001 = DOSSIER_001.read_text(encoding="utf-8")
+    dossier_002 = DOSSIER_002.read_text(encoding="utf-8")
+    routing = ROUTING.read_text(encoding="utf-8")
     p8 = P8.read_text(encoding="utf-8")
     ledger = json.loads(LEDGER.read_text(encoding="utf-8"))
 
@@ -72,7 +76,7 @@ def main() -> None:
     ]:
         require(ceiling.get(key) is False, f"Forbidden promotion: {key}")
 
-    required_tokens = [
+    required_001 = [
         "ONLINE PRIMARY-SOURCE AUDIT: PARTIAL PASS",
         "No primary source located in this audit stated",
         "New analytic method: no",
@@ -80,9 +84,32 @@ def main() -> None:
         "P8-EXTERNAL-REFEREE-001",
         "originality remains uncertified",
     ]
-    lowered = dossier.lower()
-    for token in required_tokens:
-        require(token.lower() in lowered, f"Required dossier token missing: {token}")
+    lowered_001 = dossier_001.lower()
+    for token in required_001:
+        require(token.lower() in lowered_001, f"Required dossier-001 token missing: {token}")
+
+    required_002 = [
+        "POSSIBLY NEW PVG-DERIVED OBSERVABLE AND MODEST THEOREM",
+        "ANALYTIC METHOD CLASSICAL",
+        "Originality not certified",
+        "Significance gate",
+        "P8-EXTERNAL-VALIDATION-002 = COMPLETE AS AN INTERNAL ROUTING PASS",
+        "Second theorem target = forbidden",
+    ]
+    lowered_002 = dossier_002.lower()
+    for token in required_002:
+        require(token.lower() in lowered_002, f"Required dossier-002 token missing: {token}")
+
+    routing_required = [
+        "No person listed below has reviewed or endorsed the result",
+        "one priority/terminology review",
+        "one independent line-by-line proof review",
+        "No reviewer contacted by the project",
+        "Originality remains uncertified",
+    ]
+    lowered_routing = routing.lower()
+    for token in routing_required:
+        require(token.lower() in lowered_routing, f"Required routing token missing: {token}")
 
     require("originality not certified" in p8.lower(), "P8 originality ceiling disappeared")
 
@@ -91,16 +118,17 @@ def main() -> None:
         "Publication ready: yes",
         "External referee: pass",
         "Research database audit: complete",
+        "Reviewer contacted: yes",
         "RH progress: positive",
         "GRH progress: positive",
     ]
-    combined = (dossier + "\n" + p8).lower()
+    combined = "\n".join([dossier_001, dossier_002, routing, p8]).lower()
     for phrase in forbidden_positive_promotions:
         require(phrase.lower() not in combined, f"Forbidden external promotion: {phrase}")
 
     print(
-        "one_theorem_external_validation_audit: PASS — online source audit retained "
-        "as partial evidence without originality promotion"
+        "one_theorem_external_validation_audit: PASS — online source and routing audits "
+        "retained as partial evidence without originality promotion"
     )
 
 
