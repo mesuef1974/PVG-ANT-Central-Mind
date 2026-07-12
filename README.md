@@ -30,8 +30,13 @@ Canonical references:
 - `maps/pvg-ant-language-kernel-v1.md`
 - `governance/task-triggered-knowledge-activation-policy.md`
 - `governance/stage-review-and-ceiling-escalation-policy.md`
+- `governance/canonical-repository-sync-policy.md`
+- `governance/continuous-mind-maturation-policy.md`
+- `maps/pvg-ant-common-language-contract-v1.md`
 - `governance/templates/research-readiness-card.md`
+- `governance/templates/maturation-receipt.md`
 - `registries/program-goals.jsonl`
+- `registries/maturation-events.jsonl`
 - `integration/legacy-research-assets-reconciliation-001.md`
 - `maps/legacy-assets-routing.md`
 - `registries/external-research-assets.jsonl`
@@ -54,14 +59,16 @@ No registry, no entry.
 No classification, no claim.
 No certificate, no theorem.
 No readiness gate, no research execution.
+No maturation receipt, no stage-maturity claim.
+No fetched canonical state, no new work branch.
 No RH/GRH progress without a complete proof certificate.
 ```
 
 ## Current strategic state
 
 ```text
-Canonical baseline:
-  240b363 — Add PVG Core Ontology v1.
+Current merged governance baseline:
+  0a092f5 — Governance Enforcement Closure 001.
 
 Latest formal baseline:
   56e00f4 — Add Lean P3 valuation mass geometry (LEAN-P3-PASS-008).
@@ -77,9 +84,11 @@ Active operational goal:
   (P8 outreach prepared, not sent; originality not certified).
 
 Active capability program:
-  PVG-ANT-CENTRAL-MIND-MATURATION-002 — Translation Kernel v2 Pass 001/002,
-  Benchmark 001, and PVG Core Ontology v1 closed;
-  next gate = ADVERSARIAL-PVG-ANT-BENCHMARK-002 design.
+  PVG-ANT-CENTRAL-MIND-MATURATION-002 — active.
+  GOVERNANCE-ENFORCEMENT-CLOSURE-001 = CLOSED.
+  CENTRAL-MIND-CONTINUITY-001 = installed_repository_side.
+  Current maturation receipt = MATURATION-RECEIPT-006.
+  ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED.
 
 Closed operational goals:
   GOAL-OP-SCALE-HETEROGENEITY-CLOSE-001;
@@ -98,6 +107,7 @@ Exact multiplicative translation   partial-to-strong
 Structural simplification          partial
 Transfer principles                one internally proved (I_r observable)
 Research mechanism                 one complete internal crossing; not repeated
+Continuity discipline              installed repository-side; workstation activation pending
 Original lemma                     none certified
 Original theorem                   none certified
 ```
@@ -107,16 +117,16 @@ Original theorem                   none certified
 | Path | Purpose |
 |---|---|
 | `central-mind-charter.md`, `central-mind-goals.md` | strategic constitution and goals |
-| `governance/` | honesty, readiness, stage review, claims, book/source protocols |
-| `registries/` | machine truth: skills, books, rules, goals, claims, tools, fronts, walls, external assets, negative results |
-| `maps/` | language kernel, legacy routing, capabilities, dependency and translation maps |
+| `governance/` | honesty, readiness, stage review, claims, synchronization, maturation, book/source protocols |
+| `registries/` | machine truth: skills, books, rules, goals, claims, tools, fronts, walls, external assets, negative results, maturation events |
+| `maps/` | language kernel, common-language contract, legacy routing, capabilities, dependency and translation maps |
 | `integration/` | controlled reconciliation and knowledge-return passes |
 | `installed-skills/` | operational math and governance interfaces |
 | `ledgers/books/`, `ledgers/imports/` | mined source knowledge and integration layers |
 | `research/` | reproducible vertical research passes |
 | `formal/lean/` | formal PVG layer when required by active lemmas |
 | `transition-memory/` | current state and next action |
-| `tools/` | automated guards |
+| `tools/` | automated guards and safe local synchronization tools |
 
 The local PDF library, heavy numerical data, GPU engines, HTML applications, and duplicate formal kernels remain excluded from the canonical Git repository.
 
@@ -131,6 +141,49 @@ available
 ```
 
 Local availability is not integration; integration is not task-specific mastery.
+
+Knowledge is indispensable, but it enters the operating mind only through the common-language contract:
+
+```text
+source-grounded ANT object
+→ native PVG object
+→ admissible morphism
+→ preserved/lost information
+→ analytic tool and range
+→ wall/certificate
+→ reverse conditions and counterexample
+→ verification
+→ maturation receipt
+```
+
+This preserves task-triggered acquisition while preventing knowledge starvation and preventing book count from masquerading as maturity.
+
+## Continuity protocol
+
+The repository-side continuity layer is installed under `CENTRAL-MIND-CONTINUITY-001` and recorded by `MATURATION-RECEIPT-006`.
+
+It couples:
+
+1. fetched `origin/main` as canonical truth and fast-forward-only local main;
+2. a machine-readable maturation receipt for every closed stage;
+3. a sixteen-field common PVG–ANT language contract for knowledge return;
+4. a required continuity audit in `governance-gate`.
+
+Safe local commands:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync_canonical_main.ps1 -Mode Audit
+powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync_canonical_main.ps1 -Mode SafeSync
+powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync_canonical_main.ps1 -Mode PrepareBranch
+```
+
+One-time workstation activation:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File tools/install_canonical_sync_task.ps1
+```
+
+Repository CI verifies the scripts and policy. It cannot infer whether a workstation scheduled task is installed; that remains an external operator fact. Strongest merge synchronization also requires the remote ruleset's strict up-to-date mode.
 
 ## Installed knowledge substrate
 
@@ -179,23 +232,24 @@ python tools/state_coherence_audit.py
 python tools/research_compass_audit.py
 python tools/legacy_assets_audit.py
 python tools/pvg_core_ontology_audit.py
+python tools/central_mind_continuity_audit.py
 ```
 
-All of the above run as parallel jobs of the required merge gate
-`.github/workflows/governance-required-gate.yml` on every pull request;
-the aggregate `governance-gate` job fails if any guard fails
-(GOVERNANCE-ENFORCEMENT-CLOSURE-001).
+All of the above run as parallel jobs of the required merge gate `.github/workflows/governance-required-gate.yml` on every pull request and push to `main`. The aggregate `governance-gate` job fails if any guard fails. Ruleset `governance-required` requires this status on `main` with no bypass actors.
 
 ## Focus rules
 
 - one active original-research front;
 - task first, prerequisite audit second;
 - minimum sufficient knowledge acquisition;
+- every acquired prerequisite returns through the shared PVG–ANT language;
 - no rebuilding certified bridges;
 - no external asset without a named missing function;
 - no tool without a named scientific function;
-- every stage has a measurable deliverable and closure rule;
-- the ceiling rises after each maturity level.
+- every stage has a measurable deliverable, closure rule, and maturation receipt;
+- every work branch begins from a fetched canonical state;
+- the ceiling rises only after a tested maturity level;
+- no Benchmark 002 learning before the immutable raw error map.
 
 ## Scientific ceiling
 
@@ -203,6 +257,8 @@ the aggregate `governance-gate` job fails if any guard fails
 No original lemma certified yet.
 No original theorem certified yet.
 No claim that PVG predicts local prime counts.
+Hidden-set autonomous performance is not measured.
+Benchmark 002 is not started.
 No RH progress.
 No GRH progress.
 ```
