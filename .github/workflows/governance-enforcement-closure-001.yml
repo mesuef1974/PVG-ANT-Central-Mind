@@ -1,0 +1,112 @@
+name: Governance Enforcement Closure 001
+
+on:
+  pull_request:
+  push:
+    branches:
+      - agent/governance-enforcement-closure-001
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: governance-enforcement-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  governance-enforcement:
+    name: Mandatory governance gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install audit dependencies
+        run: python -m pip install --disable-pip-version-check sympy mpmath
+
+      - name: Confirm closure branch ancestry and Lean freeze
+        shell: bash
+        run: |
+          set -euo pipefail
+          git merge-base --is-ancestor 240b3639524873109adc2bb61304cb24a978261d HEAD
+          if test -e formal/lean/audit/LeanP3Pass009Discovery.lean; then
+            echo "LeanP3Pass009Discovery.lean is not authorized in Governance Enforcement Closure 001." >&2
+            exit 1
+          fi
+
+      - name: Run core honesty and repository guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/honesty_audit.py
+          python tools/registry_sync_audit.py
+          python tools/no_pdf_audit.py
+          python tools/forbidden_promotion_audit.py
+          python tools/duplicate_concept_audit.py
+          python tools/citation_audit.py
+          python tools/state_coherence_audit.py
+          python tools/research_compass_audit.py
+          python tools/legacy_assets_audit.py
+
+      - name: Rebuild and audit Language Kernel v1
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/pvg_ant_kernel_examples.py
+          python tools/language_kernel_audit.py
+
+      - name: Rebuild and audit Translation Kernel v2 Pass 001
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/pvg_ant_translation_v2_examples.py
+          python tools/translation_kernel_v2_audit.py
+
+      - name: Rebuild and audit Translation Kernel v2 Pass 002
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/translation_kernel_v2_pass002_examples.py
+          python tools/translation_kernel_v2_pass002_audit.py
+
+      - name: Rebuild and audit Benchmark 001
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/pvg_ant_benchmark_001.py
+          python tools/pvg_ant_benchmark_001_pass002_rescore.py
+
+      - name: Rebuild and audit PVG Core Ontology v1
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/pvg_core_ontology_examples.py
+          python tools/pvg_core_ontology_audit.py
+
+      - name: Audit One-Theorem 001 P0-P8
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/one_theorem_symbolic_audit.py
+          python tools/one_theorem_phase_audit.py
+          python tools/one_theorem_p7_audit.py
+          python tools/one_theorem_p8_audit.py
+          python tools/one_theorem_external_validation_audit.py
+
+      - name: Verify deterministic generated state
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --exit-code
+          test -z "$(git status --porcelain)"
