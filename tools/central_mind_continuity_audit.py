@@ -233,7 +233,7 @@ def main() -> None:
     task_installer = read("tools/install_canonical_sync_task.ps1")
 
     for required_text in (
-        "origin/main is the canonical repository truth",
+        "`origin/main` is the canonical repository truth",
         "fast-forward",
         "strict_required_status_checks_policy = true",
         "workstation",
