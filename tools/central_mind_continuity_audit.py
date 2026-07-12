@@ -49,7 +49,9 @@ REQUIRED_STAGE_IDS = {
 }
 
 REQUIRED_EVENT_FIELDS = {
+    "kind",
     "id",
+    "title",
     "stage_id",
     "status",
     "capability_before",
@@ -158,6 +160,11 @@ def main() -> None:
                 issues,
             )
 
+        require(
+            row.get("kind") == "maturation_event",
+            f"maturation event {event_id} has unexpected kind {row.get('kind')!r}",
+            issues,
+        )
         require(
             str(row.get("status", "")) in ALLOWED_EVENT_STATUSES,
             f"maturation event {event_id} has unsupported status {row.get('status')!r}",
