@@ -28,18 +28,40 @@ def main():
 
     # (2) git-tracked check
     try:
-        out = subprocess.run(["git", "-C", ROOT, "ls-files"], capture_output=True, text=True, timeout=30)
-        for f in out.stdout.splitlines():
-            if f.lower().endswith(BAD_EXT):
-                problems.append(f"[pdf-tracked] {f}")
+        out = subprocess.run(
+            ["git", "-C", ROOT, "ls-files"],
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+        if out.returncode != 0:
+            problems.append(
+                f"[git] git ls-files failed with exit {out.returncode}: {out.stderr.strip()}"
+            )
+        else:
+            for f in out.stdout.splitlines():
+                if f.lower().endswith(BAD_EXT):
+                    problems.append(f"[pdf-tracked] {f}")
+
         # (3) Books_others must be ignored. The trailing slash makes the check
         # pattern-based, so it also holds in worktrees where the local library
         # directory does not exist — GOVERNANCE-ENFORCEMENT-CLOSURE-001 fix.
-        ci = subprocess.run(["git", "-C", ROOT, "check-ignore", "Books_others/"], capture_output=True, text=True, timeout=30)
-        if ci.returncode != 0:
+        ci = subprocess.run(
+            ["git", "-C", ROOT, "check-ignore", "Books_others/"],
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+        if ci.returncode == 1:
             problems.append("[gitignore] Books_others/ is NOT ignored (.gitignore insufficient)")
-    except (FileNotFoundError, subprocess.SubprocessError):
-        print("no_pdf_audit: git not available; ran filesystem check only.")
+        elif ci.returncode != 0:
+            problems.append(
+                f"[gitignore-check] git check-ignore failed with exit {ci.returncode}: {ci.stderr.strip()}"
+            )
+    except FileNotFoundError:
+        problems.append("[git] git executable is unavailable; tracked-file and ignore checks were not run")
+    except subprocess.SubprocessError as exc:
+        problems.append(f"[git] git audit command failed: {exc}")
 
     if problems:
         print(f"FAIL - {len(problems)} issue(s):")
