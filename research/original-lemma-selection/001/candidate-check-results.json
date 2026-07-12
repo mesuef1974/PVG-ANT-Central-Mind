@@ -1,0 +1,63 @@
+{
+  "face_enumerator": {
+    "status": "PASS",
+    "integers_checked": 200,
+    "z_values": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "margin_local_factors": {
+    "status": "PASS",
+    "r_values": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "first_residual_orders": {
+      "1": 4,
+      "2": 6,
+      "3": 8,
+      "4": 10,
+      "5": 12
+    }
+  },
+  "twisted_local_identity": {
+    "status": "PASS",
+    "r_values": [
+      1,
+      2,
+      3
+    ]
+  },
+  "sieve_rank_candidate": {
+    "status": "KILLED_TRIVIAL",
+    "tested_pairs": [
+      [
+        8,
+        4
+      ],
+      [
+        12,
+        6
+      ],
+      [
+        20,
+        10
+      ]
+    ]
+  },
+  "aggregate_recovery_candidate": {
+    "status": "KILLED_KNOWN",
+    "N": 30
+  },
+  "preliminary_shortlist": [
+    "OLS-CAND-001",
+    "OLS-CAND-002",
+    "OLS-CAND-005"
+  ]
+}

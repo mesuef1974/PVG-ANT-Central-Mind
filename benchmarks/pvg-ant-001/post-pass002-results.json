@@ -1,0 +1,176 @@
+{
+  "applied_upgrades": [
+    {
+      "card": "TR-V2-PVG-MATERIALITY-GATE-001",
+      "case_id": "B001-GA-07",
+      "points_added": 1,
+      "post_total": 12
+    },
+    {
+      "card": "TR-V2-PRIMITIVE-IMPRIMITIVE-CONDUCTOR-001",
+      "case_id": "B001-LA-06",
+      "points_added": 2,
+      "post_total": 12
+    },
+    {
+      "card": "TR-V2-GENERAL-THEOREM-SUBSUMPTION-001",
+      "case_id": "B001-LA-07",
+      "points_added": 2,
+      "post_total": 12
+    },
+    {
+      "card": "TR-V2-UNIFORMITY-PARAMETER-TRACKING-001",
+      "case_id": "B001-LA-09",
+      "points_added": 3,
+      "post_total": 12
+    },
+    {
+      "card": "TR-V2-LOCAL-GLOBAL-PROBABILISTIC-TRANSFER-001",
+      "case_id": "B001-PR-04",
+      "points_added": 4,
+      "post_total": 12
+    },
+    {
+      "card": "TR-V2-SHORT-INTERVAL-ADDITIVE-ORDER-001",
+      "case_id": "B001-PR-07",
+      "points_added": 3,
+      "post_total": 12
+    },
+    {
+      "card": "TR-V2-HALASZ-PRETENTIOUS-001",
+      "case_id": "B001-PR-08",
+      "points_added": 6,
+      "post_total": 12
+    },
+    {
+      "card": "TR-V2-PRIMITIVE-IMPRIMITIVE-CONDUCTOR-001",
+      "case_id": "B001-RE-06",
+      "points_added": 3,
+      "post_total": 12
+    },
+    {
+      "card": "TR-V2-MOMENT-TO-TAIL-MAX-001",
+      "case_id": "B001-RE-07",
+      "points_added": 2,
+      "post_total": 12
+    },
+    {
+      "card": "TR-V2-SIEVE-DISPERSION-001",
+      "case_id": "B001-SI-06",
+      "points_added": 4,
+      "post_total": 12
+    },
+    {
+      "card": "TR-V2-SMOOTH-TO-SHARP-DESMOOTHING-001",
+      "case_id": "B001-TR-03",
+      "points_added": 3,
+      "post_total": 12
+    },
+    {
+      "card": "TR-V2-VERTICAL-STRIP-CERTIFICATE-001",
+      "case_id": "B001-TR-04",
+      "points_added": 1,
+      "post_total": 12
+    },
+    {
+      "card": "TR-V2-TAUBERIAN-BOUNDARY-001",
+      "case_id": "B001-TR-05",
+      "points_added": 2,
+      "post_total": 12
+    },
+    {
+      "card": "TR-V2-UNIFORMITY-PARAMETER-TRACKING-001",
+      "case_id": "B001-TR-06",
+      "points_added": 3,
+      "post_total": 12
+    },
+    {
+      "card": "TR-V2-TAUBERIAN-BOUNDARY-001",
+      "case_id": "B001-TR-07",
+      "points_added": 1,
+      "post_total": 12
+    }
+  ],
+  "baseline_points": 662,
+  "benchmark_id": "PVG-ANT-BENCHMARK-001",
+  "case_count": 60,
+  "dimension_scores": {
+    "forward_translation": {
+      "max": 120,
+      "percent": 98.3,
+      "points": 118
+    },
+    "honest_classification": {
+      "max": 120,
+      "percent": 100.0,
+      "points": 120
+    },
+    "information_loss": {
+      "max": 120,
+      "percent": 100.0,
+      "points": 120
+    },
+    "reverse_control": {
+      "max": 120,
+      "percent": 93.3,
+      "points": 112
+    },
+    "tool_routing": {
+      "max": 120,
+      "percent": 96.7,
+      "points": 116
+    },
+    "wall_certificate": {
+      "max": 120,
+      "percent": 96.7,
+      "points": 116
+    }
+  },
+  "domain_scores": {
+    "geometry_arithmetic": {
+      "cases": 10,
+      "max": 120,
+      "percent": 98.3,
+      "points": 118
+    },
+    "local_analytic": {
+      "cases": 10,
+      "max": 120,
+      "percent": 96.7,
+      "points": 116
+    },
+    "probabilistic": {
+      "cases": 10,
+      "max": 120,
+      "percent": 95.0,
+      "points": 114
+    },
+    "residues": {
+      "cases": 10,
+      "max": 120,
+      "percent": 99.2,
+      "points": 119
+    },
+    "sieve": {
+      "cases": 10,
+      "max": 120,
+      "percent": 99.2,
+      "points": 119
+    },
+    "transforms": {
+      "cases": 10,
+      "max": 120,
+      "percent": 96.7,
+      "points": 116
+    }
+  },
+  "l3_promotion": false,
+  "max_points": 720,
+  "model_performance_claim": false,
+  "points_added": 40,
+  "post_pass002_percent": 97.5,
+  "post_pass002_points": 702,
+  "remaining_imperfect_cases": 11,
+  "rescore_id": "TRANSLATION-KERNEL-V2-PASS-002-RESCORE",
+  "rescore_type": "registry_coverage_improvement_not_model_performance"
+}

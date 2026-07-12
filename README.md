@@ -87,7 +87,8 @@ Active capability program:
   PVG-ANT-CENTRAL-MIND-MATURATION-002 — active.
   GOVERNANCE-ENFORCEMENT-CLOSURE-001 = CLOSED.
   CENTRAL-MIND-CONTINUITY-001 = installed_repository_side.
-  Current maturation receipt = MATURATION-RECEIPT-006.
+  CENTRAL-MIND-CONTINUITY-CLOSURE-002 = closed.
+  Current maturation receipt = MATURATION-RECEIPT-007.
   ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED.
 
 Closed operational goals:
@@ -107,7 +108,7 @@ Exact multiplicative translation   partial-to-strong
 Structural simplification          partial
 Transfer principles                one internally proved (I_r observable)
 Research mechanism                 one complete internal crossing; not repeated
-Continuity discipline              installed repository-side; workstation activation pending
+Continuity discipline              operationally closed (workstation task verified; strict gate mode active)
 Original lemma                     none certified
 Original theorem                   none certified
 ```
@@ -160,7 +161,7 @@ This preserves task-triggered acquisition while preventing knowledge starvation 
 
 ## Continuity protocol
 
-The repository-side continuity layer is installed under `CENTRAL-MIND-CONTINUITY-001` and recorded by `MATURATION-RECEIPT-006`.
+The repository-side continuity layer is installed under `CENTRAL-MIND-CONTINUITY-001` (`MATURATION-RECEIPT-006`) and operationally closed under `CENTRAL-MIND-CONTINUITY-CLOSURE-002` (`MATURATION-RECEIPT-007`).
 
 It couples:
 
@@ -183,7 +184,7 @@ One-time workstation activation:
 powershell -NoProfile -ExecutionPolicy Bypass -File tools/install_canonical_sync_task.ps1
 ```
 
-Repository CI verifies the scripts and policy. It cannot infer whether a workstation scheduled task is installed; that remains an external operator fact. Strongest merge synchronization also requires the remote ruleset's strict up-to-date mode.
+Repository CI verifies the scripts and policy; it cannot infer workstation state by itself. The workstation fact is therefore certified operator-side: the `PVG-ANT-Canonical-Sync` task is installed, RunLevel Limited, repeating every 15 minutes, with a verified successful run, and ruleset `governance-required` enforces strict up-to-date mode. Evidence: `audits/central-mind-continuity-closure-002.md`.
 
 ## Installed knowledge substrate
 

@@ -27,7 +27,8 @@ Capability maturation:
   PVG-UNDERSTANDING-DEEPENING-001 = checkpoint_pass; ontology frozen.
   GOVERNANCE-ENFORCEMENT-CLOSURE-001 = CLOSED.
   CENTRAL-MIND-CONTINUITY-001 = installed_repository_side.
-  Current maturation receipt = MATURATION-RECEIPT-006.
+  CENTRAL-MIND-CONTINUITY-CLOSURE-002 = closed.
+  Current maturation receipt = MATURATION-RECEIPT-007.
 
 Governance enforcement:
   Ruleset governance-required = ACTIVE on refs/heads/main.
@@ -48,10 +49,15 @@ Continuity layer:
   Common language = maps/pvg-ant-common-language-contract-v1.md.
   Maturation registry = registries/maturation-events.jsonl.
   Mandatory audit = tools/central_mind_continuity_audit.py.
-  Repository-side installation = present in this package.
-  Workstation scheduled-task activation = external fact, pending verification.
-  strict_required_status_checks_policy = false at last operator report;
-  strongest up-to-date enforcement remains an external ruleset hardening action.
+  Repository-side installation = present.
+  Workstation task PVG-ANT-Canonical-Sync = installed and verified:
+    RunLevel Limited, PT15M repetition, LastTaskResult = 0.
+  First-run defect (PowerShell 5.1 native stderr under Stop) = fixed in
+    PR #26 after adversarial review; exit code is the single failure signal.
+  strict_required_status_checks_policy = true, verified from ruleset
+    18833305 and rules/branches/main after the change.
+  Operational closure = CENTRAL-MIND-CONTINUITY-CLOSURE-002,
+    certified in audits/central-mind-continuity-closure-002.md.
 
 Knowledge-to-language law:
   Knowledge remains indispensable and task-triggered.
@@ -87,7 +93,7 @@ New continuity capability:
   Every live closed/installed capability stage must have a machine-readable
   maturation event with knowledge, language, reasoning, certificate,
   failure-memory, verification, synchronization, and ceiling fields.
-  Current receipt count = 6.
+  Current receipt count = 7.
 
 Benchmark state:
   historical baseline = 662 / 720 = 91.9 percent;
@@ -98,10 +104,9 @@ Benchmark state:
   or targeted learning have been created by this package.
 
 Next capability gate:
-  1. Verify/activate the local scheduled synchronization task.
-  2. Harden the external ruleset to strict up-to-date mode if authorized.
-  3. Then design ADVERSARIAL-PVG-ANT-BENCHMARK-002 without adding cards.
-  4. Required benchmark order:
+  continuity activation and strict hardening = complete;
+  next: design ADVERSARIAL-PVG-ANT-BENCHMARK-002 without adding cards.
+  Required benchmark order:
      raw hidden baseline → immutable error map → morphism composer
      → same-set rerun with contamination accounting → ablation
      → targeted knowledge and translation learning.
@@ -126,4 +131,4 @@ Ceiling:
   zero GRH progress.
 ```
 
-**Classification:** repository-side continuity and governed knowledge return installed above the closed governance gate; local scheduled activation and strict up-to-date ruleset mode remain externally verifiable.
+**Classification:** continuity operationally closed end to end (repository side, workstation task, and strict ruleset mode all verified); Benchmark 002 remains NOT_STARTED.
