@@ -47,9 +47,9 @@ decision tree for every review outcome before any packet is sent.
 
 Internal registry-coverage scores exist (Benchmark 001) and are explicitly
 not model performance. A sealed two-set adversarial benchmark
-(specification: Appendix B) is registered and NOT_STARTED; its single
-sealed-set run will be the program's first autonomous-performance
-measurement.
+(specification: Appendix B) is registered and NOT_STARTED; the raw Set-A
+baseline will be the first autonomous-performance measurement, and the
+single sealed Set-B run the only generalization measurement.
 
 ## 5. Questions for reviewers — answer each independently
 

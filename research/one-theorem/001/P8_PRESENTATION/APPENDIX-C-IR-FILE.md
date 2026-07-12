@@ -69,8 +69,8 @@ this review requests; the internal search is not treated as sufficient.
 
 ## 6. Review questions and terminal protocol
 
-The four separated questions and five materiality roles are listed in the
-memo; the pre-registered stopping protocol
+The four pre-registered review questions (plus the memo's open fifth,
+"what is missing") and the five materiality roles are listed in the memo; the pre-registered stopping protocol
 (`../P8_STOPPING_PROTOCOL.md`) fixes one terminal classification per
 outcome: known result / known machinery-new specialization / repairable
 defect / structural defect / novel with separately-classified PVG
