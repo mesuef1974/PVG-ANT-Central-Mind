@@ -17,48 +17,79 @@ Capability-maturation state:
   PVG-ANT-BENCHMARK-001 = checkpoint_pass.
   TRANSLATION-KERNEL-V2-PASS-002 = checkpoint_pass.
   PVG-UNDERSTANDING-DEEPENING-001 = checkpoint_pass; ontology frozen.
-  GOVERNANCE-ENFORCEMENT-CLOSURE-001 = executed; all ten guards PASS.
+  GOVERNANCE-ENFORCEMENT-CLOSURE-001 = CLOSED.
+  CENTRAL-MIND-CONTINUITY-001 = installed_repository_side.
+  Current maturation receipt = MATURATION-RECEIPT-006.
   Translation inventory = 44; native objects = 20; morphisms = 24.
-  planned.jsonl = empty (no queued passes registered).
+  planned.jsonl = empty (no queued research passes registered).
   Montgomery A/B/legacy-E quarantine (source-mismatch) remains in force.
+
+Continuity activation — next operational actions:
+  1. On the canonical Windows clone, run:
+       powershell -NoProfile -ExecutionPolicy Bypass
+       -File tools/install_canonical_sync_task.ps1
+  2. Read the installed task and execute one SafeSync run.
+  3. Record origin/main SHA, local HEAD, branch, clean-tree state,
+     ahead/behind counts, and task state in a workstation operator receipt.
+  4. Harden ruleset governance-required to
+     strict_required_status_checks_policy = true if authorized, then read
+     rules/branches/main to verify the effective rule.
+  5. Do not silently repair dirty, ahead, or diverged local states.
+
+Knowledge and maturation operating law:
+  Every stage begins with a named task and prerequisite gap map.
+  Every acquired prerequisite returns through the sixteen-field
+  PVG-ANT common-language contract.
+  Every closed/installed stage appends a maturation receipt recording:
+    knowledge, language, reasoning, certificate, failure memory,
+    verification, synchronization, and unchanged scientific ceiling.
+  Book/file/card counts alone are not maturity.
 
 Immediate external actions (parallel track; do not wait for internal work):
   1. Verify current addresses of one terminology/prior-art specialist
      and one independent ANT proof referee.
-  2. Send the P8 priority packet and the P8 proof packet after explicit
-     CEO authorization.
+  2. Send the P8 priority packet and the P8 proof packet only after explicit
+     authorization.
   3. Search a research-grade bibliographic database (MathSciNet/zbMATH)
      and cited-by chains for Chan–Tsang, Srichan, and weighted k-full
      literature.
   4. Record exactly one terminal theorem classification after responses.
 
-Immediate internal package:
-  ADVERSARIAL-PVG-ANT-BENCHMARK-002 design.
-  1. At least 48 new held-out cases; prompts separated from gold keys.
-  2. Gold keys kept outside the answering process; key hashes committed
-     before any scoring run.
-  3. Include abstention traps whose correct answer is a missing
-     certificate or an impossible reverse inference.
-  4. Score multi-card composition, invalid-reverse rejection, and PVG
-     materiality ablation — not single-card retrieval.
-  5. Record the first raw hidden-set score as an immutable baseline.
-  6. No card additions before the held-out error map is produced.
+Next internal package after continuity activation:
+  ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED.
 
-After Benchmark 002 (in order):
-  error map → morphism-composer tool → same-set ablation rerun →
-  proof-pattern library from failure clusters → targeted learning.
+Benchmark 002 order — immutable:
+  1. Design at least 48 new held-out cases; prompts separated from gold keys.
+  2. Commit gold-key hashes before any answering run.
+  3. Run the raw hidden baseline without new translation cards or gold access.
+  4. Freeze the raw score and produce the immutable error map.
+  5. Only then build the morphism-composer tool.
+  6. Rerun the same set with contamination accounting.
+  7. Run PVG-materiality ablation.
+  8. Activate targeted knowledge and translation learning only from named
+     failure clusters.
+
+Benchmark separation rules:
+  no card additions before the first error map;
+  no gold answers in the answering process;
+  no modification of Benchmark 001;
+  registry coverage and autonomous reasoning reported separately;
+  every invalid reverse inference receives a counterexample or named
+  missing certificate;
+  no L3 promotion from benchmark success.
 
 Do not do yet:
   no second theorem target;
   no publication claim;
-  no broad book mining;
+  no broad untargeted book mining;
   no new statistical dataset;
   Dataset 004 remains unauthorized;
   no automatic Lean expansion;
+  no Benchmark 002 targeted learning before the raw error map;
   no RH or GRH expansion.
 
 Ceiling:
-  ontology and routing knowledge create no theorem;
+  synchronization and maturation governance create no theorem;
   hidden-set autonomous performance = not measured;
   certified originality = absent;
   publication readiness = absent;
@@ -67,4 +98,4 @@ Ceiling:
   zero GRH progress.
 ```
 
-**Classification:** post-closure transition state — external P8 validation open in parallel with Adversarial Benchmark 002 design.
+**Classification:** activate workstation synchronization and strongest up-to-date enforcement, then begin only the design phase of Adversarial Benchmark 002; external P8 validation remains parallel and unsent.
