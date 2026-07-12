@@ -10,6 +10,8 @@ OUT = ROOT / "maps" / "pvg-core-ontology-example-results.json"
 
 
 def factor(n: int) -> dict[int, int]:
+    if n <= 0:
+        raise ValueError("Factorization is defined only for positive integers.")
     result: dict[int, int] = {}
     p = 2
     while p * p <= n:
