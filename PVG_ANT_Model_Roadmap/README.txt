@@ -1,4 +1,5 @@
-PVG–ANT Local Specialist — Corrected Roadmap v2.1 (Sync-Governed)
+PVG–ANT Research System — Governing Roadmap v2.2 Dual-Track (Sync-Governed)
+(supersedes v2.1, retired to historical/index-v2.1-superseded.html)
 
 افتح index.html في Chrome أو Edge.
 
@@ -18,7 +19,7 @@ PVG–ANT Local Specialist — Corrected Roadmap v2.1 (Sync-Governed)
 - البيانات تحفظ محليًا في المتصفح؛ استخدم Export JSON بعد كل بوابة.
 - لا تضع الملفات على main مباشرة؛ استخدم فرعًا وPR وبوابة governance-gate.
 
-بروتوكول التزامن الملزم (v2.1):
+بروتوكول التزامن الملزم (v2.2):
 - القاعدة: origin/main هو الحقيقة القانونية؛ local main نسخة تشغيلية يجب أن تطابقها؛
   الفروع مكان العمل فقط.
 - قبل بدء أي مرحلة:
@@ -32,7 +33,7 @@ PVG–ANT Local Specialist — Corrected Roadmap v2.1 (Sync-Governed)
 - بعد دمج مخرجات المرحلة: الفحص نفسه، ويُسجل Post-stage sync receipt.
 - كل إيصال يشمل: timestamp، local HEAD، origin/main SHA، branch،
   ahead/behind، tracked-tree status، scheduled-task status، last sync result.
-- لا تُغلق مرحلة في اللوحة دون Post-stage sync receipt (مفروض برمجيًا في v2.1).
+- لا تُغلق مرحلة في اللوحة دون Post-stage sync receipt (مفروض برمجيًا في v2.2).
 - مهمة المزامنة المجدولة كل 15 دقيقة (fetch ثم fast-forward الآمن فقط،
   دون معالجة صامتة للتعارضات) طبقة مساعدة، وليست بديلًا عن الإيصالين.
 - ممنوع دائمًا: commit مباشر على main، force push، hard reset آلي،

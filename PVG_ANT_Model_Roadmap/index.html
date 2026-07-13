@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="لوحة تنفيذية مصححة لبناء مكوّن محلي متخصص داخل منظومة PVG–ANT، تبدأ بقرار P8 والقياس قبل التدريب" />
-  <title>PVG–ANT Local Specialist — لوحة التنفيذ المصححة</title>
+  <meta name="description" content="لوحة PVG–ANT الحاكمة v2.2: عمود القياس، برنامج تشريح المستودعات الخارجية، سلّم الشهادات الخمس، والفصل بين العقل المجمد ورأس التأليف" />
+  <title>PVG–ANT Research System — لوحة التنفيذ الحاكمة v2.2</title>
   <style>
     :root {
       --bg: #f5f7fb;
@@ -267,6 +267,73 @@
       .card, .hero { box-shadow: none; break-inside: avoid; }
       .hero { color: white; }
     }
+
+    .mission-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .layer-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .track-grid { grid-template-columns: 1.15fr .85fr; }
+    .certificate-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    .autopsy-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .compact-card h3 { margin: 0 0 8px; font-size: 1rem; }
+    .compact-card p { margin: 0; color: var(--muted); font-size: .88rem; }
+    .layer-card { position: relative; overflow: hidden; }
+    .layer-card::before { content: attr(data-layer); position: absolute; left: 14px; top: 10px; font-weight: 900; font-size: 2.2rem; opacity: .08; }
+    .track-card { border-top: 4px solid var(--brand); }
+    .track-card.secondary { border-top-color: var(--brand-2); }
+    .flow {
+      display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 12px;
+      color: var(--muted); font-size: .83rem;
+    }
+    .flow span { padding: 6px 9px; border: 1px solid var(--line); background: var(--panel-2); border-radius: 999px; }
+    .flow b { color: var(--brand); }
+    .certificate-card { text-align: center; padding: 15px 12px; }
+    .certificate-card .num {
+      width: 34px; height: 34px; display: grid; place-items: center; margin: 0 auto 8px;
+      border-radius: 50%; color: white; font-weight: 800;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+    }
+    .certificate-card strong { display: block; font-size: .86rem; }
+    .certificate-card span { display: block; color: var(--muted); font-size: .75rem; margin-top: 4px; }
+    .governing-equation {
+      margin-top: 14px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 14px;
+      background: var(--panel-2); text-align: center; font-family: Consolas, "Segoe UI", monospace;
+      direction: ltr; overflow-x: auto;
+    }
+    .warning-box {
+      margin-top: 14px; padding: 13px 15px; border-radius: 13px;
+      border: 1px solid color-mix(in srgb, var(--warn) 35%, var(--line));
+      background: color-mix(in srgb, var(--warn) 8%, var(--panel));
+    }
+    .head-split {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;
+      margin-top: 16px;
+    }
+    .head-box { padding: 12px; border: 1px solid rgba(255,255,255,.28); border-radius: 13px; background: rgba(255,255,255,.10); }
+    .head-box strong { display: block; font-size: .76rem; opacity: .82; }
+    .head-box code { display: block; direction: ltr; text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: white; }
+    .status-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .stamp { display: inline-flex; align-items: center; gap: 7px; padding: 6px 9px; border-radius: 999px; font-size: .77rem; font-weight: 700; border: 1px solid var(--line); }
+    .stamp.ok { color: var(--ok); background: color-mix(in srgb, var(--ok) 10%, transparent); }
+    .stamp.ready { color: var(--brand); background: color-mix(in srgb, var(--brand) 10%, transparent); }
+    .stamp.hold { color: var(--warn); background: color-mix(in srgb, var(--warn) 10%, transparent); }
+    .mono { direction: ltr; text-align: left; font-family: Consolas, monospace; overflow-wrap: anywhere; }
+    .autopsy-card h3 { margin: 0; }
+    .autopsy-card .meta { color: var(--muted); font-size: .82rem; margin: 5px 0 12px; }
+    .autopsy-card ul { margin-bottom: 0; }
+    .gate-band {
+      margin-top: 16px; padding: 14px 16px; border-radius: 14px;
+      border: 1px dashed var(--brand); background: color-mix(in srgb, var(--brand) 5%, var(--panel));
+    }
+    .gate-band strong { color: var(--brand); }
+    .current-state-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .current-state-grid .value { font-size: 1.05rem; font-weight: 800; overflow-wrap: anywhere; }
+    @media (max-width: 1100px) {
+      .mission-grid, .layer-grid, .certificate-grid, .current-state-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .track-grid, .autopsy-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 700px) {
+      .mission-grid, .layer-grid, .certificate-grid, .current-state-grid, .head-split { grid-template-columns: 1fr; }
+    }
+
   </style>
 </head>
 <body>
@@ -275,8 +342,8 @@
     <div class="brand">
       <div class="brand-mark" aria-hidden="true">PA</div>
       <div>
-        <h1>PVG–ANT Local Specialist</h1>
-        <p>الخطة المصححة: الحكم والقياس قبل التدريب</p>
+        <h1>PVG–ANT Research System</h1>
+        <p>الخطة الحاكمة v2.2: القياس محور، والتشريح خزانة أدوات</p>
       </div>
     </div>
     <div class="actions" aria-label="إجراءات الصفحة">
@@ -291,43 +358,116 @@
   <div class="layout">
     <aside class="sidebar" aria-label="التنقل">
       <h2>التنقل</h2>
+
       <nav class="nav-list">
         <a class="nav-link active" href="#overview">نظرة عامة <span>01</span></a>
-        <a class="nav-link" href="#timeline">الخط الزمني <span>02</span></a>
-        <a class="nav-link" href="#stages">المراحل التنفيذية <span>03</span></a>
-        <a class="nav-link" href="#metrics">مؤشرات النجاح <span>04</span></a>
-        <a class="nav-link" href="#risks">المخاطر <span>05</span></a>
-        <a class="nav-link" href="#decisions">بوابات القرار <span>06</span></a>
+        <a class="nav-link" href="#mission">الرسالة والأهداف <span>02</span></a>
+        <a class="nav-link" href="#layers">الطبقات الحاكمة <span>03</span></a>
+        <a class="nav-link" href="#tracks">المساران <span>04</span></a>
+        <a class="nav-link" href="#certificates">الشهادات الخمس <span>05</span></a>
+        <a class="nav-link" href="#timeline">الخط الزمني <span>06</span></a>
+        <a class="nav-link" href="#stages">عمود القياس <span>07</span></a>
+        <a class="nav-link" href="#autopsy">برنامج التشريح <span>08</span></a>
+        <a class="nav-link" href="#metrics">مؤشرات النجاح <span>09</span></a>
+        <a class="nav-link" href="#risks">المخاطر <span>10</span></a>
+        <a class="nav-link" href="#decisions">بوابات القرار <span>11</span></a>
       </nav>
       <div class="sidebar-note">
         <strong>طريقة العمل</strong><br>
-        حدّث حالة كل مرحلة ونسبتها وملاحظاتها. لا تُغلق أي مرحلة دون إيصالي التزامن (قبل/بعد) بإثبات HEAD == origin/main. تُحفظ البيانات تلقائيًا في المتصفح ويمكن تصديرها كملف JSON.
+        عمود القياس هو المحور، وبرنامج التشريح خزانة أدوات فقط. لا يبدأ S2 إلا على ARM-CURRENT-FROZEN-HEAD، ولا تُغلق مرحلة دون إيصالي التزامن قبلها وبعدها. مخرجات التشريح لا تدخل القرار المعماري قبل IMMUTABLE-ERROR-MAP-002-A.
       </div>
     </aside>
 
     <main id="main">
+
       <section class="hero" id="overview">
         <div class="hero-grid">
           <div>
-            <div class="eyebrow">PVG-ANT-LOCAL-SPECIALIST-PROGRAM-001 · REVISED PLAN v2.1 · SYNC-GOVERNED</div>
-            <h2>من الحكم الخارجي والقياس إلى مكوّن محلي متخصص</h2>
-            <p>المستودع والذاكرة والحوكمة والتقييم هي العقل الدائم. النموذج المحلي عضو متخصص داخل المنظومة؛ يبدأ البرنامج بقرار P8، ثم Benchmark 002 على العقل الحالي، ثم بناء الأصول والتدريب الموجّه بخريطة الأخطاء.</p>
+            <div class="eyebrow">PVG-ANT-RESEARCH-MODEL-PROGRAM-001 · ROADMAP v2.2 · DUAL-TRACK · FIVE-CERTIFICATE-GOVERNED</div>
+            <h2>من عقلٍ مجمّد قابل للقياس إلى منظومة بحثية هجينة قابلة للتدقيق</h2>
+            <p>المستودع والأنطولوجيا والذاكرة والحوكمة والتقييم هي العقل الدائم. النموذج المحلي عضو متخصص قابل للاستبدال. عمود القياس هو المحور؛ وبرنامج تشريح المستودعات الخارجية يملأ خزانة أدوات معلّقة حتى تكشف خريطة الأخطاء ما نحتاجه فعلًا.</p>
             <div class="identity-strip">
               <div><strong>ARM-BASE</strong>النموذج الأساس الخام</div>
               <div><strong>ARM-LOCAL</strong>المكوّن المحلي المتخصص</div>
-              <div><strong>ARM-CURRENT</strong>العقل الحالي الكامل</div>
-              <div><strong>ARM-HYBRID</strong>العقل الحالي + المحلي</div>
+              <div><strong>ARM-CURRENT</strong>العقل الحالي المجمد للقياس</div>
+              <div><strong>ARM-HYBRID</strong>العقل الحالي + المكوّن المقبول</div>
+            </div>
+            <div class="head-split">
+              <div class="head-box"><strong>ARM-CURRENT-FROZEN-HEAD</strong><code>6960cb54b49d3318af7807ea5829c0232192dc60</code></div>
+              <div class="head-box"><strong>S1-AUTHORING-HEAD</strong><code>HEAD متزامن مستقل لتأليف أصول S1 والحوكمة</code></div>
             </div>
           </div>
           <div class="hero-meta">
-            <div><strong>البداية المخططة</strong><span>13 يوليو 2026</span></div>
-            <div><strong>الهوية المستهدفة</strong><span>Local Specialist + Hybrid System</span></div>
-            <div><strong>الاختبار النهائي</strong><span>14 فبراير 2027</span></div>
+            <div><strong>الحالة الحالية</strong><span>G0 مكتمل · S1 لم يبدأ</span></div>
+            <div><strong>فتح S1</strong><span>20 يوليو 2026</span></div>
+            <div><strong>مراجعة P8 التالية</strong><span>26 يوليو 2026 · 19:47:20Z</span></div>
+            <div><strong>الاختبار النهائي المحجوب</strong><span>14 فبراير 2027</span></div>
           </div>
         </div>
         <div class="critical-banner">
-          <strong>بوابة صفر غير قابلة للتجاوز</strong>
-          <span>قبل 19 يوليو 2026 الساعة 23:59:59 بتوقيت قطر: يجب تسجيل P8 = SENT أو HOLD_AUTHORIZED. لا تدريب ولا corpus تخصصية قبل CURRENT-MIND-RAW-BASELINE-001.</span>
+          <strong>الفصل الحاكم غير القابل للتجاوز</strong>
+          <span>تعديلات S1 الحوكمية لا تغيّر ARM-CURRENT baseline. لا corpus تخصصية، لا تدريب، ولا اختيار معماري قبل CURRENT-MIND-RAW-BASELINE-001 وIMMUTABLE-ERROR-MAP-002-A. أسئلة Benchmark ومفاتيحه خارج سياق العقل المقاس.</span>
+        </div>
+      </section>
+
+
+      <section class="section" id="mission">
+        <div class="section-header"><div><h2>الرسالة والأهداف المحدثة</h2><p>الهدف ليس تكثير الملفات أو تدريب نموذج لمجرد التدريب، بل بناء قدرة بحثية مقاسة ومصدرية وقابلة للتفنيد.</p></div></div>
+        <div class="grid mission-grid">
+          <article class="card compact-card"><h3>الرسالة</h3><p>بناء منظومة PVG–ANT تربط هندسة متجهات التقييمات الأولية <span class="mono">ν(n)=(v_p(n))_p</span> بالأدوات التحليلية وبشهادات واضحة، مع قياس محجوب قبل البناء.</p></article>
+          <article class="card compact-card"><h3>الأهداف</h3><p>قياس العقل الحالي، تحديد عجزه، بناء مكونات محلية موجهة، ثم قبول ما يضيف قدرة فعلية داخل ARM-HYBRID دون تراجع.</p></article>
+          <article class="card compact-card"><h3>غير الأهداف</h3><p>لا ادعاء باحث عام، لا تعدين كتب واسع، لا استيراد كود لأنه أنيق، لا مساواة بين إعادة الصياغة ونظرية جديدة، ولا تقدم RH/GRH.</p></article>
+          <article class="card compact-card"><h3>معيار النجاح</h3><p>تحسن محجوب قابل لإعادة الإنتاج، حفظ القدرات السابقة، انضباط الشهادات، مصادر قابلة للتتبع، ومراجعة مستقلة قبل أي تسمية قوية.</p></article>
+        </div>
+      </section>
+
+      <section class="section" id="layers">
+        <div class="section-header"><div><h2>الطبقات الحاكمة الأربع</h2><p>كل طبقة تضبط التي تحتها، ولا يجوز لمس الطبقة الأعلى لتجميل نتيجة اختبار أو أداة.</p></div></div>
+        <div class="grid layer-grid">
+          <article class="card compact-card layer-card" data-layer="L0"><h3>L0 — الوثيقة العليا</h3><p><code>GOAL-PVG-ANT-STRATEGIC-001</code> والمثلث الحاكم: PVG ↔ ANT ↔ Certificate.</p></article>
+          <article class="card compact-card layer-card" data-layer="L1"><h3>L1 — Roadmap v2.2</h3><p>أربعة أذرع، قياس قبل التدريب، وقرار تسمية مؤجل حتى اختبار B.</p></article>
+          <article class="card compact-card layer-card" data-layer="L2"><h3>L2 — المساران</h3><p>عمود القياس محور القرار؛ وبرنامج التشريح خزانة أدوات خارجية معلّقة.</p></article>
+          <article class="card compact-card layer-card" data-layer="L3"><h3>L3 — انضباط الشهادة</h3><p>لا ترقية إلى Theorem إلا باجتماع الشهادات الخمس، مع أعلى تصنيف صادق للمخرجات الناقصة.</p></article>
+        </div>
+      </section>
+
+      <section class="section" id="tracks">
+        <div class="section-header"><div><h2>المساران المتوازيان</h2><p>التوازي زمني فقط؛ السلطة المعمارية تبقى لخريطة الأخطاء الناتجة من القياس.</p></div></div>
+        <div class="grid track-grid">
+          <article class="card track-card">
+            <h3>المسار (أ): عمود القياس — المحور</h3>
+            <p>يبدأ بختم Benchmark 002، ثم الخط الخام للعقل المجمد، ثم خريطة أخطاء غير قابلة لإعادة الكتابة. بعدها فقط يبدأ الاختيار المعماري والكوربوس والتدريب.</p>
+            <div class="flow"><span>S1 ختم A/B</span><b>←</b><span>S2 خط ARM-CURRENT</span><b>←</b><span>Error Map</span><b>←</b><span>S3 اختيار</span><b>←</b><span>S4–S8 بناء واختبار</span></div>
+          </article>
+          <article class="card track-card secondary">
+            <h3>المسار (ب): برنامج التشريح — خزانة أدوات</h3>
+            <p>يشرّح مستودعات خارجية مجمّدة قراءةً فقط، وينتج خرائط تصميم وقواعد وشهادات واختبارات تفنيد. لا يمنح نفسه حق الدمج أو التدريب.</p>
+            <div class="flow"><span>Discover</span><b>←</b><span>Freeze</span><b>←</b><span>Autopsy</span><b>←</b><span>Reproduce</span><b>←</b><span>Audit</span><b>←</b><span>Extract</span><b>←</b><span>Integrate/Reject</span></div>
+          </article>
+        </div>
+        <div class="gate-band"><strong>البوابة المحورية:</strong> كل مخرج تشريحي يبقى معلقًا حتى <code>IMMUTABLE-ERROR-MAP-002-A</code>. وجود الأداة أو أناقتها أو شهرتها لا يبرر اختيارها.</div>
+      </section>
+
+      <section class="section" id="certificates">
+        <div class="section-header"><div><h2>سلّم الشهادات الخمس</h2><p><code>Region.is_subset_of</code> يثبت احتواء النطاق فقط؛ وهو الخانة الخامسة لا بوابة النظرية كلها.</p></div></div>
+        <div class="grid certificate-grid">
+          <article class="card certificate-card"><div class="num">1</div><strong>قاعدة تحويل متحققة</strong><span>اشتقاق صحيح ومراجع لا تحويل نصي مفترض</span></article>
+          <article class="card certificate-card"><div class="num">2</div><strong>شهادة المكممات</strong><span>∀ε وo(1) والانتظام والترتيب الحدّي</span></article>
+          <article class="card certificate-card"><div class="num">3</div><strong>شهادة التطبيع</strong><span>المتغيرات والمقاييس والإشارات متسقة</span></article>
+          <article class="card certificate-card"><div class="num">4</div><strong>شهادة المصدر والنسب</strong><span>النتيجة ومصدرها وتبعياتها قابلة للتتبع</span></article>
+          <article class="card certificate-card"><div class="num">5</div><strong>احتواء النطاق</strong><span>المدخل والنتيجة داخل مجال الصلاحية</span></article>
+        </div>
+        <div class="governing-equation">THEOREM-GATE = TRANSFORMATION ∧ QUANTIFIERS ∧ NORMALIZATION ∧ PROVENANCE ∧ SCOPE</div>
+        <div class="warning-box"><strong>قاعدة التصنيف:</strong> أي نقص في شهادة واحدة يمنع الترقية الآلية إلى Theorem. يبقى المخرج Known/Derived/Diagnostic/Verify-Required بحسب أقوى دليل يملكه فعلًا.</div>
+      </section>
+
+      <section class="section">
+        <div class="grid current-state-grid">
+          <article class="card stat-card"><div class="label">المستودع الحاكم</div><div class="value mono">D:\PVG-ANT-Central-Mind</div><div class="sub">governed control head 244b484 (متحرّك مع كل PR) · capability-frozen 6960cb5 (ثابت) · G0 مغلق</div></article>
+          <article class="card stat-card"><div class="label">المختبر الخارجي</div><div class="value mono">D:\PVG-ANT-External-Labs</div><div class="sub">قراءة وتجميد وتشريح خارج المستودع الحاكم</div></article>
+          <article class="card stat-card"><div class="label">P8</div><div class="value">HOLD_AUTHORIZED</div><div class="sub">قرار مراجع جديد قبل 26 يوليو 19:47:20Z</div></article>
+          <article class="card stat-card"><div class="label">Benchmark 002</div><div class="value">NOT_STARTED</div><div class="sub">S1 يفتح 20 يوليو 2026</div></article>
+          <article class="card stat-card"><div class="label">التدريب والكوربوس</div><div class="value">PROHIBITED</div><div class="sub">حتى الخط الخام وخريطة الأخطاء</div></article>
         </div>
       </section>
 
@@ -344,7 +484,7 @@
 
       <section class="section" id="stages">
         <div class="section-header">
-          <div><h2>المراحل التنفيذية</h2><p>حدّث الحالة، النسبة، المالك، التواريخ الفعلية، المهام، والملاحظات.</p></div>
+          <div><h2>عمود القياس — المراحل S0–S8</h2><p>هذا هو المسار صاحب سلطة الاختيار. حدّث الحالة والدليل، مع فصل رأس القياس المجمد عن رأس تأليف الأصول.</p></div>
         </div>
         <div class="toolbar" aria-label="مرشحات المراحل">
           <input id="searchInput" type="search" placeholder="بحث في المراحل والمهام..." />
@@ -359,6 +499,40 @@
           <button class="btn small" id="collapseAllBtn" type="button">طي الكل</button>
         </div>
         <div class="stage-list" id="stageList"></div>
+      </section>
+
+
+      <section class="section" id="autopsy">
+        <div class="section-header"><div><h2>برنامج تشريح المستودعات الخارجية 001</h2><p><span class="mono">D:\PVG-ANT-External-Labs</span> · ثمانية مستودعات مجمّدة. التشريح منفصل عن إعادة الإنتاج، وإعادة الإنتاج خلف بوابة خريطة الأخطاء.</p></div></div>
+        <div class="grid autopsy-grid">
+          <article class="card autopsy-card">
+            <div class="status-row"><span class="stamp ok">UNIT 001 مكتملة</span><span class="stamp hold">ADAPT-ARCHITECTURE فقط</span></div>
+            <h3>expdb / ANTEDB</h3>
+            <div class="meta mono">frozen commit: 99668603896a</div>
+            <ul class="clean-list">
+              <li>خريطة تمثيل المعرفة وDAG الاشتقاق.</li>
+              <li>تدقيق الاشتقاق والنطاق وبطاقة تشريح 24 حقلًا.</li>
+              <li>كشف غياب المكممات والتطبيع والمصدر كشهادات آلية.</li>
+              <li>مرشح معلّق: <code>Estimate Dependency Engine</code> كمواصفة.</li>
+            </ul>
+          </article>
+          <article class="card autopsy-card">
+            <div class="status-row"><span class="stamp ready">UNIT 002 مفوّضة</span><span class="stamp hold">لم تُطلق بعد</span></div>
+            <h3>FLINT / python-flint</h3>
+            <div class="meta">حزمة واحدة بطبقتين: النواة الأصلية + الواجهة الدلالية في Python.</div>
+            <ul class="clean-list">
+              <li>أول مخرج: <code>FLINT-PYTHON-FLINT-SOURCE-FREEZE-RECEIPT</code>.</li>
+              <li>لا build ولا execution ولا install ولا benchmark.</li>
+              <li>السؤال: متى تكون النتيجة حسابًا، ومتى تصبح شهادة؟</li>
+              <li>قرار مستقل للمعمارية والخوارزميات والكود والواجهة ودلالات الشهادة.</li>
+            </ul>
+          </article>
+        </div>
+        <div class="card" style="margin-top:16px">
+          <h3 style="margin-top:0">قواعد التشريح الحاكمة</h3>
+          <div class="flow"><span>Autopsy ≠ Reproduction</span><span>Design estimate ≠ quotation scope</span><span>License audit before reuse</span><span>Exact result needs domain certificate</span><span>Enclosure is not decision</span><span>Probable is not proved</span></div>
+          <div class="gate-band"><strong>التعليق الإلزامي:</strong> لا كود، لا adapter، لا تدريب، لا درجة benchmark، ولا دمج في ARM-HYBRID قبل أن تطلب خريطة الأخطاء قدرة محددة وتنجح في اختبار قبول وفشل مستقلين.</div>
+        </div>
       </section>
 
       <section class="section" id="metrics">
@@ -387,7 +561,7 @@
         <div class="grid decision-grid" id="decisionGrid"></div>
       </section>
 
-      <div class="footer">الخطة المصححة v2.1 — التزامن المحلي–البعيد شرط تشغيلي لكل مرحلة، لا خطوة صيانة. تُحفظ التحديثات محليًا؛ صدّر JSON بعد كل بوابة، ولا تُدمج اللوحة إلا عبر فرع وPR ناجح.</div>
+      <div class="footer">الخطة الحاكمة v2.2 — عمود القياس هو المحور، وبرنامج التشريح خزانة أدوات معلّقة. التزامن قبل/بعد كل مرحلة إلزامي، وARM-CURRENT-FROZEN-HEAD لا يتحرك مع S1-AUTHORING-HEAD. صدّر JSON بعد كل بوابة، ولا دمج إلا عبر فرع وPR وحارس ناجح.</div>
     </main>
   </div>
 
@@ -406,7 +580,7 @@
   </div>
 
   <script>
-    const STORAGE_KEY = 'pvg-ant-roadmap-v2';
+    const STORAGE_KEY = 'pvg-ant-roadmap-v2-2';
     const statusLabels = {
       'not-started': 'لم تبدأ',
       'in-progress': 'قيد التنفيذ',
@@ -416,120 +590,480 @@
 
     const stages = [
       {
-        id: 'S0', index: 0, title: 'إغلاق الاستمرارية وقرار P8',
-        start: '2026-07-13', end: '2026-07-19', month: 0,
-        objective: 'منع افتتاح مشروع داخلي جديد قبل حسم الحكم الخارجي، تنظيف main، وتثبيت بيئة تشغيل قابلة لإعادة الإنتاج.',
-        outputs: ['CENTRAL-MIND-CONTINUITY-CLOSURE-002','MATURATION-RECEIPT-007','P8-DECISION-RECORD','CURRENT-MIND-FREEZE-MANIFEST'],
-        gate: 'الشجرة نظيفة، المزامنة والـstrict ruleset مثبتان، وP8 في حالة SENT أو HOLD_AUTHORIZED قبل المهلة.',
-        tasks: ['إخراج ملفات اللوحة من stage على main وإبقاؤها محلية حتى PR مشروع','تثبيت مهمة المزامنة وتشغيل SafeSync والتحقق من شجرة نظيفة','تفعيل strict_required_status_checks_policy مع بقاء governance-gate بلا bypass','تحييد صياغة حزمتي P8 وتثبيت بروتوكول التوقف الخماسي','تسجيل P8 = SENT أو HOLD_AUTHORIZED قبل 2026-07-19T23:59:59+03:00','تجميد manifest للعقل الحالي: المحرك والمستودع والأدوات والإعدادات كذراع ARM-CURRENT']
+            "id": "S0",
+            "index": 0,
+            "title": "إغلاق الاستمرارية وتجميد العقل الحالي",
+            "start": "2026-07-13",
+            "end": "2026-07-19",
+            "month": 0,
+            "objective": "إغلاق G0 وتثبيت الحقيقة القانونية وتجميد ARM-CURRENT في حزمة قابلة للقياس، مع إبقاء قرار P8 المستقل تحت المراجعة الدورية.",
+            "outputs": [
+                  "CENTRAL-MIND-CONTINUITY-CLOSURE-002",
+                  "MATURATION-RECEIPT-007",
+                  "P8-HOLD-AUTHORIZED-RECORD",
+                  "CURRENT-MIND-FREEZE-MANIFEST",
+                  "ARM-CURRENT-FROZEN-HEAD-RECEIPT"
+            ],
+            "gate": "G0 مغلق، local main = origin/main، الشجرة نظيفة، والحزمة المجمدة تشير إلى 6960cb54... ولا تتغير بتحرك main لاحقًا.",
+            "tasks": [
+                  "تثبيت origin/main بوصفه الحقيقة القانونية عند 6960cb54b49d3318af7807ea5829c0232192dc60",
+                  "توثيق الشجرة النظيفة والمزامنة والـstrict ruleset وgovernance-gate بلا bypass",
+                  "تسجيل P8 = HOLD_AUTHORIZED مع مهلة قرار مراجع قبل 2026-07-26T19:47:20Z",
+                  "تجميد المحرك والمستودع والأدوات والـprompt والإعدادات والتبعيات لذراع ARM-CURRENT",
+                  "تسمية الرأس المجمد ARM-CURRENT-FROZEN-HEAD وفصله عن أي رأس تأليف لاحق",
+                  "إغلاق الاستمرارية دون بدء Benchmark 002 أو corpus أو تدريب"
+            ]
       },
       {
-        id: 'S1', index: 1, title: 'تصميم وختم Benchmark 002',
-        start: '2026-07-13', end: '2026-08-16', month: 0,
-        objective: 'توحيد القياس مع البروتوكول القانوني القائم وإنشاء مجموعتي A وB قبل التدريب.',
-        outputs: ['BENCHMARK-002-SEALED','HIDDEN-A-MANIFEST','HIDDEN-B-CIPHERTEXT','FROZEN-SCORING-RUBRIC'],
-        gate: 'A وB جديدتان، الأدوار معزولة، B مشفرة، الأدوات والـprompt والمحاولات والـrubric مجمدة.',
-        tasks: ['تأليف Hidden Set A بعدد لا يقل عن 48 حالة','تأليف Hidden Set B بعدد لا يقل عن 48 حالة في الورشة نفسها','فصل case author وkey verifier وanswering agent وscoring agent','تشفير أسئلة B ومفاتيحها offline وحفظ ciphertext + SHA-256 manifest','إجراء فحص تسرب مفاهيمي ضد الأصول السبعة للمشروع','تجميد الأدوات والذاكرة وsystem prompt وعدد المحاولات وإعدادات التصحيح','منع أي بطاقات أو تدريب أو تعلم موجّه قبل الخط الخام']
+            "id": "S1",
+            "index": 1,
+            "title": "تكامل الأصول وتصميم وختم Benchmark 002",
+            "start": "2026-07-13",
+            "end": "2026-08-16",
+            "month": 0,
+            "objective": "فتح فرع متزامن مستقل لتثبيت الرسالة والحوكمة الجديدة، ثم إنشاء A وB والـrubric مع عزل كامل عن ARM-CURRENT المجمد.",
+            "outputs": [
+                  "S1-ASSET-INTEGRATION",
+                  "MISSION-GOALS-NON-GOALS-SUCCESS-CRITERIA",
+                  "BENCHMARK-002-SEALED",
+                  "HIDDEN-A-MANIFEST",
+                  "HIDDEN-B-CIPHERTEXT",
+                  "FROZEN-SCORING-RUBRIC"
+            ],
+            "gate": "Pre-stage receipt صالح، S1-AUTHORING-HEAD مستقل، A/B جديدتان ومعزولتان، B مشفرة، وقرار P8 مراجع قبل 26 يوليو.",
+            "tasks": [
+                  "بدء فرع S1 من main متزامن وتسجيل Pre-stage sync receipt",
+                  "اشتقاق mission/goals/non-goals/success-criteria من الوثيقة الحاكمة العليا",
+                  "إعلان برنامج التشريح داخل Roadmap بوصفه مسارًا تحضيريًا معلقًا حتى خريطة الأخطاء",
+                  "اعتماد سلّم الشهادات الخمس في حوكمة الشهادات",
+                  "اعتماد قاعدة: لا نطاق اقتباس قبل تدقيق الرخصة والتبعيات وحدود الفصل",
+                  "تأليف Hidden Set A بعدد لا يقل عن 48 حالة",
+                  "تأليف Hidden Set B بعدد لا يقل عن 48 حالة في الورشة نفسها",
+                  "فصل case author وkey verifier وanswering agent وscoring agent وB custodian",
+                  "تشفير B offline وحفظ ciphertext وSHA-256 manifest",
+                  "إجراء فحص تسرب مفاهيمي ضد أصول المشروع وخزانة التشريح",
+                  "تجميد الأدوات والذاكرة وsystem prompt والمحاولات والـrubric",
+                  "تسجيل قرار P8 مراجع جديد قبل 2026-07-26T19:47:20Z",
+                  "إغلاق S1 عبر Post-stage sync receipt دون إدخال أصول التقييم في سياق ARM-CURRENT"
+            ]
       },
       {
-        id: 'S2', index: 2, title: 'الخط الخام على العقل الحالي',
-        start: '2026-08-17', end: '2026-08-31', month: 1,
-        objective: 'قياس ARM-CURRENT على A أولًا لاكتشاف فجوات المنظومة التي ستحدد ما يُبنى ويُدرّب.',
-        outputs: ['CURRENT-MIND-RAW-BASELINE-001','IMMUTABLE-ERROR-MAP-002-A','CURRENT-MIND-CALIBRATION-REPORT'],
-        gate: 'الإجابات والإعدادات والثقة محفوظة دون تعديل، التصحيح مستقل، وخريطة الأخطاء غير قابلة لإعادة الكتابة.',
-        tasks: ['تشغيل العقل الحالي المجمد على A دون تدخل أثناء التشغيل','حفظ كل الإجابات والثقة والأدوات ومسارات الاستدلال المتاحة','تصحيح مستقل وفق rubric المجمد','تصنيف الفشل: معرفة، ترجمة، تركيب، أداة، عكس غير مشروع، مصدر، معايرة','فتح مفاتيح A بعد الخط الخام ووسمها contaminated development set','تجميد خريطة الأخطاء لتصبح مدخل القرار المعماري والكوربوس']
+            "id": "S2",
+            "index": 2,
+            "title": "الخط الخام على ARM-CURRENT المجمد",
+            "start": "2026-08-17",
+            "end": "2026-08-31",
+            "month": 1,
+            "objective": "قياس نسخة ARM-CURRENT المجمدة تحديدًا على A واستخراج خريطة أخطاء غير قابلة لإعادة الكتابة قبل أي اختيار أو تدريب.",
+            "outputs": [
+                  "CURRENT-MIND-RAW-BASELINE-001",
+                  "IMMUTABLE-ERROR-MAP-002-A",
+                  "CURRENT-MIND-CALIBRATION-REPORT",
+                  "BASELINE-ENVIRONMENT-RECEIPT"
+            ],
+            "gate": "الـcommit والبيئة والـprompt والأدوات والمحاولات مطابقة لحزمة التجميد؛ التصحيح مستقل؛ وخريطة الأخطاء مقفلة قبل رؤية أي تدريب.",
+            "tasks": [
+                  "تشغيل ARM-CURRENT-FROZEN-HEAD = 6960cb54... لا S1-AUTHORING-HEAD",
+                  "التحقق من hashes المحرك والتبعيات والأدوات والـprompt وسياسة المحاولات",
+                  "منع أسئلة A/B والـrubric وخرائط المؤلفين من دخول سياق العقل",
+                  "حفظ كل الإجابات والثقة واستدعاءات الأدوات والإعدادات دون تدخل أثناء التشغيل",
+                  "تصحيح مستقل وفق rubric المجمد",
+                  "تصنيف الفشل: معرفة، ترجمة، تركيب، أداة، عكس غير مشروع، مصدر، معايرة، شهادة",
+                  "فتح مفاتيح A بعد الخط الخام ووسمها contaminated development set",
+                  "تجميد IMMUTABLE-ERROR-MAP-002-A ومنع إعادة صياغتها لخدمة أداة موجودة"
+            ]
       },
       {
-        id: 'S3', index: 3, title: 'دراسة النماذج والقرار المعماري',
-        start: '2026-09-01', end: '2026-09-21', month: 2,
-        objective: 'دراسة النماذج الرياضية واختيار المكونات استنادًا إلى عناقيد الفشل الفعلية، لا إلى الشهرة.',
-        outputs: ['MATHEMATICAL-MODEL-INTELLIGENCE-001','ARCHITECTURE-DECISION-RECORD-001','BASE-MODEL-SHORTLIST-001'],
-        gate: 'كل مكوّن مقترح مرتبط بفشل مسمى؛ لا وعد بأن LoRA يحل الاستدلال البحثي الطويل.',
-        tasks: ['دراسة Qwen وLlemma والنماذج الرياضية المتاحة وتحديث النتائج قبل القرار','دراسة أنظمة Lean/prover والتصحيح من رسائل المحقق','ربط كل عنقود فشل بحل محتمل: RAG أو translator أو critic أو tool router أو formal prover','اختبار مرشحين 4B–8B محليًا دون تدريب','تسجيل دوافع السيادة التشغيلية منفصلة عن رفع القدرة','اختيار ARM-BASE رئيسي واحتياطي ومعمارية ARM-LOCAL وARM-HYBRID']
+            "id": "S3",
+            "index": 3,
+            "title": "قرار معماري موجّه بخريطة الأخطاء",
+            "start": "2026-09-01",
+            "end": "2026-09-21",
+            "month": 2,
+            "objective": "اختيار المكونات من نتائج القياس، واستخدام مخرجات التشريح فقط عندما تعالج عنقود فشل مسمى وتنجح في اختبارات قبول وفشل.",
+            "outputs": [
+                  "MATHEMATICAL-MODEL-INTELLIGENCE-001",
+                  "ARCHITECTURE-DECISION-RECORD-001",
+                  "BASE-MODEL-SHORTLIST-001",
+                  "AUTOPSY-CAPABILITY-SELECTION-RECORD"
+            ],
+            "gate": "كل مكوّن مرتبط بعجز مقاس؛ لا اختيار بسبب الشهرة أو الأناقة؛ ولا دمج قبل تدقيق الرخصة والتبعيات وحدود الفصل.",
+            "tasks": [
+                  "ربط كل عنقود فشل بحل محتمل: RAG أو translator أو critic أو tool router أو formal prover أو certified numerics",
+                  "مراجعة مقترحات expdb وFLINT وغيرها مقابل خريطة الأخطاء لا قبلها",
+                  "دراسة النماذج الرياضية المتاحة وتحديث نتائجها قبل القرار",
+                  "اختبار مرشحين 4B–8B محليًا دون تدريب",
+                  "فصل دوافع السيادة التشغيلية عن رفع القدرة العلمية",
+                  "تسجيل acceptance test وfailure test لكل قدرة مختارة",
+                  "اختيار ARM-BASE رئيسي واحتياطي ومعمارية ARM-LOCAL وARM-HYBRID"
+            ]
       },
       {
-        id: 'S4', index: 4, title: 'الأصول الدائمة والكوربوس الموجّه',
-        start: '2026-09-22', end: '2026-10-31', month: 2,
-        objective: 'بناء تقييمات وكوربوس مصدرية مرتبطة بخريطة أخطاء A؛ البيانات والتقييم هما الأصل الدائم.',
-        outputs: ['K0-KNOWLEDGE-SUITE-80','K1-TRANSFER-SUITE-48','R1-RETENTION-SUITE-48','TARGETED-CORPUS-v0.1','TARGETED-CORPUS-POLICY'],
-        gate: 'لا تعدين كتب واسع؛ كل سجل تدريبي مرتبط بفشل مسمى ومصدر، ومفصول عن K1/R1/B.',
-        tasks: ['إنشاء K0 من 80 حالة معرفة حالية عالية الجودة','إنشاء K1 من 48 حالة نقل غير مستخدمة في التدريب','إنشاء R1 من 48 حالة احتفاظ وانحدار','إنشاء 16–24 حالة معايرة للأدوات وLean','إقرار سياسة TARGETED-CORPUS-ENGINEERING عبر Stage Review','استخراج أمثلة تدريب فقط لعناقيد الفشل المثبتة في A','إضافة أمثلة سلبية وأمثلة مضادة ومسارات أدوات مع مراجعة مستقلة','تجميد dataset hashes وتوثيق dedup والتسرب والمصادر']
+            "id": "S4",
+            "index": 4,
+            "title": "الأصول الدائمة والكوربوس الموجّه",
+            "start": "2026-09-22",
+            "end": "2026-10-31",
+            "month": 2,
+            "objective": "بناء تقييمات وكوربوس مصدرية مرتبطة بخريطة أخطاء A؛ البيانات والتقييم هما الأصل الدائم، لا حجم الكتب المستخرجة.",
+            "outputs": [
+                  "K0-KNOWLEDGE-SUITE-80",
+                  "K1-TRANSFER-SUITE-48",
+                  "R1-RETENTION-SUITE-48",
+                  "TARGETED-CORPUS-v0.1",
+                  "TARGETED-CORPUS-POLICY"
+            ],
+            "gate": "كل سجل تدريبي مرتبط بفشل مسمى ومصدر وشهادة، ومفصول عن K1/R1/B؛ ولا تعدين واسع غير مبرر.",
+            "tasks": [
+                  "إنشاء K0 من 80 حالة معرفة حالية عالية الجودة",
+                  "إنشاء K1 من 48 حالة نقل غير مستخدمة في التدريب",
+                  "إنشاء R1 من 48 حالة احتفاظ وانحدار",
+                  "إنشاء 16–24 حالة معايرة للأدوات وLean والحساب الموثق",
+                  "إقرار TARGETED-CORPUS-ENGINEERING عبر Stage Review",
+                  "استخراج أمثلة فقط لعناقيد الفشل المثبتة في A",
+                  "إضافة أمثلة سلبية ومضادة ومسارات أدوات مع مراجعة مستقلة",
+                  "إرفاق نوع الشهادة والنطاق والتطبيع والمصدر بكل مثال مناسب",
+                  "تجميد dataset hashes وتوثيق dedup والتسرب والمصادر"
+            ]
       },
       {
-        id: 'S5', index: 5, title: 'تدريب المكونات المتخصصة',
-        start: '2026-11-01', end: '2026-11-21', month: 4,
-        objective: 'بناء مكوّنات واقعية قابلة للتعلم بدل ادعاء تدريب باحث كامل.',
-        outputs: ['ANT-PVG-TRANSLATOR-v0.1','RESEARCH-CRITIC-v0.1','KNOWLEDGE-RETRIEVER-v0.1','TOOL-ROUTER-v0.1'],
-        gate: 'ARM-LOCAL يتفوق على ARM-BASE في المهام المستهدفة دون تراجع قاتل، وكل تدريب موثق وقابل للرجوع.',
-        tasks: ['تدريب ANT→PVG وPVG→ANT مع LOSS وشروط العكس','تدريب الناقد على الفرضيات والادعاء الزائد والمادية الزخرفية','بناء retriever مصدري قابل للاستشهاد','بناء tool router لـPython وPARI/GP وLean عند الحاجة','تدريب ANT adapter عام فقط إن بررته خريطة أخطاء A','تسجيل base hash وadapter hash وdata hash والإعدادات','رفض التحسن الأسلوبي الذي لا يرفع الصحة أو المعايرة']
+            "id": "S5",
+            "index": 5,
+            "title": "بناء وتدريب المكونات المتخصصة",
+            "start": "2026-11-01",
+            "end": "2026-11-21",
+            "month": 4,
+            "objective": "بناء مكونات محددة تعالج العجز المقاس بدل ادعاء تدريب باحث كامل، مع قابلية الرجوع والتدقيق.",
+            "outputs": [
+                  "ANT-PVG-TRANSLATOR-v0.1",
+                  "RESEARCH-CRITIC-v0.1",
+                  "KNOWLEDGE-RETRIEVER-v0.1",
+                  "TOOL-ROUTER-v0.1",
+                  "CERTIFICATE-CHECKER-v0.1"
+            ],
+            "gate": "ARM-LOCAL يتفوق على ARM-BASE في المهام المستهدفة دون تراجع قاتل؛ وكل مخرج يحافظ على نوع الشهادة والنطاق والمصدر.",
+            "tasks": [
+                  "تدريب ANT→PVG وPVG→ANT مع LOSS وشروط العكس",
+                  "تدريب الناقد على الفرضيات والادعاء الزائد وفشل الشهادات الخمس",
+                  "بناء retriever مصدري قابل للاستشهاد",
+                  "بناء tool router لـPython وPARI/GP وLean وأدوات الحساب المقبولة عند الحاجة",
+                  "بناء certificate checker أو واجهة شهادات فقط إن بررتها خريطة الأخطاء",
+                  "تسجيل base hash وadapter hash وdata hash والإعدادات",
+                  "رفض التحسن الأسلوبي الذي لا يرفع الصحة أو المعايرة"
+            ]
       },
       {
-        id: 'S6', index: 6, title: 'المقارنة المفتوحة رباعية الأذرع',
-        start: '2026-11-22', end: '2026-12-15', month: 4,
-        objective: 'قياس القيمة الحقيقية للمكوّن المحلي بمقارنته بالأساس والعقل الحالي والنظام الهجين.',
-        outputs: ['FOUR-ARM-COMPARISON-001','SOVEREIGNTY-REPORT-001','CAPABILITY-DELTA-REPORT-001'],
-        gate: 'لا ترقية بلا مقارنة ARM-BASE وARM-LOCAL وARM-CURRENT وARM-HYBRID بنفس الشروط.',
-        tasks: ['تشغيل الأذرع الأربعة على K0 وK1 وR1','توحيد الوقت والأدوات والمصادر وعدد المحاولات قدر الإمكان','قياس القدرة العلمية منفصلة عن السيادة والخصوصية والتكلفة','إجراء ablation: ANT-only وPVG-vocabulary-only وretrieval-only','فحص الانحدار والمعايرة والامتناع وصحة المصادر','السماح بترقية Local Specialist إن هزم الأساس؛ وعدم نشر Hybrid إن أضر بالعقل الحالي']
+            "id": "S6",
+            "index": 6,
+            "title": "المقارنة المفتوحة رباعية الأذرع",
+            "start": "2026-11-22",
+            "end": "2026-12-15",
+            "month": 4,
+            "objective": "قياس القيمة الحقيقية للمكوّن المحلي بمقارنته بالأساس والعقل الحالي والنظام الهجين تحت شروط موحدة.",
+            "outputs": [
+                  "FOUR-ARM-COMPARISON-001",
+                  "SOVEREIGNTY-REPORT-001",
+                  "CAPABILITY-DELTA-REPORT-001",
+                  "CERTIFICATE-DISCIPLINE-REPORT-001"
+            ],
+            "gate": "لا ترقية بلا مقارنة ARM-BASE وARM-LOCAL وARM-CURRENT وARM-HYBRID، ولا قبول لتحسن يخفض انضباط الشهادة.",
+            "tasks": [
+                  "تشغيل الأذرع الأربعة على K0 وK1 وR1",
+                  "توحيد الوقت والأدوات والمصادر وعدد المحاولات قدر الإمكان",
+                  "قياس القدرة العلمية منفصلة عن السيادة والخصوصية والتكلفة",
+                  "إجراء ablation: ANT-only وPVG-vocabulary-only وretrieval-only وcertificate-only",
+                  "فحص الانحدار والمعايرة والامتناع وصحة المصادر والشهادات الخمس",
+                  "السماح بترقية Local Specialist إن هزم الأساس؛ وعدم نشر Hybrid إن أضر بالعقل الحالي"
+            ]
       },
       {
-        id: 'S7', index: 7, title: 'الإصلاح الموجّه والدمج الهجين',
-        start: '2026-12-16', end: '2027-01-15', month: 5,
-        objective: 'إصلاح الفجوات المثبتة في A والمقارنة المفتوحة ودمج المكونات المفيدة فقط داخل العقل.',
-        outputs: ['TARGETED-REPAIR-PACK-001','ARM-LOCAL-CANDIDATE','ARM-HYBRID-CANDIDATE','FINAL-FREEZE-MANIFEST'],
-        gate: 'اجتياز R1، عدم استخدام تحسن A دليلًا على التعميم، وبقاء B مغلقة تمامًا.',
-        tasks: ['ترتيب الفجوات بحسب الأثر والقابلية للإصلاح','إضافة بيانات أو معرفة أو توجيه أدوات موجه فقط','إعادة A بوصفها development set ملوثة','رفض أي مكوّن يضر ARM-HYBRID مقارنة بـARM-CURRENT','تشغيل regression والاحتفاظ والمعايرة','تجميد المرشحين والإعدادات قبل فتح B']
+            "id": "S7",
+            "index": 7,
+            "title": "الإصلاح الموجّه والدمج الهجين",
+            "start": "2026-12-16",
+            "end": "2027-01-15",
+            "month": 5,
+            "objective": "إصلاح الفجوات المثبتة ودمج المكونات التي تضيف قيمة فقط، مع إبقاء B مغلقة تمامًا.",
+            "outputs": [
+                  "TARGETED-REPAIR-PACK-001",
+                  "ARM-LOCAL-CANDIDATE",
+                  "ARM-HYBRID-CANDIDATE",
+                  "FINAL-FREEZE-MANIFEST"
+            ],
+            "gate": "اجتياز R1، عدم استخدام تحسن A دليلًا على التعميم، عدم تراجع ARM-HYBRID، وبقاء B محجوبة.",
+            "tasks": [
+                  "ترتيب الفجوات بحسب الأثر والقابلية للإصلاح",
+                  "إضافة بيانات أو معرفة أو توجيه أدوات موجه فقط",
+                  "إعادة A بوصفها development set ملوثة",
+                  "رفض أي مكوّن يضر ARM-HYBRID مقارنة بـARM-CURRENT",
+                  "تشغيل regression والاحتفاظ والمعايرة وانضباط الشهادة",
+                  "تجميد المرشحين والإعدادات والبيئة قبل فتح B"
+            ]
       },
       {
-        id: 'S8', index: 8, title: 'الاختبار النهائي على B وقرار التسمية',
-        start: '2027-01-16', end: '2027-02-14', month: 6,
-        objective: 'اختبار التعميم ومادية PVG والقيمة المضافة في مقارنة نهائية محجوبة.',
-        outputs: ['FINAL-B-REPORT','LOCAL-SPECIALIST-DECISION','HYBRID-SYSTEM-DECISION','NAMING-DECISION-RECORD'],
-        gate: 'لا تسمية Researcher إلا إذا نافس ARM-LOCAL أو تفوق على ARM-CURRENT على B مع انضباط ومراجعة مستقلة.',
-        tasks: ['فك B بواسطة custodian فقط بعد تجميد المرشحين','تشغيل ARM-LOCAL وARM-CURRENT وARM-HYBRID بالشروط نفسها','إضافة ARM-BASE كخط مرجعي أدنى','قياس ANT والترجمة وLOSS والتركيب والنقد والمعايرة والمصادر','إصدار قرار: Local Specialist أو Research Assistant أو Retrain/Architecture Hold','منع ادعاء الأصالة أو المبرهنة دون الشهادات المستقلة']
+            "id": "S8",
+            "index": 8,
+            "title": "الاختبار النهائي على B وقرار التسمية",
+            "start": "2027-01-16",
+            "end": "2027-02-14",
+            "month": 6,
+            "objective": "اختبار التعميم ومادية PVG والقيمة المضافة في مقارنة نهائية محجوبة، ثم إصدار تسمية صادقة.",
+            "outputs": [
+                  "FINAL-B-REPORT",
+                  "LOCAL-SPECIALIST-DECISION",
+                  "HYBRID-SYSTEM-DECISION",
+                  "NAMING-DECISION-RECORD"
+            ],
+            "gate": "لا تسمية Researcher إلا إذا نافس النظام العقل الحالي على B، حافظ على الشهادات، واجتاز مراجعة مستقلة؛ وإلا تسمية أدنى أو HOLD/FAILURE.",
+            "tasks": [
+                  "فك B بواسطة custodian فقط بعد تجميد المرشحين",
+                  "تشغيل ARM-BASE وARM-LOCAL وARM-CURRENT وARM-HYBRID بالشروط نفسها",
+                  "قياس ANT والترجمة وLOSS والتركيب والنقد والمعايرة والمصادر والشهادات",
+                  "إصدار قرار: Local Specialist أو Research Assistant أو Retrain أو Architecture Hold/Failure",
+                  "منع ادعاء الأصالة أو المبرهنة دون الشهادات المستقلة والخمس اللازمة"
+            ]
       }
-    ];
+];
 
     const metrics = [
-      ['قرار P8','100% قبل المهلة','SENT أو HOLD_AUTHORIZED قبل 19 يوليو 2026'],
-      ['القياس قبل التدريب','إلزامي','CURRENT-MIND-RAW-BASELINE-001 يسبق أي corpus تخصصية'],
-      ['صحة ANT','≥ 80%','صحة النتائج والفرضيات والنطاق على مجموعات غير تدريبية'],
-      ['ANT → PVG','≥ 80%','ترجمة دقيقة مع المعلومات المحفوظة والمفقودة'],
-      ['PVG → ANT','≥ 70%','إنتاج observable وسؤال تحليلي قابل للعمل'],
-      ['LOSS وشروط العكس','≥ 75%','منع قلب ترجمة غير قابلة للعكس'],
-      ['كشف الادعاءات القاتلة','100%','صفر مرور لادعاء علمي قاتل'],
-      ['تراجع الاحتفاظ','≤ 3 نقاط','منع النسيان بعد كل تعديل'],
-      ['ARM-LOCAL مقابل ARM-BASE','تحسن ≥ 8 نقاط','إثبات أثر التدريب على النقل لا الأسلوب فقط'],
-      ['ARM-HYBRID مقابل ARM-CURRENT','لا تراجع مادي','لا نشر لمكوّن محلي يضعف النظام الموجود'],
-      ['مقارنة العقل الحالي','100% من البوابات','ARM-CURRENT حاضر في كل قرار قدرة وترقية'],
-      ['حماية B','100% حتى التجميد','لا أسئلة ولا مفاتيح ولا إشارات تطويرية قبل الاختبار النهائي'],
-      ['ادعاء أصالة بلا شهادة','0','النموذج يولد مرشحًا ولا يصدق الأصالة بنفسه'],
-      ['تسمية Researcher','محظورة افتراضيًا','لا تُبحث إلا بعد منافسة العقل الحالي على B ومراجعة مستقلة']
-    ];
+      [
+            "G0 وتجميد ARM-CURRENT",
+            "مكتمل",
+            "الرأس المجمد 6960cb54... مستقل عن رأس تأليف S1"
+      ],
+      [
+            "قرار P8",
+            "100% قبل المهلة",
+            "قرار مراجع جديد قبل 26 يوليو 2026 الساعة 19:47:20Z"
+      ],
+      [
+            "القياس قبل التدريب",
+            "إلزامي",
+            "CURRENT-MIND-RAW-BASELINE-001 وError Map يسبقان الاختيار والكوربوس"
+      ],
+      [
+            "فصل رأسي Git",
+            "100%",
+            "ARM-CURRENT-FROZEN-HEAD لا يتحرك مع S1-AUTHORING-HEAD"
+      ],
+      [
+            "حماية Benchmark B",
+            "100%",
+            "لا سؤال ولا مفتاح ولا إشارة تطويرية قبل التجميد النهائي"
+      ],
+      [
+            "الشهادات الخمس",
+            "5 / 5",
+            "لا ترقية إلى Theorem باحتواء النطاق وحده"
+      ],
+      [
+            "مخرجات التشريح قبل S2",
+            "0 دمج",
+            "مواصفات معلّقة بلا تدريب أو درجات أو توصيل"
+      ],
+      [
+            "صحة ANT",
+            "≥ 80%",
+            "صحة النتائج والفرضيات والنطاق على مجموعات غير تدريبية"
+      ],
+      [
+            "ANT → PVG",
+            "≥ 80%",
+            "ترجمة دقيقة مع المعلومات المحفوظة والمفقودة"
+      ],
+      [
+            "PVG → ANT",
+            "≥ 70%",
+            "إنتاج observable وسؤال تحليلي قابل للعمل"
+      ],
+      [
+            "LOSS وشروط العكس",
+            "≥ 75%",
+            "منع قلب ترجمة غير قابلة للعكس"
+      ],
+      [
+            "كشف الادعاءات القاتلة",
+            "100%",
+            "صفر مرور لادعاء علمي قاتل"
+      ],
+      [
+            "تراجع الاحتفاظ",
+            "≤ 3 نقاط",
+            "منع النسيان بعد كل تعديل"
+      ],
+      [
+            "ARM-LOCAL مقابل ARM-BASE",
+            "تحسن ≥ 8 نقاط",
+            "إثبات أثر التخصص على النقل لا الأسلوب"
+      ],
+      [
+            "ARM-HYBRID مقابل ARM-CURRENT",
+            "لا تراجع مادي",
+            "لا نشر لمكوّن يضعف النظام الموجود"
+      ],
+      [
+            "ادعاء أصالة بلا شهادة",
+            "0",
+            "النظام يولد مرشحًا ولا يصدق أصالته بنفسه"
+      ],
+      [
+            "تسمية Researcher",
+            "محظورة افتراضيًا",
+            "لا تُبحث إلا بعد B ومراجعة مستقلة"
+      ]
+];
 
     const risks = [
-      ['تجاوز مهلة P8','عالٍ','عالٍ','اعتبار SENT أو HOLD_AUTHORIZED جزءًا من G0 وفشل البوابة بعد المهلة','Owner + Governance'],
-      ['ملفات مقترح staged على main','متوسط','عالٍ','git restore --staged وإبقاء الملفات محلية أو على فرع مسودة فقط','Local Operator'],
-      ['التدريب قبل قياس العقل الحالي','عالٍ','عالٍ','منع corpus التخصصية قبل خط A الخام وخريطة الأخطاء','Program Gate'],
-      ['تلوث Benchmark B','متوسط','عالٍ','تشفير الأسئلة والمفاتيح وفصل الحافظ وفحص التسرب المفاهيمي','Custodian + Evaluation'],
-      ['الاحتفال أمام خصم ضعيف','عالٍ','عالٍ','إلزام ARM-CURRENT وARM-HYBRID في كل بوابة ترقية','Evaluation Lead'],
-      ['تعدين كتب واسع تحت اسم corpus','متوسط','عالٍ','TARGETED-CORPUS-ENGINEERING مرتبط بفشل مسمى وسياسة Stage Review','Knowledge Lead'],
-      ['تحسن أسلوبي دون قدرة','عالٍ','عالٍ','K1 وR1 ومعايرة ومصحح مستقل ومقارنة رباعية','Research Critic'],
-      ['نسيان القدرات السابقة','متوسط','عالٍ','R1 بعد كل تدريب وحد تراجع ≤3 نقاط','Model Engineer'],
-      ['خلط السيادة بالقدرة البحثية','متوسط','عالٍ','تقارير KPI منفصلة للخصوصية والتكلفة والصحة والنقل','Program Owner'],
-      ['تحويل النموذج إلى هوية العقل','متوسط','عالٍ','تعريف النموذج كعضو قابل للاستبدال والحقيقة في المعرفة والتقييم والسجلات','Architecture Review']
-    ];
+      [
+            "انجراف baseline بعد تحرك main",
+            "عالٍ",
+            "عالٍ",
+            "تثبيت ARM-CURRENT-FROZEN-HEAD والبيئة بالهاش، وفصل S1-AUTHORING-HEAD",
+            "Evaluation + Governance"
+      ],
+      [
+            "فوات مراجعة P8 في 26 يوليو",
+            "عالٍ",
+            "عالٍ",
+            "قرار SENT أو HOLD مراجع قبل 2026-07-26T19:47:20Z وحارس CI",
+            "Owner + Governance"
+      ],
+      [
+            "البدء المبكر في S1 أو A/B",
+            "متوسط",
+            "عالٍ",
+            "منع تغيير الحالة قبل 20 يوليو واشتراط Pre-stage receipt",
+            "Program Gate"
+      ],
+      [
+            "التدريب قبل قياس العقل الحالي",
+            "عالٍ",
+            "عالٍ",
+            "منع corpus والتدريب قبل خط A الخام وخريطة الأخطاء",
+            "Program Gate"
+      ],
+      [
+            "اختيار أداة لأنها أنيقة",
+            "عالٍ",
+            "عالٍ",
+            "ربط كل مكوّن بعنقود فشل مقاس واختبار قبول وفشل",
+            "Architecture Review"
+      ],
+      [
+            "خلط التشريح بإعادة الإنتاج",
+            "متوسط",
+            "عالٍ",
+            "بطاقتان منفصلتان وبوابة صريحة تمنع التشغيل قبل التفويض",
+            "External Lab Lead"
+      ],
+      [
+            "احتواء النطاق يُقرأ كنظرية",
+            "عالٍ",
+            "عالٍ",
+            "تطبيق سلّم 5/5 وفحص المكممات والتطبيع والمصدر والتحويل",
+            "Certificate Review"
+      ],
+      [
+            "إعادة استخدام كود قبل الرخصة",
+            "متوسط",
+            "عالٍ",
+            "لا quotation scope قبل license/dependency/separation audit",
+            "Legal + Architecture"
+      ],
+      [
+            "تلوث Benchmark B",
+            "متوسط",
+            "عالٍ",
+            "تشفير B وفصل الحافظ وفحص التسرب المفاهيمي",
+            "Custodian + Evaluation"
+      ],
+      [
+            "الاحتفال أمام خصم ضعيف",
+            "عالٍ",
+            "عالٍ",
+            "إلزام ARM-CURRENT وARM-HYBRID في كل بوابة ترقية",
+            "Evaluation Lead"
+      ],
+      [
+            "تعدين كتب واسع تحت اسم corpus",
+            "متوسط",
+            "عالٍ",
+            "TARGETED-CORPUS مرتبط بفشل مسمى وسياسة Stage Review",
+            "Knowledge Lead"
+      ],
+      [
+            "تحسن أسلوبي دون قدرة",
+            "عالٍ",
+            "عالٍ",
+            "K1 وR1 ومعايرة ومصحح مستقل ومقارنة رباعية",
+            "Research Critic"
+      ],
+      [
+            "نسيان القدرات السابقة",
+            "متوسط",
+            "عالٍ",
+            "R1 بعد كل تدريب وحد تراجع ≤3 نقاط",
+            "Model Engineer"
+      ],
+      [
+            "خلط السيادة بالقدرة البحثية",
+            "متوسط",
+            "عالٍ",
+            "تقارير KPI منفصلة للخصوصية والتكلفة والصحة والنقل",
+            "Program Owner"
+      ]
+];
 
     const decisions = [
-      ['G0 — P8 والاستمرارية','هل main نظيف، المزامنة والـstrict مثبتان، وP8 حُسمت قانونيًا؟'],
-      ['G1 — Benchmark مختوم','هل A/B والـrubric والأدوار والأدوات مجمدة وB مشفرة؟'],
-      ['G2 — خط العقل الحالي','هل baseline A وخريطة الأخطاء جُمّدا قبل أي تدريب؟'],
-      ['G3 — القرار المعماري','هل كل مكوّن مقترح يجيب عن فشل مقاس ومسمى؟'],
-      ['G4 — الأصول الدائمة','هل K0/K1/R1 والكوربوس نظيفة ومصدرية ومفصولة؟'],
-      ['G5 — قبول المكونات','هل ARM-LOCAL أفضل من ARM-BASE دون مخالفات أو نسيان؟'],
-      ['G6 — المقارنة الرباعية','هل ARM-CURRENT حاضر وهل ARM-HYBRID يضيف قيمة فعلية؟'],
-      ['G7 — تجميد المرشحين','هل الإصلاح موجّه وB ما زالت محجوبة والانحدار مقبول؟'],
-      ['G8 — قرار B والتسمية','هل النتائج تبرر Local Specialist أو Research Assistant فقط؟']
-    ];
+      [
+            "G0 — الاستمرارية والتجميد",
+            "مغلق: هل الحقيقة القانونية 6960cb54... وحزمة ARM-CURRENT المجمدة موثقتان؟"
+      ],
+      [
+            "P8 — المراجعة المستقلة",
+            "هل صدر قرار مراجع جديد قبل 26 يوليو 19:47:20Z؟"
+      ],
+      [
+            "G1 — أصول S1 وBenchmark مختوم",
+            "هل mission/governance وA/B والـrubric والأدوار مجمدة وB مشفرة؟"
+      ],
+      [
+            "G2 — خط العقل الحالي",
+            "هل شُغّل ARM-CURRENT-FROZEN-HEAD نفسه وجُمّدت خريطة الأخطاء؟"
+      ],
+      [
+            "X1 — بوابة مخرجات التشريح",
+            "هل القدرة المطلوبة تعالج فشلًا مقاسًا وتملك رخصة واختبارات قبول وفشل؟"
+      ],
+      [
+            "C5 — بوابة النظرية",
+            "هل اجتمعت قاعدة التحويل والمكممات والتطبيع والمصدر والنطاق؟"
+      ],
+      [
+            "G3 — القرار المعماري",
+            "هل كل مكوّن مقترح يجيب عن فشل مسمى لا عن شهرة؟"
+      ],
+      [
+            "G4 — الأصول الدائمة",
+            "هل K0/K1/R1 والكوربوس نظيفة ومصدرية ومفصولة؟"
+      ],
+      [
+            "G5 — قبول المكونات",
+            "هل ARM-LOCAL أفضل من ARM-BASE دون مخالفات أو نسيان؟"
+      ],
+      [
+            "G6 — المقارنة الرباعية",
+            "هل ARM-HYBRID يضيف قيمة فعلية ولا يضعف ARM-CURRENT؟"
+      ],
+      [
+            "G7 — تجميد المرشحين",
+            "هل الإصلاح موجّه وB ما زالت محجوبة والانحدار مقبول؟"
+      ],
+      [
+            "G8 — قرار B والتسمية",
+            "هل النتائج تبرر Local Specialist/Research Assistant أو تفرض Retrain/Hold/Failure؟"
+      ]
+];
 
     function defaultState() {
       const stageState = {};
@@ -538,7 +1072,16 @@
         syncPre: '', syncPost: '',
         tasks: s.tasks.map(() => false)
       });
-      return { version: 1, theme: 'light', stageState, updatedAt: new Date().toISOString() };
+      stageState.S0 = {
+        ...stageState.S0,
+        status: 'completed', progress: 100, owner: 'Governance + Local Operator',
+        actualStart: '2026-07-13', actualEnd: '2026-07-13',
+        syncPre: 'timestamp: 2026-07-13\nlocal HEAD: 6960cb54b49d3318af7807ea5829c0232192dc60\norigin/main SHA: 6960cb54b49d3318af7807ea5829c0232192dc60\nbranch: main\nahead/behind: 0/0\ntracked-tree status: clean',
+        syncPost: 'timestamp: 2026-07-13\nlocal HEAD: 6960cb54b49d3318af7807ea5829c0232192dc60\norigin/main SHA: 6960cb54b49d3318af7807ea5829c0232192dc60\nbranch: main\nahead/behind: 0/0\ntracked-tree status: clean\nresult: G0 CLOSED / ARM-CURRENT FROZEN',
+        notes: 'G0 مكتمل. P8 = HOLD_AUTHORIZED ويحتاج قرارًا مراجعًا قبل 2026-07-26T19:47:20Z. لا يبدأ S1 قبل 2026-07-20.',
+        tasks: stages.find(s => s.id === 'S0').tasks.map(() => true)
+      };
+      return { version: 2.2, theme: 'light', stageState, updatedAt: new Date().toISOString() };
     }
 
     function loadState() {
@@ -689,6 +1232,13 @@
     document.getElementById('stageList').addEventListener('change', e => {
       const card = e.target.closest('[data-stage]'); if (!card) return;
       const id = card.dataset.stage; const action = e.target.dataset.action; const st = state.stageState[id];
+      const stageDef = stages.find(s => s.id === id);
+      const beforeOpening = new Date() < new Date(stageDef.start + 'T00:00:00');
+      if (id !== 'S0' && beforeOpening && ['task','status','progress','actualStart','actualEnd'].includes(action)) {
+        renderStages();
+        toast(`لا يبدأ ${id} قبل ${dateAr(stageDef.start)}`);
+        return;
+      }
       if (action === 'task') {
         st.tasks[Number(e.target.dataset.index)] = e.target.checked;
         const done = st.tasks.filter(Boolean).length;
@@ -696,7 +1246,16 @@
         if (st.progress === 100) st.status = 'completed';
         else if (done > 0 && st.status === 'not-started') st.status = 'in-progress';
       }
-      if (action === 'status') st.status = e.target.value;
+      if (action === 'status') {
+        const requested = e.target.value;
+        const today = new Date();
+        const opens = new Date(stages.find(s => s.id === id).start + 'T00:00:00');
+        if ((requested === 'in-progress' || requested === 'completed') && today < opens) {
+          toast(`لا تفتح ${id} قبل ${dateAr(stages.find(s => s.id === id).start)}`);
+        } else {
+          st.status = requested;
+        }
+      }
       if (action === 'progress') {
         st.progress = Math.max(0, Math.min(100, Number(e.target.value || 0)));
         if (st.progress === 100) st.status = 'completed';
@@ -705,11 +1264,17 @@
       if (action === 'owner') st.owner = e.target.value;
       if (action === 'actualStart') st.actualStart = e.target.value;
       if (action === 'actualEnd') st.actualEnd = e.target.value;
-      if (st.status === 'completed' && !(st.syncPost || '').trim()) {
-        st.status = 'in-progress';
-        saveState(''); renderTimeline(); renderStages();
-        toast('لا إغلاق للمرحلة دون Post-stage sync receipt يثبت تطابق المحلي والبعيد');
-        return;
+      if (st.status === 'completed') {
+        const allTasksDone = st.tasks.every(Boolean);
+        const hasPre = (st.syncPre || '').trim();
+        const hasPost = (st.syncPost || '').trim();
+        if (!hasPre || !hasPost || !allTasksDone) {
+          st.status = 'in-progress';
+          st.progress = Math.min(st.progress, 99);
+          saveState(''); renderTimeline(); renderStages();
+          toast('لا إغلاق دون Pre/Post sync receipts وإتمام جميع المهام');
+          return;
+        }
       }
       saveState('تم تحديث المرحلة'); renderTimeline(); renderStages();
     });
@@ -743,7 +1308,7 @@
     });
 
     document.getElementById('exportBtn').addEventListener('click', () => {
-      const payload = { ...state, exportedAt: new Date().toISOString(), program: 'PVG-ANT-LOCAL-SPECIALIST-PROGRAM-001', roadmapVersion: 2.1 };
+      const payload = { ...state, exportedAt: new Date().toISOString(), program: 'PVG-ANT-RESEARCH-MODEL-PROGRAM-001', roadmapVersion: 2.2, frozenHead: '6960cb54b49d3318af7807ea5829c0232192dc60' };
       const blob = new Blob([JSON.stringify(payload, null, 2)], {type:'application/json'});
       const url = URL.createObjectURL(blob); const a = document.createElement('a');
       a.href = url; a.download = `pvg-ant-roadmap-${new Date().toISOString().slice(0,10)}.json`; a.click();

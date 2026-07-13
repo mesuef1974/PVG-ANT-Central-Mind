@@ -26,7 +26,7 @@ Capability-maturation state:
   CENTRAL-MIND-CONTINUITY-CLOSURE-002 = closed.
   Current maturation receipt = MATURATION-RECEIPT-007.
   PVG-ANT-RESEARCH-MODEL-PROGRAM-001 = active (stage S0 foundation;
-    owner order 2026-07-12; Roadmap v2.1 is the plan of record;
+    owner order 2026-07-12; Roadmap v2.2 is the plan of record;
     ARM-CURRENT frozen via CURRENT-MIND-FREEZE-MANIFEST-001).
   Translation inventory = 44; native objects = 20; morphisms = 24.
   planned.jsonl = empty (no queued research passes registered).

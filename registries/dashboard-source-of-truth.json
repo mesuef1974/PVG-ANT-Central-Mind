@@ -1,0 +1,28 @@
+{
+  "id": "DASHBOARD-SOURCE-OF-TRUTH-001",
+  "kind": "source_of_truth_record",
+  "title": "Execution dashboard source of truth: v2.2 supersedes v2.1",
+  "recorded_utc": "2026-07-13",
+  "authorization_ref": "Owner order 2026-07-13: adopt v2.2 as the legal dashboard, retire v2.1",
+  "legal_dashboard": {
+    "version": "v2.2 Dual-Track",
+    "path": "PVG_ANT_Model_Roadmap/index.html",
+    "storage_key": "pvg-ant-roadmap-v2-2"
+  },
+  "superseded_dashboard": {
+    "version": "v2.1",
+    "path": "PVG_ANT_Model_Roadmap/historical/index-v2.1-superseded.html",
+    "note": "historical record only; not a live governing dashboard"
+  },
+  "supersession_rule": "v2.2 and v2.1 must never both stand as parallel current dashboards; v2.2 is the single legal dashboard, v2.1 is superseded history",
+  "heads": {
+    "governed_control_base_head_for_s1_advance": "dc3d8491eef85d4248a9894c5091d95b7434d3b0",
+    "governed_control_head_after_pr36": "244b4840e560420a36a2f83b297d4e55d67d7a2f",
+    "arm_current_capability_head": "6960cb54b49d3318af7807ea5829c0232192dc60",
+    "note": "governed_control_head moves with every merged PR and is NOT a fixed constant; the two governed_control_* values above are dated snapshots (the S1-advance base and the post-PR#36 head), not a permanent name. arm_current_capability_head is the frozen comparison-arm snapshot and does NOT move with main."
+  },
+  "s1_status": "OPEN from 2026-07-13 (per S1-GATE-ADVANCE-DECISION-001, merged in PR #36)",
+  "reconciliation": "this PR sets v2.2 S1 start to 2026-07-13, corrects the stale origin/main=6960cb5 label to distinguish the moving governed control head from the frozen capability head, promotes v2.2 to index.html, and retires v2.1 to historical/",
+  "classification": "Diagnostic",
+  "ceiling": "capability measurement only; zero RH progress; zero GRH progress; no secured path"
+}

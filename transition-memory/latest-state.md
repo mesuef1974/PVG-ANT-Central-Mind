@@ -118,8 +118,9 @@ Benchmark state:
 Next capability gate:
   continuity activation and strict hardening = complete;
   next: design ADVERSARIAL-PVG-ANT-BENCHMARK-002 without adding cards,
-  executed as stage S1 (2026-07-20 to 2026-08-16) of
-  PVG-ANT-RESEARCH-MODEL-PROGRAM-001 under Roadmap v2.1.
+  executed as stage S1 (2026-07-13 to 2026-08-16, advanced per
+  S1-GATE-ADVANCE-DECISION-001) of
+  PVG-ANT-RESEARCH-MODEL-PROGRAM-001 under Roadmap v2.2.
   Required benchmark order:
      raw hidden baseline → immutable error map → morphism composer
      → same-set rerun with contamination accounting → ablation
