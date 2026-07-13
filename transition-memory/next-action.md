@@ -25,8 +25,8 @@ Capability-maturation state:
   CENTRAL-MIND-CONTINUITY-001 = installed_repository_side.
   CENTRAL-MIND-CONTINUITY-CLOSURE-002 = closed.
   Current maturation receipt = MATURATION-RECEIPT-007.
-  PVG-ANT-RESEARCH-MODEL-PROGRAM-001 = active (stage S0 foundation;
-    owner order 2026-07-12; Roadmap v2.2 is the plan of record;
+  PVG-ANT-RESEARCH-MODEL-PROGRAM-001 = active (stage S1 open; Roadmap v2.2
+    reconciliation; Benchmark 002 not started; owner order 2026-07-12;
     ARM-CURRENT frozen via CURRENT-MIND-FREEZE-MANIFEST-001).
   Translation inventory = 44; native objects = 20; morphisms = 24.
   planned.jsonl = empty (no queued research passes registered).
@@ -60,7 +60,7 @@ External P8 track (requests SENT 2026-07-13; awaiting referee responses):
 
 Next internal package after continuity activation:
   ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED.
-  It runs as stage S1 (2026-07-20 to 2026-08-16) of
+  It runs as stage S1 (2026-07-13 to 2026-08-16, advanced per S1-GATE-ADVANCE-DECISION-001) of
   PVG-ANT-RESEARCH-MODEL-PROGRAM-001: design and seal A (≥48) and
   B (≥48, encrypted) per the registered protocol, then the raw baseline
   of ARM-CURRENT on A (stage S2) before any architecture, corpus,

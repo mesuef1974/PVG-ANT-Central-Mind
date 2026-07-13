@@ -1,7 +1,7 @@
 # PVG–ANT Research Model Program 001
 
 **Program ID:** `PVG-ANT-RESEARCH-MODEL-PROGRAM-001`
-**Status:** active — stage S0 (foundation)
+**Status:** active — stage S1 open; dashboard reconciliation in progress; Benchmark 002 not started
 **Authorization:** owner order "AUTHORIZE P8 STRATEGIC HOLD AND START MODEL PROGRAM" (2026-07-12)
 **Plan of record:** Roadmap v2.2 Dual-Track (`PVG_ANT_Model_Roadmap/index.html`, sync-governed; supersedes v2.1 at `PVG_ANT_Model_Roadmap/historical/index-v2.1-superseded.html`; source of truth `registries/dashboard-source-of-truth.json`)
 **Classification:** Diagnostic (capability program; creates no theorem)

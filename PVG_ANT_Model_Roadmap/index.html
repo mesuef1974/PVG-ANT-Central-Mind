@@ -398,7 +398,7 @@
             </div>
           </div>
           <div class="hero-meta">
-            <div><strong>الحالة الحالية</strong><span>G0 مكتمل · S1 لم يبدأ</span></div>
+            <div><strong>الحالة الحالية</strong><span>G0 مكتمل · S1 مفتوحة · Benchmark 002 = NOT_STARTED</span></div>
             <div><strong>فتح S1</strong><span>13 يوليو 2026</span></div>
             <div><strong>حالة P8</strong><span>SENT — بانتظار ردود المحكّمين (أُرسلت 13 يوليو)</span></div>
             <div><strong>الاختبار النهائي المحجوب</strong><span>14 فبراير 2027</span></div>
@@ -463,7 +463,7 @@
 
       <section class="section">
         <div class="grid current-state-grid">
-          <article class="card stat-card"><div class="label">المستودع الحاكم</div><div class="value mono">D:\PVG-ANT-Central-Mind</div><div class="sub">governed control head 244b484 (متحرّك مع كل PR) · capability-frozen 6960cb5 (ثابت) · G0 مغلق</div></article>
+          <article class="card stat-card"><div class="label">المستودع الحاكم</div><div class="value mono">D:\PVG-ANT-Central-Mind</div><div class="sub">governed control head = moving (see registries/dashboard-source-of-truth.json) · reconciliation base 244b484 · capability-frozen 6960cb5 · G0 مغلق</div></article>
           <article class="card stat-card"><div class="label">المختبر الخارجي</div><div class="value mono">D:\PVG-ANT-External-Labs</div><div class="sub">قراءة وتجميد وتشريح خارج المستودع الحاكم</div></article>
           <article class="card stat-card"><div class="label">P8</div><div class="value">SENT_AWAITING_RESPONSE</div><div class="sub">أُرسلت 2026-07-13؛ بانتظار ردّ المحكّمَين (Chan · Fouvry)</div></article>
           <article class="card stat-card"><div class="label">Benchmark 002</div><div class="value">NOT_STARTED</div><div class="sub">S1 يفتح 13 يوليو 2026</div></article>
@@ -517,7 +517,7 @@
             </ul>
           </article>
           <article class="card autopsy-card">
-            <div class="status-row"><span class="stamp ready">UNIT 002 مفوّضة</span><span class="stamp hold">لم تُطلق بعد</span></div>
+            <div class="status-row"><span class="stamp ready">UNIT 002 = AUTOPSY COMPLETE · partially verified</span><span class="stamp hold">Reproduction DEFERRED · Integration SUSPENDED-BEFORE-ERROR-MAP</span></div>
             <h3>FLINT / python-flint</h3>
             <div class="meta">حزمة واحدة بطبقتين: النواة الأصلية + الواجهة الدلالية في Python.</div>
             <ul class="clean-list">
@@ -600,13 +600,13 @@
             "outputs": [
                   "CENTRAL-MIND-CONTINUITY-CLOSURE-002",
                   "MATURATION-RECEIPT-007",
-                  "P8-HOLD-AUTHORIZED-RECORD",
+                  "P8-HOLD-AUTHORIZED-RECORD (أثر تاريخي؛ خلَفه P8 = SENT)",
                   "CURRENT-MIND-FREEZE-MANIFEST",
                   "ARM-CURRENT-FROZEN-HEAD-RECEIPT"
             ],
             "gate": "G0 مغلق، local main = origin/main، الشجرة نظيفة، والحزمة المجمدة تشير إلى 6960cb54... ولا تتغير بتحرك main لاحقًا.",
             "tasks": [
-                  "تثبيت origin/main بوصفه الحقيقة القانونية عند 6960cb54b49d3318af7807ea5829c0232192dc60",
+                  "تسجيل أن ARM-CURRENT capability snapshot جُمّد عند 6960cb54b49d3318af7807ea5829c0232192dc60 مع بقاء origin/main رأس التحكم القانوني المتحرك",
                   "توثيق الشجرة النظيفة والمزامنة والـstrict ruleset وgovernance-gate بلا bypass",
                   "تسجيل قرار P8 (سُجِّل HOLD ثم SENT بعد الإرسال في 2026-07-13)",
                   "تجميد المحرك والمستودع والأدوات والـprompt والإعدادات والتبعيات لذراع ARM-CURRENT",
