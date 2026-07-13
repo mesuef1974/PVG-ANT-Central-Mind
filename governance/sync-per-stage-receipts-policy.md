@@ -84,7 +84,7 @@ layer. It is not a substitute for the two receipts.
 
 ## Dashboard enforcement
 
-The execution dashboard `PVG_ANT_Model_Roadmap/index.html` (Roadmap v2.1)
+The execution dashboard `PVG_ANT_Model_Roadmap/index.html` (Roadmap v2.2)
 carries two mandatory fields on every stage — Pre-stage sync receipt and
 Post-stage sync receipt — and programmatically refuses to mark a stage
 completed while the post-stage receipt is empty. The dashboard enforces the
