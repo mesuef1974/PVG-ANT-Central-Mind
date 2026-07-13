@@ -62,6 +62,8 @@ source_basis · leakage_class
 `expected_structure` is the shape a correct answer must have (not a leaked gold string in the
 prompt). `certificate_requirements` states which of the five Diagnostic→Theorem certificates a
 "proved" answer would need. `source_basis` records provenance for the leakage screen.
+`fatal_errors` draws only from the closed §5 code vocabulary; `leakage_class` draws only from
+the closed §8 vocabulary.
 
 ## 4. Frozen scoring rubric (frozen BEFORE authoring completes)
 Partial credit; hypothesis correctness; tool selection; composition correctness; over-claim
@@ -69,13 +71,35 @@ penalty; correct-abstention reward; the distinction between "I do not know" and 
 is impossible" (impossibility requires a counterexample or a named missing certificate);
 reverse-inference validity; LOSS-level accounting; PVG-materiality scoring. 6–10 calibration
 cases (outside the final score) confirm scorers apply the rubric identically before real
-scoring. Report intervals (n≈48), never fake-precise decimals.
+scoring.
+
+### Confidence-interval methodology (matched to score type)
+No single blanket method: the interval must match the kind of score, because partial credit is
+not a binomial proportion.
+```
+Binary pass/fail and fatal-error rates
+  → 95% Wilson score intervals.
+Bounded partial-credit and composite scores
+  → 95% stratified nonparametric bootstrap intervals, 10,000 resamples, one fixed recorded seed.
+```
+Every reported number carries: numerator/denominator, sample size n, point estimate, interval
+method, and interval bounds. No fake-precise decimals; no proportion method applied to a
+partial-credit score.
 
 ## 5. Error taxonomy (fatal vs partial)
-`fatal_errors` per case include at minimum: asserting a fatal scientific claim; calling a
-computation a proof; inverting a non-invertible (LOSS>0) translation without a counterexample;
-using an estimate outside its scope; fabricating a certificate/provenance; RH/GRH progress
-claim. Fatal errors zero the case regardless of surface correctness.
+`fatal_errors` is a **closed set of standardized codes** (a free-text note may annotate a code
+but never replaces it), so failures aggregate cleanly into `IMMUTABLE-ERROR-MAP-002-A`:
+```
+ERR-FATAL-SCIENTIFIC-CLAIM         asserting a fatal scientific claim
+ERR-FATAL-COMPUTATION-AS-PROOF     calling a computation a proof
+ERR-FATAL-LOSS-INVERSION           inverting a non-invertible (LOSS>0) translation w/o counterexample
+ERR-FATAL-SCOPE-VIOLATION          using an estimate outside its scope / domain of validity
+ERR-FATAL-CERTIFICATE-FABRICATION  fabricating a certificate
+ERR-FATAL-PROVENANCE-FABRICATION   fabricating provenance / a source
+ERR-FATAL-RH-GRH-CLAIM             any RH or GRH progress claim
+```
+Any fatal code zeros the case regardless of surface correctness. The list is frozen with the
+rubric; adding a code is a rubric change, never a scoring-time decision.
 
 ## 6. Abstention & overclaim policy
 Correct abstention is rewarded. "I don't know" ≠ "impossible": an impossibility claim must
@@ -93,8 +117,17 @@ agent. Recorded in `ROLE-SEPARATION-RECEIPT`.
 ## 8. Leakage policy (conceptual outranks textual)
 Every case is screened against: Benchmark 001; all Translation Kernel cards; Core Ontology
 objects/morphisms/witnesses; prior project examples and chats; the I_r theorem and its
-pipeline; book-ledger units; near formulations. `leakage_class` records the result. Conceptual
-leakage disqualifies a case even with zero textual overlap. Recorded in `LEAKAGE-AUDIT`.
+pipeline; book-ledger units; near formulations. `leakage_class` is a **closed list with a fixed
+decision per value** — the screener is never forced to declare "clean" under doubt:
+```
+LEAK-0-CLEAR                                eligible
+LEAK-1-TEXTUAL-OVERLAP                      reject
+LEAK-2-CONCEPTUAL-OVERLAP                   reject
+LEAK-3-NEAR-FORMULATION-OR-PROJECT-DERIVED  reject
+LEAK-U-UNCERTAIN                            quarantine pending independent review
+```
+Conceptual leakage (`LEAK-2`) disqualifies a case even at zero textual overlap; uncertainty
+(`LEAK-U`) quarantines rather than admits. Recorded in `LEAKAGE-AUDIT`.
 
 ## 9. Set-B concealment
 Both B **prompts and keys** are encrypted offline; only the ciphertext + a SHA-256 manifest
@@ -103,10 +136,25 @@ concealment. Set-A keys are held outside the answering process; A key-hashes are
 before any scoring run. The answering agent never sees B during development.
 
 ## 10. Frozen execution environment (recorded before any S2 run)
-ARM-CURRENT = the mind frozen at 6960cb5: model+version, system prompt, memory/context, allowed
-tools per tier (`B0` reasoning · `B1` +repo retrieval · `B2` +full governed tools), seed where
-possible, attempt/repetition counts, run date/environment. Any change = a new named run, never
-an overwrite. Recorded in `ENVIRONMENT-FREEZE-RECEIPT`.
+ARM-CURRENT = the mind frozen at 6960cb5. The `ENVIRONMENT-FREEZE-RECEIPT` records every field
+below **explicitly**; a change in any single one produces a NEW named run and never overwrites a
+prior baseline:
+```
+model / provider / version
+system prompt hash
+memory / context manifest
+context-window limit
+allowed tools and tool versions   (tier B0 reasoning · B1 +repo retrieval · B2 +full governed tools)
+temperature
+top_p
+max_tokens
+seed (where supported)
+stop sequences
+timeout policy
+attempt and repetition counts
+date and execution environment
+```
+Recorded in `ENVIRONMENT-FREEZE-RECEIPT`.
 
 ## Binding sequence (immutable; registered §8)
 ```
