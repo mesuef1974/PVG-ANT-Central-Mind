@@ -37,8 +37,8 @@ Capability maturation:
   CENTRAL-MIND-CONTINUITY-CLOSURE-002 = closed.
   Current maturation receipt = MATURATION-RECEIPT-007.
   PVG-ANT-RESEARCH-MODEL-PROGRAM-001 = active
-    (owner order 2026-07-12; stage S1 open (Roadmap v2.2 reconciliation;
-     Benchmark 002 not started); measure-before-training
+    (owner order 2026-07-12; stage S1 open (Roadmap v2.2 active as the legal
+     plan of record; Benchmark 002 not started); measure-before-training
      order binding; mandatory comparison arms ARM-BASE / ARM-LOCAL /
      ARM-CURRENT / ARM-HYBRID; CURRENT-MIND-FREEZE-MANIFEST-001 recorded;
      charter governance/programs/PVG-ANT-RESEARCH-MODEL-PROGRAM-001.md).
