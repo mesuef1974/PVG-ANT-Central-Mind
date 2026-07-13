@@ -1,13 +1,13 @@
 {
   "stage": "P8-EXTERNAL-REFEREE-001",
   "target_id": "ONE-LEMMA-TARGET-001",
-  "status": "PREPARED_NOT_SENT",
+  "status": "SENT_AWAITING_RESPONSE",
   "priority_review": {
     "role": "priority_and_significance",
-    "candidate": null,
-    "official_contact_verified": false,
-    "request_sent": false,
-    "sent_date": null,
+    "candidate": "Tsz Ho Chan (Kennesaw State University)",
+    "official_contact_verified": true,
+    "request_sent": true,
+    "sent_date": "2026-07-13T03:50:00Z",
     "response_received": false,
     "outcome": null,
     "allowed_outcomes": [
@@ -21,10 +21,10 @@
   },
   "proof_review": {
     "role": "independent_proof_referee",
-    "candidate": null,
-    "official_contact_verified": false,
-    "request_sent": false,
-    "sent_date": null,
+    "candidate": "Etienne Fouvry (Universite Paris-Saclay / Orsay)",
+    "official_contact_verified": true,
+    "request_sent": true,
+    "sent_date": "2026-07-13T03:47:00Z",
     "response_received": false,
     "outcome": null,
     "allowed_outcomes": [

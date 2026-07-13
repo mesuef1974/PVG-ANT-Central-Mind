@@ -9,11 +9,12 @@ Current theorem program:
   GOAL-OP-ONE-THEOREM-001 = active_external_validation_hold.
   Frozen target = ONE-LEMMA-TARGET-001.
   Internal fixed-q, fixed-r, fixed-W smooth theorem = proved internally.
-  P8-EXTERNAL-REFEREE-001 packets = prepared, unsent.
-  P8-OUTREACH-DECISION-001 = HOLD_AUTHORIZED
-    (named blocker STRATEGIC_REPRIORITIZATION_TO_PVG_ANT_MODEL_PROGRAM;
-     new decision deadline 2026-07-26T19:47:20Z).
-  Priority review, proof referee, and certified originality = absent.
+  P8-EXTERNAL-REFEREE-001 packets = SENT 2026-07-13 (both delivered, no bounce);
+    tracker = SENT_AWAITING_RESPONSE.
+  P8-OUTREACH-DECISION-001 = SENT
+    (owner PROCEED-TO-SENT + record-SENT authorization 2026-07-13; prior HOLD superseded;
+     priority = Tsz Ho Chan (Kennesaw State), proof = Etienne Fouvry (Paris-Saclay/Orsay)).
+  Priority review, proof referee, and certified originality = absent (awaiting responses).
 
 Capability-maturation state:
   TRANSLATION-KERNEL-V2-PASS-001 = checkpoint_pass.
@@ -47,14 +48,14 @@ Knowledge and maturation operating law:
     verification, synchronization, and unchanged scientific ceiling.
   Book/file/card counts alone are not maturity.
 
-External P8 track (under authorized hold until 2026-07-26T19:47:20Z):
-  1. No packet is sent during the hold without independent explicit
-     authorization; P8 is not cancelled.
-  2. A new reviewed decision (SENT or freshly authorized HOLD) must be
-     recorded before the new deadline, else the deadline guard fails all CI.
-  3. Preparation-only work stays legal: verify referee addresses and search
-     a research-grade bibliographic database (MathSciNet/zbMATH) and
-     cited-by chains for Chan–Tsang, Srichan, and weighted k-full literature.
+External P8 track (requests SENT 2026-07-13; awaiting referee responses):
+  1. Priority/bibliography request sent to Tsz Ho Chan (Kennesaw State);
+     independent proof request sent to Etienne Fouvry (Paris-Saclay/Orsay);
+     both emails delivered without bounce. SENT is not acceptance/review/validation.
+  2. Do not send further packets or contact reserves without new explicit
+     authorization; the assistant never sends — the owner sends manually.
+  3. Log any reply as a distinct event (tracker response_received/outcome);
+     the decision tree in P8_STOPPING_PROTOCOL.md governs it, no renegotiation.
   4. Record exactly one terminal theorem classification after responses.
 
 Next internal package after continuity activation:
@@ -109,4 +110,4 @@ Ceiling:
   zero GRH progress.
 ```
 
-**Classification:** continuity operationally closed; the next internal package is only the design phase of Adversarial Benchmark 002; external P8 validation remains unsent under an authorized hold (new decision deadline 2026-07-26T19:47:20Z).
+**Classification:** continuity operationally closed; the next internal package is only the design phase of Adversarial Benchmark 002; external P8 validation requests were SENT 2026-07-13 (priority to Tsz Ho Chan, proof to Etienne Fouvry, both delivered) and now await referee responses — SENT is not acceptance, review, or validation.

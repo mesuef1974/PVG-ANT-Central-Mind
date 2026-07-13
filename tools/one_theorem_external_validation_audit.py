@@ -192,7 +192,15 @@ def main() -> None:
     require(isinstance(tracker, dict), "Outreach tracker must be a JSON object")
     require(tracker.get("stage") == "P8-EXTERNAL-REFEREE-001", "Outreach stage drift")
     require(tracker.get("target_id") == "ONE-LEMMA-TARGET-001", "Outreach target drift")
-    require(tracker.get("status") == "PREPARED_NOT_SENT", "Unverified outreach status change")
+    # Outreach may be "prepared but unsent" or, once the CEO authorizes and the packets
+    # are actually emailed, "sent, awaiting response". The scientific-ceiling locks below
+    # (review incomplete, originality not certified, RH/GRH no progress) remain enforced in
+    # BOTH states, so relaxing this single status lock records the real send without
+    # weakening any overclaim protection. (Line-195 relax authorized by CEO 2026-07-13.)
+    require(
+        tracker.get("status") in ("PREPARED_NOT_SENT", "SENT_AWAITING_RESPONSE"),
+        "Unverified outreach status change",
+    )
     audit_review_record(tracker.get("priority_review", {}), "priority_and_significance")
     audit_review_record(tracker.get("proof_review", {}), "independent_proof_referee")
 
@@ -228,8 +236,8 @@ def main() -> None:
         require(phrase.lower() not in combined, f"Forbidden external promotion: {phrase}")
 
     print(
-        "one_theorem_external_validation_audit: PASS — outreach is prepared but unsent, "
-        "and external validation remains incomplete"
+        "one_theorem_external_validation_audit: PASS — outreach status "
+        f"'{tracker.get('status')}'; external review incomplete and originality not certified"
     )
 
 
