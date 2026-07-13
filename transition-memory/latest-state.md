@@ -16,11 +16,14 @@ Research front:
   GOAL-OP-ONE-THEOREM-001 = active_external_validation_hold.
   ONE-LEMMA-TARGET-001 remains frozen.
   Fixed-q, fixed-r, fixed-W smooth theorem = internally proved.
-  External outreach packets = prepared, unsent.
-  P8-OUTREACH-DECISION-001 = HOLD_AUTHORIZED
-    (named blocker STRATEGIC_REPRIORITIZATION_TO_PVG_ANT_MODEL_PROGRAM;
-     owner order 2026-07-12; new decision deadline 2026-07-26T19:47:20Z;
-     no send during the hold without independent authorization; P8 not cancelled).
+  External outreach packets = SENT (both emails delivered, no bounce).
+  P8-OUTREACH-DECISION-001 = SENT
+    (owner PROCEED-TO-SENT and record-SENT authorization 2026-07-13;
+     priority packet to Tsz Ho Chan (Kennesaw State), proof packet to
+     Etienne Fouvry (Paris-Saclay/Orsay); the prior strategic HOLD is superseded).
+  P8-EXTERNAL-REFEREE-001 tracker = SENT_AWAITING_RESPONSE
+    (referees identified by read-only P8-REFEREE-CANDIDATE-VERIFICATION-001;
+     no response yet; SENT is not acceptance, review, or validation).
   External originality and independent proof certificates = absent.
 
 Capability maturation:
@@ -121,8 +124,9 @@ Next capability gate:
      raw hidden baseline → immutable error map → morphism composer
      → same-set rerun with contamination accounting → ablation
      → targeted knowledge and translation learning.
-  External P8 validation remains unsent under an authorized hold
-  (new decision deadline 2026-07-26T19:47:20Z).
+  External P8 validation = requests SENT 2026-07-13, awaiting referee responses
+  (priority/bibliography review and independent proof review); external
+  certificates still absent (SENT != ACCEPTED != REVIEWED != VALIDATED).
 
 Restrictions:
   no second theorem target;
