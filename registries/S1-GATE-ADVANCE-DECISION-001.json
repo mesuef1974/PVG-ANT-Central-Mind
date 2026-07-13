@@ -1,0 +1,46 @@
+{
+  "id": "S1-GATE-ADVANCE-DECISION-001",
+  "kind": "stage_gate_advance_decision",
+  "title": "Advance S1 opening gate from 2026-07-20 to 2026-07-13",
+  "status": "RECORDED",
+  "authorization_ref": "Owner order 2026-07-13: open S1 now instead of 2026-07-20",
+  "ratified_by": "governed merge of this PR through the required governance-gate",
+  "change": {
+    "stage": "S1",
+    "field": "window_start",
+    "from": "2026-07-20",
+    "to": "2026-07-13",
+    "window_end_unchanged": "2026-08-16",
+    "later_gates_unchanged": true
+  },
+  "justification": {
+    "original_gate_reasons": [
+      "avoid S1 competing with the P8 decision deadline",
+      "require S0 (continuity closure + P8 decision + current-mind freeze) to complete first"
+    ],
+    "why_dissolved": [
+      "P8 = SENT in registries/p8-outreach-decision.json; deadline risk resolved",
+      "G0 closed with full evidence; S0 prerequisites met",
+      "measure-before-training prerequisites preceding S1 are satisfied"
+    ],
+    "nature": "governance-schedule change only; the date was codified and dashboard-enforced, so it is moved by a recorded decision, not a silent override"
+  },
+  "does_not_change": [
+    "the P8 record or its SENT_AWAITING_RESPONSE state",
+    "ARM-CURRENT-CAPABILITY-HEAD = 6960cb54b49d3318af7807ea5829c0232192dc60",
+    "GOVERNED-CONTROL-HEAD = dc3d8491eef85d4248a9894c5091d95b7434d3b0",
+    "the measure-before-training order (raw A baseline and immutable error map before any training)",
+    "prohibitions: no corpus, no training, no Unit 003, no ARM-LOCAL, no ARM-HYBRID",
+    "Set B custody (encrypted offline, independent custodian) and four-role separation",
+    "S0 closure; advancing S1 does not reopen S0"
+  ],
+  "edits_in_this_pr": [
+    "registries/S1-GATE-ADVANCE-DECISION-001.json (this record)",
+    "PVG_ANT_Model_Roadmap/index.html: S1 stage start 2026-07-20 -> 2026-07-13",
+    "governance/programs/PVG-ANT-RESEARCH-MODEL-PROGRAM-001.md: S1 stage row + decision note"
+  ],
+  "deferred_to_reconciliation_pr": "PVG-ANT_Roadmap_v2.2_Dual-Track.html start date (v2.2 is still an untracked candidate; its date is set when v2.2 is governed and supersedes v2.1)",
+  "guard": "governance-gate (strict, no bypass)",
+  "classification": "Diagnostic",
+  "ceiling": "capability measurement only; zero RH progress; zero GRH progress; no secured path"
+}
