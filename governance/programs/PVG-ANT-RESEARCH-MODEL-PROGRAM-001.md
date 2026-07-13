@@ -58,7 +58,7 @@ The reversed order (corpus → training → measurement) is forbidden.
 | Stage | Window | Gate |
 |---|---|---|
 | S0 foundation: continuity + P8 decision + current-mind freeze | 2026-07-13 → 07-19 | G0: clean synced main, strict ruleset, P8 legally decided |
-| S1 design and seal Benchmark 002 (A ≥ 48, B ≥ 48 encrypted) | 2026-07-20 → 08-16 | G1: A/B sealed, roles separated, rubric frozen |
+| S1 design and seal Benchmark 002 (A ≥ 48, B ≥ 48 encrypted) | 2026-07-13 → 08-16 | G1: A/B sealed, roles separated, rubric frozen |
 | S2 raw baseline of ARM-CURRENT on A | 2026-08-17 → 08-31 | G2: raw baseline + immutable error map frozen before any training |
 | S3 model study and architecture decision | 2026-09-01 → 09-21 | G3: every proposed component answers a named, measured failure |
 | S4 durable assets and targeted corpus | 2026-09-22 → 10-31 | G4: K0/K1/R1 and corpus sourced, clean, separated, hash-frozen |
@@ -69,6 +69,14 @@ The reversed order (corpus → training → measurement) is forbidden.
 
 Stage closure additionally requires the pre/post sync receipts of
 `governance/sync-per-stage-receipts-policy.md`.
+
+S1 opening was advanced from 2026-07-20 to 2026-07-13 by decision
+`registries/S1-GATE-ADVANCE-DECISION-001.json` (owner order 2026-07-13). The
+original gate reason — do not let S1 compete with the P8 deadline while S0
+completes — dissolved once P8 was recorded SENT and G0 closed. This is a
+governance-schedule change only: it does not alter the capability snapshot,
+the frozen comparison arm, the measure-before-training order, or any
+prohibition. The end date and every later gate are unchanged.
 
 ## G0 evidence (recorded 2026-07-12)
 
