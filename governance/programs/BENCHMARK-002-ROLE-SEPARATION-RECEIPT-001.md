@@ -22,12 +22,24 @@ that authored or saw A keys or B, the entire benchmark is void. Every rule below
 R1 case author           authors prompt · expected_structure · rubric field · tags
 R2 key author / verifier authors and verifies gold keys for A and B
 R3 answering agent       ARM-CURRENT frozen at 6960cb5 — the system under test
-R4 scoring agent         applies the frozen rubric + keys after baseline freeze
+R4 scoring agent         scores frozen responses under the frozen rubric (phased access, §1a)
 R5 B custodian           holds the B decryption key offline; guards B concealment
 ```
 Registered spec §2 fixes four roles; the sealing protocol §7 adds R5 (the independent B
-custodian of §1.4). R1 is never the sole R4. R4 receives ONLY the frozen rubric and the keys.
-R5 is distinct from R3.
+custodian of §1.4). R1 is never the sole R4. R5 is distinct from R3.
+
+### 1a. R4 (scoring agent) phased access
+R4 receives, **only after the corresponding answering run has been immutably frozen**:
+- the frozen scoring rubric,
+- the prompts being scored,
+- the answering agent's frozen responses,
+- the applicable gold keys,
+- the minimum case metadata required for scoring.
+
+R4 does NOT receive authoring deliberations, hidden-set custody material, or any key before the
+corresponding responses are immutably frozen. For Set B, R5 releases the B prompts and keys to
+R4 only after the single authorized B answering run has completed and its responses have been
+immutably frozen.
 
 ## 2. How separation is actually realized (honest mechanism)
 This project runs with one human owner and AI assistants, not five separate human operators.
@@ -64,11 +76,14 @@ R2    yes           yes (authors) no            authors in       yes
 R3    yes, at S2    NEVER         no            NEVER (except     no (rubric is not the test)
       baseline only               (ciphertext)  the single B run,
                                                 prompts only)
-R4    yes           yes           no            after B run only  yes (only rubric + keys)
+R4    post-freeze²  post-freeze²  no            via R5, post-     yes; + frozen responses,
+                                                B-run-freeze²     scored prompts, metadata
 R5    no            no            yes (guards)  holds B key       no
 ```
 `*` R1 may know a case's intended answer shape (expected_structure) but the gold key of record
 is R2's; R1 is never the sole scorer (R4).
+`²` R4 receives each item ONLY after the corresponding answering run is immutably frozen; for
+Set B, R5 releases the B prompts and keys to R4 only after the single B run is frozen (§1a, §4).
 
 ## 4. Binding constraints (frozen)
 ```
@@ -77,8 +92,13 @@ is R2's; R1 is never the sole scorer (R4).
 2. A keys and B never enter any context that will act as R3.
 3. B is authored and encrypted in an isolated session; only ciphertext + SHA-256 reach main.
 4. A key-hashes are committed before any scoring run; scoring is post-baseline-freeze only.
-5. R1 ≠ sole R4; R4 sees only the frozen rubric + keys; R5 ≠ R3.
-6. Any breach of 1–5 voids the affected set and is recorded as a leakage incident, not hidden.
+5. R1 ≠ sole R4; R5 ≠ R3. R4 receives — only after the corresponding answering run is
+   immutably frozen — the frozen rubric, the scored prompts, the frozen responses, the
+   applicable keys, and the minimum scoring metadata; never authoring deliberations, custody
+   material, or any key before the matching responses are frozen (§1a).
+6. For Set B, R5 releases the B prompts and keys to R4 only after the single authorized B
+   answering run has completed and its responses are immutably frozen.
+7. Any breach of 1–6 voids the affected set and is recorded as a leakage incident, not hidden.
 ```
 
 ## 5. Post-authoring confirmation (appended at seal time — placeholder now)

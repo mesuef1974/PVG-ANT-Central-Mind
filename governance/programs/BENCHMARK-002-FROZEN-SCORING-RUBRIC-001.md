@@ -88,10 +88,15 @@ tier (B0/B1/B2); ablation arm. Aggregate scores never stand without these cuts.
 the fatal override identically before real scoring begins. Calibration disagreement above a
 recorded tolerance re-opens the rubric wording (a rubric-change event), never the scores.
 
-## 7. Role constraint (see ROLE-SEPARATION-RECEIPT)
-The scoring agent receives ONLY this frozen rubric and the keys. The case author is never the
-sole scorer. Scoring happens only after the raw baseline is frozen and A keys are opened
-(binding sequence, sealed protocol §Binding sequence).
+## 7. Role constraint (see ROLE-SEPARATION-RECEIPT §1a)
+The scoring agent (R4) receives — only after the corresponding answering run is immutably
+frozen — this frozen rubric, the prompts being scored, the answering agent's frozen responses,
+the applicable gold keys, and the minimum case metadata required for scoring. R4 receives no
+authoring deliberations, no hidden-set custody material, and no key before the matching
+responses are frozen. The case author is never the sole scorer. For Set B, R5 releases the B
+prompts and keys to R4 only after the single authorized B answering run has completed and its
+responses are immutably frozen. Scoring happens only after the raw baseline is frozen and A
+keys are opened (binding sequence, sealed protocol §Binding sequence).
 
 ## Ceiling
 ```
