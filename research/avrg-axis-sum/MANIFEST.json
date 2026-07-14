@@ -1,14 +1,14 @@
 {
   "archive": "AVRG Axis-Sum Research Archive",
-  "generated_at": "2026-07-14T17:18:14Z",
-  "scope": "PASS001 through PASS033",
-  "retained_source_file_count": 139,
+  "generated_at": "2026-07-14T17:33:41Z",
+  "scope": "PASS001 through PASS034",
+  "retained_source_file_count": 145,
   "category_counts": {
-    "reports": 33,
-    "code": 44,
-    "results": 51,
+    "reports": 34,
+    "code": 46,
+    "results": 53,
     "figures": 1,
-    "protocols": 10
+    "protocols": 11
   },
   "scientific_ceiling": "Finite computational diagnostics only; no asymptotic proof and no direct progress toward a proof of Goldbach.",
   "published_page": "https://avrg-pass023-stability.sma-math.chatgpt.site",
@@ -24,7 +24,8 @@
     "PASS030 protocol, equal-rank sum-aware subspace code, and tests were committed before the locked constrained analysis; its byte-stable result and report were added in a later commit.",
     "PASS031 protocol, one-extra-cancellation-coordinate code, and tests were committed before the locked augmented-rank analysis; its byte-stable result and report were added in a later commit.",
     "PASS032 protocol, held-out linear-coupling code, and tests were committed before the locked cancellation-coefficient analysis; its byte-stable negative result and report were added later.",
-    "PASS033 protocol, jackknife functional-stability code, and tests were committed before the locked overlap-aware permutation analysis; its byte-stable negative result and report were added later."
+    "PASS033 protocol, jackknife functional-stability code, and tests were committed before the locked overlap-aware permutation analysis; its byte-stable negative result and report were added later.",
+    "PASS034 protocol, exact-e14 scan code, disjoint-block transport code, and tests were committed before computing the new window or locked transport result; both byte-stable outputs and the negative report were added later."
   ],
   "files": [
     {
@@ -188,6 +189,11 @@
       "size_bytes": 19691
     },
     {
+      "path": "code/avrg_pass034.py",
+      "sha256": "1d6d954f9063747959b4f3f8f31eab92a78ee9af51c1e3e965ae0ecad034883a",
+      "size_bytes": 28375
+    },
+    {
       "path": "code/test_avrg_pass022.py",
       "sha256": "ed6286e68f772cc8f4f21550888e683f9a0ae51201d4891f982a84253a6c14fd",
       "size_bytes": 2419
@@ -248,6 +254,11 @@
       "size_bytes": 2755
     },
     {
+      "path": "code/test_avrg_pass034.py",
+      "sha256": "cf82469eb4f315c07233b0bfc34c0412639135c616ed2b69165ebfec14a541cd",
+      "size_bytes": 2003
+    },
+    {
       "path": "figures/avrg_pass023_mean_ratio_by_modulus.png",
       "sha256": "f9ff6fce210a0e39c1c3df46a0a46d73c68c265b5a5319fa762683a16d8e7c97",
       "size_bytes": 138505
@@ -301,6 +312,11 @@
       "path": "protocols/PASS033-PROTOCOL.md",
       "sha256": "40ff4a5d271a04c8eb47ed33041cc90c472df7983d2a3570fd546e7a68a70742",
       "size_bytes": 6815
+    },
+    {
+      "path": "protocols/PASS034-PROTOCOL.md",
+      "sha256": "7e8a5c266ed22c317cce398ffcfd54bb50adb5340021c5f300f43f9c8015724c",
+      "size_bytes": 7298
     },
     {
       "path": "reports/AVRG-Foundational-Research-Pass-001-ar.md",
@@ -466,6 +482,11 @@
       "path": "reports/AVRG-Research-Pass-033-Linear-Functional-Stability-ar.md",
       "sha256": "ab9dfa7439bbe3f5437bb2cc6def08eabae7d761604631db7bcbbbe62f3ddadf",
       "size_bytes": 10167
+    },
+    {
+      "path": "reports/AVRG-Research-Pass-034-Disjoint-Block-Cancellation-Transport-ar.md",
+      "sha256": "b237529e42b1d704470e93db4813a387ff2e003797ebd81f8d48b87bbf7daf7c",
+      "size_bytes": 11212
     },
     {
       "path": "results/avrg_pass005_results.json",
@@ -721,6 +742,16 @@
       "path": "results/avrg_pass033_results.json",
       "sha256": "9d0641a61af4f9839ed210c6e4fdcac120935cf9d3f4699c1d56b1713f99c8c8",
       "size_bytes": 41388
+    },
+    {
+      "path": "results/avrg_pass034_e14_orbits.json",
+      "sha256": "41796b4d7e12bad585afa9693a935c7b2ba5720ce03f052fd891dbf9eadc669e",
+      "size_bytes": 39548
+    },
+    {
+      "path": "results/avrg_pass034_results.json",
+      "sha256": "d4939601ffd8a06c04fda97b5f8573ae5803422bbac62ed174b1561d5b1089ed",
+      "size_bytes": 43311
     }
   ]
 }
