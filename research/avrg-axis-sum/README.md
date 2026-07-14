@@ -1,15 +1,15 @@
 # AVRG Axis-Sum Research Archive
 
-This directory preserves the complete retained research trail for the additive axis-sum program in Prime Valuation Geometry (PVG), from the foundational definition through PASS033.
+This directory preserves the complete retained research trail for the additive axis-sum program in Prime Valuation Geometry (PVG), from the foundational definition through PASS034.
 
 ## Scope
 
-- PASS001–PASS033 research reports: 33
-- Python programs and reproducibility tests: 44
-- Saved JSON experiment outputs: 51
+- PASS001–PASS034 research reports: 34
+- Python programs and reproducibility tests: 46
+- Saved JSON experiment outputs: 52
 - Figures: 1
-- Preregistered diagnostic protocols: 10
-- Retained source artifacts before this archive index: 139
+- Preregistered diagnostic protocols: 11
+- Retained source artifacts before this archive index: 144
 
 PASS001–PASS004 are preserved as full research reports containing their finite calculations and derivations. Standalone scripts were first retained from PASS005 onward. No missing standalone PASS001–PASS004 scripts are claimed.
 
@@ -29,23 +29,43 @@ This archive contains finite computational diagnostics, structural reformulation
 
 ## Current stopping point
 
-PASS033 is complete. Its jackknife functional-stability protocol, implementation, and tests were committed before the locked analysis.
+PASS034 is complete. It added the exact e=14 full-orbit window and compared two disjoint three-window training blocks:
 
-The raw oriented coherence of the five leave-one-window-out cancellation functionals is 0.552909, but this does not exceed the overlap-aware restricted-permutation null:
+- early block: e=14,15,16;
+- late block: e=17,18,19.
 
-- oriented coherence: 0.552909;
-- null mean: 0.609023;
-- restricted-permutation p-value: 0.800840;
-- axis coherence: 0.709707 with secondary p-value 0.302739;
-- 15/70 pairwise signed cosines are negative.
+The e=14 computation passed its exact safety gate:
 
-The locked decision rejects a distinct stable oriented linear cancellation functional. PASS031 remains a containment result, while PASS032–PASS033 reject linear prediction and show that jackknife similarity is explained by overlapping training windows.
+- 32 representative character rows;
+- 3,190 on-state values across seven moduli;
+- maximum pointwise closure error: `6.13e-18`;
+- maximum averaged closure error: `2.20e-18`;
+- zero-residue variation across characters: `0`.
 
-The next proposed diagnostic is PASS034: add the inexpensive e=14 full orbit window and compare early and late three-window training blocks with no overlap.
+The locked non-overlap result rejects a stable transferable linear cancellation functional:
+
+- mean signed early/late functional cosine: **0.207815**;
+- restricted-permutation cosine p-value: **0.092981**;
+- bidirectional scalar skill: **-0.136844**;
+- restricted-permutation skill p-value: **0.000400**;
+- moduli with signed cosine at least 0.30: **4/7**;
+- moduli with nonnegative bidirectional skill: **2/7**;
+- locked decision: `no_stable_nonoverlapping_linear_cancellation_functional_under_locked_rule`.
+
+The small skill p-value does not mean successful prediction. The observed model is substantially better than the broken-coupling permutation null, whose mean skill is -1.119957, but it remains worse than the zero-prediction baseline because its absolute skill is negative.
+
+The next proposed diagnostic is PASS035: separate directional failure from gain/calibration drift between the independent early and late functionals. Oracle target recalibration must remain a diagnostic and must not be reported as held-out prediction.
 
 ## Reproduction
 
 ```bash
-python code/avrg_pass033.py
-python -m unittest discover -v -s code -p 'test_avrg_pass033.py'
+python code/avrg_pass034.py
+python -m unittest discover -v -s code -p 'test_avrg_pass034.py'
+sha256sum results/avrg_pass034_results.json
+```
+
+Expected PASS034 result SHA-256:
+
+```text
+fa92d9fa771740dd6083bf9bb6dbd530219e5c25bffee54991db4f50900196ce
 ```
