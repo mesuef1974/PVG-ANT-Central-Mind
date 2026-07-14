@@ -1,0 +1,604 @@
+{
+  "pass": "PASS022",
+  "title": "Modulus-character separation in the common e17 window",
+  "classification": "finite computational diagnostic",
+  "claim_ceiling": "No asymptotic proof and no direct progress toward a proof of Goldbach.",
+  "metadata": {
+    "exp": 17,
+    "window": [
+      131072,
+      262144
+    ],
+    "input_files": [
+      "avrg_pass015_e17.json",
+      "avrg_pass021_full_e17.json"
+    ],
+    "raw_row_count": 27,
+    "representative_row_count": 15,
+    "standard_deviation_convention": "population SD across orbit representatives"
+  },
+  "conjugacy_checks": [
+    {
+      "r": 5,
+      "k": 2,
+      "member_indices": [
+        2
+      ],
+      "max_ratio_spread": 0.0,
+      "passed": true
+    },
+    {
+      "r": 7,
+      "k": 2,
+      "member_indices": [
+        2,
+        4
+      ],
+      "max_ratio_spread": 4.440892098500626e-16,
+      "passed": true
+    },
+    {
+      "r": 11,
+      "k": 2,
+      "member_indices": [
+        2,
+        8
+      ],
+      "max_ratio_spread": 2.220446049250313e-15,
+      "passed": true
+    },
+    {
+      "r": 11,
+      "k": 4,
+      "member_indices": [
+        4,
+        6
+      ],
+      "max_ratio_spread": 4.440892098500626e-16,
+      "passed": true
+    },
+    {
+      "r": 13,
+      "k": 2,
+      "member_indices": [
+        2,
+        10
+      ],
+      "max_ratio_spread": 0.0,
+      "passed": true
+    },
+    {
+      "r": 13,
+      "k": 4,
+      "member_indices": [
+        4,
+        8
+      ],
+      "max_ratio_spread": 8.881784197001252e-16,
+      "passed": true
+    },
+    {
+      "r": 13,
+      "k": 6,
+      "member_indices": [
+        6
+      ],
+      "max_ratio_spread": 0.0,
+      "passed": true
+    },
+    {
+      "r": 17,
+      "k": 2,
+      "member_indices": [
+        2,
+        14
+      ],
+      "max_ratio_spread": 8.881784197001252e-16,
+      "passed": true
+    },
+    {
+      "r": 17,
+      "k": 4,
+      "member_indices": [
+        4,
+        12
+      ],
+      "max_ratio_spread": 6.661338147750939e-16,
+      "passed": true
+    },
+    {
+      "r": 17,
+      "k": 6,
+      "member_indices": [
+        6,
+        10
+      ],
+      "max_ratio_spread": 0.0,
+      "passed": true
+    },
+    {
+      "r": 17,
+      "k": 8,
+      "member_indices": [
+        8
+      ],
+      "max_ratio_spread": 0.0,
+      "passed": true
+    },
+    {
+      "r": 19,
+      "k": 2,
+      "member_indices": [
+        2,
+        16
+      ],
+      "max_ratio_spread": 1.7763568394002505e-15,
+      "passed": true
+    },
+    {
+      "r": 19,
+      "k": 4,
+      "member_indices": [
+        4,
+        14
+      ],
+      "max_ratio_spread": 0.0,
+      "passed": true
+    },
+    {
+      "r": 19,
+      "k": 6,
+      "member_indices": [
+        6,
+        12
+      ],
+      "max_ratio_spread": 4.440892098500626e-16,
+      "passed": true
+    },
+    {
+      "r": 19,
+      "k": 8,
+      "member_indices": [
+        8,
+        10
+      ],
+      "max_ratio_spread": 6.661338147750939e-16,
+      "passed": true
+    }
+  ],
+  "representatives": [
+    {
+      "r": 5,
+      "k": 2,
+      "conjugate_k": 2,
+      "self_conjugate": true,
+      "orbit_size": 1,
+      "rho": 2.6471378753211456,
+      "character_order": 2,
+      "normalized_frequency": 0.5
+    },
+    {
+      "r": 7,
+      "k": 2,
+      "conjugate_k": 4,
+      "self_conjugate": false,
+      "orbit_size": 2,
+      "rho": 2.175344095287185,
+      "character_order": 3,
+      "normalized_frequency": 0.3333333333333333
+    },
+    {
+      "r": 11,
+      "k": 2,
+      "conjugate_k": 8,
+      "self_conjugate": false,
+      "orbit_size": 2,
+      "rho": 2.152283298382754,
+      "character_order": 5,
+      "normalized_frequency": 0.2
+    },
+    {
+      "r": 11,
+      "k": 4,
+      "conjugate_k": 6,
+      "self_conjugate": false,
+      "orbit_size": 2,
+      "rho": 2.0680958844267012,
+      "character_order": 5,
+      "normalized_frequency": 0.4
+    },
+    {
+      "r": 13,
+      "k": 2,
+      "conjugate_k": 10,
+      "self_conjugate": false,
+      "orbit_size": 2,
+      "rho": 1.9911870004492342,
+      "character_order": 6,
+      "normalized_frequency": 0.16666666666666666
+    },
+    {
+      "r": 13,
+      "k": 4,
+      "conjugate_k": 8,
+      "self_conjugate": false,
+      "orbit_size": 2,
+      "rho": 2.1020033476166713,
+      "character_order": 3,
+      "normalized_frequency": 0.3333333333333333
+    },
+    {
+      "r": 13,
+      "k": 6,
+      "conjugate_k": 6,
+      "self_conjugate": true,
+      "orbit_size": 1,
+      "rho": 2.2622610189746277,
+      "character_order": 2,
+      "normalized_frequency": 0.5
+    },
+    {
+      "r": 17,
+      "k": 2,
+      "conjugate_k": 14,
+      "self_conjugate": false,
+      "orbit_size": 2,
+      "rho": 2.026601945824756,
+      "character_order": 8,
+      "normalized_frequency": 0.125
+    },
+    {
+      "r": 17,
+      "k": 4,
+      "conjugate_k": 12,
+      "self_conjugate": false,
+      "orbit_size": 2,
+      "rho": 1.952108515864209,
+      "character_order": 4,
+      "normalized_frequency": 0.25
+    },
+    {
+      "r": 17,
+      "k": 6,
+      "conjugate_k": 10,
+      "self_conjugate": false,
+      "orbit_size": 2,
+      "rho": 1.9760100300170609,
+      "character_order": 8,
+      "normalized_frequency": 0.375
+    },
+    {
+      "r": 17,
+      "k": 8,
+      "conjugate_k": 8,
+      "self_conjugate": true,
+      "orbit_size": 1,
+      "rho": 2.0209005589209252,
+      "character_order": 2,
+      "normalized_frequency": 0.5
+    },
+    {
+      "r": 19,
+      "k": 2,
+      "conjugate_k": 16,
+      "self_conjugate": false,
+      "orbit_size": 2,
+      "rho": 2.1378701134494715,
+      "character_order": 9,
+      "normalized_frequency": 0.1111111111111111
+    },
+    {
+      "r": 19,
+      "k": 4,
+      "conjugate_k": 14,
+      "self_conjugate": false,
+      "orbit_size": 2,
+      "rho": 1.9917065460415306,
+      "character_order": 9,
+      "normalized_frequency": 0.2222222222222222
+    },
+    {
+      "r": 19,
+      "k": 6,
+      "conjugate_k": 12,
+      "self_conjugate": false,
+      "orbit_size": 2,
+      "rho": 1.9503258807726636,
+      "character_order": 3,
+      "normalized_frequency": 0.3333333333333333
+    },
+    {
+      "r": 19,
+      "k": 8,
+      "conjugate_k": 10,
+      "self_conjugate": false,
+      "orbit_size": 2,
+      "rho": 1.9377597919956262,
+      "character_order": 9,
+      "normalized_frequency": 0.4444444444444444
+    }
+  ],
+  "per_modulus": [
+    {
+      "r": 5,
+      "inverse_r": 0.2,
+      "representative_count": 1,
+      "representative_k": [
+        2
+      ],
+      "mean_ratio": 2.6471378753211456,
+      "population_sd": 0.0,
+      "sample_sd": null,
+      "min_ratio": 2.6471378753211456,
+      "min_k": 2,
+      "max_ratio": 2.6471378753211456,
+      "max_k": 2,
+      "mean_minus_two": 0.6471378753211456,
+      "all_rows_mean_for_sensitivity": 2.6471378753211456,
+      "representative_minus_all_rows_mean": 0.0
+    },
+    {
+      "r": 7,
+      "inverse_r": 0.14285714285714285,
+      "representative_count": 1,
+      "representative_k": [
+        2
+      ],
+      "mean_ratio": 2.175344095287185,
+      "population_sd": 0.0,
+      "sample_sd": null,
+      "min_ratio": 2.175344095287185,
+      "min_k": 2,
+      "max_ratio": 2.175344095287185,
+      "max_k": 2,
+      "mean_minus_two": 0.1753440952871852,
+      "all_rows_mean_for_sensitivity": 2.175344095287185,
+      "representative_minus_all_rows_mean": 0.0
+    },
+    {
+      "r": 11,
+      "inverse_r": 0.09090909090909091,
+      "representative_count": 2,
+      "representative_k": [
+        2,
+        4
+      ],
+      "mean_ratio": 2.1101895914047275,
+      "population_sd": 0.04209370697802628,
+      "sample_sd": 0.059529491298883755,
+      "min_ratio": 2.0680958844267012,
+      "min_k": 4,
+      "max_ratio": 2.152283298382754,
+      "max_k": 2,
+      "mean_minus_two": 0.1101895914047275,
+      "all_rows_mean_for_sensitivity": 2.1101895914047275,
+      "representative_minus_all_rows_mean": 0.0
+    },
+    {
+      "r": 13,
+      "inverse_r": 0.07692307692307693,
+      "representative_count": 3,
+      "representative_k": [
+        2,
+        4,
+        6
+      ],
+      "mean_ratio": 2.1184837890135113,
+      "population_sd": 0.11127738491820742,
+      "sample_sd": 0.1362864064804423,
+      "min_ratio": 1.9911870004492342,
+      "min_k": 2,
+      "max_ratio": 2.2622610189746277,
+      "max_k": 6,
+      "mean_minus_two": 0.11848378901351131,
+      "all_rows_mean_for_sensitivity": 2.089728343021288,
+      "representative_minus_all_rows_mean": 0.02875544599222346
+    },
+    {
+      "r": 17,
+      "inverse_r": 0.058823529411764705,
+      "representative_count": 4,
+      "representative_k": [
+        2,
+        4,
+        6,
+        8
+      ],
+      "mean_ratio": 1.993905262656738,
+      "population_sd": 0.03108466866579064,
+      "sample_sd": 0.0358934836437291,
+      "min_ratio": 1.952108515864209,
+      "min_k": 4,
+      "max_ratio": 2.026601945824756,
+      "max_k": 2,
+      "mean_minus_two": -0.006094737343262047,
+      "all_rows_mean_for_sensitivity": 1.990048791761854,
+      "representative_minus_all_rows_mean": 0.0038564708948840565
+    },
+    {
+      "r": 19,
+      "inverse_r": 0.05263157894736842,
+      "representative_count": 4,
+      "representative_k": [
+        2,
+        4,
+        6,
+        8
+      ],
+      "mean_ratio": 2.004415583064823,
+      "population_sd": 0.07959321842870998,
+      "sample_sd": 0.09190633217096877,
+      "min_ratio": 1.9377597919956262,
+      "min_k": 8,
+      "max_ratio": 2.1378701134494715,
+      "max_k": 2,
+      "mean_minus_two": 0.0044155830648229255,
+      "all_rows_mean_for_sensitivity": 2.004415583064823,
+      "representative_minus_all_rows_mean": 0.0
+    }
+  ],
+  "trend_with_inverse_modulus": {
+    "intercept": 1.7638170296316729,
+    "slope": 3.964632557068764,
+    "r_squared": 0.8773255874176326,
+    "pearson_r": 0.9366566005840309,
+    "spearman_rho": 0.8857142857142857,
+    "exact_permutation": {
+      "permutations": 720,
+      "two_sided_p": 0.005555555555555556,
+      "positive_direction_p": 0.005555555555555556
+    },
+    "residual_degrees_of_freedom": 4,
+    "intercept_standard_error": 0.08603071780917308,
+    "intercept_classical_95_percent_ci": [
+      1.5249574642737411,
+      2.0026765949896044
+    ],
+    "fixed_limit_two_model": {
+      "formula": "mean_ratio = 2 + c/r",
+      "c": 2.1465209794127658,
+      "sse": 0.10338704810999731,
+      "rmse": 0.13126756905267786,
+      "sse_over_unconstrained_sse": 2.884213348194168,
+      "residuals_by_r": [
+        {
+          "r": 5,
+          "residual": 0.21783367943859266
+        },
+        {
+          "r": 7,
+          "residual": -0.13130175891463836
+        },
+        {
+          "r": 11,
+          "residual": -0.08494867945097839
+        },
+        {
+          "r": 13,
+          "residual": -0.046633209402855424
+        },
+        {
+          "r": 17,
+          "residual": -0.1323606773087187
+        },
+        {
+          "r": 19,
+          "residual": -0.1085592053253226
+        }
+      ]
+    },
+    "all_character_rows_weighting_sensitivity": {
+      "intercept": 1.7523880163508316,
+      "slope": 4.022436117941243,
+      "r_squared": 0.8869884746432747,
+      "pearson_r": 0.9418006554697628,
+      "spearman_rho": 0.9428571428571428
+    },
+    "leave_one_modulus_out": [
+      {
+        "omitted_r": 5,
+        "slope": 1.947411658483609,
+        "pearson_r": 0.8933998270182337,
+        "r_squared": 0.7981632509162089
+      },
+      {
+        "omitted_r": 7,
+        "slope": 4.467640988150204,
+        "pearson_r": 0.9941458986230075,
+        "r_squared": 0.9883260677489477
+      },
+      {
+        "omitted_r": 11,
+        "slope": 3.951260052954721,
+        "pearson_r": 0.9359556404734566,
+        "r_squared": 0.8760129609340783
+      },
+      {
+        "omitted_r": 13,
+        "slope": 4.067952886932477,
+        "pearson_r": 0.9415669932345883,
+        "r_squared": 0.8865484027488234
+      },
+      {
+        "omitted_r": 17,
+        "slope": 3.9525209478240746,
+        "pearson_r": 0.9264489939209154,
+        "r_squared": 0.8583077383370765
+      },
+      {
+        "omitted_r": 19,
+        "slope": 4.113073915364338,
+        "pearson_r": 0.9309026651839675,
+        "r_squared": 0.866579772046614
+      }
+    ],
+    "scope": "six finite modulus means; exploratory, not asymptotic"
+  },
+  "within_modulus_character_tests": {
+    "frequency_linear": {
+      "coefficients": [
+        0.0071234281912155506
+      ],
+      "within_modulus_r_squared": 0.00015638058287248402,
+      "exact_within_modulus_permutations": 6912,
+      "exact_permutation_p": 0.9745370370370371
+    },
+    "frequency_linear_quadratic": {
+      "coefficients": [
+        -2.1111657767444245,
+        3.452655053887924
+      ],
+      "within_modulus_r_squared": 0.42292872544747584,
+      "exact_within_modulus_permutations": 6912,
+      "exact_permutation_p": 0.1566840277777778
+    },
+    "character_order_linear": {
+      "coefficients": [
+        -0.0031262899837659567
+      ],
+      "within_modulus_r_squared": 0.008762662685451561,
+      "exact_within_modulus_permutations": 6912,
+      "exact_permutation_p": 0.75
+    },
+    "per_modulus_frequency_direction": [
+      {
+        "r": 11,
+        "n": 2,
+        "frequency_slope": -0.4209370697802628,
+        "frequency_pearson_r": -1.0
+      },
+      {
+        "r": 13,
+        "n": 3,
+        "frequency_slope": 0.8132220555761804,
+        "frequency_pearson_r": 0.9945013062043492
+      },
+      {
+        "r": 17,
+        "n": 4,
+        "frequency_slope": 0.005437882753087209,
+        "frequency_pearson_r": 0.02444829720623352
+      },
+      {
+        "r": 19,
+        "n": 4,
+        "frequency_slope": -0.5775404666673628,
+        "frequency_pearson_r": -0.9014026911670684
+      }
+    ],
+    "method": "Predictors and ratios are centered within each r; exact tests permute ratios only within r. Character order is (r-1)/gcd(k,r-1)."
+  },
+  "proximity_to_two": {
+    "all_moduli_mean_absolute_deviation": 0.17694427857244244,
+    "all_moduli_max_absolute_deviation": 0.6471378753211456,
+    "r_ge_13_moduli": [
+      13,
+      17,
+      19
+    ],
+    "r_ge_13_mean_absolute_deviation": 0.04299803647386543,
+    "r_ge_13_max_absolute_deviation": 0.11848378901351131,
+    "r_ge_13_mean_of_modulus_means": 2.038934878245024,
+    "interpretation_boundary": "Finite-window descriptive support only; not evidence of a proved limit."
+  }
+}

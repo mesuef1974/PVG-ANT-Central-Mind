@@ -1,0 +1,149 @@
+{
+  "parameters": {
+    "limit_exponent": 22,
+    "window": [
+      2097152,
+      4194304
+    ],
+    "axis_primes": [
+      3,
+      5,
+      7,
+      11
+    ],
+    "weight": "theta(n)=log(n) on primes"
+  },
+  "definitions": {
+    "R_r_a": "sum_{m=a mod r} theta(m)theta(N-m)",
+    "Z_r_a": "R_r_a-main(N)/A_r(N) on locally allowed classes",
+    "within": "sum_a Z_r_a^2/main(N)^2",
+    "between": "sum_{a!=b} Z_r_a Z_r_b/main(N)^2",
+    "total": "within+between=(theta*theta/main-1)^2"
+  },
+  "axes": {
+    "3": {
+      "kappa_diagonal": 0.5,
+      "components": {
+        "total": {
+          "mean_on": 1.2024071242715043e-05,
+          "mean_off": 2.637302583088006e-05,
+          "on_over_off": 0.455923082918916,
+          "axis_defect": -1.1624416727249878e-06
+        },
+        "within_classes": {
+          "mean_on": 6.012035621357521e-06,
+          "mean_off": 2.6376441698313948e-05,
+          "on_over_off": 0.22793201941798794,
+          "axis_defect": -7.1761852277994524e-06,
+          "share_of_total_axis_defect": 6.173372304329978
+        },
+        "between_classes": {
+          "mean_on": 6.012035621357521e-06,
+          "mean_off": -3.415867433887109e-09,
+          "on_over_off": -1760.0318916697786,
+          "axis_defect": 6.013743555074465e-06,
+          "share_of_total_axis_defect": -5.173372304329978
+        }
+      },
+      "checks": {
+        "max_abs_raw_reconstruction_error": 9.313225746154785e-09,
+        "max_abs_residual_reconstruction_error": 1.7265919596831658e-15,
+        "max_abs_energy_reconstruction_error": 5.827586677109586e-17,
+        "defect_share_sum": 1.0
+      }
+    },
+    "5": {
+      "kappa_diagonal": 0.75,
+      "components": {
+        "total": {
+          "mean_on": 1.6360975617983444e-05,
+          "mean_off": 2.2897311449080418e-05,
+          "on_over_off": 0.7145369732323101,
+          "axis_defect": -8.120079688268703e-07
+        },
+        "within_classes": {
+          "mean_on": 9.384074990961771e-06,
+          "mean_off": 1.6135679583090015e-05,
+          "on_over_off": 0.5815729633597931,
+          "axis_defect": -2.7176846963557392e-06,
+          "share_of_total_axis_defect": 3.3468694898180016
+        },
+        "between_classes": {
+          "mean_on": 6.976900627021675e-06,
+          "mean_off": 6.761631865990404e-06,
+          "on_over_off": 1.031836805862506,
+          "axis_defect": 1.9056767275288715e-06,
+          "share_of_total_axis_defect": -2.3468694898180047
+        }
+      },
+      "checks": {
+        "max_abs_raw_reconstruction_error": 1.1175870895385742e-08,
+        "max_abs_residual_reconstruction_error": 1.730169826852368e-15,
+        "max_abs_energy_reconstruction_error": 4.5319650809894085e-17,
+        "defect_share_sum": 0.9999999999999969
+      }
+    },
+    "7": {
+      "kappa_diagonal": 0.8333333333333334,
+      "components": {
+        "total": {
+          "mean_on": 1.7846790970054497e-05,
+          "mean_off": 2.2213923371898046e-05,
+          "on_over_off": 0.8034056240885284,
+          "axis_defect": -6.648118398605408e-07
+        },
+        "within_classes": {
+          "mean_on": 1.0202316561031211e-05,
+          "mean_off": 1.4996510248150013e-05,
+          "on_over_off": 0.6803127122384877,
+          "axis_defect": -2.294775312427134e-06,
+          "share_of_total_axis_defect": 3.4517666125027415
+        },
+        "between_classes": {
+          "mean_on": 7.644474409023286e-06,
+          "mean_off": 7.217413123748032e-06,
+          "on_over_off": 1.059170963051853,
+          "axis_defect": 1.6299634725665923e-06,
+          "share_of_total_axis_defect": -2.45176661250274
+        }
+      },
+      "checks": {
+        "max_abs_raw_reconstruction_error": 9.313225746154785e-09,
+        "max_abs_residual_reconstruction_error": 1.7616116898544476e-15,
+        "max_abs_energy_reconstruction_error": 4.466912950640278e-17,
+        "defect_share_sum": 1.0000000000000013
+      }
+    },
+    "11": {
+      "kappa_diagonal": 0.9,
+      "components": {
+        "total": {
+          "mean_on": 1.9070109215251858e-05,
+          "mean_off": 2.1842038896647996e-05,
+          "on_over_off": 0.8730919904267026,
+          "axis_defect": -5.87725791731338e-07
+        },
+        "within_classes": {
+          "mean_on": 1.1936554477921904e-05,
+          "mean_off": 1.4985967433988411e-05,
+          "on_over_off": 0.796515442229616,
+          "axis_defect": -1.5508162126676665e-06,
+          "share_of_total_axis_defect": 2.63867305890938
+        },
+        "between_classes": {
+          "mean_on": 7.1335547373299534e-06,
+          "mean_off": 6.856071462659588e-06,
+          "on_over_off": 1.0404726345373776,
+          "axis_defect": 9.630904209363235e-07,
+          "share_of_total_axis_defect": -1.638673058909371
+        }
+      },
+      "checks": {
+        "max_abs_raw_reconstruction_error": 9.313225746154785e-09,
+        "max_abs_residual_reconstruction_error": 1.418969922031138e-15,
+        "max_abs_energy_reconstruction_error": 3.5453411040275995e-17,
+        "defect_share_sum": 1.0000000000000089
+      }
+    }
+  }
+}

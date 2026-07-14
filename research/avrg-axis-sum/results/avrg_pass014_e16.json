@@ -1,0 +1,108 @@
+{
+  "exp": 16,
+  "window": [
+    65536,
+    131072
+  ],
+  "normalization": "character energy divided by r-1",
+  "rows": [
+    {
+      "r": 5,
+      "k": 2,
+      "parity": "even",
+      "total": 8.353159243883913e-05,
+      "diagonal": 0.00012715213623836584,
+      "non_diagonal": -4.362054379952671e-05,
+      "diagonal_share": 1.5222041448744696,
+      "total_over_diagonal": 0.6569421081706922,
+      "off_total": 3.2788972932139705e-05,
+      "off_raw_diagonal": 0.00016955555715370108,
+      "on_off_total_ratio": 2.547551355503471,
+      "on_off_raw_diagonal_ratio": 0.7499142957791893
+    },
+    {
+      "r": 7,
+      "k": 2,
+      "parity": "even",
+      "total": 5.700693316112748e-05,
+      "diagonal": 9.166345397801525e-05,
+      "non_diagonal": -3.465652081688777e-05,
+      "diagonal_share": 1.607935191302656,
+      "total_over_diagonal": 0.6219156128984638,
+      "off_total": 2.7612219000146362e-05,
+      "off_raw_diagonal": 0.0001100025636981924,
+      "on_off_total_ratio": 2.0645545785662973,
+      "on_off_raw_diagonal_ratio": 0.8332847062501826
+    },
+    {
+      "r": 7,
+      "k": 4,
+      "parity": "even",
+      "total": 5.700693316112746e-05,
+      "diagonal": 9.166345397801525e-05,
+      "non_diagonal": -3.465652081688779e-05,
+      "diagonal_share": 1.6079351913026567,
+      "total_over_diagonal": 0.6219156128984635,
+      "off_total": 2.761221900014635e-05,
+      "off_raw_diagonal": 0.0001100025636981924,
+      "on_off_total_ratio": 2.0645545785662978,
+      "on_off_raw_diagonal_ratio": 0.8332847062501826
+    },
+    {
+      "r": 11,
+      "k": 2,
+      "parity": "even",
+      "total": 4.633921740397261e-05,
+      "diagonal": 5.8519693645311e-05,
+      "non_diagonal": -1.2180476241338393e-05,
+      "diagonal_share": 1.2628545953884447,
+      "total_over_diagonal": 0.7918568009743097,
+      "off_total": 2.160780800511752e-05,
+      "off_raw_diagonal": 6.502052302812511e-05,
+      "on_off_total_ratio": 2.1445589202291035,
+      "on_off_raw_diagonal_ratio": 0.9000188082153365
+    },
+    {
+      "r": 11,
+      "k": 4,
+      "parity": "even",
+      "total": 3.956749228988553e-05,
+      "diagonal": 5.8519693645311e-05,
+      "non_diagonal": -1.8952201355425474e-05,
+      "diagonal_share": 1.4789841422492713,
+      "total_over_diagonal": 0.6761397715050401,
+      "off_total": 2.0629999230408382e-05,
+      "off_raw_diagonal": 6.502052302812511e-05,
+      "on_off_total_ratio": 1.9179589804135087,
+      "on_off_raw_diagonal_ratio": 0.9000188082153365
+    },
+    {
+      "r": 11,
+      "k": 6,
+      "parity": "even",
+      "total": 3.956749228988561e-05,
+      "diagonal": 5.8519693645311e-05,
+      "non_diagonal": -1.8952201355425393e-05,
+      "diagonal_share": 1.4789841422492682,
+      "total_over_diagonal": 0.6761397715050415,
+      "off_total": 2.062999923040842e-05,
+      "off_raw_diagonal": 6.502052302812511e-05,
+      "on_off_total_ratio": 1.917958980413509,
+      "on_off_raw_diagonal_ratio": 0.9000188082153365
+    },
+    {
+      "r": 11,
+      "k": 8,
+      "parity": "even",
+      "total": 4.633921740397263e-05,
+      "diagonal": 5.8519693645311e-05,
+      "non_diagonal": -1.2180476241338373e-05,
+      "diagonal_share": 1.262854595388444,
+      "total_over_diagonal": 0.79185680097431,
+      "off_total": 2.1607808005117518e-05,
+      "off_raw_diagonal": 6.502052302812511e-05,
+      "on_off_total_ratio": 2.144558920229105,
+      "on_off_raw_diagonal_ratio": 0.9000188082153365
+    }
+  ]
+}
