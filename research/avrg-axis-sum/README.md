@@ -1,15 +1,15 @@
 # AVRG Axis-Sum Research Archive
 
-This directory preserves the complete retained research trail for the additive axis-sum program in Prime Valuation Geometry (PVG), from the foundational definition through PASS026.
+This directory preserves the complete retained research trail for the additive axis-sum program in Prime Valuation Geometry (PVG), from the foundational definition through PASS027.
 
 ## Scope
 
-- PASS001–PASS026 research reports: 26
-- Python programs and reproducibility tests: 30
-- Saved JSON experiment outputs: 44
+- PASS001–PASS027 research reports: 27
+- Python programs and reproducibility tests: 32
+- Saved JSON experiment outputs: 45
 - Figures: 1
-- Preregistered diagnostic protocols: 3
-- Retained source artifacts before this archive index: 104
+- Preregistered diagnostic protocols: 4
+- Retained source artifacts before this archive index: 109
 
 PASS001–PASS004 are preserved as full research reports containing their finite calculations and derivations. Standalone scripts were first retained from PASS005 onward. No missing standalone PASS001–PASS004 scripts are claimed.
 
@@ -29,27 +29,23 @@ This archive contains finite computational diagnostics, structural reformulation
 
 ## Current stopping point
 
-PASS026 is complete. Its protocol and code were committed before computing the on/off channel shares.
+PASS027 is complete. Its protocol, implementation, and tests were committed before the locked residue-difference computation.
 
-Using the exact centered identity
+For on states (`r | N`), the exact decomposition by `b = alpha - beta (mod r)` proves that the complete `b=0` channel is character-independent. The true diagonal is character-independent as well, so every within-modulus character variation in on energy comes from nonzero difference orbits.
 
-`log(rho) = log(E_on) - log(E_off)`,
+The locked 16-value sample did not represent full-window on-energy variation well enough:
 
-the five-window character instability was classified as on-channel dominated:
+- centered-log correlation: 0.108518 (required at least 0.90);
+- median absolute relative error: 0.198465 (required at most 0.10);
+- all algebraic closure and independence checks were at machine precision.
 
-- symmetric on share: 1.636623;
-- symmetric off share: -0.636623;
-- on-only skill versus zero: 0.487952;
-- off-only skill versus zero: -1.785295;
-- on dominance held in all five windows, all seven moduli, and all five leave-one-window-out recomputations.
+Accordingly, PASS027 issues no concentration classification. The orbit allocations are retained as exploratory diagnostics only.
 
-The signed shares reflect strong positive on/off co-movement (correlation 0.961845): the smaller off variation cancels part of the larger on variation.
-
-The next proposed diagnostic is PASS027: decompose the on-energy character variation into diagonal and off-diagonal terms, then localize the off-diagonal contribution by lag residue h mod r.
+The next proposed diagnostic is PASS028: preregister a deterministic sample-size convergence ladder and establish a calibrated sample size before attempting residue-orbit concentration again.
 
 ## Reproduction
 
 ```bash
-python code/avrg_pass026.py
-python -m unittest discover -v -s code -p 'test_avrg_pass026.py'
+python code/avrg_pass027.py
+python -m unittest discover -v -s code -p 'test_avrg_pass027.py'
 ```
