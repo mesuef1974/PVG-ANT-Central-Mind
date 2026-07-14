@@ -1,0 +1,48 @@
+name: AVRG PASS034 nonoverlap analysis
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install numerical dependency
+        run: python -m pip install --disable-pip-version-check numpy
+
+      - name: Compile PASS034
+        run: python -m py_compile research/avrg-axis-sum/code/avrg_pass034.py research/avrg-axis-sum/code/test_avrg_pass034.py
+
+      - name: Run PASS034 safety tests
+        run: python -m unittest discover -v -s research/avrg-axis-sum/code -p 'test_avrg_pass034.py'
+
+      - name: Run locked full analysis
+        run: python research/avrg-axis-sum/code/avrg_pass034.py --progress
+
+      - name: Record result digest
+        run: sha256sum research/avrg-axis-sum/results/avrg_pass034_results.json | tee avrg_pass034_result_sha256.txt
+
+      - name: Upload locked result
+        uses: actions/upload-artifact@v4
+        with:
+          name: avrg-pass034-nonoverlap-result
+          path: |
+            research/avrg-axis-sum/results/avrg_pass034_results.json
+            avrg_pass034_result_sha256.txt
+          if-no-files-found: error
+          retention-days: 7
