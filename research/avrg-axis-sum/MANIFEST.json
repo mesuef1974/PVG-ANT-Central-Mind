@@ -1,14 +1,14 @@
 {
   "archive": "AVRG Axis-Sum Research Archive",
-  "generated_at": "2026-07-14T16:43:18Z",
-  "scope": "PASS001 through PASS031",
-  "retained_source_file_count": 129,
+  "generated_at": "2026-07-14T17:04:08Z",
+  "scope": "PASS001 through PASS032",
+  "retained_source_file_count": 134,
   "category_counts": {
-    "reports": 31,
-    "code": 40,
-    "results": 49,
+    "reports": 32,
+    "code": 42,
+    "results": 50,
     "figures": 1,
-    "protocols": 8
+    "protocols": 9
   },
   "scientific_ceiling": "Finite computational diagnostics only; no asymptotic proof and no direct progress toward a proof of Goldbach.",
   "published_page": "https://avrg-pass023-stability.sma-math.chatgpt.site",
@@ -22,7 +22,8 @@
     "PASS028 protocol, full residue-fiber scan code, and tests were committed before the complete on-state computation; the byte-stable result and report were added in a later commit.",
     "PASS029 protocol, held-out subspace code, and tests were committed before the locked SVD and random-subspace analysis; its byte-stable result and report were added in a later commit.",
     "PASS030 protocol, equal-rank sum-aware subspace code, and tests were committed before the locked constrained analysis; its byte-stable result and report were added in a later commit.",
-    "PASS031 protocol, one-extra-cancellation-coordinate code, and tests were committed before the locked augmented-rank analysis; its byte-stable result and report were added in a later commit."
+    "PASS031 protocol, one-extra-cancellation-coordinate code, and tests were committed before the locked augmented-rank analysis; its byte-stable result and report were added in a later commit.",
+    "PASS032 protocol, held-out linear-coupling code, and tests were committed before the locked cancellation-coefficient analysis; its byte-stable negative result and report were added later."
   ],
   "files": [
     {
@@ -176,6 +177,11 @@
       "size_bytes": 15344
     },
     {
+      "path": "code/avrg_pass032.py",
+      "sha256": "a123cb83b71595a86c60483a299af7b36d8954f66f41d3bb212e9f19e347287c",
+      "size_bytes": 21658
+    },
+    {
       "path": "code/test_avrg_pass022.py",
       "sha256": "ed6286e68f772cc8f4f21550888e683f9a0ae51201d4891f982a84253a6c14fd",
       "size_bytes": 2419
@@ -226,6 +232,11 @@
       "size_bytes": 2656
     },
     {
+      "path": "code/test_avrg_pass032.py",
+      "sha256": "410f475c2e00c65a40ba50d1cf8ff8cb5bb21900e28913e83dd36f875248da1d",
+      "size_bytes": 3953
+    },
+    {
       "path": "figures/avrg_pass023_mean_ratio_by_modulus.png",
       "sha256": "f9ff6fce210a0e39c1c3df46a0a46d73c68c265b5a5319fa762683a16d8e7c97",
       "size_bytes": 138505
@@ -269,6 +280,11 @@
       "path": "protocols/PASS031-PROTOCOL.md",
       "sha256": "c11f687c064a88bc5711cfd5682b1d1105a541fd7c3a53c1fa8d793caf360789",
       "size_bytes": 6157
+    },
+    {
+      "path": "protocols/PASS032-PROTOCOL.md",
+      "sha256": "72d4948adfd4ff33dfeff3380a3ab6e09bf5d1c5ed6d0a3c0e548affbe5a7621",
+      "size_bytes": 8306
     },
     {
       "path": "reports/AVRG-Foundational-Research-Pass-001-ar.md",
@@ -424,6 +440,11 @@
       "path": "reports/AVRG-Research-Pass-031-Extra-Cancellation-Coordinate-ar.md",
       "sha256": "99deb07b19aa9d7f62680c1778f393f55eac732cfaef83b837b060c433c766d8",
       "size_bytes": 10569
+    },
+    {
+      "path": "reports/AVRG-Research-Pass-032-Cancellation-Coupling-Prediction-ar.md",
+      "sha256": "c0bbd2a49cc29dccce6495f70b704eacbd3eda43b7480857c903745b63db9a05",
+      "size_bytes": 11002
     },
     {
       "path": "results/avrg_pass005_results.json",
@@ -669,6 +690,11 @@
       "path": "results/avrg_pass031_results.json",
       "sha256": "65664dbd37fa3b2cee4b87d659b2899fabe80045cc579445510fba6e1476b272",
       "size_bytes": 88140
+    },
+    {
+      "path": "results/avrg_pass032_results.json",
+      "sha256": "1168d02a0d8640a3371d15769b42daf67acf27843a4e67c27dbbec8219a2a787",
+      "size_bytes": 79773
     }
   ]
 }
