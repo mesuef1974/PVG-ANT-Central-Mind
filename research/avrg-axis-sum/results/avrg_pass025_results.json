@@ -1,0 +1,508 @@
+{
+  "pass": "PASS025",
+  "title": "Held-out endpoint-character phase test",
+  "classification": "finite held-out computational diagnostic",
+  "claim_ceiling": "No asymptotic proof and no direct progress toward a proof of Goldbach.",
+  "locked_protocol": {
+    "training_exps": [
+      15,
+      16,
+      17,
+      18
+    ],
+    "holdout_exp": 19,
+    "all_moduli": [
+      5,
+      7,
+      11,
+      13,
+      17,
+      19,
+      23,
+      29,
+      31
+    ],
+    "primary_moduli": [
+      11,
+      13,
+      17,
+      19,
+      23,
+      29,
+      31
+    ],
+    "predictor": "centered Re chi_k(2^e)",
+    "seed": 250719,
+    "global_permutations": 100000,
+    "per_modulus_permutations": 50000,
+    "decision_rule": {
+      "phase_skill_strictly_greater_than": 0.1,
+      "phase_sse_less_than_static_sse": true,
+      "global_permutation_p_at_most": 0.05
+    }
+  },
+  "holdout_modulus_summary": [
+    {
+      "r": 5,
+      "representative_count": 1,
+      "mean_ratio": 2.5820979693815853,
+      "population_sd": 0.0,
+      "absolute_deviation_from_two": 0.5820979693815853
+    },
+    {
+      "r": 7,
+      "representative_count": 1,
+      "mean_ratio": 2.1073680570988014,
+      "population_sd": 0.0,
+      "absolute_deviation_from_two": 0.10736805709880137
+    },
+    {
+      "r": 11,
+      "representative_count": 2,
+      "mean_ratio": 2.0207618352019145,
+      "population_sd": 0.03615249952028454,
+      "absolute_deviation_from_two": 0.020761835201914547
+    },
+    {
+      "r": 13,
+      "representative_count": 3,
+      "mean_ratio": 2.046283158327219,
+      "population_sd": 0.021781669247256788,
+      "absolute_deviation_from_two": 0.04628315832721919
+    },
+    {
+      "r": 17,
+      "representative_count": 4,
+      "mean_ratio": 2.0313189064166726,
+      "population_sd": 0.06852512036203745,
+      "absolute_deviation_from_two": 0.031318906416672565
+    },
+    {
+      "r": 19,
+      "representative_count": 4,
+      "mean_ratio": 1.9681144205992942,
+      "population_sd": 0.03974583263331758,
+      "absolute_deviation_from_two": 0.0318855794007058
+    },
+    {
+      "r": 23,
+      "representative_count": 5,
+      "mean_ratio": 1.9792365847159878,
+      "population_sd": 0.06081801094833313,
+      "absolute_deviation_from_two": 0.020763415284012154
+    },
+    {
+      "r": 29,
+      "representative_count": 7,
+      "mean_ratio": 2.019393829343051,
+      "population_sd": 0.06519391427682052,
+      "absolute_deviation_from_two": 0.019393829343051117
+    },
+    {
+      "r": 31,
+      "representative_count": 7,
+      "mean_ratio": 1.987191740921223,
+      "population_sd": 0.05600258782446871,
+      "absolute_deviation_from_two": 0.012808259078777029
+    }
+  ],
+  "phase_test": {
+    "global": {
+      "zero_sse": 0.0993389295090618,
+      "phase_sse": 0.11064672285175141,
+      "static_sse": 0.11814635457105765,
+      "phase_skill_vs_zero": -0.11383043282802952,
+      "static_skill_vs_zero": -0.189325827799264,
+      "phase_improvement_over_zero": -0.01130779334268961,
+      "phase_improvement_over_static": 0.007499631719306246,
+      "phase_target_correlation": 0.067551050096564,
+      "permutation_p": 0.3768762312376876,
+      "decision_passed": false,
+      "decision": "endpoint_character_phase_not_supported_on_holdout"
+    },
+    "per_modulus": [
+      {
+        "r": 11,
+        "representative_k": [
+          2,
+          4
+        ],
+        "discrete_log_two": 1,
+        "beta": 0.05296142453934721,
+        "training_skill": 0.14524413324473906,
+        "holdout_zero_sse": 0.002614006443128348,
+        "holdout_phase_sse": 8.570450414259278e-05,
+        "holdout_static_sse": 0.0003076865383848452,
+        "phase_skill_vs_zero": 0.967213353904352,
+        "static_skill_vs_zero": 0.8822931216586378,
+        "phase_target_correlation": 0.9999999999999998,
+        "permutation_p_raw": 0.49557008859822804,
+        "rows": [
+          {
+            "k": 2,
+            "centered_phase": 0.5590169943749476,
+            "observed_g": 0.03615249952028465,
+            "phase_prediction": 0.029606336363801472,
+            "static_prediction": 0.04855585669455076
+          },
+          {
+            "k": 4,
+            "centered_phase": -0.5590169943749476,
+            "observed_g": -0.03615249952028443,
+            "phase_prediction": -0.029606336363801472,
+            "static_prediction": -0.04855585669455087
+          }
+        ],
+        "permutation_p_holm": 1.0
+      },
+      {
+        "r": 13,
+        "representative_k": [
+          2,
+          4,
+          6
+        ],
+        "discrete_log_two": 1,
+        "beta": -0.06503866455902743,
+        "training_skill": 0.1701691548871569,
+        "holdout_zero_sse": 0.001423323345590676,
+        "holdout_phase_sse": 0.011399723296834013,
+        "holdout_static_sse": 0.026373939480531745,
+        "phase_skill_vs_zero": -7.00922947842407,
+        "static_skill_vs_zero": -17.529829895810934,
+        "phase_target_correlation": -0.9510898739909693,
+        "permutation_p_raw": 1.0,
+        "rows": [
+          {
+            "k": 2,
+            "centered_phase": 0.8333333333333333,
+            "observed_g": 0.024568585152204392,
+            "phase_prediction": -0.054198887132522855,
+            "static_prediction": -0.05743649307443377
+          },
+          {
+            "k": 4,
+            "centered_phase": -0.16666666666666496,
+            "observed_g": 0.003807635229773787,
+            "phase_prediction": 0.010839777426504462,
+            "static_prediction": -0.04543031046859375
+          },
+          {
+            "k": 6,
+            "centered_phase": -0.6666666666666683,
+            "observed_g": -0.02837622038197729,
+            "phase_prediction": 0.043359109706018396,
+            "static_prediction": 0.10286680354302724
+          }
+        ],
+        "permutation_p_holm": 1.0
+      },
+      {
+        "r": 17,
+        "representative_k": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "discrete_log_two": 14,
+        "beta": 0.05570126455707626,
+        "training_skill": 0.09582527647556671,
+        "holdout_zero_sse": 0.01878276848252688,
+        "holdout_phase_sse": 0.005081653029493571,
+        "holdout_static_sse": 0.0013277210305354923,
+        "phase_skill_vs_zero": 0.7294513301262857,
+        "static_skill_vs_zero": 0.9293117501942998,
+        "phase_target_correlation": 0.921939405715899,
+        "permutation_p_raw": 0.08237835243295134,
+        "rows": [
+          {
+            "k": 2,
+            "centered_phase": 3.800890057674661e-14,
+            "observed_g": -0.008359769200324774,
+            "phase_prediction": 2.1171438265489714e-15,
+            "static_prediction": -0.0369999814979739
+          },
+          {
+            "k": 4,
+            "centered_phase": -0.9999999999999968,
+            "observed_g": -0.06524754960340928,
+            "phase_prediction": -0.05570126455707608,
+            "static_prediction": -0.06579048536259291
+          },
+          {
+            "k": 6,
+            "centered_phase": -4.4304695783779996e-14,
+            "observed_g": -0.03983386835528879,
+            "phase_prediction": -2.4678275809731106e-15,
+            "static_prediction": -0.018865130945361352
+          },
+          {
+            "k": 8,
+            "centered_phase": 1.000000000000003,
+            "observed_g": 0.1134411871590224,
+            "phase_prediction": 0.055701264557076434,
+            "static_prediction": 0.1216555978059276
+          }
+        ],
+        "permutation_p_holm": 0.5766484670306594
+      },
+      {
+        "r": 19,
+        "representative_k": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "discrete_log_two": 1,
+        "beta": -0.0006376395340009814,
+        "training_skill": 1.8818503149997667e-05,
+        "holdout_zero_sse": 0.00631892484686277,
+        "holdout_phase_sse": 0.006334592838385453,
+        "holdout_static_sse": 0.004956851190333845,
+        "phase_skill_vs_zero": -0.0024795343990302587,
+        "static_skill_vs_zero": 0.21555465360617,
+        "phase_target_correlation": -0.11376734369136218,
+        "permutation_p_raw": 0.5859682806343873,
+        "rows": [
+          {
+            "k": 2,
+            "centered_phase": 0.8910444431189768,
+            "observed_g": 0.027790525708674352,
+            "phase_prediction": -0.0005681651634845483,
+            "static_prediction": 0.06367212237275144
+          },
+          {
+            "k": 4,
+            "centered_phase": 0.2986481776669308,
+            "observed_g": -0.007768924928140741,
+            "phase_prediction": -0.00019042988483778406,
+            "static_prediction": -0.03283942939143142
+          },
+          {
+            "k": 6,
+            "centered_phase": -0.3749999999999987,
+            "observed_g": -0.06142005580333265,
+            "phase_prediction": 0.00023911482525036722,
+            "static_prediction": -0.028209593825213153
+          },
+          {
+            "k": 8,
+            "centered_phase": -0.8146926207859088,
+            "observed_g": 0.04139845502279882,
+            "phase_prediction": 0.0005194802230719651,
+            "static_prediction": -0.0026230991561069783
+          }
+        ],
+        "permutation_p_holm": 1.0
+      },
+      {
+        "r": 23,
+        "representative_k": [
+          2,
+          4,
+          6,
+          8,
+          10
+        ],
+        "discrete_log_two": 2,
+        "beta": 0.03568068382095489,
+        "training_skill": 0.045470461965067765,
+        "holdout_zero_sse": 0.018494152278557843,
+        "holdout_phase_sse": 0.034184787499951116,
+        "holdout_static_sse": 0.03193500062666448,
+        "phase_skill_vs_zero": -0.8484106211012994,
+        "static_skill_vs_zero": -0.7267620675801392,
+        "phase_target_correlation": -0.8954763943593314,
+        "permutation_p_raw": 0.9597208055838883,
+        "rows": [
+          {
+            "k": 2,
+            "centered_phase": -0.8594929736144954,
+            "observed_g": 0.04049891934333916,
+            "phase_prediction": -0.030667297037871136,
+            "static_prediction": 0.11884165587438156
+          },
+          {
+            "k": 4,
+            "centered_phase": 0.9412535328311799,
+            "observed_g": -0.06561903600865726,
+            "phase_prediction": 0.03358456970030611,
+            "static_prediction": 0.01065804407787968
+          },
+          {
+            "k": 6,
+            "centered_phase": -0.5548607339452809,
+            "observed_g": 0.07896952458560769,
+            "phase_prediction": -0.01979781041256454,
+            "static_prediction": -0.06202864978120337
+          },
+          {
+            "k": 8,
+            "centered_phase": 0.5154150130018788,
+            "observed_g": -0.0762302145239464,
+            "phase_prediction": 0.01839036011549339,
+            "static_prediction": -0.08476782014465212
+          },
+          {
+            "k": 10,
+            "centered_phase": -0.042314838273282224,
+            "observed_g": 0.022380806603657266,
+            "phase_prediction": -0.001509822365363824,
+            "static_prediction": 0.017296769973593584
+          }
+        ],
+        "permutation_p_holm": 1.0
+      },
+      {
+        "r": 29,
+        "representative_k": [
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "discrete_log_two": 1,
+        "beta": -0.012406518049805837,
+        "training_skill": 0.005843721719715589,
+        "holdout_zero_sse": 0.02975172521113396,
+        "holdout_phase_sse": 0.02596459831541734,
+        "holdout_static_sse": 0.026601844166642234,
+        "phase_skill_vs_zero": 0.12729100140718452,
+        "static_skill_vs_zero": 0.10587221487623011,
+        "phase_target_correlation": 0.5488297484629436,
+        "permutation_p_raw": 0.10123797524049519,
+        "rows": [
+          {
+            "k": 2,
+            "centered_phase": -0.48063265900159097,
+            "observed_g": -0.015099796629261864,
+            "phase_prediction": 0.005962977759229412,
+            "static_prediction": -0.08406464881489623
+          },
+          {
+            "k": 4,
+            "centered_phase": -0.07966379109917276,
+            "observed_g": 0.08055167792452789,
+            "phase_prediction": 0.0009883502621878485,
+            "static_prediction": 0.017684016074413833
+          },
+          {
+            "k": 6,
+            "centered_phase": 1.0438260107595618,
+            "observed_g": -0.07490050662411218,
+            "phase_prediction": -0.012950246243345325,
+            "static_prediction": -0.09230564868597274
+          },
+          {
+            "k": 8,
+            "centered_phase": -0.7581117250452762,
+            "observed_g": 0.07984031418683113,
+            "phase_prediction": 0.00940552680054366,
+            "static_prediction": 0.07247213686007947
+          },
+          {
+            "k": 10,
+            "centered_phase": 0.3653780768134586,
+            "observed_g": 0.044500210534778706,
+            "phase_prediction": -0.004533069704989517,
+            "static_prediction": 0.0353858909765033
+          },
+          {
+            "k": 12,
+            "centered_phase": 0.7663469447158773,
+            "observed_g": -0.09259025125263198,
+            "phase_prediction": -0.009507697202031087,
+            "static_prediction": -0.0528663894917385
+          },
+          {
+            "k": 14,
+            "centered_phase": -0.8571428571428577,
+            "observed_g": -0.0223016481401328,
+            "phase_prediction": 0.01063415832840501,
+            "static_prediction": 0.10369464308161153
+          }
+        ],
+        "permutation_p_holm": 0.6074278514429712
+      },
+      {
+        "r": 31,
+        "representative_k": [
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "discrete_log_two": 24,
+        "beta": -0.013895931012581183,
+        "training_skill": 0.010301493327086297,
+        "holdout_zero_sse": 0.021954028901261316,
+        "holdout_phase_sse": 0.02759566336752732,
+        "holdout_static_sse": 0.02664331153796501,
+        "phase_skill_vs_zero": -0.25697490386112576,
+        "static_skill_vs_zero": -0.2135955390144486,
+        "phase_target_correlation": -0.680096075606694,
+        "permutation_p_raw": 0.9568808623827524,
+        "rows": [
+          {
+            "k": 2,
+            "centered_phase": -0.7375884229463924,
+            "observed_g": -0.059328332606062295,
+            "phase_prediction": 0.01024947784094162,
+            "static_prediction": -0.01542463115241105
+          },
+          {
+            "k": 4,
+            "centered_phase": 0.3804455658034839,
+            "observed_g": 0.07027929928924403,
+            "phase_prediction": -0.005286645336447627,
+            "static_prediction": 0.016073670383947303
+          },
+          {
+            "k": 6,
+            "centered_phase": 0.38044556580357336,
+            "observed_g": -0.010851620027022113,
+            "phase_prediction": -0.00528664533644887,
+            "static_prediction": 0.030719840235548912
+          },
+          {
+            "k": 8,
+            "centered_phase": -0.7375884229464142,
+            "observed_g": 0.02552991559744977,
+            "phase_prediction": 0.010249477840941924,
+            "static_prediction": -0.03354130491568902
+          },
+          {
+            "k": 10,
+            "centered_phase": 1.0714285714285505,
+            "observed_g": 0.07586914651464993,
+            "phase_prediction": -0.014888497513479548,
+            "static_prediction": 0.013016996741662956
+          },
+          {
+            "k": 12,
+            "centered_phase": -0.7375884229463037,
+            "observed_g": -0.08090192243017946,
+            "phase_prediction": 0.010249477840940387,
+            "static_prediction": 0.029618857501418572
+          },
+          {
+            "k": 14,
+            "centered_phase": 0.38044556580350253,
+            "observed_g": -0.020596486338078535,
+            "phase_prediction": -0.005286645336447886,
+            "static_prediction": -0.04046342879447662
+          }
+        ],
+        "permutation_p_holm": 1.0
+      }
+    ]
+  }
+}

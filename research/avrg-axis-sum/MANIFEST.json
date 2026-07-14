@@ -1,21 +1,22 @@
 {
   "archive": "AVRG Axis-Sum Research Archive",
-  "generated_at": "2026-07-14T14:20:00Z",
-  "scope": "PASS001 through PASS024",
-  "retained_source_file_count": 92,
+  "generated_at": "2026-07-14T14:36:00Z",
+  "scope": "PASS001 through PASS025",
+  "retained_source_file_count": 99,
   "category_counts": {
-    "reports": 24,
-    "code": 25,
-    "results": 41,
+    "reports": 25,
+    "code": 28,
+    "results": 43,
     "figures": 1,
-    "protocols": 1
+    "protocols": 2
   },
   "scientific_ceiling": "Finite computational diagnostics only; no asymptotic proof and no direct progress toward a proof of Goldbach.",
   "published_page": "https://avrg-pass023-stability.sma-math.chatgpt.site",
   "archive_layout_adjustments": [
     "PASS022 and PASS023 default paths were updated to use the archive's code/results/figures layout.",
     "Numerical result contents were not changed.",
-    "PASS024 was preregistered locally before its detailed statistics were computed; its protocol, program, tests, result, and report are archived together."
+    "PASS024 was preregistered locally before its detailed statistics were computed; its protocol, program, tests, result, and report are archived together.",
+    "PASS025 protocol and executable analysis were committed before the held-out e=19 window was computed; the raw holdout, result, and report were added in a later commit."
   ],
   "files": [
     {
@@ -129,6 +130,16 @@
       "size_bytes": 18955
     },
     {
+      "path": "code/avrg_pass025_holdout.py",
+      "sha256": "87b4a32b3b5cc5146c612f56c47f3ca90e7f44c89fd6ee716b52c612b0a0bcc9",
+      "size_bytes": 2229
+    },
+    {
+      "path": "code/avrg_pass025.py",
+      "sha256": "a131d901618f2dfb2a7492a6e803a715fb9aad219081d7f5b4fe2008e3d388b3",
+      "size_bytes": 16079
+    },
+    {
       "path": "code/test_avrg_pass022.py",
       "sha256": "ed6286e68f772cc8f4f21550888e683f9a0ae51201d4891f982a84253a6c14fd",
       "size_bytes": 2419
@@ -144,6 +155,11 @@
       "size_bytes": 2618
     },
     {
+      "path": "code/test_avrg_pass025.py",
+      "sha256": "01a0e8422a984fa9ee73213264238ffe85aa1019ca0d2c63d9753fdf842e5dae",
+      "size_bytes": 2693
+    },
+    {
       "path": "figures/avrg_pass023_mean_ratio_by_modulus.png",
       "sha256": "f9ff6fce210a0e39c1c3df46a0a46d73c68c265b5a5319fa762683a16d8e7c97",
       "size_bytes": 138505
@@ -152,6 +168,11 @@
       "path": "protocols/PASS024-PROTOCOL.md",
       "sha256": "32dd3aa1cf9331c4088fc590aa68b0703c953862054432be1f2881ed5542c8ee",
       "size_bytes": 5429
+    },
+    {
+      "path": "protocols/PASS025-PROTOCOL.md",
+      "sha256": "7627a78437c18a9a9c9dc447c64118eb837768f8b2fea14274abfaadbb796265",
+      "size_bytes": 6104
     },
     {
       "path": "reports/AVRG-Foundational-Research-Pass-001-ar.md",
@@ -272,6 +293,11 @@
       "path": "reports/AVRG-Research-Pass-024-Modulus-Scale-Character-Stability-ar.md",
       "sha256": "e6caada5538aee786626e31fe4a5e7a8592c3f02843fb9ceeafad1ad6328e1bc",
       "size_bytes": 10506
+    },
+    {
+      "path": "reports/AVRG-Research-Pass-025-Heldout-Window-Character-Phase-ar.md",
+      "sha256": "993872461d875e79174ca7de0cc1643a4890cf500eb75a4a7a646ec771c40439",
+      "size_bytes": 10079
     },
     {
       "path": "results/avrg_pass005_results.json",
@@ -477,6 +503,16 @@
       "path": "results/avrg_pass024_results.json",
       "sha256": "add606148ec3f3879612530fa64b9304a9ef5abb668231cfa758599333a8ba5c",
       "size_bytes": 54084
+    },
+    {
+      "path": "results/avrg_pass025_holdout_e19.json",
+      "sha256": "27d8641cae15c1ea2bc646e22cb6331dcbaa1794f041bbcabc7cb018313a2cfa",
+      "size_bytes": 20890
+    },
+    {
+      "path": "results/avrg_pass025_results.json",
+      "sha256": "6325473d30ac1e056cfe70c6b2a6664950fb99f34e35a2c26d87b0d022d9b3a6",
+      "size_bytes": 16120
     }
   ]
 }
