@@ -23,6 +23,10 @@ PASS001–PASS004 are preserved as full research reports containing their finite
 - `site/`: publication record for the PASS023 reader page.
 - `MANIFEST.json` and `SHA256SUMS.txt`: exact inventory and integrity hashes.
 
+## Integrity metadata status
+
+The PASS034 source files and locked result are committed, but `MANIFEST.json` and `SHA256SUMS.txt` still describe the PASS033 inventory. Their refresh is intentionally deferred to a separate integrity-only pass because the post-analysis repository-wide GitHub Actions jobs failed before executing any steps. The PASS034 result itself has the independently recorded SHA-256 shown below.
+
 ## Scientific ceiling
 
 This archive contains finite computational diagnostics, structural reformulations, refutations of intermediate empirical laws, and reproducible evidence. It contains no asymptotic proof, no proof of Goldbach, and no claim of direct progress toward a proof of Goldbach.
