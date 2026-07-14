@@ -1,15 +1,15 @@
 # AVRG Axis-Sum Research Archive
 
-This directory preserves the complete retained research trail for the additive axis-sum program in Prime Valuation Geometry (PVG), from the foundational definition through PASS029.
+This directory preserves the complete retained research trail for the additive axis-sum program in Prime Valuation Geometry (PVG), from the foundational definition through PASS030.
 
 ## Scope
 
-- PASS001–PASS029 research reports: 29
-- Python programs and reproducibility tests: 36
-- Saved JSON experiment outputs: 47
+- PASS001–PASS030 research reports: 30
+- Python programs and reproducibility tests: 38
+- Saved JSON experiment outputs: 48
 - Figures: 1
-- Preregistered diagnostic protocols: 6
-- Retained source artifacts before this archive index: 119
+- Preregistered diagnostic protocols: 7
+- Retained source artifacts before this archive index: 124
 
 PASS001–PASS004 are preserved as full research reports containing their finite calculations and derivations. Standalone scripts were first retained from PASS005 onward. No missing standalone PASS001–PASS004 scripts are claimed.
 
@@ -29,24 +29,23 @@ This archive contains finite computational diagnostics, structural reformulation
 
 ## Current stopping point
 
-PASS029 is complete. Its held-out-window subspace protocol, implementation, and tests were committed before the locked analysis.
+PASS030 is complete. Its equal-rank sum-aware subspace protocol, implementation, and tests were committed before the locked analysis.
 
-A training-only SVD subspace captures nonzero-orbit vectors across held-out windows better than equal-rank random subspaces:
+Forcing the normalized all-ones direction into every PASS029 rank budget preserves the scalar orbit sum exactly, but costs too much held-out vector structure:
 
-- weighted rank fraction: 0.466667;
-- held-out vector skill: 0.676575;
-- random-subspace p-value: 0.000200;
-- modulus-level vector skill >= 0.50 in 7/7 moduli.
+- constrained vector skill: 0.493599;
+- unconstrained PASS029 vector skill: 0.676575;
+- absolute vector-skill loss: 0.182977;
+- constrained-random p-value: 0.001200;
+- modulus-level constrained vector skill >= 0.50 in 3/7 moduli.
 
-However, the same projections fail to reconstruct the scalar sum of the orbit contributions: scalar skill = -0.480997, negative in all seven moduli. The preregistered five-condition rule therefore rejects a stable low-dimensional subspace that also preserves on-energy variation.
+The sum direction alone carries only 0.0447% of aggregate held-out vector energy, yet it is essential for the scalar cancellation. The locked equal-rank claim is rejected.
 
-The result separates stable vector geometry from the cancellation-sensitive sum direction.
-
-The next proposed diagnostic is PASS030: compare equal-rank bases that explicitly preserve or supervise the orbit-sum direction against the unsupervised SVD basis under held-out windows.
+The next proposed diagnostic is PASS031: add the sum direction as one extra coordinate beyond the original PASS029 rank, and test whether this recovers the vector geometry while preserving the scalar sum.
 
 ## Reproduction
 
 ```bash
-python code/avrg_pass029.py
-python -m unittest discover -v -s code -p 'test_avrg_pass029.py'
+python code/avrg_pass030.py
+python -m unittest discover -v -s code -p 'test_avrg_pass030.py'
 ```
