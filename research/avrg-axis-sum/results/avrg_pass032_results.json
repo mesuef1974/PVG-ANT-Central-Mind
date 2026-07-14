@@ -1,0 +1,2702 @@
+{
+  "pass": "PASS032",
+  "title": "Held-out prediction of the cancellation coefficient from amplitude coordinates",
+  "classification": "finite conditional held-out linear-coupling diagnostic",
+  "interpretation_guard": "Held-out amplitude coordinates still require observing the held-out orbit vector. This predicts only its cancellation coefficient conditionally on those coordinates.",
+  "claim_ceiling": "No asymptotic proof and no direct progress toward a proof of Goldbach.",
+  "configuration": {
+    "exps": [
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "moduli": [
+      11,
+      13,
+      17,
+      19,
+      23,
+      29,
+      31
+    ],
+    "permutation_iterations": 5000,
+    "permutation_seed": 320719,
+    "model": "per-modulus outer-fold no-intercept minimum-norm least squares",
+    "rank_rule": "locked PASS031 amplitude rank d",
+    "input_sha256": {
+      "avrg_pass028_results.json": "9088e373aa18fdef6cdc8a7a0b6b1fb8680f5dd08653a12699a787118f6f4eab",
+      "avrg_pass031_results.json": "65664dbd37fa3b2cee4b87d659b2899fabe80045cc579445510fba6e1476b272"
+    }
+  },
+  "predicted_global": {
+    "fold_count": 35,
+    "vector_ss": 3.644064388245181e-07,
+    "vector_sse": 1.1785379192932335e-07,
+    "vector_skill": 0.676586966164787,
+    "scalar_ss": 1.4086933324828136e-09,
+    "scalar_sse": 2.091404999589308e-09,
+    "scalar_skill": -0.4846417963114933
+  },
+  "amplitude_only_global": {
+    "fold_count": 35,
+    "vector_ss": 3.644064388245181e-07,
+    "vector_sse": 1.1777076037395892e-07,
+    "vector_skill": 0.6768148204135546,
+    "scalar_ss": 1.4086933324828136e-09,
+    "scalar_sse": 1.4086933324828136e-09,
+    "scalar_skill": 0.0
+  },
+  "oracle_pass031_global": {
+    "fold_count": 35,
+    "vector_ss": 3.644064388245181e-07,
+    "vector_sse": 1.1760794118993769e-07,
+    "vector_skill": 0.6772616269643565,
+    "scalar_ss": 1.4086933324828136e-09,
+    "scalar_sse": 2.027166801818098e-39,
+    "scalar_skill": 1.0
+  },
+  "prediction_diagnostics": {
+    "row_count": 160,
+    "pearson_correlation": 0.06753024944944644,
+    "sign_accuracy": 0.51875,
+    "calibration_intercept_actual_on_predicted": -2.678553366528855e-22,
+    "calibration_slope_actual_on_predicted": 0.08804923294112893,
+    "actual_rms": 2.9672096872343865e-06,
+    "predicted_rms": 2.275731470389151e-06
+  },
+  "restricted_permutation_null": {
+    "iterations": 5000,
+    "seed": 320719,
+    "restriction": "permute five windows independently within each (r,k)",
+    "observed_scalar_skill": -0.4846417963114933,
+    "null_mean": -0.40933022735627717,
+    "null_population_sd": 0.21489452075634768,
+    "null_quantiles": {
+      "0.50": -0.3939752907445645,
+      "0.90": -0.14709662389313466,
+      "0.95": -0.08642631943044705,
+      "0.99": 0.042090815095355026
+    },
+    "null_minimum": -1.3365946100578219,
+    "null_maximum": 0.17935783415428164,
+    "exceedance_count": 3363,
+    "one_sided_p_value": 0.6726654669066187,
+    "maximum_denominator_invariance_error": 1.0339757656912846e-24
+  },
+  "decision": {
+    "thresholds": {
+      "minimum_global_scalar_skill": 0.25,
+      "minimum_global_pearson_correlation": 0.5,
+      "maximum_restricted_permutation_p_value": 0.01,
+      "required_positive_modulus_count": 5,
+      "required_nonnegative_window_count": 4
+    },
+    "positive_modulus_count": 0,
+    "nonnegative_window_count": 2,
+    "vector_skill_loss_vs_oracle": 0.0006746607995695708,
+    "positive_scalar_skill_fold_count": 10,
+    "conditions": {
+      "global_scalar_skill_at_least_0_25": false,
+      "global_pearson_correlation_at_least_0_50": false,
+      "restricted_permutation_p_at_most_0_01": false,
+      "at_least_five_moduli_positive_scalar_skill": false,
+      "at_least_four_windows_nonnegative_scalar_skill": false
+    },
+    "supported": false,
+    "decision": "no_stable_linear_coupling_support_under_locked_rule",
+    "by_modulus": [
+      {
+        "r": 11,
+        "predicted": {
+          "fold_count": 5,
+          "vector_ss": 1.1945743050720974e-08,
+          "vector_sse": 2.295179237491815e-09,
+          "vector_skill": 0.8078663480583327,
+          "scalar_ss": 3.28730856398441e-11,
+          "scalar_sse": 1.541434588995251e-10,
+          "scalar_skill": -3.689047465404167
+        },
+        "amplitude_only": {
+          "fold_count": 5,
+          "vector_ss": 1.1945743050720974e-08,
+          "vector_sse": 2.2709251628398786e-09,
+          "vector_skill": 0.809896701009083,
+          "scalar_ss": 3.28730856398441e-11,
+          "scalar_sse": 3.28730856398441e-11,
+          "scalar_skill": 0.0
+        },
+        "oracle": {
+          "fold_count": 5,
+          "vector_ss": 1.1945743050720974e-08,
+          "vector_sse": 2.2643505457119095e-09,
+          "vector_skill": 0.8104470742340932,
+          "scalar_ss": 3.28730856398441e-11,
+          "scalar_sse": 4.0043504916545973e-41,
+          "scalar_skill": 1.0
+        },
+        "pearson_correlation": -0.7563299753162905,
+        "sign_accuracy": 0.2
+      },
+      {
+        "r": 13,
+        "predicted": {
+          "fold_count": 5,
+          "vector_ss": 5.9431999903124834e-08,
+          "vector_sse": 7.362459277412226e-09,
+          "vector_skill": 0.8761196108255963,
+          "scalar_ss": 1.1978123646493642e-10,
+          "scalar_sse": 1.4507323847298916e-10,
+          "scalar_skill": -0.21115161902220358
+        },
+        "amplitude_only": {
+          "fold_count": 5,
+          "vector_ss": 5.9431999903124834e-08,
+          "vector_sse": 7.358243943744217e-09,
+          "vector_skill": 0.8761905378291446,
+          "scalar_ss": 1.1978123646493642e-10,
+          "scalar_sse": 1.1978123646493642e-10,
+          "scalar_skill": 0.0
+        },
+        "oracle": {
+          "fold_count": 5,
+          "vector_ss": 5.9431999903124834e-08,
+          "vector_sse": 7.338280404333394e-09,
+          "vector_skill": 0.876526443392534,
+          "scalar_ss": 1.1978123646493642e-10,
+          "scalar_sse": 1.8593549063433133e-40,
+          "scalar_skill": 1.0
+        },
+        "pearson_correlation": 0.16899401331749647,
+        "sign_accuracy": 0.5333333333333333
+      },
+      {
+        "r": 17,
+        "predicted": {
+          "fold_count": 5,
+          "vector_ss": 9.228037610855719e-08,
+          "vector_sse": 3.260239678142177e-08,
+          "vector_skill": 0.6467028185595081,
+          "scalar_ss": 7.695843325714435e-10,
+          "scalar_sse": 1.0069580991410292e-09,
+          "scalar_skill": -0.30844412564434487
+        },
+        "amplitude_only": {
+          "fold_count": 5,
+          "vector_ss": 9.228037610855719e-08,
+          "vector_sse": 3.2572725060600573e-08,
+          "vector_skill": 0.647024357353263,
+          "scalar_ss": 7.695843325714435e-10,
+          "scalar_sse": 7.695843325714435e-10,
+          "scalar_skill": 0.0
+        },
+        "oracle": {
+          "fold_count": 5,
+          "vector_ss": 9.228037610855719e-08,
+          "vector_sse": 3.247652701902914e-08,
+          "vector_skill": 0.6480668112923135,
+          "scalar_ss": 7.695843325714435e-10,
+          "scalar_sse": 3.221424020159357e-40,
+          "scalar_skill": 1.0
+        },
+        "pearson_correlation": 0.201082389319797,
+        "sign_accuracy": 0.7
+      },
+      {
+        "r": 19,
+        "predicted": {
+          "fold_count": 5,
+          "vector_ss": 3.629671823880414e-08,
+          "vector_sse": 1.6724986865264737e-08,
+          "vector_skill": 0.5392149021510058,
+          "scalar_ss": 7.989003674885866e-11,
+          "scalar_sse": 8.202838867270078e-11,
+          "scalar_skill": -0.02676619026430327
+        },
+        "amplitude_only": {
+          "fold_count": 5,
+          "vector_ss": 3.629671823880414e-08,
+          "vector_sse": 1.6724749270606534e-08,
+          "vector_skill": 0.5392214480501871,
+          "scalar_ss": 7.989003674885866e-11,
+          "scalar_sse": 7.989003674885866e-11,
+          "scalar_skill": 0.0
+        },
+        "oracle": {
+          "fold_count": 5,
+          "vector_ss": 3.629671823880414e-08,
+          "vector_sse": 1.6715872599856658e-08,
+          "vector_skill": 0.5394660065441941,
+          "scalar_ss": 7.989003674885866e-11,
+          "scalar_sse": 1.1809180064635335e-40,
+          "scalar_skill": 1.0
+        },
+        "pearson_correlation": 0.24098540736453325,
+        "sign_accuracy": 0.5
+      },
+      {
+        "r": 23,
+        "predicted": {
+          "fold_count": 5,
+          "vector_ss": 6.649762024335727e-08,
+          "vector_sse": 2.2404975287622167e-08,
+          "vector_skill": 0.6630710211037921,
+          "scalar_ss": 1.3198169283719065e-10,
+          "scalar_sse": 3.1282883507993747e-10,
+          "scalar_skill": -1.370244147920086
+        },
+        "amplitude_only": {
+          "fold_count": 5,
+          "vector_ss": 6.649762024335727e-08,
+          "vector_sse": 2.238853463832737e-08,
+          "vector_skill": 0.6633182577603014,
+          "scalar_ss": 1.3198169283719065e-10,
+          "scalar_sse": 1.3198169283719065e-10,
+          "scalar_skill": 0.0
+        },
+        "oracle": {
+          "fold_count": 5,
+          "vector_ss": 6.649762024335727e-08,
+          "vector_sse": 2.2376536302614902e-08,
+          "vector_skill": 0.6634986903181668,
+          "scalar_ss": 1.3198169283719065e-10,
+          "scalar_sse": 2.8102717746528756e-40,
+          "scalar_skill": 1.0
+        },
+        "pearson_correlation": -0.2878020803082594,
+        "sign_accuracy": 0.52
+      },
+      {
+        "r": 29,
+        "predicted": {
+          "fold_count": 5,
+          "vector_ss": 5.9234368499396065e-08,
+          "vector_sse": 2.414471992229723e-08,
+          "vector_skill": 0.5923866408309324,
+          "scalar_ss": 1.8951440913285927e-10,
+          "scalar_sse": 2.930122504556388e-10,
+          "scalar_skill": -0.546121225274339
+        },
+        "amplitude_only": {
+          "fold_count": 5,
+          "vector_ss": 5.9234368499396065e-08,
+          "vector_sse": 2.4137327219345602e-08,
+          "vector_skill": 0.5925114451149809,
+          "scalar_ss": 1.8951440913285927e-10,
+          "scalar_sse": 1.8951440913285927e-10,
+          "scalar_skill": 0.0
+        },
+        "oracle": {
+          "fold_count": 5,
+          "vector_ss": 5.9234368499396065e-08,
+          "vector_sse": 2.4123790475836115e-08,
+          "vector_skill": 0.5927399736509038,
+          "scalar_ss": 1.8951440913285927e-10,
+          "scalar_sse": 7.801709932274535e-40,
+          "scalar_skill": 1.0
+        },
+        "pearson_correlation": -0.10490628101103691,
+        "sign_accuracy": 0.4857142857142857
+      },
+      {
+        "r": 31,
+        "predicted": {
+          "fold_count": 5,
+          "vector_ss": 3.871961278055762e-08,
+          "vector_sse": 1.2319074557813407e-08,
+          "vector_skill": 0.6818389009303518,
+          "scalar_ss": 8.506853908768099e-11,
+          "scalar_sse": 9.736072886748748e-11,
+          "scalar_skill": -0.14449748299000187
+        },
+        "amplitude_only": {
+          "fold_count": 5,
+          "vector_ss": 3.871961278055762e-08,
+          "vector_sse": 1.2318255078494753e-08,
+          "vector_skill": 0.6818600653806086,
+          "scalar_ss": 8.506853908768099e-11,
+          "scalar_sse": 8.506853908768099e-11,
+          "scalar_skill": 0.0
+        },
+        "oracle": {
+          "fold_count": 5,
+          "vector_ss": 3.871961278055762e-08,
+          "vector_sse": 1.2312583842555574e-08,
+          "vector_skill": 0.6820065347157055,
+          "scalar_ss": 8.506853908768099e-11,
+          "scalar_sse": 2.9975543291219047e-40,
+          "scalar_skill": 1.0
+        },
+        "pearson_correlation": 0.14782776018640711,
+        "sign_accuracy": 0.5428571428571428
+      }
+    ],
+    "by_heldout_window": [
+      {
+        "heldout_exp": 15,
+        "predicted": {
+          "fold_count": 7,
+          "vector_ss": 1.705074323587314e-07,
+          "vector_sse": 5.181311450670174e-08,
+          "vector_skill": 0.6961240117809535,
+          "scalar_ss": 9.522851981739082e-10,
+          "scalar_sse": 1.209330025525731e-09,
+          "scalar_skill": -0.26992420741677936
+        },
+        "amplitude_only": {
+          "fold_count": 7,
+          "vector_ss": 1.705074323587314e-07,
+          "vector_sse": 5.1781427879550846e-08,
+          "vector_skill": 0.6963098490005547,
+          "scalar_ss": 9.522851981739082e-10,
+          "scalar_sse": 9.522851981739082e-10,
+          "scalar_skill": 0.0
+        },
+        "oracle": {
+          "fold_count": 7,
+          "vector_ss": 1.705074323587314e-07,
+          "vector_sse": 5.167087443863083e-08,
+          "vector_skill": 0.6969582280148339,
+          "scalar_ss": 9.522851981739082e-10,
+          "scalar_sse": 1.1523355465243922e-39,
+          "scalar_skill": 1.0
+        },
+        "pearson_correlation": -0.14746753965409554,
+        "sign_accuracy": 0.40625
+      },
+      {
+        "heldout_exp": 16,
+        "predicted": {
+          "fold_count": 7,
+          "vector_ss": 7.303281786267364e-08,
+          "vector_sse": 2.2861265862963037e-08,
+          "vector_skill": 0.686972698959118,
+          "scalar_ss": 1.3439550646336275e-10,
+          "scalar_sse": 5.610987173007659e-10,
+          "scalar_skill": -3.1749812331242317
+        },
+        "amplitude_only": {
+          "fold_count": 7,
+          "vector_ss": 7.303281786267364e-08,
+          "vector_sse": 2.280987816893305e-08,
+          "vector_skill": 0.6876763236518777,
+          "scalar_ss": 1.3439550646336275e-10,
+          "scalar_sse": 1.3439550646336275e-10,
+          "scalar_skill": 0.0
+        },
+        "oracle": {
+          "fold_count": 7,
+          "vector_ss": 7.303281786267364e-08,
+          "vector_sse": 2.279479497838699e-08,
+          "vector_skill": 0.6878828498545831,
+          "scalar_ss": 1.3439550646336275e-10,
+          "scalar_sse": 3.681701520243808e-40,
+          "scalar_skill": 1.0
+        },
+        "pearson_correlation": 0.08267034279679622,
+        "sign_accuracy": 0.5
+      },
+      {
+        "heldout_exp": 17,
+        "predicted": {
+          "fold_count": 7,
+          "vector_ss": 5.0115684848676345e-08,
+          "vector_sse": 1.777863706884146e-08,
+          "vector_skill": 0.6452480471428491,
+          "scalar_ss": 9.037752046874854e-11,
+          "scalar_sse": 1.309156584623159e-10,
+          "scalar_skill": -0.4485422678483968
+        },
+        "amplitude_only": {
+          "fold_count": 7,
+          "vector_ss": 5.0115684848676345e-08,
+          "vector_sse": 1.7773085174595897e-08,
+          "vector_skill": 0.6453588287127774,
+          "scalar_ss": 9.037752046874854e-11,
+          "scalar_sse": 9.037752046874854e-11,
+          "scalar_skill": 0.0
+        },
+        "oracle": {
+          "fold_count": 7,
+          "vector_ss": 5.0115684848676345e-08,
+          "vector_sse": 1.7763272085695556e-08,
+          "vector_skill": 0.6455546374487044,
+          "scalar_ss": 9.037752046874854e-11,
+          "scalar_sse": 2.508587979891466e-40,
+          "scalar_skill": 1.0
+        },
+        "pearson_correlation": 0.5037054780590929,
+        "sign_accuracy": 0.59375
+      },
+      {
+        "heldout_exp": 18,
+        "predicted": {
+          "fold_count": 7,
+          "vector_ss": 4.454428789617554e-08,
+          "vector_sse": 1.5336821898544468e-08,
+          "vector_skill": 0.6556949808179278,
+          "scalar_ss": 1.3535885781010044e-10,
+          "scalar_sse": 1.0885589469024713e-10,
+          "scalar_skill": 0.19579777451310365
+        },
+        "amplitude_only": {
+          "fold_count": 7,
+          "vector_ss": 4.454428789617554e-08,
+          "vector_sse": 1.534129675840019e-08,
+          "vector_skill": 0.6555945221493291,
+          "scalar_ss": 1.3535885781010044e-10,
+          "scalar_sse": 1.3535885781010044e-10,
+          "scalar_skill": 0.0
+        },
+        "oracle": {
+          "fold_count": 7,
+          "vector_ss": 4.454428789617554e-08,
+          "vector_sse": 1.5325551092281007e-08,
+          "vector_skill": 0.6559480055444591,
+          "scalar_ss": 1.3535885781010044e-10,
+          "scalar_sse": 1.604320337459277e-40,
+          "scalar_skill": 1.0
+        },
+        "pearson_correlation": 0.44354837365866184,
+        "sign_accuracy": 0.5
+      },
+      {
+        "heldout_exp": 19,
+        "predicted": {
+          "fold_count": 7,
+          "vector_ss": 2.6206215858261136e-08,
+          "vector_sse": 1.0063952592272652e-08,
+          "vector_skill": 0.6159707816380466,
+          "scalar_ss": 9.627624956669366e-11,
+          "scalar_sse": 8.120470361024823e-11,
+          "scalar_skill": 0.15654479712574265
+        },
+        "amplitude_only": {
+          "fold_count": 7,
+          "vector_ss": 2.6206215858261136e-08,
+          "vector_sse": 1.006507239247894e-08,
+          "vector_skill": 0.6159280513097785,
+          "scalar_ss": 9.627624956669366e-11,
+          "scalar_sse": 9.627624956669366e-11,
+          "scalar_skill": 0.0
+        },
+        "oracle": {
+          "fold_count": 7,
+          "vector_ss": 2.6206215858261136e-08,
+          "vector_sse": 1.0053448594943314e-08,
+          "vector_skill": 0.6163716024733076,
+          "scalar_ss": 9.627624956669366e-11,
+          "scalar_sse": 9.537027153425056e-41,
+          "scalar_skill": 1.0
+        },
+        "pearson_correlation": 0.40041480088574505,
+        "sign_accuracy": 0.59375
+      }
+    ]
+  },
+  "safety": {
+    "fold_count": 35,
+    "all_design_ranks_full": true,
+    "minimum_design_rank_fraction": 1.0,
+    "maximum_design_condition_number": 3.5372603282017665,
+    "maximum_oracle_fold_vector_skill_error_vs_pass031": 2.220446049250313e-16
+  },
+  "folds": [
+    {
+      "r": 11,
+      "heldout_exp": 15,
+      "training_exps": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "modes": [
+        2,
+        4
+      ],
+      "rank_d": 2,
+      "orbit_count": 5,
+      "training_row_count": 8,
+      "test_row_count": 2,
+      "design_rank": 2,
+      "design_condition_number": 1.910434524912543,
+      "coefficient_l2_norm": 0.03678702754755106,
+      "predicted_metrics": {
+        "vector_ss": 5.192572001184839e-09,
+        "vector_sse": 1.7723280030824852e-10,
+        "vector_skill": 0.9658680129485335,
+        "scalar_ss": 7.83138377047537e-12,
+        "scalar_sse": 7.184029614570603e-11,
+        "scalar_skill": -8.173384710955784
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 5.192572001184839e-09,
+        "vector_sse": 1.6443101783320242e-10,
+        "vector_skill": 0.9683334159265038,
+        "scalar_ss": 7.83138377047537e-12,
+        "scalar_sse": 7.83138377047537e-12,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 5.192572001184839e-09,
+        "vector_sse": 1.6286474107910735e-10,
+        "vector_skill": 0.968635053872735,
+        "scalar_ss": 7.83138377047537e-12,
+        "scalar_sse": 3.049225458370802e-41,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.002767040924201436,
+      "actual_scalar": [
+        1.9788107249656992e-06,
+        -1.9788107249648937e-06
+      ],
+      "predicted_scalar": [
+        -4.014531253668427e-06,
+        4.0145312536683954e-06
+      ],
+      "sign_correct_count": 0
+    },
+    {
+      "r": 11,
+      "heldout_exp": 16,
+      "training_exps": [
+        15,
+        17,
+        18,
+        19
+      ],
+      "modes": [
+        2,
+        4
+      ],
+      "rank_d": 2,
+      "orbit_count": 5,
+      "training_row_count": 8,
+      "test_row_count": 2,
+      "design_rank": 2,
+      "design_condition_number": 2.4639103453389426,
+      "coefficient_l2_norm": 0.03280050213177901,
+      "predicted_metrics": {
+        "vector_ss": 4.7895778263601315e-09,
+        "vector_sse": 4.2547053018479227e-10,
+        "vector_skill": 0.9111674252701034,
+        "scalar_ss": 1.142539927071693e-11,
+        "scalar_sse": 6.77007456524998e-11,
+        "scalar_skill": -4.925459937843525
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 4.7895778263601315e-09,
+        "vector_sse": 4.1421546090843563e-10,
+        "vector_skill": 0.9135173336930155,
+        "scalar_ss": 1.142539927071693e-11,
+        "scalar_sse": 1.142539927071693e-11,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 4.7895778263601315e-09,
+        "vector_sse": 4.1193038105429213e-10,
+        "vector_skill": 0.9139944279040265,
+        "scalar_ss": 1.142539927071693e-11,
+        "scalar_sse": 6.457183323608757e-42,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.0028270026339231036,
+      "actual_scalar": [
+        2.3901254434353795e-06,
+        -2.390125443435919e-06
+      ],
+      "predicted_scalar": [
+        -3.4279818799341935e-06,
+        3.4279818799342092e-06
+      ],
+      "sign_correct_count": 0
+    },
+    {
+      "r": 11,
+      "heldout_exp": 17,
+      "training_exps": [
+        15,
+        16,
+        18,
+        19
+      ],
+      "modes": [
+        2,
+        4
+      ],
+      "rank_d": 1,
+      "orbit_count": 5,
+      "training_row_count": 8,
+      "test_row_count": 2,
+      "design_rank": 1,
+      "design_condition_number": 1.0,
+      "coefficient_l2_norm": 0.002559990063710411,
+      "predicted_metrics": {
+        "vector_ss": 1.6114980143950018e-09,
+        "vector_sse": 1.5414913382042273e-09,
+        "vector_skill": 0.04344198724753434,
+        "scalar_ss": 1.914369456477084e-12,
+        "scalar_sse": 2.049226448108441e-12,
+        "scalar_skill": -0.07044460053156465
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 1.6114980143950018e-09,
+        "vector_sse": 1.5414643668059012e-09,
+        "vector_skill": 0.04345872409615903,
+        "scalar_ss": 1.914369456477084e-12,
+        "scalar_sse": 1.914369456477084e-12,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 1.6114980143950018e-09,
+        "vector_sse": 1.5410814929146055e-09,
+        "vector_skill": 0.0436963129035145,
+        "scalar_ss": 1.914369456477084e-12,
+        "scalar_sse": 1.793662034335766e-42,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.00025432565598015877,
+      "actual_scalar": [
+        -9.783581799314654e-07,
+        9.783581799311927e-07
+      ],
+      "predicted_scalar": [
+        3.387362358712434e-08,
+        -3.387362358712457e-08
+      ],
+      "sign_correct_count": 0
+    },
+    {
+      "r": 11,
+      "heldout_exp": 18,
+      "training_exps": [
+        15,
+        16,
+        17,
+        19
+      ],
+      "modes": [
+        2,
+        4
+      ],
+      "rank_d": 2,
+      "orbit_count": 5,
+      "training_row_count": 8,
+      "test_row_count": 2,
+      "design_rank": 2,
+      "design_condition_number": 2.0364585463750053,
+      "coefficient_l2_norm": 0.030247555205885526,
+      "predicted_metrics": {
+        "vector_ss": 1.7799272440690598e-10,
+        "vector_sse": 3.974576777356633e-11,
+        "vector_skill": 0.7767000426225049,
+        "scalar_ss": 7.389534674275547e-12,
+        "scalar_sse": 5.443553406185985e-12,
+        "scalar_skill": 0.26334286986485267
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 1.7799272440690598e-10,
+        "vector_sse": 4.013496402718425e-11,
+        "vector_skill": 0.7745134574409209,
+        "scalar_ss": 7.389534674275547e-12,
+        "scalar_sse": 7.389534674275547e-12,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 1.7799272440690598e-10,
+        "vector_sse": 3.8657057092329124e-11,
+        "vector_skill": 0.7828166447750082,
+        "scalar_ss": 7.389534674275547e-12,
+        "scalar_sse": 1.793662034335766e-43,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.006116602152503314,
+      "actual_scalar": [
+        -1.9221777589851705e-06,
+        1.922177758985442e-06
+      ],
+      "predicted_scalar": [
+        -2.723969544258082e-07,
+        2.723969544258027e-07
+      ],
+      "sign_correct_count": 2
+    },
+    {
+      "r": 11,
+      "heldout_exp": 19,
+      "training_exps": [
+        15,
+        16,
+        17,
+        18
+      ],
+      "modes": [
+        2,
+        4
+      ],
+      "rank_d": 2,
+      "orbit_count": 5,
+      "training_row_count": 8,
+      "test_row_count": 2,
+      "design_rank": 2,
+      "design_condition_number": 2.056219328751561,
+      "coefficient_l2_norm": 0.03810269037283113,
+      "predicted_metrics": {
+        "vector_ss": 1.7410248437409516e-10,
+        "vector_sse": 1.1123880102098042e-10,
+        "vector_skill": 0.3610728679668874,
+        "scalar_ss": 4.3123984678991666e-12,
+        "scalar_sse": 7.109637247024836e-12,
+        "scalar_skill": -0.6486503508309553
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 1.7410248437409516e-10,
+        "vector_sse": 1.1067935326515531e-10,
+        "vector_skill": 0.3642861923363606,
+        "scalar_ss": 4.3123984678991666e-12,
+        "scalar_sse": 4.3123984678991666e-12,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 1.7410248437409516e-10,
+        "vector_sse": 1.0981687357157546e-10,
+        "vector_skill": 0.3692400544060519,
+        "scalar_ss": 4.3123984678991666e-12,
+        "scalar_sse": 1.1210387714598537e-42,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.008167186439164476,
+      "actual_scalar": [
+        -1.4684002294844494e-06,
+        1.4684002294841785e-06
+      ],
+      "predicted_scalar": [
+        4.170224349366768e-07,
+        -4.1702243493671547e-07
+      ],
+      "sign_correct_count": 0
+    },
+    {
+      "r": 13,
+      "heldout_exp": 15,
+      "training_exps": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "modes": [
+        2,
+        4,
+        6
+      ],
+      "rank_d": 2,
+      "orbit_count": 6,
+      "training_row_count": 12,
+      "test_row_count": 3,
+      "design_rank": 2,
+      "design_condition_number": 1.2951852654334068,
+      "coefficient_l2_norm": 0.007365658501699941,
+      "predicted_metrics": {
+        "vector_ss": 2.3392621936664572e-08,
+        "vector_sse": 2.7154613531097554e-09,
+        "vector_skill": 0.8839180421732179,
+        "scalar_ss": 7.701815557567243e-11,
+        "scalar_sse": 8.646159375496308e-11,
+        "scalar_skill": -0.12261314372832799
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 2.3392621936664572e-08,
+        "vector_sse": 2.7138874467465403e-09,
+        "vector_skill": 0.8839853243431036,
+        "scalar_ss": 7.701815557567243e-11,
+        "scalar_sse": 7.701815557567243e-11,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 2.3392621936664572e-08,
+        "vector_sse": 2.701051087483928e-09,
+        "vector_skill": 0.8845340597220349,
+        "scalar_ss": 7.701815557567243e-11,
+        "scalar_sse": 4.4482818451526993e-41,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.0006160175488170161,
+      "actual_scalar": [
+        -4.1793050158962075e-06,
+        -2.9510949540776497e-06,
+        7.130399969973266e-06
+      ],
+      "predicted_scalar": [
+        -1.2402607488723668e-06,
+        1.6417513418975228e-06,
+        -4.0149059302515133e-07
+      ],
+      "sign_correct_count": 1
+    },
+    {
+      "r": 13,
+      "heldout_exp": 16,
+      "training_exps": [
+        15,
+        17,
+        18,
+        19
+      ],
+      "modes": [
+        2,
+        4,
+        6
+      ],
+      "rank_d": 2,
+      "orbit_count": 6,
+      "training_row_count": 12,
+      "test_row_count": 3,
+      "design_rank": 2,
+      "design_condition_number": 1.804989152475502,
+      "coefficient_l2_norm": 0.025416667490424726,
+      "predicted_metrics": {
+        "vector_ss": 1.3578691283581952e-08,
+        "vector_sse": 1.496780245611513e-09,
+        "vector_skill": 0.889769918591398,
+        "scalar_ss": 1.9565357992124238e-11,
+        "scalar_sse": 1.987741934177756e-11,
+        "scalar_skill": -0.015949687696945825
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 1.3578691283581952e-08,
+        "vector_sse": 1.4967282353865708e-09,
+        "vector_skill": 0.8897737488739971,
+        "scalar_ss": 1.9565357992124238e-11,
+        "scalar_sse": 1.9565357992124238e-11,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 1.3578691283581952e-08,
+        "vector_sse": 1.4934673423878836e-09,
+        "vector_skill": 0.8900138966857843,
+        "scalar_ss": 1.9565357992124238e-11,
+        "scalar_sse": 6.690359388072407e-41,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.00024397809438636564,
+      "actual_scalar": [
+        9.424915462241697e-07,
+        2.548102047201917e-06,
+        -3.4905935934258594e-06
+      ],
+      "predicted_scalar": [
+        -2.686785001865436e-06,
+        4.6076351435770775e-06,
+        -1.920850141711634e-06
+      ],
+      "sign_correct_count": 2
+    },
+    {
+      "r": 13,
+      "heldout_exp": 17,
+      "training_exps": [
+        15,
+        16,
+        18,
+        19
+      ],
+      "modes": [
+        2,
+        4,
+        6
+      ],
+      "rank_d": 2,
+      "orbit_count": 6,
+      "training_row_count": 12,
+      "test_row_count": 3,
+      "design_rank": 2,
+      "design_condition_number": 1.1056968548639803,
+      "coefficient_l2_norm": 0.022345076064980658,
+      "predicted_metrics": {
+        "vector_ss": 1.0627255548754699e-08,
+        "vector_sse": 7.071606410054087e-10,
+        "vector_skill": 0.9334578304096326,
+        "scalar_ss": 1.8333314588029654e-12,
+        "scalar_sse": 1.2884574967695e-11,
+        "scalar_skill": -6.027957168262256
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 1.0627255548754699e-08,
+        "vector_sse": 7.053187670872601e-10,
+        "vector_skill": 0.9336311464562542,
+        "scalar_ss": 1.8333314588029654e-12,
+        "scalar_sse": 1.8333314588029654e-12,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 1.0627255548754699e-08,
+        "vector_sse": 7.05013211844126e-10,
+        "vector_skill": 0.9336598984931025,
+        "scalar_ss": 1.8333314588029654e-12,
+        "scalar_sse": 6.35516879540591e-41,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.00020206808346989735,
+      "actual_scalar": [
+        -1.1054797894793045e-06,
+        5.628173791111251e-07,
+        5.426624103678411e-07
+      ],
+      "predicted_scalar": [
+        1.2097068331294577e-06,
+        9.61572570141126e-07,
+        -2.171279403270589e-06
+      ],
+      "sign_correct_count": 1
+    },
+    {
+      "r": 13,
+      "heldout_exp": 18,
+      "training_exps": [
+        15,
+        16,
+        17,
+        19
+      ],
+      "modes": [
+        2,
+        4,
+        6
+      ],
+      "rank_d": 2,
+      "orbit_count": 6,
+      "training_row_count": 12,
+      "test_row_count": 3,
+      "design_rank": 2,
+      "design_condition_number": 1.2345888984093125,
+      "coefficient_l2_norm": 0.01793246105476495,
+      "predicted_metrics": {
+        "vector_ss": 8.528152859105684e-09,
+        "vector_sse": 1.3391926026426123e-09,
+        "vector_skill": 0.8429680348408942,
+        "scalar_ss": 7.364101145205768e-12,
+        "scalar_sse": 1.1590926491791759e-12,
+        "scalar_skill": 0.8426022909892028
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 8.528152859105684e-09,
+        "vector_sse": 1.3402267707252835e-09,
+        "vector_skill": 0.8428467696502068,
+        "scalar_ss": 7.364101145205768e-12,
+        "scalar_sse": 7.364101145205768e-12,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 8.528152859105684e-09,
+        "vector_sse": 1.3389994205344157e-09,
+        "vector_skill": 0.8429906871210993,
+        "scalar_ss": 7.364101145205768e-12,
+        "scalar_sse": 4.7083628401313854e-42,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 2.2652280205037734e-05,
+      "actual_scalar": [
+        2.2117271461636586e-06,
+        -9.907642864004752e-07,
+        -1.22096285976351e-06
+      ],
+      "predicted_scalar": [
+        1.3948238168570277e-06,
+        -8.634674501161018e-07,
+        -5.313563667409253e-07
+      ],
+      "sign_correct_count": 3
+    },
+    {
+      "r": 13,
+      "heldout_exp": 19,
+      "training_exps": [
+        15,
+        16,
+        17,
+        18
+      ],
+      "modes": [
+        2,
+        4,
+        6
+      ],
+      "rank_d": 2,
+      "orbit_count": 6,
+      "training_row_count": 12,
+      "test_row_count": 3,
+      "design_rank": 2,
+      "design_condition_number": 1.2918041191190162,
+      "coefficient_l2_norm": 0.02225192484445787,
+      "predicted_metrics": {
+        "vector_ss": 3.3052782750179302e-09,
+        "vector_sse": 1.1038644350429366e-09,
+        "vector_skill": 0.6660298034854726,
+        "scalar_ss": 1.400029029313102e-11,
+        "scalar_sse": 2.4690557759374336e-11,
+        "scalar_skill": -0.7635747004109117
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 3.3052782750179302e-09,
+        "vector_sse": 1.1020827237985628e-09,
+        "vector_skill": 0.6665688537850616,
+        "scalar_ss": 1.400029029313102e-11,
+        "scalar_sse": 1.400029029313102e-11,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 3.3052782750179302e-09,
+        "vector_sse": 1.0997493420830408e-09,
+        "vector_skill": 0.6672748099924886,
+        "scalar_ss": 1.400029029313102e-11,
+        "scalar_sse": 6.289027507889779e-42,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.0012450065070159777,
+      "actual_scalar": [
+        2.1305661129876848e-06,
+        8.309398141650779e-07,
+        -2.9615059271517366e-06
+      ],
+      "predicted_scalar": [
+        8.801130937150121e-07,
+        -1.8863707836418437e-06,
+        1.0062576899268278e-06
+      ],
+      "sign_correct_count": 1
+    },
+    {
+      "r": 17,
+      "heldout_exp": 15,
+      "training_exps": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "modes": [
+        2,
+        4,
+        6,
+        8
+      ],
+      "rank_d": 5,
+      "orbit_count": 8,
+      "training_row_count": 16,
+      "test_row_count": 4,
+      "design_rank": 5,
+      "design_condition_number": 2.136735676099215,
+      "coefficient_l2_norm": 0.01968523629130819,
+      "predicted_metrics": {
+        "vector_ss": 3.913594459469134e-08,
+        "vector_sse": 9.176637704684524e-09,
+        "vector_skill": 0.7655189417370214,
+        "scalar_ss": 5.904936288313035e-10,
+        "scalar_sse": 6.261416329975353e-10,
+        "scalar_skill": -0.060369837074763844
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 3.913594459469134e-08,
+        "vector_sse": 9.172181704163744e-09,
+        "vector_skill": 0.7656328012737447,
+        "scalar_ss": 5.904936288313035e-10,
+        "scalar_sse": 5.904936288313035e-10,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 3.913594459469134e-08,
+        "vector_sse": 9.098370000559833e-09,
+        "vector_skill": 0.7675188348004255,
+        "scalar_ss": 5.904936288313035e-10,
+        "scalar_sse": 1.2914366647217514e-40,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.00199989306340409,
+      "actual_scalar": [
+        -4.231460745694602e-06,
+        -9.836697484528923e-06,
+        -6.693105836499846e-06,
+        2.0761264066723478e-05
+      ],
+      "predicted_scalar": [
+        -4.4034576841805104e-07,
+        2.4881465409927897e-06,
+        -1.9057509186784138e-06,
+        -1.420498538963271e-07
+      ],
+      "sign_correct_count": 2
+    },
+    {
+      "r": 17,
+      "heldout_exp": 16,
+      "training_exps": [
+        15,
+        17,
+        18,
+        19
+      ],
+      "modes": [
+        2,
+        4,
+        6,
+        8
+      ],
+      "rank_d": 4,
+      "orbit_count": 8,
+      "training_row_count": 16,
+      "test_row_count": 4,
+      "design_rank": 4,
+      "design_condition_number": 2.426913142130316,
+      "coefficient_l2_norm": 0.06723625517252814,
+      "predicted_metrics": {
+        "vector_ss": 2.203329865459845e-08,
+        "vector_sse": 7.700310880845509e-09,
+        "vector_skill": 0.6505148411248709,
+        "scalar_ss": 1.1435509455815466e-11,
+        "scalar_sse": 2.507231672165974e-10,
+        "scalar_skill": -20.92496697985707
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 2.203329865459845e-08,
+        "vector_sse": 7.670399923625412e-09,
+        "vector_skill": 0.6518723753592581,
+        "scalar_ss": 1.1435509455815466e-11,
+        "scalar_sse": 1.1435509455815466e-11,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 2.203329865459845e-08,
+        "vector_sse": 7.668970484943435e-09,
+        "vector_skill": 0.6519372516496578,
+        "scalar_ss": 1.1435509455815466e-11,
+        "scalar_sse": 1.1197005314264235e-40,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.0014224105247868657,
+      "actual_scalar": [
+        -1.3030628155525414e-06,
+        2.67963321470387e-06,
+        2.088294969058076e-07,
+        -1.5853998960570309e-06
+      ],
+      "predicted_scalar": [
+        6.155199583537261e-06,
+        1.0967721262311647e-05,
+        -6.5617783763655116e-06,
+        -1.056114246948336e-05
+      ],
+      "sign_correct_count": 2
+    },
+    {
+      "r": 17,
+      "heldout_exp": 17,
+      "training_exps": [
+        15,
+        16,
+        18,
+        19
+      ],
+      "modes": [
+        2,
+        4,
+        6,
+        8
+      ],
+      "rank_d": 4,
+      "orbit_count": 8,
+      "training_row_count": 16,
+      "test_row_count": 4,
+      "design_rank": 4,
+      "design_condition_number": 2.2692646342682825,
+      "coefficient_l2_norm": 0.05560853659711358,
+      "predicted_metrics": {
+        "vector_ss": 1.7588558609398824e-08,
+        "vector_sse": 7.52203706878291e-09,
+        "vector_skill": 0.5723335131758126,
+        "scalar_ss": 4.845938958260181e-11,
+        "scalar_sse": 7.663602101655499e-11,
+        "scalar_skill": -0.5814483359499296
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 1.7588558609398824e-08,
+        "vector_sse": 7.518514989853667e-09,
+        "vector_skill": 0.572533761474008,
+        "scalar_ss": 4.845938958260181e-11,
+        "scalar_sse": 4.845938958260181e-11,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 1.7588558609398824e-08,
+        "vector_sse": 7.512457566155842e-09,
+        "vector_skill": 0.5728781571594275,
+        "scalar_ss": 4.845938958260181e-11,
+        "scalar_sse": 7.681357662042917e-41,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.0005446439836148675,
+      "actual_scalar": [
+        2.4197440791017894e-06,
+        2.042504911935018e-06,
+        1.542240635897385e-06,
+        -6.004489626934317e-06
+      ],
+      "predicted_scalar": [
+        -2.387762821192014e-06,
+        9.922702325148154e-07,
+        8.670179020528904e-06,
+        -7.274686431851673e-06
+      ],
+      "sign_correct_count": 3
+    },
+    {
+      "r": 17,
+      "heldout_exp": 18,
+      "training_exps": [
+        15,
+        16,
+        17,
+        19
+      ],
+      "modes": [
+        2,
+        4,
+        6,
+        8
+      ],
+      "rank_d": 4,
+      "orbit_count": 8,
+      "training_row_count": 16,
+      "test_row_count": 4,
+      "design_rank": 4,
+      "design_condition_number": 2.5157420700478688,
+      "coefficient_l2_norm": 0.0491124200687813,
+      "predicted_metrics": {
+        "vector_ss": 8.297141176047325e-09,
+        "vector_sse": 4.551008945023328e-09,
+        "vector_skill": 0.45149674466653056,
+        "scalar_ss": 7.298825123421507e-11,
+        "scalar_sse": 3.590631236425462e-11,
+        "scalar_skill": 0.5080535324920535
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 8.297141176047325e-09,
+        "vector_sse": 4.555644187382074e-09,
+        "vector_skill": 0.45093808931037893,
+        "scalar_ss": 7.298825123421507e-11,
+        "scalar_sse": 7.298825123421507e-11,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 8.297141176047325e-09,
+        "vector_sse": 4.546520655977796e-09,
+        "vector_skill": 0.452037688703796,
+        "scalar_ss": 7.298825123421507e-11,
+        "scalar_sse": 4.035739577255473e-43,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.0005409440372654561,
+      "actual_scalar": [
+        1.4221245272981834e-06,
+        2.639462548122525e-06,
+        3.248922635272795e-06,
+        -7.310509710693408e-06
+      ],
+      "predicted_scalar": [
+        8.860945280708958e-07,
+        -1.1254075204294055e-06,
+        2.9299732609465e-06,
+        -2.6906602685879986e-06
+      ],
+      "sign_correct_count": 3
+    },
+    {
+      "r": 17,
+      "heldout_exp": 19,
+      "training_exps": [
+        15,
+        16,
+        17,
+        18
+      ],
+      "modes": [
+        2,
+        4,
+        6,
+        8
+      ],
+      "rank_d": 4,
+      "orbit_count": 8,
+      "training_row_count": 16,
+      "test_row_count": 4,
+      "design_rank": 4,
+      "design_condition_number": 2.2800130369375524,
+      "coefficient_l2_norm": 0.046852476261821714,
+      "predicted_metrics": {
+        "vector_ss": 5.225433073821245e-09,
+        "vector_sse": 3.652402182085499e-09,
+        "vector_skill": 0.3010335927210379,
+        "scalar_ss": 4.620755346750765e-11,
+        "scalar_sse": 1.755096554608689e-11,
+        "scalar_skill": 0.6201710709824007
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 5.225433073821245e-09,
+        "vector_sse": 3.655984255575677e-09,
+        "vector_skill": 0.3003480852349458,
+        "scalar_ss": 4.620755346750765e-11,
+        "scalar_sse": 4.620755346750765e-11,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 5.225433073821245e-09,
+        "vector_sse": 3.650208311392238e-09,
+        "vector_skill": 0.30145343748074827,
+        "scalar_ss": 4.620755346750765e-11,
+        "scalar_sse": 3.8115318229635024e-42,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.00041984475971035273,
+      "actual_scalar": [
+        1.6926549548471763e-06,
+        2.47509680976751e-06,
+        1.693113068423858e-06,
+        -5.860864833038723e-06
+      ],
+      "predicted_scalar": [
+        8.882809717350013e-07,
+        7.643278048852949e-07,
+        6.253625064163891e-07,
+        -2.277971283036685e-06
+      ],
+      "sign_correct_count": 4
+    },
+    {
+      "r": 19,
+      "heldout_exp": 15,
+      "training_exps": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "modes": [
+        2,
+        4,
+        6,
+        8
+      ],
+      "rank_d": 5,
+      "orbit_count": 9,
+      "training_row_count": 16,
+      "test_row_count": 4,
+      "design_rank": 5,
+      "design_condition_number": 2.5297186113917323,
+      "coefficient_l2_norm": 0.021779375242873322,
+      "predicted_metrics": {
+        "vector_ss": 1.9979376540928962e-08,
+        "vector_sse": 1.1526857401988182e-08,
+        "vector_skill": 0.42306220725282806,
+        "scalar_ss": 4.7020781031904706e-11,
+        "scalar_sse": 4.89715237491323e-11,
+        "scalar_skill": -0.04148682081448141
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 1.9979376540928962e-08,
+        "vector_sse": 1.152664065279738e-08,
+        "vector_skill": 0.42307305589919897,
+        "scalar_ss": 4.7020781031904706e-11,
+        "scalar_sse": 4.7020781031904706e-11,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 1.9979376540928962e-08,
+        "vector_sse": 1.1521416121571611e-08,
+        "vector_skill": 0.4233345521083056,
+        "scalar_ss": 4.7020781031904706e-11,
+        "scalar_sse": 6.659250562164396e-41,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.0002723448554775576,
+      "actual_scalar": [
+        -1.0044558168353626e-06,
+        -3.4166600385155496e-07,
+        -4.069780638120903e-06,
+        5.415902458807633e-06
+      ],
+      "predicted_scalar": [
+        -2.3365038390300443e-06,
+        8.129729460404849e-07,
+        8.068380431266779e-07,
+        7.166928498628742e-07
+      ],
+      "sign_correct_count": 2
+    },
+    {
+      "r": 19,
+      "heldout_exp": 16,
+      "training_exps": [
+        15,
+        17,
+        18,
+        19
+      ],
+      "modes": [
+        2,
+        4,
+        6,
+        8
+      ],
+      "rank_d": 4,
+      "orbit_count": 9,
+      "training_row_count": 16,
+      "test_row_count": 4,
+      "design_rank": 4,
+      "design_condition_number": 2.7517559906592646,
+      "coefficient_l2_norm": 0.017288797996060964,
+      "predicted_metrics": {
+        "vector_ss": 4.967074931462669e-09,
+        "vector_sse": 1.51543898971455e-09,
+        "vector_skill": 0.6949031350190857,
+        "scalar_ss": 2.6357214846931095e-11,
+        "scalar_sse": 1.5433984287287117e-11,
+        "scalar_skill": 0.4144303798060752
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 4.967074931462669e-09,
+        "vector_sse": 1.5166526819989548e-09,
+        "vector_skill": 0.694658787530644,
+        "scalar_ss": 2.6357214846931095e-11,
+        "scalar_sse": 2.6357214846931095e-11,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 4.967074931462669e-09,
+        "vector_sse": 1.513724102571518e-09,
+        "vector_skill": 0.6952483859296708,
+        "scalar_ss": 2.6357214846931095e-11,
+        "scalar_sse": 9.551250332837953e-42,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.00034525091058501545,
+      "actual_scalar": [
+        1.7973040649430186e-06,
+        -1.083893521130255e-06,
+        2.9370471837214516e-06,
+        -3.6504577275344724e-06
+      ],
+      "predicted_scalar": [
+        2.7507919477337135e-07,
+        1.0159694508535235e-07,
+        6.914204899904123e-07,
+        -1.0680966298491356e-06
+      ],
+      "sign_correct_count": 3
+    },
+    {
+      "r": 19,
+      "heldout_exp": 17,
+      "training_exps": [
+        15,
+        16,
+        18,
+        19
+      ],
+      "modes": [
+        2,
+        4,
+        6,
+        8
+      ],
+      "rank_d": 4,
+      "orbit_count": 9,
+      "training_row_count": 16,
+      "test_row_count": 4,
+      "design_rank": 4,
+      "design_condition_number": 2.0497029091017973,
+      "coefficient_l2_norm": 0.026935253517749752,
+      "predicted_metrics": {
+        "vector_ss": 4.815551016892162e-09,
+        "vector_sse": 1.4151977616645901e-09,
+        "vector_skill": 0.7061192464371556,
+        "scalar_ss": 3.6230974111185844e-12,
+        "scalar_sse": 7.674806087590093e-12,
+        "scalar_skill": -1.1182996802784269
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 4.815551016892162e-09,
+        "vector_sse": 1.4147475718116488e-09,
+        "vector_skill": 0.7062127331121721,
+        "scalar_ss": 3.6230974111185844e-12,
+        "scalar_sse": 3.6230974111185844e-12,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 4.815551016892162e-09,
+        "vector_sse": 1.4143450054326359e-09,
+        "vector_skill": 0.7062963302701298,
+        "scalar_ss": 3.6230974111185844e-12,
+        "scalar_sse": 1.3235439157855938e-41,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.00017708383297421193,
+      "actual_scalar": [
+        1.0633985416335734e-06,
+        4.218201929641236e-07,
+        3.566157934439114e-08,
+        -1.5208803139420723e-06
+      ],
+      "predicted_scalar": [
+        -4.228547961374978e-07,
+        4.610789641567471e-07,
+        2.245331667960284e-06,
+        -2.283555835979538e-06
+      ],
+      "sign_correct_count": 3
+    },
+    {
+      "r": 19,
+      "heldout_exp": 18,
+      "training_exps": [
+        15,
+        16,
+        17,
+        19
+      ],
+      "modes": [
+        2,
+        4,
+        6,
+        8
+      ],
+      "rank_d": 4,
+      "orbit_count": 9,
+      "training_row_count": 16,
+      "test_row_count": 4,
+      "design_rank": 4,
+      "design_condition_number": 2.879367635366933,
+      "coefficient_l2_norm": 0.02870611440394532,
+      "predicted_metrics": {
+        "vector_ss": 4.515317688645194e-09,
+        "vector_sse": 1.6357181720772378e-09,
+        "vector_skill": 0.6377401802334689,
+        "scalar_ss": 1.2943575894152054e-12,
+        "scalar_sse": 4.712467374707014e-12,
+        "scalar_skill": -2.640777025795569
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 4.515317688645194e-09,
+        "vector_sse": 1.6353383821010943e-09,
+        "vector_skill": 0.6378242916963452,
+        "scalar_ss": 1.2943575894152054e-12,
+        "scalar_sse": 1.2943575894152054e-12,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 4.515317688645194e-09,
+        "vector_sse": 1.635194564591159e-09,
+        "vector_skill": 0.6378561427243021,
+        "scalar_ss": 1.2943575894152054e-12,
+        "scalar_sse": 2.349977524672718e-41,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.0001159624908332324,
+      "actual_scalar": [
+        -8.641352886454245e-07,
+        4.109136425803636e-07,
+        5.981433521893595e-07,
+        -1.449217061240798e-07
+      ],
+      "predicted_scalar": [
+        4.313671765261661e-07,
+        -5.747517457845316e-07,
+        -5.604197877884511e-07,
+        7.038043570468315e-07
+      ],
+      "sign_correct_count": 0
+    },
+    {
+      "r": 19,
+      "heldout_exp": 19,
+      "training_exps": [
+        15,
+        16,
+        17,
+        18
+      ],
+      "modes": [
+        2,
+        4,
+        6,
+        8
+      ],
+      "rank_d": 4,
+      "orbit_count": 9,
+      "training_row_count": 16,
+      "test_row_count": 4,
+      "design_rank": 4,
+      "design_condition_number": 2.118646457331827,
+      "coefficient_l2_norm": 0.025858830939497913,
+      "predicted_metrics": {
+        "vector_ss": 2.0193980608751516e-09,
+        "vector_sse": 6.31774539820178e-10,
+        "vector_skill": 0.6871470998905563,
+        "scalar_ss": 1.5945858694890695e-12,
+        "scalar_sse": 5.23560717398426e-12,
+        "scalar_skill": -2.283364837330354
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 2.0193980608751516e-09,
+        "vector_sse": 6.313699818974563e-10,
+        "vector_skill": 0.6873474357879505,
+        "scalar_ss": 1.5945858694890695e-12,
+        "scalar_sse": 1.5945858694890695e-12,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 2.0193980608751516e-09,
+        "vector_sse": 6.311928056897352e-10,
+        "vector_skill": 0.6874351729266326,
+        "scalar_ss": 1.5945858694890695e-12,
+        "scalar_sse": 5.2128302872883195e-42,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.0002880730360762529,
+      "actual_scalar": [
+        -9.921115010958112e-07,
+        5.928256894373253e-07,
+        4.98928522865711e-07,
+        -9.96427112070103e-08
+      ],
+      "predicted_scalar": [
+        9.708040376004725e-07,
+        -2.4919624185295594e-07,
+        8.909312243780684e-08,
+        -8.107009181853273e-07
+      ],
+      "sign_correct_count": 2
+    },
+    {
+      "r": 23,
+      "heldout_exp": 15,
+      "training_exps": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "modes": [
+        2,
+        4,
+        6,
+        8,
+        10
+      ],
+      "rank_d": 6,
+      "orbit_count": 11,
+      "training_row_count": 20,
+      "test_row_count": 5,
+      "design_rank": 6,
+      "design_condition_number": 2.2478023635038027,
+      "coefficient_l2_norm": 0.048386416050493666,
+      "predicted_metrics": {
+        "vector_ss": 3.757766286517834e-08,
+        "vector_sse": 1.0043595446506553e-08,
+        "vector_skill": 0.732724318632026,
+        "scalar_ss": 4.839174476074192e-11,
+        "scalar_sse": 1.6212101663065738e-10,
+        "scalar_skill": -2.350179197551459
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 3.757766286517834e-08,
+        "vector_sse": 1.0033256421791106e-08,
+        "vector_skill": 0.7329994561453019,
+        "scalar_ss": 4.839174476074192e-11,
+        "scalar_sse": 4.839174476074192e-11,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 3.757766286517834e-08,
+        "vector_sse": 1.0028857172267403e-08,
+        "vector_skill": 0.7331165270110311,
+        "scalar_ss": 4.839174476074192e-11,
+        "scalar_sse": 1.6269635690196856e-40,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.0003922083790051101,
+      "actual_scalar": [
+        3.3533237152375456e-06,
+        -2.571103812688649e-06,
+        -2.560949676967762e-07,
+        -4.157443140262764e-06,
+        3.6313182054107696e-06
+      ],
+      "predicted_scalar": [
+        -5.966547538627435e-06,
+        5.6194404407241125e-06,
+        -8.475304132446608e-07,
+        -1.5158132413484105e-06,
+        2.710450752496392e-06
+      ],
+      "sign_correct_count": 3
+    },
+    {
+      "r": 23,
+      "heldout_exp": 16,
+      "training_exps": [
+        15,
+        17,
+        18,
+        19
+      ],
+      "modes": [
+        2,
+        4,
+        6,
+        8,
+        10
+      ],
+      "rank_d": 5,
+      "orbit_count": 11,
+      "training_row_count": 20,
+      "test_row_count": 5,
+      "design_rank": 5,
+      "design_condition_number": 3.5372603282017665,
+      "coefficient_l2_norm": 0.037137610447105764,
+      "predicted_metrics": {
+        "vector_ss": 8.18685197912166e-09,
+        "vector_sse": 3.9542194392854665e-09,
+        "vector_skill": 0.5170036725508622,
+        "scalar_ss": 2.994707399064573e-11,
+        "scalar_sse": 9.58504990416023e-11,
+        "scalar_skill": -2.200663245816341
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 8.18685197912166e-09,
+        "vector_sse": 3.948228218826288e-09,
+        "vector_skill": 0.5177354825890134,
+        "scalar_ss": 2.994707399064573e-11,
+        "scalar_sse": 2.994707399064573e-11,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 8.18685197912166e-09,
+        "vector_sse": 3.945505757554412e-09,
+        "vector_skill": 0.5180680232626226,
+        "scalar_ss": 2.994707399064573e-11,
+        "scalar_sse": 2.2068348865419382e-41,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.0010643507117603646,
+      "actual_scalar": [
+        4.353710541193629e-06,
+        4.8479493537949e-07,
+        -2.4228107128353433e-06,
+        -2.2001805010306812e-06,
+        -2.1551426270736238e-07
+      ],
+      "predicted_scalar": [
+        -2.695470350764826e-06,
+        2.4504880553516034e-06,
+        1.091570968435759e-06,
+        2.3734141638220517e-06,
+        -3.220002836844589e-06
+      ],
+      "sign_correct_count": 2
+    },
+    {
+      "r": 23,
+      "heldout_exp": 17,
+      "training_exps": [
+        15,
+        16,
+        18,
+        19
+      ],
+      "modes": [
+        2,
+        4,
+        6,
+        8,
+        10
+      ],
+      "rank_d": 5,
+      "orbit_count": 11,
+      "training_row_count": 20,
+      "test_row_count": 5,
+      "design_rank": 5,
+      "design_condition_number": 2.9029769382408417,
+      "coefficient_l2_norm": 0.017678735317295535,
+      "predicted_metrics": {
+        "vector_ss": 6.217138271177585e-09,
+        "vector_sse": 2.575050610824877e-09,
+        "vector_skill": 0.5858141642493762,
+        "scalar_ss": 1.2105374706075234e-11,
+        "scalar_sse": 9.258925717227363e-12,
+        "scalar_skill": 0.23513927143612867
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 6.217138271177585e-09,
+        "vector_sse": 2.5753093789147725e-09,
+        "vector_skill": 0.5857725425130389,
+        "scalar_ss": 1.2105374706075234e-11,
+        "scalar_sse": 1.2105374706075234e-11,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 6.217138271177585e-09,
+        "vector_sse": 2.5742088903051293e-09,
+        "vector_skill": 0.5859495513813706,
+        "scalar_ss": 1.2105374706075234e-11,
+        "scalar_sse": 3.231561757690092e-41,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.00013538713199445773,
+      "actual_scalar": [
+        -3.347917660337089e-07,
+        3.8580417040517854e-07,
+        1.957641890188025e-08,
+        2.3979718802440533e-06,
+        -2.468560703517545e-06
+      ],
+      "predicted_scalar": [
+        -3.0597028109021165e-07,
+        -1.3585589654821107e-07,
+        6.886642607361115e-07,
+        2.4553678762357645e-07,
+        -4.923748707212694e-07
+      ],
+      "sign_correct_count": 4
+    },
+    {
+      "r": 23,
+      "heldout_exp": 18,
+      "training_exps": [
+        15,
+        16,
+        17,
+        19
+      ],
+      "modes": [
+        2,
+        4,
+        6,
+        8,
+        10
+      ],
+      "rank_d": 5,
+      "orbit_count": 11,
+      "training_row_count": 20,
+      "test_row_count": 5,
+      "design_rank": 5,
+      "design_condition_number": 3.0006030839121016,
+      "coefficient_l2_norm": 0.018076640963045836,
+      "predicted_metrics": {
+        "vector_ss": 7.932275187890504e-09,
+        "vector_sse": 3.1227226554940416e-09,
+        "vector_skill": 0.6063269892273502,
+        "scalar_ss": 2.4872651627278116e-11,
+        "scalar_sse": 3.010142271483124e-11,
+        "scalar_skill": -0.21022169915404887
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 7.932275187890504e-09,
+        "vector_sse": 3.1222473126679013e-09,
+        "vector_skill": 0.6063869143831069,
+        "scalar_ss": 2.4872651627278116e-11,
+        "scalar_sse": 2.4872651627278116e-11,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 7.932275187890504e-09,
+        "vector_sse": 3.119986162519967e-09,
+        "vector_skill": 0.606671971330121,
+        "scalar_ss": 2.4872651627278116e-11,
+        "scalar_sse": 5.587257236955911e-41,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.00034498210277078556,
+      "actual_scalar": [
+        -4.158104727714484e-06,
+        1.3826974457237793e-06,
+        1.148718382900727e-06,
+        2.043863072687385e-06,
+        -4.1717417359697063e-07
+      ],
+      "predicted_scalar": [
+        4.062101053291318e-07,
+        -7.577824153615992e-07,
+        -1.4285369116913428e-07,
+        3.874035248451598e-07,
+        1.0702247635643642e-07
+      ],
+      "sign_correct_count": 1
+    },
+    {
+      "r": 23,
+      "heldout_exp": 19,
+      "training_exps": [
+        15,
+        16,
+        17,
+        18
+      ],
+      "modes": [
+        2,
+        4,
+        6,
+        8,
+        10
+      ],
+      "rank_d": 5,
+      "orbit_count": 11,
+      "training_row_count": 20,
+      "test_row_count": 5,
+      "design_rank": 5,
+      "design_condition_number": 2.934427045933759,
+      "coefficient_l2_norm": 0.014567528977682626,
+      "predicted_metrics": {
+        "vector_ss": 6.5836919399891755e-09,
+        "vector_sse": 2.7093871355112283e-09,
+        "vector_skill": 0.5884699405428616,
+        "scalar_ss": 1.6664847752449656e-11,
+        "scalar_sse": 1.5496970975619195e-11,
+        "scalar_skill": 0.07008025480813573
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 6.5836919399891755e-09,
+        "vector_sse": 2.7094933061273037e-09,
+        "vector_skill": 0.5884538142391033,
+        "scalar_ss": 1.6664847752449656e-11,
+        "scalar_sse": 1.6664847752449656e-11,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 6.5836919399891755e-09,
+        "vector_sse": 2.7079783199679893e-09,
+        "vector_skill": 0.5886839261843649,
+        "scalar_ss": 1.6664847752449656e-11,
+        "scalar_sse": 8.074281751439596e-42,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.00021398564150332255,
+      "actual_scalar": [
+        -3.2141377626829824e-06,
+        3.1780726118020687e-07,
+        1.5106108787295023e-06,
+        1.915788688362005e-06,
+        -5.300690655889019e-07
+      ],
+      "predicted_scalar": [
+        3.8064714984979395e-08,
+        1.9837747549382196e-07,
+        -4.1527492118701815e-07,
+        8.283191858401644e-07,
+        -6.494864551319491e-07
+      ],
+      "sign_correct_count": 3
+    },
+    {
+      "r": 29,
+      "heldout_exp": 15,
+      "training_exps": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "modes": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14
+      ],
+      "rank_d": 6,
+      "orbit_count": 14,
+      "training_row_count": 28,
+      "test_row_count": 7,
+      "design_rank": 6,
+      "design_condition_number": 3.062709207289179,
+      "coefficient_l2_norm": 0.009911140838989965,
+      "predicted_metrics": {
+        "vector_ss": 2.7594147342280895e-08,
+        "vector_sse": 1.3636799090208938e-08,
+        "vector_skill": 0.5058082816962396,
+        "scalar_ss": 1.2880425663255767e-10,
+        "scalar_sse": 1.5992625999265078e-10,
+        "scalar_skill": -0.2416224756366201
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 2.7594147342280895e-08,
+        "vector_sse": 1.3634576089968931e-08,
+        "vector_skill": 0.5058888422662922,
+        "scalar_ss": 1.2880425663255767e-10,
+        "scalar_sse": 1.2880425663255767e-10,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 2.7594147342280895e-08,
+        "vector_sse": 1.362537578592375e-08,
+        "vector_skill": 0.5062222573173556,
+        "scalar_ss": 1.2880425663255767e-10,
+        "scalar_sse": 5.648075341930688e-40,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.00041397562111600283,
+      "actual_scalar": [
+        -3.873762574679224e-06,
+        -3.404405717803873e-06,
+        -2.7330805096140325e-06,
+        5.521607175600328e-06,
+        7.478366829210182e-06,
+        -2.8832753742811046e-06,
+        -1.0544982843222268e-07
+      ],
+      "predicted_scalar": [
+        7.049813915981998e-07,
+        -4.3541775698073056e-07,
+        5.114434706643895e-07,
+        -3.1439184478421176e-07,
+        -1.0884350964682462e-06,
+        6.031486516025566e-07,
+        1.8671184368041604e-08
+      ],
+      "sign_correct_count": 1
+    },
+    {
+      "r": 29,
+      "heldout_exp": 16,
+      "training_exps": [
+        15,
+        17,
+        18,
+        19
+      ],
+      "modes": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14
+      ],
+      "rank_d": 6,
+      "orbit_count": 14,
+      "training_row_count": 28,
+      "test_row_count": 7,
+      "design_rank": 6,
+      "design_condition_number": 3.1827193289478917,
+      "coefficient_l2_norm": 0.05556217604280453,
+      "predicted_metrics": {
+        "vector_ss": 1.3304987067757294e-08,
+        "vector_sse": 5.479641510948917e-09,
+        "vector_skill": 0.5881513087503834,
+        "scalar_ss": 1.6605732807743878e-11,
+        "scalar_sse": 8.708153895505549e-11,
+        "scalar_skill": -4.244064803598796
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 1.3304987067757294e-08,
+        "vector_sse": 5.474607524795537e-09,
+        "vector_skill": 0.5885296620796834,
+        "scalar_ss": 1.6605732807743878e-11,
+        "scalar_sse": 1.6605732807743878e-11,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 1.3304987067757294e-08,
+        "vector_sse": 5.473421401023555e-09,
+        "vector_skill": 0.5886188108902715,
+        "scalar_ss": 1.6605732807743878e-11,
+        "scalar_sse": 1.3080560645086437e-40,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.0004675021398881096,
+      "actual_scalar": [
+        7.160422877435826e-07,
+        -4.583023535073431e-07,
+        -1.3232095481282097e-06,
+        7.872918283600588e-07,
+        -1.611435105738302e-06,
+        3.0814184520582876e-06,
+        -1.191805560787979e-06
+      ],
+      "predicted_scalar": [
+        3.1195220923464886e-06,
+        3.8692710681224115e-06,
+        -7.343056371314523e-07,
+        -5.491678148152467e-06,
+        -2.155130484145671e-06,
+        -5.127771741261982e-07,
+        1.905098283086901e-06
+      ],
+      "sign_correct_count": 3
+    },
+    {
+      "r": 29,
+      "heldout_exp": 17,
+      "training_exps": [
+        15,
+        16,
+        18,
+        19
+      ],
+      "modes": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14
+      ],
+      "rank_d": 7,
+      "orbit_count": 14,
+      "training_row_count": 28,
+      "test_row_count": 7,
+      "design_rank": 7,
+      "design_condition_number": 3.145906218399212,
+      "coefficient_l2_norm": 0.04871239358450038,
+      "predicted_metrics": {
+        "vector_ss": 3.4579708555112485e-09,
+        "vector_sse": 7.376016309694495e-10,
+        "vector_skill": 0.7866952436010634,
+        "scalar_ss": 1.4290616728779562e-11,
+        "scalar_sse": 8.313697256325318e-12,
+        "scalar_skill": 0.4182408349401364
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 3.4579708555112485e-09,
+        "vector_sse": 7.380285537889105e-10,
+        "vector_skill": 0.7865717830985607,
+        "scalar_ss": 1.4290616728779562e-11,
+        "scalar_sse": 1.4290616728779562e-11,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 3.4579708555112485e-09,
+        "vector_sse": 7.370077954511406e-10,
+        "vector_skill": 0.7868669730756951,
+        "scalar_ss": 1.4290616728779562e-11,
+        "scalar_sse": 2.6642187052975585e-41,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.00017172947463173216,
+      "actual_scalar": [
+        1.2595243270468748e-06,
+        1.2709279727992055e-06,
+        9.758260332509699e-07,
+        -1.951856335718133e-06,
+        -2.384508309674234e-06,
+        2.9961241469477924e-08,
+        8.001250708257974e-07
+      ],
+      "predicted_scalar": [
+        5.792122291807463e-07,
+        1.1291843347158183e-06,
+        -4.967779981407486e-07,
+        -6.291721744048901e-07,
+        -1.0469167888134508e-06,
+        8.612383021252958e-07,
+        -3.9676790466277834e-07
+      ],
+      "sign_correct_count": 5
+    },
+    {
+      "r": 29,
+      "heldout_exp": 18,
+      "training_exps": [
+        15,
+        16,
+        17,
+        19
+      ],
+      "modes": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14
+      ],
+      "rank_d": 6,
+      "orbit_count": 14,
+      "training_row_count": 28,
+      "test_row_count": 7,
+      "design_rank": 6,
+      "design_condition_number": 2.342480537114787,
+      "coefficient_l2_norm": 0.0305707959380496,
+      "predicted_metrics": {
+        "vector_ss": 8.984659548838426e-09,
+        "vector_sse": 3.1952283613800876e-09,
+        "vector_skill": 0.6443684544738059,
+        "scalar_ss": 1.720162402008472e-11,
+        "scalar_sse": 2.904738681593001e-11,
+        "scalar_skill": -0.6886421178613196
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 8.984659548838426e-09,
+        "vector_sse": 3.1943822354660977e-09,
+        "vector_skill": 0.644462628984191,
+        "scalar_ss": 1.720162402008472e-11,
+        "scalar_sse": 1.720162402008472e-11,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 8.984659548838426e-09,
+        "vector_sse": 3.1931535480360923e-09,
+        "vector_skill": 0.644599382906065,
+        "scalar_ss": 1.720162402008472e-11,
+        "scalar_sse": 4.726579720167608e-41,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.0002309284322591365,
+      "actual_scalar": [
+        3.947405403467349e-07,
+        1.64887606806031e-06,
+        1.508390254126666e-06,
+        -2.5137839403093493e-06,
+        -1.8533288192469096e-06,
+        -5.838183887878756e-07,
+        1.3989242858103242e-06
+      ],
+      "predicted_scalar": [
+        -5.195155278159152e-07,
+        -7.455482737011792e-07,
+        5.249406746880666e-07,
+        8.883209312068999e-07,
+        -1.9332354596667715e-07,
+        8.865502414068317e-07,
+        -8.414244998180261e-07
+      ],
+      "sign_correct_count": 2
+    },
+    {
+      "r": 29,
+      "heldout_exp": 19,
+      "training_exps": [
+        15,
+        16,
+        17,
+        18
+      ],
+      "modes": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14
+      ],
+      "rank_d": 7,
+      "orbit_count": 14,
+      "training_row_count": 28,
+      "test_row_count": 7,
+      "design_rank": 7,
+      "design_condition_number": 2.852059269255924,
+      "coefficient_l2_norm": 0.04735406374667118,
+      "predicted_metrics": {
+        "vector_ss": 5.8926036850082055e-09,
+        "vector_sse": 1.0954493287898386e-09,
+        "vector_skill": 0.8140975725931052,
+        "scalar_ss": 1.2612178943693436e-11,
+        "scalar_sse": 8.643367435677196e-12,
+        "scalar_skill": 0.3146808751869792
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 5.8926036850082055e-09,
+        "vector_sse": 1.0957328153261254e-09,
+        "vector_skill": 0.8140494637177352,
+        "scalar_ss": 1.2612178943693436e-11,
+        "scalar_sse": 1.2612178943693436e-11,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 5.8926036850082055e-09,
+        "vector_sse": 1.094831945401576e-09,
+        "vector_skill": 0.8142023451896118,
+        "scalar_ss": 1.2612178943693436e-11,
+        "scalar_sse": 1.064986832886861e-41,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.00010477259650654158,
+      "actual_scalar": [
+        1.5034554195420437e-06,
+        9.429040304516958e-07,
+        1.5720737703646092e-06,
+        -1.8432587279329031e-06,
+        -1.6290945945507453e-06,
+        3.55714069541216e-07,
+        -9.017939674159487e-07
+      ],
+      "predicted_scalar": [
+        2.2106611913408278e-07,
+        2.3272251620762718e-07,
+        7.42922655734534e-07,
+        2.9240069560293444e-07,
+        -7.076119816305263e-07,
+        6.676044530626771e-07,
+        -1.449104458111335e-06
+      ],
+      "sign_correct_count": 6
+    },
+    {
+      "r": 31,
+      "heldout_exp": 15,
+      "training_exps": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "modes": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14
+      ],
+      "rank_d": 8,
+      "orbit_count": 15,
+      "training_row_count": 28,
+      "test_row_count": 7,
+      "design_rank": 8,
+      "design_condition_number": 2.8908083987603583,
+      "coefficient_l2_norm": 0.028089378039038316,
+      "predicted_metrics": {
+        "vector_ss": 1.7635107077802474e-08,
+        "vector_sse": 4.536530709895535e-09,
+        "vector_skill": 0.7427557037288579,
+        "scalar_ss": 5.272524757125263e-11,
+        "scalar_sse": 5.3867702255085985e-11,
+        "scalar_skill": -0.021668076234055533
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 1.7635107077802474e-08,
+        "vector_sse": 4.536454546249946e-09,
+        "vector_skill": 0.7427600225937931,
+        "scalar_ss": 5.272524757125263e-11,
+        "scalar_sse": 5.272524757125263e-11,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 1.7635107077802474e-08,
+        "vector_sse": 4.532939529745196e-09,
+        "vector_skill": 0.7429593418544727,
+        "scalar_ss": 5.272524757125263e-11,
+        "scalar_sse": 1.5412041030030068e-40,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.0002036381256147468,
+      "actual_scalar": [
+        -1.6847287563297068e-06,
+        -1.2365237881590044e-06,
+        -4.246880029731017e-06,
+        4.634799800505695e-06,
+        -1.269036189988874e-06,
+        1.924939617105283e-06,
+        1.8774293465977702e-06
+      ],
+      "predicted_scalar": [
+        -9.594808856677864e-08,
+        -1.0889435797454897e-06,
+        8.030327794062794e-08,
+        -1.9365595455348493e-07,
+        -9.879035187192931e-07,
+        -8.399966826056527e-07,
+        3.126144546250066e-06
+      ],
+      "sign_correct_count": 4
+    },
+    {
+      "r": 31,
+      "heldout_exp": 16,
+      "training_exps": [
+        15,
+        17,
+        18,
+        19
+      ],
+      "modes": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14
+      ],
+      "rank_d": 7,
+      "orbit_count": 15,
+      "training_row_count": 28,
+      "test_row_count": 7,
+      "design_rank": 7,
+      "design_condition_number": 3.4385385313370946,
+      "coefficient_l2_norm": 0.026580307012089202,
+      "predicted_metrics": {
+        "vector_ss": 6.172336119791478e-09,
+        "vector_sse": 2.28940426637229e-09,
+        "vector_skill": 0.6290862613538886,
+        "scalar_ss": 1.9059218099385393e-11,
+        "scalar_sse": 2.4431362805946176e-11,
+        "scalar_skill": -0.2818659547599185
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 6.172336119791478e-09,
+        "vector_sse": 2.2890461233918526e-09,
+        "vector_skill": 0.6291442852484864,
+        "scalar_ss": 1.9059218099385393e-11,
+        "scalar_sse": 1.9059218099385393e-11,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 6.172336119791478e-09,
+        "vector_sse": 2.2877755088518934e-09,
+        "vector_skill": 0.6293501415912551,
+        "scalar_ss": 1.9059218099385393e-11,
+        "scalar_sse": 2.0414116028283935e-41,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.00026388023736656496,
+      "actual_scalar": [
+        9.172281865755018e-07,
+        -1.753886375941679e-06,
+        1.6598739017663544e-06,
+        -2.0999914671799766e-06,
+        2.6451374751244655e-06,
+        -8.319787631837555e-07,
+        -5.36382957160823e-07
+      ],
+      "predicted_scalar": [
+        2.5567844475065266e-07,
+        5.580943079093061e-07,
+        -4.0462034344092025e-07,
+        9.78773632716796e-07,
+        5.175219106802693e-07,
+        -7.566103840273269e-07,
+        -1.148837568588774e-06
+      ],
+      "sign_correct_count": 4
+    },
+    {
+      "r": 31,
+      "heldout_exp": 17,
+      "training_exps": [
+        15,
+        16,
+        18,
+        19
+      ],
+      "modes": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14
+      ],
+      "rank_d": 6,
+      "orbit_count": 15,
+      "training_row_count": 28,
+      "test_row_count": 7,
+      "design_rank": 6,
+      "design_condition_number": 2.828173698115281,
+      "coefficient_l2_norm": 0.030658273364781375,
+      "predicted_metrics": {
+        "vector_ss": 5.797712532546826e-09,
+        "vector_sse": 3.2800980173899976e-09,
+        "vector_skill": 0.43424272952886256,
+        "scalar_ss": 8.151341124893292e-12,
+        "scalar_sse": 1.409840696881471e-11,
+        "scalar_skill": -0.7295812741488317
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 5.797712532546826e-09,
+        "vector_sse": 3.279701546333736e-09,
+        "vector_skill": 0.4343111135775777,
+        "scalar_ss": 8.151341124893292e-12,
+        "scalar_sse": 8.151341124893292e-12,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 5.797712532546826e-09,
+        "vector_sse": 3.2791581235920765e-09,
+        "vector_skill": 0.43440484412020264,
+        "scalar_ss": 8.151341124893292e-12,
+        "scalar_sse": 3.6506627592590134e-41,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 0.000162114591340079,
+      "actual_scalar": [
+        -2.349528215174341e-07,
+        2.0852711404805943e-06,
+        1.1297490791472963e-06,
+        -9.598793755597274e-07,
+        -1.025310548941109e-06,
+        -5.417605951576008e-07,
+        -4.5311687845247465e-07
+      ],
+      "predicted_scalar": [
+        3.474766893543933e-07,
+        -5.135850053625003e-07,
+        6.053908093091966e-07,
+        -6.763015064574757e-07,
+        7.803952803886312e-07,
+        9.660316126888964e-07,
+        -1.5094078799211413e-06
+      ],
+      "sign_correct_count": 3
+    },
+    {
+      "r": 31,
+      "heldout_exp": 18,
+      "training_exps": [
+        15,
+        16,
+        17,
+        19
+      ],
+      "modes": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14
+      ],
+      "rank_d": 7,
+      "orbit_count": 15,
+      "training_row_count": 28,
+      "test_row_count": 7,
+      "design_rank": 7,
+      "design_condition_number": 2.710263262725785,
+      "coefficient_l2_norm": 0.028164823418229956,
+      "predicted_metrics": {
+        "vector_ss": 6.108748711241504e-09,
+        "vector_sse": 1.4532053941535925e-09,
+        "vector_skill": 0.7621107917764959,
+        "scalar_ss": 4.24833751962601e-12,
+        "scalar_sse": 2.4856593651590853e-12,
+        "scalar_skill": 0.4149101022044258
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 6.108748711241504e-09,
+        "vector_sse": 1.4533229060305572e-09,
+        "vector_skill": 0.7620915551238655,
+        "scalar_ss": 4.24833751962601e-12,
+        "scalar_sse": 4.24833751962601e-12,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 6.108748711241504e-09,
+        "vector_sse": 1.4530396835292486e-09,
+        "vector_skill": 0.7621379185469979,
+        "scalar_ss": 4.24833751962601e-12,
+        "scalar_sse": 2.850258592667482e-41,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 2.7126770501983977e-05,
+      "actual_scalar": [
+        6.432957951541172e-07,
+        5.841370880925385e-07,
+        1.1059543097887906e-06,
+        -1.2373300000398239e-06,
+        -4.2423132572342386e-07,
+        7.24522349605706e-08,
+        -7.442781022326478e-07
+      ],
+      "predicted_scalar": [
+        7.853645262380585e-07,
+        -1.7228319208345727e-07,
+        8.54098957287434e-07,
+        -8.217675767052317e-07,
+        -1.2350763793638502e-06,
+        3.8379652054436485e-07,
+        2.058671440826843e-07
+      ],
+      "sign_correct_count": 5
+    },
+    {
+      "r": 31,
+      "heldout_exp": 19,
+      "training_exps": [
+        15,
+        16,
+        17,
+        18
+      ],
+      "modes": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14
+      ],
+      "rank_d": 7,
+      "orbit_count": 15,
+      "training_row_count": 28,
+      "test_row_count": 7,
+      "design_rank": 7,
+      "design_condition_number": 2.5848426853577724,
+      "coefficient_l2_norm": 0.027846536321795495,
+      "predicted_metrics": {
+        "vector_ss": 3.0057083391753328e-09,
+        "vector_sse": 7.598361700019912e-10,
+        "vector_skill": 0.7472022950136057,
+        "scalar_ss": 8.843947725236659e-13,
+        "scalar_sse": 2.477597472481519e-12,
+        "scalar_skill": -1.8014610097836372
+      },
+      "amplitude_only_metrics": {
+        "vector_ss": 3.0057083391753328e-09,
+        "vector_sse": 7.597299564886607e-10,
+        "vector_skill": 0.747237632279017,
+        "scalar_ss": 8.843947725236659e-13,
+        "scalar_sse": 8.843947725236659e-13,
+        "scalar_skill": 0.0
+      },
+      "oracle_metrics": {
+        "vector_ss": 3.0057083391753328e-09,
+        "vector_sse": 7.596709968371592e-10,
+        "vector_skill": 0.7472572481714617,
+        "scalar_ss": 8.843947725236659e-13,
+        "scalar_sse": 6.02116930643409e-41,
+        "scalar_skill": 1.0
+      },
+      "vector_skill_loss_vs_oracle": 5.4953157855974766e-05,
+      "actual_scalar": [
+        3.5915759611752197e-07,
+        3.210019355275509e-07,
+        3.513027390285794e-07,
+        -3.3759895772617784e-07,
+        7.344058952894872e-08,
+        -6.236524937245069e-07,
+        -1.4365140875182863e-07
+      ],
+      "predicted_scalar": [
+        -3.9284795194091454e-07,
+        2.1122022068911722e-07,
+        3.2910731682941505e-07,
+        -1.5702911485115264e-07,
+        -7.22104332676258e-07,
+        3.609923780813433e-07,
+        3.7066148386844667e-07
+      ],
+      "sign_correct_count": 3
+    }
+  ]
+}
