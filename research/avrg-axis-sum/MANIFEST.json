@@ -1,19 +1,21 @@
 {
   "archive": "AVRG Axis-Sum Research Archive",
-  "generated_at": "2026-07-14T14:00:00Z",
-  "scope": "PASS001 through PASS023",
-  "retained_source_file_count": 87,
+  "generated_at": "2026-07-14T14:20:00Z",
+  "scope": "PASS001 through PASS024",
+  "retained_source_file_count": 92,
   "category_counts": {
-    "reports": 23,
-    "code": 23,
-    "results": 40,
-    "figures": 1
+    "reports": 24,
+    "code": 25,
+    "results": 41,
+    "figures": 1,
+    "protocols": 1
   },
   "scientific_ceiling": "Finite computational diagnostics only; no asymptotic proof and no direct progress toward a proof of Goldbach.",
   "published_page": "https://avrg-pass023-stability.sma-math.chatgpt.site",
   "archive_layout_adjustments": [
     "PASS022 and PASS023 default paths were updated to use the archive's code/results/figures layout.",
-    "Numerical result contents were not changed."
+    "Numerical result contents were not changed.",
+    "PASS024 was preregistered locally before its detailed statistics were computed; its protocol, program, tests, result, and report are archived together."
   ],
   "files": [
     {
@@ -107,11 +109,6 @@
       "size_bytes": 19852
     },
     {
-      "path": "code/avrg_pass023.py",
-      "sha256": "49062cbf4658847ec8079687a104bbf6c17a010717ae3e5f9ce45f13ab43fea6",
-      "size_bytes": 18892
-    },
-    {
       "path": "code/avrg_pass023_artifact.py",
       "sha256": "c06ca74ccf019f249aa8054e32c9a969e0ff7cf48ced638af879011d16bfcff8",
       "size_bytes": 12524
@@ -120,6 +117,16 @@
       "path": "code/avrg_pass023_plot.py",
       "sha256": "2f31aba812443d49185361724175ff8b608f95e5b4327113fed468fa16567355",
       "size_bytes": 2775
+    },
+    {
+      "path": "code/avrg_pass023.py",
+      "sha256": "49062cbf4658847ec8079687a104bbf6c17a010717ae3e5f9ce45f13ab43fea6",
+      "size_bytes": 18892
+    },
+    {
+      "path": "code/avrg_pass024.py",
+      "sha256": "6a4664ea78fdab8abb62560aa449b6c16382c8f3e238eb09bc97b4e42774bd9f",
+      "size_bytes": 18955
     },
     {
       "path": "code/test_avrg_pass022.py",
@@ -132,9 +139,19 @@
       "size_bytes": 3582
     },
     {
+      "path": "code/test_avrg_pass024.py",
+      "sha256": "bb6fd4c881e4c13c1a468a478dfa6217c05f269e12f5adf7babdccd4002fcc7a",
+      "size_bytes": 2618
+    },
+    {
       "path": "figures/avrg_pass023_mean_ratio_by_modulus.png",
       "sha256": "f9ff6fce210a0e39c1c3df46a0a46d73c68c265b5a5319fa762683a16d8e7c97",
       "size_bytes": 138505
+    },
+    {
+      "path": "protocols/PASS024-PROTOCOL.md",
+      "sha256": "32dd3aa1cf9331c4088fc590aa68b0703c953862054432be1f2881ed5542c8ee",
+      "size_bytes": 5429
     },
     {
       "path": "reports/AVRG-Foundational-Research-Pass-001-ar.md",
@@ -252,14 +269,14 @@
       "size_bytes": 8894
     },
     {
+      "path": "reports/AVRG-Research-Pass-024-Modulus-Scale-Character-Stability-ar.md",
+      "sha256": "e6caada5538aee786626e31fe4a5e7a8592c3f02843fb9ceeafad1ad6328e1bc",
+      "size_bytes": 10506
+    },
+    {
       "path": "results/avrg_pass005_results.json",
       "sha256": "38c05150c19a4a8dd587b44754818e277e124df915801535cce9a8917a5010db",
       "size_bytes": 144750
-    },
-    {
-      "path": "results/avrg_pass006_results.json",
-      "sha256": "c19ad045b88ae12431af41702cfb864450919300063ed88433b566ceeed844ba",
-      "size_bytes": 472057
     },
     {
       "path": "results/avrg_pass006_results_to_2pow23.json",
@@ -267,9 +284,9 @@
       "size_bytes": 560888
     },
     {
-      "path": "results/avrg_pass007_results.json",
-      "sha256": "f1ca0ca089dda1dfcb869d18adfb1fc249b255085c9be2b2e45aacf838b7d24b",
-      "size_bytes": 352004
+      "path": "results/avrg_pass006_results.json",
+      "sha256": "c19ad045b88ae12431af41702cfb864450919300063ed88433b566ceeed844ba",
+      "size_bytes": 472057
     },
     {
       "path": "results/avrg_pass007_results_to_2pow23.json",
@@ -277,9 +294,9 @@
       "size_bytes": 450561
     },
     {
-      "path": "results/avrg_pass008_results.json",
-      "sha256": "f293e1210cd2021cfbceeb8cf1e3978793b71b72c62c14d2390c7e6512234453",
-      "size_bytes": 79456
+      "path": "results/avrg_pass007_results.json",
+      "sha256": "f1ca0ca089dda1dfcb869d18adfb1fc249b255085c9be2b2e45aacf838b7d24b",
+      "size_bytes": 352004
     },
     {
       "path": "results/avrg_pass008_results_e21_h48.json",
@@ -287,9 +304,9 @@
       "size_bytes": 79467
     },
     {
-      "path": "results/avrg_pass009_results.json",
-      "sha256": "4153df87f98b887ba8ca88c884fa4d7d27e6439ac57e3fc54e44e5b9d7373b7d",
-      "size_bytes": 38958
+      "path": "results/avrg_pass008_results.json",
+      "sha256": "f293e1210cd2021cfbceeb8cf1e3978793b71b72c62c14d2390c7e6512234453",
+      "size_bytes": 79456
     },
     {
       "path": "results/avrg_pass009_results_e19_h192.json",
@@ -307,14 +324,14 @@
       "size_bytes": 38936
     },
     {
+      "path": "results/avrg_pass009_results.json",
+      "sha256": "4153df87f98b887ba8ca88c884fa4d7d27e6439ac57e3fc54e44e5b9d7373b7d",
+      "size_bytes": 38958
+    },
+    {
       "path": "results/avrg_pass010_results_e19_s24_u0.5.json",
       "sha256": "105563b4030c686bbb5af873f207c3cf784a8328d7d6065621cf6b12e16c6e6f",
       "size_bytes": 246605
-    },
-    {
-      "path": "results/avrg_pass011_results.json",
-      "sha256": "4df4388275e3b320fad7ed72320f18f1c60c8df5dcebe88520115ec7f86970b7",
-      "size_bytes": 5080
     },
     {
       "path": "results/avrg_pass011_results_to_2pow22.json",
@@ -322,14 +339,19 @@
       "size_bytes": 5063
     },
     {
-      "path": "results/avrg_pass012_results.json",
-      "sha256": "38511a2ea1e9e715db0beef28263ff798b3f27bb078647be2850e7b7875f1e38",
-      "size_bytes": 25620
+      "path": "results/avrg_pass011_results.json",
+      "sha256": "4df4388275e3b320fad7ed72320f18f1c60c8df5dcebe88520115ec7f86970b7",
+      "size_bytes": 5080
     },
     {
       "path": "results/avrg_pass012_results_to_2pow22.json",
       "sha256": "4e9d34e54f49868a66ecc38ff09721e101c8955d6a000777929fa1c06cbb5e04",
       "size_bytes": 25652
+    },
+    {
+      "path": "results/avrg_pass012_results.json",
+      "sha256": "38511a2ea1e9e715db0beef28263ff798b3f27bb078647be2850e7b7875f1e38",
+      "size_bytes": 25620
     },
     {
       "path": "results/avrg_pass013_e18.json",
@@ -450,7 +472,11 @@
       "path": "results/avrg_pass023_results.json",
       "sha256": "de10a90859b076eba95cdadb82d46881f66057470fbccf6dd43eaab471ed74e7",
       "size_bytes": 102511
+    },
+    {
+      "path": "results/avrg_pass024_results.json",
+      "sha256": "add606148ec3f3879612530fa64b9304a9ef5abb668231cfa758599333a8ba5c",
+      "size_bytes": 54084
     }
   ]
 }
-
