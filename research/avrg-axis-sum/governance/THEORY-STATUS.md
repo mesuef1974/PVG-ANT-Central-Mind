@@ -85,14 +85,18 @@ The following remain outside the accepted core during `THEORY-FREEZE-v1.0`:
 
 They are recorded only in `IMPORTANT-IDEAS-TODO.md`.
 
-## 7. Required work before lifting the freeze
+## 7. Freeze completion checklist
 
-1. Fix and publish the canonical notation ledger.
-2. Normalize Paper 1 definitions and theorem numbering.
-3. Produce complete hand-checkable examples for \(N=10,12,24,30\).
-4. Audit every proof for hypotheses, edge cases, and hidden conventions.
-5. Cross-link each theorem to its computational verification where available.
-6. Complete a focused literature review before any priority claim.
+1. Canonical notation ledger — **complete**.
+2. Canonical definitions and theorem statements — **v1 complete; final numbering audit pending**.
+3. Hand-checkable examples:
+   - \(N=10\) — **complete**;
+   - \(N=12\) — **complete**;
+   - \(N=24\) — **next**;
+   - \(N=30\) — **pending**.
+4. Proof audit for hypotheses, edge cases, and hidden conventions — **pending**.
+5. Cross-links from theorems to computational verification — **pending**.
+6. Focused literature review before any priority claim — **pending**.
 
 ## 8. Scientific ceiling
 
