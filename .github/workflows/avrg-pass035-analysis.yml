@@ -1,0 +1,48 @@
+name: AVRG PASS035 analysis
+
+on:
+  push:
+    branches:
+      - agent/avrg-pass035-calibration-drift
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install numerical dependencies
+        run: python -m pip install --disable-pip-version-check numpy
+
+      - name: Compile PASS035
+        run: python -m py_compile research/avrg-axis-sum/code/avrg_pass035.py research/avrg-axis-sum/code/test_avrg_pass035.py
+
+      - name: Run PASS035 safety tests
+        run: python -m unittest discover -v -s research/avrg-axis-sum/code -p 'test_avrg_pass035.py'
+
+      - name: Run locked PASS035 analysis
+        run: python research/avrg-axis-sum/code/avrg_pass035.py --output research/avrg-axis-sum/results/avrg_pass035_results.json
+
+      - name: Record result digest
+        run: sha256sum research/avrg-axis-sum/results/avrg_pass035_results.json | tee avrg_pass035_result_sha256.txt
+
+      - name: Upload locked result
+        uses: actions/upload-artifact@v4
+        with:
+          name: avrg-pass035-result
+          path: |
+            research/avrg-axis-sum/results/avrg_pass035_results.json
+            avrg_pass035_result_sha256.txt
+          if-no-files-found: error
+          retention-days: 7
