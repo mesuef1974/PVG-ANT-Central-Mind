@@ -1,0 +1,4 @@
+# SEALING-PROTOCOL §9 / ROLE-SEPARATION §4.4:
+# A gold keys are held OUTSIDE the answering process (owner custody, R2).
+# Only the SHA-256 key-hashes are committed. Never commit plaintext A keys.
+A-keys.jsonl
