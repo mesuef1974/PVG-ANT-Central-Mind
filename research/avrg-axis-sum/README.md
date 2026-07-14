@@ -1,15 +1,15 @@
 # AVRG Axis-Sum Research Archive
 
-This directory preserves the complete retained research trail for the additive axis-sum program in Prime Valuation Geometry (PVG), from the foundational definition through PASS031.
+This directory preserves the complete retained research trail for the additive axis-sum program in Prime Valuation Geometry (PVG), from the foundational definition through PASS032.
 
 ## Scope
 
-- PASS001–PASS031 research reports: 31
-- Python programs and reproducibility tests: 40
-- Saved JSON experiment outputs: 49
+- PASS001–PASS032 research reports: 32
+- Python programs and reproducibility tests: 42
+- Saved JSON experiment outputs: 50
 - Figures: 1
-- Preregistered diagnostic protocols: 8
-- Retained source artifacts before this archive index: 129
+- Preregistered diagnostic protocols: 9
+- Retained source artifacts before this archive index: 134
 
 PASS001–PASS004 are preserved as full research reports containing their finite calculations and derivations. Standalone scripts were first retained from PASS005 onward. No missing standalone PASS001–PASS004 scripts are claimed.
 
@@ -29,24 +29,23 @@ This archive contains finite computational diagnostics, structural reformulation
 
 ## Current stopping point
 
-PASS031 is complete. Its one-extra-coordinate protocol, implementation, and tests were committed before the locked analysis.
+PASS032 is complete. Its cancellation-coupling protocol, implementation, and tests were committed before the locked analysis.
 
-Keeping the full PASS029 amplitude rank d and adding the normalized all-ones direction as coordinate d+1 succeeds on all six preregistered conditions:
+A no-intercept linear map learned from four windows does not predict the cancellation coefficient from the held-out amplitude coordinates:
 
-- augmented held-out vector skill: 0.677262;
-- scalar orbit-sum skill: 1.000000 by construction;
-- skill difference versus the original rank-d SVD: +0.000686;
-- loss versus free rank-(d+1) SVD: 0.079234;
-- constrained-random p-value: 0.000200;
-- modulus-level vector skill >= 0.60 in 5/7 moduli.
+- aggregate scalar skill: -0.484642;
+- Pearson correlation: 0.067530;
+- restricted-permutation p-value: 0.672665;
+- positive scalar skill in 0/7 moduli and nonnegative skill in 2/5 windows;
+- sign accuracy: 0.51875.
 
-The aggregate rank overhead is 22.73%. The supported finite-range description is an amplitude subspace plus one explicit cancellation coordinate.
+All five preregistered conditions fail. PASS031 remains a finite subspace-containment result, but PASS032 rejects the stronger claim that its cancellation coordinate is linearly determined by the amplitude coordinates across windows.
 
-The next proposed diagnostic is PASS032: test whether the cancellation coefficient can be predicted from amplitude coordinates under a completely held-out window, rather than merely preserved after observing the orbit vector.
+The next proposed step is to expand or independently diagnose window stability before preregistering any more flexible coupling model.
 
 ## Reproduction
 
 ```bash
-python code/avrg_pass031.py
-python -m unittest discover -v -s code -p 'test_avrg_pass031.py'
+python code/avrg_pass032.py
+python -m unittest discover -v -s code -p 'test_avrg_pass032.py'
 ```
