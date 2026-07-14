@@ -1,15 +1,15 @@
 # AVRG Axis-Sum Research Archive
 
-This directory preserves the complete retained research trail for the additive axis-sum program in Prime Valuation Geometry (PVG), from the foundational definition through PASS032.
+This directory preserves the complete retained research trail for the additive axis-sum program in Prime Valuation Geometry (PVG), from the foundational definition through PASS033.
 
 ## Scope
 
-- PASS001–PASS032 research reports: 32
-- Python programs and reproducibility tests: 42
-- Saved JSON experiment outputs: 50
+- PASS001–PASS033 research reports: 33
+- Python programs and reproducibility tests: 44
+- Saved JSON experiment outputs: 51
 - Figures: 1
-- Preregistered diagnostic protocols: 9
-- Retained source artifacts before this archive index: 134
+- Preregistered diagnostic protocols: 10
+- Retained source artifacts before this archive index: 139
 
 PASS001–PASS004 are preserved as full research reports containing their finite calculations and derivations. Standalone scripts were first retained from PASS005 onward. No missing standalone PASS001–PASS004 scripts are claimed.
 
@@ -29,23 +29,23 @@ This archive contains finite computational diagnostics, structural reformulation
 
 ## Current stopping point
 
-PASS032 is complete. Its cancellation-coupling protocol, implementation, and tests were committed before the locked analysis.
+PASS033 is complete. Its jackknife functional-stability protocol, implementation, and tests were committed before the locked analysis.
 
-A no-intercept linear map learned from four windows does not predict the cancellation coefficient from the held-out amplitude coordinates:
+The raw oriented coherence of the five leave-one-window-out cancellation functionals is 0.552909, but this does not exceed the overlap-aware restricted-permutation null:
 
-- aggregate scalar skill: -0.484642;
-- Pearson correlation: 0.067530;
-- restricted-permutation p-value: 0.672665;
-- positive scalar skill in 0/7 moduli and nonnegative skill in 2/5 windows;
-- sign accuracy: 0.51875.
+- oriented coherence: 0.552909;
+- null mean: 0.609023;
+- restricted-permutation p-value: 0.800840;
+- axis coherence: 0.709707 with secondary p-value 0.302739;
+- 15/70 pairwise signed cosines are negative.
 
-All five preregistered conditions fail. PASS031 remains a finite subspace-containment result, but PASS032 rejects the stronger claim that its cancellation coordinate is linearly determined by the amplitude coordinates across windows.
+The locked decision rejects a distinct stable oriented linear cancellation functional. PASS031 remains a containment result, while PASS032–PASS033 reject linear prediction and show that jackknife similarity is explained by overlapping training windows.
 
-The next proposed step is to expand or independently diagnose window stability before preregistering any more flexible coupling model.
+The next proposed diagnostic is PASS034: add the inexpensive e=14 full orbit window and compare early and late three-window training blocks with no overlap.
 
 ## Reproduction
 
 ```bash
-python code/avrg_pass032.py
-python -m unittest discover -v -s code -p 'test_avrg_pass032.py'
+python code/avrg_pass033.py
+python -m unittest discover -v -s code -p 'test_avrg_pass033.py'
 ```
