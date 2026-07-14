@@ -1,15 +1,15 @@
 # AVRG Axis-Sum Research Archive
 
-This directory preserves the complete retained research trail for the additive axis-sum program in Prime Valuation Geometry (PVG), from the foundational definition through PASS027.
+This directory preserves the complete retained research trail for the additive axis-sum program in Prime Valuation Geometry (PVG), from the foundational definition through PASS028.
 
 ## Scope
 
-- PASS001–PASS027 research reports: 27
-- Python programs and reproducibility tests: 32
-- Saved JSON experiment outputs: 45
+- PASS001–PASS028 research reports: 28
+- Python programs and reproducibility tests: 34
+- Saved JSON experiment outputs: 46
 - Figures: 1
-- Preregistered diagnostic protocols: 4
-- Retained source artifacts before this archive index: 109
+- Preregistered diagnostic protocols: 5
+- Retained source artifacts before this archive index: 114
 
 PASS001–PASS004 are preserved as full research reports containing their finite calculations and derivations. Standalone scripts were first retained from PASS005 onward. No missing standalone PASS001–PASS004 scripts are claimed.
 
@@ -29,23 +29,23 @@ This archive contains finite computational diagnostics, structural reformulation
 
 ## Current stopping point
 
-PASS027 is complete. Its protocol, implementation, and tests were committed before the locked residue-difference computation.
+PASS028 is complete. Its protocol, full-scan implementation, and tests were committed before computing the locked result.
 
-For on states (`r | N`), the exact decomposition by `b = alpha - beta (mod r)` proves that the complete `b=0` channel is character-independent. The true diagonal is character-independent as well, so every within-modulus character variation in on energy comes from nonzero difference orbits.
+FFT convolutions of the residue fibers reconstructed all 160 saved on-energy rows:
 
-The locked 16-value sample did not represent full-window on-energy variation well enough:
+- maximum absolute relative error: 7.7841e-15;
+- centered-log correlation: 1.000000;
+- maximum pointwise orbit-closure error: 7.4005e-18.
 
-- centered-log correlation: 0.108518 (required at least 0.90);
-- median absolute relative error: 0.198465 (required at most 0.10);
-- all algebraic closure and independence checks were at machine precision.
+Using every on-state value in the five windows, no modulus reached a top-orbit absolute attribution of 0.50. The preregistered classification is therefore that character instability is distributed across multiple nonzero residue-difference orbits.
 
-Accordingly, PASS027 issues no concentration classification. The orbit allocations are retained as exploratory diagnostics only.
+The deterministic sample ladder first passed the PASS027 calibration thresholds stably at one-quarter coverage.
 
-The next proposed diagnostic is PASS028: preregister a deterministic sample-size convergence ladder and establish a calibrated sample size before attempting residue-orbit concentration again.
+The next proposed diagnostic is PASS029: test whether the distributed nonzero-orbit pattern nevertheless has a stable low-dimensional collective structure under held-out windows or moduli.
 
 ## Reproduction
 
 ```bash
-python code/avrg_pass027.py
-python -m unittest discover -v -s code -p 'test_avrg_pass027.py'
+python code/avrg_pass028.py
+python -m unittest discover -v -s code -p 'test_avrg_pass028.py'
 ```
