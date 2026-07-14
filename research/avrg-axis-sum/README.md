@@ -1,15 +1,15 @@
 # AVRG Axis-Sum Research Archive
 
-This directory preserves the complete retained research trail for the additive axis-sum program in Prime Valuation Geometry (PVG), from the foundational definition through PASS025.
+This directory preserves the complete retained research trail for the additive axis-sum program in Prime Valuation Geometry (PVG), from the foundational definition through PASS026.
 
 ## Scope
 
-- PASS001–PASS025 research reports: 25
-- Python programs and reproducibility tests: 28
-- Saved JSON experiment outputs: 43
+- PASS001–PASS026 research reports: 26
+- Python programs and reproducibility tests: 30
+- Saved JSON experiment outputs: 44
 - Figures: 1
-- Preregistered diagnostic protocols: 2
-- Retained source artifacts before this archive index: 99
+- Preregistered diagnostic protocols: 3
+- Retained source artifacts before this archive index: 104
 
 PASS001–PASS004 are preserved as full research reports containing their finite calculations and derivations. Standalone scripts were first retained from PASS005 onward. No missing standalone PASS001–PASS004 scripts are claimed.
 
@@ -29,31 +29,27 @@ This archive contains finite computational diagnostics, structural reformulation
 
 ## Current stopping point
 
-PASS025 is complete. Its protocol and executable analysis were committed before computing the new held-out window e=19.
+PASS026 is complete. Its protocol and code were committed before computing the on/off channel shares.
 
-The sole preregistered phase predictor, centered `Re chi_k(2^e)`, failed on the holdout:
+Using the exact centered identity
 
-- phase skill versus zero: -0.113830 (required > 0.10);
-- phase SSE was lower than the static-signature SSE: 0.110647 < 0.118146;
-- global permutation p-value: 0.376876 (required <= 0.05).
+`log(rho) = log(E_on) - log(E_off)`,
 
-The larger-modulus mean-ratio phenomenon nevertheless persisted: for r=23,29,31 in e=19, the mean of modulus means was 1.995274.
+the five-window character instability was classified as on-channel dominated:
 
-The next proposed diagnostic is PASS026: use the exact identity
-`log rho = log E_on - log E_off` to determine whether window-dependent character variation is driven primarily by the on-energy channel or by the off-mode cancellation budget.
+- symmetric on share: 1.636623;
+- symmetric off share: -0.636623;
+- on-only skill versus zero: 0.487952;
+- off-only skill versus zero: -1.785295;
+- on dominance held in all five windows, all seven moduli, and all five leave-one-window-out recomputations.
+
+The signed shares reflect strong positive on/off co-movement (correlation 0.961845): the smaller off variation cancels part of the larger on variation.
+
+The next proposed diagnostic is PASS027: decompose the on-energy character variation into diagonal and off-diagonal terms, then localize the off-diagonal contribution by lag residue h mod r.
 
 ## Reproduction
 
-Fast checks:
-
 ```bash
-python -m unittest discover -v -s code -p 'test_avrg_pass*.py'
-```
-
-PASS025:
-
-```bash
-python code/avrg_pass025_holdout.py --progress
-python code/avrg_pass025.py
-python -m unittest discover -v -s code -p 'test_avrg_pass025.py'
+python code/avrg_pass026.py
+python -m unittest discover -v -s code -p 'test_avrg_pass026.py'
 ```
