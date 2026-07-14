@@ -1,14 +1,14 @@
 {
   "archive": "AVRG Axis-Sum Research Archive",
-  "generated_at": "2026-07-14T15:37:10Z",
-  "scope": "PASS001 through PASS027",
-  "retained_source_file_count": 109,
+  "generated_at": "2026-07-14T16:00:36Z",
+  "scope": "PASS001 through PASS028",
+  "retained_source_file_count": 114,
   "category_counts": {
-    "reports": 27,
-    "code": 32,
-    "results": 45,
+    "reports": 28,
+    "code": 34,
+    "results": 46,
     "figures": 1,
-    "protocols": 4
+    "protocols": 5
   },
   "scientific_ceiling": "Finite computational diagnostics only; no asymptotic proof and no direct progress toward a proof of Goldbach.",
   "published_page": "https://avrg-pass023-stability.sma-math.chatgpt.site",
@@ -18,7 +18,8 @@
     "PASS024 was preregistered locally before its detailed statistics were computed; its protocol, program, tests, result, and report are archived together.",
     "PASS025 protocol and executable analysis were committed before the held-out e=19 window was computed; the raw holdout, result, and report were added in a later commit.",
     "PASS026 protocol, code, and tests were committed before the on/off channel shares were computed; result and report were added in a later commit.",
-    "PASS027 protocol, code, and tests were committed before the locked 16-value on-energy residue-difference sample was computed; its failed calibration, exact identities, result, and report were added in a later commit."
+    "PASS027 protocol, code, and tests were committed before the locked 16-value on-energy residue-difference sample was computed; its failed calibration, exact identities, result, and report were added in a later commit.",
+    "PASS028 protocol, full residue-fiber scan code, and tests were committed before the complete on-state computation; the byte-stable result and report were added in a later commit."
   ],
   "files": [
     {
@@ -152,6 +153,11 @@
       "size_bytes": 27576
     },
     {
+      "path": "code/avrg_pass028.py",
+      "sha256": "4e7c9a355052fbfe04abbd00276b91d463cf66021249f761b47678914404a76a",
+      "size_bytes": 28428
+    },
+    {
       "path": "code/test_avrg_pass022.py",
       "sha256": "ed6286e68f772cc8f4f21550888e683f9a0ae51201d4891f982a84253a6c14fd",
       "size_bytes": 2419
@@ -182,6 +188,11 @@
       "size_bytes": 2856
     },
     {
+      "path": "code/test_avrg_pass028.py",
+      "sha256": "b01aacc2e56441f62ea20a67652660d9f111290ef9e4180747301dfbc330718f",
+      "size_bytes": 3182
+    },
+    {
       "path": "figures/avrg_pass023_mean_ratio_by_modulus.png",
       "sha256": "f9ff6fce210a0e39c1c3df46a0a46d73c68c265b5a5319fa762683a16d8e7c97",
       "size_bytes": 138505
@@ -205,6 +216,11 @@
       "path": "protocols/PASS027-PROTOCOL.md",
       "sha256": "5a3ac1c305fef65c5bd2927b20dcc06f6740249ec78bf4c47d335519dc46ce6f",
       "size_bytes": 6923
+    },
+    {
+      "path": "protocols/PASS028-PROTOCOL.md",
+      "sha256": "499a2fbbd3d90ab2a55a153a609739dd6b8695278123b6cbe1d5a0374a096e86",
+      "size_bytes": 7307
     },
     {
       "path": "reports/AVRG-Foundational-Research-Pass-001-ar.md",
@@ -340,6 +356,11 @@
       "path": "reports/AVRG-Research-Pass-027-On-Energy-Lag-Residue-Decomposition-ar.md",
       "sha256": "302410e4a9f116b037f239bbacbd1df0fb27566935a9c9bf70c05e3c208dfc17",
       "size_bytes": 10112
+    },
+    {
+      "path": "reports/AVRG-Research-Pass-028-Full-On-Residue-Scan-ar.md",
+      "sha256": "5b1bf9647f3afe0192ce33d62bfd0c626b51eb05d73ad7a9cec6be5a13e186fe",
+      "size_bytes": 10855
     },
     {
       "path": "results/avrg_pass005_results.json",
@@ -565,6 +586,11 @@
       "path": "results/avrg_pass027_results.json",
       "sha256": "0dcf39a2421bb09ca8f30b80df21f41641faec2ada6013543d2668f13ad610e1",
       "size_bytes": 256222
+    },
+    {
+      "path": "results/avrg_pass028_results.json",
+      "sha256": "9088e373aa18fdef6cdc8a7a0b6b1fb8680f5dd08653a12699a787118f6f4eab",
+      "size_bytes": 230193
     }
   ]
 }
