@@ -1,0 +1,689 @@
+{
+  "question": "whether small singular residual controls signed energy projection",
+  "datasets": [
+    {
+      "source": "avrg_pass017_e15_s32.json",
+      "exp": 15,
+      "window": [
+        32768,
+        65536
+      ],
+      "blocks": [
+        {
+          "r": 5,
+          "state": "on",
+          "even_modes": [
+            2
+          ],
+          "total_row_sums": [
+            0.00021261297031989826
+          ],
+          "rank1_row_sums": [
+            0.00021261297031989132
+          ],
+          "residual_row_sums": [
+            6.938893903907228e-18
+          ],
+          "residual_over_total": [
+            3.2636268114155705e-14
+          ],
+          "residual_frobenius_fraction": 1.0383653355655253e-32,
+          "components": [
+            {
+              "index": 1,
+              "singular_value": 0.06809498937828419,
+              "frobenius_energy_fraction": 1.0,
+              "right_alignment_with_ones": 0.0013963349106124853,
+              "signed_row_sums": [
+                0.00021261297031989132
+              ]
+            }
+          ],
+          "closure": 0.0
+        },
+        {
+          "r": 5,
+          "state": "off",
+          "even_modes": [
+            2
+          ],
+          "total_row_sums": [
+            0.026807848128338984
+          ],
+          "rank1_row_sums": [
+            0.026807848128338984
+          ],
+          "residual_row_sums": [
+            -1.734723475976807e-18
+          ],
+          "residual_over_total": [
+            -6.470953832892706e-17
+          ],
+          "residual_frobenius_fraction": 4.0715326177066706e-34,
+          "components": [
+            {
+              "index": 1,
+              "singular_value": 0.08597086504294349,
+              "frobenius_energy_fraction": 1.0,
+              "right_alignment_with_ones": 0.13945229169326986,
+              "signed_row_sums": [
+                0.026807848128338984
+              ]
+            }
+          ],
+          "closure": 1.734723475976807e-18
+        },
+        {
+          "r": 7,
+          "state": "on",
+          "even_modes": [
+            2,
+            4
+          ],
+          "total_row_sums": [
+            8.619844912763006e-05,
+            8.619844912763179e-05
+          ],
+          "rank1_row_sums": [
+            8.6198449127637e-05,
+            8.619844912763353e-05
+          ],
+          "residual_row_sums": [
+            -4.336808689942018e-18,
+            0.0
+          ],
+          "residual_over_total": [
+            -5.031191087348574e-14,
+            0.0
+          ],
+          "residual_frobenius_fraction": 1.4601600766584846e-31,
+          "components": [
+            {
+              "index": 1,
+              "singular_value": 0.04166918206370017,
+              "frobenius_energy_fraction": 1.0,
+              "right_alignment_with_ones": 0.001105733466500944,
+              "signed_row_sums": [
+                8.6198449127637e-05,
+                8.619844912763353e-05
+              ]
+            },
+            {
+              "index": 2,
+              "singular_value": 1.3174740706603082e-17,
+              "frobenius_energy_fraction": 9.996643436986124e-32,
+              "right_alignment_with_ones": 0.07127951232729578,
+              "signed_row_sums": [
+                -1.7568748200926167e-18,
+                1.7568748200926163e-18
+              ]
+            }
+          ],
+          "closure": 2.6020852139652106e-18
+        },
+        {
+          "r": 7,
+          "state": "off",
+          "even_modes": [
+            2,
+            4
+          ],
+          "total_row_sums": [
+            0.006651934511473341,
+            0.006651934511473343
+          ],
+          "rank1_row_sums": [
+            0.006651934511473348,
+            0.006651934511473348
+          ],
+          "residual_row_sums": [
+            -5.421010862427522e-18,
+            -9.75781955236954e-18
+          ],
+          "residual_over_total": [
+            -8.149525304371674e-16,
+            -1.4669145547869008e-15
+          ],
+          "residual_frobenius_fraction": 2.346611106655659e-31,
+          "components": [
+            {
+              "index": 1,
+              "singular_value": 0.04866219567293806,
+              "frobenius_energy_fraction": 1.0,
+              "right_alignment_with_ones": 0.07306716246859174,
+              "signed_row_sums": [
+                0.006651934511473348,
+                0.006651934511473348
+              ]
+            },
+            {
+              "index": 2,
+              "singular_value": 1.8769974792373032e-17,
+              "frobenius_energy_fraction": 1.4877980231523066e-31,
+              "right_alignment_with_ones": 0.04937037236215166,
+              "signed_row_sums": [
+                1.733660739762838e-18,
+                -1.7336607397628388e-18
+              ]
+            }
+          ],
+          "closure": 4.553649124439119e-18
+        },
+        {
+          "r": 11,
+          "state": "on",
+          "even_modes": [
+            2,
+            4,
+            6,
+            8
+          ],
+          "total_row_sums": [
+            0.00012903625178016,
+            0.00010377864374402175,
+            0.00010377864374402218,
+            0.00012903625178016217
+          ],
+          "rank1_row_sums": [
+            0.0001163807141685352,
+            0.00011642893939307073,
+            0.00011642893939307073,
+            0.00011638071416853434
+          ],
+          "residual_row_sums": [
+            1.2655537611624685e-05,
+            -1.265029564904833e-05,
+            -1.2650295649048655e-05,
+            1.2655537611627179e-05
+          ],
+          "residual_over_total": [
+            0.09807738086802162,
+            -0.12189690665308063,
+            -0.12189690665308325,
+            0.0980773808680393
+          ],
+          "residual_frobenius_fraction": 0.0003572897106370603,
+          "components": [
+            {
+              "index": 1,
+              "singular_value": 0.02044201080215171,
+              "frobenius_energy_fraction": 0.999642710289363,
+              "right_alignment_with_ones": 0.00343384776876458,
+              "signed_row_sums": [
+                0.0001163807141685352,
+                0.00011642893939307073,
+                0.00011642893939307073,
+                0.00011638071416853434
+              ]
+            },
+            {
+              "index": 2,
+              "singular_value": 0.0003864661551436382,
+              "frobenius_energy_fraction": 0.00035728971063706075,
+              "right_alignment_with_ones": 0.019742986220742276,
+              "signed_row_sums": [
+                1.2655537611625519e-05,
+                -1.2650295649050268e-05,
+                -1.2650295649050322e-05,
+                1.2655537611625485e-05
+              ]
+            },
+            {
+              "index": 3,
+              "singular_value": 4.709426289486502e-18,
+              "frobenius_energy_fraction": 5.305588755619214e-32,
+              "right_alignment_with_ones": 0.02508235830636393,
+              "signed_row_sums": [
+                -2.0687046495946726e-19,
+                1.8424717229020643e-19,
+                -1.8424717229020643e-19,
+                2.0687046495946726e-19
+              ]
+            },
+            {
+              "index": 4,
+              "singular_value": 2.816966838833157e-18,
+              "frobenius_energy_fraction": 1.8982833804435256e-32,
+              "right_alignment_with_ones": 0.011905892252796485,
+              "signed_row_sums": [
+                5.231282125469956e-20,
+                5.87361940038654e-20,
+                -5.87361940038653e-20,
+                -5.231282125469985e-20
+              ]
+            }
+          ],
+          "closure": 6.505213034913027e-19
+        },
+        {
+          "r": 11,
+          "state": "off",
+          "even_modes": [
+            2,
+            4,
+            6,
+            8
+          ],
+          "total_row_sums": [
+            0.0012944684917728252,
+            0.001219496929015883,
+            0.0012194969290158838,
+            0.0012944684917728247
+          ],
+          "rank1_row_sums": [
+            0.0012563363536750257,
+            0.0012575910235494252,
+            0.001257591023549426,
+            0.001256336353675027
+          ],
+          "residual_row_sums": [
+            3.81321380978002e-05,
+            -3.809409453354182e-05,
+            -3.809409453354106e-05,
+            3.8132138097798896e-05
+          ],
+          "residual_over_total": [
+            0.029457756863264198,
+            -0.031237548555602533,
+            -0.03123754855560189,
+            0.029457756863263206
+          ],
+          "residual_frobenius_fraction": 0.0003781148772138277,
+          "components": [
+            {
+              "index": 1,
+              "singular_value": 0.022697117295963208,
+              "frobenius_energy_fraction": 0.999621885122786,
+              "right_alignment_with_ones": 0.03339532982077475,
+              "signed_row_sums": [
+                0.0012563363536750257,
+                0.0012575910235494252,
+                0.001257591023549426,
+                0.001256336353675027
+              ]
+            },
+            {
+              "index": 2,
+              "singular_value": 0.00044143290898037986,
+              "frobenius_energy_fraction": 0.0003781148772138275,
+              "right_alignment_with_ones": 0.0520647108260836,
+              "signed_row_sums": [
+                3.8132138097799194e-05,
+                -3.809409453353873e-05,
+                -3.80940945335388e-05,
+                3.813213809779914e-05
+              ]
+            },
+            {
+              "index": 3,
+              "singular_value": 4.736259187065704e-18,
+              "frobenius_energy_fraction": 4.352765523660678e-32,
+              "right_alignment_with_ones": 0.03986296462807688,
+              "signed_row_sums": [
+                3.4762795927382547e-19,
+                -2.742398387531294e-19,
+                2.742398387531296e-19,
+                -3.4762795927382567e-19
+              ]
+            },
+            {
+              "index": 4,
+              "singular_value": 2.7297416021469215e-18,
+              "frobenius_energy_fraction": 1.445897240388699e-32,
+              "right_alignment_with_ones": 0.06990114530461047,
+              "signed_row_sums": [
+                -2.7716048975572265e-19,
+                -3.513301928821842e-19,
+                3.513301928821836e-19,
+                2.771604897557234e-19
+              ]
+            }
+          ],
+          "closure": 1.1926223897340549e-18
+        }
+      ]
+    },
+    {
+      "source": "avrg_pass017_e16_s32.json",
+      "exp": 16,
+      "window": [
+        65536,
+        131072
+      ],
+      "blocks": [
+        {
+          "r": 5,
+          "state": "on",
+          "even_modes": [
+            2
+          ],
+          "total_row_sums": [
+            9.083865035637226e-05
+          ],
+          "rank1_row_sums": [
+            9.083865035636011e-05
+          ],
+          "residual_row_sums": [
+            8.673617379884035e-18
+          ],
+          "residual_over_total": [
+            9.548377640856911e-14
+          ],
+          "residual_frobenius_fraction": 4.283758462302993e-32,
+          "components": [
+            {
+              "index": 1,
+              "singular_value": 0.06860490534908689,
+              "frobenius_energy_fraction": 1.0,
+              "right_alignment_with_ones": 0.0005921483198543887,
+              "signed_row_sums": [
+                9.083865035636011e-05
+              ]
+            }
+          ],
+          "closure": 3.469446951953614e-18
+        },
+        {
+          "r": 5,
+          "state": "off",
+          "even_modes": [
+            2
+          ],
+          "total_row_sums": [
+            0.02725714325044476
+          ],
+          "rank1_row_sums": [
+            0.027257143250444784
+          ],
+          "residual_row_sums": [
+            -1.734723475976807e-17
+          ],
+          "residual_over_total": [
+            -6.364289390262868e-16
+          ],
+          "residual_frobenius_fraction": 2.6541761105316924e-32,
+          "components": [
+            {
+              "index": 1,
+              "singular_value": 0.08650423218086203,
+              "frobenius_energy_fraction": 1.0,
+              "right_alignment_with_ones": 0.14091524459291893,
+              "signed_row_sums": [
+                0.027257143250444784
+              ]
+            }
+          ],
+          "closure": 6.938893903907228e-18
+        },
+        {
+          "r": 7,
+          "state": "on",
+          "even_modes": [
+            2,
+            4
+          ],
+          "total_row_sums": [
+            6.385814163951606e-05,
+            6.385814163951606e-05
+          ],
+          "rank1_row_sums": [
+            6.385814163952473e-05,
+            6.385814163952647e-05
+          ],
+          "residual_row_sums": [
+            -6.938893903907228e-18,
+            -7.806255641895632e-18
+          ],
+          "residual_over_total": [
+            -1.0866106851461163e-13,
+            -1.2224370207893809e-13
+          ],
+          "residual_frobenius_fraction": 3.5352293032510847e-31,
+          "components": [
+            {
+              "index": 1,
+              "singular_value": 0.041594579557129335,
+              "frobenius_energy_fraction": 1.0,
+              "right_alignment_with_ones": 0.0008206264577026241,
+              "signed_row_sums": [
+                6.385814163952473e-05,
+                6.385814163952647e-05
+              ]
+            },
+            {
+              "index": 2,
+              "singular_value": 1.5431177640956655e-17,
+              "frobenius_energy_fraction": 1.376336616402774e-31,
+              "right_alignment_with_ones": 0.07722071677428743,
+              "signed_row_sums": [
+                -2.2292918149659973e-18,
+                2.229291814965998e-18
+              ]
+            }
+          ],
+          "closure": 2.6020852139652106e-18
+        },
+        {
+          "r": 7,
+          "state": "off",
+          "even_modes": [
+            2,
+            4
+          ],
+          "total_row_sums": [
+            0.006645900587775066,
+            0.006645900587775042
+          ],
+          "rank1_row_sums": [
+            0.006645900587775049,
+            0.006645900587775056
+          ],
+          "residual_row_sums": [
+            1.6396863792948746e-17,
+            -1.5529502054960342e-17
+          ],
+          "residual_over_total": [
+            2.4672147252864844e-15,
+            -2.3367039349830856e-15
+          ],
+          "residual_frobenius_fraction": 1.4188198317670912e-31,
+          "components": [
+            {
+              "index": 1,
+              "singular_value": 0.05139807191469739,
+              "frobenius_energy_fraction": 1.0,
+              "right_alignment_with_ones": 0.06911510796214779,
+              "signed_row_sums": [
+                0.006645900587775049,
+                0.006645900587775056
+              ]
+            },
+            {
+              "index": 2,
+              "singular_value": 1.636685471205015e-17,
+              "frobenius_energy_fraction": 1.0139973010259632e-31,
+              "right_alignment_with_ones": 0.3582861079848519,
+              "signed_row_sums": [
+                1.0970570653591985e-17,
+                -1.0970570653591985e-17
+              ]
+            }
+          ],
+          "closure": 1.6517142471458857e-18
+        },
+        {
+          "r": 11,
+          "state": "on",
+          "even_modes": [
+            2,
+            4,
+            6,
+            8
+          ],
+          "total_row_sums": [
+            3.932714493653242e-05,
+            3.6615048621315566e-05,
+            3.66150486213134e-05,
+            3.932714493653459e-05
+          ],
+          "rank1_row_sums": [
+            3.7970342652696165e-05,
+            3.7971798871761636e-05,
+            3.797179887176077e-05,
+            3.797034265269703e-05
+          ],
+          "residual_row_sums": [
+            1.356802283836579e-06,
+            -1.356750250445962e-06,
+            -1.356750250445962e-06,
+            1.3568022838369043e-06
+          ],
+          "residual_over_total": [
+            0.034500401339233655,
+            -0.03705444350157508,
+            -0.03705444350157727,
+            0.034500401339240025
+          ],
+          "residual_frobenius_fraction": 8.470283824744233e-05,
+          "components": [
+            {
+              "index": 1,
+              "singular_value": 0.02060765125448326,
+              "frobenius_energy_fraction": 0.9999152971617525,
+              "right_alignment_with_ones": 0.00111111241754843,
+              "signed_row_sums": [
+                3.7970342652696165e-05,
+                3.7971798871761636e-05,
+                3.797179887176077e-05,
+                3.797034265269703e-05
+              ]
+            },
+            {
+              "index": 2,
+              "singular_value": 0.00018966878904229988,
+              "frobenius_energy_fraction": 8.470283824744238e-05,
+              "right_alignment_with_ones": 0.004313661079798843,
+              "signed_row_sums": [
+                1.3568022838353424e-06,
+                -1.3567502504471682e-06,
+                -1.3567502504471547e-06,
+                1.3568022838353593e-06
+              ]
+            },
+            {
+              "index": 3,
+              "singular_value": 4.5963669898737704e-18,
+              "frobenius_energy_fraction": 4.974341693449005e-32,
+              "right_alignment_with_ones": 0.2468531950745437,
+              "signed_row_sums": [
+                -1.9776601471102558e-18,
+                1.7802956638737104e-18,
+                -1.780295663873698e-18,
+                1.977660147110242e-18
+              ]
+            },
+            {
+              "index": 4,
+              "singular_value": 2.7178838086139613e-18,
+              "frobenius_energy_fraction": 1.73927395267953e-32,
+              "right_alignment_with_ones": 0.0823646104157411,
+              "signed_row_sums": [
+                3.512450554439525e-19,
+                3.9018426102862717e-19,
+                -3.901842610286295e-19,
+                -3.5124505544395097e-19
+              ]
+            }
+          ],
+          "closure": 1.4094628242311558e-18
+        },
+        {
+          "r": 11,
+          "state": "off",
+          "even_modes": [
+            2,
+            4,
+            6,
+            8
+          ],
+          "total_row_sums": [
+            0.0012974401939728924,
+            0.0012561190650571571,
+            0.001256119065057162,
+            0.0012974401939728937
+          ],
+          "rank1_row_sums": [
+            0.001276547346481572,
+            0.0012770044342155472,
+            0.0012770044342155472,
+            0.001276547346481572
+          ],
+          "residual_row_sums": [
+            2.0892847491320614e-05,
+            -2.0885369158388212e-05,
+            -2.0885369158386803e-05,
+            2.0892847491320722e-05
+          ],
+          "residual_over_total": [
+            0.016103129522559812,
+            -0.01662690244848554,
+            -0.016626902448484353,
+            0.01610312952255988
+          ],
+          "residual_frobenius_fraction": 7.597580553444166e-05,
+          "components": [
+            {
+              "index": 1,
+              "singular_value": 0.02292949905354864,
+              "frobenius_energy_fraction": 0.9999240241944655,
+              "right_alignment_with_ones": 0.033577918182319026,
+              "signed_row_sums": [
+                0.001276547346481572,
+                0.0012770044342155472,
+                0.0012770044342155472,
+                0.001276547346481572
+              ]
+            },
+            {
+              "index": 2,
+              "singular_value": 0.0001998705106057123,
+              "frobenius_energy_fraction": 7.597580553444159e-05,
+              "right_alignment_with_ones": 0.06302383698198928,
+              "signed_row_sums": [
+                2.089284749132216e-05,
+                -2.0885369158389168e-05,
+                -2.0885369158389513e-05,
+                2.089284749132272e-05
+              ]
+            },
+            {
+              "index": 3,
+              "singular_value": 4.154620045911573e-18,
+              "frobenius_energy_fraction": 3.282770287509514e-32,
+              "right_alignment_with_ones": 0.1318778076534089,
+              "signed_row_sums": [
+                6.989609677734097e-19,
+                -1.0782096173807248e-18,
+                1.0782096173807063e-18,
+                -6.98960967773391e-19
+              ]
+            },
+            {
+              "index": 4,
+              "singular_value": 2.955117292301764e-18,
+              "frobenius_energy_fraction": 1.6608381645912845e-32,
+              "right_alignment_with_ones": 0.14047177135457162,
+              "signed_row_sums": [
+                -8.168907012570382e-19,
+                -5.295581730227638e-19,
+                5.295581730227707e-19,
+                8.168907012570309e-19
+              ]
+            }
+          ],
+          "closure": 1.8431436932253575e-18
+        }
+      ]
+    }
+  ]
+}

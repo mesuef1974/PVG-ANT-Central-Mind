@@ -1,0 +1,782 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "AVRG PASS023 — ثبات النوافذ المتعددة والمعايير الأكبر",
+    "description": "Finite computational evidence for mean-ratio stability near 2, with explicit sensitivity and character-dispersion caveats.",
+    "generatedAt": "2026-07-14T12:00:00Z",
+    "charts": [
+      {
+        "id": "mean_ratio_by_modulus",
+        "title": "متوسط النسبة بحسب المعيار والنافذة",
+        "subtitle": "المعيار r=5 مرتفع النفوذ؛ المعايير الأكبر تتجمع قرب 2 دون رتابة.",
+        "type": "line",
+        "dataset": "mean_ratios",
+        "sourceId": "pass023_mean_ratios",
+        "encodings": {
+          "x": {
+            "field": "r",
+            "type": "quantitative",
+            "label": "المعيار r"
+          },
+          "y": {
+            "field": "mean_ratio",
+            "type": "quantitative",
+            "label": "متوسط نسبة on/off",
+            "format": ".4f"
+          },
+          "color": {
+            "field": "window",
+            "type": "nominal",
+            "label": "النافذة"
+          }
+        },
+        "yAxisTitle": "متوسط النسبة",
+        "valueFormat": ".4f",
+        "layout": "full"
+      }
+    ],
+    "tables": [
+      {
+        "id": "cross_modulus_table",
+        "title": "ملخص كل معيار عبر النوافذ الأربع",
+        "subtitle": "التشتت داخل الشخصية يبقى محسوسًا حتى حين يستقر المتوسط.",
+        "dataset": "cross_modulus",
+        "sourceId": "pass023_cross_modulus",
+        "defaultSort": {
+          "field": "r",
+          "direction": "asc"
+        },
+        "density": "dense",
+        "layout": "full",
+        "columns": [
+          {
+            "field": "r",
+            "label": "r",
+            "type": "number"
+          },
+          {
+            "field": "cross_window_mean",
+            "label": "متوسط النوافذ",
+            "format": ".6f"
+          },
+          {
+            "field": "between_window_sd",
+            "label": "SD بين النوافذ",
+            "format": ".6f"
+          },
+          {
+            "field": "mean_within_character_sd",
+            "label": "SD داخل المعيار",
+            "format": ".6f"
+          },
+          {
+            "field": "mean_absolute_deviation_from_two",
+            "label": "متوسط |ρ̄−2|",
+            "format": ".6f"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "pass023_mean_ratios",
+        "label": "PASS023 window-by-modulus means",
+        "path": "avrg_pass023_results.json"
+      },
+      {
+        "id": "pass023_cross_modulus",
+        "label": "PASS023 cross-window modulus summary",
+        "path": "avrg_pass023_results.json"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "title",
+        "type": "markdown",
+        "body": "# AVRG PASS023 — ثبات النوافذ المتعددة والمعايير الأكبر"
+      },
+      {
+        "id": "summary",
+        "type": "markdown",
+        "body": "## الخلاصة\n\nتدعم النوافذ الأربع حدسًا تجريبيًا محدودًا: متوسط النسبة يتجمع قرب **2** للمعايير الأكبر المختبرة. لا يوجد برهان تقاربي، ولا تقدم مباشر نحو إثبات غولدباخ."
+      },
+      {
+        "id": "scope",
+        "type": "markdown",
+        "body": "## النطاق\n\nأربع نوافذ كاملة، وتسعة معايير أولية، و136 نسبة ممثلة. نجحت المعايرة على 15 صفًا بأقصى فرق مطلق `8.88e-16`."
+      },
+      {
+        "id": "chart",
+        "type": "chart",
+        "chartId": "mean_ratio_by_modulus",
+        "layout": "full"
+      },
+      {
+        "id": "finding",
+        "type": "markdown",
+        "body": "## النتيجة الرئيسة\n\nللمعايير 23 و29 و31 تراوح متوسط متوسطات المعايير عبر النوافذ بين **1.9878** و**2.0256**. مع ذلك بقي تشتت الشخصيات داخل المعيار غير تافه؛ الاستقرار يخص المتوسط لا كل شخصية."
+      },
+      {
+        "id": "table",
+        "type": "table",
+        "tableId": "cross_modulus_table",
+        "layout": "full"
+      },
+      {
+        "id": "sensitivity",
+        "type": "markdown",
+        "body": "## حساسية المعيار الصغير\n\nالمعيار `r=5` استثنائي بمتوسط عبر النوافذ **2.7543**. يتغير الجزء المقطوع الحر المجمع من 1.8119 لكل المعايير إلى 1.9727 بعد اشتراط `r≥7`؛ هذه حساسية وصفية لا تقدير حد."
+      },
+      {
+        "id": "models",
+        "type": "markdown",
+        "body": "## مقارنة النماذج\n\nاختيار LOOCV يتناوب: نموذج الحد الثابت 2 في نافذتي e=15 وe=18، والجزء المقطوع الحر في e=16 وe=17. لذلك لا تحسم البيانات قانونًا تقاربيًا."
+      },
+      {
+        "id": "limitations",
+        "type": "markdown",
+        "body": "## القيود\n\nالعينة نهائية وصغيرة، والعتبات استكشافية، والتطبيع يعتمد على الحد الرئيسي Hardy–Littlewood المستخدم في المسار. لا يثبت التحليل أن المتوسط يتقارب إلى 2، ولا تقاربًا منتظمًا في k، ولا حالة جديدة من غولدباخ."
+      },
+      {
+        "id": "next",
+        "type": "markdown",
+        "body": "## الخطوة التالية\n\nPASS024: فصل مقياس المعيار عن تغاير الشخصية بنموذج `ρ(e,r,k)=2+A_e/r+G_r(k)+ε` واختبار ثبات المركبة الشخصية بين النوافذ."
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "generatedAt": "2026-07-14T12:00:00Z",
+    "status": "ready",
+    "datasets": {
+      "mean_ratios": [
+        {
+          "exp": 15,
+          "window": "[2^15, 2^16)",
+          "r": 5,
+          "mean_ratio": 3.079115838434893,
+          "population_sd": 0.0,
+          "representative_count": 1,
+          "min_ratio": 3.079115838434893,
+          "max_ratio": 3.079115838434893
+        },
+        {
+          "exp": 15,
+          "window": "[2^15, 2^16)",
+          "r": 7,
+          "mean_ratio": 2.0933735870887924,
+          "population_sd": 0.0,
+          "representative_count": 1,
+          "min_ratio": 2.0933735870887924,
+          "max_ratio": 2.0933735870887924
+        },
+        {
+          "exp": 15,
+          "window": "[2^15, 2^16)",
+          "r": 11,
+          "mean_ratio": 2.010090606965275,
+          "population_sd": 0.056442496054012636,
+          "representative_count": 2,
+          "min_ratio": 1.9536481109112622,
+          "max_ratio": 2.0665331030192875
+        },
+        {
+          "exp": 15,
+          "window": "[2^15, 2^16)",
+          "r": 13,
+          "mean_ratio": 2.0313121259171822,
+          "population_sd": 0.12313155624205578,
+          "representative_count": 3,
+          "min_ratio": 1.911286262132273,
+          "max_ratio": 2.200583532221925
+        },
+        {
+          "exp": 15,
+          "window": "[2^15, 2^16)",
+          "r": 17,
+          "mean_ratio": 2.141995225745198,
+          "population_sd": 0.2223960963791971,
+          "representative_count": 4,
+          "min_ratio": 1.957390305104717,
+          "max_ratio": 2.5198624768263516
+        },
+        {
+          "exp": 15,
+          "window": "[2^15, 2^16)",
+          "r": 19,
+          "mean_ratio": 1.961793921932263,
+          "population_sd": 0.09649640526461992,
+          "representative_count": 4,
+          "min_ratio": 1.8695163367644825,
+          "max_ratio": 2.122987407058293
+        },
+        {
+          "exp": 15,
+          "window": "[2^15, 2^16)",
+          "r": 23,
+          "mean_ratio": 2.004566860852417,
+          "population_sd": 0.09719307270900865,
+          "representative_count": 5,
+          "min_ratio": 1.8730846083480817,
+          "max_ratio": 2.1361829439509106
+        },
+        {
+          "exp": 15,
+          "window": "[2^15, 2^16)",
+          "r": 29,
+          "mean_ratio": 2.0764020786232313,
+          "population_sd": 0.13215182816998952,
+          "representative_count": 7,
+          "min_ratio": 1.9464875626916682,
+          "max_ratio": 2.275932687572158
+        },
+        {
+          "exp": 15,
+          "window": "[2^15, 2^16)",
+          "r": 31,
+          "mean_ratio": 1.9934752221773182,
+          "population_sd": 0.07976859302371274,
+          "representative_count": 7,
+          "min_ratio": 1.869588966696308,
+          "max_ratio": 2.133966819719352
+        },
+        {
+          "exp": 16,
+          "window": "[2^16, 2^17)",
+          "r": 5,
+          "mean_ratio": 2.5475513555034714,
+          "population_sd": 0.0,
+          "representative_count": 1,
+          "min_ratio": 2.5475513555034714,
+          "max_ratio": 2.5475513555034714
+        },
+        {
+          "exp": 16,
+          "window": "[2^16, 2^17)",
+          "r": 7,
+          "mean_ratio": 2.0645545785662973,
+          "population_sd": 0.0,
+          "representative_count": 1,
+          "min_ratio": 2.0645545785662973,
+          "max_ratio": 2.0645545785662973
+        },
+        {
+          "exp": 16,
+          "window": "[2^16, 2^17)",
+          "r": 11,
+          "mean_ratio": 2.0312589503213063,
+          "population_sd": 0.11329996990779745,
+          "representative_count": 2,
+          "min_ratio": 1.9179589804135087,
+          "max_ratio": 2.1445589202291035
+        },
+        {
+          "exp": 16,
+          "window": "[2^16, 2^17)",
+          "r": 13,
+          "mean_ratio": 2.0631767623208237,
+          "population_sd": 0.03602804611923608,
+          "representative_count": 3,
+          "min_ratio": 2.0303791696117273,
+          "max_ratio": 2.1133434220238407
+        },
+        {
+          "exp": 16,
+          "window": "[2^16, 2^17)",
+          "r": 17,
+          "mean_ratio": 2.036443654796405,
+          "population_sd": 0.09887046717386774,
+          "representative_count": 4,
+          "min_ratio": 1.9321000106873139,
+          "max_ratio": 2.1991511085441764
+        },
+        {
+          "exp": 16,
+          "window": "[2^16, 2^17)",
+          "r": 19,
+          "mean_ratio": 1.9648929160975523,
+          "population_sd": 0.10318315974199063,
+          "representative_count": 4,
+          "min_ratio": 1.8302220105973723,
+          "max_ratio": 2.1011367085814876
+        },
+        {
+          "exp": 16,
+          "window": "[2^16, 2^17)",
+          "r": 23,
+          "mean_ratio": 2.0229354013618797,
+          "population_sd": 0.15709342263637432,
+          "representative_count": 5,
+          "min_ratio": 1.8346753103649602,
+          "max_ratio": 2.2669694623209087
+        },
+        {
+          "exp": 16,
+          "window": "[2^16, 2^17)",
+          "r": 29,
+          "mean_ratio": 2.016356106420676,
+          "population_sd": 0.07299170344145503,
+          "representative_count": 7,
+          "min_ratio": 1.90327285022656,
+          "max_ratio": 2.1206902211021075
+        },
+        {
+          "exp": 16,
+          "window": "[2^16, 2^17)",
+          "r": 31,
+          "mean_ratio": 1.9603431429611935,
+          "population_sd": 0.09291258359805814,
+          "representative_count": 7,
+          "min_ratio": 1.8263845313632099,
+          "max_ratio": 2.1068556267057854
+        },
+        {
+          "exp": 17,
+          "window": "[2^17, 2^18)",
+          "r": 5,
+          "mean_ratio": 2.6471378753211456,
+          "population_sd": 0.0,
+          "representative_count": 1,
+          "min_ratio": 2.6471378753211456,
+          "max_ratio": 2.6471378753211456
+        },
+        {
+          "exp": 17,
+          "window": "[2^17, 2^18)",
+          "r": 7,
+          "mean_ratio": 2.1753440952871856,
+          "population_sd": 0.0,
+          "representative_count": 1,
+          "min_ratio": 2.1753440952871856,
+          "max_ratio": 2.1753440952871856
+        },
+        {
+          "exp": 17,
+          "window": "[2^17, 2^18)",
+          "r": 11,
+          "mean_ratio": 2.110189591404728,
+          "population_sd": 0.04209370697802717,
+          "representative_count": 2,
+          "min_ratio": 2.068095884426701,
+          "max_ratio": 2.152283298382755
+        },
+        {
+          "exp": 17,
+          "window": "[2^17, 2^18)",
+          "r": 13,
+          "mean_ratio": 2.1184837890135113,
+          "population_sd": 0.11127738491820742,
+          "representative_count": 3,
+          "min_ratio": 1.9911870004492342,
+          "max_ratio": 2.2622610189746277
+        },
+        {
+          "exp": 17,
+          "window": "[2^17, 2^18)",
+          "r": 17,
+          "mean_ratio": 1.9939052626567377,
+          "population_sd": 0.031084668665790734,
+          "representative_count": 4,
+          "min_ratio": 1.9521085158642089,
+          "max_ratio": 2.0266019458247566
+        },
+        {
+          "exp": 17,
+          "window": "[2^17, 2^18)",
+          "r": 19,
+          "mean_ratio": 2.0044155830648225,
+          "population_sd": 0.07959321842871012,
+          "representative_count": 4,
+          "min_ratio": 1.9377597919956255,
+          "max_ratio": 2.137870113449471
+        },
+        {
+          "exp": 17,
+          "window": "[2^17, 2^18)",
+          "r": 23,
+          "mean_ratio": 1.9956055969976543,
+          "population_sd": 0.10592152108274318,
+          "representative_count": 5,
+          "min_ratio": 1.8894924612971267,
+          "max_ratio": 2.1911922092351155
+        },
+        {
+          "exp": 17,
+          "window": "[2^17, 2^18)",
+          "r": 29,
+          "mean_ratio": 1.9520258283220682,
+          "population_sd": 0.0680950618466735,
+          "representative_count": 7,
+          "min_ratio": 1.8591597291634474,
+          "max_ratio": 2.0716602888063913
+        },
+        {
+          "exp": 17,
+          "window": "[2^17, 2^18)",
+          "r": 31,
+          "mean_ratio": 2.015824821873362,
+          "population_sd": 0.06655085148036877,
+          "representative_count": 7,
+          "min_ratio": 1.938238220638905,
+          "max_ratio": 2.145292012563534
+        },
+        {
+          "exp": 18,
+          "window": "[2^18, 2^19)",
+          "r": 5,
+          "mean_ratio": 2.7434659747111727,
+          "population_sd": 0.0,
+          "representative_count": 1,
+          "min_ratio": 2.7434659747111727,
+          "max_ratio": 2.7434659747111727
+        },
+        {
+          "exp": 18,
+          "window": "[2^18, 2^19)",
+          "r": 7,
+          "mean_ratio": 2.07697495190476,
+          "population_sd": 0.0,
+          "representative_count": 1,
+          "min_ratio": 2.07697495190476,
+          "max_ratio": 2.07697495190476
+        },
+        {
+          "exp": 18,
+          "window": "[2^18, 2^19)",
+          "r": 11,
+          "mean_ratio": 2.0382425370215316,
+          "population_sd": 0.017612746161633996,
+          "representative_count": 2,
+          "min_ratio": 2.0206297908598976,
+          "max_ratio": 2.0558552831831656
+        },
+        {
+          "exp": 18,
+          "window": "[2^18, 2^19)",
+          "r": 13,
+          "mean_ratio": 2.066662728127412,
+          "population_sd": 0.1238933298557032,
+          "representative_count": 3,
+          "min_ratio": 1.9005008104666938,
+          "max_ratio": 2.1978788987427587
+        },
+        {
+          "exp": 18,
+          "window": "[2^18, 2^19)",
+          "r": 17,
+          "mean_ratio": 2.0120228505182536,
+          "population_sd": 0.06748593855767886,
+          "representative_count": 4,
+          "min_ratio": 1.9310752406488527,
+          "max_ratio": 2.1185002596826776
+        },
+        {
+          "exp": 18,
+          "window": "[2^18, 2^19)",
+          "r": 19,
+          "mean_ratio": 1.9935798317532933,
+          "population_sd": 0.03242109590019645,
+          "representative_count": 4,
+          "min_ratio": 1.9507734003455293,
+          "max_ratio": 2.0266850327979906
+        },
+        {
+          "exp": 18,
+          "window": "[2^18, 2^19)",
+          "r": 23,
+          "mean_ratio": 2.0268155527092406,
+          "population_sd": 0.06271686320189801,
+          "representative_count": 5,
+          "min_ratio": 1.930945419911784,
+          "max_ratio": 2.1261244733719527
+        },
+        {
+          "exp": 18,
+          "window": "[2^18, 2^19)",
+          "r": 29,
+          "mean_ratio": 2.0585979506238385,
+          "population_sd": 0.15548445468523547,
+          "representative_count": 7,
+          "min_ratio": 1.8668373597802153,
+          "max_ratio": 2.3518373325292754
+        },
+        {
+          "exp": 18,
+          "window": "[2^18, 2^19)",
+          "r": 31,
+          "mean_ratio": 1.9915301855177319,
+          "population_sd": 0.07997991706864344,
+          "representative_count": 7,
+          "min_ratio": 1.8643668811481116,
+          "max_ratio": 2.1005013411893922
+        }
+      ],
+      "cross_modulus": [
+        {
+          "r": 5,
+          "cross_window_mean": 2.7543177609926706,
+          "between_window_sd": 0.19990712012528983,
+          "mean_within_character_sd": 0.0,
+          "mean_absolute_deviation_from_two": 0.7543177609926707
+        },
+        {
+          "r": 7,
+          "cross_window_mean": 2.102561803211759,
+          "between_window_sd": 0.043246160061709914,
+          "mean_within_character_sd": 0.0,
+          "mean_absolute_deviation_from_two": 0.10256180321175878
+        },
+        {
+          "r": 11,
+          "cross_window_mean": 2.0474454214282103,
+          "between_window_sd": 0.03767926471515798,
+          "mean_within_character_sd": 0.05736222977536781,
+          "mean_absolute_deviation_from_two": 0.04744542142821018
+        },
+        {
+          "r": 13,
+          "cross_window_mean": 2.0699088513447323,
+          "between_window_sd": 0.03124536014284085,
+          "mean_within_character_sd": 0.09858257928380063,
+          "mean_absolute_deviation_from_two": 0.06990885134473235
+        },
+        {
+          "r": 17,
+          "cross_window_mean": 2.0460917484291485,
+          "between_window_sd": 0.05739050830536626,
+          "mean_within_character_sd": 0.10495929269413361,
+          "mean_absolute_deviation_from_two": 0.04913911710077973
+        },
+        {
+          "r": 19,
+          "cross_window_mean": 1.981170563211983,
+          "between_window_sd": 0.018267025733231274,
+          "mean_within_character_sd": 0.07792346983387928,
+          "mean_absolute_deviation_from_two": 0.021037228320428425
+        },
+        {
+          "r": 23,
+          "cross_window_mean": 2.012480852980298,
+          "between_window_sd": 0.012866494608689027,
+          "mean_within_character_sd": 0.10573121990750604,
+          "mean_absolute_deviation_from_two": 0.014678054481470748
+        },
+        {
+          "r": 29,
+          "cross_window_mean": 2.0258454909974537,
+          "between_window_sd": 0.047875053997605575,
+          "mean_within_character_sd": 0.10718076203583837,
+          "mean_absolute_deviation_from_two": 0.049832576836419396
+        },
+        {
+          "r": 31,
+          "cross_window_mean": 1.9902933431324015,
+          "between_window_sd": 0.019751740621640035,
+          "mean_within_character_sd": 0.07980298629269578,
+          "mean_absolute_deviation_from_two": 0.01761906780427963
+        }
+      ],
+      "larger_moduli_windows": [
+        {
+          "exp": 15,
+          "moduli": "23,29,31",
+          "mean_of_modulus_means": 2.0248147205509888,
+          "mean_absolute_deviation_from_two": 0.029164572432776703,
+          "max_absolute_deviation_from_two": 0.07640207862323134
+        },
+        {
+          "exp": 16,
+          "moduli": "23,29,31",
+          "mean_of_modulus_means": 1.999878216914583,
+          "mean_absolute_deviation_from_two": 0.026316121607120675,
+          "max_absolute_deviation_from_two": 0.0396568570388065
+        },
+        {
+          "exp": 17,
+          "moduli": "23,29,31",
+          "mean_of_modulus_means": 1.9878187490643615,
+          "mean_absolute_deviation_from_two": 0.02273113218454655,
+          "max_absolute_deviation_from_two": 0.04797417167793183
+        },
+        {
+          "exp": 18,
+          "moduli": "23,29,31",
+          "mean_of_modulus_means": 2.0256478962836035,
+          "mean_absolute_deviation_from_two": 0.03129443927178244,
+          "max_absolute_deviation_from_two": 0.058597950623838546
+        }
+      ],
+      "model_comparison": [
+        {
+          "exp": 15,
+          "fixed_sse_over_free_sse": 1.5235806132708922,
+          "aicc_fixed_minus_free": 0.36099765268568973,
+          "loocv_preferred": "fixed_limit_two",
+          "loocv_free_rmse": 0.3844263397025189,
+          "loocv_fixed_rmse": 0.377206195449155
+        },
+        {
+          "exp": 16,
+          "fixed_sse_over_free_sse": 1.8225549694401757,
+          "aicc_fixed_minus_free": 1.9735826854665603,
+          "loocv_preferred": "free_intercept",
+          "loocv_free_rmse": 0.17211553268453875,
+          "loocv_fixed_rmse": 0.18360601554557854
+        },
+        {
+          "exp": 17,
+          "fixed_sse_over_free_sse": 2.770511409093571,
+          "aicc_fixed_minus_free": 5.742715917846759,
+          "loocv_preferred": "free_intercept",
+          "loocv_free_rmse": 0.1398930169484773,
+          "loocv_fixed_rmse": 0.1806769821068116
+        },
+        {
+          "exp": 18,
+          "fixed_sse_over_free_sse": 1.5927687161570843,
+          "aicc_fixed_minus_free": 0.7606930665350653,
+          "loocv_preferred": "fixed_limit_two",
+          "loocv_free_rmse": 0.25064202647663136,
+          "loocv_fixed_rmse": 0.24940769166837487
+        }
+      ],
+      "threshold_sensitivity": [
+        {
+          "minimum_r": 5,
+          "modulus_count": 9,
+          "moduli": "5,7,11,13,17,19,23,29,31",
+          "mean_of_modulus_means": 2.114457315080962,
+          "mean_absolute_deviation_from_two": 0.12079866922665422,
+          "free_intercept": 1.811941139491784,
+          "free_slope": 3.7176150490104014,
+          "fixed_slope": 2.0961491010434363,
+          "fixed_sse_over_free_sse": 1.7793675305007852
+        },
+        {
+          "minimum_r": 7,
+          "modulus_count": 8,
+          "moduli": "7,11,13,17,19,23,29,31",
+          "mean_of_modulus_means": 2.0344747593419985,
+          "mean_absolute_deviation_from_two": 0.041608782755902185,
+          "free_intercept": 1.9727088033677205,
+          "free_slope": 0.928177166463896,
+          "fixed_slope": 0.6048836312528401,
+          "fixed_sse_over_free_sse": 1.3765412653798381
+        },
+        {
+          "minimum_r": 11,
+          "modulus_count": 7,
+          "moduli": "11,13,17,19,23,29,31",
+          "mean_of_modulus_means": 2.0247480387891756,
+          "mean_absolute_deviation_from_two": 0.032901208405065496,
+          "free_intercept": 1.9684424153073135,
+          "free_slope": 1.0118945533341188,
+          "fixed_slope": 0.510837887477177,
+          "fixed_sse_over_free_sse": 1.244553385779505
+        },
+        {
+          "minimum_r": 13,
+          "modulus_count": 6,
+          "moduli": "13,17,19,23,29,31",
+          "mean_of_modulus_means": 2.0209651416826695,
+          "mean_absolute_deviation_from_two": 0.030477172901208032,
+          "free_intercept": 1.9517125109480393,
+          "free_slope": 1.3915592242278192,
+          "fixed_slope": 0.5052181136378704,
+          "fixed_sse_over_free_sse": 1.4142739912190205
+        },
+        {
+          "minimum_r": 17,
+          "modulus_count": 5,
+          "moduli": "17,19,23,29,31",
+          "mean_of_modulus_means": 2.011176399750257,
+          "mean_absolute_deviation_from_two": 0.022590837212503167,
+          "free_intercept": 1.9803282135216123,
+          "free_slope": 0.6958001267414026,
+          "fixed_slope": 0.274485747141123,
+          "fixed_sse_over_free_sse": 1.0387611339638507
+        },
+        {
+          "minimum_r": 19,
+          "modulus_count": 4,
+          "moduli": "19,23,29,31",
+          "mean_of_modulus_means": 2.0024475625805342,
+          "mean_absolute_deviation_from_two": 0.016715609408341825,
+          "free_intercept": 2.044547193544954,
+          "free_slope": -1.0340671680624478,
+          "fixed_slope": 0.018828308344870585,
+          "fixed_sse_over_free_sse": 1.3086271649895698
+        },
+        {
+          "minimum_r": 23,
+          "modulus_count": 3,
+          "moduli": "23,29,31",
+          "mean_of_modulus_means": 2.009539895703384,
+          "mean_absolute_deviation_from_two": 0.01601100028178341,
+          "free_intercept": 1.9734841031328438,
+          "free_slope": 0.9813851991852514,
+          "fixed_slope": 0.27202693100469405,
+          "fixed_sse_over_free_sse": 1.0626339456531344
+        }
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": "pass023_mean_ratios",
+      "label": "PASS023 window-by-modulus means",
+      "path": "avrg_pass023_results.json",
+      "query": {
+        "engine": "portable-sql",
+        "sql": "WITH pass023_mean_ratios(exp, r, mean_ratio, window_label) AS (\n  VALUES\n    (15, 5, 3.0791158384348929, '[2^15, 2^16)'),\n    (15, 7, 2.0933735870887924, '[2^15, 2^16)'),\n    (15, 11, 2.0100906069652749, '[2^15, 2^16)'),\n    (15, 13, 2.0313121259171822, '[2^15, 2^16)'),\n    (15, 17, 2.1419952257451982, '[2^15, 2^16)'),\n    (15, 19, 1.9617939219322631, '[2^15, 2^16)'),\n    (15, 23, 2.004566860852417, '[2^15, 2^16)'),\n    (15, 29, 2.0764020786232313, '[2^15, 2^16)'),\n    (15, 31, 1.9934752221773182, '[2^15, 2^16)'),\n    (16, 5, 2.5475513555034714, '[2^16, 2^17)'),\n    (16, 7, 2.0645545785662973, '[2^16, 2^17)'),\n    (16, 11, 2.0312589503213063, '[2^16, 2^17)'),\n    (16, 13, 2.0631767623208237, '[2^16, 2^17)'),\n    (16, 17, 2.0364436547964049, '[2^16, 2^17)'),\n    (16, 19, 1.9648929160975523, '[2^16, 2^17)'),\n    (16, 23, 2.0229354013618797, '[2^16, 2^17)'),\n    (16, 29, 2.0163561064206759, '[2^16, 2^17)'),\n    (16, 31, 1.9603431429611935, '[2^16, 2^17)'),\n    (17, 5, 2.6471378753211456, '[2^17, 2^18)'),\n    (17, 7, 2.1753440952871856, '[2^17, 2^18)'),\n    (17, 11, 2.1101895914047279, '[2^17, 2^18)'),\n    (17, 13, 2.1184837890135113, '[2^17, 2^18)'),\n    (17, 17, 1.9939052626567377, '[2^17, 2^18)'),\n    (17, 19, 2.0044155830648225, '[2^17, 2^18)'),\n    (17, 23, 1.9956055969976543, '[2^17, 2^18)'),\n    (17, 29, 1.9520258283220682, '[2^17, 2^18)'),\n    (17, 31, 2.0158248218733621, '[2^17, 2^18)'),\n    (18, 5, 2.7434659747111727, '[2^18, 2^19)'),\n    (18, 7, 2.0769749519047598, '[2^18, 2^19)'),\n    (18, 11, 2.0382425370215316, '[2^18, 2^19)'),\n    (18, 13, 2.0666627281274121, '[2^18, 2^19)'),\n    (18, 17, 2.0120228505182536, '[2^18, 2^19)'),\n    (18, 19, 1.9935798317532933, '[2^18, 2^19)'),\n    (18, 23, 2.0268155527092406, '[2^18, 2^19)'),\n    (18, 29, 2.0585979506238385, '[2^18, 2^19)'),\n    (18, 31, 1.9915301855177319, '[2^18, 2^19)')\n)\nSELECT exp, r, mean_ratio, window_label AS window\nFROM pass023_mean_ratios\nORDER BY exp, r",
+        "description": "Exact portable SQL projection of the 36 window-by-modulus means computed by PASS023.",
+        "executed_at": "2026-07-14T12:00:00Z",
+        "tables_used": [
+          "inline VALUES derived from avrg_pass023_results.json"
+        ],
+        "filters": [
+          "exp in {15,16,17,18}",
+          "r in {5,7,11,13,17,19,23,29,31}",
+          "even nonprincipal characters; conjugate pairs collapsed"
+        ],
+        "metric_definitions": [
+          "mean_ratio: arithmetic mean of on_energy/off_energy over retained character representatives",
+          "between_window_sd: population standard deviation of a modulus mean over four windows",
+          "mean_within_character_sd: mean population standard deviation across characters within each window"
+        ]
+      }
+    },
+    {
+      "id": "pass023_cross_modulus",
+      "label": "PASS023 cross-window modulus summary",
+      "path": "avrg_pass023_results.json",
+      "query": {
+        "engine": "portable-sql",
+        "sql": "WITH pass023_cross_modulus(r, cross_window_mean, between_window_sd, mean_within_character_sd, mean_absolute_deviation_from_two) AS (\n  VALUES\n    (5, 2.7543177609926706, 0.19990712012528983, 0, 0.75431776099267067),\n    (7, 2.102561803211759, 0.043246160061709914, 0, 0.10256180321175878),\n    (11, 2.0474454214282103, 0.037679264715157978, 0.057362229775367812, 0.047445421428210177),\n    (13, 2.0699088513447323, 0.03124536014284085, 0.098582579283800625, 0.069908851344732348),\n    (17, 2.0460917484291485, 0.05739050830536626, 0.10495929269413361, 0.049139117100779728),\n    (19, 1.9811705632119829, 0.018267025733231274, 0.07792346983387928, 0.021037228320428425),\n    (23, 2.012480852980298, 0.012866494608689027, 0.10573121990750604, 0.014678054481470748),\n    (29, 2.0258454909974537, 0.047875053997605575, 0.10718076203583837, 0.049832576836419396),\n    (31, 1.9902933431324015, 0.019751740621640035, 0.079802986292695777, 0.017619067804279631)\n)\nSELECT * FROM pass023_cross_modulus\nORDER BY r",
+        "description": "Exact portable SQL projection of the nine cross-window modulus summaries computed by PASS023.",
+        "executed_at": "2026-07-14T12:00:00Z",
+        "tables_used": [
+          "inline VALUES derived from avrg_pass023_results.json"
+        ],
+        "filters": [
+          "exp in {15,16,17,18}",
+          "r in {5,7,11,13,17,19,23,29,31}",
+          "even nonprincipal characters; conjugate pairs collapsed"
+        ],
+        "metric_definitions": [
+          "mean_ratio: arithmetic mean of on_energy/off_energy over retained character representatives",
+          "between_window_sd: population standard deviation of a modulus mean over four windows",
+          "mean_within_character_sd: mean population standard deviation across characters within each window"
+        ]
+      }
+    }
+  ],
+  "package_info": {
+    "root": ".",
+    "manifestPath": "avrg_pass023_artifact.json",
+    "snapshotPath": "avrg_pass023_artifact.json",
+    "sourceKind": "reproducible-python-computation"
+  }
+}
