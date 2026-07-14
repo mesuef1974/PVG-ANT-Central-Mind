@@ -27,6 +27,14 @@ This directory preserves the theory developed for translating additive number th
    - minor-arc wall;
    - correction showing that a symmetric product phase is constant on an exact addition fiber.
 
+4. `PVG-ADDITION-FIBER-OPERATOR-001.md`
+   - ambient pair space and exact fiber projection;
+   - nontrivial difference-phase transform;
+   - reflection parity and cosine/sine decomposition;
+   - residue-difference channels and their finite Fourier transform;
+   - joint Dirichlet-character/additive-difference transform;
+   - exact bridge to prior AVRG orbit calculations.
+
 ## Central exact identity
 
 For arithmetic functions \(f,g\),
@@ -48,15 +56,32 @@ For even \(N\ge4\), binary Goldbach is equivalent to
 
 This is an exact reformulation, not a proof.
 
-## Current next action
+## Nontrivial internal transform
 
-Develop a nontrivial ambient-pair/fiber-projection operator using asymmetric or difference phases. Do not use
+The symmetric product phase is constant on a fixed exact fiber. The nontrivial internal transform is instead
 
 \[
-\mathcal E_\alpha(x)\mathcal E_\alpha(y)
+\mathcal A_\alpha W(N)
+=
+\int_{\mathcal G_N}
+W(x,y)e\bigl(\alpha(\rho(x)-\rho(y))\bigr)
+\,d\mu_N.
 \]
 
-as a purportedly rich operator on a fixed exact fiber, because it equals \(e(\alpha N)\) there.
+At rational frequencies \(\alpha=k/r\), this is the finite Fourier transform of the residue-difference channel masses modulo \(r\).
+
+## Current next action
+
+Build the exact reconstruction layer for the joint matrix
+
+\[
+\mathcal J_{\chi,k}(N)
+=
+\sum_{a+b=N}
+\chi(a)W(\nu(a),\nu(b))e(k(a-b)/r).
+\]
+
+The immediate target is to prove which PASS013–PASS035 quantities are recovered by special rows, columns, parity sectors, and difference channels. No predictive model should be fitted before this reconstruction is complete.
 
 ## Scientific ceiling
 
