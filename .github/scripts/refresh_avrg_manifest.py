@@ -27,6 +27,7 @@ PASS034_NOTE = (
 
 
 def tracked_archive_paths() -> list[Path]:
+    """Return only retained source artifacts, excluding archive index files."""
     command = ["git", "ls-files", *[str(ROOT / category) for category in CATEGORIES]]
     tracked = subprocess.check_output(command, text=True).splitlines()
     return sorted(
