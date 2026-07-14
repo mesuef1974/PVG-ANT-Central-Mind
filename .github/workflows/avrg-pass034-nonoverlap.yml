@@ -28,7 +28,7 @@ jobs:
         run: python -m pip install --disable-pip-version-check numpy
 
       - name: Compile PASS034
-        run: python -m py_compile research/avrg-axis-sum/code/avrg_pass034.py research/avrg-axis-sum/code/test_avrg_pass034.py
+        run: python -m py_compile research/avrg-axis-sum/code/avrg_pass034.py research/avrg-axis-sum/code/test_avrg_pass034.py .github/scripts/refresh_avrg_manifest.py
 
       - name: Run PASS034 safety tests
         run: python -m unittest discover -v -s research/avrg-axis-sum/code -p 'test_avrg_pass034.py'
@@ -50,88 +50,7 @@ jobs:
           retention-days: 7
 
       - name: Regenerate archive manifest and checksums
-        run: |
-          python - <<'PY'
-          from __future__ import annotations
-          import hashlib
-          import json
-          import subprocess
-          from pathlib import Path
-
-          root = Path("research/avrg-axis-sum")
-          categories = ("reports", "code", "results", "figures", "protocols")
-          tracked = subprocess.check_output(
-              ["git", "ls-files", *[str(root / category) for category in categories]],
-              text=True,
-          ).splitlines()
-          paths = sorted(
-              Path(path).relative_to(root)
-              for path in tracked
-              if Path(path).is_file()
-          )
-          counts = {
-              category: sum(path.parts[0] == category for path in paths)
-              for category in categories
-          }
-          expected = {
-              "reports": 34,
-              "code": 46,
-              "results": 52,
-              "figures": 1,
-              "protocols": 11,
-          }
-          if counts != expected or len(paths) != 144:
-              raise SystemExit(
-                  f"Unexpected archive inventory: counts={counts}, total={len(paths)}"
-              )
-
-          entries = []
-          checksum_lines = []
-          for relative in paths:
-              data = (root / relative).read_bytes()
-              digest = hashlib.sha256(data).hexdigest()
-              entries.append(
-                  {
-                      "path": relative.as_posix(),
-                      "sha256": digest,
-                      "size_bytes": len(data),
-                  }
-              )
-              checksum_lines.append(f"{digest}  {relative.as_posix()}")
-
-          old_manifest = json.loads((root / "MANIFEST.json").read_text(encoding="utf-8"))
-          adjustments = list(old_manifest.get("archive_layout_adjustments", []))
-          pass034_note = (
-              "PASS034 protocol, non-overlapping block code, and tests were committed "
-              "before the exact e=14 scan and 5,000-permutation analysis; its locked "
-              "negative result and Arabic report were added later."
-          )
-          if pass034_note not in adjustments:
-              adjustments.append(pass034_note)
-
-          manifest = {
-              "archive": "AVRG Axis-Sum Research Archive",
-              "generated_at": "2026-07-14T18:34:04Z",
-              "scope": "PASS001 through PASS034",
-              "retained_source_file_count": len(paths),
-              "category_counts": counts,
-              "scientific_ceiling": (
-                  "Finite computational diagnostics only; no asymptotic proof and no "
-                  "direct progress toward a proof of Goldbach."
-              ),
-              "published_page": old_manifest.get("published_page"),
-              "archive_layout_adjustments": adjustments,
-              "files": entries,
-          }
-          (root / "MANIFEST.json").write_text(
-              json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
-              encoding="utf-8",
-          )
-          (root / "SHA256SUMS.txt").write_text(
-              "\n".join(checksum_lines) + "\n",
-              encoding="utf-8",
-          )
-          PY
+        run: python .github/scripts/refresh_avrg_manifest.py
 
       - name: Verify archive checksums
         working-directory: research/avrg-axis-sum
