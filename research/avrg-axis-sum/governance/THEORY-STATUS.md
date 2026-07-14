@@ -92,8 +92,8 @@ They are recorded only in `IMPORTANT-IDEAS-TODO.md`.
 3. Hand-checkable examples:
    - \(N=10\) — **complete**;
    - \(N=12\) — **complete**;
-   - \(N=24\) — **next**;
-   - \(N=30\) — **pending**.
+   - \(N=24\) — **complete**;
+   - \(N=30\) — **next**.
 4. Proof audit for hypotheses, edge cases, and hidden conventions — **pending**.
 5. Cross-links from theorems to computational verification — **pending**.
 6. Focused literature review before any priority claim — **pending**.
