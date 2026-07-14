@@ -1,0 +1,17 @@
+name: Runner smoke
+
+on:
+  push:
+    branches:
+      - agent/avrg-pass035-calibration-drift
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Confirm runner starts
+        run: echo RUNNER_SMOKE_OK
