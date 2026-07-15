@@ -257,7 +257,7 @@ For even \(N\ge4\), binary Goldbach for \(N\) is equivalent to
 
 \[
 \mathcal G_N\cap(\mathcal P_1\times\mathcal P_1)
-e\varnothing.
+\ne\varnothing.
 \]
 
 This is an exact reformulation, not a proof.
@@ -483,17 +483,19 @@ Using \(e(t)=e^{2\pi i t}\), define
 
 ### Proposition 8.2 (phase constancy criterion)
 
-The map
+If \(N=2\), the full fiber contains only the index \(a=1\), so the map
 
 \[
 a\longmapsto e(\alpha(2a-N))
 \]
 
-is constant on the full fiber if and only if
+is constant for every \(\alpha\). If \(N\ge3\), it is constant on the full fiber if and only if
 
 \[
 2\alpha\in\mathbb Z.
 \]
+
+Indeed, for \(N\ge3\), the ratio of consecutive phase values is \(e(2\alpha)\).
 
 Also,
 
