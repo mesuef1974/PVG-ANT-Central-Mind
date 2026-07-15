@@ -99,18 +99,28 @@ They are recorded only in `IMPORTANT-IDEAS-TODO.md`.
 3. Hand-checkable examples \(N=10,12,24,30\) — **complete**.
 4. Proof audit for hypotheses, edge cases, and hidden conventions — **first pass complete**.
 5. Dependency and numbering audit — **complete; PASS**.
-6. Cross-links from theorems to computational verification — **next**.
-7. Focused literature review before any priority claim — **pending**.
+6. Theorem-to-evidence and computational cross-links — **complete for the single-modulus theory**.
+7. Dedicated joint-modulus worked example for T6, T7, and C2 — **next; documentation/test task only**.
+8. Focused literature review before any priority claim — **pending**.
 
-## 9. Audit outcome
+## 9. Evidence coverage outcome
+
+- T1, T2, T3, T4, T5, C1, C3, R1, and R2 have proof plus hand-checkable evidence.
+- T4, T5, C1, and C3 are additionally linked to a finite verifier covering 9,900 pairs \((N,r)\) with \(2\le N\le100\) and \(1\le r\le100\), with zero rank mismatches.
+- T6, T7, and C2 are proved, but still need one dedicated worked joint-modulus example for exposition and test coverage.
+- T8 follows from invertibility of the full DFT and does not require a numerical certificate.
+- P1 remains correctly excluded from the proved core.
+- Canonical evidence registry: `THEOREM-EVIDENCE-CROSSLINKS-v1.md`.
+
+## 10. Audit outcome
 
 - No counterexample was found to the canonical proved results.
-- Joint-signature codomain is now explicit.
+- Joint-signature codomain is explicit.
 - Exact phase constancy and general injectivity criteria are integrated.
-- Zero-frequency identity is now proved in the canonical core.
+- Zero-frequency identity is proved in the canonical core.
 - Character-row redundancy remains correctly deferred.
-- Numbering, dependencies, and hidden conventions pass the first structural audit.
+- Numbering, dependencies, hidden conventions, and evidence cross-links pass the current structural audit.
 
-## 10. Scientific ceiling
+## 11. Scientific ceiling
 
 No result in this ledger proves Goldbach, improves a known major-arc or minor-arc bound, or constitutes progress on RH/GRH. The current contribution is an exact framework, rank/reconstruction theory for defined channel operators, and a governed research program.
