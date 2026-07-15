@@ -1,0 +1,39 @@
+{
+  "schema": "pvg.precedence-aware-upper-bound.v1",
+  "status": "PASS",
+  "benchmark": {
+    "N": [4, 120],
+    "r": [3, 30],
+    "max_exact_budget": 4
+  },
+  "summary": {
+    "optimization_cases": 12987,
+    "cases_with_precedence": 1077,
+    "old_bound_optimum_mismatches": 0,
+    "precedence_bound_optimum_mismatches": 0,
+    "false_certificates": 0,
+    "old_bound_visited_nodes": 65971,
+    "precedence_bound_visited_nodes": 65971,
+    "old_bound_leaves": 13746,
+    "precedence_bound_leaves": 13746,
+    "old_bound_prunes": 22227,
+    "precedence_bound_prunes": 22227,
+    "precedence_constraint_prunes": 3506,
+    "precedence_forced_decisions": 958,
+    "precedence_bound_calls": 62465,
+    "feasible_closures_tested": 2337021,
+    "tree_improved_cases": 0,
+    "tree_equal_cases": 12987,
+    "tree_worse_cases": 0,
+    "node_change_percent": 0.0
+  },
+  "interpretation": "The precedence-feasible upper bound is valid and pointwise no weaker than the channelwise top-gain bound. On the complete benchmark it made exactly the same pruning decisions and produced exactly the same search trees.",
+  "claims": {
+    "exact_optimum_preserved": true,
+    "false_certificates": 0,
+    "uniform_speedup_claim": false,
+    "polynomial_time_claim": false,
+    "goldbach_proof_claim": false,
+    "rh_or_grh_progress_claim": false
+  }
+}
