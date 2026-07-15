@@ -1,6 +1,6 @@
 {
   "schema": "pvg.modulus-design.cost-rank-conditioning-pareto.v1",
-  "status": "PASS",
+  "status": "PASS-WITH-CORRECTION-HISTORY",
   "candidate_periods": [2,3,4,5,6,7,8,9,10,11,12],
   "cost_model": "cost(q)=q",
   "tolerance": 1e-9,
@@ -39,14 +39,14 @@
       "pareto_count": 52,
       "full_rank_count": 116,
       "minimum_cost_full_rank": {"periods":[5,7,9,11],"cost":32,"sigma_min_positive":0.0020670146517189447,"kappa_positive":1938.1830536518166},
-      "best_conditioned_full_rank": {"periods":[7,8,9,11,12],"cost":47,"sigma_min_positive":0.04136794992668575,"kappa_positive":98.17337657948153}
+      "best_conditioned_full_rank": {"periods":[7,8,9,11,12],"cost":47,"sigma_min_positive":0.008030892653119933,"kappa_positive":589.013019951741}
     }
   },
   "observations": [
     "Minimum-cost full-rank design and best-conditioned full-rank design can differ.",
     "At N=24, increasing cost from 25 to 27 reduces kappa from about 108.71 to about 32.38.",
-    "At N=30, the minimum-cost full-rank design is extremely ill-conditioned, while the best-conditioned design in the restricted pool reduces kappa to about 98.17 at higher cost.",
-    "All conclusions are conditional on the declared candidate pool, cost model, and SVD tolerance.",
-    "The N=30 best-conditioned values were corrected after an independent matrix-reconstruction audit in ACTIVE-002-D."
+    "At N=30, the minimum-cost full-rank design is extremely ill-conditioned; the best-conditioned design in the restricted pool has kappa about 589.01 under the reduced-period matrix convention.",
+    "All conclusions are conditional on the declared candidate pool, cost model, matrix convention, and SVD tolerance.",
+    "Correction history: an intermediate ACTIVE-002-D correction to kappa about 98.17 was itself erroneous and has been superseded by an independent reduced-period matrix reconstruction returning kappa about 589.01."
   ]
 }
