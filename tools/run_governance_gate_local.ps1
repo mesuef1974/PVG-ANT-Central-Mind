@@ -234,7 +234,7 @@ $commands = @(
     @{ Name = "language_kernel_audit"; Command = @($script:PythonExe, "tools/language_kernel_audit.py") },
     @{ Name = "translation_v2_pass001_regenerate"; Command = @($script:PythonExe, "tools/pvg_ant_translation_v2_examples.py") },
     @{ Name = "translation_v2_pass001_audit"; Command = @($script:PythonExe, "tools/translation_kernel_v2_audit.py") },
-    @{ Name = "translation_v2_pass002_regenerate"; Command = @($script:PythonExe, "tools/pvg_ant_translation_v2_pass002_examples.py") },
+    @{ Name = "translation_v2_pass002_regenerate"; Command = @($script:PythonExe, "tools/translation_kernel_v2_pass002_examples.py") },
     @{ Name = "translation_v2_pass002_audit"; Command = @($script:PythonExe, "tools/translation_kernel_v2_pass002_audit.py") },
     @{ Name = "benchmark001_regenerate"; Command = @($script:PythonExe, "tools/pvg_ant_benchmark_001.py") },
     @{ Name = "benchmark001_pass002_rescore"; Command = @($script:PythonExe, "tools/pvg_ant_benchmark_001_pass002_rescore.py") },
