@@ -1,0 +1,440 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{boundary}[theorem]{Boundary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\COF}{\mathrm{COF}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Fmin}{\mathcal{F}_{\min}}
+\newcommand{\M}{\mathcal{M}}
+
+\title{Certificate Optimization Framework:\\Additive Structures, Exact Search, and Minimal Obstructions}
+\author{Sufyan Ahmad Mesif}
+\date{Draft v0.2 --- proof-audited manuscript}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We introduce a finite framework for optimization problems in which a constrained set of objects is selected to maximize the number of targets receiving rigorous certificates. The framework separates the certificate functional from the search machinery and distinguishes actual simultaneous certification from compatibility relaxations used only for upper bounds. For additive certificate structures we prove monotonicity under nonnegative contributions, a feasibility-preserving dominance-exchange theorem that does not require nonnegativity, and existence of precedence-legal optima under an acyclic terminating exchange system. Independently of additivity, we formulate exact finite branch-and-bound through comprehensive branching and admissible node bounds. Under exact cardinality constraints we derive coordinatewise upper bounds that remain valid for signed contributions. Sound mandatory object sets generate pairwise and higher-order target-compatibility relaxations. Inclusion-minimal forbidden target families form an antichain that exactly compresses the mandatory-set relaxation. The framework is realized by a Fourier frequency-retention problem arising from prime-valuation addition fibers. This paper establishes a framework and one documented realization; it does not claim broad transferability, polynomial-time algorithms, or progress on Goldbach's conjecture, RH, or GRH.
+\end{abstract}
+
+\section{Introduction}
+
+Many rigorous computational arguments have a common architecture. A finite collection of objects may be retained, measured, or activated. Each selected object changes certified lower bounds attached to a finite family of targets. A target is counted only when its lower bound crosses an independently justified threshold. The optimization problem is to choose an admissible configuration that certifies as many targets as possible.
+
+The motivating case comes from a Fourier decomposition of prime-valuation addition-fiber observables. The selectable objects are reduced Fourier frequencies, the targets are reduced residue channels, and certification requires a retained-frequency lower bound to dominate a separately bounded higher-prime-power contamination term. During the exact-search development of that application, several results emerged that do not depend on prime valuations, Fourier analysis, or additive number theory: dominance exchange, precedence propagation, admissible branch-and-bound, mandatory-set compatibility, and minimal forbidden obstructions.
+
+The purpose of this paper is to isolate those results under explicit hypotheses. The abstraction is deliberately conservative. We do not assert that every certificate-selection problem fits the model. We also do not identify mandatory compatibility with actual simultaneous certification. Mandatory compatibility is a necessary relaxation used to derive safe upper bounds.
+
+\subsection{Contributions}
+
+The paper provides:
+\begin{enumerate}[label=(\arabic*)]
+\item a finite certificate-optimization structure and its additive subclass;
+\item monotonicity and feasibility-preserving dominance exchange;
+\item precedence-legal optimal configurations under an acyclic terminating exchange system;
+\item exact finite branch-and-bound based only on comprehensive branching and admissible upper bounds;
+\item coordinatewise upper bounds under exact or at-most cardinality constraints;
+\item sound mandatory sets and precedence-closed mandatory requirements;
+\item pairwise and higher-order target-compatibility relaxations;
+\item an inclusion-minimal obstruction theorem and exact antichain compression of the mandatory-set relaxation;
+\item a Fourier realization arising from prime-valuation addition fibers;
+\item a dependency and evidence protocol separating abstract, Fourier, arithmetic, and computational layers.
+\end{enumerate}
+
+\subsection{Scientific boundary}
+
+The present work contains one substantial realization. A broad transferability claim requires a second independent application and is not made here. No polynomial-time complexity result or uniform speedup is claimed. The arithmetic realization does not prove Goldbach's conjecture and gives no RH/GRH progress.
+
+\section{Certificate Optimization Structures}
+
+\begin{definition}[Finite certificate optimization structure]\label{def:cof-structure}
+A finite certificate optimization structure is a tuple
+\[
+\mathfrak C=(I,T,\mathcal A,L,\Theta),
+\]
+where $I$ is a finite object set, $T$ is a finite target set, $\mathcal A\subseteq 2^I$ is the family of admissible configurations, $L_S(t)\in\R$ is the certified lower-bound value for $S\in\mathcal A$ and $t\in T$, and $\Theta:T\to\R$ is the threshold map.
+
+A target $t$ is certified by $S$ when
+\[
+L_S(t)>\Theta(t).
+\]
+The objective is
+\[
+F(S)=\bigl|\{t\in T:L_S(t)>\Theta(t)\}\bigr|,
+\]
+and the optimization problem is
+\[
+\max_{S\in\mathcal A}F(S).
+\]
+\end{definition}
+
+\begin{definition}[Additive certificate structure]\label{def:additive}
+The structure is additive if there are maps
+\[
+\beta:T\to\R,
+\qquad
+\Gamma:I\times T\to\R
+\]
+such that
+\[
+L_S(t)=\beta(t)+\sum_{i\in S}\Gamma(i,t).
+\]
+Hence, for $i\notin S$,
+\[
+L_{S\cup\{i\}}(t)-L_S(t)=\Gamma(i,t).
+\]
+Nonnegativity, $\Gamma(i,t)\ge 0$, is an optional property and is not part of the definition.
+\end{definition}
+
+\section{Monotonicity, Dominance, and Canonical Optima}
+
+\begin{theorem}[Monotonicity]\label{thm:monotonicity}
+If the additive structure satisfies $\Gamma(i,t)\ge0$ for all objects and targets, then
+\[
+S\subseteq U
+\quad\Longrightarrow\quad
+L_S(t)\le L_U(t)
+\]
+for every target, and consequently $F(S)\le F(U)$.
+\end{theorem}
+
+\begin{proof}
+For every target,
+\[
+L_U(t)-L_S(t)=\sum_{i\in U\setminus S}\Gamma(i,t)\ge0.
+\]
+Every strict threshold crossing achieved by $S$ is therefore preserved by $U$.
+\end{proof}
+
+\begin{definition}[Componentwise dominance]\label{def:dominance}
+For $i,j\in I$, write $i\succeq j$ when
+\[
+\Gamma(i,t)\ge\Gamma(j,t)
+\]
+for every target $t$.
+\end{definition}
+
+\begin{theorem}[Feasibility-preserving dominance exchange]\label{thm:exchange}
+Let $S\in\mathcal A$, let $j\in S$, $i\notin S$, and suppose $i\succeq j$. If
+\[
+S'=(S\setminus\{j\})\cup\{i\}
+\]
+also belongs to $\mathcal A$, then $L_{S'}(t)\ge L_S(t)$ for every target, and therefore $F(S')\ge F(S)$.
+\end{theorem}
+
+\begin{proof}
+For each target,
+\[
+L_{S'}(t)-L_S(t)=\Gamma(i,t)-\Gamma(j,t)\ge0.
+\]
+The objective comparison follows by preservation of strict threshold crossings. Nonnegativity of all contributions is not required.
+\end{proof}
+
+\begin{definition}[Precedence exchange system]\label{def:precedence-system}
+A precedence exchange system consists of:
+\begin{enumerate}[label=(\roman*)]
+\item an acyclic directed relation on objects;
+\item a rank map $\rho:I\to\{1,\ldots,|I|\}$ strictly monotone along directed edges;
+\item the rule that if an admissible configuration contains a required child but omits its parent, the one-for-one parent-for-child exchange remains admissible;
+\item componentwise dominance of each parent over the child it replaces.
+\end{enumerate}
+A configuration is legal when it contains every required ancestor of each selected object.
+\end{definition}
+
+\begin{theorem}[Existence of a precedence-legal optimum]\label{thm:legal-optimum}
+Every optimum in a finite precedence exchange system can be transformed into a legal optimum by finitely many feasibility-preserving dominance exchanges.
+\end{theorem}
+
+\begin{proof}
+Start from an optimal configuration. Whenever it violates precedence, replace a violating child by a required parent. The exchange preserves admissibility and does not decrease the objective by \cref{thm:exchange}. The rank potential
+\[
+\Phi(S)=\sum_{i\in S}\rho(i)
+\]
+changes strictly in the chosen acyclic direction at every repair. Since only finitely many configurations exist, the process terminates. The terminal configuration is legal and has objective at least the original optimum, hence is itself optimal.
+\end{proof}
+
+\begin{boundary}[Dominance is not deletion]\label{bdry:not-deletion}
+Dominance does not permit unconditional deletion of the dominated object from the ground set. An optimum may contain both objects. The valid conclusion is an exchange or precedence rule under preserved feasibility.
+\end{boundary}
+
+\section{Exact Finite Branch-and-Bound}
+
+\begin{definition}[Node and completion family]\label{def:node}
+A search node $\nu$ represents a finite family $\mathcal C(\nu)$ of feasible completions. Let $F_{\mathrm{inc}}$ be the best objective value already found.
+\end{definition}
+
+\begin{definition}[Admissible upper bound]\label{def:admissible}
+A node function $U(\nu)$ is admissible if
+\[
+F(Q)\le U(\nu)
+\]
+for every completion $Q\in\mathcal C(\nu)$.
+\end{definition}
+
+\begin{theorem}[Safe pruning]\label{thm:safe-pruning}
+If
+\[
+U(\nu)\le F_{\mathrm{inc}},
+\]
+then pruning node $\nu$ cannot remove a strictly better solution.
+\end{theorem}
+
+\begin{proof}
+Every completion below $\nu$ has value at most $U(\nu)$ and hence at most the incumbent value.
+\end{proof}
+
+\begin{theorem}[Exactness of finite branch-and-bound]\label{thm:bnb-exact}
+A finite branch-and-bound procedure returns the exact optimum if:
+\begin{enumerate}[label=(\roman*)]
+\item every feasible configuration is represented by a root-to-leaf path unless safely pruned;
+\item terminal feasible configurations are evaluated exactly;
+\item every pruning bound is admissible.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Assume an optimal feasible configuration is not evaluated. By comprehensive branching it lies on a represented path, so some ancestor node on that path was pruned. Admissibility and \cref{thm:safe-pruning} imply that no completion below that node can improve on the incumbent. Thus the omitted optimum is no better than the returned incumbent, which is itself feasible.
+\end{proof}
+
+\begin{remark}
+\Cref{thm:bnb-exact} is independent of additivity, nonnegativity, dominance, Fourier analysis, and prime-valuation geometry.
+\end{remark}
+
+\section{Coordinatewise Bounds Under Cardinality Constraints}
+
+At a node let $S$ be selected, $R$ undecided, and let the completion select exactly $b$ objects from $R$.
+
+\begin{definition}[Exact-$b$ coordinatewise top sum]\label{def:top-b}
+For a target $t$, let $M_b(t;R)$ be the sum of the $b$ largest values in
+\[
+\{\Gamma(i,t):i\in R\}.
+\]
+\end{definition}
+
+\begin{theorem}[Signed exact-cardinality upper bound]\label{thm:signed-top-b}
+For every residual $b$-set $Q\subseteq R$,
+\[
+\sum_{i\in Q}\Gamma(i,t)\le M_b(t;R).
+\]
+Therefore
+\[
+U_{\mathrm{coord}}(\nu)
+=
+\left|
+\left\{
+ t:
+ L_S(t)+M_b(t;R)>\Theta(t)
+\right\}
+\right|
+\]
+is an admissible upper bound. No sign condition on $\Gamma$ is required.
+\end{theorem}
+
+\begin{proof}
+Among all $b$-subsets of $R$, the sum of the $b$ largest coordinates is maximal targetwise. Hence every actual completion contribution is bounded by $M_b(t;R)$. A target that cannot cross its threshold under this optimistic contribution cannot be certified by any completion.
+\end{proof}
+
+\begin{corollary}[At-most-$b$ budget]\label{cor:at-most-b}
+If a completion may choose at most $b$ objects, define
+\[
+M_{\le b}(t;R)=\max_{0\le k\le b}M_k(t;R).
+\]
+Replacing $M_b$ by $M_{\le b}$ gives an admissible bound. Under nonnegative contributions, $M_{\le b}=M_b$ whenever at least $b$ objects remain.
+\end{corollary}
+
+\begin{remark}
+The bound is targetwise optimistic: different targets may use different hypothetical top sets. This is safe but can be loose.
+\end{remark}
+
+\section{Precedence Propagation}
+
+For each object $j$, let $A(j)$ be its transitive required-ancestor set, and let $D(i)$ be the set of descendants requiring $i$. At a node with selected set $S$ and excluded set $X$, define
+\[
+S^+=S\cup\bigcup_{j\in S}A(j),
+\qquad
+X^+=X\cup\bigcup_{i\in X}D(i).
+\]
+A node is infeasible when $S^+\cap X^+\ne\varnothing$, when the selected closure exceeds the budget, or when too few undecided objects remain to complete an exact budget. By \cref{thm:legal-optimum}, restricting exact search to legal configurations preserves at least one optimum.
+
+\section{Mandatory Sets}
+
+\begin{definition}[Sound mandatory set]\label{def:mandatory}
+At node $\nu$, a set $M_\nu(t)$ is mandatory for target $t$ if every feasible completion certifying $t$ contains $M_\nu(t)$. If a completion certifies every target in $A\subseteq T$, it contains
+\[
+M_\nu(A)=\bigcup_{t\in A}M_\nu(t).
+\]
+\end{definition}
+
+\begin{theorem}[Leave-one-out mandatory test, exact budget]\label{thm:leave-one-out}
+Suppose the residual completion must choose exactly $b$ objects from $R$. If, for $i\in R$,
+\[
+L_S(t)+M_b(t;R\setminus\{i\})\le\Theta(t),
+\]
+then every completion certifying $t$ must include $i$.
+\end{theorem}
+
+\begin{proof}
+Any exact-$b$ completion omitting $i$ is a $b$-subset of $R\setminus\{i\}$. Its contribution is at most the corresponding top-$b$ sum and therefore cannot cross the threshold.
+\end{proof}
+
+For an at-most-$b$ budget, use $M_{\le b}$ instead.
+
+\begin{proposition}[Precedence closure]\label{prop:mandatory-closure}
+If every legal completion containing $i$ must also contain $A(i)$, then
+\[
+\overline M_\nu(t)
+=
+\bigcup_{i\in M_\nu(t)}(A(i)\cup\{i\})
+\]
+is also mandatory.
+\end{proposition}
+
+\begin{proof}
+Every completion certifying $t$ contains each $i\in M_\nu(t)$ by mandatory soundness, and legality then forces every required ancestor of each such $i$.
+\end{proof}
+
+Mandatory-set detection is necessary, not sufficient: containing all detected mandatory objects does not by itself guarantee certification.
+
+\section{Compatibility Graphs and Hypergraphs}
+
+Let $\mathcal R_\nu\subseteq 2^I$ be a downward-closed residual resource family containing every feasible residual selection.
+
+\begin{definition}[Mandatory compatibility]\label{def:mandatory-compatible}
+A target family $A\subseteq T$ is mandatory-compatible when
+\[
+M_\nu(A)\in\mathcal R_\nu.
+\]
+\end{definition}
+
+\begin{theorem}[Necessity of mandatory compatibility]\label{thm:mandatory-necessary}
+Every simultaneously certifiable target family is mandatory-compatible.
+\end{theorem}
+
+\begin{proof}
+If a feasible residual selection $Q$ certifies $A$, then $M_\nu(A)\subseteq Q$ by mandatory soundness. Since $Q\in\mathcal R_\nu$ and the resource family is downward closed, $M_\nu(A)\in\mathcal R_\nu$.
+\end{proof}
+
+The converse is not asserted.
+
+\begin{corollary}[Mandatory-union upper bound]\label{cor:mandatory-upper}
+Define
+\[
+U_{\mathrm{mand}}(\nu)
+=
+\max\{|A|:M_\nu(A)\in\mathcal R_\nu\}.
+\]
+Then $U_{\mathrm{mand}}$ is admissible for the original certification problem. It is exact for the mandatory-compatibility relaxation, not necessarily for actual simultaneous certification.
+\end{corollary}
+
+\begin{definition}[Pairwise compatibility graph]\label{def:compatibility-graph}
+Vertices are individually possible targets. Two vertices are adjacent when their mandatory union belongs to $\mathcal R_\nu$.
+\end{definition}
+
+Every actually certifiable target family is a clique. Hence, for any proper coloring using $k$ colors,
+\[
+|A|\le\omega(G)\le\chi(G)\le k.
+\]
+Pairwise compatibility may miss higher-order conflicts.
+
+\begin{definition}[Mandatory-conflict hypergraph]\label{def:conflict-hypergraph}
+A target family $E$ is forbidden when
+\[
+M_\nu(E)\notin\mathcal R_\nu.
+\]
+The hypergraph of forbidden families represents the full mandatory-union relaxation.
+\end{definition}
+
+\section{Minimal Forbidden Obstructions}
+
+A forbidden family $E$ is inclusion-minimal if every proper subset is mandatory-compatible. Let $\Fmin(\nu)$ be the family of all minimal forbidden obstructions.
+
+\begin{theorem}[Minimal-obstruction characterization]\label{thm:minimal-obstruction}
+A target family $A$ is mandatory-compatible if and only if it contains no member of $\Fmin(\nu)$.
+\end{theorem}
+
+\begin{proof}
+If $A$ contains a minimal forbidden family $E$, downward closure of compatibility implies that $A$ is forbidden. Conversely, if $A$ is forbidden, finiteness permits choosing an inclusion-minimal forbidden subset $E\subseteq A$. Then $E\in\Fmin(\nu)$.
+\end{proof}
+
+Every forbidden family contains at least one minimal obstruction. It need not contain a unique one.
+
+\begin{corollary}[Exact antichain compression]\label{cor:antichain}
+The feasible families defined by all forbidden sets are exactly those defined by the minimal antichain. Therefore
+\[
+U_{\min}(\nu)=U_{\mathrm{mand}}(\nu).
+\]
+Each minimal obstruction gives a valid relaxation cut
+\[
+\sum_{t\in E}x_t\le |E|-1.
+\]
+The compression is exact as a representation of the mandatory-set relaxation. Extracting the full antichain may still require exponential work.
+\end{corollary}
+
+\section{Fourier Certificate Realization}
+
+In the motivating realization, the objects are retained reduced Fourier frequencies and the targets are reduced residue channels. The lower bound has the additive form
+\[
+L_S(c)=\beta(c)+\sum_{k\in S}G_k(c),
+\]
+where
+\[
+G_k(c)=P_k(c)+|P_k(c)|\ge0,
+\]
+and
+\[
+\beta(c)
+=
+\frac{R_\Lambda(N)}q
++P_{\mathrm{Nyq}}(c)
+-\sum_k|P_k(c)|.
+\]
+Thus this realization satisfies both additivity and nonnegativity. Frequency dominance induces precedence. Exact-budget frequency retention realizes the cardinality-constrained search model. Leave-one-out channel margin tests generate mandatory frequency sets; precedence closure then generates graph, hypergraph, and minimal-obstruction relaxations.
+
+\section{Prime-Valuation Addition-Fiber Application}
+
+The arithmetic realization begins with prime-valuation addition fibers and von Mangoldt observables. Reduced residue channels admit an exact finite Fourier decomposition after effective-period reduction. A retained-frequency lower bound is compared with an independently bounded higher-prime-power contamination term. The \COF{} layer then selects frequencies while preserving exact finite-search certification.
+
+The implementation was checked on a stated finite benchmark against exhaustive frequency selection, with zero optimum mismatches and zero false prime-pair certificates in the recorded runs. These computations validate the implementation only on that finite range; they do not prove an asymptotic statement or an open conjecture.
+
+\section{Dependency and Evidence Protocol}
+
+Every theorem is classified by whether it requires finite certificate language, additive representation, nonnegative contributions, feasibility-preserving exchange, componentwise dominance, acyclic precedence and rank termination, exact or at-most cardinality budget, an admissible upper bound, sound mandatory sets, a downward-closed resource family, Fourier input, or PVG/arithmetic input.
+
+The proof layer and executable layer remain separate. Executable verifiers may validate exhaustive-optimum agreement, bound behavior on tested nodes, precedence consistency, minimality and coverage of obstructions, and false-certificate counts. They do not substitute for the abstract proofs.
+
+The repository evidence map is recorded in the governance document
+\begin{center}
+\texttt{COF-PAPER-REFERENCE-CROSSLINK-AUDIT-001-v0.1.md}.
+\end{center}
+
+\section{Limitations and Open Directions}
+
+The current framework has one substantial realization. The principal next test is transferability to an independent problem that does not use prime valuations or Fourier number theory.
+
+Other research directions include weighted target objectives, non-cardinality downward-closed resource systems, stronger mandatory-set extraction, dynamically generated obstruction cuts, complexity classifications for restricted incidence structures, approximation guarantees when exact hypergraph optimization is too expensive, and formal verification of the finite core theorems. These are directions, not established results of this version.
+
+\section{Conclusion}
+
+Certificate optimization separates naturally into a proof layer and a search layer. The proof layer defines sound lower bounds and thresholds. The search layer exploits monotonicity, feasibility-preserving dominance, admissible upper bounds, mandatory requirements, and minimal obstructions without changing what counts as a certificate.
+
+The abstract results are finite and exact under their stated assumptions. The Fourier/PVG realization demonstrates that the framework organizes a nontrivial arithmetic certification problem. Broader claims await an independent transfer study.
+
+% External bibliography intentionally deferred until the literature-positioning audit.
+
+\end{document}
