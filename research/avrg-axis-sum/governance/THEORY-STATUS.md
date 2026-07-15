@@ -91,20 +91,72 @@ D_{N,r_s}
 \end{pmatrix}.
 \]
 
-Targets:
+#### Completed for two moduli
 
-1. exact rank for two moduli;
-2. kernel description;
-3. graph/incidence representation;
-4. singular spectrum and conditioning;
-5. comparison with the coupled joint-signature operator \(J_{N;\mathbf r}\).
+1. **Graph/incidence representation — proved.**
+   The nonzero-row matrix of \(M_{N;(r,s)}\) is the unsigned vertex-edge incidence matrix of the realized bipartite residue-coupling multigraph \(G_{N;r,s}\).
 
-Current classification: `ACTIVE RESEARCH — NO GENERAL THEOREM CLAIM YET`.
+2. **Exact rank — proved.**
+   \[
+   \operatorname{rank}M_{N;(r,s)}
+   =|U|+|V|-c(G_{N;r,s}).
+   \]
+
+3. **Full-period rank formula — proved.** If
+   \[
+   q_r=\frac r{\gcd(2,r)},\qquad
+   q_s=\frac s{\gcd(2,s)},
+   \]
+   and \(N-1\ge\operatorname{lcm}(q_r,q_s)\), then
+   \[
+   \operatorname{rank}M_{N;(r,s)}
+   =q_r+q_s-\gcd(q_r,q_s).
+   \]
+
+4. **Kernel description — proved.**
+   \[
+   \ker M_{N;(r,s)}
+   =\text{alternating cycle space of }G_{N;r,s}.
+   \]
+
+5. **Natural basis — proved.** Fundamental alternating cycles relative to any spanning forest form a basis of the kernel.
+
+6. **Injectivity criterion — proved.**
+   \[
+   M_{N;(r,s)}\text{ is injective}
+   \iff
+   G_{N;r,s}\text{ is a forest}.
+   \]
+
+7. **Finite verification — PASS.**
+   - rank theorem verifier: 53,100 triples, zero mismatches;
+   - kernel/nullity verifier: 8,704 triples, zero mismatches.
+
+Controlling files:
+
+- `theory/MARGINAL-TWO-MODULUS-GRAPH-RANK-THEOREM-v1.1.md`;
+- `theory/MARGINAL-TWO-MODULUS-KERNEL-CYCLE-BASIS-v1.1.md`;
+- `code/verify_marginal_two_modulus_graph_rank.py`;
+- `code/verify_marginal_two_modulus_kernel_cycles.py`;
+- `results/marginal_two_modulus_graph_rank_verification_v1.1.json`;
+- `results/marginal_two_modulus_kernel_cycle_verification_v1.1.json`.
+
+#### Current target
+
+**ACTIVE-001-C — Singular spectrum and conditioning.**
+
+Determine the nonzero singular values of \(M_{N;(r,s)}\) through the signless Laplacian of the bipartite incidence graph, with exact formulas for tractable graph families and honest bounds in general.
+
+#### Still open
+
+- exact closed forms for arbitrary modulus families with three or more marginals;
+- optimal conditioning under a measurement budget;
+- comparison of marginal and coupled joint-signature information beyond rank;
+- structured prime-supported weight classes.
 
 ### Deferred but available after ACTIVE-001
 
 - character-row factorization through residue channels;
-- natural kernel bases;
 - restricted stable reconstruction;
 - structured prime-supported weights;
 - inter-fiber maps only after explicit definitions.
