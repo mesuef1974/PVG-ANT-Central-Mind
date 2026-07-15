@@ -97,15 +97,16 @@ They are recorded only in `IMPORTANT-IDEAS-TODO.md`.
 ## 8. Freeze completion checklist
 
 1. Canonical notation ledger — **complete**.
-2. Canonical definitions and theorem statements — **repairs integrated except textual N=2 edge-case insertion pending**.
+2. Canonical definitions and theorem statements — **complete; all audit repairs integrated**.
 3. Hand-checkable examples \(N=10,12,24,30\) — **complete**.
-4. Proof audit for hypotheses, edge cases, and hidden conventions — **second pass found and recorded the N=2 phase exception**.
-5. Dependency and numbering audit — **complete; PASS subject to N=2 textual repair**.
+4. Proof audit for hypotheses, edge cases, and hidden conventions — **complete through second pass**.
+5. Dependency and numbering audit — **complete; PASS**.
 6. Theorem-to-evidence and computational cross-links — **complete**.
 7. Dedicated joint-modulus worked example for T6, T7, and C2 — **complete**.
 8. Focused literature review — **complete at preliminary scope**.
-9. Integrated Paper 1 draft — **complete, with N=2 textual repair pending**.
-10. Final Paper 1 integration audit — **in progress**.
+9. Integrated Paper 1 draft — **complete under the current freeze scope**.
+10. Final textual consistency audit — **complete; PASS-WITH-GOVERNANCE-HOLD**.
+11. Theory-freeze lift — **not automatic; explicit governance decision required**.
 
 ## 9. Evidence coverage outcome
 
@@ -131,9 +132,10 @@ They are recorded only in `IMPORTANT-IDEAS-TODO.md`.
 - No counterexample was found to the rank, reconstruction, convolution, symmetry, or joint-signature results.
 - Joint-signature codomain is explicit.
 - General injectivity and zero-frequency criteria are integrated.
-- The unqualified phase-constancy statement required an \(N=2\) exception; the controlling repair is `EDGE-CASE-REPAIR-N2-PHASE-CONSTANCY.md`.
+- The \(N=2\) phase exception is integrated directly into both the canonical core and Paper 1.
 - Character-row redundancy remains correctly deferred.
-- Numbering, dependencies, hidden conventions, and evidence cross-links otherwise pass the current structural audit.
+- Numbering, dependencies, hidden conventions, evidence cross-links, and canonical/paper textual consistency pass the current structural audit.
+- Final consistency certificate: `PAPER-001-TEXTUAL-CONSISTENCY-AUDIT-v1.md`.
 
 ## 12. Scientific ceiling
 
