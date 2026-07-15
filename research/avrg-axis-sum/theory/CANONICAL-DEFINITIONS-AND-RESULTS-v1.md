@@ -43,9 +43,7 @@ This is the uniqueness part of the fundamental theorem of arithmetic.
 For \(N\ge2\), define
 
 \[
-\mathcal F_N^+
-=
-\{(a,b)\in\mathbb N_{\ge1}^2:a+b=N\}.
+\mathcal F_N^+=\{(a,b)\in\mathbb N_{\ge1}^2:a+b=N\}.
 \]
 
 ### Definition 2.2 (prime-valuation addition fiber)
@@ -54,18 +52,15 @@ Define
 
 \[
 \mathcal G_N
-=
-(\nu\times\nu)(\mathcal F_N^+)
-=
-\{(\nu(a),\nu(N-a)):1\le a\le N-1\}.
+=(\nu\times\nu)(\mathcal F_N^+)
+=\{(\nu(a),\nu(N-a)):1\le a\le N-1\}.
 \]
 
 Equivalently,
 
 \[
 \mathcal G_N
-=
-\{(x,y)\in(\mathbb N_0^{(\mathbb P)})^2:\rho(x)+\rho(y)=N\}.
+=\{(x,y)\in(\mathbb N_0^{(\mathbb P)})^2:\rho(x)+\rho(y)=N\}.
 \]
 
 ### Theorem 2.3 (no-information-loss theorem)
@@ -118,9 +113,7 @@ Define
 
 \[
 \mu_N
-=
-\sum_{a=1}^{N-1}
-\delta_{(\nu(a),\nu(N-a))}.
+=\sum_{a=1}^{N-1}\delta_{(\nu(a),\nu(N-a))}.
 \]
 
 ### Definition 3.2 (valuation lift)
@@ -136,9 +129,7 @@ For an arithmetic function \(f:\mathbb N\to\mathbb C\), define
 For arithmetic functions \(f,g\), define
 
 \[
-(f*_+g)(N)
-=
-\sum_{a=1}^{N-1}f(a)g(N-a).
+(f*_+g)(N)=\sum_{a=1}^{N-1}f(a)g(N-a).
 \]
 
 ### Theorem 3.4 (fiber convolution identity)
@@ -147,9 +138,7 @@ For every \(N\ge2\),
 
 \[
 (f*_+g)(N)
-=
-\int_{\mathcal G_N}
-\widehat f(x)\widehat g(y)\,d\mu_N(x,y).
+=\int_{\mathcal G_N}\widehat f(x)\widehat g(y)\,d\mu_N(x,y).
 \]
 
 #### Proof
@@ -157,8 +146,7 @@ For every \(N\ge2\),
 By Definition 3.1, the right-hand side equals
 
 \[
-\sum_{a=1}^{N-1}
- f(\rho(\nu(a)))g(\rho(\nu(N-a))).
+\sum_{a=1}^{N-1}f(\rho(\nu(a)))g(\rho(\nu(N-a))).
 \]
 
 Apply Proposition 1.3.
@@ -241,8 +229,7 @@ by
 
 \[
 (D_{N,r}w)_d
-=
-\sum_{\substack{1\le a\le N-1\\2a-N\equiv d\pmod r}}w_a,
+=\sum_{\substack{1\le a\le N-1\\2a-N\equiv d\pmod r}}w_a,
 \qquad d\in\mathbb Z/r\mathbb Z.
 \]
 
@@ -252,8 +239,7 @@ For every \(N\ge2\) and \(r\ge1\),
 
 \[
 \operatorname{rank}D_{N,r}
-=
-\min\!\left(N-1,\frac r{\gcd(2,r)}\right).
+=\min\!\left(N-1,\frac r{\gcd(2,r)}\right).
 \]
 
 #### Proof
@@ -286,26 +272,45 @@ Thus the rank equals the number of distinct residue classes modulo \(r/g\) met b
 
 \[
 \dim\ker D_{N,r}
-=
-N-1-\min\!\left(N-1,\frac r{\gcd(2,r)}\right).
+=N-1-\min\!\left(N-1,\frac r{\gcd(2,r)}\right).
 \]
 
-### Corollary 5.6 (full reconstruction for a large odd modulus)
+### Corollary 5.6 (exact injectivity criterion)
 
-If \(r\) is odd and \(r\ge N-1\), then \(D_{N,r}\) is injective. Moreover,
+The operator \(D_{N,r}\) is injective if and only if
+
+\[
+\frac r{\gcd(2,r)}\ge N-1.
+\]
+
+When this condition holds,
 
 \[
 w_a=(D_{N,r}w)_{2a-N\pmod r}.
 \]
 
-### Proposition 5.7 (Fourier equivalence)
+In particular, every odd modulus \(r\ge N-1\) gives full reconstruction.
+
+### Proposition 5.7 (zero-frequency identity)
+
+For every \(w\in V_N\),
+
+\[
+\sum_{d\bmod r}(D_{N,r}w)_d
+=\sum_{a=1}^{N-1}w_a.
+\]
+
+#### Proof
+
+Every index \(a\in\{1,\dots,N-1\}\) belongs to exactly one residue channel.
+
+### Proposition 5.8 (Fourier equivalence)
 
 Let \(F_r\) be the full discrete Fourier transform on \(\mathbb Z/r\mathbb Z\). Then
 
 \[
 \operatorname{rank}(F_rD_{N,r})
-=
-\operatorname{rank}D_{N,r}.
+=\operatorname{rank}D_{N,r}.
 \]
 
 #### Proof
@@ -316,10 +321,25 @@ The discrete Fourier matrix \(F_r\) is invertible.
 
 ### Definition 6.1 (joint-signature operator)
 
-For a modulus family \(\mathbf r=(r_1,\dots,r_s)\), the joint-signature operator \(J_{N;\mathbf r}\) groups weights by the full tuple
+For a modulus family \(\mathbf r=(r_1,\dots,r_s)\), let
 
 \[
-(d_{N,r_1}(a),\dots,d_{N,r_s}(a)).
+\Sigma_{\mathbf r}
+=\{(d_{N,r_1}(a),\dots,d_{N,r_s}(a)):1\le a\le N-1\}.
+\]
+
+Define
+
+\[
+J_{N;\mathbf r}:V_N\to\mathbb C^{\Sigma_{\mathbf r}}
+\]
+
+by
+
+\[
+(J_{N;\mathbf r}w)_\eta
+=\sum_{\substack{1\le a\le N-1\\(d_{N,r_1}(a),\dots,d_{N,r_s}(a))=\eta}}w_a,
+\qquad \eta\in\Sigma_{\mathbf r}.
 \]
 
 Let
@@ -332,13 +352,24 @@ L=\operatorname{lcm}(r_1,\dots,r_s).
 
 \[
 \operatorname{rank}J_{N;\mathbf r}
-=
-\min\!\left(N-1,\frac L{\gcd(2,L)}\right).
+=\min\!\left(N-1,\frac L{\gcd(2,L)}\right).
 \]
 
 #### Proof
 
-By the Chinese remainder compatibility conditions, the full residue signature is equivalent to the single difference residue modulo \(L\). Apply Theorem 5.4 with \(r=L\).
+Two indices \(a,b\) have the same joint signature exactly when
+
+\[
+2(a-b)\equiv0\pmod{r_j}
+\]
+
+for every \(j\), equivalently when
+
+\[
+2(a-b)\equiv0\pmod L.
+\]
+
+Apply Theorem 5.4 with modulus \(L\).
 
 ### Corollary 6.3 (joint reconstruction criterion)
 
@@ -350,7 +381,7 @@ The operator \(J_{N;\mathbf r}\) is injective if and only if
 
 ### Proposition 6.4 (conditioning in the injective case)
 
-After deleting zero rows and reordering the remaining rows, an injective joint-signature matrix is the identity matrix. Hence all its singular values are \(1\) and
+After ordering the rows of \(\mathbb C^{\Sigma_{\mathbf r}}\) by the unique indices they represent, an injective joint-signature matrix is a permutation matrix. Hence all its singular values are \(1\) and
 
 \[
 \kappa_2(J_{N;\mathbf r})=1.
@@ -362,8 +393,7 @@ Define
 
 \[
 M_{N;\mathbf r}
-=
-\begin{pmatrix}
+=\begin{pmatrix}
 D_{N,r_1}\\
 \vdots\\
 D_{N,r_s}
@@ -380,11 +410,10 @@ Using \(e(t)=e^{2\pi i t}\), define
 
 \[
 \mathcal A_\alpha w(N)
-=
-\sum_{a=1}^{N-1}w_a e(\alpha(2a-N)).
+=\sum_{a=1}^{N-1}w_a e(\alpha(2a-N)).
 \]
 
-### Proposition 7.2 (nontriviality and symmetric-phase correction)
+### Proposition 7.2 (symmetric-phase correction and constancy criterion)
 
 On a fixed fiber,
 
@@ -392,9 +421,15 @@ On a fixed fiber,
 e(\alpha a)e(\alpha(N-a))=e(\alpha N)
 \]
 
-is constant. Therefore the symmetric product phase cannot produce a nontrivial spectral observable on a fixed exact fiber. The difference phase in Definition 7.1 is generally nonconstant.
+is constant. Thus the symmetric product phase cannot produce a nontrivial spectral observable on a fixed exact fiber.
 
-## 8. Approved open problems
+The difference phase \(a\mapsto e(\alpha(2a-N))\) is constant on all indices \(a=1,\dots,N-1\) if and only if \(2\alpha\in\mathbb Z\). Otherwise it is nonconstant whenever \(N\ge3\).
+
+#### Proof
+
+The ratio of consecutive phase values is \(e(2\alpha)\). Hence all values are equal exactly when \(e(2\alpha)=1\), equivalently \(2\alpha\in\mathbb Z\).
+
+## 8. Approved open problems and deferred observations
 
 ### Open Problem 8.1 (marginal rank)
 
@@ -411,6 +446,10 @@ Under an explicit structured class of weights or a fixed observable budget, dete
 ### Open Problem 8.4 (literature priority)
 
 Determine precisely which components of this combined addition-fiber and reconstruction framework have precedents in the literature.
+
+### Deferred Observation 8.5 (Dirichlet-character rows)
+
+The claim that Dirichlet-character rows are information-redundant relative to complete difference-channel data is not part of the proved core in this version. It requires an explicit operator definition and proof and remains deferred during `THEORY-FREEZE-v1.0`.
 
 ## 9. Frozen items
 
