@@ -1,0 +1,28 @@
+{
+  "schema": "pvg.local-channel-hpp-contamination-verification.v1",
+  "status": "PASS",
+  "N_range": [2, 1000],
+  "modulus_range": [1, 30],
+  "channel_checks": 464535,
+  "bound_mismatches": 0,
+  "certificate_successes": 96511,
+  "false_certificates": 0,
+  "prime_positive_channels": 112179,
+  "maximum_observed_contamination_to_bound_ratio": 0.9990969606848572,
+  "maximum_ratio_case": {
+    "N": 681,
+    "r": 29,
+    "d": 6,
+    "contamination": 4.517705466635693,
+    "bound": 4.5217888197146685,
+    "von_mangoldt_channel_mass": 4.517705466635693,
+    "prime_prime_channel_mass": 0.0
+  },
+  "tolerance": 1e-9,
+  "notes": [
+    "The local bound held in every tested channel.",
+    "Every successful sufficient certificate had positive prime-prime channel mass.",
+    "The certificate is not necessary: some prime-positive channels do not exceed the bound.",
+    "The near-saturation case at N=681 is not a false certificate because the strict inequality is not satisfied."
+  ]
+}
