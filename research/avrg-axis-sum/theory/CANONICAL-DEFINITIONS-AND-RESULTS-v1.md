@@ -423,11 +423,11 @@ e(\alpha a)e(\alpha(N-a))=e(\alpha N)
 
 is constant. Thus the symmetric product phase cannot produce a nontrivial spectral observable on a fixed exact fiber.
 
-The difference phase \(a\mapsto e(\alpha(2a-N))\) is constant on all indices \(a=1,\dots,N-1\) if and only if \(2\alpha\in\mathbb Z\). Otherwise it is nonconstant whenever \(N\ge3\).
+If \(N=2\), the fiber has a single index and the difference phase is constant for every \(\alpha\). If \(N\ge3\), the difference phase \(a\mapsto e(\alpha(2a-N))\) is constant on all indices \(a=1,\dots,N-1\) if and only if \(2\alpha\in\mathbb Z\).
 
 #### Proof
 
-The ratio of consecutive phase values is \(e(2\alpha)\). Hence all values are equal exactly when \(e(2\alpha)=1\), equivalently \(2\alpha\in\mathbb Z\).
+For \(N=2\), there is only the index \(a=1\). For \(N\ge3\), at least two consecutive indices occur, and the ratio of consecutive phase values is \(e(2\alpha)\). Hence all values are equal exactly when \(e(2\alpha)=1\), equivalently \(2\alpha\in\mathbb Z\).
 
 ## 8. Approved open problems and deferred observations
 
