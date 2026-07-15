@@ -6,18 +6,19 @@ Release date: 2026-07-16
 
 | Repository target path | Size (bytes) | SHA-256 |
 |---|---:|---|
-| `manuscript/missing-axis-final.docx` | 113329 | `f17b0e7d50ff1b47207a1a0359800d8c922c9f846fe31024579e133989417a99` |
-| `pdf/missing-axis-final-interior.pdf` | 1121833 | `8e5959476eba53f402bcdd0bc54b506b855e1910f6ff502a0ca363e392c10317` |
-| `pdf/missing-axis-complete-review.pdf` | 1229928 | `45df74b60e5e6465b1c97ddc0d951d6199be0589af3cf9c5c4c09221d0e8730f` |
+| `manuscript/missing-axis-approved-final.docx` | 114851 | `d0e2ba131079be8d7d363280cb41a664c0dd088fdde0db8b0268ab25220d1ac0` |
+| `pdf/missing-axis-approved-final-interior.pdf` | 1122559 | `a706a447dd132a6ce7f6d62caabe1ddba451aa626bae29c21f8bc20833873f88` |
+| `pdf/missing-axis-approved-complete-review.pdf` | 1130771 | `b394050cf8c4d2a5669288d7c5ac9eeb945a132969b2404ccfa8de7107ed4c19` |
 | `cover/missing-axis-cover-wrap-proof-300dpi.pdf` | 1484062 | `aad1fcf865ad3141d26b6e4fa2814d004fd0ea35e03828aad8cddeb309be718d` |
 | `cover/missing-axis-front.png` | 360511 | `629d8034ac6db318025e011c79b25c62f2d6061c6329960cc31692e717bd1a9c` |
-| `cover/missing-axis-back.png` | 338498 | `aa971870b9a9a2f42421057ca4d12477563d3d8a621336b443ae7381a1351927` |
+| `cover/missing-axis-back-final.png` | 374408 | `f6e08eba558b0435bb26bc9c5d1b5fe2335f4491f4accef163b6f0af8b44776d` |
 | `design/design-philosophy.md` | 1961 | `02787fd9eb60c9299d732d9782435a420f14a9e30144b5fb472359ab490c49b2` |
 
 ## Verification
 
-- DOCX was rendered through LibreOffice and visually reviewed as 122 interior pages.
-- Complete review PDF contains 124 pages: front cover + 122-page interior + back cover.
+- The newly uploaded approved DOCX was rendered through LibreOffice and visually reviewed as 122 interior pages.
+- The approved complete review PDF contains 124 pages: front cover + 122-page interior + final back cover.
+- All 124 PDF pages use a consistent 595 x 842 point page size.
 - PDF opens successfully and is not encrypted.
 - Back-cover author line is fixed as: `سفيان أحمد مسيف، معلم رياضيات.`
 
