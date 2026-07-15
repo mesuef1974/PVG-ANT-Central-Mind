@@ -99,15 +99,16 @@ They are recorded only in `IMPORTANT-IDEAS-TODO.md`.
 3. Hand-checkable examples \(N=10,12,24,30\) — **complete**.
 4. Proof audit for hypotheses, edge cases, and hidden conventions — **first pass complete**.
 5. Dependency and numbering audit — **complete; PASS**.
-6. Theorem-to-evidence and computational cross-links — **complete for the single-modulus theory**.
-7. Dedicated joint-modulus worked example for T6, T7, and C2 — **next; documentation/test task only**.
-8. Focused literature review before any priority claim — **pending**.
+6. Theorem-to-evidence and computational cross-links — **complete**.
+7. Dedicated joint-modulus worked example for T6, T7, and C2 — **complete**.
+8. Focused literature review before any priority claim — **next**.
+9. Final Paper 1 integration audit — **pending**.
 
 ## 9. Evidence coverage outcome
 
-- T1, T2, T3, T4, T5, C1, C3, R1, and R2 have proof plus hand-checkable evidence.
+- T1, T2, T3, T4, T5, T6, T7, C1, C2, C3, R1, and R2 have proof plus hand-checkable evidence.
 - T4, T5, C1, and C3 are additionally linked to a finite verifier covering 9,900 pairs \((N,r)\) with \(2\le N\le100\) and \(1\le r\le100\), with zero rank mismatches.
-- T6, T7, and C2 are proved, but still need one dedicated worked joint-modulus example for exposition and test coverage.
+- T6, T7, and C2 are now linked to `JOINT-MODULUS-WORKED-EXAMPLE-N10-R3-R5.md`, where neither individual modulus is injective but the coupled signature has rank \(9\) and condition number \(1\).
 - T8 follows from invertibility of the full DFT and does not require a numerical certificate.
 - P1 remains correctly excluded from the proved core.
 - Canonical evidence registry: `THEOREM-EVIDENCE-CROSSLINKS-v1.md`.
