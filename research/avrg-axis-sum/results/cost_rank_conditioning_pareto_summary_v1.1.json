@@ -1,0 +1,51 @@
+{
+  "schema": "pvg.modulus-design.cost-rank-conditioning-pareto.v1",
+  "status": "PASS",
+  "candidate_periods": [2,3,4,5,6,7,8,9,10,11,12],
+  "cost_model": "cost(q)=q",
+  "tolerance": 1e-9,
+  "selected_N": [8,12,16,24,30],
+  "designs_per_instance": 2048,
+  "total_designs_enumerated": 10240,
+  "instances": {
+    "8": {
+      "pareto_count": 7,
+      "full_rank_count": 1988,
+      "minimum_cost_full_rank": {"periods":[7],"cost":7,"sigma_min_positive":1.0,"kappa_positive":1.0},
+      "best_conditioned_full_rank": {"periods":[7],"cost":7,"sigma_min_positive":1.0,"kappa_positive":1.0}
+    },
+    "12": {
+      "pareto_count": 10,
+      "full_rank_count": 1804,
+      "minimum_cost_full_rank": {"periods":[11],"cost":11,"sigma_min_positive":1.0,"kappa_positive":1.0},
+      "best_conditioned_full_rank": {"periods":[11],"cost":11,"sigma_min_positive":1.0,"kappa_positive":1.0}
+    },
+    "16": {
+      "pareto_count": 17,
+      "full_rank_count": 1536,
+      "minimum_cost_full_rank_designs": [
+        {"periods":[7,9],"cost":16,"sigma_min_positive":0.2090569265353069,"kappa_positive":10.014120632045111},
+        {"periods":[5,11],"cost":16,"sigma_min_positive":0.23742811978921868,"kappa_positive":9.092628594339878}
+      ],
+      "best_conditioned_full_rank": {"periods":[7,9,11],"cost":27,"sigma_min_positive":0.5994623910441976,"kappa_positive":4.044864869684231}
+    },
+    "24": {
+      "pareto_count": 34,
+      "full_rank_count": 708,
+      "minimum_cost_full_rank": {"periods":[5,9,11],"cost":25,"sigma_min_positive":0.028496490639944812,"kappa_positive":108.71339758236338},
+      "best_conditioned_full_rank": {"periods":[7,9,11],"cost":27,"sigma_min_positive":0.08906420312558164,"kappa_positive":32.375612700268675}
+    },
+    "30": {
+      "pareto_count": 52,
+      "full_rank_count": 116,
+      "minimum_cost_full_rank": {"periods":[5,7,9,11],"cost":32,"sigma_min_positive":0.001050420228567381,"kappa_positive":3427.394714493557},
+      "best_conditioned_full_rank": {"periods":[7,8,9,11,12],"cost":47,"sigma_min_positive":0.008030892653120014,"kappa_positive":589.013019951735}
+    }
+  },
+  "observations": [
+    "Minimum-cost full-rank design and best-conditioned full-rank design can differ.",
+    "At N=24, increasing cost from 25 to 27 reduces kappa from about 108.71 to about 32.38.",
+    "At N=30, full rank inside the restricted candidate pool can remain severely ill-conditioned.",
+    "All conclusions are conditional on the declared candidate pool, cost model, and SVD tolerance."
+  ]
+}
