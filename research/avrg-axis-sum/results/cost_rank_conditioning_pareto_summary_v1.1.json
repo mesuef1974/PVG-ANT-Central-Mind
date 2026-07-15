@@ -38,7 +38,7 @@
     "30": {
       "pareto_count": 52,
       "full_rank_count": 116,
-      "minimum_cost_full_rank": {"periods":[5,7,9,11],"cost":32,"sigma_min_positive":0.001050420228567381,"kappa_positive":3427.394714493557},
+      "minimum_cost_full_rank": {"periods":[5,7,9,11],"cost":32,"sigma_min_positive":0.00206701465171909,"kappa_positive":1938.1830536516804},
       "best_conditioned_full_rank": {"periods":[7,8,9,11,12],"cost":47,"sigma_min_positive":0.008030892653120014,"kappa_positive":589.013019951735}
     }
   },
