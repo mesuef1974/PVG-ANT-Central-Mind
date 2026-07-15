@@ -1,0 +1,15 @@
+{
+  "theorem": "multi-modulus exact marginal rank via Fourier-subgroup union",
+  "cases_checked": 5220,
+  "family_case_counts": {
+    "2": 1595,
+    "3": 2436,
+    "4": 1015,
+    "5": 174
+  },
+  "mismatch_count": 0,
+  "maximum_rank_error": 0,
+  "maximum_observed_rank_gap": 21,
+  "status": "PASS",
+  "mismatch_examples": []
+}
