@@ -1,0 +1,19 @@
+{
+  "verification": "MARGINAL-TWO-MODULUS-GRAPH-RANK-THEOREM-v1.1",
+  "range": {
+    "N_min": 2,
+    "N_max": 60,
+    "r_min": 1,
+    "r_max": 30,
+    "s_min": 1,
+    "s_max": 30
+  },
+  "verified_parameter_triples": 53100,
+  "verified_full_period_cases": 16567,
+  "graph_rank_formula": "rank M_{N;(r,s)} = |U| + |V| - c(G_{N;r,s})",
+  "full_period_formula": "rank M_{N;(r,s)} = q_r + q_s - gcd(q_r,q_s) when N-1 >= lcm(q_r,q_s)",
+  "rank_mismatch_count": 0,
+  "full_period_mismatch_count": 0,
+  "status": "PASS",
+  "scientific_ceiling": "Finite verification of independently proved linear-algebraic statements; no Goldbach, prime-producing, RH, or GRH claim."
+}
