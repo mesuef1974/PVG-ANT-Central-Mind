@@ -1,0 +1,23 @@
+{
+  "candidate_universes": 5,
+  "submodularity_checks": 24570,
+  "submodularity_mismatches": 0,
+  "optimization_instances": 1440,
+  "greedy_suboptimal_instances": 83,
+  "first_greedy_counterexample": {
+    "candidate_effective_moduli": [2, 3, 4, 5, 6],
+    "N": 8,
+    "budget": 8,
+    "greedy": {
+      "selection": [6],
+      "rank": 6,
+      "cost": 6
+    },
+    "optimal": {
+      "selection": [3, 5],
+      "rank": 7,
+      "cost": 8
+    }
+  },
+  "status": "PASS"
+}
