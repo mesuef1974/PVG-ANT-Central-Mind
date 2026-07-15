@@ -101,19 +101,29 @@ They are recorded only in `IMPORTANT-IDEAS-TODO.md`.
 5. Dependency and numbering audit — **complete; PASS**.
 6. Theorem-to-evidence and computational cross-links — **complete**.
 7. Dedicated joint-modulus worked example for T6, T7, and C2 — **complete**.
-8. Focused literature review before any priority claim — **next**.
-9. Final Paper 1 integration audit — **pending**.
+8. Focused literature review — **complete at preliminary scope**.
+9. Final Paper 1 integration audit — **next**.
 
 ## 9. Evidence coverage outcome
 
 - T1, T2, T3, T4, T5, T6, T7, C1, C2, C3, R1, and R2 have proof plus hand-checkable evidence.
 - T4, T5, C1, and C3 are additionally linked to a finite verifier covering 9,900 pairs \((N,r)\) with \(2\le N\le100\) and \(1\le r\le100\), with zero rank mismatches.
-- T6, T7, and C2 are now linked to `JOINT-MODULUS-WORKED-EXAMPLE-N10-R3-R5.md`, where neither individual modulus is injective but the coupled signature has rank \(9\) and condition number \(1\).
+- T6, T7, and C2 are linked to `JOINT-MODULUS-WORKED-EXAMPLE-N10-R3-R5.md`.
 - T8 follows from invertibility of the full DFT and does not require a numerical certificate.
 - P1 remains correctly excluded from the proved core.
 - Canonical evidence registry: `THEOREM-EVIDENCE-CROSSLINKS-v1.md`.
 
-## 10. Audit outcome
+## 10. Literature-review outcome
+
+- Standard antecedents exist for valuation/exponent vectors, additive representation functions, modular aggregation, CRT, finite Fourier analysis, and grouped-sum reconstruction.
+- No precise precedent for the full package was identified in the focused search.
+- This negative search result does not establish novelty.
+- `NOVELTY CLAIM = NOT AUTHORIZED`.
+- `PRIORITY CLAIM = NOT AUTHORIZED`.
+- Preliminary review: `research/avrg-axis-sum/literature/FOCUSED-LITERATURE-REVIEW-v1.md`.
+- A broader MathSciNet/zbMATH/citation-chain review remains required before external submission.
+
+## 11. Audit outcome
 
 - No counterexample was found to the canonical proved results.
 - Joint-signature codomain is explicit.
@@ -122,6 +132,6 @@ They are recorded only in `IMPORTANT-IDEAS-TODO.md`.
 - Character-row redundancy remains correctly deferred.
 - Numbering, dependencies, hidden conventions, and evidence cross-links pass the current structural audit.
 
-## 11. Scientific ceiling
+## 12. Scientific ceiling
 
 No result in this ledger proves Goldbach, improves a known major-arc or minor-arc bound, or constitutes progress on RH/GRH. The current contribution is an exact framework, rank/reconstruction theory for defined channel operators, and a governed research program.
