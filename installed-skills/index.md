@@ -8,7 +8,7 @@
 |---|---|---|
 | `SKILL-MATH-ANT-001` | analytic-number-theory | installed |
 | `SKILL-MATH-PVG-001` | prime-valuation-geometry | conceptual |
-| `SKILL-MATH-PVG-AXIS-ADD-001` | pvg-axis-addition-fibers | installed specialist |
+| `SKILL-MATH-PVG-AXIS-ADD-001` | pvg-axis-addition-fibers | installed interface / unbenchmarked |
 | `SKILL-MATH-RIGOR-001` | solve-math-rigorously | installed |
 | `SKILL-MATH-POLYMATH-001` | polymath-advanced-math | installed |
 | `SKILL-MATH-LATEX-001` | latex | installed |
@@ -32,7 +32,16 @@ Competence gate:
 
 `benchmarks/PVG-AXIS-ADDITION-SPECIALIST-BENCHMARK-001.md`
 
-The skill is backed by the full governed research trees `research/avrg-axis-sum/` and `research/certificate-optimization-framework/`. Its installed status means the Central Mind must route relevant questions through the exact fiber/channel/certificate protocol, not that historical novelty or Goldbach progress has been established.
+The skill is backed by the governed research trees `research/avrg-axis-sum/` and `research/certificate-optimization-framework/`.
+
+Its status has two separate meanings:
+
+```text
+interface installation = complete
+hidden competence validation = not run
+```
+
+Therefore the Central Mind must route relevant questions through the fiber/channel/certificate protocol, but it must not claim that an autonomous model has passed the specialist benchmark. Historical novelty, broad COF transfer, Goldbach progress, and RH/GRH progress are also not established.
 
 ## Governance layer (4) — higher authority
 
@@ -50,5 +59,7 @@ The skill is backed by the full governed research trees `research/avrg-axis-sum/
 ## صدقُ الحالة
 
 `conceptual` = دورٌ/طبقةٌ في العقل لا مهارةٌ مثبَّتةٌ مستقلّة؛ الحقلُ `backed_by` في `skills.jsonl` يذكر ما يسندها. لا ندّعي وجودَ مهارةٍ غيرِ مثبَّتة.
+
+`installed interface / unbenchmarked` = بطاقة ومسار توجيه موجودان في العقل، لكن الأداء الذاتي الخفي لم يُقَس بعد.
 
 **Honest classification:** Diagnostic (skill interface index). No Goldbach proof and no RH/GRH progress.
