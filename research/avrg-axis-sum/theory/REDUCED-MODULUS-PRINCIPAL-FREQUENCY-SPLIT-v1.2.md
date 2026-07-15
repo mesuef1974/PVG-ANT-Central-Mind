@@ -123,12 +123,27 @@ Z(c)
 Let
 
 \[
-C_{N,q}(c)
+H_{N,q}(c)
 =
-\log N\bigl(H_{N,q}(c)+H_{N,q}(-c)\bigr)
+\sum_{\substack{1\le a<N\\a\equiv c\, (\mathrm{mod}\,q)\\a=p^m,\ m\ge2}}
+\log p.
 \]
 
-be the local higher-prime-power contamination bound in the reduced residue coordinate.
+In the residue coordinate \(a\equiv c\pmod q\), the complementary summand satisfies
+
+\[
+N-a\equiv N-c\pmod q.
+\]
+
+Therefore the correct local higher-prime-power contamination bound is
+
+\[
+C_{N,q}(c)
+=
+\log N\bigl(H_{N,q}(c)+H_{N,q}(N-c)\bigr),
+\]
+
+where residues are interpreted modulo \(q\).
 
 If
 
