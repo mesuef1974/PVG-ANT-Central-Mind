@@ -13,7 +13,7 @@ This file is the canonical classification ledger for the current theory. New con
 - **D5. Fiber counting measure**: \(\mu_N=\sum_{a=1}^{N-1}\delta_{(\nu(a),\nu(N-a))}\).
 - **D6. Fiber weight space**: \(V_N=\mathbb C^{N-1}\), indexed by \(1\le a\le N-1\).
 - **D7. Difference-channel operator**: \((D_{N,r}w)_d=\sum_{2a-N\equiv d\,(\mathrm{mod}\,r)}w_a\).
-- **D8. Joint-modulus channel operator**: channel indexed by the full compatible residue signature across a fixed modulus family; formal codomain repair recorded in `CANONICAL-REPAIRS-v1.md`.
+- **D8. Joint-modulus channel operator**: formally defined on the realized joint-signature set \(\Sigma_{\mathbf r}\).
 - **D9. Marginal stacked operator**: vertical stack of separate operators \(D_{N,r_j}\).
 - **D10. Prime point locus**: \(\mathcal P_1=\{e_p:p\in\mathbb P\}\).
 - **D11. Prime-power axis locus**: \(\mathcal A_1=\{k e_p:p\in\mathbb P,\ k\ge1\}\).
@@ -22,7 +22,7 @@ This file is the canonical classification ledger for the current theory. New con
 ## 2. Proved theorems
 
 - **T1. No-information-loss theorem**: \((a,b)\mapsto(\nu(a),\nu(b))\) is a bijection from \(\mathcal F_N^+\) to \(\mathcal G_N\).
-- **T2. Fiber convolution identity**: for arithmetic functions \(f,g\),
+- **T2. Fiber convolution identity**:
   \[
   (f*_+g)(N)=\int_{\mathcal G_N}\widehat f(x)\widehat g(y)\,d\mu_N.
   \]
@@ -39,32 +39,28 @@ This file is the canonical classification ledger for the current theory. New con
   \[
   \operatorname{rank}J_{N;\mathbf r}=\min\!\left(N-1,\frac L{\gcd(2,L)}\right).
   \]
-- **T7. Joint-modulus conditioning theorem**: when the joint operator is injective, its nonzero singular values are all equal to \(1\), hence \(\kappa_2=1\).
-- **T8. Fourier equivalence of complete difference channels**: applying the full finite Fourier transform to all difference channels preserves rank and information.
+- **T7. Joint-modulus conditioning theorem**: when the joint operator is injective, its singular values are all equal to \(1\), hence \(\kappa_2=1\).
+- **T8. Fourier equivalence of complete difference channels**: applying the full finite Fourier transform preserves rank and information.
 
-## 3. Proved corollaries
+## 3. Proved corollaries and propositions
 
-- **C1. Full single-modulus reconstruction**: the exact criterion is
+- **C1. Exact single-modulus reconstruction criterion**:
   \[
   D_{N,r}\text{ injective}\iff \frac r{\gcd(2,r)}\ge N-1.
   \]
-  In particular, if \(r\) is odd and \(r\ge N-1\), then
+- **C2. Full joint reconstruction**:
   \[
-  w_a=(D_{N,r}w)_{2a-N\, (\mathrm{mod}\,r)}.
+  J_{N;\mathbf r}\text{ injective}\iff \frac L{\gcd(2,L)}\ge N-1.
   \]
-- **C2. Full joint reconstruction**: a joint modulus family is injective iff
-  \[
-  \frac L{\gcd(2,L)}\ge N-1.
-  \]
-- **C3. Zero frequency is redundant**:
+- **C3. Zero-frequency identity**:
   \[
   \sum_{d\bmod r}(D_{N,r}w)_d=\sum_{a=1}^{N-1}w_a.
   \]
-  Under the unnormalized Fourier convention, this is the zero Fourier coordinate.
+- **C4. Difference-phase constancy criterion**: the phase \(a\mapsto e(\alpha(2a-N))\) is constant on the whole fiber exactly when \(2\alpha\in\mathbb Z\).
 
 ## 4. Pending derived observations
 
-- **P1. Character-row redundancy**: the claim that Dirichlet-character rows factor through complete residue-channel data is plausible but is **not yet certified in the canonical Paper 1 core**. It remains pending until the operator, nonunit convention, and exact factorization are defined and proved.
+- **P1. Character-row redundancy**: not certified in the canonical Paper 1 core. It remains deferred until the operator, nonunit convention, and exact factorization are defined and proved.
 
 ## 5. Exact reformulations, not new theorems about primes
 
@@ -74,20 +70,20 @@ This file is the canonical classification ledger for the current theory. New con
   \]
 - **R2. Von Mangoldt support form**: \(\widehat\Lambda\) is supported on \(\mathcal A_1\).
 - **R3. Circle-method bridge**: additive convolution equals a Fourier coefficient of the lifted exponential sum.
-- **R4. Residue-fiber interpretation of major arcs and local factors**: geometric interpretation of standard analytic structure, not a new major-arc estimate.
+- **R4. Residue-fiber interpretation of major arcs and local factors**: interpretation only, not a new estimate.
 
 ## 6. Open problems approved for later activation
 
-- **O1. Marginal stacked rank problem**: determine \(\operatorname{rank}M_{N;\mathbf r}\), its kernel, and its singular spectrum.
-- **O2. Natural-basis problem for invisible deformations**: describe geometrically natural generators for kernels of restricted measurement operators.
-- **O3. Restricted stable reconstruction**: optimize injectivity and conditioning under a fixed observable budget or structured signal class.
-- **O4. Literature-priority problem**: determine whether the combined addition-fiber/reconstruction framework has a precise precedent.
+- **O1. Marginal stacked rank problem**.
+- **O2. Natural-basis problem for invisible deformations**.
+- **O3. Restricted stable reconstruction**.
+- **O4. Literature-priority problem**.
 
 ## 7. Frozen research programs
 
 The following remain outside the accepted core during `THEORY-FREEZE-v1.0`:
 
-- observable algebra beyond definitions required by Paper 1;
+- observable algebra beyond Paper 1;
 - fiber signatures and invariant classification;
 - inter-fiber dynamics, networks, categories, and morphisms;
 - nonlinear manifold models;
@@ -99,24 +95,21 @@ They are recorded only in `IMPORTANT-IDEAS-TODO.md`.
 ## 8. Freeze completion checklist
 
 1. Canonical notation ledger — **complete**.
-2. Canonical definitions and theorem statements — **v1 complete; audit repairs pending integration**.
-3. Hand-checkable examples:
-   - \(N=10\) — **complete**;
-   - \(N=12\) — **complete**;
-   - \(N=24\) — **complete**;
-   - \(N=30\) — **complete**.
+2. Canonical definitions and theorem statements — **repairs integrated**.
+3. Hand-checkable examples \(N=10,12,24,30\) — **complete**.
 4. Proof audit for hypotheses, edge cases, and hidden conventions — **first pass complete**.
-5. Mandatory proof-audit repairs — **recorded; canonical integration next**.
-6. Cross-links from theorems to computational verification — **pending**.
+5. Dependency and numbering audit — **complete; PASS**.
+6. Cross-links from theorems to computational verification — **next**.
 7. Focused literature review before any priority claim — **pending**.
 
 ## 9. Audit outcome
 
-- No counterexample was found to T1–T8.
-- The joint-signature codomain requires formal insertion.
-- The exact phase constancy criterion must replace informal wording.
-- The general injectivity criterion and zero-frequency identity are now explicit.
-- The former character-row corollary has been downgraded pending proof.
+- No counterexample was found to the canonical proved results.
+- Joint-signature codomain is now explicit.
+- Exact phase constancy and general injectivity criteria are integrated.
+- Zero-frequency identity is now proved in the canonical core.
+- Character-row redundancy remains correctly deferred.
+- Numbering, dependencies, and hidden conventions pass the first structural audit.
 
 ## 10. Scientific ceiling
 
