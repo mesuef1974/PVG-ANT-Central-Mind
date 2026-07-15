@@ -1,0 +1,57 @@
+{
+  "schema": "pvg.additive-fiber.blockwise-channel-phase-tail.v1",
+  "status": "PASS",
+  "range": {
+    "N": [2, 300],
+    "r": [1, 20],
+    "K": [0, 1, 2, 3]
+  },
+  "effective_channels": 46345,
+  "prime_positive_channels": 15833,
+  "bound_mismatches": 0,
+  "endpoint_refinement_mismatches": 0,
+  "certificates": {
+    "0": {
+      "one": 2260,
+      "chunks2": 2714,
+      "chunks3": 2944,
+      "dyadic": 2988,
+      "singleton": 3616
+    },
+    "1": {
+      "one": 7358,
+      "chunks2": 7628,
+      "chunks3": 7798,
+      "dyadic": 7917,
+      "singleton": 8480
+    },
+    "2": {
+      "one": 9813,
+      "chunks2": 9970,
+      "chunks3": 10078,
+      "dyadic": 10184,
+      "singleton": 10512
+    },
+    "3": {
+      "one": 11177,
+      "chunks2": 11272,
+      "chunks3": 11345,
+      "dyadic": 11384,
+      "singleton": 11521
+    }
+  },
+  "false_certificates": {
+    "0": {},
+    "1": {},
+    "2": {},
+    "3": {}
+  },
+  "observations": [
+    "Every tested blockwise bound dominated the actual tail.",
+    "The singleton endpoint never exceeded the one-block bound.",
+    "At K=3, dyadic blocking increased certificates from 11177 to 11384.",
+    "At K=3, singleton blocking increased certificates from 11177 to 11521.",
+    "Singleton blocking covers about 72.76 percent of prime-positive channels in the finite benchmark.",
+    "No global Goldbach, asymptotic, or novelty claim is made."
+  ]
+}
