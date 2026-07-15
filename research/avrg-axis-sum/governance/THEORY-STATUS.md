@@ -161,35 +161,74 @@ D_{N,r_s}
     \sqrt{tm}^{\,[g(n-1)]}.
     \]
 
-11. **Finite verification — PASS.**
+11. **Marginal-versus-joint factorization — proved.** If \(H_{N;r,s}\) is the simple graph with one edge for each distinct joint residue cell, then
+    \[
+    M_{N;(r,s)}=B_HJ_{N;(r,s)}.
+    \]
+    Consequently,
+    \[
+    \ker J_{N;(r,s)}\subseteq\ker M_{N;(r,s)}.
+    \]
+
+12. **Exact information-gap theorem — proved.**
+    \[
+    \ker M_{N;(r,s)}/\ker J_{N;(r,s)}
+    \cong
+    \ker B_H,
+    \]
+    so
+    \[
+    \operatorname{rank}J-\operatorname{rank}M
+    =|E(H)|-|U(H)|-|V(H)|+c(H).
+    \]
+    The lost information is exactly the alternating cycle space of the joint-cell graph.
+
+13. **Information-equivalence criterion — proved.**
+    \[
+    \ker M=\ker J
+    \iff
+    H_{N;r,s}\text{ is a forest}.
+    \]
+    In the full-period regime, with \(g=\gcd(q_r,q_s)\), \(m=q_r/g\), and \(n=q_s/g\),
+    \[
+    \operatorname{rank}J-\operatorname{rank}M
+    =g(m-1)(n-1),
+    \]
+    and equality holds exactly when \(q_r\mid q_s\) or \(q_s\mid q_r\).
+
+14. **Finite verification — PASS.**
     - rank theorem verifier: 53,100 triples, zero mismatches;
     - kernel/nullity verifier: 8,704 triples, zero mismatches;
-    - spectral verifier: 36,000 general cases and 4,500 full-period cases, zero mismatches.
+    - spectral verifier: 36,000 general cases and 4,500 full-period cases, zero mismatches;
+    - marginal-versus-joint verifier: 19,600 triples and 8,487 full-period cases, zero mismatches.
 
 Controlling files:
 
 - `theory/MARGINAL-TWO-MODULUS-GRAPH-RANK-THEOREM-v1.1.md`;
 - `theory/MARGINAL-TWO-MODULUS-KERNEL-CYCLE-BASIS-v1.1.md`;
 - `theory/MARGINAL-TWO-MODULUS-SPECTRUM-CONDITIONING-v1.1.md`;
+- `theory/MARGINAL-VS-JOINT-INFORMATION-GAP-v1.1.md`;
 - `code/verify_marginal_two_modulus_graph_rank.py`;
 - `code/verify_marginal_two_modulus_kernel_cycles.py`;
 - `code/verify_marginal_two_modulus_spectrum.py`;
+- `code/verify_marginal_vs_joint_information_gap.py`;
 - `results/marginal_two_modulus_graph_rank_verification_v1.1.json`;
 - `results/marginal_two_modulus_kernel_cycle_verification_v1.1.json`;
-- `results/marginal_two_modulus_spectrum_verification_v1.1.json`.
+- `results/marginal_two_modulus_spectrum_verification_v1.1.json`;
+- `results/marginal_vs_joint_information_gap_verification_v1.1.json`.
 
 #### Current target
 
-**ACTIVE-001-D — Marginal versus coupled information.**
+**ACTIVE-001-E — Three or more marginal moduli.**
 
-Compare \(M_{N;(r,s)}\) with \(J_{N;(r,s)}\) at the level of kernels, recoverability, and explicit information loss. Determine exactly when separate marginals recover the same information as the coupled joint signature.
+Generalize the graph-incidence framework to \(s\ge3\) marginals. The natural object becomes an \(s\)-partite hypergraph incidence operator; rank is no longer governed by the ordinary graph cycle formula and requires a separate theorem or counterexample-driven classification.
 
 #### Still open
 
-- exact closed forms for arbitrary modulus families with three or more marginals;
+- exact rank and kernel formulas for three or more marginal moduli;
 - optimal conditioning under a measurement budget;
-- comparison of marginal and coupled joint-signature information beyond rank;
-- structured prime-supported weight classes.
+- structured prime-supported weight classes;
+- general hypergraph analogues of the joint-versus-marginal information quotient.
 
 ### Deferred but available after ACTIVE-001
 
