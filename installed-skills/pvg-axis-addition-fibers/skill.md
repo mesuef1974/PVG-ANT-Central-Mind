@@ -2,6 +2,10 @@
 
 Status: installed specialist capability
 
+Classification: Diagnostic
+
+Validation status: architecture_only_unbenchmarked
+
 ## Mission
 
 Make the Central Mind competent in the full axis-addition research program developed in `research/avrg-axis-sum/`, including exact addition fibers, valuation transport, weighted additive observables, modular difference channels, Fourier reduction, reconstruction, certificate optimization, and scientific boundaries.
