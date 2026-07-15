@@ -1,0 +1,18 @@
+name: Runner Smoke Test
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prove runner execution
+        run: |
+          echo "RUNNER_SMOKE_TEST=PASS"
+          uname -a
+          python --version
