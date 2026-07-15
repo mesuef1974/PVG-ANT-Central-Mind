@@ -56,7 +56,9 @@ This file is the canonical classification ledger for the current theory. New con
   \[
   \sum_{d\bmod r}(D_{N,r}w)_d=\sum_{a=1}^{N-1}w_a.
   \]
-- **C4. Difference-phase constancy criterion**: the phase \(a\mapsto e(\alpha(2a-N))\) is constant on the whole fiber exactly when \(2\alpha\in\mathbb Z\).
+- **C4. Difference-phase constancy criterion**:
+  - for \(N=2\), the phase is constant for every \(\alpha\);
+  - for \(N\ge3\), the phase \(a\mapsto e(\alpha(2a-N))\) is constant on the whole fiber exactly when \(2\alpha\in\mathbb Z\).
 
 ## 4. Pending derived observations
 
@@ -95,14 +97,15 @@ They are recorded only in `IMPORTANT-IDEAS-TODO.md`.
 ## 8. Freeze completion checklist
 
 1. Canonical notation ledger — **complete**.
-2. Canonical definitions and theorem statements — **repairs integrated**.
+2. Canonical definitions and theorem statements — **repairs integrated except textual N=2 edge-case insertion pending**.
 3. Hand-checkable examples \(N=10,12,24,30\) — **complete**.
-4. Proof audit for hypotheses, edge cases, and hidden conventions — **first pass complete**.
-5. Dependency and numbering audit — **complete; PASS**.
+4. Proof audit for hypotheses, edge cases, and hidden conventions — **second pass found and recorded the N=2 phase exception**.
+5. Dependency and numbering audit — **complete; PASS subject to N=2 textual repair**.
 6. Theorem-to-evidence and computational cross-links — **complete**.
 7. Dedicated joint-modulus worked example for T6, T7, and C2 — **complete**.
 8. Focused literature review — **complete at preliminary scope**.
-9. Final Paper 1 integration audit — **next**.
+9. Integrated Paper 1 draft — **complete, with N=2 textual repair pending**.
+10. Final Paper 1 integration audit — **in progress**.
 
 ## 9. Evidence coverage outcome
 
@@ -125,12 +128,12 @@ They are recorded only in `IMPORTANT-IDEAS-TODO.md`.
 
 ## 11. Audit outcome
 
-- No counterexample was found to the canonical proved results.
+- No counterexample was found to the rank, reconstruction, convolution, symmetry, or joint-signature results.
 - Joint-signature codomain is explicit.
-- Exact phase constancy and general injectivity criteria are integrated.
-- Zero-frequency identity is proved in the canonical core.
+- General injectivity and zero-frequency criteria are integrated.
+- The unqualified phase-constancy statement required an \(N=2\) exception; the controlling repair is `EDGE-CASE-REPAIR-N2-PHASE-CONSTANCY.md`.
 - Character-row redundancy remains correctly deferred.
-- Numbering, dependencies, hidden conventions, and evidence cross-links pass the current structural audit.
+- Numbering, dependencies, hidden conventions, and evidence cross-links otherwise pass the current structural audit.
 
 ## 12. Scientific ceiling
 
