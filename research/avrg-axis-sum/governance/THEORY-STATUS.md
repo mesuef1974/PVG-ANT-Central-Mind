@@ -128,24 +128,61 @@ D_{N,r_s}
    G_{N;r,s}\text{ is a forest}.
    \]
 
-7. **Finite verification — PASS.**
-   - rank theorem verifier: 53,100 triples, zero mismatches;
-   - kernel/nullity verifier: 8,704 triples, zero mismatches.
+7. **Signless-Laplacian identity — proved.**
+   \[
+   M_{N;(r,s)}M_{N;(r,s)}^{*}=Q_G=D_G+A_G.
+   \]
+   Since \(G\) is bipartite, \(Q_G\) is diagonally similar to the ordinary Laplacian \(L_G=D_G-A_G\).
+
+8. **Exact singular-spectrum formula — proved.** The nonzero singular values are
+   \[
+   \left\{\sqrt{\lambda_k(G_j)}:2\le k\le |V(G_j)|\right\}
+   \]
+   over all connected components \(G_j\).
+
+9. **Exact conditioning formula — proved.**
+   \[
+   \kappa_2^{+}(M)
+   =
+   \sqrt{
+   \frac{\max_j\lambda_{\max}(G_j)}
+   {\min_j\lambda_2(G_j)}
+   }.
+   \]
+
+10. **Full-period graph and spectrum — proved.** With
+    \[
+    g=\gcd(q_r,q_s),\quad m=q_r/g,\quad n=q_s/g,
+    \]
+    and \(N-1=t\operatorname{lcm}(q_r,q_s)\), the graph is \(g\) copies of \(K_{m,n}\) with edge multiplicity \(t\). The positive singular values are
+    \[
+    \sqrt{t(m+n)}^{\,[g]},\qquad
+    \sqrt{tn}^{\,[g(m-1)]},\qquad
+    \sqrt{tm}^{\,[g(n-1)]}.
+    \]
+
+11. **Finite verification — PASS.**
+    - rank theorem verifier: 53,100 triples, zero mismatches;
+    - kernel/nullity verifier: 8,704 triples, zero mismatches;
+    - spectral verifier: 36,000 general cases and 4,500 full-period cases, zero mismatches.
 
 Controlling files:
 
 - `theory/MARGINAL-TWO-MODULUS-GRAPH-RANK-THEOREM-v1.1.md`;
 - `theory/MARGINAL-TWO-MODULUS-KERNEL-CYCLE-BASIS-v1.1.md`;
+- `theory/MARGINAL-TWO-MODULUS-SPECTRUM-CONDITIONING-v1.1.md`;
 - `code/verify_marginal_two_modulus_graph_rank.py`;
 - `code/verify_marginal_two_modulus_kernel_cycles.py`;
+- `code/verify_marginal_two_modulus_spectrum.py`;
 - `results/marginal_two_modulus_graph_rank_verification_v1.1.json`;
-- `results/marginal_two_modulus_kernel_cycle_verification_v1.1.json`.
+- `results/marginal_two_modulus_kernel_cycle_verification_v1.1.json`;
+- `results/marginal_two_modulus_spectrum_verification_v1.1.json`.
 
 #### Current target
 
-**ACTIVE-001-C — Singular spectrum and conditioning.**
+**ACTIVE-001-D — Marginal versus coupled information.**
 
-Determine the nonzero singular values of \(M_{N;(r,s)}\) through the signless Laplacian of the bipartite incidence graph, with exact formulas for tractable graph families and honest bounds in general.
+Compare \(M_{N;(r,s)}\) with \(J_{N;(r,s)}\) at the level of kernels, recoverability, and explicit information loss. Determine exactly when separate marginals recover the same information as the coupled joint signature.
 
 #### Still open
 
