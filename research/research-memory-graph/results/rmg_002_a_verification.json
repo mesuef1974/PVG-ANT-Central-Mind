@@ -1,0 +1,22 @@
+{
+  "unit": "RMG-002-A",
+  "status": "PASS",
+  "summary": {"passed": 14, "total": 14},
+  "scientific_ceiling": "classical arithmetic-function identities plus finite regression; no new theorem and no unsupported Lean L6",
+  "checks": [
+    {"check_id":"CHK-AF-ONE-001","status":"PASS","evidence":{"range":[1,500]}},
+    {"check_id":"CHK-AF-MOBIUS-001","status":"PASS","evidence":{"identity":"mu*1=epsilon","range":[1,500]}},
+    {"check_id":"CHK-AF-MOBIUS-MULT-001","status":"PASS","evidence":{"pairs":6400}},
+    {"check_id":"CHK-AF-TAU-001","status":"PASS","evidence":{"identity":"tau=1*1","range":[1,500]}},
+    {"check_id":"CHK-AF-TAU-MULT-001","status":"PASS","evidence":{"pairs":6400}},
+    {"check_id":"CHK-AF-PHI-001","status":"PASS","evidence":{"identity":"phi*1=id","range":[1,500]}},
+    {"check_id":"CHK-AF-PHI-MULT-001","status":"PASS","evidence":{"pairs":6400}},
+    {"check_id":"CHK-AF-LIOUVILLE-001","status":"PASS","evidence":{"range":[1,500]}},
+    {"check_id":"CHK-AF-LIOUVILLE-COMPLETE-MULT-001","status":"PASS","evidence":{"pairs":6400}},
+    {"check_id":"CHK-AF-PRIME-INDICATOR-001","status":"PASS","evidence":{"range":[1,500]}},
+    {"check_id":"CHK-AF-NONINJECTIVITY-001","status":"PASS","evidence":{"tau_noninjective":[6,8],"phi_noninjective":[15,16],"liouville_loss":[6,10]}},
+    {"check_id":"CHK-AF-SCHEMA-001","status":"PASS","evidence":{"nodes":6}},
+    {"check_id":"CHK-AF-EDGE-REFERENTIAL-001","status":"PASS","evidence":{"edges":8}},
+    {"check_id":"CHK-AF-NO-UNSUPPORTED-L6-001","status":"PASS","evidence":{"reason":"no function-specific Lean build certificate"}}
+  ]
+}
