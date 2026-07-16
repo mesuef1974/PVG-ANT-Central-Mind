@@ -1,0 +1,30 @@
+{
+  "unit": "RMG-004-D",
+  "status": "PASS",
+  "passed": 8,
+  "total": 8,
+  "scope": {
+    "coefficient_count": 40,
+    "large_sieve_style_q_max": 9,
+    "residue_discrepancy_n_max": 500,
+    "residue_discrepancy_q_max": 20
+  },
+  "numerical_evidence": {
+    "phase_energy": 1987.999999999998,
+    "reference_quadratic_bound": 18150,
+    "energy_to_bound_ratio": 0.10953168044077123,
+    "average_pointwise_counterexample": {
+      "average": 0.1,
+      "maximum": 10.0
+    },
+    "finite_average_residue_discrepancy": 8.55874285673049
+  },
+  "certificate": {
+    "bombieri_vinogradov": "known literature dependency only",
+    "elliott_halberstam": "not claimed",
+    "prime_production": "not established",
+    "parity_barrier_progress": "none",
+    "lean_proof_added": false,
+    "l6_promotion": "not authorized"
+  }
+}
