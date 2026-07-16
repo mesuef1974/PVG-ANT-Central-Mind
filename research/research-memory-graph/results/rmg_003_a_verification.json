@@ -1,0 +1,15 @@
+{
+  "unit": "RMG-003-A",
+  "status": "PASS",
+  "summary": {"passed": 7, "total": 7},
+  "scientific_ceiling": "finite character and L-series verification only; no PNT-AP, GRH, or new L-function theorem",
+  "checks": [
+    {"check_id": "CHK-CHAR-PERIODIC-001", "status": "PASS", "evidence": {"modulus": 5}},
+    {"check_id": "CHK-CHAR-COMPLETE-MULT-001", "status": "PASS", "evidence": {"range": [1,24]}},
+    {"check_id": "CHK-CHAR-ORTHOGONALITY-001", "status": "PASS", "evidence": {"modulus": 5, "characters": 4}},
+    {"check_id": "CHK-RESIDUE-INDICATOR-001", "status": "PASS", "evidence": {"reduced_residues": [1,2,3,4]}},
+    {"check_id": "CHK-L-SERIES-EULER-001", "status": "PASS", "evidence": {"s": 2.0, "series_cutoff": 4999, "prime_cutoff": 47, "difference": 0.0003340151692380499}},
+    {"check_id": "CHK-REGISTRY-001", "status": "PASS", "evidence": {"records": 10}},
+    {"check_id": "CHK-BOUNDARY-001", "status": "PASS", "evidence": {"negative_claim_rejections": 2}}
+  ]
+}
