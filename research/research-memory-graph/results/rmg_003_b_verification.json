@@ -1,0 +1,21 @@
+{
+  "unit": "RMG-003-B",
+  "status": "PASS",
+  "summary": {"passed": 6, "total": 6},
+  "scientific_ceiling": "finite AP observables and certificate discipline only; no new PNT-AP, zero-free-region, Siegel-zero, or GRH result",
+  "checks": [
+    {"check_id":"CHK-RMG003B-SCHEMA-001","status":"PASS","evidence":{"records":12}},
+    {"check_id":"CHK-RMG003B-ORTH-RECON-001","status":"PASS","evidence":{"q":5,"x":500,"statement":"character reconstruction matches direct residue sums to <1e-9"}},
+    {"check_id":"CHK-RMG003B-FINITE-SNAPSHOT-001","status":"PASS","evidence":{"x":10000,"moduli":[3,4,5,8],"note":"finite snapshots only"}},
+    {"check_id":"CHK-RMG003B-NEGATIVE-BOUNDARY-001","status":"PASS","evidence":{"rejections":3}},
+    {"check_id":"CHK-RMG003B-CERTIFICATE-LADDER-001","status":"PASS","evidence":{"levels":[1,2,3]}},
+    {"check_id":"CHK-RMG003B-NO-GRH-PROMOTION-001","status":"PASS","evidence":{"scientific_ceiling":"no GRH progress"}}
+  ],
+  "selected_numeric_evidence": {
+    "x": 10000,
+    "q3": {"1": 5034.789832195782, "2": 4969.817962757988},
+    "q4": {"1": 5016.437843250096, "3": 4987.947936665739},
+    "q5": {"1": 2519.9263444590506, "2": 2484.6851805799733, "3": 2498.9554177014866, "4": 2501.782560960434},
+    "q8": {"1": 2482.478539463755, "3": 2507.894050666489, "5": 2533.9593037863415, "7": 2480.0538859992503}
+  }
+}
