@@ -1,0 +1,28 @@
+{
+  "benchmark": {
+    "locked_hidden_cases": 0,
+    "public_cases": 12,
+    "training_authorized": false
+  },
+  "execution_note": "Validated against the committed 16-node/20-edge registry and the public benchmark contract. Reproduce with python research/research-memory-graph/code/verify_rmg_001_d.py --write-result.",
+  "scientific_ceiling": "query and finite reasoning regression only; no new ANT theorem and no RH/GRH progress",
+  "status": "PASS",
+  "summary": {
+    "passed": 21,
+    "total": 21
+  },
+  "unit": "RMG-001-D",
+  "check_groups": {
+    "query_api": {"passed": 6, "total": 6},
+    "public_reasoning_cases": {"passed": 12, "total": 12, "positive": 6, "negative": 6},
+    "integration_registry": {"passed": 3, "total": 3}
+  },
+  "verified_boundaries": [
+    "PVG reindexing does not supply zeta analytic continuation",
+    "current PVG geometry does not recover nontrivial zeta zeros",
+    "no RH or GRH progress is claimed",
+    "PNT does not imply RH",
+    "finite Euler-product checks do not certify global analytic equality",
+    "L2 translation is not unqualified assimilation"
+  ]
+}
