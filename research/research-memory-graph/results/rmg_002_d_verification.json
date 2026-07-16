@@ -1,0 +1,23 @@
+{
+  "unit": "RMG-002-D",
+  "status": "PASS",
+  "summary": {"passed": 10, "total": 10},
+  "scientific_ceiling": "finite identities and half-plane diagnostics only; no zero recovery or RH progress",
+  "selected_evidence": {
+    "x_values": [10, 30, 100, 300, 1000],
+    "psi_theta_decomposition": "PASS",
+    "lambda_single_axis_support_range": [1, 1000],
+    "log_derivative_check": {
+      "s": 2.0,
+      "cutoff": 5000,
+      "lambda_series": 0.5697609831853476,
+      "prime_power_sum": 0.5697621521507613,
+      "absolute_difference": 1.1689654136892713e-06
+    },
+    "pvg_reindexing": "exact within floating tolerance",
+    "rejected_claims": [
+      "finite psi verification implies RH",
+      "single-axis von Mangoldt observable recovers nontrivial zeta zeros"
+    ]
+  }
+}
