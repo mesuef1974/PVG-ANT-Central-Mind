@@ -1,0 +1,22 @@
+{
+  "checks": [
+    {"check_id": "CHK-VALUATION-ROUNDTRIP-001", "evidence": {"range": [1, 500]}, "status": "PASS"},
+    {"check_id": "CHK-MULTIPLICATION-001", "evidence": {"pairs": 2500}, "status": "PASS"},
+    {"check_id": "CHK-PRIME-001", "evidence": {"primes_upto_49": [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]}, "status": "PASS"},
+    {"check_id": "CHK-PRIME-POWER-001", "evidence": {"prime_powers_upto_100": [2, 3, 4, 5, 7, 8, 9, 11, 13, 16, 17, 19, 23, 25, 27, 29, 31, 32, 37, 41, 43, 47, 49, 53, 59, 61, 64, 67, 71, 73, 79, 81, 83, 89, 97]}, "status": "PASS"},
+    {"check_id": "CHK-MULTIPLICATIVE-001", "evidence": {"function": "mobius", "pairs": 2500}, "status": "PASS"},
+    {"check_id": "CHK-DIRICHLET-CONV-001", "evidence": {"identity": "1*1=tau", "range": [1, 500]}, "status": "PASS"},
+    {"check_id": "CHK-MOBIUS-001", "evidence": {"identity": "mu*1=epsilon", "range": [1, 500]}, "status": "PASS"},
+    {"check_id": "CHK-DIRICHLET-SERIES-001", "evidence": {"ant": 1.634983900184893, "cutoff": 100, "pvg": 1.634983900184893, "s": 2.0}, "status": "PASS"},
+    {"check_id": "CHK-EULER-PRODUCT-001", "evidence": {"coefficient_count": 256, "max_exponent": 3, "primes": [2, 3, 5, 7]}, "status": "PASS"},
+    {"check_id": "CHK-LAMBDA-001", "evidence": {"cases": {"2": 0.6931471805599453, "8": 0.6931471805599453, "9": 1.0986122886681098, "12": 0.0, "25": 1.6094379124341003}}, "status": "PASS"},
+    {"check_id": "CHK-CHEBYSHEV-001", "evidence": {"pi": 25, "psi": 94.0453112293574, "theta": 83.72839039906393, "x": 100}, "status": "PASS"},
+    {"check_id": "CHK-REGISTRY-SCHEMA-001", "evidence": {"nodes": 16, "required_fields": ["assimilation_level", "canonical_name", "classification", "node_id", "node_type", "scientific_ceiling", "short_definition", "source_provenance", "status", "translation_type"]}, "status": "PASS"},
+    {"check_id": "CHK-EDGE-REFERENTIAL-001", "evidence": {"edges": 20}, "status": "PASS"},
+    {"check_id": "CHK-REGISTRY-UNIQUENESS-001", "evidence": {"edges": 20, "nodes": 16}, "status": "PASS"}
+  ],
+  "scientific_ceiling": "finite registry and numerical verification only; no Goldbach, RH, or GRH progress",
+  "status": "PASS",
+  "summary": {"passed": 14, "total": 14},
+  "unit": "RMG-001-C"
+}
