@@ -71,7 +71,7 @@ def zero_term(beta: float, gamma: float, x: float) -> dict:
     value = -(x ** rho) / rho
     return {
         "rho": [rho.real, rho.imag],
-        "formal_term": [-value.real, -value.imag],
+        "formal_term": [value.real, value.imag],
         "note": "A single formal contribution; no convergence or zero certification is implied.",
     }
 
