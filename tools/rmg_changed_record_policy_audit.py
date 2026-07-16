@@ -1,25 +1,27 @@
 #!/usr/bin/env python3
-"""Enforce the canonical RMG schema on newly added or modified registry files only.
+"""Enforce the canonical RMG schema on registry files changed after policy activation.
 
-Historical registry debt remains visible and scheduled for migration; this guard prevents
-that debt from growing while avoiding an immediate repository-wide false closure.
+The activation anchor separates pre-existing migration debt from records created or
+modified after enforcement was introduced. Historical debt remains visible and must
+be migrated explicitly; this guard prevents new debt from growing.
 """
 from __future__ import annotations
 
 import importlib.util
+import os
 import subprocess
-import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 POLICY = ROOT / "research/research-memory-graph/code/enforce_rmg_new_record_policy.py"
 RMG_REGISTRY = "research/research-memory-graph/registry/"
+ACTIVATION_BASE = os.environ.get("RMG_POLICY_BASE_REF", "78ed2fa1da04ceb55fc50a03688842cb90466da3")
 
 
 def changed_files() -> list[Path]:
-    candidates = []
+    candidates: list[Path] = []
     commands = [
-        ["git", "diff", "--name-only", "origin/main...HEAD"],
+        ["git", "diff", "--name-only", f"{ACTIVATION_BASE}...HEAD"],
         ["git", "diff", "--name-only", "HEAD^", "HEAD"],
     ]
     output = None
@@ -36,7 +38,7 @@ def changed_files() -> list[Path]:
             path = ROOT / raw
             if path.exists():
                 candidates.append(path)
-    return candidates
+    return sorted(set(candidates))
 
 
 def load_policy():
@@ -52,9 +54,10 @@ def main() -> int:
     policy = load_policy()
     files = changed_files()
     if not files:
-        print("PASS: no changed RMG registry files")
+        print(f"PASS: no RMG registry files changed since activation base {ACTIVATION_BASE}")
         return 0
     failed = False
+    print(f"RMG policy activation base: {ACTIVATION_BASE}")
     for path in files:
         records = list(policy.iter_records(path))
         for index, record in enumerate(records, 1):
