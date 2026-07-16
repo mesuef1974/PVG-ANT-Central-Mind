@@ -1,12 +1,12 @@
 # Central Mind PR58 Integration Audit 004
 
-Status: **PASS — merge authorized from local equivalent gate evidence**
+Status: **LOCAL CONTENT PASS — merge remains blocked by GitHub Actions billing failure**
 
 Repository: `mesuef1974/PVG-ANT-Central-Mind`
 
 Pull request: `#58`
 
-Audited head: `1e589a2bbcf9a01d5b5a406e8a2d190c560faab0`
+Locally audited head: `1e589a2bbcf9a01d5b5a406e8a2d190c560faab0`
 
 ## Evidence basis
 
@@ -28,7 +28,7 @@ execution_class = local_equivalent_of_governance-required-gate
 GitHub Actions replacement claim = NO
 ```
 
-## Gate result
+## Local gate result
 
 ```text
 passed = 29
@@ -58,9 +58,28 @@ All regeneration steps reproduced committed outputs without repository drift. Th
 - Goldbach proof: no;
 - RH/GRH progress: no.
 
-## GitHub Actions caveat
+## Corrected GitHub Actions diagnosis
 
-GitHub-hosted Actions still fail before exposing executable steps and logs in this private repository. This audit does not claim that GitHub Actions passed. It authorizes merge from a real, clean, reproducible local execution of the same project-owned commands, with that infrastructure exception recorded in Issue #60.
+The earlier wording that the required `governance-gate` status was `queued` was inaccurate.
+
+At the relevant PR heads, GitHub created the workflow runs and completed them as `failure` within seconds, before any job step started and without normal job logs. The same behavior affected the trivial `Runner Smoke Test`.
+
+GitHub's own job annotation states:
+
+> The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the Billing & plans section in your settings.
+
+Therefore:
+
+```text
+ACTIONS_ENABLED = TRUE
+WORKFLOW_DEFINITION_FAILURE = NO EVIDENCE
+RUNNER_LABEL_FAILURE = NO EVIDENCE
+PROJECT_CHECK_FAILURE = NO EVIDENCE
+FAILURE_CLASS = PRE_START_ACCOUNT_BILLING_BLOCK
+REQUIRED_STATUS = FAILURE
+```
+
+The repository workflow and ruleset must not be weakened to bypass a temporary billing condition.
 
 ## Merge decision
 
@@ -70,12 +89,20 @@ LOCAL_GOVERNANCE_GATE = PASS_29_OF_29
 DETERMINISTIC_STATE = PASS
 WORKING_TREE = CLEAN
 ORIGIN_SYNCHRONIZATION = PASS
-GITHUB_ACTIONS = INFRASTRUCTURE_BLOCKED
-MERGE_AUTHORIZATION = GRANTED
+GITHUB_ACTIONS_REQUIRED_GATE = FAILURE_BEFORE_START_DUE_TO_BILLING
+MERGE_AUTHORIZATION = WITHHELD_UNTIL_REQUIRED_GATE_PASSES
+RULESET_BYPASS = NOT_AUTHORIZED
 ```
 
-PR #58 may be merged at audited head `1e589a2bbcf9a01d5b5a406e8a2d190c560faab0`.
+Required next action:
+
+1. repair the GitHub account payment state or increase the Actions spending limit;
+2. rerun the failed workflow run, including `governance-gate`;
+3. require the protected status to become green;
+4. merge PR #58 without changing or bypassing the `governance-required` ruleset.
+
+The local PASS remains valid independent evidence that the branch content and deterministic regeneration checks passed at the recorded head. It does not replace the required GitHub status check.
 
 ## Scientific ceiling
 
-This is an integration and governance authorization only. It does not certify historical novelty, publication readiness, autonomous model competence, a proof of Goldbach, or progress on RH/GRH.
+This is an integration and governance record only. It does not certify historical novelty, publication readiness, autonomous model competence, a proof of Goldbach, or progress on RH/GRH.
