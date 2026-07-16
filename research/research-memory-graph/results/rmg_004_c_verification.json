@@ -1,0 +1,21 @@
+{
+  "unit": "RMG-004-C",
+  "status": "PASS",
+  "passed": 8,
+  "total": 8,
+  "evidence": {
+    "registry_records": 12,
+    "finite_bilinear_direct": -18,
+    "finite_bilinear_by_product": -18,
+    "valuation_factor_pairs_checked": 2500,
+    "toy_distribution_range": {"N": 2000, "Q": 25},
+    "finite_distribution_norm": 9372.544025203495
+  },
+  "claim_ceiling": {
+    "uniform_type_ii_estimate": "not established",
+    "level_of_distribution_theorem": "not established by finite diagnostic",
+    "prime_production": "not established",
+    "parity_barrier_progress": "none",
+    "lean_promotion": "not authorized"
+  }
+}
