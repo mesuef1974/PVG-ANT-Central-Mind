@@ -1,0 +1,17 @@
+{
+  "unit": "RMG-005-D",
+  "status": "PASS",
+  "passed": 8,
+  "total": 8,
+  "checks": [
+    {"name": "registry_count", "pass": true, "detail": 12},
+    {"name": "unique_ids", "pass": true, "detail": 12},
+    {"name": "finite_vaughan_source_identity", "pass": true, "detail": 9.992007221626409e-16},
+    {"name": "factor_pair_domain_nonempty", "pass": true, "detail": 368},
+    {"name": "finite_prime_weighted_sums_computable", "pass": true, "detail": [42.744541932168325, 54.45351061329357, 40.39173886486805]},
+    {"name": "finite_values_below_trivial_bound", "pass": true, "detail": {"values": [42.744541932168325, 54.45351061329357, 40.39173886486805], "trivial": 501.65211664974765}},
+    {"name": "certificate_layers_present", "pass": true, "detail": ["ANT_OBJECT", "BOUNDARY", "CERTIFICATE", "CLAIM_REJECTION", "DECOMPOSITION", "LOSS_LEDGER", "PVG_TRANSLATION", "TRANSFER"]},
+    {"name": "claim_rejections_present", "pass": true, "detail": 3}
+  ],
+  "scientific_ceiling": "Finite identities and computations only; no uniform minor-arc estimate, no singular-series asymptotic, and no Goldbach progress."
+}
