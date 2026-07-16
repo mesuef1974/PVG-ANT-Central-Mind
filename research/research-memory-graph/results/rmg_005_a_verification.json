@@ -1,0 +1,27 @@
+{
+  "unit": "RMG-005-A",
+  "status": "PASS",
+  "passed": 9,
+  "total": 9,
+  "parameters": {
+    "modulus": 7,
+    "pvg_reindexing_range": "1 <= n <= 300",
+    "phase_alpha": "3/11"
+  },
+  "numerical_evidence": {
+    "orthogonality_max_gap": 5.305963053683338e-15,
+    "fourier_inversion_max_gap": 3.3051285367689413e-15,
+    "parseval_lhs": 244.99999999999997,
+    "parseval_rhs": 245,
+    "addition_fiber_projector_max_gap": 1.354085741216204e-15,
+    "pvg_phase_reindexing_max_gap": 0.0,
+    "complete_period_sum_magnitude": 5.551115123125783e-16,
+    "trivial_l1_bound_example": 100
+  },
+  "claim_ceiling": {
+    "nontrivial_uniform_exponential_sum_bound": "NOT ESTABLISHED",
+    "major_minor_arc_estimate": "NOT ADDED",
+    "goldbach_progress": "NONE",
+    "lean_promotion": "NOT AUTHORIZED"
+  }
+}
