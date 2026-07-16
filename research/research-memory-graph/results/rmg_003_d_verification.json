@@ -1,0 +1,21 @@
+{
+  "unit": "RMG-003-D",
+  "status": "PASS",
+  "passed": 7,
+  "total": 7,
+  "checks": [
+    {"name": "registry_count", "pass": true, "detail": 12},
+    {"name": "unique_ids", "pass": true, "detail": 12},
+    {"name": "log_derivative_prime_power_agreement", "pass": true, "detail": 6.938893903907228e-18},
+    {"name": "finite_character_observables_computable", "pass": true, "detail": {"100": -0.1125648875540417, "1000": -8.713394532556894, "10000": 28.489906584357232}},
+    {"name": "dependency_and_boundary_types_present", "pass": true},
+    {"name": "claim_rejections_present", "pass": true, "detail": 2},
+    {"name": "no_grh_promotion", "pass": true, "detail": 2}
+  ],
+  "scope": {
+    "character": "primitive real character modulo 4 for finite checks",
+    "complex_parameter": "s=2+0.4i",
+    "cutoff": 12000,
+    "claim_ceiling": "Finite computations and graph dependencies only; no zero-location theorem and no GRH progress."
+  }
+}
