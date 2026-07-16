@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-import cmath
 import json
 import math
 from pathlib import Path
@@ -37,10 +36,10 @@ def log_derivative_series(s: complex, cutoff: int) -> complex:
     return sum(mangoldt(n) * chi4(n) / (n ** s) for n in range(1, cutoff + 1))
 
 
-def prime_power_series(s: complex, prime_cutoff: int, power_cutoff: int) -> complex:
+def prime_power_series(s: complex, power_cutoff: int) -> complex:
     total = 0j
-    for p in range(2, prime_cutoff + 1):
-        if mangoldt(p) == 0:
+    for p in range(2, power_cutoff + 1):
+        if abs(mangoldt(p) - math.log(p)) > 1e-15:
             continue
         value = chi4(p)
         if value == 0:
@@ -67,10 +66,11 @@ def main():
     checks.append(("unique_ids", len(ids) == len(set(ids)), len(set(ids))))
 
     s = 2.0 + 0.4j
-    direct = log_derivative_series(s, 12000)
-    prime_power = prime_power_series(s, 97, 12000)
+    cutoff = 12000
+    direct = log_derivative_series(s, cutoff)
+    prime_power = prime_power_series(s, cutoff)
     gap = abs(direct - prime_power)
-    checks.append(("log_derivative_prime_power_agreement", gap < 2e-4, gap))
+    checks.append(("log_derivative_prime_power_agreement", gap < 1e-12, gap))
 
     samples = {x: psi_character(x) for x in (100, 1000, 10000)}
     checks.append(("finite_character_observables_computable", all(math.isfinite(v.real) for v in samples.values()), samples))
