@@ -2,9 +2,6 @@
 """Finite structural verifier for TKG-014. No analytic theorem is certified."""
 from __future__ import annotations
 
-import cmath
-import math
-
 from query_tkg_014 import REQUIRED, authorization, contribution_graph, sharp_psi_shape, zero_term
 
 
@@ -37,11 +34,9 @@ def main() -> None:
     stored = complex(*out["formal_term"])
     rho = complex(beta, gamma)
     expected = -((x ** rho) / rho)
-    # Harness serializes the negative of value's components after value already includes '-'.
-    expected_serialized = -expected
-    assert close(stored, expected_serialized)
+    assert close(stored, expected)
 
-    # Conjugate pair produces a real combined formal contribution.
+    # A conjugate pair produces a real combined formal contribution.
     a = -(x ** complex(beta, gamma)) / complex(beta, gamma)
     b = -(x ** complex(beta, -gamma)) / complex(beta, -gamma)
     assert abs((a + b).imag) < 1e-12
