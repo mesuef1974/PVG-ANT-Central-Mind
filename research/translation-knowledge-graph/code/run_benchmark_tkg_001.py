@@ -11,7 +11,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from query_reasoning_orchestrator_001 import orchestrate
+from query_reasoning_orchestrator_001 import reason
 
 
 DEFAULT_REGISTRY = Path(__file__).resolve().parents[1] / "registry" / "benchmark-tkg-001.jsonl"
@@ -34,8 +34,15 @@ def normalize_units(payload: dict[str, Any]) -> set[str]:
     return set(payload.get("selected_units", []))
 
 
+def blocked_edge_text(payload: dict[str, Any]) -> str:
+    parts: list[str] = []
+    for edge in payload.get("blocked_edges_triggered", []):
+        parts.extend([str(edge.get("source", "")), str(edge.get("target", ""))])
+    return " ".join(parts).lower()
+
+
 def evaluate_case(case: dict[str, Any]) -> dict[str, Any]:
-    output = orchestrate(case["prompt"], supplied=[])
+    output = reason(case["prompt"], supplied=[])
     selected = normalize_units(output)
     expected = set(case.get("expected_units", []))
     checks: dict[str, bool] = {
@@ -46,18 +53,25 @@ def evaluate_case(case: dict[str, Any]) -> dict[str, Any]:
 
     blocked = case.get("blocked_edge")
     if blocked:
-        triggered = " ".join(output.get("blocked_edges_triggered", []))
-        checks["blocked_edge_detected"] = all(token.lower() in triggered.lower() for token in blocked.replace("->", " ").split())
+        triggered = blocked_edge_text(output)
+        tokens = [token.lower() for token in blocked.replace("->", " ").split()]
+        checks["blocked_edge_detected"] = all(token in triggered for token in tokens)
 
     if case.get("authorization_expected") is False:
-        checks["authorization_blocked"] = output.get("authorization", False) is False
+        checks["authorization_blocked"] = output.get("authorization") is False
 
     if case.get("expected_progress") == "NONE":
         ceiling = output.get("claim_ceiling", {})
-        checks["progress_none"] = all(ceiling.get(key) == "NONE" for key in ("PNT", "PNT_AP", "Goldbach", "RH", "GRH"))
+        checks["progress_none"] = all(
+            ceiling.get(key) == "NONE"
+            for key in ("PNT", "PNT_AP", "GOLDBACH", "RH", "GRH")
+        )
+
+    if case.get("expected_math"):
+        checks["expected_math"] = output.get("claim_ceiling", {}).get("MATH") == case["expected_math"]
 
     if case.get("expected_behavior") == "unclassified_or_out_of_scope":
-        checks["unclassified"] = not selected or "unclassified" in output.get("detected_intents", [])
+        checks["unclassified"] = not selected and "unclassified" in output.get("detected_intents", [])
 
     passed = all(checks.values())
     return {
