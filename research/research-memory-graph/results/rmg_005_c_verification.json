@@ -1,0 +1,36 @@
+{
+  "unit": "RMG-005-C",
+  "status": "PASS",
+  "passed": 9,
+  "total": 9,
+  "parameters": {
+    "alpha": 1.4142135623730951,
+    "N": 300,
+    "H": 20
+  },
+  "evidence": {
+    "linear_sum_magnitude": 0.7652836834395833,
+    "quadratic_sum_magnitude": 17.754660682154544,
+    "trivial_bound": 300,
+    "vdc_upper_bound": 71.0438763472784,
+    "finite_cancellation_ratio": 0.05918220227384848,
+    "quadratic_difference_example": {
+      "n": 17,
+      "h": 5,
+      "direct": 195,
+      "affine": 195
+    }
+  },
+  "checks": [
+    "registry_count",
+    "unique_ids",
+    "trivial_bound_linear",
+    "trivial_bound_quadratic",
+    "finite_vdc_bound",
+    "quadratic_difference_identity",
+    "finite_cancellation_ratio",
+    "claim_rejections_present",
+    "no_l6_promotion"
+  ],
+  "claim_ceiling": "Finite numerical cancellation and a verified finite van der Corput inequality do not establish a uniform Weyl estimate, a continuum minor-arc bound, Goldbach, RH, or GRH."
+}
