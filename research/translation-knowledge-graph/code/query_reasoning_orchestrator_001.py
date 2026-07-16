@@ -14,29 +14,34 @@ from typing import Iterable
 
 
 INTENT_RULES = {
-    "arithmetic_identity": (r"mobius|möbius|convolution|التفاف|موبيوس|lambda|فون مانغولد", ["TKG-001", "TKG-002"]),
-    "euler_product": (r"euler product|dirichlet series|جداء أويلر|متسلسلة ديريشليه|logarithmic derivative", ["TKG-003", "TKG-004"]),
+    "arithmetic_identity": (r"mobius|möbius|convolution|التفاف|موبيوس|lambda|فون مانغولد|tau|sigma|divisor|قواسم|سيغما", ["TKG-001", "TKG-002"]),
+    "multiplicative_structure": (r"multiplicative|completely multiplicative|tau|sigma|divisor function|مضاعف|دالة القواسم", ["TKG-002", "TKG-003"]),
+    "euler_product": (r"euler product|dirichlet series|جداء أويلر|متسلسلة ديريشليه|logarithmic derivative|prime-power coefficient|قوة أولية", ["TKG-003", "TKG-004"]),
     "summatory_observable": (r"psi|theta|pi\(|تشيبيشيف|دالة عد|summatory|partial summation", ["TKG-005"]),
     "residue_class": (r"character|dirichlet l|residue class|شخصية|فئة باقية|متتالية حسابية|conductor", ["TKG-006", "TKG-007", "TKG-008"]),
     "functional_equation": (r"gauss sum|functional equation|completed l|root number|مجموع غاوس|معادلة وظيفية|عدد الجذر", ["TKG-009", "TKG-010"]),
     "explicit_formula": (r"perron|mellin|contour|residue|explicit formula|بيرون|ميلين|مسار|باقي|صيغة صريحة", ["TKG-011", "TKG-012", "TKG-013", "TKG-014"]),
     "asymptotic_transfer": (r"tauberian|ikehara|asymptotic|تاوبري|أسيمبتوطي|حد رئيسي|main term", ["TKG-015"]),
     "pnt_claim": (r"prime number theorem|pnt|مبرهنة الأعداد الأولية", ["TKG-001", "TKG-003", "TKG-004", "TKG-005", "TKG-011", "TKG-013", "TKG-014", "TKG-015"]),
+    "goldbach_claim": (r"goldbach|غولدباخ", ["REASONING-ORCHESTRATOR-001"]),
     "rh_claim": (r"riemann hypothesis|rh\b|grh\b|فرضية ريمان", ["TKG-009", "TKG-010", "TKG-014"]),
+    "governance_claim": (r"promote|promotion|math-m[1-9]|verifier files exist|ترقية|ملفات التحقق", ["REASONING-ORCHESTRATOR-001"]),
 }
 
 BLOCKED_EDGES = [
     ("Euler product", "PNT", r"euler product.*(pnt|prime number theorem)|جداء أويلر.*مبرهنة الأعداد الأولية"),
-    ("finite computation", "asymptotic theorem", r"finite|computed|حتى.*(?:يثبت|prove).*(?:asymptotic|أسيمبتوطي|pnt)"),
+    ("finite computation", "universal or asymptotic theorem", r"(?:finite|computed|checked|million|مليون|فحصنا|حتى).*?(?:prove|proof|يثبت|برهان).*?(?:asymptotic|universal|all|pnt|goldbach|أسيمبتوطي|جميع|غولدباخ)"),
     ("functional-equation symmetry", "RH", r"functional equation.*(?:rh|riemann hypothesis)|المعادلة الوظيفية.*فرضية ريمان"),
     ("character orthogonality", "PNT-AP", r"orthogonality.*arithmetic progression|تعامد الشخصيات.*المتتاليات الحسابية"),
     ("formal contour shift", "explicit formula", r"contour shift.*explicit formula|تحريك المسار.*الصيغة الصريحة"),
     ("simple pole", "Tauberian conclusion", r"simple pole.*asymptotic|قطب بسيط.*أسيمبتوطي"),
     ("PVG reinterpretation", "new theorem", r"pvg.*new theorem|ترجمة.*هندسة التقييمات.*مبرهنة جديدة"),
+    ("syntactic completeness", "MATH promotion", r"(?:verifier files exist|all verifier files|syntactically complete|وجود ملفات التحقق).*?(?:promote|promotion|math-m[1-9]|ترقية)"),
 ]
 
 HYPOTHESES = {
     "arithmetic_identity": ["object definitions fixed", "finite-domain conventions fixed"],
+    "multiplicative_structure": ["coprimality conditions checked", "complete multiplicativity not assumed"],
     "euler_product": ["multiplicativity where required", "absolute-convergence region fixed"],
     "summatory_observable": ["endpoint convention fixed", "coefficient definition verified"],
     "residue_class": ["modulus fixed", "reduced-residue conditions checked", "character convention fixed"],
@@ -44,7 +49,9 @@ HYPOTHESES = {
     "explicit_formula": ["kernel fixed", "continuation region certified", "pole/zero ledger complete", "all contour bounds certified", "limit order fixed"],
     "asymptotic_transfer": ["exact Tauberian theorem fixed", "positivity/monotonicity checked", "boundary regularity certified", "normalization fixed"],
     "pnt_claim": ["zeta nonvanishing on Re(s)=1 certified", "valid transfer theorem supplied"],
+    "goldbach_claim": ["finite verification is not a universal proof", "additive theorem certificate required"],
     "rh_claim": ["no finite or symmetry-only argument accepted"],
+    "governance_claim": ["executed verifier evidence required", "independent MATH promotion review required"],
 }
 
 
@@ -92,7 +99,7 @@ def reason(question: str, supplied: Iterable[str] = ()) -> dict:
     supplied_set = set(supplied)
     missing = [item for item in required if item not in supplied_set]
     blocked = blocked_edges(question)
-    analytic_intents = {"explicit_formula", "asymptotic_transfer", "pnt_claim", "rh_claim"}
+    analytic_intents = {"explicit_formula", "asymptotic_transfer", "pnt_claim", "rh_claim", "goldbach_claim"}
     ceiling = "ASSIM-L2" if analytic_intents.intersection(route.intents) else "ASSIM-L3"
     return {
         "normalized_question": normalize(question),
@@ -107,6 +114,7 @@ def reason(question: str, supplied: Iterable[str] = ()) -> dict:
         "lost_information": ["no theorem proof is reconstructed from routing alone"],
         "claim_ceiling": {"ASSIM": ceiling, "MATH": "MATH-M0", "PNT": "NONE", "PNT_AP": "NONE", "GOLDBACH": "NONE", "RH": "NONE", "GRH": "NONE"},
         "authorization": False,
+        "automatic_math_promotion": False,
         "next_valid_action": "Supply and independently verify missing certificates; then run the relevant unit verifiers and benchmark cases.",
     }
 
