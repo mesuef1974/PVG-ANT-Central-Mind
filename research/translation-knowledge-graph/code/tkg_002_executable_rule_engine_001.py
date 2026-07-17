@@ -4,7 +4,7 @@ import json
 import re
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
 INSUFFICIENT_KNOWLEDGE = "INSUFFICIENT_KNOWLEDGE"
 EXECUTED_FROM_REGISTRY_RULE = "EXECUTED_FROM_REGISTRY_RULE"
@@ -20,6 +20,12 @@ class ExecutionStep:
     def __post_init__(self) -> None:
         if (self.source_node_id is None) == (self.operator_id is None):
             raise ValueError("each step must carry exactly one provenance source")
+
+
+@dataclass(frozen=True)
+class OperatorExecution:
+    result: int
+    steps: tuple[ExecutionStep, ...]
 
 
 @dataclass(frozen=True)
@@ -74,14 +80,76 @@ def enumerate_divisors(n: int) -> list[int]:
     return sorted(divisors)
 
 
-def evaluate_divisor_sum(args: dict[str, Any], n: int) -> int:
+def evaluate_divisor_sum(args: dict[str, Any], n: int) -> OperatorExecution:
     if args.get("summand") != "one":
         raise ValueError(f"unsupported summand: {args.get('summand')!r}")
-    return sum(1 for _ in enumerate_divisors(n))
+    factors = factor_integer(n)
+    divisors = enumerate_divisors(n)
+    result = len(divisors)
+    return OperatorExecution(
+        result=result,
+        steps=(
+            ExecutionStep(
+                "Factor input integer",
+                factors,
+                operator_id="OP-FACTOR-INTEGER-001",
+            ),
+            ExecutionStep(
+                "Enumerate divisors",
+                divisors,
+                operator_id="OP-ENUMERATE-DIVISORS-001",
+            ),
+            ExecutionStep(
+                "Count divisors",
+                result,
+                operator_id="OP-EVALUATE-DIVISOR-SUM-001",
+            ),
+        ),
+    )
 
 
-OPERATORS = {
+def evaluate_mobius(args: dict[str, Any], n: int) -> OperatorExecution:
+    if args:
+        raise ValueError(f"unsupported Mobius arguments: {args!r}")
+    factors = factor_integer(n)
+    has_square_factor = any(exponent > 1 for exponent in factors.values())
+    support_cardinality = len(factors)
+    if has_square_factor:
+        result = 0
+    else:
+        result = -1 if support_cardinality % 2 else 1
+    return OperatorExecution(
+        result=result,
+        steps=(
+            ExecutionStep(
+                "Factor input integer",
+                factors,
+                operator_id="OP-FACTOR-INTEGER-001",
+            ),
+            ExecutionStep(
+                "Detect exponent greater than one",
+                has_square_factor,
+                operator_id="OP-DETECT-SQUARE-FACTOR-001",
+            ),
+            ExecutionStep(
+                "Count distinct prime support",
+                support_cardinality,
+                operator_id="OP-COUNT-PRIME-SUPPORT-001",
+            ),
+            ExecutionStep(
+                "Evaluate Mobius from squarefreeness and support parity",
+                result,
+                operator_id="OP-EVALUATE-MOBIUS-001",
+            ),
+        ),
+    )
+
+
+Operator = Callable[[dict[str, Any], int], OperatorExecution]
+
+OPERATORS: dict[str, Operator] = {
     "OP-EVALUATE-DIVISOR-SUM-001": evaluate_divisor_sum,
+    "OP-EVALUATE-MOBIUS-001": evaluate_mobius,
 }
 
 
@@ -131,40 +199,20 @@ class TKG002Executor:
                 (),
             )
 
-        steps = [
+        operator_execution = operator(dict(contract.get("args") or {}), n)
+        steps = (
             ExecutionStep(
                 "Load reviewed executable contract",
                 contract,
                 source_node_id=source_node_id,
-            )
-        ]
-        steps.append(
-            ExecutionStep(
-                "Factor input integer",
-                factor_integer(n),
-                operator_id="OP-FACTOR-INTEGER-001",
-            )
-        )
-        steps.append(
-            ExecutionStep(
-                "Enumerate divisors",
-                enumerate_divisors(n),
-                operator_id="OP-ENUMERATE-DIVISORS-001",
-            )
-        )
-        result = operator(dict(contract.get("args") or {}), n)
-        steps.append(
-            ExecutionStep(
-                "Execute reviewed operator contract",
-                result,
-                operator_id=operator_id,
-            )
+            ),
+            *operator_execution.steps,
         )
         return ExecutionResult(
             EXECUTED_FROM_REGISTRY_RULE,
             query,
             source_node_id,
             str(rule.get("rule_id")),
-            result,
-            tuple(steps),
+            operator_execution.result,
+            steps,
         )
