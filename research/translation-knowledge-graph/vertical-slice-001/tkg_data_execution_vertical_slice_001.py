@@ -338,34 +338,45 @@ class ExecutionComposer:
         return values[-1] if values else None
 
     @staticmethod
-    def _select_target(nodes: Iterable[KnowledgeNode], question: str) -> KnowledgeNode | None:
-        lowered = question.lower()
+    def _declared_symbols(node: KnowledgeNode) -> set[str]:
+        symbols: set[str] = set()
+        for text in node.names + node.aliases:
+            symbols.update(re.findall(r"[A-Za-z_]+", text.lower()))
+        for expression in node.formulas + node.equivalent_forms:
+            lhs = expression.split("=", 1)[0].strip().lower()
+            symbols.update(re.findall(r"[A-Za-z_]+", lhs))
+        return symbols
+
+    @classmethod
+    def _select_target(cls, nodes: Iterable[KnowledgeNode], question: str) -> KnowledgeNode | None:
+        query_terms = set(re.findall(r"[A-Za-z_]+", question.lower()))
         ranked = []
         for node in nodes:
-            score = 0
-            for text in node.names + node.aliases:
-                token = text.lower()
-                if token in lowered:
-                    score += 10 + len(token)
-            for form in node.equivalent_forms + node.formulas:
-                symbols = re.findall(r"tau|sigma|mu|epsilon|divisor box|valuation divisor box", form.lower())
-                score += sum(3 for symbol in symbols if symbol in lowered)
+            declared = cls._declared_symbols(node)
+            overlap = query_terms.intersection(declared)
+            phrase_hits = sum(1 for text in node.names + node.aliases if text.lower() in question.lower())
+            score = 20 * phrase_hits + 5 * len(overlap)
             if score:
                 ranked.append((score, node.node_id, node))
         return max(ranked, default=(0, "", None))[2]
 
     @staticmethod
     def _derive_rule(node: KnowledgeNode) -> tuple[str, tuple[str, ...]] | None:
+        declared = ExecutionComposer._declared_symbols(node)
         for form in node.equivalent_forms:
             compact = form.replace(" ", "")
-            match = re.fullmatch(r"([A-Za-z]+)=([A-Za-z0-9]+)\*([A-Za-z0-9]+)", compact)
-            if match and match.group(1).lower() in {name.lower().split()[-1] for name in node.names}:
+            match = re.fullmatch(r"([A-Za-z_]+)=([A-Za-z0-9_-]+)\*([A-Za-z0-9_-]+)", compact)
+            if match and match.group(1).lower() in declared:
                 return "convolution", (match.group(2), match.group(3))
-        formula = " ".join(node.formulas)
-        if "sum_{d|n}1" in formula:
-            return "divisor_sum", ("1",)
-        if "sum_{d|n}d" in formula:
-            return "divisor_sum", ("id",)
-        if "corresponds to" in formula and "0<=beta" in formula:
-            return "divisor_box", ()
+        for formula in node.formulas:
+            compact = formula.replace(" ", "")
+            match = re.fullmatch(r"([A-Za-z_]+)\(n\)=sum_\{d\|n\}(.+)", compact)
+            if match and match.group(1).lower() in declared:
+                summand = match.group(2)
+                if summand == "1":
+                    return "divisor_sum", ("1",)
+                if summand == "d":
+                    return "divisor_sum", ("id",)
+            if "correspondsto" in compact.lower() and "0<=beta" in compact.lower():
+                return "divisor_box", ()
         return None
