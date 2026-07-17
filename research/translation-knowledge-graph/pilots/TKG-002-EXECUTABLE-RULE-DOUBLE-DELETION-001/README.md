@@ -1,6 +1,6 @@
 # TKG-002-EXECUTABLE-RULE-DOUBLE-DELETION-001
 
-Status: `IMPLEMENTED / LOCAL COMPONENT TEST PASS / CLEAN-CHECKOUT REAL-REGISTRY REPLAY PENDING`
+Status: `PASS — VERIFIED SINGLE-CONCEPT EXECUTION KERNEL`
 
 Date: 2026-07-17
 
@@ -8,11 +8,21 @@ Date: 2026-07-17
 
 This gate tests whether `tau(360)` can be computed from a reviewed executable contract attached to the authored TKG-002 node, rather than from examples, textual-formula parsing, target-specific branches, or a stored answer.
 
+## Executed tree
+
+```text
+replayed_tree_commit = f500511d8ea5aa955d64cc01c65e67c5f392ae35
+branch context = agent/pvg-axis-sum-continuation-002
+```
+
+The commit SHA is the replay target. The branch name is contextual and may move.
+
 ## Implemented artifacts
 
 - `registry/executable/tkg-002-executable-rules-001.jsonl`
 - `code/tkg_002_executable_rule_engine_001.py`
 - `code/verify_tkg_002_executable_rule_double_deletion_001.py`
+- `TKG-002-EXECUTABLE-RULE-CLEAN-CHECKOUT-AND-ADVERSARIAL-REPLAY-001.md`
 
 The descriptive TKG-002 registry remains unchanged. Execution is authorized through a separate reviewed overlay:
 
@@ -27,45 +37,74 @@ The descriptive TKG-002 registry remains unchanged. Execution is authorized thro
 }
 ```
 
-## Local component validation
+## Clean-checkout double-deletion replay
 
-A local component-level validation reported:
+The committed verifier was executed from a clean checkout of the pinned tree and exited successfully:
 
 ```text
+exit_code = 0
 baseline tau(360)                         24
 examples deleted, executable rule kept   24
 executable rule deleted, examples kept   INSUFFICIENT_KNOWLEDGE
+engine_contains_case_result               false
 provenance                                PASS
 ```
 
-This local validation used the committed engine and rule-contract shape but a minimal registry fixture. It is not a clean-checkout replay against the full committed TKG-002 registry.
+This closes the original double-deletion gate.
 
-## Required clean-checkout command
+## Independently added unseen-input tests
 
-From a clean checkout of the experimental branch, run:
+A separate test implementation evaluated the committed engine on eight inputs not authored in the registry examples or official verifier and compared the results with `sympy.divisor_count`.
+
+Reported examples:
 
 ```text
-python research/translation-knowledge-graph/code/verify_tkg_002_executable_rule_double_deletion_001.py
+tau(4620)      = 48   PASS
+tau(59049)     = 11   PASS
+tau(997)       = 2    PASS
+tau(1000000)   = 49   PASS
 ```
 
-The gate is not closed until that command exits zero against the real registry and its output is reviewed independently.
+These tests establish that the operator contract applies to new positive-integer inputs rather than replaying stored fixture values.
 
-## Success requirements
+## Adversarial refusal boundary
 
-1. Baseline `tau(360)` returns `24`.
-2. Deleting every `examples` field does not change the result.
-3. Deleting `executable_rule` while retaining examples returns `INSUFFICIENT_KNOWLEDGE`.
-4. Every successful execution step has exactly one provenance source.
-5. The engine contains no `360`, no stored result `24`, and no `if "tau" in question` branch.
-6. The test case is structurally `CLEAN_RULE_ONLY`; raw numeric grep is not used.
+```text
+sigma(12) = INSUFFICIENT_KNOWLEDGE
+mu(30)    = INSUFFICIENT_KNOWLEDGE
+```
+
+The descriptive presence of sigma and mu nodes does not authorize execution without reviewed `executable_rule` contracts.
+
+## Provenance rule
+
+Every successful step carries exactly one provenance source:
+
+- `source_node_id` for the reviewed executable contract; or
+- `operator_id` for mechanical computation.
+
+## Exact claim established
+
+```text
+TKG-002 TAU DOUBLE-DELETION GATE = PASS
+UNSEEN-INPUT TAU RULE APPLICATION = PASS
+MISSING-RULE REFUSAL = PASS
+VERIFIED SINGLE-CONCEPT EXECUTION KERNEL = YES
+```
+
+This is narrow rule application on one concept through one reviewed operator contract. It is not authorization to call the system a reasoning engine or a mathematical mind.
 
 ## Claim boundary
 
 ```text
 REASONING ENGINE = NOT CLAIMED
-GENERALIZATION = NOT ESTABLISHED
+GENERAL REASONING LAYER = NOT ESTABLISHED
+EXECUTABLE CONCEPTS = TAU ONLY
+OPERATOR CONTRACTS VERIFIED = 1
 MATH = MATH-M0
 PNT / PNT-AP / GOLDBACH / RH / GRH PROGRESS = NONE
 BENCHMARK SEALED = NO
 MERGE TO MAIN = NOT AUTHORIZED
 ```
+
+Every additional concept requires its own reviewed executable rule, contamination audit, unseen-input tests, adversarial refusal checks, provenance validation, and double-deletion gate.
