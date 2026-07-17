@@ -1,0 +1,40 @@
+{
+  "benchmark_id": "BENCHMARK-TKG-001",
+  "execution_date": "2026-07-17",
+  "execution_scope": "structural routing and governance only",
+  "environment": {
+    "python": "3.13.5",
+    "repository_checkout": false,
+    "source_reconstruction": "exact current branch files fetched through GitHub connector and executed locally",
+    "network_clone_attempt": "failed because direct github.com DNS access was unavailable"
+  },
+  "pre_repair_result": {
+    "passed": false,
+    "passed_cases": 9,
+    "total_cases": 12,
+    "failures": ["COMP-001", "DIAG-002", "ADV-003"]
+  },
+  "repairs": [
+    "route logarithmic-derivative coefficient prompts to TKG-004",
+    "accept hyphenated functional-equation wording in routing and blocked-edge detection",
+    "route PVG reinterpretation/new-theorem prompts to REASONING-ORCHESTRATOR-001"
+  ],
+  "final_result": {
+    "passed": true,
+    "passed_cases": 12,
+    "total_cases": 12,
+    "by_class": {
+      "definitional": {"passed": 2, "total": 2},
+      "computational": {"passed": 2, "total": 2},
+      "multi_hop": {"passed": 2, "total": 2},
+      "diagnostic": {"passed": 2, "total": 2},
+      "adversarial": {"passed": 3, "total": 3},
+      "coverage": {"passed": 1, "total": 1}
+    }
+  },
+  "scientific_claims_certified": false,
+  "math_status": "MATH-M0",
+  "progress": {"PNT": "NONE", "PNT_AP": "NONE", "GOLDBACH": "NONE", "RH": "NONE", "GRH": "NONE"},
+  "benchmark_sealed": false,
+  "next_gate": "independent sealing review"
+}
