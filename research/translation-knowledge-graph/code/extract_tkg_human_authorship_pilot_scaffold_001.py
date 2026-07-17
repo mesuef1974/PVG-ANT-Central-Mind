@@ -3,6 +3,9 @@
 
 No canonical type or claim ceiling is inferred. Queue order is reproducible:
 sort by (source_path, source_line), then random.Random(SEED).shuffle.
+
+Parsing is a prior gate. Any invalid JSONL line is reported as
+UNPARSEABLE / NEEDS_REPAIR and blocks classification.
 """
 from __future__ import annotations
 
@@ -16,8 +19,8 @@ from typing import Any
 SEED = 2026071701
 SOURCE_REPOSITORY = "mesuef1974/PVG-ANT-Central-Mind"
 SOURCE_BRANCH = "agent/pvg-axis-sum-continuation-002"
-REGISTRY_SNAPSHOT_COMMIT = "9c69f1d7672cc378694d2e594b470c9e0583c894"
-EXPECTED_RECORDS = 118
+REGISTRY_SNAPSHOT_COMMIT = "01a91c1ab39ea4a1e6cc452ff137fae1dfe4234b"
+EXPECTED_RECORDS = 120
 EXPECTED_DISTRIBUTION = {
     "TYPE_AND_CEILING": 12,
     "TYPE_ONLY": 15,
@@ -68,6 +71,30 @@ def record_id(record: dict[str, Any]) -> str:
     return value
 
 
+def parse_registry_line(text: str, source_path: str, source_line: int) -> dict[str, Any]:
+    try:
+        value = json.loads(text)
+    except json.JSONDecodeError as exc:
+        failure = {
+            "classification": "UNPARSEABLE / NEEDS_REPAIR",
+            "source_path": source_path,
+            "source_line": source_line,
+            "error": exc.msg,
+            "column": exc.colno,
+        }
+        raise ValueError(json.dumps(failure, ensure_ascii=False, sort_keys=True)) from exc
+    if not isinstance(value, dict):
+        raise ValueError(
+            json.dumps({
+                "classification": "UNPARSEABLE / NEEDS_REPAIR",
+                "source_path": source_path,
+                "source_line": source_line,
+                "error": "JSONL record is not an object",
+            }, ensure_ascii=False, sort_keys=True)
+        )
+    return value
+
+
 def extract(repo_root: Path) -> list[dict[str, Any]]:
     registry = repo_root / "research" / "translation-knowledge-graph" / "registry"
     files = sorted(registry.glob("tkg-[0-9][0-9][0-9]-*.jsonl"))
@@ -81,7 +108,7 @@ def extract(repo_root: Path) -> list[dict[str, Any]]:
         for source_line, text in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
             if not text.strip():
                 continue
-            source = json.loads(text)
+            source = parse_registry_line(text, source_path, source_line)
             total += 1
             category = classify_missingness(source)
             if category is None:
@@ -117,7 +144,6 @@ def extract(repo_root: Path) -> list[dict[str, Any]]:
     if total != EXPECTED_RECORDS:
         raise ValueError(f"registry drift: expected {EXPECTED_RECORDS}, found {total}")
 
-    # The pre-shuffle input order is part of the reproducibility contract.
     rows.sort(key=lambda row: (row["source_path"], int(row["source_line"])))
     distribution = dict(Counter(row["missing_category"] for row in rows))
     if distribution != EXPECTED_DISTRIBUTION:
@@ -158,10 +184,12 @@ def main() -> None:
     rows = extract(repo_root)
     write_outputs(rows, output_dir)
     print(json.dumps({
+        "registry_records": EXPECTED_RECORDS,
         "rows": len(rows),
         "distribution": dict(Counter(row["missing_category"] for row in rows)),
         "canonical_input_order": ["source_path ASC", "source_line ASC"],
         "shuffle_seed": SEED,
+        "parse_gate": "UNPARSEABLE / NEEDS_REPAIR blocks classification",
         "human_judgement_authored": False,
     }, indent=2))
 
