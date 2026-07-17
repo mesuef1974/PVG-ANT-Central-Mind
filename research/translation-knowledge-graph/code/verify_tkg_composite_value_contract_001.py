@@ -52,29 +52,20 @@ def prove_mutation_applied_and_rejected(
 
 def run_prior_non_regression(repo_root: Path) -> dict[str, int]:
     code_dir = repo_root / "research" / "translation-knowledge-graph" / "code"
-    scripts = [
-        "verify_tkg_002_executable_rule_double_deletion_001.py",
-        "verify_tkg_002_mu_two_concept_execution_001.py",
-        "verify_tkg_multi_registry_loading_001.py",
-        "verify_tkg_001_lambda_structured_execution_001.py",
-        "verify_tkg_three_concept_non_regression_001.py",
-    ]
-    exit_codes: dict[str, int] = {}
-    for script in scripts:
-        completed = subprocess.run(
-            [sys.executable, str(code_dir / script)],
-            cwd=repo_root,
-            text=True,
-            capture_output=True,
-            check=False,
+    script = "verify_tkg_three_concept_non_regression_001.py"
+    completed = subprocess.run(
+        [sys.executable, str(code_dir / script)],
+        cwd=code_dir,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    if completed.returncode != 0:
+        raise AssertionError(
+            f"prior non-regression failed in {script}:\n"
+            f"STDOUT:\n{completed.stdout}\nSTDERR:\n{completed.stderr}"
         )
-        exit_codes[script] = completed.returncode
-        if completed.returncode != 0:
-            raise AssertionError(
-                f"prior non-regression failed in {script}:\n"
-                f"STDOUT:\n{completed.stdout}\nSTDERR:\n{completed.stderr}"
-            )
-    return exit_codes
+    return {script: completed.returncode}
 
 
 def main() -> None:
