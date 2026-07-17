@@ -7,6 +7,7 @@ import sys
 from pathlib import Path
 from typing import Any
 
+import tkg_factorization_consumer_contract_001 as consumer_contract
 from tkg_factorization_consumer_contract_001 import (
     apply_factorization_consumer,
     validate_factorization_consumer_input,
@@ -77,6 +78,14 @@ def main() -> None:
         assert validated == value
         assert validated is not value
         assert validated["factors"] is not value["factors"]
+        assert all(
+            validated_factor is not source_factor
+            for validated_factor, source_factor in zip(
+                validated["factors"],
+                value["factors"],
+                strict=True,
+            )
+        )
         canonical_copy_count += 1
 
     # Gate 3: invalid intermediates are rejected before the consumer is called.
@@ -132,6 +141,14 @@ def main() -> None:
     assert delivered == [source_value]
     assert delivered[0] is not source_value
     assert delivered[0]["factors"] is not source_value["factors"]
+    assert all(
+        delivered_factor is not source_factor
+        for delivered_factor, source_factor in zip(
+            delivered[0]["factors"],
+            source_value["factors"],
+            strict=True,
+        )
+    )
 
     # Gate 5: every current ExecutionValue family is legal as a consumer result.
     legal_outputs = [
@@ -194,19 +211,71 @@ def main() -> None:
         "non-callable consumer",
     )
 
-    # Gate 8: the validated copy protects the source intermediate from mutation.
-    mutation_source = canonical_cases[1]
+    # Gate 8A: explicit boundary isolation protects the original source from
+    # root, list, and nested-factor mutation by the consumer.
+    mutation_source = {
+        "kind": "PRIME_FACTORIZATION",
+        "factors": [
+            {"prime": 2, "exponent": 3},
+            {"prime": 3, "exponent": 2},
+        ],
+    }
     mutation_snapshot = {
         "kind": mutation_source["kind"],
         "factors": [dict(factor) for factor in mutation_source["factors"]],
     }
 
-    def mutating_consumer(factorization):
+    def deeply_mutating_consumer(factorization):
+        factorization["kind"] = "MUTATED"
+        factorization["factors"][0]["exponent"] = 99
+        factorization["factors"].append({"prime": 5, "exponent": 1})
+        return 0
+
+    assert apply_factorization_consumer(deeply_mutating_consumer, mutation_source) == 0
+    assert mutation_source == mutation_snapshot
+
+    # Gate 8B: isolation is owned by apply_factorization_consumer itself. Even
+    # if the validator is temporarily replaced by an identity function that
+    # returns the original object, the consumer still receives a deep copy.
+    validator_independence_source = {
+        "kind": "PRIME_FACTORIZATION",
+        "factors": [
+            {"prime": 2, "exponent": 1},
+            {"prime": 7, "exponent": 2},
+        ],
+    }
+    validator_independence_snapshot = {
+        "kind": validator_independence_source["kind"],
+        "factors": [
+            dict(factor)
+            for factor in validator_independence_source["factors"]
+        ],
+    }
+    isolated_deliveries: list[Any] = []
+
+    def identity_validator(value):
+        return value
+
+    def identity_validator_mutating_consumer(factorization):
+        isolated_deliveries.append(factorization)
+        factorization["factors"][0]["exponent"] = 100
         factorization["factors"].clear()
         return 0
 
-    assert apply_factorization_consumer(mutating_consumer, mutation_source) == 0
-    assert mutation_source == mutation_snapshot
+    original_validator = consumer_contract.validate_factorization_consumer_input
+    consumer_contract.validate_factorization_consumer_input = identity_validator
+    try:
+        assert apply_factorization_consumer(
+            identity_validator_mutating_consumer,
+            validator_independence_source,
+        ) == 0
+    finally:
+        consumer_contract.validate_factorization_consumer_input = original_validator
+
+    assert len(isolated_deliveries) == 1
+    assert isolated_deliveries[0] is not validator_independence_source
+    assert isolated_deliveries[0]["factors"] is not validator_independence_source["factors"]
+    assert validator_independence_source == validator_independence_snapshot
 
     # Gate 9: all PHASE-003 permanent verification remains green.
     prior_exit_code = run_script(code_dir, "verify_tkg_factorization_routing_001.py")
@@ -224,7 +293,8 @@ def main() -> None:
         "legal_output_family_count": len(legal_outputs),
         "invalid_output_count": len(invalid_outputs),
         "consumer_output_validation": "PASS",
-        "source_intermediate_mutation_isolation": "PASS",
+        "explicit_deep_mutation_isolation": "PASS",
+        "isolation_independent_of_validator_copy_behavior": "PASS",
         "prior_non_regression_exit_code": prior_exit_code,
         "composition_classification": "TYPED_EXECUTION_COMPOSITION_ONLY",
         "reasoning_composition": "NONE",
