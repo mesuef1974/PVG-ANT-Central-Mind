@@ -76,6 +76,31 @@ def load_mutated_projector(
     return namespace["project_lambda_from_factorization"]
 
 
+def is_rooted_in_name(node: ast.AST, name: str) -> bool:
+    current = node
+    while isinstance(current, ast.Subscript):
+        current = current.value
+    return isinstance(current, ast.Name) and current.id == name
+
+
+def count_factor_component_field_reads(tree: ast.AST, field: str) -> int:
+    """Count actual factor-component subscripts rooted in the local factors list.
+
+    This distinguishes a read such as factors[0]["prime"] from an unrelated
+    string occurrence such as the output mapping key {"prime": ...}.
+    """
+
+    count = 0
+    for node in ast.walk(tree):
+        if not isinstance(node, ast.Subscript):
+            continue
+        if not isinstance(node.slice, ast.Constant) or node.slice.value != field:
+            continue
+        if is_rooted_in_name(node.value, "factors"):
+            count += 1
+    return count
+
+
 def main() -> None:
     repo_root = Path(__file__).resolve().parents[3]
     code_dir = repo_root / "research" / "translation-knowledge-graph" / "code"
@@ -94,7 +119,8 @@ def main() -> None:
     # must read one prime label when support cardinality is exactly one, while it
     # must remain independent of exponent magnitude.
     projector_path = code_dir / "tkg_lambda_factorization_projection_001.py"
-    projector_tree = ast.parse(projector_path.read_text(encoding="utf-8"))
+    projector_source = projector_path.read_text(encoding="utf-8")
+    projector_tree = ast.parse(projector_source)
     forbidden_names = {
         "factor_integer",
         "reconstruct_n",
@@ -108,8 +134,6 @@ def main() -> None:
     }
     observed_forbidden_names: set[str] = set()
     observed_forbidden_modules: set[str] = set()
-    prime_field_reads = 0
-    exponent_field_reads = 0
     for node in ast.walk(projector_tree):
         if isinstance(node, ast.Name) and node.id in forbidden_names:
             observed_forbidden_names.add(node.id)
@@ -121,14 +145,32 @@ def main() -> None:
             for alias in node.names:
                 if alias.name in forbidden_modules:
                     observed_forbidden_modules.add(alias.name)
-        if isinstance(node, ast.Constant) and node.value == "prime":
-            prime_field_reads += 1
-        if isinstance(node, ast.Constant) and node.value == "exponent":
-            exponent_field_reads += 1
+
+    prime_field_reads = count_factor_component_field_reads(projector_tree, "prime")
+    exponent_field_reads = count_factor_component_field_reads(projector_tree, "exponent")
     assert observed_forbidden_names == set()
     assert observed_forbidden_modules == set()
     assert prime_field_reads == 1
     assert exponent_field_reads == 0
+
+    # Gate 2A: the audit itself distinguishes an output key from a component read.
+    output_key_only_tree = ast.parse('value = {"kind": "LOG_PRIME", "prime": 2}')
+    assert count_factor_component_field_reads(output_key_only_tree, "prime") == 0
+
+    # Gate 2B: positive audit injection. Removing the actual prime read and adding
+    # an exponent read must be detected by the structural measurement itself.
+    prime_read_target = 'factors[0]["prime"]'
+    exponent_read_replacement = 'factors[0]["exponent"]'
+    assert projector_source.count(prime_read_target) == 1
+    audit_mutant_source = projector_source.replace(
+        prime_read_target,
+        exponent_read_replacement,
+        1,
+    )
+    assert audit_mutant_source != projector_source
+    audit_mutant_tree = ast.parse(audit_mutant_source)
+    assert count_factor_component_field_reads(audit_mutant_tree, "prime") == 0
+    assert count_factor_component_field_reads(audit_mutant_tree, "exponent") == 1
 
     # Gate 3: exact branch behavior, including n=1, prime powers, and composite
     # support. Results are structured ExecutionValue objects, not numeric logs.
@@ -292,8 +334,8 @@ def main() -> None:
 
     prime_field_mutant = load_mutated_projector(
         projector_path,
-        'factors[0]["prime"]',
-        'factors[0]["exponent"]',
+        prime_read_target,
+        exponent_read_replacement,
     )
     prime_field_mutant_result = apply_factorization_consumer(
         prime_field_mutant,
@@ -316,6 +358,12 @@ def main() -> None:
         "hidden_refactor_dependency_audit": "PASS",
         "prime_field_dependency": "REQUIRED_AND_VERIFIED",
         "exponent_magnitude_independence": "PASS",
+        "field_read_audit": {
+            "actual_prime_component_reads": prime_field_reads,
+            "actual_exponent_component_reads": exponent_field_reads,
+            "output_key_not_counted_as_read": "PASS",
+            "prime_to_exponent_injection_detected": "PASS",
+        },
         "branch_results": branch_results,
         "invalid_input_count": len(invalid_inputs),
         "invalid_input_rejected_before_projector": "PASS",
