@@ -37,8 +37,27 @@ EXECUTED_FILES = [
 ]
 
 
+def configure_utf8_console() -> None:
+    for stream in (sys.stdout, sys.stderr):
+        reconfigure = getattr(stream, "reconfigure", None)
+        if callable(reconfigure):
+            reconfigure(encoding="utf-8", errors="backslashreplace")
+
+
 def run_command(argv: list[str], cwd: Path = ROOT) -> dict[str, Any]:
-    proc = subprocess.run(argv, cwd=cwd, text=True, capture_output=True, check=False)
+    env = os.environ.copy()
+    env["PYTHONUTF8"] = "1"
+    env["PYTHONIOENCODING"] = "utf-8"
+    proc = subprocess.run(
+        argv,
+        cwd=cwd,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        capture_output=True,
+        check=False,
+        env=env,
+    )
     return {
         "argv": argv,
         "cwd": str(cwd),
@@ -71,6 +90,7 @@ def git_blob_sha(path: Path) -> str:
 
 
 def main() -> None:
+    configure_utf8_console()
     parser = argparse.ArgumentParser()
     parser.add_argument("--allow-dirty", action="store_true")
     args = parser.parse_args()
@@ -124,6 +144,8 @@ def main() -> None:
             "platform": platform.platform(),
             "executable": sys.executable,
             "cwd": os.getcwd(),
+            "pythonutf8": "1",
+            "pythonioencoding": "utf-8",
         },
         "executed_files": files,
         "commands": {
