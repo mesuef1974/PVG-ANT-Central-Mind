@@ -8,11 +8,9 @@ from typing import Any
 
 from tkg_002_executable_rule_engine_001 import (
     EXECUTED_FROM_REGISTRY_RULE,
-    OPERATORS,
     ExecutionResult,
     OperatorExecution,
     TKG002Executor,
-    load_rule_jsonl,
 )
 from tkg_execution_value_contract_001 import validate_execution_value
 
@@ -57,7 +55,10 @@ def run_script(code_dir: Path, script: str) -> int:
 
 
 def main() -> None:
-    # Positive cases cover every currently authorized execution-result family.
+    # Permanent B1 invariants: every authorized execution-result family is
+    # accepted at both engine boundaries. This verifier intentionally does not
+    # assert the absence of future operators or rules; B1 scope was established
+    # by the pinned clean-checkout replay at a8028a6.
     positive_values = [
         24,
         -1,
@@ -78,8 +79,6 @@ def main() -> None:
         assert OperatorExecution(value, ()).result == value
         assert ExecutionResult("TEST", "q", None, None, value, ()).result == value
 
-    # Negative cases exercise type, exact object shape, symbolic payload,
-    # composite payload, and the bool-is-int edge case.
     negative_values = [
         True,
         False,
@@ -113,7 +112,6 @@ def main() -> None:
     registry_dir = repo_root / "research" / "translation-knowledge-graph" / "registry"
     rules_path = registry_dir / "executable" / "tkg-002-executable-rules-001.jsonl"
 
-    # One source of truth for all earlier gates, including PHASE-003-A.
     prior_exit_code = run_script(code_dir, "verify_tkg_composite_value_contract_001.py")
 
     executor = TKG002Executor(
@@ -140,18 +138,9 @@ def main() -> None:
         assert result.result == expected_values[name]
         assert validate_execution_value(result.result) == result.result
 
-    # B1 must not silently start B2/B3.
-    assert "OP-FACTORIZE-INTEGER-001" not in OPERATORS
-    rules = load_rule_jsonl(rules_path)
-    assert not any(
-        str((rule.get("executable_rule") or {}).get("result_symbol", "")).lower()
-        in {"factor", "factorize", "factorization"}
-        for rule in rules
-    )
-
     report = {
         "phase": "PHASE-003-B1",
-        "scope": "UNIFIED_EXECUTION_VALUE_CONTRACT",
+        "scope": "UNIFIED_EXECUTION_VALUE_CONTRACT_PERMANENT_INVARIANTS",
         "positive_case_count": len(positive_values),
         "negative_case_count": len(negative_values),
         "engine_boundary_validation": "PASS",
@@ -159,8 +148,8 @@ def main() -> None:
         "pointwise_replay": {name: result.result for name, result in observed.items()},
         "result_any_debt": "CLOSED_FOR_OPERATOR_AND_EXECUTION_RESULTS",
         "provenance_step_value_any": "INTENTIONALLY_OPEN",
-        "factorization_operator_added": False,
-        "executable_rule_added": False,
+        "historical_scope_pin": "a8028a6",
+        "future_component_absence_assertions": "PROHIBITED_IN_PERMANENT_VERIFIER",
         "math": "MATH-M0",
         "pnt": "NONE",
         "pnt_ap": "NONE",
