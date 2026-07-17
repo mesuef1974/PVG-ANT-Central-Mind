@@ -1,0 +1,81 @@
+{
+  "benchmark_id": "BENCHMARK-TKG-001-R2",
+  "execution_date": "2026-07-17",
+  "execution_scope": "routing plus bounded semantic response checks",
+  "environment": {
+    "python": "3.13.5",
+    "repository_checkout": false,
+    "execution_mode": "local behavioral replay reconstructed from current branch sources fetched through the GitHub connector",
+    "exact_byte_for_byte_checkout_claimed": false
+  },
+  "source_bindings": {
+    "query_reasoning_orchestrator_001.py": {
+      "github_blob_sha": "21222ce348a237ed7f2f936bdc727a436eed110b"
+    },
+    "query_reasoning_semantic_r2.py": {
+      "github_blob_sha": "998bd98b1f475256727d1454c811560c63e0b92c"
+    },
+    "run_benchmark_tkg_001_r2.py": {
+      "github_blob_sha": "a054c0be74f08b71ea146aa4b9526dd13fb44671"
+    },
+    "benchmark-tkg-001-r2.jsonl": {
+      "github_blob_sha": "2832b242aefa4a4609aa960c8d3fc62b25109370"
+    }
+  },
+  "pre_repair_result": {
+    "passed": false,
+    "passed_cases": 18,
+    "total_cases": 24,
+    "failures": [
+      "R2-DEF-EN-002",
+      "R2-DEF-AR-002",
+      "R2-COMP-AR-001",
+      "R2-COMP-AR-002",
+      "R2-MULTI-AR-001",
+      "R2-ADV-AR-001"
+    ]
+  },
+  "repairs": [
+    "add Arabic routing for موصل, تاو, and معامل فون مانغولد",
+    "extend Arabic governance blocker to جميع ملفات التحقق and رقّ",
+    "extend finite-computation blocker to Arabic فحص and كل",
+    "replace overbroad negative expectations that rejected conservative statements such as no GRH progress"
+  ],
+  "final_result": {
+    "passed": true,
+    "passed_cases": 24,
+    "total_cases": 24,
+    "by_language": {
+      "ar": {"passed": 12, "total": 12},
+      "en": {"passed": 12, "total": 12}
+    },
+    "by_class": {
+      "definitional": {"passed": 4, "total": 4},
+      "computational": {"passed": 4, "total": 4},
+      "multi_hop": {"passed": 4, "total": 4},
+      "diagnostic": {"passed": 4, "total": 4},
+      "adversarial": {"passed": 4, "total": 4},
+      "minimal_pair": {"passed": 2, "total": 2},
+      "coverage": {"passed": 2, "total": 2}
+    }
+  },
+  "semantic_checks_executed": true,
+  "semantic_fields_checked": [
+    "must_include",
+    "must_not_include",
+    "must_include_ordered"
+  ],
+  "routing_checks_executed": true,
+  "governance_checks_executed": true,
+  "scientific_claims_certified": false,
+  "math_status": "MATH-M0",
+  "progress": {
+    "PNT": "NONE",
+    "PNT_AP": "NONE",
+    "GOLDBACH": "NONE",
+    "RH": "NONE",
+    "GRH": "NONE"
+  },
+  "benchmark_sealed": false,
+  "remaining_integrity_gap": "A byte-for-byte checkout replay with archived command, stdout, stderr, exit code, generated SHA-256 manifest, and independent reviewer is still required."
+}
