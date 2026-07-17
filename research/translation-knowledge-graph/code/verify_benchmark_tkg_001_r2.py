@@ -6,10 +6,21 @@ cases. It does not certify mathematical theorems or authorize MATH promotion.
 """
 from __future__ import annotations
 
+import json
+import sys
+
 from run_benchmark_tkg_001_r2 import DEFAULT_REGISTRY, load_cases, run
 
 
+def configure_utf8_console() -> None:
+    for stream in (sys.stdout, sys.stderr):
+        reconfigure = getattr(stream, "reconfigure", None)
+        if callable(reconfigure):
+            reconfigure(encoding="utf-8", errors="backslashreplace")
+
+
 def main() -> None:
+    configure_utf8_console()
     cases = load_cases(DEFAULT_REGISTRY)
     assert len(cases) == 24
     assert len({x["case_id"] for x in cases}) == 24
@@ -18,8 +29,13 @@ def main() -> None:
     assert all("must_include" in x or "must_include_ordered" in x for x in cases)
 
     report = run(DEFAULT_REGISTRY)
+    failures = [x for x in report["results"] if not x["passed"]]
+    if failures:
+        print("BENCHMARK-TKG-001-R2 failing cases:", file=sys.stderr)
+        print(json.dumps(failures, ensure_ascii=False, indent=2, sort_keys=True), file=sys.stderr)
+
     assert report["total_cases"] == 24
-    assert report["passed"] is True, [x for x in report["results"] if not x["passed"]]
+    assert report["passed"] is True, failures
     assert report["math_status"] == "MATH-M0"
     assert report["scientific_claims_certified"] is False
     assert report["benchmark_sealed"] is False
