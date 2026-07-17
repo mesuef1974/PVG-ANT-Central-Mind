@@ -1,24 +1,24 @@
 # TKG-HUMAN-AUTHORSHIP-PILOT-SCAFFOLD-001
 
-Status: `EXTRACTOR_REPRODUCIBILITY_PASS / ROWS_OUTSIDE_REPOSITORY / UNREVIEWED`
+Status: `EXTRACTOR_REPRODUCIBILITY_PASS_QUALIFIED / ROWS_OUTSIDE_REPOSITORY / UNREVIEWED`
 
 Registry snapshot commit: `01a91c1ab39ea4a1e6cc452ff137fae1dfe4234b`
 Extractor commit: `89b1278442b04c9c504479717399b8c6201402c0`
-Branch: `agent/pvg-axis-sum-continuation-002`
+Replayed tree commit: `9b6fc51990c34c85d688087a02fc539185cdd5d0`
+Branch at execution: `agent/pvg-axis-sum-continuation-002`
 
-## Independent clean-checkout replay
+The branch name is contextual and mutable. The replay claim is pinned to the immutable commit above.
+
+## Clean-checkout replay
 
 ```text
-EXTRACTOR CLEAN-CHECKOUT REPLAY = PASS
+EXTRACTOR CLEAN-CHECKOUT REPLAY AT 9b6fc51 = PASS
 exit_code = 0
 registry_records = 120
 rows = 37
 TYPE_AND_CEILING = 12
 TYPE_ONLY = 15
 CEILING_ONLY = 10
-membership match = PASS
-missingness-category match = PASS
-queue-order row-by-row match = PASS
 judgement columns blank = 37/37
 review_status UNREVIEWED = 37/37
 ```
@@ -27,7 +27,33 @@ Evidence:
 
 `TKG-AUTHORSHIP-SCAFFOLD-CLEAN-CHECKOUT-REPLAY-001.md`
 
-This closes only the narrow mechanical reproducibility claim. It does not classify or authorize any queued record.
+This closes only narrow mechanical claims. The evidence is a narrative execution record, not an R2-style byte-exact package: stdout/stderr files, environment capture, per-file SHA-256 values, and Git blob identifiers are not committed.
+
+## Verification-strength separation
+
+```text
+MEMBERSHIP     = INDEPENDENTLY RE-DERIVED
+                 different implementation
+                 PASS
+
+CLASSIFICATION = INDEPENDENTLY RE-DERIVED
+                 different implementation
+                 PASS
+
+QUEUE ORDER    = DETERMINISM CONFIRMED
+                 same committed extractor, two runs
+                 row-by-row PASS
+```
+
+The queue-order result proves deterministic reproduction by the committed extractor. It does not independently validate that the chosen ordering policy is correct.
+
+The executor was an agent operating within the user's session and environment. Therefore:
+
+```text
+SEPARATE CLEAN-CHECKOUT EXECUTION = YES
+DIFFERENT IMPLEMENTATION FOR MEMBERSHIP/CLASSIFICATION = YES
+EXTERNAL OR INSTITUTIONALLY INDEPENDENT PARTY = NO
+```
 
 ## Reproducible ordering contract
 
@@ -79,12 +105,18 @@ A successful review can validate the extraction and human-review workflow for th
 
 ## Claim boundary
 
-The replay proves that repository data and the committed extractor reproduce the same 37-record membership, categories, and ordering from a clean checkout.
+Established:
 
-It does not establish:
+- membership independently re-derived by different logic;
+- missingness categories independently re-derived by different logic;
+- committed extractor determinism for queue order at the pinned tree.
 
+Not established:
+
+- independent correctness of the queue-order policy;
 - correctness of future human decisions;
 - transfer of the policy to RMG;
+- external-party independence;
 - executable knowledge;
 - reasoning or generalization;
 - PNT, PNT-AP, Goldbach, RH, or GRH progress.
