@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from copy import deepcopy
 from typing import Any, Callable, TypeAlias, cast
 
 from tkg_composite_value_contract_001 import validate_prime_factorization_value
@@ -37,16 +38,23 @@ def apply_factorization_consumer(
     factorization: Any,
     /,
 ) -> ExecutionValue:
-    """Apply a typed consumer to a validated factorization intermediate.
+    """Apply a typed consumer to an isolated, validated factorization value.
 
     Validation occurs on both sides of the consumer boundary:
     - the input must be a canonical PRIME_FACTORIZATION value;
     - the returned value must satisfy the unified ExecutionValue contract.
 
-    The callable receives exactly one argument: the validated factorization.
+    The callable receives exactly one argument: a deep copy of the validated
+    factorization. The explicit copy makes source-intermediate isolation a
+    local guarantee of this boundary rather than an incidental property of the
+    validator implementation.
     """
 
     if not callable(consumer):
         raise TypeError("factorization consumer must be callable")
     validated_factorization = validate_factorization_consumer_input(factorization)
-    return validate_execution_value(consumer(validated_factorization))
+    isolated_factorization = cast(
+        PrimeFactorizationExecutionValue,
+        deepcopy(validated_factorization),
+    )
+    return validate_execution_value(consumer(isolated_factorization))
