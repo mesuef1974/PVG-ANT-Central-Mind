@@ -1,10 +1,33 @@
 # TKG-HUMAN-AUTHORSHIP-PILOT-SCAFFOLD-001
 
-Status: `EXTRACTOR_COMMITTED / ROWS_OUTSIDE_REPOSITORY / UNREVIEWED`
+Status: `EXTRACTOR_REPRODUCIBILITY_PASS / ROWS_OUTSIDE_REPOSITORY / UNREVIEWED`
 
 Registry snapshot commit: `01a91c1ab39ea4a1e6cc452ff137fae1dfe4234b`
 Extractor commit: `89b1278442b04c9c504479717399b8c6201402c0`
 Branch: `agent/pvg-axis-sum-continuation-002`
+
+## Independent clean-checkout replay
+
+```text
+EXTRACTOR CLEAN-CHECKOUT REPLAY = PASS
+exit_code = 0
+registry_records = 120
+rows = 37
+TYPE_AND_CEILING = 12
+TYPE_ONLY = 15
+CEILING_ONLY = 10
+membership match = PASS
+missingness-category match = PASS
+queue-order row-by-row match = PASS
+judgement columns blank = 37/37
+review_status UNREVIEWED = 37/37
+```
+
+Evidence:
+
+`TKG-AUTHORSHIP-SCAFFOLD-CLEAN-CHECKOUT-REPLAY-001.md`
+
+This closes only the narrow mechanical reproducibility claim. It does not classify or authorize any queued record.
 
 ## Reproducible ordering contract
 
@@ -56,4 +79,22 @@ A successful review can validate the extraction and human-review workflow for th
 
 ## Claim boundary
 
-This scaffold measures data incompleteness and organizes human review. It does not establish reasoning, generalization, executable knowledge, PNT progress, Goldbach progress, RH progress, or GRH progress.
+The replay proves that repository data and the committed extractor reproduce the same 37-record membership, categories, and ordering from a clean checkout.
+
+It does not establish:
+
+- correctness of future human decisions;
+- transfer of the policy to RMG;
+- executable knowledge;
+- reasoning or generalization;
+- PNT, PNT-AP, Goldbach, RH, or GRH progress.
+
+## Remaining open gates
+
+```text
+HUMAN REVIEW = NOT STARTED
+EXECUTABLE_RULE DOUBLE-DELETION GATE = OPEN
+RMG OPERATIONAL AUTHORITY = NOT GRANTED
+BENCHMARK SEALED = NO
+MERGE TO MAIN = NOT AUTHORIZED
+```
