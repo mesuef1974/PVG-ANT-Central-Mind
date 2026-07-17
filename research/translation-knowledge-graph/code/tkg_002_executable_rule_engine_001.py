@@ -6,6 +6,8 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Callable, Iterable
 
+from tkg_execution_value_contract_001 import ExecutionValue, validate_execution_value
+
 INSUFFICIENT_KNOWLEDGE = "INSUFFICIENT_KNOWLEDGE"
 EXECUTED_FROM_REGISTRY_RULE = "EXECUTED_FROM_REGISTRY_RULE"
 
@@ -24,8 +26,11 @@ class ExecutionStep:
 
 @dataclass(frozen=True)
 class OperatorExecution:
-    result: Any
+    result: ExecutionValue
     steps: tuple[ExecutionStep, ...]
+
+    def __post_init__(self) -> None:
+        object.__setattr__(self, "result", validate_execution_value(self.result))
 
 
 @dataclass(frozen=True)
@@ -34,8 +39,12 @@ class ExecutionResult:
     query: str
     source_node_id: str | None
     rule_id: str | None
-    result: Any | None
+    result: ExecutionValue | None
     steps: tuple[ExecutionStep, ...]
+
+    def __post_init__(self) -> None:
+        if self.result is not None:
+            object.__setattr__(self, "result", validate_execution_value(self.result))
 
 
 def load_jsonl(path: Path) -> list[dict[str, Any]]:
@@ -153,7 +162,7 @@ def evaluate_von_mangoldt(args: dict[str, Any], n: int) -> OperatorExecution:
     support_cardinality = len(factors)
     is_prime_power = support_cardinality == 1
     if is_prime_power:
-        result: dict[str, Any] = {"kind": "LOG_PRIME", "prime": next(iter(factors))}
+        result: ExecutionValue = {"kind": "LOG_PRIME", "prime": next(iter(factors))}
     else:
         result = {"kind": "ZERO"}
     return OperatorExecution(result, (
