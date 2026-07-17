@@ -173,11 +173,33 @@ def evaluate_von_mangoldt(args: dict[str, Any], n: int) -> OperatorExecution:
     ))
 
 
+def evaluate_factorize(args: dict[str, Any], n: int) -> OperatorExecution:
+    if args:
+        raise ValueError(f"unsupported factorization arguments: {args!r}")
+    factors = factor_integer(n)
+    result: ExecutionValue = {
+        "kind": "PRIME_FACTORIZATION",
+        "factors": [
+            {"prime": prime, "exponent": exponent}
+            for prime, exponent in sorted(factors.items())
+        ],
+    }
+    return OperatorExecution(result, (
+        ExecutionStep("Factor input integer", factors, operator_id="OP-FACTOR-INTEGER-001"),
+        ExecutionStep(
+            "Encode canonical prime factorization execution value",
+            result,
+            operator_id="OP-FACTORIZE-INTEGER-001",
+        ),
+    ))
+
+
 Operator = Callable[[dict[str, Any], int], OperatorExecution]
 OPERATORS: dict[str, Operator] = {
     "OP-EVALUATE-DIVISOR-SUM-001": evaluate_divisor_sum,
     "OP-EVALUATE-MOBIUS-001": evaluate_mobius,
     "OP-EVALUATE-VON-MANGOLDT-001": evaluate_von_mangoldt,
+    "OP-FACTORIZE-INTEGER-001": evaluate_factorize,
 }
 
 
