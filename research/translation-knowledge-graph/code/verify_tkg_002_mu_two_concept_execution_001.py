@@ -71,12 +71,30 @@ def main() -> None:
     base_records = load_jsonl(registry_path)
     rule_records = load_jsonl(rules_path)
     assert base_records
-    assert len(rule_records) == 2
+
+    # A concept verifier owns only its local rule invariants. It must not assert
+    # the global number of executable rules, because adding an independent
+    # concept must not invalidate previously verified concepts.
+    mu_rules = [
+        record
+        for record in rule_records
+        if isinstance(record.get("executable_rule"), dict)
+        and str(record["executable_rule"].get("result_symbol", "")).lower() == "mu"
+    ]
+    tau_rules = [
+        record
+        for record in rule_records
+        if isinstance(record.get("executable_rule"), dict)
+        and str(record["executable_rule"].get("result_symbol", "")).lower() == "tau"
+    ]
+    assert len(mu_rules) == 1
+    assert len(tau_rules) == 1
 
     # Gates 2 and 3: reviewed rule and operator contracts are explicit.
-    rules_by_id = {record.get("rule_id"): record for record in rule_records}
-    mu_rule = rules_by_id["TKG002-EXEC-MU-001"]
-    tau_rule = rules_by_id["TKG002-EXEC-TAU-001"]
+    mu_rule = mu_rules[0]
+    tau_rule = tau_rules[0]
+    assert mu_rule["rule_id"] == "TKG002-EXEC-MU-001"
+    assert tau_rule["rule_id"] == "TKG002-EXEC-TAU-001"
     assert mu_rule["source_node_id"] == "TKG002-NODE-MU"
     assert mu_rule["executable_rule"] == {
         "operator_id": "OP-EVALUATE-MOBIUS-001",
@@ -175,6 +193,7 @@ def main() -> None:
     report = {
         "gate": "TKG-002-MU-TWO-CONCEPT-EXECUTION-001",
         "parse_gate": "PASS",
+        "rule_cardinality_policy": "LOCAL_PER_RESULT_SYMBOL",
         "rule_and_operator_review": "PASS",
         "contamination": "CLEAN_RULE_ONLY_FOR_UNSEEN_CASES",
         "branch_cases": branch_results,
