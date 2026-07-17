@@ -1,0 +1,852 @@
+{
+  "benchmark_id": "BENCHMARK-TKG-001-R2",
+  "benchmark_sealed": false,
+  "by_class": {
+    "adversarial": {
+      "passed": 4,
+      "total": 4
+    },
+    "computational": {
+      "passed": 4,
+      "total": 4
+    },
+    "coverage": {
+      "passed": 2,
+      "total": 2
+    },
+    "definitional": {
+      "passed": 4,
+      "total": 4
+    },
+    "diagnostic": {
+      "passed": 4,
+      "total": 4
+    },
+    "minimal_pair": {
+      "passed": 2,
+      "total": 2
+    },
+    "multi_hop": {
+      "passed": 4,
+      "total": 4
+    }
+  },
+  "by_language": {
+    "ar": {
+      "passed": 11,
+      "total": 11
+    },
+    "en": {
+      "passed": 13,
+      "total": 13
+    }
+  },
+  "execution_scope": "routing plus bounded semantic response checks",
+  "manifest": {
+    "argv": [
+      "D:\\PVG-ANT-Central-Mind\\research\\translation-knowledge-graph\\code\\run_benchmark_tkg_001_r2.py",
+      "--output",
+      "D:\\PVG-ANT-Central-Mind\\research\\translation-knowledge-graph\\reports\\benchmark-tkg-001-r2-byte-exact-report.json"
+    ],
+    "files": {
+      "code\\query_reasoning_orchestrator_001.py": "de1772aa260aea620ed5c8f23b7452b10506a8447d2b962436af379d0d69e203",
+      "code\\query_reasoning_semantic_r2.py": "019a7184a337298c0233ede9223f35118373bca47dde7faf3796efb89b2811dc",
+      "code\\run_benchmark_tkg_001_r2.py": "3ac686a5139253e66e0197a327dc363bc3d034ddeef833e615506724d6ec3fff",
+      "registry\\benchmark-tkg-001-r2.jsonl": "94667a452c5f11125519f846c46b36b313321296b36b058b016b091170b6b522"
+    },
+    "git_head": "670099b3be82010dde96277a2bd65551fff7b9fb",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+  },
+  "math_status": "MATH-M0",
+  "passed": true,
+  "passed_cases": 24,
+  "results": [
+    {
+      "answer": "Dirichlet convolution is (f*g)(n)=Σ_{d|n} f(d)g(n/d), a sum over divisors.",
+      "blocked_edges_triggered": [],
+      "case_id": "R2-DEF-EN-001",
+      "checks": {
+        "exclude:new theorem": true,
+        "expected_units_subset": true,
+        "include:(f*g)(n)": true,
+        "include:divisors": true,
+        "math_ceiling_preserved": true,
+        "semantic_layer_bounded": true
+      },
+      "claim_ceiling": {
+        "ASSIM": "ASSIM-L3",
+        "GOLDBACH": "NONE",
+        "GRH": "NONE",
+        "MATH": "MATH-M0",
+        "PNT": "NONE",
+        "PNT_AP": "NONE",
+        "RH": "NONE"
+      },
+      "class": "definitional",
+      "language": "en",
+      "passed": true,
+      "selected_units": [
+        "TKG-001",
+        "TKG-002"
+      ]
+    },
+    {
+      "answer": "التفاف ديريشليه هو (f*g)(n)=Σ_{d|n} f(d)g(n/d)، أي مجموع على القواسم.",
+      "blocked_edges_triggered": [],
+      "case_id": "R2-DEF-AR-001",
+      "checks": {
+        "exclude:مبرهنة جديدة": true,
+        "expected_units_subset": true,
+        "include:(f*g)(n)": true,
+        "include:القواسم": true,
+        "math_ceiling_preserved": true,
+        "semantic_layer_bounded": true
+      },
+      "claim_ceiling": {
+        "ASSIM": "ASSIM-L3",
+        "GOLDBACH": "NONE",
+        "GRH": "NONE",
+        "MATH": "MATH-M0",
+        "PNT": "NONE",
+        "PNT_AP": "NONE",
+        "RH": "NONE"
+      },
+      "class": "definitional",
+      "language": "ar",
+      "passed": true,
+      "selected_units": [
+        "TKG-001",
+        "TKG-002"
+      ]
+    },
+    {
+      "answer": "The conductor is the minimal modulus of the primitive character from which the displayed character is induced; there is no GRH progress.",
+      "blocked_edges_triggered": [],
+      "case_id": "R2-DEF-EN-002",
+      "checks": {
+        "exclude:GRH is proved": true,
+        "expected_units_subset": true,
+        "include:minimal modulus": true,
+        "include:primitive": true,
+        "math_ceiling_preserved": true,
+        "semantic_layer_bounded": true
+      },
+      "claim_ceiling": {
+        "ASSIM": "ASSIM-L3",
+        "GOLDBACH": "NONE",
+        "GRH": "NONE",
+        "MATH": "MATH-M0",
+        "PNT": "NONE",
+        "PNT_AP": "NONE",
+        "RH": "NONE"
+      },
+      "class": "definitional",
+      "language": "en",
+      "passed": true,
+      "selected_units": [
+        "TKG-006",
+        "TKG-007",
+        "TKG-008"
+      ]
+    },
+    {
+      "answer": "الموصل هو أصغر مقياس يحمل الشخصية البدائية التي تُستحث منها الشخصية المعروضة؛ لا يوجد تقدم في GRH.",
+      "blocked_edges_triggered": [],
+      "case_id": "R2-DEF-AR-002",
+      "checks": {
+        "exclude:تم إثبات GRH": true,
+        "expected_units_subset": true,
+        "include:أصغر مقياس": true,
+        "include:بدائية": true,
+        "math_ceiling_preserved": true,
+        "semantic_layer_bounded": true
+      },
+      "claim_ceiling": {
+        "ASSIM": "ASSIM-L3",
+        "GOLDBACH": "NONE",
+        "GRH": "NONE",
+        "MATH": "MATH-M0",
+        "PNT": "NONE",
+        "PNT_AP": "NONE",
+        "RH": "NONE"
+      },
+      "class": "definitional",
+      "language": "ar",
+      "passed": true,
+      "selected_units": [
+        "TKG-006",
+        "TKG-007",
+        "TKG-008"
+      ]
+    },
+    {
+      "answer": "Since 27=3^3, Lambda(27)=log 3, and its PVG point is 3e_3. PNT is not proved.",
+      "blocked_edges_triggered": [],
+      "case_id": "R2-COMP-EN-001",
+      "checks": {
+        "exclude:PNT is proved": true,
+        "expected_units_subset": true,
+        "include:3e_3": true,
+        "include:Lambda(27)=log 3": true,
+        "math_ceiling_preserved": true,
+        "semantic_layer_bounded": true
+      },
+      "claim_ceiling": {
+        "ASSIM": "ASSIM-L3",
+        "GOLDBACH": "NONE",
+        "GRH": "NONE",
+        "MATH": "MATH-M0",
+        "PNT": "NONE",
+        "PNT_AP": "NONE",
+        "RH": "NONE"
+      },
+      "class": "computational",
+      "language": "en",
+      "passed": true,
+      "selected_units": [
+        "TKG-001",
+        "TKG-002",
+        "TKG-003",
+        "TKG-004"
+      ]
+    },
+    {
+      "answer": "لأن 27=3^3 فإن Λ(27)=log 3، ونقطة PVG هي 3e_3. هذا ليس إثبات PNT.",
+      "blocked_edges_triggered": [],
+      "case_id": "R2-COMP-AR-001",
+      "checks": {
+        "exclude:تم إثبات PNT": true,
+        "expected_units_subset": true,
+        "include:3e_3": true,
+        "include:Λ(27)=log 3": true,
+        "math_ceiling_preserved": true,
+        "semantic_layer_bounded": true
+      },
+      "claim_ceiling": {
+        "ASSIM": "ASSIM-L3",
+        "GOLDBACH": "NONE",
+        "GRH": "NONE",
+        "MATH": "MATH-M0",
+        "PNT": "NONE",
+        "PNT_AP": "NONE",
+        "RH": "NONE"
+      },
+      "class": "computational",
+      "language": "ar",
+      "passed": true,
+      "selected_units": [
+        "TKG-001",
+        "TKG-002",
+        "TKG-003",
+        "TKG-004"
+      ]
+    },
+    {
+      "answer": "tau(4)=3 whereas tau(2)^2=4; the divisor function is multiplicative on coprime inputs but not completely multiplicative.",
+      "blocked_edges_triggered": [],
+      "case_id": "R2-COMP-EN-002",
+      "checks": {
+        "exclude:contradiction": true,
+        "expected_units_subset": true,
+        "include:not completely multiplicative": true,
+        "include:tau(2)^2=4": true,
+        "include:tau(4)=3": true,
+        "math_ceiling_preserved": true,
+        "semantic_layer_bounded": true
+      },
+      "claim_ceiling": {
+        "ASSIM": "ASSIM-L3",
+        "GOLDBACH": "NONE",
+        "GRH": "NONE",
+        "MATH": "MATH-M0",
+        "PNT": "NONE",
+        "PNT_AP": "NONE",
+        "RH": "NONE"
+      },
+      "class": "computational",
+      "language": "en",
+      "passed": true,
+      "selected_units": [
+        "TKG-001",
+        "TKG-002",
+        "TKG-003"
+      ]
+    },
+    {
+      "answer": "لدينا τ(4)=3 بينما τ(2)^2=4؛ دالة القواسم مضاعفة على المدخلات المتباينة لكنها ليست مضاعفة كليًا.",
+      "blocked_edges_triggered": [],
+      "case_id": "R2-COMP-AR-002",
+      "checks": {
+        "exclude:تناقض في النظرية": true,
+        "expected_units_subset": true,
+        "include:τ(2)^2=4": true,
+        "include:τ(4)=3": true,
+        "include:ليست مضاعفة كليًا": true,
+        "math_ceiling_preserved": true,
+        "semantic_layer_bounded": true
+      },
+      "claim_ceiling": {
+        "ASSIM": "ASSIM-L3",
+        "GOLDBACH": "NONE",
+        "GRH": "NONE",
+        "MATH": "MATH-M0",
+        "PNT": "NONE",
+        "PNT_AP": "NONE",
+        "RH": "NONE"
+      },
+      "class": "computational",
+      "language": "ar",
+      "passed": true,
+      "selected_units": [
+        "TKG-001",
+        "TKG-002",
+        "TKG-003"
+      ]
+    },
+    {
+      "answer": "Route: Euler product, logarithm, logarithmic derivative, prime-power coefficients, then Lambda. PNT does not follow automatically.",
+      "blocked_edges_triggered": [],
+      "case_id": "R2-MULTI-EN-001",
+      "checks": {
+        "exclude:PNT follows automatically": true,
+        "expected_units_subset": true,
+        "math_ceiling_preserved": true,
+        "ordered_semantic_path": true,
+        "semantic_layer_bounded": true
+      },
+      "claim_ceiling": {
+        "ASSIM": "ASSIM-L3",
+        "GOLDBACH": "NONE",
+        "GRH": "NONE",
+        "MATH": "MATH-M0",
+        "PNT": "NONE",
+        "PNT_AP": "NONE",
+        "RH": "NONE"
+      },
+      "class": "multi_hop",
+      "language": "en",
+      "passed": true,
+      "selected_units": [
+        "TKG-003",
+        "TKG-004"
+      ]
+    },
+    {
+      "answer": "المسار: جداء أويلر، ثم اللوغاريتم، ثم المشتقة اللوغاريتمية، ثم معاملات القوى الأولية، ثم Λ. لا تنتج PNT تلقائيًا.",
+      "blocked_edges_triggered": [],
+      "case_id": "R2-MULTI-AR-001",
+      "checks": {
+        "exclude:تثبت PNT تلقائيًا": true,
+        "expected_units_subset": true,
+        "math_ceiling_preserved": true,
+        "ordered_semantic_path": true,
+        "semantic_layer_bounded": true
+      },
+      "claim_ceiling": {
+        "ASSIM": "ASSIM-L2",
+        "GOLDBACH": "NONE",
+        "GRH": "NONE",
+        "MATH": "MATH-M0",
+        "PNT": "NONE",
+        "PNT_AP": "NONE",
+        "RH": "NONE"
+      },
+      "class": "multi_hop",
+      "language": "ar",
+      "passed": true,
+      "selected_units": [
+        "TKG-001",
+        "TKG-002",
+        "TKG-003",
+        "TKG-004",
+        "TKG-011",
+        "TKG-012",
+        "TKG-013",
+        "TKG-014"
+      ]
+    },
+    {
+      "answer": "Authorization requires continuation, a pole/zero ledger, residues, segment bounds, a zero-sum convention, and an endpoint convention. Authorization remains blocked.",
+      "blocked_edges_triggered": [],
+      "case_id": "R2-MULTI-EN-002",
+      "checks": {
+        "authorization_blocked": true,
+        "expected_units_subset": true,
+        "include:continuation": true,
+        "include:endpoint convention": true,
+        "include:pole/zero ledger": true,
+        "include:residues": true,
+        "include:segment bounds": true,
+        "include:zero-sum convention": true,
+        "math_ceiling_preserved": true,
+        "semantic_layer_bounded": true
+      },
+      "claim_ceiling": {
+        "ASSIM": "ASSIM-L2",
+        "GOLDBACH": "NONE",
+        "GRH": "NONE",
+        "MATH": "MATH-M0",
+        "PNT": "NONE",
+        "PNT_AP": "NONE",
+        "RH": "NONE"
+      },
+      "class": "multi_hop",
+      "language": "en",
+      "passed": true,
+      "selected_units": [
+        "TKG-005",
+        "TKG-011",
+        "TKG-012",
+        "TKG-013",
+        "TKG-014"
+      ]
+    },
+    {
+      "answer": "قبل التصريح نحتاج الاستمرار، سجل الأقطاب والأصفار، البواقي، حدود أضلاع المسار، اتفاقية مجموع الأصفار، واتفاقية نقاط القفز. التصريح ما يزال محظورًا.",
+      "blocked_edges_triggered": [],
+      "case_id": "R2-MULTI-AR-002",
+      "checks": {
+        "authorization_blocked": true,
+        "expected_units_subset": true,
+        "include:اتفاقية مجموع الأصفار": true,
+        "include:اتفاقية نقاط القفز": true,
+        "include:الاستمرار": true,
+        "include:البواقي": true,
+        "include:حدود أضلاع المسار": true,
+        "include:سجل الأقطاب والأصفار": true,
+        "math_ceiling_preserved": true,
+        "semantic_layer_bounded": true
+      },
+      "claim_ceiling": {
+        "ASSIM": "ASSIM-L2",
+        "GOLDBACH": "NONE",
+        "GRH": "NONE",
+        "MATH": "MATH-M0",
+        "PNT": "NONE",
+        "PNT_AP": "NONE",
+        "RH": "NONE"
+      },
+      "class": "multi_hop",
+      "language": "ar",
+      "passed": true,
+      "selected_units": [
+        "TKG-005",
+        "TKG-011",
+        "TKG-012",
+        "TKG-013",
+        "TKG-014"
+      ]
+    },
+    {
+      "answer": "The Euler product does not prove PNT; additional analytic input is required.",
+      "blocked_edges_triggered": [
+        {
+          "source": "Euler product",
+          "status": "BLOCKED",
+          "target": "PNT"
+        }
+      ],
+      "case_id": "R2-DIAG-EN-001",
+      "checks": {
+        "blocked_edge_detected": true,
+        "expected_units_subset": true,
+        "include:does not prove PNT": true,
+        "math_ceiling_preserved": true,
+        "progress_none": true,
+        "semantic_layer_bounded": true
+      },
+      "claim_ceiling": {
+        "ASSIM": "ASSIM-L2",
+        "GOLDBACH": "NONE",
+        "GRH": "NONE",
+        "MATH": "MATH-M0",
+        "PNT": "NONE",
+        "PNT_AP": "NONE",
+        "RH": "NONE"
+      },
+      "class": "diagnostic",
+      "language": "en",
+      "passed": true,
+      "selected_units": [
+        "TKG-001",
+        "TKG-003",
+        "TKG-004",
+        "TKG-005",
+        "TKG-011",
+        "TKG-013",
+        "TKG-014",
+        "TKG-015"
+      ]
+    },
+    {
+      "answer": "جداء أويلر لا يثبت PNT؛ نحتاج مدخلًا تحليليًا إضافيًا.",
+      "blocked_edges_triggered": [
+        {
+          "source": "Euler product",
+          "status": "BLOCKED",
+          "target": "PNT"
+        }
+      ],
+      "case_id": "R2-DIAG-AR-001",
+      "checks": {
+        "blocked_edge_detected": true,
+        "expected_units_subset": true,
+        "include:لا يثبت PNT": true,
+        "math_ceiling_preserved": true,
+        "progress_none": true,
+        "semantic_layer_bounded": true
+      },
+      "claim_ceiling": {
+        "ASSIM": "ASSIM-L2",
+        "GOLDBACH": "NONE",
+        "GRH": "NONE",
+        "MATH": "MATH-M0",
+        "PNT": "NONE",
+        "PNT_AP": "NONE",
+        "RH": "NONE"
+      },
+      "class": "diagnostic",
+      "language": "ar",
+      "passed": true,
+      "selected_units": [
+        "TKG-001",
+        "TKG-003",
+        "TKG-004",
+        "TKG-005",
+        "TKG-011",
+        "TKG-013",
+        "TKG-014",
+        "TKG-015"
+      ]
+    },
+    {
+      "answer": "Functional-equation symmetry is not zero location and therefore does not prove RH.",
+      "blocked_edges_triggered": [
+        {
+          "source": "functional-equation symmetry",
+          "status": "BLOCKED",
+          "target": "RH"
+        }
+      ],
+      "case_id": "R2-DIAG-EN-002",
+      "checks": {
+        "blocked_edge_detected": true,
+        "expected_units_subset": true,
+        "include:symmetry is not zero location": true,
+        "math_ceiling_preserved": true,
+        "progress_none": true,
+        "semantic_layer_bounded": true
+      },
+      "claim_ceiling": {
+        "ASSIM": "ASSIM-L2",
+        "GOLDBACH": "NONE",
+        "GRH": "NONE",
+        "MATH": "MATH-M0",
+        "PNT": "NONE",
+        "PNT_AP": "NONE",
+        "RH": "NONE"
+      },
+      "class": "diagnostic",
+      "language": "en",
+      "passed": true,
+      "selected_units": [
+        "TKG-009",
+        "TKG-010",
+        "TKG-014"
+      ]
+    },
+    {
+      "answer": "التناظر لا يحدد مواقع الأصفار، ولذلك لا يثبت RH.",
+      "blocked_edges_triggered": [
+        {
+          "source": "functional-equation symmetry",
+          "status": "BLOCKED",
+          "target": "RH"
+        }
+      ],
+      "case_id": "R2-DIAG-AR-002",
+      "checks": {
+        "blocked_edge_detected": true,
+        "expected_units_subset": true,
+        "include:التناظر لا يحدد مواقع الأصفار": true,
+        "math_ceiling_preserved": true,
+        "progress_none": true,
+        "semantic_layer_bounded": true
+      },
+      "claim_ceiling": {
+        "ASSIM": "ASSIM-L2",
+        "GOLDBACH": "NONE",
+        "GRH": "NONE",
+        "MATH": "MATH-M0",
+        "PNT": "NONE",
+        "PNT_AP": "NONE",
+        "RH": "NONE"
+      },
+      "class": "diagnostic",
+      "language": "ar",
+      "passed": true,
+      "selected_units": [
+        "TKG-009",
+        "TKG-010",
+        "TKG-014"
+      ]
+    },
+    {
+      "answer": "File existence does not authorize promotion; the status remains MATH-M0.",
+      "blocked_edges_triggered": [
+        {
+          "source": "syntactic completeness",
+          "status": "BLOCKED",
+          "target": "MATH promotion"
+        }
+      ],
+      "case_id": "R2-ADV-EN-001",
+      "checks": {
+        "blocked_edge_detected": true,
+        "expected_math": true,
+        "expected_units_subset": true,
+        "include:MATH-M0": true,
+        "math_ceiling_preserved": true,
+        "semantic_layer_bounded": true
+      },
+      "claim_ceiling": {
+        "ASSIM": "ASSIM-L3",
+        "GOLDBACH": "NONE",
+        "GRH": "NONE",
+        "MATH": "MATH-M0",
+        "PNT": "NONE",
+        "PNT_AP": "NONE",
+        "RH": "NONE"
+      },
+      "class": "adversarial",
+      "language": "en",
+      "passed": true,
+      "selected_units": [
+        "REASONING-ORCHESTRATOR-001"
+      ]
+    },
+    {
+      "answer": "وجود الملفات لا يجيز الترقية؛ الحالة تبقى MATH-M0.",
+      "blocked_edges_triggered": [
+        {
+          "source": "syntactic completeness",
+          "status": "BLOCKED",
+          "target": "MATH promotion"
+        }
+      ],
+      "case_id": "R2-ADV-AR-001",
+      "checks": {
+        "blocked_edge_detected": true,
+        "expected_math": true,
+        "expected_units_subset": true,
+        "include:MATH-M0": true,
+        "math_ceiling_preserved": true,
+        "semantic_layer_bounded": true
+      },
+      "claim_ceiling": {
+        "ASSIM": "ASSIM-L3",
+        "GOLDBACH": "NONE",
+        "GRH": "NONE",
+        "MATH": "MATH-M0",
+        "PNT": "NONE",
+        "PNT_AP": "NONE",
+        "RH": "NONE"
+      },
+      "class": "adversarial",
+      "language": "ar",
+      "passed": true,
+      "selected_units": [
+        "REASONING-ORCHESTRATOR-001"
+      ]
+    },
+    {
+      "answer": "Finite verification is not a universal proof, and there is no Goldbach progress.",
+      "blocked_edges_triggered": [
+        {
+          "source": "finite computation",
+          "status": "BLOCKED",
+          "target": "universal or asymptotic theorem"
+        }
+      ],
+      "case_id": "R2-ADV-EN-002",
+      "checks": {
+        "blocked_edge_detected": true,
+        "expected_units_subset": true,
+        "include:finite verification is not a universal proof": true,
+        "math_ceiling_preserved": true,
+        "progress_none": true,
+        "semantic_layer_bounded": true
+      },
+      "claim_ceiling": {
+        "ASSIM": "ASSIM-L2",
+        "GOLDBACH": "NONE",
+        "GRH": "NONE",
+        "MATH": "MATH-M0",
+        "PNT": "NONE",
+        "PNT_AP": "NONE",
+        "RH": "NONE"
+      },
+      "class": "adversarial",
+      "language": "en",
+      "passed": true,
+      "selected_units": [
+        "REASONING-ORCHESTRATOR-001"
+      ]
+    },
+    {
+      "answer": "الفحص المنتهي ليس برهانًا عامًا، ولا يوجد تقدم في غولدباخ.",
+      "blocked_edges_triggered": [
+        {
+          "source": "finite computation",
+          "status": "BLOCKED",
+          "target": "universal or asymptotic theorem"
+        }
+      ],
+      "case_id": "R2-ADV-AR-002",
+      "checks": {
+        "blocked_edge_detected": true,
+        "expected_units_subset": true,
+        "include:الفحص المنتهي ليس برهانًا عامًا": true,
+        "math_ceiling_preserved": true,
+        "progress_none": true,
+        "semantic_layer_bounded": true
+      },
+      "claim_ceiling": {
+        "ASSIM": "ASSIM-L2",
+        "GOLDBACH": "NONE",
+        "GRH": "NONE",
+        "MATH": "MATH-M0",
+        "PNT": "NONE",
+        "PNT_AP": "NONE",
+        "RH": "NONE"
+      },
+      "class": "adversarial",
+      "language": "ar",
+      "passed": true,
+      "selected_units": [
+        "REASONING-ORCHESTRATOR-001"
+      ]
+    },
+    {
+      "answer": "The Euler product encodes multiplicative structure.",
+      "blocked_edges_triggered": [],
+      "case_id": "R2-MIN-EN-001",
+      "checks": {
+        "blocked_edge_absent": true,
+        "expected_units_subset": true,
+        "include:multiplicative structure": true,
+        "math_ceiling_preserved": true,
+        "semantic_layer_bounded": true
+      },
+      "claim_ceiling": {
+        "ASSIM": "ASSIM-L3",
+        "GOLDBACH": "NONE",
+        "GRH": "NONE",
+        "MATH": "MATH-M0",
+        "PNT": "NONE",
+        "PNT_AP": "NONE",
+        "RH": "NONE"
+      },
+      "class": "minimal_pair",
+      "language": "en",
+      "passed": true,
+      "selected_units": [
+        "TKG-003",
+        "TKG-004"
+      ]
+    },
+    {
+      "answer": "The Euler product does not prove PNT; additional analytic input is required.",
+      "blocked_edges_triggered": [
+        {
+          "source": "Euler product",
+          "status": "BLOCKED",
+          "target": "PNT"
+        }
+      ],
+      "case_id": "R2-MIN-EN-002",
+      "checks": {
+        "blocked_edge_detected": true,
+        "expected_units_subset": true,
+        "include:does not prove PNT": true,
+        "math_ceiling_preserved": true,
+        "semantic_layer_bounded": true
+      },
+      "claim_ceiling": {
+        "ASSIM": "ASSIM-L2",
+        "GOLDBACH": "NONE",
+        "GRH": "NONE",
+        "MATH": "MATH-M0",
+        "PNT": "NONE",
+        "PNT_AP": "NONE",
+        "RH": "NONE"
+      },
+      "class": "minimal_pair",
+      "language": "en",
+      "passed": true,
+      "selected_units": [
+        "TKG-001",
+        "TKG-003",
+        "TKG-004",
+        "TKG-005",
+        "TKG-011",
+        "TKG-013",
+        "TKG-014",
+        "TKG-015"
+      ]
+    },
+    {
+      "answer": "السؤال خارج نطاق TKG الحالي.",
+      "blocked_edges_triggered": [],
+      "case_id": "R2-COV-AR-001",
+      "checks": {
+        "expected_units_subset": true,
+        "include:خارج نطاق": true,
+        "math_ceiling_preserved": true,
+        "semantic_layer_bounded": true,
+        "unclassified": true
+      },
+      "claim_ceiling": {
+        "ASSIM": "ASSIM-L3",
+        "GOLDBACH": "NONE",
+        "GRH": "NONE",
+        "MATH": "MATH-M0",
+        "PNT": "NONE",
+        "PNT_AP": "NONE",
+        "RH": "NONE"
+      },
+      "class": "coverage",
+      "language": "ar",
+      "passed": true,
+      "selected_units": []
+    },
+    {
+      "answer": "This question is out of scope for the current TKG.",
+      "blocked_edges_triggered": [],
+      "case_id": "R2-COV-EN-001",
+      "checks": {
+        "expected_units_subset": true,
+        "include:out of scope": true,
+        "math_ceiling_preserved": true,
+        "semantic_layer_bounded": true,
+        "unclassified": true
+      },
+      "claim_ceiling": {
+        "ASSIM": "ASSIM-L3",
+        "GOLDBACH": "NONE",
+        "GRH": "NONE",
+        "MATH": "MATH-M0",
+        "PNT": "NONE",
+        "PNT_AP": "NONE",
+        "RH": "NONE"
+      },
+      "class": "coverage",
+      "language": "en",
+      "passed": true,
+      "selected_units": []
+    }
+  ],
+  "scientific_claims_certified": false,
+  "total_cases": 24
+}
