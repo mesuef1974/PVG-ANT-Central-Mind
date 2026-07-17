@@ -146,10 +146,29 @@ def evaluate_mobius(args: dict[str, Any], n: int) -> OperatorExecution:
     ))
 
 
+def evaluate_von_mangoldt(args: dict[str, Any], n: int) -> OperatorExecution:
+    if args:
+        raise ValueError(f"unsupported von Mangoldt arguments: {args!r}")
+    factors = factor_integer(n)
+    support_cardinality = len(factors)
+    is_prime_power = support_cardinality == 1
+    if is_prime_power:
+        result: dict[str, Any] = {"kind": "LOG_PRIME", "prime": next(iter(factors))}
+    else:
+        result = {"kind": "ZERO"}
+    return OperatorExecution(result, (
+        ExecutionStep("Factor input integer", factors, operator_id="OP-FACTOR-INTEGER-001"),
+        ExecutionStep("Count distinct prime support", support_cardinality, operator_id="OP-COUNT-PRIME-SUPPORT-001"),
+        ExecutionStep("Detect single-axis prime-power support", is_prime_power, operator_id="OP-DETECT-PRIME-POWER-SUPPORT-001"),
+        ExecutionStep("Evaluate von Mangoldt as a structured symbolic value", result, operator_id="OP-EVALUATE-VON-MANGOLDT-001"),
+    ))
+
+
 Operator = Callable[[dict[str, Any], int], OperatorExecution]
 OPERATORS: dict[str, Operator] = {
     "OP-EVALUATE-DIVISOR-SUM-001": evaluate_divisor_sum,
     "OP-EVALUATE-MOBIUS-001": evaluate_mobius,
+    "OP-EVALUATE-VON-MANGOLDT-001": evaluate_von_mangoldt,
 }
 
 
