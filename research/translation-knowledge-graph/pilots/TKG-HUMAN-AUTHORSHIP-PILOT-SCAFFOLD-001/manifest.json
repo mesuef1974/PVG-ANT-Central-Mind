@@ -1,13 +1,15 @@
 {
   "artifact_id": "TKG-HUMAN-AUTHORSHIP-PILOT-SCAFFOLD-001",
-  "status": "EXTRACTOR_REPRODUCIBILITY_PASS_ROWS_OUTSIDE_REPOSITORY_UNREVIEWED",
+  "status": "EXTRACTOR_REPRODUCIBILITY_PASS_QUALIFIED_ROWS_OUTSIDE_REPOSITORY_UNREVIEWED",
   "source_repository": "mesuef1974/PVG-ANT-Central-Mind",
   "source_branch": "agent/pvg-axis-sum-continuation-002",
   "registry_snapshot_commit": "01a91c1ab39ea4a1e6cc452ff137fae1dfe4234b",
   "extractor_path": "research/translation-knowledge-graph/code/extract_tkg_human_authorship_pilot_scaffold_001.py",
   "extractor_commit": "89b1278442b04c9c504479717399b8c6201402c0",
   "clean_checkout_replay": {
-    "status": "PASS_INDEPENDENT_EXECUTION",
+    "status": "PASS_QUALIFIED_CLEAN_CHECKOUT_EXECUTION",
+    "replayed_tree_commit": "9b6fc51990c34c85d688087a02fc539185cdd5d0",
+    "branch_at_execution": "agent/pvg-axis-sum-continuation-002",
     "evidence_path": "research/translation-knowledge-graph/pilots/TKG-HUMAN-AUTHORSHIP-PILOT-SCAFFOLD-001/TKG-AUTHORSHIP-SCAFFOLD-CLEAN-CHECKOUT-REPLAY-001.md",
     "exit_code": 0,
     "registry_records": 120,
@@ -16,7 +18,34 @@
     "missingness_category_match": true,
     "row_order_match": true,
     "judgement_columns_blank_rows": 37,
-    "unreviewed_rows": 37
+    "unreviewed_rows": 37,
+    "evidence_granularity": "NARRATIVE_EXECUTION_RECORD_NOT_BYTE_EXACT_PACKAGE",
+    "stdout_stderr_committed": false,
+    "environment_capture_committed": false,
+    "per_file_sha256_committed": false,
+    "git_blob_ids_committed": false
+  },
+  "verification_classification": {
+    "membership": {
+      "claim": "INDEPENDENTLY_RE_DERIVED",
+      "implementation_relation": "DIFFERENT_IMPLEMENTATION",
+      "result": "PASS"
+    },
+    "missingness_classification": {
+      "claim": "INDEPENDENTLY_RE_DERIVED",
+      "implementation_relation": "DIFFERENT_IMPLEMENTATION",
+      "result": "PASS"
+    },
+    "queue_order": {
+      "claim": "DETERMINISM_CONFIRMED",
+      "implementation_relation": "SAME_COMMITTED_EXTRACTOR_TWO_RUNS",
+      "result": "PASS",
+      "independent_policy_correctness": "NOT_ESTABLISHED"
+    },
+    "party_independence": {
+      "claim": "NOT_ESTABLISHED",
+      "execution_context": "AGENT_WITHIN_USER_SESSION_AND_ENVIRONMENT"
+    }
   },
   "canonical_input_order": [
     "source_path ASC",
@@ -41,9 +70,11 @@
   },
   "reproducibility_scope": {
     "parse_gate": "UNPARSEABLE_NEEDS_REPAIR_BLOCKS_CLASSIFICATION",
-    "membership": "INDEPENDENT_CLEAN_CHECKOUT_PASS",
-    "missingness_classification": "INDEPENDENT_CLEAN_CHECKOUT_PASS",
-    "queue_order": "INDEPENDENT_ROW_BY_ROW_PASS",
+    "membership": "INDEPENDENT_REDERIVATION_PASS",
+    "missingness_classification": "INDEPENDENT_REDERIVATION_PASS",
+    "queue_order": "SAME_SCRIPT_DETERMINISM_PASS",
+    "queue_order_policy_correctness": "NOT_INDEPENDENTLY_VALIDATED",
+    "party_independence": "NO",
     "human_judgement": "NOT_PRESENT"
   },
   "judgement_columns_blank": true,
@@ -54,7 +85,8 @@
     "The extractor sorts by source_path and source_line before applying the recorded shuffle seed.",
     "The generated CSV and JSONL remain outside the repository until separately authorized and committed.",
     "Two malformed TKG-004 source records were repaired structurally before this snapshot; neither enters the 37-row queue.",
-    "Independent clean-checkout execution reproduced membership, missingness classification, and queue order exactly."
+    "Membership and missingness classification were re-derived by different logic.",
+    "Queue order was reproduced by two runs of the same committed extractor and is classified as determinism, not independent policy validation."
   ],
   "sample_family_coverage": {
     "pilot_family": "FAMILY-B",
@@ -72,7 +104,9 @@
     "All 37 human-authorship pilot rows come from TKG-009 through TKG-015.",
     "Family A contributes no human-authorship rows after structural repair, but it did require two source-integrity repairs.",
     "Pilot success does not establish policy transfer to the 165-record RMG authorship queue.",
-    "The replay establishes mechanical scaffold reproducibility only.",
+    "The replay establishes mechanical membership and classification reproducibility plus queue-order determinism only.",
+    "The evidence is not a byte-exact replay package.",
+    "The executor is not an external or governance-independent party.",
     "This artifact does not establish reasoning or executable knowledge."
   ]
 }
