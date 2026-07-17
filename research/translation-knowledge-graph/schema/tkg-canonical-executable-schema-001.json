@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "TKG-CANONICAL-EXECUTABLE-SCHEMA-001",
+  "title": "Canonical TKG Knowledge Node",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["node_id", "record_type", "names", "claim_ceiling"],
+  "properties": {
+    "node_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "record_type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "names": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "aliases": {
+      "type": "array",
+      "items": {"type": "string"},
+      "default": []
+    },
+    "equivalent_forms": {
+      "type": "array",
+      "items": {"type": "string"},
+      "default": []
+    },
+    "formulas": {
+      "type": "array",
+      "items": {"type": "string"},
+      "default": []
+    },
+    "hypotheses": {
+      "type": "array",
+      "items": {"type": "string"},
+      "default": []
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["relation_type", "target"],
+        "properties": {
+          "relation_type": {"type": "string", "minLength": 1},
+          "target": {"type": "string", "minLength": 1},
+          "conditions": {
+            "type": "array",
+            "items": {"type": "string"},
+            "default": []
+          }
+        },
+        "additionalProperties": true
+      },
+      "default": []
+    },
+    "examples": {
+      "type": "array",
+      "items": {"type": "object"},
+      "default": []
+    },
+    "counterexamples": {
+      "type": "array",
+      "items": {"type": "object"},
+      "default": []
+    },
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "source_schema_family": {
+      "type": "string",
+      "enum": ["FAMILY-A", "FAMILY-B", "CANONICAL"]
+    },
+    "source_record_locator": {
+      "type": "object",
+      "properties": {
+        "file": {"type": "string"},
+        "line": {"type": "integer", "minimum": 1},
+        "source_id_field": {"type": "string"},
+        "source_name_field": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "executable_rule": {
+      "type": "object",
+      "required": ["operator_id", "args"],
+      "properties": {
+        "operator_id": {
+          "type": "string",
+          "pattern": "^OP-[A-Z0-9-]+$"
+        },
+        "args": {
+          "type": "object"
+        },
+        "result_symbol": {
+          "type": "string"
+        },
+        "input_contract": {
+          "type": "object"
+        },
+        "output_contract": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "required": ["executable_rule"]
+      },
+      "then": {
+        "properties": {
+          "record_type": {
+            "not": {"const": "DEPENDENCY_EDGE"}
+          }
+        }
+      }
+    }
+  ],
+  "$comment": "Human formulas remain descriptive. Execution is authorized only through executable_rule. Family-A and Family-B source records must be normalized before validation against this schema."
+}
