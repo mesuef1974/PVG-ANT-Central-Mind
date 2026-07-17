@@ -1,0 +1,35 @@
+{
+  "artifact_id": "TKG-HUMAN-AUTHORSHIP-PILOT-SCAFFOLD-001",
+  "status": "EXTRACTION_ONLY_UNREVIEWED_COMMITTED_TO_EXPERIMENTAL_BRANCH",
+  "source_repository": "mesuef1974/PVG-ANT-Central-Mind",
+  "source_branch": "agent/pvg-axis-sum-continuation-002",
+  "source_commit": "9c69f1d7672cc378694d2e594b470c9e0583c894",
+  "shuffle_algorithm": "Python random.Random(seed).shuffle",
+  "shuffle_seed": 2026071701,
+  "row_count": 37,
+  "distribution": {
+    "TYPE_ONLY": 15,
+    "TYPE_AND_CEILING": 12,
+    "CEILING_ONLY": 10
+  },
+  "judgement_columns_blank": true,
+  "notes": [
+    "No canonical type was inferred.",
+    "No claim ceiling was authored.",
+    "Nested status.MATH is preserved as source evidence but not silently normalized.",
+    "Queue order is detached from file order to reduce context anchoring."
+  ],
+  "sample_family_coverage": {
+    "pilot_family": "FAMILY-B",
+    "pilot_rows": 37,
+    "family_a_exercise": "NONE",
+    "family_a_complete_records": 64,
+    "family_b_complete_records": 17,
+    "policy_transfer_to_rmg_165": "NOT_ESTABLISHED_BY_THIS_PILOT"
+  },
+  "limitations": [
+    "All 37 pilot rows come from TKG-009 through TKG-015.",
+    "Family A contributes no review rows because all 64 Family-A records are complete on the measured type-and-ceiling axes.",
+    "Pilot success does not establish policy transfer to the 165-record RMG authorship queue."
+  ]
+}
