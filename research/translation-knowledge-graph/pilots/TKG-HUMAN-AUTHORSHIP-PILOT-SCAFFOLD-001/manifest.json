@@ -1,11 +1,23 @@
 {
   "artifact_id": "TKG-HUMAN-AUTHORSHIP-PILOT-SCAFFOLD-001",
-  "status": "EXTRACTOR_COMMITTED_ROWS_OUTSIDE_REPOSITORY_UNREVIEWED",
+  "status": "EXTRACTOR_REPRODUCIBILITY_PASS_ROWS_OUTSIDE_REPOSITORY_UNREVIEWED",
   "source_repository": "mesuef1974/PVG-ANT-Central-Mind",
   "source_branch": "agent/pvg-axis-sum-continuation-002",
   "registry_snapshot_commit": "01a91c1ab39ea4a1e6cc452ff137fae1dfe4234b",
   "extractor_path": "research/translation-knowledge-graph/code/extract_tkg_human_authorship_pilot_scaffold_001.py",
   "extractor_commit": "89b1278442b04c9c504479717399b8c6201402c0",
+  "clean_checkout_replay": {
+    "status": "PASS_INDEPENDENT_EXECUTION",
+    "evidence_path": "research/translation-knowledge-graph/pilots/TKG-HUMAN-AUTHORSHIP-PILOT-SCAFFOLD-001/TKG-AUTHORSHIP-SCAFFOLD-CLEAN-CHECKOUT-REPLAY-001.md",
+    "exit_code": 0,
+    "registry_records": 120,
+    "rows": 37,
+    "membership_match": true,
+    "missingness_category_match": true,
+    "row_order_match": true,
+    "judgement_columns_blank_rows": 37,
+    "unreviewed_rows": 37
+  },
   "canonical_input_order": [
     "source_path ASC",
     "source_line ASC"
@@ -23,14 +35,15 @@
     "extractor_committed": true,
     "readme_committed": true,
     "manifest_committed": true,
+    "replay_evidence_committed": true,
     "scaffold_csv_committed": false,
     "scaffold_jsonl_committed": false
   },
   "reproducibility_scope": {
     "parse_gate": "UNPARSEABLE_NEEDS_REPAIR_BLOCKS_CLASSIFICATION",
-    "membership": "REPRODUCIBLE_FROM_REPAIRED_REGISTRY_SNAPSHOT",
-    "missingness_classification": "REPRODUCIBLE_FROM_REPAIRED_REGISTRY_SNAPSHOT",
-    "queue_order": "REPRODUCIBLE_FROM_CANONICAL_SORT_PLUS_SEED",
+    "membership": "INDEPENDENT_CLEAN_CHECKOUT_PASS",
+    "missingness_classification": "INDEPENDENT_CLEAN_CHECKOUT_PASS",
+    "queue_order": "INDEPENDENT_ROW_BY_ROW_PASS",
     "human_judgement": "NOT_PRESENT"
   },
   "judgement_columns_blank": true,
@@ -40,7 +53,8 @@
     "Nested status.MATH is preserved as source evidence but not silently normalized.",
     "The extractor sorts by source_path and source_line before applying the recorded shuffle seed.",
     "The generated CSV and JSONL remain outside the repository until separately authorized and committed.",
-    "Two malformed TKG-004 source records were repaired structurally before this snapshot; neither enters the 37-row queue."
+    "Two malformed TKG-004 source records were repaired structurally before this snapshot; neither enters the 37-row queue.",
+    "Independent clean-checkout execution reproduced membership, missingness classification, and queue order exactly."
   ],
   "sample_family_coverage": {
     "pilot_family": "FAMILY-B",
@@ -58,6 +72,7 @@
     "All 37 human-authorship pilot rows come from TKG-009 through TKG-015.",
     "Family A contributes no human-authorship rows after structural repair, but it did require two source-integrity repairs.",
     "Pilot success does not establish policy transfer to the 165-record RMG authorship queue.",
+    "The replay establishes mechanical scaffold reproducibility only.",
     "This artifact does not establish reasoning or executable knowledge."
   ]
 }
