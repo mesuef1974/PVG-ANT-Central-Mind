@@ -40,9 +40,10 @@ class TestPVGLab(unittest.TestCase):
         with self.assertRaises(ValueError):
             pearson([1.0, 2.0], [1.0])
 
-        q = 1e-6
+        r = 1 - 1e-6
+        q = 1 - r
         expected = (12 * math.exp(-1) - 2) / (q ** 3)
-        actual = geometric_abs_third(1 - q)
+        actual = geometric_abs_third(r)
         self.assertAlmostEqual(actual / expected, 1.0, places=12)
 
 
