@@ -1,0 +1,64 @@
+{
+  "asset_id": "EXT-ASSET-PVG-STRUCTURAL-LAB-002",
+  "version": "6.1.0",
+  "generated_at": "2026-07-21",
+  "relation_to_v6_0": "independent comparison-layout experiment; v6.0 (EXT-ASSET-PVG-STRUCTURAL-LAB-001) frozen and unchanged",
+  "scientific_ceiling": "finite computational diagnostics; comparison layout experiment; no theorem, geometry preservation, Goldbach proof, RH/GRH progress, or originality claim",
+  "files": [
+    {
+      "path": "README.md",
+      "size_bytes": 3112,
+      "sha256": "32c0e97b10f5ef157ae560023bdab2a52f11cea7f416b1498c5ce2aa9d93dba3"
+    },
+    {
+      "path": "TEST_REPORT.md",
+      "size_bytes": 1950,
+      "sha256": "a6c1c437a256ac3dd4182fba1a8af8dbed9a9c3136d0d7d9d51a14e501d689d1"
+    },
+    {
+      "path": "index.html",
+      "size_bytes": 4086,
+      "sha256": "67f4383c431ba75863e69f4ec87fb4712c31776cd9f55f1902fe9c2c751f0d28"
+    },
+    {
+      "path": "package.json",
+      "size_bytes": 153,
+      "sha256": "2a955841ec3af9e1f29112efdaa14710444c789938bdffe3ab1bf08319ed7354"
+    },
+    {
+      "path": "serve.ps1",
+      "size_bytes": 59,
+      "sha256": "84101eb1fb601507d4f7b61e43a378534a3eb74b24f636f8fa32ef5db51e6e2e"
+    },
+    {
+      "path": "serve.sh",
+      "size_bytes": 54,
+      "sha256": "e867b59db928b072b618107da1b935f752d2ff83fbc64923f6661de80bb25d31"
+    },
+    {
+      "path": "src/app.js",
+      "size_bytes": 12696,
+      "sha256": "12a012b4a8c92a8d1c1002cff50cf5fee00072543816ecce4f65004661303039"
+    },
+    {
+      "path": "src/core/arithmetic.js",
+      "size_bytes": 1900,
+      "sha256": "a1b8ff11b383075110e0683682b871c4bb84365562ce1b62471f57dc330e27d2"
+    },
+    {
+      "path": "src/layout.js",
+      "size_bytes": 7834,
+      "sha256": "78670affeef1700aceaa8e75ee6cbc398ff7bd69753cb74955debbb7459a05ae"
+    },
+    {
+      "path": "styles.css",
+      "size_bytes": 4053,
+      "sha256": "975c13abf0c3d8f593e9b82ac84d1f4e3e97ac2aadf679fbadc1c331b329efa3"
+    },
+    {
+      "path": "tests/layout.test.mjs",
+      "size_bytes": 3274,
+      "sha256": "ee34ca8198266e7168c9e335f8a75f66d1438131633209806eda57396e5c7747"
+    }
+  ]
+}

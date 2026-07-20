@@ -1,0 +1,74 @@
+:root{
+  --bg:#f6f7f9; --card:#ffffff; --panel:#ffffff; --text:#1a1c22; --muted:#6a6f7a;
+  --border:#e3e6ea; --accent:#3457d5; --ok:#1a8f57; --bad:#d84343; --chip:#eef1f5;
+  --radius:10px;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#14161b; --card:#1b1e25; --panel:#1b1e25; --text:#e9ecf2; --muted:#9aa0ac;
+    --border:#2b2f38; --accent:#7f97ee; --chip:#232733; }
+}
+*{ box-sizing:border-box; }
+body{ margin:0; background:var(--bg); color:var(--text);
+  font-family:system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif; line-height:1.6; }
+.wrap{ max-width:1080px; margin:0 auto; padding:20px 16px 48px; }
+
+.head h1{ font-size:22px; font-weight:600; margin:0 0 4px; }
+.head .ver{ color:var(--accent); font-weight:600; }
+.head .sub{ margin:0 0 10px; color:var(--muted); }
+.ceiling{ background:var(--chip); border:1px solid var(--border); border-radius:var(--radius);
+  padding:10px 12px; font-size:13px; color:var(--muted); }
+.notes{ margin-top:8px; font-size:13px; }
+.notes summary{ cursor:pointer; color:var(--accent); }
+.notes ol{ margin:8px 0 0; padding-inline-start:20px; color:var(--muted); }
+.notes li{ margin:4px 0; }
+
+/* Responsive control bar — labels never overlap their borders. */
+.controls{ display:flex; flex-wrap:wrap; gap:12px; margin:18px 0 10px; align-items:end; }
+.ctl{ display:flex; flex-direction:column; gap:4px; min-height:3rem; flex:0 0 auto; }
+.ctl > span{ font-size:12px; color:var(--muted); white-space:nowrap; line-height:1.2; }
+.ctl.range{ flex:1 1 240px; min-width:220px; }
+.ctl.range input{ width:100%; }
+select, input[type=range]{ accent-color:var(--accent); }
+select{ min-height:38px; padding:6px 10px; border:1px solid var(--border); border-radius:8px;
+  background:var(--card); color:var(--text); font-size:14px; }
+.btns{ display:flex; flex-wrap:wrap; gap:8px; margin-inline-start:auto; align-items:end; }
+button{ white-space:nowrap; min-height:3rem; line-height:1.2; padding:0 14px;
+  border:1px solid var(--border); border-radius:8px; background:var(--card); color:var(--text);
+  font-size:13px; cursor:pointer; }
+button:hover{ border-color:var(--accent); }
+button:active{ transform:scale(.98); }
+
+/* Legend gets its own row, not squeezed into the control bar. */
+.legend{ display:flex; flex-wrap:wrap; gap:6px 10px; margin:6px 0; padding:8px 10px;
+  background:var(--card); border:1px solid var(--border); border-radius:var(--radius); }
+.chip{ display:inline-flex; align-items:center; gap:5px; font-size:12px; color:var(--muted); white-space:nowrap; }
+.chip .dot{ width:10px; height:10px; border-radius:50%; display:inline-block; }
+
+.status{ font-size:13px; color:var(--muted); margin:6px 2px; }
+.checks .ok{ color:var(--ok); font-weight:600; }
+.checks .bad{ color:var(--bad); font-weight:600; }
+
+.canvasCard{ margin:8px 0; }
+#lattice{ display:block; width:100%; height:min(60vh,520px); background:var(--card);
+  border:1px solid var(--border); border-radius:var(--radius); touch-action:none; cursor:grab; }
+.hover{ margin:8px 0; padding:10px 12px; border:1px solid var(--border); border-radius:var(--radius);
+  background:var(--panel); font-size:13px; min-height:44px; overflow-wrap:anywhere; }
+
+.panel{ margin-top:20px; }
+.panel h2{ font-size:16px; font-weight:600; margin:0 0 4px; }
+.panelNote{ font-size:12px; color:var(--muted); margin:0 0 10px; }
+.tableWrap{ overflow-x:auto; }
+table.cmp{ width:100%; border-collapse:collapse; font-size:13px; min-width:520px; }
+table.cmp th, table.cmp td{ text-align:start; padding:7px 10px; border-bottom:1px solid var(--border); }
+table.cmp thead th{ color:var(--muted); font-weight:600; }
+table.cmp tbody th{ font-weight:400; color:var(--muted); }
+table.cmp td{ font-variant-numeric:tabular-nums; }
+
+.foot{ margin-top:26px; font-size:12px; color:var(--muted); border-top:1px solid var(--border); padding-top:12px; }
+code{ font-family:ui-monospace,Menlo,Consolas,monospace; font-size:12px;
+  background:var(--chip); padding:1px 5px; border-radius:5px; }
+
+@media (max-width:640px){
+  .btns{ margin-inline-start:0; width:100%; }
+  .ctl.range{ flex-basis:100%; }
+}

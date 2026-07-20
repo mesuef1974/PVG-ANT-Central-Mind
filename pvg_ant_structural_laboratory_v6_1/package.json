@@ -1,0 +1,9 @@
+{
+  "name": "pvg-ant-structural-laboratory",
+  "version": "6.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  }
+}

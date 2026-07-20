@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PVG–ANT Structural Laboratory v6.1 — تجربة تخطيط مقارنة</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="wrap">
+  <header class="head">
+    <h1>PVG–ANT Structural Laboratory <span class="ver">v6.1</span></h1>
+    <p class="sub">تجربة تخطيطٍ مقارنة — لا بديلٌ يدّعي حفظ الهندسة. v6.0 مجمّدٌ كأصلٍ موثّق.</p>
+    <div class="ceiling">
+      السقف العلميّ: تشخيصات حاسوبية منتهية فقط. لا نظرية، لا حفظ هندسة، لا برهان غولدباخ، لا تقدّم RH/GRH، لا ادعاء جدّة.
+    </div>
+    <details class="notes">
+      <summary>التصحيحات المُضمَّنة (1–4)</summary>
+      <ol>
+        <li>الإقليدية لا «تقارب» d<sub>log</sub>: يسود حدٌّ علويّ وحده |X(m)−X(n)| ≤ d<sub>log</sub>(m,n) (متباينة المثلث)، بمساواةٍ على الشعاع الأوّليّ الواحد. لوحة التشوّه تقيس ρ = |X(m)−X(n)| / d<sub>log</sub> ∈ [0,1].</li>
+        <li>«مخروط متماثل ذو زاوية قطبية موحّدة» — لا «محاور متساوية الزوايا زوجياً» (مستحيلٌ لعددٍ اعتباطيّ من الأشعّة في ℝ³).</li>
+        <li>المحور المركزيّ مرجعٌ بصريّ فقط: 𝟙 ذو دعمٍ أوّليٍّ غير منتهٍ، ولا ∈ ℓ¹(P, log p).</li>
+        <li>تُستخدم أوّل k أوّليّاتٍ بالترتيب دون تخطّي 17.</li>
+      </ol>
+    </details>
+  </header>
+
+  <section class="controls" aria-label="التحكم">
+    <label class="ctl"><span>التخطيط</span>
+      <select id="mode">
+        <option value="cone" selected>Symmetric cone</option>
+        <option value="legacy">Legacy quasi-random</option>
+      </select>
+    </label>
+    <label class="ctl"><span>عدد المحاور k</span>
+      <select id="kAxes">
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="9" selected>9</option>
+        <option value="12">12</option>
+        <option value="16">16</option>
+        <option value="20">20</option>
+      </select>
+    </label>
+    <label class="ctl range"><span>المجال 1 → <b id="rangeOut">n ≤ 5,000</b></span>
+      <input type="range" id="rangeN" min="80" max="600" value="370" step="1">
+    </label>
+    <div class="btns">
+      <button id="btnRotate" type="button">إيقاف الدوران</button>
+      <button id="btnLabels" type="button">التسميات: مفتاحية</button>
+      <button id="btnReset" type="button">إعادة الضبط</button>
+      <button id="btnExport" type="button">تصدير JSON</button>
+    </div>
+  </section>
+
+  <div class="legend" id="axisLegend" aria-label="المحاور"></div>
+  <div class="status" id="pointCount"></div>
+  <div class="status checks" id="geoChecks"></div>
+
+  <section class="canvasCard">
+    <canvas id="lattice"></canvas>
+  </section>
+  <div class="hover" id="hoverInfo"></div>
+
+  <section class="panel">
+    <h2>لوحة التشوّه — ρ(m,n) = |X(m)−X(n)| / d<sub>log</sub>(m,n) ∈ [0,1]</h2>
+    <p class="panelNote">ρ = 1 حركةٌ محفوظة الطول على شعاعٍ أوّليٍّ واحد؛ ρ &lt; 1 انضغاطٌ/إلغاءٌ اتجاهيّ. القيم مستقلّة عن دوران الكاميرا. تُحسب على أوّل 400 نقطة ناعمة.</p>
+    <div id="distortionTable" class="tableWrap"></div>
+  </section>
+
+  <footer class="foot">
+    v6.1 — أصلٌ جديدٌ مستقلّ لا يمسّ v6.0. النواة الحسابية مطابقة لـ v6.0 المتحقَّق منه. الاختبارات الإلزامية في <code>tests/layout.test.mjs</code> (<code>node --test</code>).
+  </footer>
+</main>
+<script type="module" src="src/app.js"></script>
+</body>
+</html>
