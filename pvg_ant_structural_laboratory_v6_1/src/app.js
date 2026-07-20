@@ -11,7 +11,7 @@ const fmtN = n => n.toLocaleString('en-US');
 const fmtR = (v, d = 4) => Number.isFinite(v) ? v.toFixed(d) : '—';
 
 const state = {
-  mode: 'cone', k: 9, N: 5000,
+  mode: 'cone', k: 9, N: 5000, sampleMode: 'logstrat',
   yaw: 0.5, pitch: -0.32, zoom: 1, auto: true, labels: 0, sel: -1,
   W: 1, H: 1, dpr: 1
 };
@@ -59,8 +59,8 @@ function build(){
   }
   const baseScale = 0.42 * Math.min(state.W, state.H) / mR;
 
-  const distLegacy = distortion(points, primes, logP, dirsLegacy, { cap: 400 });
-  const distCone = distortion(points, primes, logP, dirsCone, { cap: 400 });
+  const distLegacy = distortion(points, primes, logP, dirsLegacy, { cap: 400, sample: state.sampleMode });
+  const distCone = distortion(points, primes, logP, dirsCone, { cap: 400, sample: state.sampleMode });
 
   scene = { primes, logP, points: pts, M, mR, baseScale, yLo, yHi, distLegacy, distCone, aborted };
   state.sel = -1;
@@ -139,27 +139,31 @@ function renderPanels(){
   $('#axisLegend').innerHTML = primes.map((p, i) =>
     `<span class="chip"><span class="dot" style="background:${axisColor(i, primes.length)}"></span>×${p}</span>`).join('');
 
-  // distortion comparison table
-  const row = (lbl, key, d = 4) => `<tr><th>${lbl}</th><td>${fmtR(scene.distLegacy[key], d)}</td><td>${fmtR(scene.distCone[key], d)}</td></tr>`;
-  const near = dd => dd.nearest ? `${dd.nearest.a}↔${dd.nearest.b} · d<sub>E</sub>=${fmtR(dd.nearest.dE, 4)} · ρ=${fmtR(dd.nearest.rho, 3)}` : '—';
-  $('#distortionTable').innerHTML = `
-    <table class="cmp"><thead><tr><th>المقياس</th><th>Legacy</th><th>Cone</th></tr></thead><tbody>
-    ${row('أصغر ρ', 'minRho')}
-    ${row('شريحة ρ 5%', 'p5Rho')}
-    ${row('وسيط ρ', 'medianRho')}
-    ${row('أكبر ρ (≤ 1)', 'maxRho')}
-    ${row('Spearman(d<sub>E</sub>, d<sub>log</sub>)', 'spearman')}
-    <tr><th>تصادمات (d<sub>E</sub><${scene.distCone.epsilon})</th><td>${scene.distLegacy.collisions}</td><td>${scene.distCone.collisions}</td></tr>
-    <tr><th>أقرب زوج مسقط</th><td>${near(scene.distLegacy)}</td><td>${near(scene.distCone)}</td></tr>
-    <tr><th>عدد الأزواج</th><td>${fmtN(scene.distLegacy.pairs)}</td><td>${fmtN(scene.distCone.pairs)}</td></tr>
-    </tbody></table>`;
+  // distortion comparison table — item 10: partial enumeration invalidates the diagnostics.
+  if (scene.aborted) {
+    $('#distortionTable').innerHTML = `<div class="invalid">PARTIAL ENUMERATION — DIAGNOSTICS INVALID<br><span>تعداد DFS جزئيّ (استُنفدت الميزانية)؛ العيّنة لا تمثّل مجموعة الأعداد الناعمة المطلوبة. قلّل المجال أو عدد المحاور.</span></div>`;
+  } else {
+    const row = (lbl, key, d = 4) => `<tr><th>${lbl}</th><td>${fmtR(scene.distLegacy[key], d)}</td><td>${fmtR(scene.distCone[key], d)}</td></tr>`;
+    const near = dd => dd.nearest ? `${dd.nearest.a}↔${dd.nearest.b} · d<sub>E</sub>=${fmtR(dd.nearest.dE, 4)} · ρ=${fmtR(dd.nearest.rho, 3)}` : '—';
+    $('#distortionTable').innerHTML = `
+      <table class="cmp"><thead><tr><th>المقياس</th><th>Legacy</th><th>Cone</th></tr></thead><tbody>
+      <tr><th>العيّنة</th><td colspan="2">${scene.distCone.sampleMode} · ${fmtN(scene.distCone.sampleSize)} نقطة · ${fmtN(scene.distCone.pairs)} زوج (من ${fmtN(scene.points.length)} ناعمة)</td></tr>
+      ${row('أصغر ρ', 'minRho')}
+      ${row('شريحة ρ 5%', 'p5Rho')}
+      ${row('وسيط ρ', 'medianRho')}
+      ${row('أكبر ρ (≤ 1)', 'maxRho')}
+      ${row('Spearman(d<sub>E</sub>, d<sub>log</sub>)', 'spearman')}
+      <tr><th>تصادمات (d<sub>E</sub><${scene.distCone.epsilon})</th><td>${scene.distLegacy.collisions}</td><td>${scene.distCone.collisions}</td></tr>
+      <tr><th>أقرب زوج في التضمين ℝ³</th><td>${near(scene.distLegacy)}</td><td>${near(scene.distCone)}</td></tr>
+      </tbody></table>`;
+  }
 
   // geometry self-checks
   const cc = coneChecks(state.k);
   const ok = b => b ? '<span class="ok">✓</span>' : '<span class="bad">✗</span>';
   $('#geoChecks').innerHTML =
-    `فحوص الهندسة (Cone, k=${state.k}): |d<sub>j</sub>|=1 ${ok(cc.unit)} · d<sub>j</sub>·ẑ=cosθ ${ok(cc.polar)} · Σ أفقي≈0 ${ok(cc.horizontalSum)} · ρ<sub>max</sub>≤1 ${ok(scene.distCone.maxRho <= 1 + 1e-9 && scene.distLegacy.maxRho <= 1 + 1e-9)}`
-    + (scene.aborted ? ' · <span class="bad">ميزانية التوليد استُنفدت — قلّل المجال أو عدد المحاور</span>' : '');
+    `فحوص الهندسة (Cone, k=${state.k}): |d<sub>j</sub>|=1 ${ok(cc.unit)} · d<sub>j</sub>·ŷ=cosθ ${ok(cc.polar)} · Σ أفقي≈0 ${ok(cc.horizontalSum)} · ρ<sub>max</sub>≤1 ${ok(scene.distCone.maxRho <= 1 + 1e-9 && scene.distLegacy.maxRho <= 1 + 1e-9)}`
+    + (scene.aborted ? ' · <span class="bad">تعداد جزئيّ — التشخيصات مُعطَّلة</span>' : '');
 
   $('#pointCount').textContent = `${fmtN(scene.points.length)} عدداً ناعماً · ${primes.length} محوراً (أوّليّات حتى ${primes[primes.length - 1]})`;
 }
@@ -167,7 +171,7 @@ function renderPanels(){
 function updHover(){
   const el = $('#hoverInfo');
   if (state.sel < 0 || !scene || state.sel >= scene.points.length) {
-    el.textContent = 'مرّر أو انقر نقطةً لقراءة قيمتها ومتجهها ν. المحور المركزيّ مرجعٌ بصريّ فقط، لا كائن حسابيّ.';
+    el.textContent = 'مرّر أو انقر نقطةً لقراءة قيمتها ومتجهها ν. المحور المركزيّ مرجعٌ بصريّ فقط (الإحداثي الرأسيّ = cosθ·log n، لا log n حرفياً)، ولا كائن حسابيّ.';
     return;
   }
   const p = scene.points[state.sel], primes = scene.primes;
@@ -216,6 +220,7 @@ cvs.addEventListener('wheel', ev => { ev.preventDefault(); state.zoom *= ev.delt
 // ---- controls ----
 $('#mode').addEventListener('change', e => { state.mode = e.target.value; build(); });
 $('#kAxes').addEventListener('change', e => { state.k = +e.target.value; build(); });
+$('#sampleMode').addEventListener('change', e => { state.sampleMode = e.target.value; build(); });
 const slider = $('#rangeN'), out = $('#rangeOut');
 const setRangeLabel = () => { out.textContent = 'n ≤ ' + fmtN(Math.round(Math.pow(10, +slider.value / 100))); };
 slider.addEventListener('input', setRangeLabel);
@@ -227,7 +232,7 @@ $('#btnExport').addEventListener('click', () => {
   if (!scene) return;
   const payload = {
     version: '6.1.0', generated_at: new Date().toISOString(),
-    params: { mode: state.mode, k: state.k, N: state.N, primes: scene.primes, cone_theta_deg: CONE_THETA * 180 / Math.PI, reference_axis: REFERENCE_AXIS },
+    params: { mode: state.mode, k: state.k, N: state.N, sample_mode: state.sampleMode, primes: scene.primes, cone_theta_deg: CONE_THETA * 180 / Math.PI, reference_axis: REFERENCE_AXIS, vertical_coordinate: 'X_y(n) = cos(theta) * log n' },
     smooth_count: scene.points.length,
     distortion: { legacy: scene.distLegacy, cone: scene.distCone },
     cone_checks: coneChecks(state.k),

@@ -140,12 +140,40 @@ function quantile(sorted, q){
   return sorted[i] * (1 - t) + (sorted[i + 1] ?? sorted[i]) * t;
 }
 
+// ---- Sample selection (item 7: the first-cap slice is biased to the low end of the range).
+// 'first'    : first `cap` smooth numbers (lowest range) — biased, kept for continuity.
+// 'logstrat' : `cap` points whose log(n) are as evenly spaced as possible across the range.
+// 'all'      : every point (only sensible when the count is small).
+export function selectSample(points, cap, mode = 'logstrat'){
+  if (mode === 'all' || points.length <= cap) return points.slice();
+  if (mode === 'first') return points.slice(0, cap);
+  // log-stratified: pick nearest unused point to each of `cap` evenly spaced log targets.
+  const lo = Math.log(points[0].n), hi = Math.log(points[points.length - 1].n);
+  const used = new Array(points.length).fill(false), out = [];
+  let cursor = 0;
+  for (let t = 0; t < cap; t++) {
+    const target = lo + (hi - lo) * t / (cap - 1);
+    while (cursor < points.length - 1 && Math.log(points[cursor].n) < target) cursor++;
+    let i = cursor;
+    if (i > 0 && Math.abs(Math.log(points[i - 1].n) - target) < Math.abs(Math.log(points[i].n) - target)) i--;
+    while (i < points.length && used[i]) i++;
+    if (i >= points.length) { i = used.lastIndexOf(false); if (i < 0) break; }
+    used[i] = true; out.push(points[i]);
+  }
+  out.sort((a, b) => a.n - b.n);
+  return out;
+}
+
 // ---- Distortion diagnostics over the (m,n) pairs of an embedded point set ----------------
 // rho(m,n) = |X(m) - X(n)| / dlog(m,n) in [0,1] (guaranteed <= 1 by the triangle inequality).
+// `nearest` is the closest pair in the R^3 EMBEDDING (before camera rotation / 2-D screen
+// projection) — not a screen-space "projected" pair.
 export function distortion(points, primes, logP, dirMap, opts = {}){
   const cap = opts.cap ?? 500;
   const epsilon = opts.epsilon ?? 1e-6;
-  const pts = points.slice(0, cap).map(p => ({ n: p.n, exps: p.exps, X: embed(p.exps, primes, logP, dirMap) }));
+  const mode = opts.sample ?? 'logstrat';
+  const sample = selectSample(points, cap, mode);
+  const pts = sample.map(p => ({ n: p.n, exps: p.exps, X: embed(p.exps, primes, logP, dirMap) }));
   const rhos = [], dEs = [], dLs = [];
   let collisions = 0, nearest = null, maxRho = 0;
   for (let i = 0; i < pts.length; i++) {
@@ -163,6 +191,9 @@ export function distortion(points, primes, logP, dirMap, opts = {}){
   }
   const sortedRho = rhos.slice().sort((x, y) => x - y);
   return {
+    sampleMode: mode,
+    sampleSize: pts.length,
+    sampleNs: pts.map(p => p.n),
     pairs: rhos.length,
     minRho: sortedRho[0] ?? NaN,
     p5Rho: quantile(sortedRho, 0.05),

@@ -7,18 +7,18 @@
   "files": [
     {
       "path": "README.md",
-      "size_bytes": 3112,
-      "sha256": "32c0e97b10f5ef157ae560023bdab2a52f11cea7f416b1498c5ce2aa9d93dba3"
+      "size_bytes": 3778,
+      "sha256": "5dad5cff3e0159a9eb94a184433f727a6f527a169f376459bbceb821fa061845"
     },
     {
       "path": "TEST_REPORT.md",
-      "size_bytes": 1950,
-      "sha256": "a6c1c437a256ac3dd4182fba1a8af8dbed9a9c3136d0d7d9d51a14e501d689d1"
+      "size_bytes": 3201,
+      "sha256": "a8aadf407df8400fe678203a48aae574c130daf897b27c431400db88603f92e9"
     },
     {
       "path": "index.html",
-      "size_bytes": 4086,
-      "sha256": "67f4383c431ba75863e69f4ec87fb4712c31776cd9f55f1902fe9c2c751f0d28"
+      "size_bytes": 4728,
+      "sha256": "3f9751346e0271b1f835719239b4fbb9dc94b9609ce1c4457a19f9d52bd3fdfb"
     },
     {
       "path": "package.json",
@@ -37,8 +37,8 @@
     },
     {
       "path": "src/app.js",
-      "size_bytes": 12696,
-      "sha256": "12a012b4a8c92a8d1c1002cff50cf5fee00072543816ecce4f65004661303039"
+      "size_bytes": 13569,
+      "sha256": "5191232f9f70701cc901256a0d2cb0a2ed0c8ffb89e443a55a9f567d2ecf55e9"
     },
     {
       "path": "src/core/arithmetic.js",
@@ -47,13 +47,13 @@
     },
     {
       "path": "src/layout.js",
-      "size_bytes": 7834,
-      "sha256": "78670affeef1700aceaa8e75ee6cbc398ff7bd69753cb74955debbb7459a05ae"
+      "size_bytes": 9449,
+      "sha256": "f333079607e02baa3a4603820c2b22a263eddfe2b135e0aabd242b9232cff639"
     },
     {
       "path": "styles.css",
-      "size_bytes": 4053,
-      "sha256": "975c13abf0c3d8f593e9b82ac84d1f4e3e97ac2aadf679fbadc1c331b329efa3"
+      "size_bytes": 4326,
+      "sha256": "76ca967d6b7841306588be643ad6247c98a0acfd618984e19ee75007144fe56a"
     },
     {
       "path": "tests/layout.test.mjs",

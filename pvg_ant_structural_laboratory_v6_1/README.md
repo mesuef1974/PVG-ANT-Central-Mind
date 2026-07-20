@@ -29,7 +29,9 @@ Each `p_k`-smooth integer is embedded as `X(n) = Σ_p v_p(n)·log(p)·d_p`, `|d_
 - **Symmetric cone**: `d_j = (sinθ·cos(2πj/k), cosθ, sinθ·sin(2πj/k))`, uniform polar angle `θ`
   (default 60°) to the visual reference axis `ŷ`. This is a *symmetric conic layout with uniform
   polar angle* — **not** a pairwise-equiangular frame (impossible for an arbitrary number of rays
-  in R³). Prime order maps to azimuth.
+  in R³). Prime order maps to azimuth. The vertical coordinate is `X_y(n) = cos(θ)·log n`
+  (proportional to log n, not log n literally). The layout is **distinct per k** (axis j at azimuth
+  2πj/k), not a nested embedding — changing k re-places most existing primes.
 
 ## Corrections embodied (vs the earlier review)
 
@@ -44,10 +46,14 @@ Each `p_k`-smooth integer is embedded as `X(n) = Σ_p v_p(n)·log(p)·d_p`, `|d_
    symmetry axis for the drawing, never a computational PVG object.
 4. **No skipped primes.** The axis set is the first `k` primes in order (…, 13, 17, 19, …).
 
-## Distortion diagnostics (per layout, over the first 400 smooth points)
+## Distortion diagnostics (per layout, over a 400-point sample)
 
-`min ρ`, 5th-percentile `ρ`, median `ρ`, max `ρ` (≤ 1), `Spearman(d_E, d_log)`, collision count
-(`d_E < 1e-6`), and the nearest projected pair. Exportable as JSON.
+Sample modes: `logstrat` (default — log-stratified across the range), `first` (biased to the low
+end), `all` (when the count is small). Reported per layout: `min ρ`, 5th-percentile `ρ`, median `ρ`,
+max `ρ` (≤ 1), `Spearman(d_E, d_log)`, collision count (`d_E < 1e-6`), and the nearest pair **in the
+R³ embedding** (before camera rotation / 2-D screen projection — not a screen-space pair). The
+sample's n-values are exported in the JSON. If the smooth-number enumeration exceeds the node budget
+(`aborted`), the metrics are disabled and the panel shows `PARTIAL ENUMERATION — DIAGNOSTICS INVALID`.
 
 ## Mandatory geometric tests
 
