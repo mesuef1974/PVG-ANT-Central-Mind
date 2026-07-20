@@ -1,0 +1,93 @@
+{
+  "asset_id": "EXT-ASSET-PVG-STRUCTURAL-LAB-001",
+  "version": "6.0.0",
+  "generated_at": "2026-07-20",
+  "scientific_ceiling": "finite computational diagnostics; no theorem, Goldbach proof, RH/GRH progress, or originality claim",
+  "files": [
+    {
+      "path": "README.md",
+      "size_bytes": 895,
+      "sha256": "f2baacb3cce8ee0b615c471604aae092e70dc5cf065fe62713b25fb773692b7c"
+    },
+    {
+      "path": "TEST_REPORT.md",
+      "size_bytes": 1165,
+      "sha256": "787bf4eaf25ddf7206f981d7e0429dd0f2d8d474c0a9e1e8ca207cc9d8569b8d"
+    },
+    {
+      "path": "data/counterexamples.csv",
+      "size_bytes": 364,
+      "sha256": "79d8f034df432f648b3fa0e0c27bd4721c71ed0ea5cfa9eab87c97b7fca3f8c0"
+    },
+    {
+      "path": "data/v6-preview.png",
+      "size_bytes": 467215,
+      "sha256": "fe3b4b7252f813d0634ced7a15fb3e1cabae6e2d4a16d8d3d142cd5f64e38f28"
+    },
+    {
+      "path": "data/validation-summary.json",
+      "size_bytes": 4565,
+      "sha256": "bc106993a0c45cca0e54c29f77ac53f9739332a21a378879b8937fcd83a3c6f7"
+    },
+    {
+      "path": "index.html",
+      "size_bytes": 21398,
+      "sha256": "4db0c4d18fdf036dbaf442f4dc75257bb035cee0a9345e85d3291eb0a7b6e26b"
+    },
+    {
+      "path": "package.json",
+      "size_bytes": 146,
+      "sha256": "c98d5f6e393cb511724eea1ab3f5ae2aca70b2de5eb96b25a42060a4b8f01688"
+    },
+    {
+      "path": "serve.ps1",
+      "size_bytes": 207,
+      "sha256": "7fd247dd9397c7f4fff2e8ce42594424d06c6695b4e8f4c6450ad178eb737cd4"
+    },
+    {
+      "path": "serve.sh",
+      "size_bytes": 141,
+      "sha256": "657891e2403e090b66381936866eb0ea090576f589502cf272447d1cc17492ed"
+    },
+    {
+      "path": "src/app.js",
+      "size_bytes": 8004,
+      "sha256": "e8d9fd97823be2b970ebad94e0fb93dc09a14f7843f05511ea244b4380421b72"
+    },
+    {
+      "path": "src/core/additive.js",
+      "size_bytes": 1205,
+      "sha256": "8ec38733ae9c84fd7a59cda507fd4698435a851a25c80d1df4a33d320544eacf"
+    },
+    {
+      "path": "src/core/arithmetic.js",
+      "size_bytes": 1172,
+      "sha256": "3845c604c204d9b48a7a3e972d9d32dd44080ee5214a4a3f68bdd06be375dbd0"
+    },
+    {
+      "path": "src/core/smooth.js",
+      "size_bytes": 2418,
+      "sha256": "836e2036b895e5f3150ada2dcfbca8753e745cdac66ae8e19509da17d3d56672"
+    },
+    {
+      "path": "src/core/statistics.js",
+      "size_bytes": 2720,
+      "sha256": "6ce62b51f65bb3da583fb60cfba4668907f68824beb9dc0a869a2480845a9598"
+    },
+    {
+      "path": "src/legacy-app.js",
+      "size_bytes": 107021,
+      "sha256": "e1953f9d133070555ba1f677e9d75f6f99804b5ea79e3a876dfe2afbdf961861"
+    },
+    {
+      "path": "styles.css",
+      "size_bytes": 20573,
+      "sha256": "cfd4878acea4b89e57010cdd20506fb2bc576f68bf81e493471840100d45bdf6"
+    },
+    {
+      "path": "tests/core.test.mjs",
+      "size_bytes": 1016,
+      "sha256": "9eeeb4eb5808ccabbb781f2d2950ff82b1daafe31f8dc9edce2de51752d41231"
+    }
+  ]
+}
