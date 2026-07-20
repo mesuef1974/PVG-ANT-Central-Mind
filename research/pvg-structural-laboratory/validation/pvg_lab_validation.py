@@ -40,7 +40,13 @@ def dlog(a: int, b: int) -> float:
 
 
 def geometric_abs_third(r: float) -> float:
-    q = max(1e-15, 1-r); mu = r/q; var = r/(q*q); sd = sqrt(var)
+    q = max(1e-15, 1-r)
+    # As q -> 0, qK converges to Exp(1), so the centered third absolute
+    # moment is asymptotic to E|X-1|^3 / q^3 = (12/e - 2) / q^3.
+    # This guard prevents an enormous direct summation when r is near 1.
+    if q < 1e-3:
+        return (12 * exp(-1) - 2) / (q ** 3)
+    mu = r/q; var = r/(q*q); sd = sqrt(var)
     cutoff = max(80, int(mu + 32*(sd+1)) + 1); prob = q; total = 0.0
     for k in range(cutoff + 1):
         total += prob * abs(k-mu)**3; prob *= r
@@ -114,7 +120,13 @@ def build_grid(max_x:int,ys:list[int],xs:list[int],budget:int)->list[dict]:
 
 
 def pearson(x:list[float],y:list[float])->float:
+    if len(x) != len(y):
+        raise ValueError("Pearson inputs must have equal length")
+    if len(x) < 2:
+        return 0.0
     mx,my=mean(x),mean(y); num=sum((a-mx)*(b-my) for a,b in zip(x,y)); dx=sum((a-mx)**2 for a in x); dy=sum((b-my)**2 for b in y)
+    if dx == 0.0 or dy == 0.0:
+        return 0.0
     return num/sqrt(dx*dy)
 
 
@@ -196,5 +208,6 @@ def run(max_x:int=100000,budget:int=3_000_000)->dict:
     B=[c['berry'] for c in hold]; E=[c['error'] for c in hold]
     controls=[[c['pi_y'],c['max_share']] for c in hold]; controls2=[[c['pi_y'],c['max_share'],c['alpha']] for c in hold]
     return dict(version='6.0',design=dict(train_ys=train_ys,holdout_ys=hold_ys,train_xs=train_xs,holdout_xs=hold_xs,nonoverlap=True),counts=dict(train=len(train),holdout=len(hold)),edges=edges,correlations=dict(pearson=pearson(B,E),spearman=pearson(ranks(B),ranks(E)),partial_pi_max_share=partial_corr(B,E,controls),partial_pi_max_share_alpha=partial_corr(B,E,controls2)),calibration=dict(train=calibration(train,edges),holdout=calibration(hold,edges)),counterexamples=counterexamples(hold),reference=dict(dlog_60_72=dlog(60,72),psi_100_5=next(c['exact'] for c in build_grid(100,[5],[100],100000))),additive_reference=additive_fiber(100,5),scientific_ceiling='finite computational diagnostics only; no theorem or Goldbach/RH/GRH claim')
+
 
 if __name__=='__main__': print(json.dumps(run(),ensure_ascii=False,indent=2))
