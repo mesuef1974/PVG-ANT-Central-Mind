@@ -7,14 +7,18 @@ on:
       - 'maps/pvg-local-neighborhood-and-axis-ratio-geometry-v1.md'
       - 'research/pvg-space-deepening/README.md'
       - 'research/pvg-space-deepening/pass-003-prime-pair-edge-atlas.md'
+      - 'research/pvg-space-deepening/pass-004-prime-axis-triangle-composition.md'
       - 'research/pvg-space-deepening/data/prime-pair-edge-atlas-primes-le-100-summary.json'
+      - 'research/pvg-space-deepening/data/prime-triangle-atlas-primes-le-100-summary.json'
       - 'tools/pvg_inverse_geometry.py'
       - 'tools/pvg_local_neighborhood.py'
       - 'tools/pvg_prime_pair_edge_atlas.py'
+      - 'tools/pvg_prime_triangle_atlas.py'
       - 'tools/sync_pvg_inverse_geometry_worktree.ps1'
       - 'tests/test_pvg_inverse_geometry.py'
       - 'tests/test_pvg_local_neighborhood.py'
       - 'tests/test_pvg_prime_pair_edge_atlas.py'
+      - 'tests/test_pvg_prime_triangle_atlas.py'
       - 'governance/programs/PVG-INVERSE-GEOMETRY-001.md'
       - 'governance/checkpoints/PVG-INVERSE-GEOMETRY-001.md'
       - '.github/workflows/pvg-inverse-geometry-audit.yml'
@@ -25,14 +29,18 @@ on:
       - 'maps/pvg-local-neighborhood-and-axis-ratio-geometry-v1.md'
       - 'research/pvg-space-deepening/README.md'
       - 'research/pvg-space-deepening/pass-003-prime-pair-edge-atlas.md'
+      - 'research/pvg-space-deepening/pass-004-prime-axis-triangle-composition.md'
       - 'research/pvg-space-deepening/data/prime-pair-edge-atlas-primes-le-100-summary.json'
+      - 'research/pvg-space-deepening/data/prime-triangle-atlas-primes-le-100-summary.json'
       - 'tools/pvg_inverse_geometry.py'
       - 'tools/pvg_local_neighborhood.py'
       - 'tools/pvg_prime_pair_edge_atlas.py'
+      - 'tools/pvg_prime_triangle_atlas.py'
       - 'tools/sync_pvg_inverse_geometry_worktree.ps1'
       - 'tests/test_pvg_inverse_geometry.py'
       - 'tests/test_pvg_local_neighborhood.py'
       - 'tests/test_pvg_prime_pair_edge_atlas.py'
+      - 'tests/test_pvg_prime_triangle_atlas.py'
       - 'governance/programs/PVG-INVERSE-GEOMETRY-001.md'
       - 'governance/checkpoints/PVG-INVERSE-GEOMETRY-001.md'
       - '.github/workflows/pvg-inverse-geometry-audit.yml'
@@ -50,9 +58,11 @@ jobs:
           python -m py_compile tools/pvg_inverse_geometry.py
           python -m py_compile tools/pvg_local_neighborhood.py
           python -m py_compile tools/pvg_prime_pair_edge_atlas.py
+          python -m py_compile tools/pvg_prime_triangle_atlas.py
           python -m py_compile tests/test_pvg_inverse_geometry.py
           python -m py_compile tests/test_pvg_local_neighborhood.py
           python -m py_compile tests/test_pvg_prime_pair_edge_atlas.py
+          python -m py_compile tests/test_pvg_prime_triangle_atlas.py
       - name: PowerShell sync-script syntax check
         shell: pwsh
         run: |
@@ -64,6 +74,7 @@ jobs:
           python -m unittest -v tests/test_pvg_inverse_geometry.py
           python -m unittest -v tests/test_pvg_local_neighborhood.py
           python -m unittest -v tests/test_pvg_prime_pair_edge_atlas.py
+          python -m unittest -v tests/test_pvg_prime_triangle_atlas.py
       - name: Exact passport smoke test
         run: |
           python tools/pvg_inverse_geometry.py 900 --compact > /tmp/pvg-passport-900.json
@@ -117,6 +128,33 @@ jobs:
           assert rows[0]['kappa_plus'] == '0' and rows[0]['kappa_minus'] == '-1'
           assert any(r['p'] == '2' and r['q'] == '5' and r['both_level_preserved'] == 'true' for r in rows)
           print('PVG prime-pair edge atlas regeneration: PASS')
+          PY
+      - name: Prime-axis triangle atlas deterministic regeneration
+        run: |
+          mkdir -p /tmp/pvg-prime-triangle-atlas
+          python tools/pvg_prime_triangle_atlas.py --limit 100 --output-dir /tmp/pvg-prime-triangle-atlas
+          python - <<'PY'
+          import csv
+          import json
+          from pathlib import Path
+
+          generated_dir = Path('/tmp/pvg-prime-triangle-atlas')
+          generated_summary = json.loads(
+              (generated_dir / 'prime-triangle-atlas-primes-le-100-summary.json').read_text()
+          )
+          committed_summary = json.loads(
+              Path('research/pvg-space-deepening/data/prime-triangle-atlas-primes-le-100-summary.json').read_text()
+          )
+          assert generated_summary == committed_summary
+
+          with (generated_dir / 'prime-triangle-atlas-primes-le-100.csv').open(newline='') as handle:
+              rows = list(csv.DictReader(handle))
+          assert len(rows) == 2300
+          assert (rows[0]['p'], rows[0]['q'], rows[0]['r']) == ('2', '3', '5')
+          assert rows[0]['profile'] == 'S2_D2'
+          assert generated_summary['distinguished_triangles']['all_three_difference_preserved'] == [[2,5,7]]
+          assert all(generated_summary['verification'].values())
+          print('PVG prime-axis triangle atlas regeneration: PASS')
           PY
       - name: Execute safe worktree sync script
         shell: pwsh
