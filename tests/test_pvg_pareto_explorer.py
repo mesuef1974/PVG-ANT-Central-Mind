@@ -44,6 +44,7 @@ class PVGParetoExplorerTests(unittest.TestCase):
             "showLabels",
             "showStructure",
             "showFloor",
+            "showAxes",
             "autoRotate",
             "resetCamera",
             "pointDetail",
@@ -58,6 +59,16 @@ class PVGParetoExplorerTests(unittest.TestCase):
         self.assertIn("rgba(2,7,13,.96)", text)
         self.assertIn("ctx.fillStyle='#fff'", text)
         self.assertIn("roundRect", text)
+
+    def test_prime_axes_are_labeled_and_toggleable(self) -> None:
+        text = PAGE.read_text(encoding="utf-8")
+        self.assertIn("function drawAxes()", text)
+        self.assertIn("محور 2", text)
+        self.assertIn("محور 3", text)
+        self.assertIn("محور 5", text)
+        self.assertIn("2⁶", text)
+        self.assertIn("3⁶", text)
+        self.assertIn("5⁶", text)
 
     def test_page_statistics_match_registered_analysis(self) -> None:
         mo = multiobjective_analyze([2, 3, 5], 6)
