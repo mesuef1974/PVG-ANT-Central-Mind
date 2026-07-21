@@ -62,6 +62,12 @@ web/pvg-pareto-explorer/visual-lab-3d.html
 - ربط `tests/test_pvg_visual_lab_3d.py` وصفحة `visual-lab-3d.html` بسكربت مزامنة الـworktree.
 - بوابة CI تمنع حذف هذا الربط مستقبلًا.
 
+## التكامل
+
+- سكربت `sync_pvg_inverse_geometry_worktree.ps1` يشغّل الآن اختبار PASS-021.
+- السكربت يتحقق من وجود المعمل الثلاثي الأبعاد وحجمه قبل إتمام المزامنة.
+- بوابة `PVG Immersive 3D Visual Lab Audit` تتحقق من عقد المزامنة نفسه.
+
 ## التصنيف العلمي
 
 - الإسقاط والرسم والحسابات داخل النطاق: `EXACT FINITE COMPUTATION`.
