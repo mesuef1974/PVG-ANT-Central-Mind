@@ -42,6 +42,7 @@ jobs:
           python -m py_compile tools/pvg_prime_triangle_dynamics.py
           python -m py_compile tools/pvg_prime_tetrahedron_atlas.py
           python -m py_compile tools/pvg_prime_simplex_general.py
+          python -m py_compile tools/pvg_arithmetic_terrain.py
           python -m py_compile tests/test_pvg_inverse_geometry.py
           python -m py_compile tests/test_pvg_local_neighborhood.py
           python -m py_compile tests/test_pvg_prime_pair_edge_atlas.py
@@ -49,6 +50,7 @@ jobs:
           python -m py_compile tests/test_pvg_prime_triangle_dynamics.py
           python -m py_compile tests/test_pvg_prime_tetrahedron_atlas.py
           python -m py_compile tests/test_pvg_prime_simplex_general.py
+          python -m py_compile tests/test_pvg_arithmetic_terrain.py
       - name: PowerShell sync-script syntax check
         shell: pwsh
         run: |
@@ -63,6 +65,7 @@ jobs:
           python -m unittest -v tests/test_pvg_prime_triangle_dynamics.py
           python -m unittest -v tests/test_pvg_prime_tetrahedron_atlas.py
           python -m unittest -v tests/test_pvg_prime_simplex_general.py
+          python -m unittest -v tests/test_pvg_arithmetic_terrain.py
       - name: Exact passport and neighborhood smoke tests
         run: |
           python tools/pvg_inverse_geometry.py 900 --compact > /tmp/pvg-passport-900.json
@@ -82,14 +85,22 @@ jobs:
           import json
           from pathlib import Path
           p=json.loads(Path('/tmp/simplex.json').read_text())
-          assert p['m']==5
-          assert p['dimension']==4
-          assert p['edge_count']==10
+          assert p['m']==5 and p['dimension']==4 and p['edge_count']==10
           assert p['ordered_horizontal_neighbor_degree_at_interior']==20
           assert p['pair_sum_reconstruction']==[2,3,5,7,11]
-          assert p['pair_sum_gcd']==1
+          assert p['pair_sum_gcd']==1 and all(p['verification'].values())
+          PY
+      - name: Arithmetic terrain smoke test
+        run: |
+          python tools/pvg_arithmetic_terrain.py 60 2 3 --factors '2^2,3,5' --compact > /tmp/terrain.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path('/tmp/terrain.json').read_text())
+          assert p['before']['n']==60 and p['after']['n']==90
+          assert p['before']['Omega']==p['after']['Omega']==4
+          assert p['ratios']['tau']['text']=='1/1'
           assert all(p['verification'].values())
-          print('General prime-simplex laws: PASS')
           PY
       - name: Prime-pair atlas regeneration
         run: |
