@@ -40,11 +40,13 @@ jobs:
           python -m py_compile tools/pvg_prime_pair_edge_atlas.py
           python -m py_compile tools/pvg_prime_triangle_atlas.py
           python -m py_compile tools/pvg_prime_triangle_dynamics.py
+          python -m py_compile tools/pvg_prime_tetrahedron_atlas.py
           python -m py_compile tests/test_pvg_inverse_geometry.py
           python -m py_compile tests/test_pvg_local_neighborhood.py
           python -m py_compile tests/test_pvg_prime_pair_edge_atlas.py
           python -m py_compile tests/test_pvg_prime_triangle_atlas.py
           python -m py_compile tests/test_pvg_prime_triangle_dynamics.py
+          python -m py_compile tests/test_pvg_prime_tetrahedron_atlas.py
       - name: PowerShell sync-script syntax check
         shell: pwsh
         run: |
@@ -57,6 +59,7 @@ jobs:
           python -m unittest -v tests/test_pvg_prime_pair_edge_atlas.py
           python -m unittest -v tests/test_pvg_prime_triangle_atlas.py
           python -m unittest -v tests/test_pvg_prime_triangle_dynamics.py
+          python -m unittest -v tests/test_pvg_prime_tetrahedron_atlas.py
       - name: Exact passport and neighborhood smoke tests
         run: |
           python tools/pvg_inverse_geometry.py 900 --compact > /tmp/pvg-passport-900.json
@@ -105,6 +108,20 @@ jobs:
           assert g==c and all(g['verification'].values())
           assert g['distinguished_dynamics']['prime_difference_transitions'][0]['source']==[2,5,7]
           with Path('/tmp/dynamics/prime-triangle-dynamics-primes-le-100.csv').open(newline='') as h: assert len(list(csv.DictReader(h)))==2300
+          PY
+      - name: Prime-tetrahedron atlas regeneration
+        run: |
+          mkdir -p /tmp/tetrahedron
+          python tools/pvg_prime_tetrahedron_atlas.py --limit 100 --output-dir /tmp/tetrahedron
+          python - <<'PY'
+          import csv,json
+          from pathlib import Path
+          g=json.loads(Path('/tmp/tetrahedron/prime-tetrahedron-atlas-primes-le-100-summary.json').read_text())
+          c=json.loads(Path('research/pvg-space-deepening/data/prime-tetrahedron-atlas-primes-le-100-summary.json').read_text())
+          assert g==c and all(g['verification'].values())
+          assert g['scope']['unordered_tetrahedron_count']==12650
+          assert g['finite_counts']['maximum_sum_preserved_edges']==3
+          with Path('/tmp/tetrahedron/prime-tetrahedron-atlas-primes-le-100.csv').open(newline='') as h: assert len(list(csv.DictReader(h)))==12650
           PY
       - name: Execute safe worktree sync script
         shell: pwsh
