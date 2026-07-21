@@ -48,7 +48,7 @@ $Head=(& git -C $Worktree rev-parse HEAD).Trim()
 $RemoteHead=(& git -C $Repo rev-parse $RemoteRef).Trim()
 if ($Head -ne $RemoteHead) { throw "Synchronization verification failed: HEAD=$Head remote=$RemoteHead" }
 
-Write-Host "Running PVG point, neighborhood, edge, triangle, and triangle-dynamics tests..."
+Write-Host "Running PVG point, neighborhood, edge, triangle, dynamics, and tetrahedron tests..."
 Push-Location $Worktree
 try {
     $Suites=@(
@@ -56,7 +56,8 @@ try {
         "tests/test_pvg_local_neighborhood.py",
         "tests/test_pvg_prime_pair_edge_atlas.py",
         "tests/test_pvg_prime_triangle_atlas.py",
-        "tests/test_pvg_prime_triangle_dynamics.py"
+        "tests/test_pvg_prime_triangle_dynamics.py",
+        "tests/test_pvg_prime_tetrahedron_atlas.py"
     )
     foreach ($Suite in $Suites) {
         Invoke-Python312 -PythonArgs @("-m","unittest","-v",$Suite)
@@ -72,7 +73,8 @@ try {
     $Jobs=@(
         @{ Tool="tools/pvg_prime_pair_edge_atlas.py"; Dir="pvg-prime-pair-edge-atlas"; Summary="prime-pair-edge-atlas-primes-le-100-summary.json"; Csv="prime-pair-edge-atlas-primes-le-100.csv"; CountField="unordered_pair_count"; Expected=300 },
         @{ Tool="tools/pvg_prime_triangle_atlas.py"; Dir="pvg-prime-triangle-atlas"; Summary="prime-triangle-atlas-primes-le-100-summary.json"; Csv="prime-triangle-atlas-primes-le-100.csv"; CountField="unordered_triangle_count"; Expected=2300 },
-        @{ Tool="tools/pvg_prime_triangle_dynamics.py"; Dir="pvg-prime-triangle-dynamics"; Summary="prime-triangle-dynamics-primes-le-100-summary.json"; Csv="prime-triangle-dynamics-primes-le-100.csv"; CountField="unordered_triangle_count"; Expected=2300 }
+        @{ Tool="tools/pvg_prime_triangle_dynamics.py"; Dir="pvg-prime-triangle-dynamics"; Summary="prime-triangle-dynamics-primes-le-100-summary.json"; Csv="prime-triangle-dynamics-primes-le-100.csv"; CountField="unordered_triangle_count"; Expected=2300 },
+        @{ Tool="tools/pvg_prime_tetrahedron_atlas.py"; Dir="pvg-prime-tetrahedron-atlas"; Summary="prime-tetrahedron-atlas-primes-le-100-summary.json"; Csv="prime-tetrahedron-atlas-primes-le-100.csv"; CountField="unordered_tetrahedron_count"; Expected=12650 }
     )
     foreach ($Job in $Jobs) {
         $Output=Join-Path $TempRoot $Job.Dir
