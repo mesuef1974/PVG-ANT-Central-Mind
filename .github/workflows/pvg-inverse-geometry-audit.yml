@@ -1,0 +1,63 @@
+name: PVG Inverse Geometry Audit
+
+on:
+  pull_request:
+    paths:
+      - 'maps/pvg-point-classification-and-inverse-geometry-v1.md'
+      - 'tools/pvg_inverse_geometry.py'
+      - 'tests/test_pvg_inverse_geometry.py'
+      - 'governance/programs/PVG-INVERSE-GEOMETRY-001.md'
+      - 'governance/checkpoints/PVG-INVERSE-GEOMETRY-001.md'
+      - '.github/workflows/pvg-inverse-geometry-audit.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'maps/pvg-point-classification-and-inverse-geometry-v1.md'
+      - 'tools/pvg_inverse_geometry.py'
+      - 'tests/test_pvg_inverse_geometry.py'
+      - 'governance/programs/PVG-INVERSE-GEOMETRY-001.md'
+      - 'governance/checkpoints/PVG-INVERSE-GEOMETRY-001.md'
+      - '.github/workflows/pvg-inverse-geometry-audit.yml'
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Syntax check
+        run: |
+          python -m py_compile tools/pvg_inverse_geometry.py
+          python -m py_compile tests/test_pvg_inverse_geometry.py
+      - name: Unit tests
+        run: python -m unittest -v tests/test_pvg_inverse_geometry.py
+      - name: Exact passport smoke test
+        run: |
+          python tools/pvg_inverse_geometry.py 900 --compact > /tmp/pvg-passport-900.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = json.loads(Path('/tmp/pvg-passport-900.json').read_text())
+          assert p['support'] == [2, 3, 5]
+          assert p['omega'] == 3
+          assert p['Omega'] == 6
+          assert p['primitive_ray']['primitive_generator'] == 30
+          assert p['primitive_ray']['ray_index'] == 2
+          print('PVG inverse-geometry passport smoke test: PASS')
+          PY
+      - name: Large unfactored input must be refused
+        run: |
+          set +e
+          python tools/pvg_inverse_geometry.py 18446744073709551616 --compact > /tmp/refusal.json
+          code=$?
+          set -e
+          test "$code" -eq 2
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = json.loads(Path('/tmp/refusal.json').read_text())
+          assert p['status'] == 'exact_location_not_certified'
+          print('Honest refusal gate: PASS')
+          PY
