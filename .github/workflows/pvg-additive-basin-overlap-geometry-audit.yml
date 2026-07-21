@@ -1,0 +1,100 @@
+name: PVG Additive Basin Overlap Geometry Audit
+
+on:
+  pull_request:
+    paths:
+      - 'tools/pvg_additive_attraction_basins.py'
+      - 'tools/pvg_additive_basin_overlap_geometry.py'
+      - 'tests/test_pvg_additive_basin_overlap_geometry.py'
+      - 'research/pvg-space-deepening/pass-017-additive-basin-overlap-geometry.md'
+      - 'research/pvg-space-deepening/data/additive-basin-overlap-geometry-primes-le-100-depth-5-summary.json'
+      - '.github/workflows/pvg-additive-basin-overlap-geometry-audit.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'tools/pvg_additive_attraction_basins.py'
+      - 'tools/pvg_additive_basin_overlap_geometry.py'
+      - 'tests/test_pvg_additive_basin_overlap_geometry.py'
+      - 'research/pvg-space-deepening/pass-017-additive-basin-overlap-geometry.md'
+      - 'research/pvg-space-deepening/data/additive-basin-overlap-geometry-primes-le-100-depth-5-summary.json'
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Syntax check
+        run: |
+          python -m py_compile tools/pvg_additive_basin_overlap_geometry.py tests/test_pvg_additive_basin_overlap_geometry.py
+      - name: Unit tests
+        run: python -m unittest -v tests/test_pvg_additive_basin_overlap_geometry.py
+      - name: Registered-scope smoke test
+        run: |
+          python tools/pvg_additive_basin_overlap_geometry.py --limit 100 --depth 5 --summary-only --compact > /tmp/pass017.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          generated=json.loads(Path('/tmp/pass017.json').read_text())
+          committed=json.loads(Path('research/pvg-space-deepening/data/additive-basin-overlap-geometry-primes-le-100-depth-5-summary.json').read_text())
+
+          assert generated['scope']=={
+              'prime_limit':100,
+              'depth_bound':5,
+              'start_face_count':300,
+              'terminal_axis_count':10,
+              'endpoint_signature_count':19,
+          }
+          graph=generated['axis_overlap_graph']
+          assert graph['node_count']==10 and graph['edge_count']==13
+          assert graph['component_sizes']==[6,1,1,1,1]
+          assert graph['isolated_axes']==[31,43,61,73]
+          assert graph['cycle_rank']==8
+          assert graph['articulation_axes']==[] and graph['bridge_edges']==[]
+          assert graph['pair_overlaps'][0]['axes']==[5,7]
+          assert graph['pair_overlaps'][0]['intersection_size']==75
+          assert graph['weighted_overlap_degree_ranking'][0]['axis']==5
+          assert graph['weighted_overlap_degree_ranking'][0]['weighted_overlap_degree']==187
+
+          observation=generated['signature_observation']
+          assert observation['observed_exact_pair_signature_count']==1
+          assert observation['unobserved_exact_pair_signature_count']==44
+          assert observation['observed_exact_triple_signature_count']==8
+          assert observation['unobserved_exact_triple_signature_count']==112
+          assert observation['all_terminal_axes_observed_as_exact_singletons']
+
+          poset=generated['signature_poset']
+          assert poset['rank_distribution']=={'1':10,'2':1,'3':8}
+          assert poset['comparable_pair_count']==27
+          assert poset['cover_edge_count']==25
+          assert poset['component_sizes']==[15,1,1,1,1]
+          assert poset['cycle_rank']==11
+          assert poset['longest_chain_node_count']==3
+          assert poset['triple_signatures_with_observed_pair_predecessor']==[[2,5,7]]
+          assert generated['gateway_start_count']==105
+          assert generated['gateway_signatures'][0]['terminal_axes']==[2,5,7]
+          assert generated['gateway_signatures'][0]['routed_pair_memberships']==99
+          assert all(generated['verification'].values())
+
+          assert committed['schema']==generated['schema']
+          assert committed['scope']==generated['scope']
+          assert committed['terminal_axes']==generated['terminal_axes']
+          assert committed['axis_overlap_graph']['edge_count']==graph['edge_count']
+          assert committed['axis_overlap_graph']['component_axes']==graph['component_axes']
+          assert committed['axis_overlap_graph']['isolated_axes']==graph['isolated_axes']
+          assert [
+              (x['axes'],x['intersection_size'],x['exact_pair_signature_count'],x['higher_order_mediated_count'])
+              for x in committed['axis_overlap_graph']['pair_overlaps']
+          ]==[
+              (x['axes'],x['intersection_size'],x['exact_pair_signature_count'],x['higher_order_mediated_count'])
+              for x in graph['pair_overlaps']
+          ]
+          assert committed['triple_overlaps']==generated['triple_overlaps']
+          assert committed['signature_poset']['rank_distribution']==poset['rank_distribution']
+          assert committed['signature_poset']['cover_edge_count']==poset['cover_edge_count']
+          assert committed['gateway_signatures']==generated['gateway_signatures']
+          assert committed['verification']==generated['verification']
+          PY
