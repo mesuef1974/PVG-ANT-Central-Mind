@@ -63,12 +63,15 @@ semantic issue in Python output/exit-code handling was also corrected. The CI au
 the complete worktree-sync script in a temporary repository/worktree rather than checking syntax
 alone.
 
-## Validation on the corrected pre-closure head
+## Validation
 
 ```text
-HEAD = 93645bba92c5e9b6c3927a072c7cc6493e30bbcb
+CORRECTED IMPLEMENTATION HEAD = 93645bba92c5e9b6c3927a072c7cc6493e30bbcb
 PVG Inverse Geometry Audit run 15 = PASS
 Governance Required Gate run 607 = PASS
+CHECKPOINT HEAD = 78e2e0d997c17f70162492cc89c5b18f290d5e1b
+PVG Inverse Geometry Audit run 16 = PASS
+Governance Required Gate run 608 = PASS
 Python = 3.12
 Inverse-geometry tests = 11/11 PASS
 Local-neighborhood tests = 11/11 PASS
@@ -80,6 +83,6 @@ PowerShell worktree-sync execution = PASS
 Large unfactored input refusal gate (n=2^64) = PASS
 ```
 
-The closure commit changes only this checkpoint state. PR #63 remains draft and unmerged pending
-human review and explicit authorization. The structural-laboratory branch and protected recovery
-stash remain outside this branch and were not touched.
+PR #63 remains draft and unmerged pending human review and explicit authorization. The
+structural-laboratory branch and protected recovery stash remain outside this branch and were not
+touched.
