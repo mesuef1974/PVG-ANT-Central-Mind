@@ -1,0 +1,51 @@
+name: PVG Additive Attraction Basins Audit
+
+on:
+  pull_request:
+    paths:
+      - 'tools/pvg_additive_attraction_basins.py'
+      - 'tests/test_pvg_additive_attraction_basins.py'
+      - 'research/pvg-space-deepening/pass-016-additive-attraction-basins.md'
+      - 'research/pvg-space-deepening/data/additive-attraction-basins-primes-le-100-depth-5-summary.json'
+      - 'tools/sync_pvg_inverse_geometry_worktree.ps1'
+      - '.github/workflows/pvg-additive-attraction-basins-audit.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'tools/pvg_additive_attraction_basins.py'
+      - 'tests/test_pvg_additive_attraction_basins.py'
+      - 'research/pvg-space-deepening/pass-016-additive-attraction-basins.md'
+      - 'research/pvg-space-deepening/data/additive-attraction-basins-primes-le-100-depth-5-summary.json'
+      - 'tools/sync_pvg_inverse_geometry_worktree.ps1'
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Syntax check
+        run: python -m py_compile tools/pvg_additive_attraction_basins.py tests/test_pvg_additive_attraction_basins.py
+      - name: Unit tests
+        run: python -m unittest -v tests/test_pvg_additive_attraction_basins.py
+      - name: Regenerate registered summary
+        run: python tools/pvg_additive_attraction_basins.py --limit 100 --depth 5 --summary-only > /tmp/pass016.json
+      - name: Verify committed summary and registered findings
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          actual = json.loads(Path('/tmp/pass016.json').read_text(encoding='utf-8'))
+          expected = json.loads(Path('research/pvg-space-deepening/data/additive-attraction-basins-primes-le-100-depth-5-summary.json').read_text(encoding='utf-8'))
+          assert actual == expected
+          assert actual['scope']['start_face_count'] == 300
+          assert actual['terminal_axes'] == [2,3,5,7,13,19,31,43,61,73]
+          assert actual['terminal_count_distribution'] == {'0':0,'1':195,'2':13,'3':92}
+          assert actual['unresolved_start_count'] == 0
+          assert actual['reappearing_start_count'] == 10
+          assert actual['observed_cycle_start_count'] == 0
+          assert all(actual['verification'].values())
+          PY
