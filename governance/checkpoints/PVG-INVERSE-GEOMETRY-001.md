@@ -2,7 +2,7 @@
 
 ```text
 PROGRAM = PVG-INVERSE-GEOMETRY-001
-PASSES = PASS-001 + PASS-002-LOCAL-NEIGHBORHOOD + PASS-003-PRIME-PAIR-EDGE-ATLAS
+PASSES = PASS-001 + PASS-002 + PASS-003 + PASS-004-PRIME-AXIS-TRIANGLES
 BRANCH = agent/pvg-point-classification-inverse-geometry-001
 BASE = main
 STATUS = CHECKPOINT_PASS_ON_BRANCH
@@ -15,136 +15,84 @@ BOUND-EXPANSION = NOT_AUTHORIZED
 MERGE = NOT_AUTHORIZED
 ```
 
-## Installed on the branch
+## Installed capabilities
 
-- `maps/pvg-point-classification-and-inverse-geometry-v1.md`
-- `maps/pvg-local-neighborhood-and-axis-ratio-geometry-v1.md`
-- `research/pvg-space-deepening/README.md`
-- `research/pvg-space-deepening/pass-003-prime-pair-edge-atlas.md`
-- `research/pvg-space-deepening/data/prime-pair-edge-atlas-primes-le-100-summary.json`
-- `tools/pvg_inverse_geometry.py`
-- `tools/pvg_local_neighborhood.py`
-- `tools/pvg_prime_pair_edge_atlas.py`
-- `tools/sync_pvg_inverse_geometry_worktree.ps1`
-- `tests/test_pvg_inverse_geometry.py`
-- `tests/test_pvg_local_neighborhood.py`
-- `tests/test_pvg_prime_pair_edge_atlas.py`
-- `.github/workflows/pvg-inverse-geometry-audit.yml`
-- `governance/programs/PVG-INVERSE-GEOMETRY-001.md`
+### PASS-001 — exact point passport
 
-## Pass-001 exact capability
+Exact labeled support, `omega`, `Omega`, radical, repeat depth, exponent partition, primitive ray,
+divisor box, multiple cone, barycentric position, and directional families.
 
-For a complete certified factorization, emit an exact labeled geometric passport containing
-support, \(\omega\), \(\Omega\), radical, repeat depth, exponent partition, minimal face,
-horizontal barycentric coordinates, primitive ray, divisor box, multiple-cone anchor, and
-directional families.
+### PASS-002 — local neighborhood
 
-## Pass-002 exact capability
+Axis-ratio matrix, `A_(s-1)` horizontal geometry, primitive neighbors, gcd axis recovery, horizontal
+distance, pair-lines, simplex vertices, and geometric-mean identities.
 
-For a completely factored point in an \(s\)-axis face:
+### PASS-003 — 300 prime-pair edges
 
-- compute the axis-ratio matrix \(p_j/p_i\);
-- generate all \(s(s-1)\) ordered primitive horizontal neighbors;
-- identify the fixed-level direction lattice \(A_{s-1}\);
-- generate complete pair-lines through the point as finite geometric sequences;
-- compute axis-parallel and primitive-ray sequences;
-- compute horizontal simplex vertices;
-- recover adjacent local axes from gcd-reduced pairs;
-- compute horizontal graph distance from valuation vectors;
-- expose normalized sum, difference, gcd, and lcm edge signatures.
+For all `p<q<=100`, record ratio, gap, sum, difference, transition supports, defects `kappa_+` and
+`kappa_-`, axis-2 routing, and level-preservation classes.
 
-## Pass-003 exact capability
+### PASS-004 — 2300 prime-axis triangles
 
-For every unordered prime-axis pair \(p<q\le100\):
+For all `p<q<r<=100`:
 
-- record the axis ratio \(q/p\), gap \(q-p\), and sum \(p+q\);
-- verify
-  \[
-  \frac{q-p}{q+p}=\frac{q/p-1}{q/p+1};
-  \]
-- factor the reduced sum and difference transitions;
-- record \(\omega\), \(\Omega\), support, and level defects
-  \[
-  \kappa_+=\Omega(p+q)-1,\qquad \kappa_-=\Omega(q-p)-1;
-  \]
-- verify that reduced transitions avoid the two original edge axes;
-- verify the axis-2 routing and sum-difference gcd laws;
-- classify sum, difference, and simultaneous level preservation;
-- regenerate a 300-record CSV and compare its JSON summary semantically with the committed summary.
+- verify `(q/p)(r/q)=r/p` and closed holonomy `1`;
+- verify `(q-p)+(r-q)=r-p`;
+- verify normalized-gap composition;
+- recover all three vertices from pair sums;
+- verify complete axis-2 routing;
+- classify each triangle by `Sx_Dy` preservation profile;
+- regenerate deterministic CSV and JSON outputs.
 
-## Exact PASS-003 findings
+## Exact PASS-004 findings
 
 ```text
 PRIMES <= 100 = 25
-UNORDERED PAIRS = 300
-EDGES INVOLVING AXIS 2 = 24
-ODD-ODD EDGES = 276
-SUM PRESERVED = 8
-DIFFERENCE PRESERVED = 16
-DIFFERENCE DOWN = 1, namely (2,3)
-BOTH PRESERVED = 1, namely (2,5)
+UNORDERED TRIANGLES = 2300
+CONTAINS AXIS 2 = 276
+ALL ODD = 2024
+
+SUM-PRESERVED EDGE COUNTS
+0 edges = 2144 triangles
+1 edge  = 128 triangles
+2 edges = 28 triangles
+3 edges = 0 triangles
+
+DIFFERENCE-PRESERVED EDGE COUNTS
+0 edges = 1969 triangles
+1 edge  = 295 triangles
+2 edges = 35 triangles
+3 edges = 1 triangle, namely (2,5,7)
 ```
 
-Universal classifications:
-
-\[
-\kappa_+(p,q)=0
-\iff
-p=2\text{ and }q+2\text{ is prime},
-\]
-
-\[
-\kappa_-(p,q)=0
-\iff
-q-p\text{ is prime},
-\]
-
-and
-
-\[
-\kappa_+(p,q)=\kappa_-(p,q)=0
-\iff
-(p,q)=(2,5).
-\]
-
-These are elementary exact identities and classifications, not originality claims.
+The unique all-odd triangle with two difference-preserving edges is `(3,5,7)`. The complete profile
+distribution is committed in
+`research/pvg-space-deepening/data/prime-triangle-atlas-primes-le-100-summary.json`.
 
 ## Hard boundaries
 
-Exact point or neighborhood geometry is not emitted without complete certified factorization.
-Factorization remains the computational inverse bottleneck. Neighbor/gcd experiments are
-exploratory diagnostics only until they beat appropriate classical baselines under a preregistered
-benchmark. The bound-100 edge counts are finite diagnostics and support no asymptotic inference.
-Visualization creates no theorem novelty, analytic estimate, or originality certificate.
+The atlas is finite and deterministic. It provides no asymptotic estimate, no factorization speedup,
+no novelty certificate, and no Goldbach, RH, or GRH progress. Exact inverse geometry still requires
+complete certified factorization. No expansion beyond prime bound 100 is authorized here.
 
-## PowerShell synchronization correction
-
-The first user-side run exposed a collision between the function parameter `$Args` and
-PowerShell's automatic `$args` variable. The wrapper was corrected to use `$GitArgs`. Python
-output/exit-code handling and cross-platform temporary-directory handling were also corrected. CI
-executes the complete worktree-sync script, including PASS-003 generation, rather than checking
-syntax alone.
-
-## Validation on pre-closure head
+## Validation before closure
 
 ```text
-HEAD = 36c3ec42a2cb94ef0de1c5000776ead641bd4f1d
-PVG Inverse Geometry Audit run 25 = PASS
-Governance Required Gate run 617 = PASS
-Python = 3.12
+PRE-CLOSURE HEAD = ffc579af29ce322f29e271bbfae16b03226e2b3a
+PVG Inverse Geometry Audit run 28 = PASS
+Governance Required Gate run 620 = PASS
 Inverse-geometry tests = 11/11 PASS
 Local-neighborhood tests = 11/11 PASS
-Prime-pair edge-atlas tests = 14/14 PASS
-Combined deterministic tests = 36/36 PASS
-Exact passport smoke test (n=900) = PASS
-Local-neighborhood smoke test (n=30) = PASS
-Prime-pair CSV records = 300
-Committed/generated summary comparison = PASS
-PowerShell worktree-sync syntax = PASS
-PowerShell worktree-sync execution with PASS-003 = PASS
-Large unfactored input refusal gate (n=2^64) = PASS
+Prime-pair atlas tests = 14/14 PASS
+Prime-triangle atlas tests = 13/13 PASS
+Combined deterministic tests = 49/49 PASS
+Prime-pair records = 300
+Prime-triangle records = 2300
+Committed/generated summaries = PASS
+Safe PowerShell worktree execution = PASS
+Large unfactored input refusal = PASS
 ```
 
-PR #63 remains draft and unmerged pending human review and explicit authorization. The
-structural-laboratory branch, canonical worktree branch, and protected recovery stash remain
-outside this branch and were not touched.
+The closure commit changes only governed program/checkpoint metadata. PR #63 remains draft and
+unmerged. The canonical worktree branch, structural-laboratory branch, and protected stash remain
+untouched.
