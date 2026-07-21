@@ -81,7 +81,7 @@ if ($Head -ne $RemoteHead) {
     throw "Synchronization verification failed: HEAD=$Head remote=$RemoteHead"
 }
 
-Write-Host "Running PVG inverse-geometry and local-neighborhood tests..."
+Write-Host "Running PVG point, neighborhood, and prime-pair atlas tests..."
 Push-Location $Worktree
 try {
     Invoke-Python312 -PythonArgs @("-m", "unittest", "-v", "tests/test_pvg_inverse_geometry.py")
@@ -90,11 +90,39 @@ try {
     Invoke-Python312 -PythonArgs @("-m", "unittest", "-v", "tests/test_pvg_local_neighborhood.py")
     Assert-LastExitCode -FailureMessage "Local-neighborhood tests failed"
 
+    Invoke-Python312 -PythonArgs @("-m", "unittest", "-v", "tests/test_pvg_prime_pair_edge_atlas.py")
+    Assert-LastExitCode -FailureMessage "Prime-pair edge atlas tests failed"
+
     Invoke-Python312 -PythonArgs @("tools/pvg_inverse_geometry.py", "900", "--compact")
     Assert-LastExitCode -FailureMessage "Passport smoke test failed"
 
     Invoke-Python312 -PythonArgs @("tools/pvg_local_neighborhood.py", "30", "--steps", "3", "--compact")
     Assert-LastExitCode -FailureMessage "Local-neighborhood smoke test failed"
+
+    $AtlasOutput = Join-Path $env:TEMP "pvg-prime-pair-edge-atlas"
+    if (Test-Path $AtlasOutput) {
+        Remove-Item -Recurse -Force $AtlasOutput
+    }
+    Invoke-Python312 -PythonArgs @(
+        "tools/pvg_prime_pair_edge_atlas.py",
+        "--limit", "100",
+        "--output-dir", $AtlasOutput
+    )
+    Assert-LastExitCode -FailureMessage "Prime-pair edge atlas generation failed"
+
+    $SummaryPath = Join-Path $AtlasOutput "prime-pair-edge-atlas-primes-le-100-summary.json"
+    $CsvPath = Join-Path $AtlasOutput "prime-pair-edge-atlas-primes-le-100.csv"
+    if (-not (Test-Path $SummaryPath) -or -not (Test-Path $CsvPath)) {
+        throw "Prime-pair atlas outputs were not created"
+    }
+
+    $Generated = Get-Content -Raw $SummaryPath | ConvertFrom-Json
+    if ($Generated.scope.prime_count -ne 25 -or $Generated.scope.unordered_pair_count -ne 300) {
+        throw "Prime-pair atlas scope verification failed"
+    }
+    if ($Generated.distinguished_pairs.both_level_preserved.Count -ne 1) {
+        throw "Prime-pair double-preservation verification failed"
+    }
 }
 finally {
     Pop-Location
