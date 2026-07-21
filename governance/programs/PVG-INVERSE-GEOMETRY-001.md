@@ -3,139 +3,116 @@
 ## Priority
 
 Native understanding of Prime Valuation Geometry is the active priority. The program studies
-individual integer points, their local neighborhoods, prime-axis edge transitions, and the
-higher-dimensional geometry of prime-support faces before opening another theorem target.
+individual integer points, local neighborhoods, prime-axis edge transitions, and composition on
+prime-axis triangles before opening another theorem target.
 
-## Purpose
-
-Build a governed forward-and-reverse grammar:
+## Governed grammar
 
 ```text
 complete factorization
 → labeled valuation vector
-→ support face
-→ horizontal level
-→ squarefree floor and repeat depth
-→ exponent shape
-→ primitive ray
-→ divisor box and multiple cone
-→ axis-ratio matrix
-→ primitive horizontal neighbors
-→ local arithmetic transition families
-→ finite prime-pair edge atlas
+→ support face and horizontal level
+→ primitive ray and local neighborhood
+→ prime-pair edge signatures
+→ prime-axis triangle composition
 ```
 
-and the reverse computational routes:
+Reverse routes remain:
 
 ```text
-decimal integer
-→ certified factorization
-→ exact PVG passport
+decimal integer → certified factorization → exact PVG passport
+certified adjacent pair → gcd base → reduced prime axes → local transfer direction
 ```
 
-```text
-certified adjacent pair
-→ gcd base
-→ reduced prime axes
-→ local transfer direction
-```
+## PASS-001 — exact point passport
 
-## Pass-001 deliverables — exact point passport
+Classify support, `omega`, `Omega`, squarefree floor, repeat depth, exponent shape, primitive ray,
+divisor box, multiple cone, and directional geometric sequences. Exact point location requires a
+complete certified factorization.
 
-1. Canonical point classification by support dimension, total height, shape, and primitive ray.
-2. Exact treatment of lattice lines as geometric sequences.
-3. Exact local-operator identity for sums, differences, and finite linear filters.
-4. The \(2,3\)-face as the first controlled case study.
-5. A canonical JSON geometric passport.
-6. An executable exact inverse-geometry prototype.
-7. Deterministic tests including origin, prime axis, two-prime face, balanced composite ray,
-   three-prime face, a difficult 64-bit composite, and a supplied factorization above \(2^{64}\).
-8. Explicit refusal and uncertainty discipline when factorization is incomplete.
+## PASS-002 — local neighborhood and axis ratios
 
-## Pass-002 deliverables — local neighborhood and axis ratios
+Define `R_ij=p_j/p_i`, primitive transfers `N_(i->j)=Np_j/p_i`, the horizontal root lattice
+`A_(s-1)`, graph distance, simplex vertices, gcd recovery from adjacent pairs, and the three distinct
+geometric-sequence families: horizontal, axis-parallel, and primitive-ray.
 
-1. Define the axis-ratio matrix \(R_{ij}=p_j/p_i\) and its cocycle laws.
-2. Define primitive horizontal neighbors \(N_{i\to j}=Np_j/p_i\).
-3. Identify fixed-level directions with the root lattice \(A_{s-1}\).
-4. Prove that horizontal lines are finite geometric sequences.
-5. Record the interior ordered degree \(s(s-1)\).
-6. Recover adjacent local axes using gcd and reduced quotients.
-7. Define horizontal graph distance as half the exponent-vector \(L^1\) distance.
-8. Record midpoint and barycentric multiplicative identities.
-9. Separate horizontal, axis-parallel, and primitive-ray sequences.
-10. Add an executable local-neighborhood analyzer and deterministic examples for
-    \((2,3)\), \((2,5)\), \((3,7)\), \((2,3,5)\), and \(10403=101\cdot103\).
-11. Add a governed research agenda covering arithmetic functions, additive support transitions,
-    local inverse problems, factorization diagnostics, graph spectra, and analytic distributions.
+## PASS-003 — prime-pair edge transition atlas
 
-## Pass-003 deliverables — prime-pair edge transition atlas
+Registered scope: all `p<q<=100`, giving 25 primes and 300 unordered pairs. Record ratio, normalized
+gap, sum and difference factorizations, support, `omega`, `Omega`, and defects
 
-1. Register the finite scope \(p<q\le100\), containing 25 primes and 300 unordered pairs.
-2. Define the edge invariants
+\[
+\kappa_+=\Omega(p+q)-1,\qquad \kappa_-=\Omega(q-p)-1.
+\]
+
+Exact classifications:
+
+- sum preservation iff `p=2` and `q+2` is prime;
+- difference preservation iff `q-p` is prime;
+- odd-odd difference preservation iff `q-p=2`;
+- simultaneous preservation only for `(2,5)`.
+
+## PASS-004 — prime-axis triangle composition atlas
+
+Registered scope: all `p<q<r<=100`, giving
+
+\[
+\binom{25}{3}=2300
+\]
+
+unordered prime-axis triangles.
+
+Deliverables:
+
+1. Verify multiplicative path independence
    \[
-   \rho=q/p,\quad S=p+q,\quad D=q-p,
+   \frac qp\frac rq=\frac rp
    \]
-   and the level defects
+   and closed holonomy
    \[
-   \kappa_+=\Omega(S)-1,\qquad \kappa_-=\Omega(D)-1.
+   \frac qp\frac rq\frac pr=1.
    \]
-3. Record the exact bridge
+2. Verify additive gap composition
    \[
-   \frac{q-p}{q+p}=\frac{q/p-1}{q/p+1}.
+   (q-p)+(r-q)=r-p.
    \]
-4. Verify support orthogonality:
+3. Define normalized gaps
    \[
-   \gcd(pq,p+q)=\gcd(pq,q-p)=1.
+   \delta(a,b)=\frac{b-a}{b+a}
    \]
-5. Verify the axis-2 routing law:
-   odd-odd edges send both reduced transitions through axis 2, while edges involving axis 2
-   produce two odd reduced transitions.
-6. Verify
+   and verify
    \[
-   \gcd(p+q,q-p)=2
+   \delta(p,r)=\frac{\delta(p,q)+\delta(q,r)}{1+\delta(p,q)\delta(q,r)}.
    \]
-   for odd-odd pairs and `1` for pairs involving axis 2.
-7. Classify level preservation exactly:
-   - sum preservation iff \(p=2\) and \(q+2\) is prime;
-   - difference preservation iff \(q-p\) is prime;
-   - on odd-odd edges, difference preservation iff \(q-p=2\);
-   - simultaneous preservation only for \((p,q)=(2,5)\).
-8. Generate a deterministic CSV atlas and a governed committed JSON summary.
-9. Record finite defect distributions and maximum observed defects without asymptotic promotion.
-10. Add deterministic tests and safe-worktree execution checks.
+4. Recover the three prime vertices from the three pair sums.
+5. Verify complete axis-2 routing on all-odd triangles and triangles containing axis 2.
+6. Record preservation profiles `Sx_Dy` counting sum- and difference-preserving edges.
+7. Prove and test:
+   - no triangle has three sum-preserving edges;
+   - the unique triangle whose three differences preserve level is `(2,5,7)`;
+   - the unique all-odd triangle with two difference-preserving edges is `(3,5,7)`.
+8. Generate a deterministic 2300-record CSV and committed JSON summary.
 
 ## Governance constraints
 
-- Do not modify the frozen PVG Core Ontology v1 registry in these passes.
-- Treat new names as working terminology until a separate ontology-extension audit.
-- Separate exact identities from conjectures, diagnostics, candidate mechanisms, and novelty questions.
-- No new theorem target is authorized.
-- No Dataset 004 is authorized.
-- No Lean expansion is authorized in this program.
-- No claim that visualization is injective or isometric.
-- No claim that inverse geometry bypasses integer factorization.
-- No claim that neighbor generation yields a general factorization speedup.
-- No asymptotic conclusion may be inferred from the prime bound 100 atlas.
-- Any bound expansion requires a separate registered scope and stopping rule.
-- Any factorization experiment must be benchmarked against appropriate classical baselines.
-- Keep this branch separate from the structural-laboratory branch and the protected recovery stash.
+- PVG Core Ontology v1 remains unchanged.
+- New names are working terminology until a separate ontology-extension audit.
+- No new theorem target, Dataset 004, or Lean expansion is authorized.
+- No bound expansion beyond 100 without a separate registered protocol.
+- Finite counts support no asymptotic inference.
+- No general factorization speedup, originality, publication, Goldbach, RH, or GRH claim.
+- Keep this branch separate from the structural-laboratory branch and protected recovery stash.
 
 ## Exit criteria
 
-- documentation and executable tools agree on every emitted field;
-- all unit tests pass on Python 3.12;
-- exact mode never emits a point or neighborhood without a complete verified factorization;
-- large unsupported inputs fail honestly;
-- the \(s(s-1)\) neighbor law, axis-ratio lines, gcd recovery, vertices, and distance law are tested;
-- the 300 pair atlas regenerates deterministically and matches the committed summary;
-- support orthogonality, axis-2 routing, gcd coupling, and level-preservation rigidity are tested;
-- finite counts remain labeled as bound-dependent diagnostics;
-- research questions are labeled by maturity rather than promoted from visual evidence;
-- branch remains separate from structural-laboratory and axis-sum recovery work;
-- review decides whether a future Core Ontology v2 extension is warranted.
+- documentation, generators, tests, and committed summaries agree;
+- all four deterministic test suites pass on Python 3.12;
+- the 300-edge and 2300-triangle atlases regenerate exactly;
+- all ratio, gap, vertex-recovery, axis-2-routing, and preservation checks pass;
+- unsupported exact inverse inputs fail honestly;
+- finite diagnostics remain labeled by scope and maturity.
 
 ## Classification
 
-Capability maturation / exact encoding / local inverse-problem discipline / finite-face geometry /
-finite deterministic edge atlas / research-program foundation. No theorem novelty, originality,
-publication, Goldbach, RH, or GRH claim.
+Capability maturation / exact encoding / local inverse geometry / finite edge and triangle atlases /
+research-program foundation. No theorem novelty or major-conjecture claim.
