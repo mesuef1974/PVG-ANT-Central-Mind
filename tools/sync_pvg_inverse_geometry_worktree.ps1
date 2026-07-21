@@ -35,7 +35,8 @@ try {
         "tests/test_pvg_prime_simplex_general.py","tests/test_pvg_arithmetic_terrain.py",
         "tests/test_pvg_level_terrain.py","tests/test_pvg_level_flow.py",
         "tests/test_pvg_multiobjective_geometry.py","tests/test_pvg_pareto_frontier_geometry.py",
-        "tests/test_pvg_pareto_explorer.py"
+        "tests/test_pvg_pareto_explorer.py","tests/test_pvg_pascal_explorer.py",
+        "tests/test_pvg_local_additive_cell_atlas.py"
     )
     foreach ($Suite in $Suites) { Invoke-Python312 -PythonArgs @("-m","unittest","-v",$Suite); Assert-LastExitCode -FailureMessage "Test suite failed: $Suite" }
     Invoke-Python312 -PythonArgs @("tools/pvg_inverse_geometry.py","900","--compact"); Assert-LastExitCode -FailureMessage "Passport smoke test failed"
@@ -46,8 +47,11 @@ try {
     Invoke-Python312 -PythonArgs @("tools/pvg_level_flow.py","2,3,5","6","--compact"); Assert-LastExitCode -FailureMessage "Level flow smoke test failed"
     Invoke-Python312 -PythonArgs @("tools/pvg_multiobjective_geometry.py","2,3,5","6","--compact"); Assert-LastExitCode -FailureMessage "Multiobjective geometry smoke test failed"
     Invoke-Python312 -PythonArgs @("tools/pvg_pareto_frontier_geometry.py","2,3,5","6","--compact"); Assert-LastExitCode -FailureMessage "Pareto frontier geometry smoke test failed"
+    Invoke-Python312 -PythonArgs @("tools/pvg_local_additive_cell_atlas.py","--limit","100","--compact"); Assert-LastExitCode -FailureMessage "Local additive cell atlas smoke test failed"
     $ExplorerPage=Join-Path $Worktree "web\pvg-pareto-explorer\index.html"
+    $PascalPage=Join-Path $Worktree "web\pvg-pareto-explorer\pascal.html"
     if (-not (Test-Path $ExplorerPage)) { throw "PVG Pareto Explorer page missing: $ExplorerPage" }
+    if (-not (Test-Path $PascalPage)) { throw "PVG Pascal Explorer page missing: $PascalPage" }
     if ((Get-Item $ExplorerPage).Length -lt 10000) { throw "PVG Pareto Explorer page is unexpectedly small" }
     $TempRoot=[System.IO.Path]::GetTempPath()
     $Jobs=@(
@@ -64,4 +68,4 @@ try {
     }
 }
 finally { Pop-Location }
-Write-Host ""; Write-Host "PVG inverse-geometry worktree synchronized and verified."; Write-Host "Worktree: $Worktree"; Write-Host "HEAD:     $Head"; Write-Host "Explorer: $Worktree\web\pvg-pareto-explorer\index.html"; Write-Host ""; Write-Host "The canonical worktree branch and all stashes were left untouched."
+Write-Host ""; Write-Host "PVG inverse-geometry worktree synchronized and verified."; Write-Host "Worktree: $Worktree"; Write-Host "HEAD:     $Head"; Write-Host "Explorer: $Worktree\web\pvg-pareto-explorer\index.html"; Write-Host "Pascal:   $Worktree\web\pvg-pareto-explorer\pascal.html"; Write-Host ""; Write-Host "The canonical worktree branch and all stashes were left untouched."
