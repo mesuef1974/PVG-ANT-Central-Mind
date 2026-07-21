@@ -23,7 +23,7 @@ test('core: firstPrimes(8) includes 17, no skip', () => {
 });
 
 test('cone: |d_j| = 1 for all axes', () => {
-  for (const k of [4, 7, 12, 20]) {
+  for (const k of [2, 3, 4, 5, 6, 7, 9, 12, 16, 20]) {
     for (const d of coneDirections(k)) {
       assert.ok(Math.abs(Math.hypot(d.x, d.y, d.z) - 1) < EPS);
     }
@@ -32,7 +32,7 @@ test('cone: |d_j| = 1 for all axes', () => {
 
 test('cone: d_j · y-hat = cos(theta) (uniform polar angle)', () => {
   const c = Math.cos(CONE_THETA);
-  for (const k of [4, 7, 12, 20]) {
+  for (const k of [2, 3, 4, 5, 6, 7, 9, 12, 16, 20]) {
     for (const d of coneDirections(k)) {
       const dot = d.x * REFERENCE_AXIS.x + d.y * REFERENCE_AXIS.y + d.z * REFERENCE_AXIS.z;
       assert.ok(Math.abs(dot - c) < EPS);
@@ -41,16 +41,19 @@ test('cone: d_j · y-hat = cos(theta) (uniform polar angle)', () => {
 });
 
 test('cone: sum of horizontal components ~ 0', () => {
-  for (const k of [4, 7, 12, 20]) {
+  for (const k of [2, 3, 4, 5, 6, 7, 9, 12, 16, 20]) {
     let sx = 0, sz = 0;
     for (const d of coneDirections(k)) { sx += d.x; sz += d.z; }
     assert.ok(Math.hypot(sx, sz) < EPS);
   }
 });
 
-test('cone: aggregate self-check passes', () => {
-  assert.equal(coneChecks(7).pass, true);
-  assert.equal(coneChecks(15).pass, true);
+test('cone: aggregate self-check passes for every supported axis count', () => {
+  for (const k of [2, 3, 4, 5, 6, 7, 9, 12, 16, 20]) {
+    assert.equal(coneChecks(k).pass, true, `coneChecks(${k})`);
+    assert.equal(coneDirections(k).length, k);
+    assert.equal(firstPrimes(k).length, k);
+  }
 });
 
 test('bound: d_E(m,n) <= d_log(m,n) + eps for BOTH layouts', () => {
