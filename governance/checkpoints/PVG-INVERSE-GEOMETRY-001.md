@@ -75,24 +75,27 @@ The atlas is finite and deterministic. It provides no asymptotic estimate, no fa
 no novelty certificate, and no Goldbach, RH, or GRH progress. Exact inverse geometry still requires
 complete certified factorization. No expansion beyond prime bound 100 is authorized here.
 
-## Validation before closure
+## Validation on pre-closure head
 
 ```text
-PRE-CLOSURE HEAD = ffc579af29ce322f29e271bbfae16b03226e2b3a
-PVG Inverse Geometry Audit run 28 = PASS
-Governance Required Gate run 620 = PASS
+PRE-CLOSURE HEAD = f4616ef9f818a87556dd58f3ecdc08b9cf24ec76
+PVG Inverse Geometry Audit run 33 = PASS
+Governance Required Gate run 625 = PASS
 Inverse-geometry tests = 11/11 PASS
 Local-neighborhood tests = 11/11 PASS
 Prime-pair atlas tests = 14/14 PASS
-Prime-triangle atlas tests = 13/13 PASS
-Combined deterministic tests = 49/49 PASS
+Prime-triangle atlas tests = 14/14 PASS
+Combined deterministic tests = 50/50 PASS
 Prime-pair records = 300
 Prime-triangle records = 2300
 Committed/generated summaries = PASS
+Ratio and normalized-gap compositions = PASS
+Closed-loop holonomy = PASS
+Vertex recovery = PASS
+Axis-2 triangle routing = PASS
 Safe PowerShell worktree execution = PASS
 Large unfactored input refusal = PASS
 ```
 
-The closure commit changes only governed program/checkpoint metadata. PR #63 remains draft and
-unmerged. The canonical worktree branch, structural-laboratory branch, and protected stash remain
-untouched.
+This closure commit changes only checkpoint validation metadata. PR #63 remains draft and unmerged.
+The canonical worktree branch, structural-laboratory branch, and protected stash remain untouched.
