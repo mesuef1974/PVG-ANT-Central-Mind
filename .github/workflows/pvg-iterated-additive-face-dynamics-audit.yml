@@ -1,0 +1,40 @@
+name: PVG Iterated Additive Face Dynamics Audit
+
+on:
+  pull_request:
+    paths:
+      - 'tools/pvg_iterated_additive_face_dynamics.py'
+      - 'tests/test_pvg_iterated_additive_face_dynamics.py'
+      - 'research/pvg-space-deepening/pass-015-iterated-additive-face-dynamics.md'
+      - '.github/workflows/pvg-iterated-additive-face-dynamics-audit.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'tools/pvg_iterated_additive_face_dynamics.py'
+      - 'tests/test_pvg_iterated_additive_face_dynamics.py'
+      - 'research/pvg-space-deepening/pass-015-iterated-additive-face-dynamics.md'
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Syntax check
+        run: python -m py_compile tools/pvg_iterated_additive_face_dynamics.py tests/test_pvg_iterated_additive_face_dynamics.py
+      - name: Unit tests
+        run: python -m unittest -v tests/test_pvg_iterated_additive_face_dynamics.py
+      - name: Compact smoke test
+        run: |
+          python tools/pvg_iterated_additive_face_dynamics.py --limit 100 --depth 4 --compact > /tmp/pass015.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('/tmp/pass015.json').read_text())
+          assert d['layer_face_counts']==[300,52,22,10,4]
+          assert d['unique_face_count']==323
+          assert d['unique_arc_count']==338
+          assert all(d['verification'].values())
+          PY
