@@ -6,7 +6,9 @@ on:
       - 'maps/pvg-point-classification-and-inverse-geometry-v1.md'
       - 'maps/pvg-local-neighborhood-and-axis-ratio-geometry-v1.md'
       - 'research/pvg-space-deepening/**'
+      - 'web/pvg-pareto-explorer/**'
       - 'tools/pvg_*.py'
+      - 'tools/open_pvg_pareto_explorer.ps1'
       - 'tools/sync_pvg_inverse_geometry_worktree.ps1'
       - 'tests/test_pvg_*.py'
       - 'governance/programs/PVG-INVERSE-GEOMETRY-001.md'
@@ -18,7 +20,9 @@ on:
       - 'maps/pvg-point-classification-and-inverse-geometry-v1.md'
       - 'maps/pvg-local-neighborhood-and-axis-ratio-geometry-v1.md'
       - 'research/pvg-space-deepening/**'
+      - 'web/pvg-pareto-explorer/**'
       - 'tools/pvg_*.py'
+      - 'tools/open_pvg_pareto_explorer.ps1'
       - 'tools/sync_pvg_inverse_geometry_worktree.ps1'
       - 'tests/test_pvg_*.py'
       - 'governance/programs/PVG-INVERSE-GEOMETRY-001.md'
@@ -42,11 +46,13 @@ jobs:
           python -m py_compile tools/pvg_level_terrain.py tools/pvg_level_flow.py
           python -m py_compile tools/pvg_multiobjective_geometry.py tools/pvg_pareto_frontier_geometry.py
           python -m py_compile tests/test_pvg_*.py
-      - name: PowerShell sync-script syntax check
+      - name: PowerShell script syntax check
         shell: pwsh
         run: |
-          $source = Get-Content -Raw tools/sync_pvg_inverse_geometry_worktree.ps1
-          $null = [scriptblock]::Create($source)
+          $syncSource = Get-Content -Raw tools/sync_pvg_inverse_geometry_worktree.ps1
+          $launcherSource = Get-Content -Raw tools/open_pvg_pareto_explorer.ps1
+          $null = [scriptblock]::Create($syncSource)
+          $null = [scriptblock]::Create($launcherSource)
       - name: Unit tests
         run: |
           python -m unittest -v tests/test_pvg_inverse_geometry.py
@@ -61,6 +67,7 @@ jobs:
           python -m unittest -v tests/test_pvg_level_flow.py
           python -m unittest -v tests/test_pvg_multiobjective_geometry.py
           python -m unittest -v tests/test_pvg_pareto_frontier_geometry.py
+          python -m unittest -v tests/test_pvg_pareto_explorer.py
       - name: Core smoke tests
         run: |
           python tools/pvg_inverse_geometry.py 900 --compact > /tmp/passport.json
@@ -71,6 +78,7 @@ jobs:
           python tools/pvg_level_flow.py '2,3,5' 6 --compact > /tmp/level-flow.json
           python tools/pvg_multiobjective_geometry.py '2,3,5' 6 --compact > /tmp/multiobjective.json
           python tools/pvg_pareto_frontier_geometry.py '2,3,5' 6 --compact > /tmp/frontier.json
+          test -s web/pvg-pareto-explorer/index.html
           python - <<'PY'
           import json
           from pathlib import Path
@@ -86,6 +94,8 @@ jobs:
           assert f['fields']['tau']['global_maxima']==[[2,2,2]] and all(f['verification'].values())
           assert g['edge_count']==63 and g['global_pareto_frontier_size']==19 and all(g['verification'].values())
           assert h['frontier_size']==19 and h['component_sizes']==[17,1,1] and h['cycle_rank']==11 and all(h['verification'].values())
+          page=Path('web/pvg-pareto-explorer/index.html').read_text(encoding='utf-8')
+          assert 'PVG Pareto Explorer' in page and 'const AXES=[2,3,5], LEVEL=6' in page
           PY
       - name: Prime-pair atlas regeneration
         run: |
