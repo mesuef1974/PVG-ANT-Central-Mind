@@ -4,8 +4,11 @@ on:
   pull_request:
     paths:
       - 'maps/pvg-point-classification-and-inverse-geometry-v1.md'
+      - 'maps/pvg-local-neighborhood-and-axis-ratio-geometry-v1.md'
       - 'tools/pvg_inverse_geometry.py'
+      - 'tools/pvg_local_neighborhood.py'
       - 'tests/test_pvg_inverse_geometry.py'
+      - 'tests/test_pvg_local_neighborhood.py'
       - 'governance/programs/PVG-INVERSE-GEOMETRY-001.md'
       - 'governance/checkpoints/PVG-INVERSE-GEOMETRY-001.md'
       - '.github/workflows/pvg-inverse-geometry-audit.yml'
@@ -13,8 +16,11 @@ on:
     branches: [main]
     paths:
       - 'maps/pvg-point-classification-and-inverse-geometry-v1.md'
+      - 'maps/pvg-local-neighborhood-and-axis-ratio-geometry-v1.md'
       - 'tools/pvg_inverse_geometry.py'
+      - 'tools/pvg_local_neighborhood.py'
       - 'tests/test_pvg_inverse_geometry.py'
+      - 'tests/test_pvg_local_neighborhood.py'
       - 'governance/programs/PVG-INVERSE-GEOMETRY-001.md'
       - 'governance/checkpoints/PVG-INVERSE-GEOMETRY-001.md'
       - '.github/workflows/pvg-inverse-geometry-audit.yml'
@@ -30,9 +36,13 @@ jobs:
       - name: Syntax check
         run: |
           python -m py_compile tools/pvg_inverse_geometry.py
+          python -m py_compile tools/pvg_local_neighborhood.py
           python -m py_compile tests/test_pvg_inverse_geometry.py
+          python -m py_compile tests/test_pvg_local_neighborhood.py
       - name: Unit tests
-        run: python -m unittest -v tests/test_pvg_inverse_geometry.py
+        run: |
+          python -m unittest -v tests/test_pvg_inverse_geometry.py
+          python -m unittest -v tests/test_pvg_local_neighborhood.py
       - name: Exact passport smoke test
         run: |
           python tools/pvg_inverse_geometry.py 900 --compact > /tmp/pvg-passport-900.json
@@ -46,6 +56,20 @@ jobs:
           assert p['primitive_ray']['primitive_generator'] == 30
           assert p['primitive_ray']['ray_index'] == 2
           print('PVG inverse-geometry passport smoke test: PASS')
+          PY
+      - name: Local neighborhood smoke test
+        run: |
+          python tools/pvg_local_neighborhood.py 30 --steps 3 --compact > /tmp/pvg-local-30.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = json.loads(Path('/tmp/pvg-local-30.json').read_text())
+          assert p['support'] == [2, 3, 5]
+          assert p['horizontal_root_lattice'] == 'A_2'
+          assert p['ordered_horizontal_degree'] == 6
+          assert {x['neighbor'] for x in p['primitive_horizontal_neighbors']} == {12,18,20,45,50,75}
+          assert {x['vertex'] for x in p['horizontal_simplex_vertices']} == {8,27,125}
+          print('PVG local-neighborhood smoke test: PASS')
           PY
       - name: Large unfactored input must be refused
         run: |
