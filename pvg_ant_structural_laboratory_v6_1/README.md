@@ -33,6 +33,19 @@ Each `p_k`-smooth integer is embedded as `X(n) = Σ_p v_p(n)·log(p)·d_p`, `|d_
   (proportional to log n, not log n literally). The layout is **distinct per k** (axis j at azimuth
   2πj/k), not a nested embedding — changing k re-places most existing primes.
 
+## Supported axis counts
+
+The interface exposes `k ∈ {2,3,4,5,6,7,9,12,16,20}`. For each choice the axes are the first
+`k` primes in order, so the newly exposed low-dimensional cases are:
+
+- `k=2`: primes `{2,3}`
+- `k=3`: primes `{2,3,5}`
+- `k=4`: primes `{2,3,5,7}`
+- `k=5`: primes `{2,3,5,7,11}`
+
+All supported counts are covered by the cone unit-length, uniform-polar-angle, horizontal-sum, and
+aggregate self-check tests.
+
 ## Corrections embodied (vs the earlier review)
 
 1. **The Euclidean distance does not approximate `d_log`.** Only the triangle-inequality bound
