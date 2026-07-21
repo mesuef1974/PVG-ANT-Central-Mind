@@ -114,6 +114,7 @@ def analyze_transfer(factors: Mapping[int, int], donor: int, recipient: int) -> 
     delta = {k: after[k] - before[k] for k in before}
     ratios = {k: ratio_payload(after[k], before[k]) for k in ("n", "tau", "sigma", "phi", "radical")}
     a, b = before_f[donor], before_f.get(recipient, 0)
+    expected_tau = Fraction(a, a + 1) * Fraction(b + 2, b + 1)
     exact_laws = {
         "Omega": "invariant",
         "lambda": "invariant because lambda(n)=(-1)^Omega",
@@ -141,7 +142,10 @@ def analyze_transfer(factors: Mapping[int, int], donor: int, recipient: int) -> 
             "Omega_preserved": before["Omega"] == after["Omega"],
             "lambda_preserved": before["lambda"] == after["lambda"],
             "integer_move": after["n"] * donor == before["n"] * recipient,
-            "tau_formula": ratios["tau"]["text"] == str(Fraction(a, a + 1) * Fraction(b + 2, b + 1)),
+            "tau_formula": (
+                ratios["tau"]["numerator"] == expected_tau.numerator
+                and ratios["tau"]["denominator"] == expected_tau.denominator
+            ),
         },
         "classification": "exact arithmetic identities on one PVG horizontal edge; no novelty or asymptotic claim",
     }
