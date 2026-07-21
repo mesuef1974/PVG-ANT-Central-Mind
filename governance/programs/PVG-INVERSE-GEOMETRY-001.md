@@ -3,8 +3,8 @@
 ## Priority
 
 Native understanding of Prime Valuation Geometry is the active priority. The program studies
-individual integer points, their local neighborhoods, and the higher-dimensional geometry of
-prime-support faces before opening another theorem target.
+individual integer points, their local neighborhoods, prime-axis edge transitions, and the
+higher-dimensional geometry of prime-support faces before opening another theorem target.
 
 ## Purpose
 
@@ -22,6 +22,7 @@ complete factorization
 → axis-ratio matrix
 → primitive horizontal neighbors
 → local arithmetic transition families
+→ finite prime-pair edge atlas
 ```
 
 and the reverse computational routes:
@@ -67,6 +68,42 @@ certified adjacent pair
 11. Add a governed research agenda covering arithmetic functions, additive support transitions,
     local inverse problems, factorization diagnostics, graph spectra, and analytic distributions.
 
+## Pass-003 deliverables — prime-pair edge transition atlas
+
+1. Register the finite scope \(p<q\le100\), containing 25 primes and 300 unordered pairs.
+2. Define the edge invariants
+   \[
+   \rho=q/p,\quad S=p+q,\quad D=q-p,
+   \]
+   and the level defects
+   \[
+   \kappa_+=\Omega(S)-1,\qquad \kappa_-=\Omega(D)-1.
+   \]
+3. Record the exact bridge
+   \[
+   \frac{q-p}{q+p}=\frac{q/p-1}{q/p+1}.
+   \]
+4. Verify support orthogonality:
+   \[
+   \gcd(pq,p+q)=\gcd(pq,q-p)=1.
+   \]
+5. Verify the axis-2 routing law:
+   odd-odd edges send both reduced transitions through axis 2, while edges involving axis 2
+   produce two odd reduced transitions.
+6. Verify
+   \[
+   \gcd(p+q,q-p)=2
+   \]
+   for odd-odd pairs and `1` for pairs involving axis 2.
+7. Classify level preservation exactly:
+   - sum preservation iff \(p=2\) and \(q+2\) is prime;
+   - difference preservation iff \(q-p\) is prime;
+   - on odd-odd edges, difference preservation iff \(q-p=2\);
+   - simultaneous preservation only for \((p,q)=(2,5)\).
+8. Generate a deterministic CSV atlas and a governed committed JSON summary.
+9. Record finite defect distributions and maximum observed defects without asymptotic promotion.
+10. Add deterministic tests and safe-worktree execution checks.
+
 ## Governance constraints
 
 - Do not modify the frozen PVG Core Ontology v1 registry in these passes.
@@ -78,6 +115,8 @@ certified adjacent pair
 - No claim that visualization is injective or isometric.
 - No claim that inverse geometry bypasses integer factorization.
 - No claim that neighbor generation yields a general factorization speedup.
+- No asymptotic conclusion may be inferred from the prime bound 100 atlas.
+- Any bound expansion requires a separate registered scope and stopping rule.
 - Any factorization experiment must be benchmarked against appropriate classical baselines.
 - Keep this branch separate from the structural-laboratory branch and the protected recovery stash.
 
@@ -88,6 +127,9 @@ certified adjacent pair
 - exact mode never emits a point or neighborhood without a complete verified factorization;
 - large unsupported inputs fail honestly;
 - the \(s(s-1)\) neighbor law, axis-ratio lines, gcd recovery, vertices, and distance law are tested;
+- the 300 pair atlas regenerates deterministically and matches the committed summary;
+- support orthogonality, axis-2 routing, gcd coupling, and level-preservation rigidity are tested;
+- finite counts remain labeled as bound-dependent diagnostics;
 - research questions are labeled by maturity rather than promoted from visual evidence;
 - branch remains separate from structural-laboratory and axis-sum recovery work;
 - review decides whether a future Core Ontology v2 extension is warranted.
@@ -95,4 +137,5 @@ certified adjacent pair
 ## Classification
 
 Capability maturation / exact encoding / local inverse-problem discipline / finite-face geometry /
-research-program foundation. No theorem, originality, publication, Goldbach, RH, or GRH claim.
+finite deterministic edge atlas / research-program foundation. No theorem novelty, originality,
+publication, Goldbach, RH, or GRH claim.
