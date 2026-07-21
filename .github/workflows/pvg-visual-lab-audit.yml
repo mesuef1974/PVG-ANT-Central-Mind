@@ -1,0 +1,45 @@
+name: PVG Visual Lab Audit
+
+on:
+  pull_request:
+    paths:
+      - 'web/pvg-pareto-explorer/visual-lab.html'
+      - 'tools/open_pvg_visual_lab.ps1'
+      - 'tests/test_pvg_visual_lab.py'
+      - 'research/pvg-space-deepening/pass-020-pvg-visual-lab.md'
+      - '.github/workflows/pvg-visual-lab-audit.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'web/pvg-pareto-explorer/visual-lab.html'
+      - 'tools/open_pvg_visual_lab.ps1'
+      - 'tests/test_pvg_visual_lab.py'
+      - 'research/pvg-space-deepening/pass-020-pvg-visual-lab.md'
+      - '.github/workflows/pvg-visual-lab-audit.yml'
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Python syntax
+        run: python -m py_compile tests/test_pvg_visual_lab.py
+      - name: PowerShell syntax
+        shell: pwsh
+        run: |
+          $source = Get-Content -Raw tools/open_pvg_visual_lab.ps1
+          $null = [scriptblock]::Create($source)
+      - name: Visual lab tests
+        run: python -m unittest -v tests/test_pvg_visual_lab.py
+      - name: Static smoke
+        run: |
+          test $(wc -c < web/pvg-pareto-explorer/visual-lab.html) -gt 25000
+          grep -q 'PVG Visual Lab' web/pvg-pareto-explorer/visual-lab.html
+          grep -q 'function successors' web/pvg-pareto-explorer/visual-lab.html
+          grep -q 'REFERENCE MATCH' web/pvg-pareto-explorer/visual-lab.html
