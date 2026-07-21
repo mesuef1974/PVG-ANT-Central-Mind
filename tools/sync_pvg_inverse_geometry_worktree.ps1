@@ -25,7 +25,7 @@ else {
 }
 $Head=(& git -C $Worktree rev-parse HEAD).Trim(); $RemoteHead=(& git -C $Repo rev-parse $RemoteRef).Trim()
 if ($Head -ne $RemoteHead) { throw "Synchronization verification failed: HEAD=$Head remote=$RemoteHead" }
-Write-Host "Running PVG tests through multiobjective Pareto geometry..."
+Write-Host "Running PVG tests through Pareto-frontier geometry..."
 Push-Location $Worktree
 try {
     $Suites=@(
@@ -34,7 +34,7 @@ try {
         "tests/test_pvg_prime_triangle_dynamics.py","tests/test_pvg_prime_tetrahedron_atlas.py",
         "tests/test_pvg_prime_simplex_general.py","tests/test_pvg_arithmetic_terrain.py",
         "tests/test_pvg_level_terrain.py","tests/test_pvg_level_flow.py",
-        "tests/test_pvg_multiobjective_geometry.py"
+        "tests/test_pvg_multiobjective_geometry.py","tests/test_pvg_pareto_frontier_geometry.py"
     )
     foreach ($Suite in $Suites) { Invoke-Python312 -PythonArgs @("-m","unittest","-v",$Suite); Assert-LastExitCode -FailureMessage "Test suite failed: $Suite" }
     Invoke-Python312 -PythonArgs @("tools/pvg_inverse_geometry.py","900","--compact"); Assert-LastExitCode -FailureMessage "Passport smoke test failed"
@@ -44,6 +44,7 @@ try {
     Invoke-Python312 -PythonArgs @("tools/pvg_level_terrain.py","2,3,5","6","--compact"); Assert-LastExitCode -FailureMessage "Global level terrain smoke test failed"
     Invoke-Python312 -PythonArgs @("tools/pvg_level_flow.py","2,3,5","6","--compact"); Assert-LastExitCode -FailureMessage "Level flow smoke test failed"
     Invoke-Python312 -PythonArgs @("tools/pvg_multiobjective_geometry.py","2,3,5","6","--compact"); Assert-LastExitCode -FailureMessage "Multiobjective geometry smoke test failed"
+    Invoke-Python312 -PythonArgs @("tools/pvg_pareto_frontier_geometry.py","2,3,5","6","--compact"); Assert-LastExitCode -FailureMessage "Pareto frontier geometry smoke test failed"
     $TempRoot=[System.IO.Path]::GetTempPath()
     $Jobs=@(
         @{ Tool="tools/pvg_prime_pair_edge_atlas.py"; Dir="pvg-prime-pair-edge-atlas"; Summary="prime-pair-edge-atlas-primes-le-100-summary.json"; CountField="unordered_pair_count"; Expected=300 },
