@@ -81,7 +81,7 @@ if ($Head -ne $RemoteHead) {
     throw "Synchronization verification failed: HEAD=$Head remote=$RemoteHead"
 }
 
-Write-Host "Running PVG point, neighborhood, and prime-pair atlas tests..."
+Write-Host "Running PVG point, neighborhood, pair-edge, and prime-triangle tests..."
 Push-Location $Worktree
 try {
     Invoke-Python312 -PythonArgs @("-m", "unittest", "-v", "tests/test_pvg_inverse_geometry.py")
@@ -93,6 +93,9 @@ try {
     Invoke-Python312 -PythonArgs @("-m", "unittest", "-v", "tests/test_pvg_prime_pair_edge_atlas.py")
     Assert-LastExitCode -FailureMessage "Prime-pair edge atlas tests failed"
 
+    Invoke-Python312 -PythonArgs @("-m", "unittest", "-v", "tests/test_pvg_prime_triangle_atlas.py")
+    Assert-LastExitCode -FailureMessage "Prime-axis triangle atlas tests failed"
+
     Invoke-Python312 -PythonArgs @("tools/pvg_inverse_geometry.py", "900", "--compact")
     Assert-LastExitCode -FailureMessage "Passport smoke test failed"
 
@@ -100,29 +103,62 @@ try {
     Assert-LastExitCode -FailureMessage "Local-neighborhood smoke test failed"
 
     $TempRoot = [System.IO.Path]::GetTempPath()
-    $AtlasOutput = Join-Path $TempRoot "pvg-prime-pair-edge-atlas"
-    if (Test-Path $AtlasOutput) {
-        Remove-Item -Recurse -Force $AtlasOutput
+
+    $PairOutput = Join-Path $TempRoot "pvg-prime-pair-edge-atlas"
+    if (Test-Path $PairOutput) {
+        Remove-Item -Recurse -Force $PairOutput
     }
     Invoke-Python312 -PythonArgs @(
         "tools/pvg_prime_pair_edge_atlas.py",
         "--limit", "100",
-        "--output-dir", $AtlasOutput
+        "--output-dir", $PairOutput
     )
     Assert-LastExitCode -FailureMessage "Prime-pair edge atlas generation failed"
 
-    $SummaryPath = Join-Path $AtlasOutput "prime-pair-edge-atlas-primes-le-100-summary.json"
-    $CsvPath = Join-Path $AtlasOutput "prime-pair-edge-atlas-primes-le-100.csv"
-    if (-not (Test-Path $SummaryPath) -or -not (Test-Path $CsvPath)) {
+    $PairSummaryPath = Join-Path $PairOutput "prime-pair-edge-atlas-primes-le-100-summary.json"
+    $PairCsvPath = Join-Path $PairOutput "prime-pair-edge-atlas-primes-le-100.csv"
+    if (-not (Test-Path $PairSummaryPath) -or -not (Test-Path $PairCsvPath)) {
         throw "Prime-pair atlas outputs were not created"
     }
 
-    $Generated = Get-Content -Raw $SummaryPath | ConvertFrom-Json
-    if ($Generated.scope.prime_count -ne 25 -or $Generated.scope.unordered_pair_count -ne 300) {
+    $PairGenerated = Get-Content -Raw $PairSummaryPath | ConvertFrom-Json
+    if ($PairGenerated.scope.prime_count -ne 25 -or $PairGenerated.scope.unordered_pair_count -ne 300) {
         throw "Prime-pair atlas scope verification failed"
     }
-    if ($Generated.distinguished_pairs.both_level_preserved.Count -ne 1) {
+    if ($PairGenerated.distinguished_pairs.both_level_preserved.Count -ne 1) {
         throw "Prime-pair double-preservation verification failed"
+    }
+
+    $TriangleOutput = Join-Path $TempRoot "pvg-prime-triangle-atlas"
+    if (Test-Path $TriangleOutput) {
+        Remove-Item -Recurse -Force $TriangleOutput
+    }
+    Invoke-Python312 -PythonArgs @(
+        "tools/pvg_prime_triangle_atlas.py",
+        "--limit", "100",
+        "--output-dir", $TriangleOutput
+    )
+    Assert-LastExitCode -FailureMessage "Prime-axis triangle atlas generation failed"
+
+    $TriangleSummaryPath = Join-Path $TriangleOutput "prime-triangle-atlas-primes-le-100-summary.json"
+    $TriangleCsvPath = Join-Path $TriangleOutput "prime-triangle-atlas-primes-le-100.csv"
+    if (-not (Test-Path $TriangleSummaryPath) -or -not (Test-Path $TriangleCsvPath)) {
+        throw "Prime-axis triangle atlas outputs were not created"
+    }
+
+    $TriangleGenerated = Get-Content -Raw $TriangleSummaryPath | ConvertFrom-Json
+    if ($TriangleGenerated.scope.prime_count -ne 25 -or $TriangleGenerated.scope.unordered_triangle_count -ne 2300) {
+        throw "Prime-axis triangle atlas scope verification failed"
+    }
+    if ($TriangleGenerated.distinguished_triangles.all_three_difference_preserved.Count -ne 1) {
+        throw "Prime-axis triangle rigidity verification failed"
+    }
+    $VerificationFailures = @(
+        $TriangleGenerated.verification.PSObject.Properties |
+            Where-Object { -not [bool]$_.Value }
+    )
+    if ($VerificationFailures.Count -ne 0) {
+        throw "Prime-axis triangle composition verification failed"
     }
 }
 finally {
