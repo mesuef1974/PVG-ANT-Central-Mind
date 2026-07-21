@@ -59,12 +59,10 @@ web/pvg-pareto-explorer/visual-lab-3d.html
 - إعادة إنتاج نتائج الحدود 100 و150 و200.
 - التحقق من الحالتين `{37,97}` و`{61,73}` عند العمق الخامس.
 - التحقق من وجود المشاهد السبعة ومحرك الكاميرا والتفاعل.
-- ربط `tests/test_pvg_visual_lab_3d.py` وصفحة `visual-lab-3d.html` بسكربت مزامنة الـworktree.
-- بوابة CI تمنع حذف هذا الربط مستقبلًا.
 
 ## التكامل
 
-- سكربت `sync_pvg_inverse_geometry_worktree.ps1` يشغّل الآن اختبار PASS-021.
+- سكربت `sync_pvg_inverse_geometry_worktree.ps1` يشغّل اختبار PASS-021.
 - السكربت يتحقق من وجود المعمل الثلاثي الأبعاد وحجمه قبل إتمام المزامنة.
 - بوابة `PVG Immersive 3D Visual Lab Audit` تتحقق من عقد المزامنة نفسه.
 
