@@ -27,22 +27,37 @@ class PVGParetoExplorerTests(unittest.TestCase):
 
     def test_registered_scope_is_visible(self) -> None:
         text = PAGE.read_text(encoding="utf-8")
-        self.assertIn("const AXES=[2,3,5], LEVEL=6", text)
+        self.assertIn("const LEVEL=6", text)
         self.assertIn("28 نقطة", text)
         self.assertIn("جبهة باريتو", text)
 
-    def test_interactive_controls_are_present(self) -> None:
+    def test_3d_interaction_controls_are_present(self) -> None:
         text = PAGE.read_text(encoding="utf-8")
         for element_id in (
-            "view",
-            "sizeBy",
+            "scene",
+            "colorField",
+            "heightField",
+            "projection",
+            "pointSize",
             "showAllEdges",
             "showFrontierEdges",
             "showLabels",
-            "highlightStructure",
+            "showStructure",
+            "showFloor",
+            "autoRotate",
+            "resetCamera",
             "pointDetail",
         ):
             self.assertIn(f'id="{element_id}"', text)
+        self.assertIn("pointermove", text)
+        self.assertIn("wheel", text)
+        self.assertIn("Shift + سحب", text)
+
+    def test_high_contrast_number_labels(self) -> None:
+        text = PAGE.read_text(encoding="utf-8")
+        self.assertIn("rgba(2,7,13,.96)", text)
+        self.assertIn("ctx.fillStyle='#fff'", text)
+        self.assertIn("roundRect", text)
 
     def test_page_statistics_match_registered_analysis(self) -> None:
         mo = multiobjective_analyze([2, 3, 5], 6)
