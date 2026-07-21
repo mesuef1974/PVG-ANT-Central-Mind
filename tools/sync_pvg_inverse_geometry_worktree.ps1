@@ -21,7 +21,7 @@ function Invoke-Git {
 }
 
 function Invoke-Python312 {
-    param([Parameter(ValueFromRemainingArguments = $true)][string[]]$PythonArgs)
+    param([Parameter(Mandatory = $true)][string[]]$PythonArgs)
 
     $LauncherName = [System.IO.Path]::GetFileName($Python).ToLowerInvariant()
     if ($LauncherName -eq "py.exe" -or $LauncherName -eq "py") {
@@ -30,8 +30,14 @@ function Invoke-Python312 {
     else {
         & $Python @PythonArgs
     }
+}
 
-    return $LASTEXITCODE
+function Assert-LastExitCode {
+    param([Parameter(Mandatory = $true)][string]$FailureMessage)
+
+    if ($LASTEXITCODE -ne 0) {
+        throw "$FailureMessage (exit code $LASTEXITCODE)"
+    }
 }
 
 if (-not (Test-Path $Repo)) {
@@ -78,17 +84,17 @@ if ($Head -ne $RemoteHead) {
 Write-Host "Running PVG inverse-geometry and local-neighborhood tests..."
 Push-Location $Worktree
 try {
-    $Code = Invoke-Python312 -PythonArgs @("-m", "unittest", "-v", "tests/test_pvg_inverse_geometry.py")
-    if ($Code -ne 0) { throw "Inverse-geometry tests failed" }
+    Invoke-Python312 -PythonArgs @("-m", "unittest", "-v", "tests/test_pvg_inverse_geometry.py")
+    Assert-LastExitCode -FailureMessage "Inverse-geometry tests failed"
 
-    $Code = Invoke-Python312 -PythonArgs @("-m", "unittest", "-v", "tests/test_pvg_local_neighborhood.py")
-    if ($Code -ne 0) { throw "Local-neighborhood tests failed" }
+    Invoke-Python312 -PythonArgs @("-m", "unittest", "-v", "tests/test_pvg_local_neighborhood.py")
+    Assert-LastExitCode -FailureMessage "Local-neighborhood tests failed"
 
-    $Code = Invoke-Python312 -PythonArgs @("tools/pvg_inverse_geometry.py", "900", "--compact")
-    if ($Code -ne 0) { throw "Passport smoke test failed" }
+    Invoke-Python312 -PythonArgs @("tools/pvg_inverse_geometry.py", "900", "--compact")
+    Assert-LastExitCode -FailureMessage "Passport smoke test failed"
 
-    $Code = Invoke-Python312 -PythonArgs @("tools/pvg_local_neighborhood.py", "30", "--steps", "3", "--compact")
-    if ($Code -ne 0) { throw "Local-neighborhood smoke test failed" }
+    Invoke-Python312 -PythonArgs @("tools/pvg_local_neighborhood.py", "30", "--steps", "3", "--compact")
+    Assert-LastExitCode -FailureMessage "Local-neighborhood smoke test failed"
 }
 finally {
     Pop-Location
