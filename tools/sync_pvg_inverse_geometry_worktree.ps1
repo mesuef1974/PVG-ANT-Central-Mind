@@ -35,7 +35,7 @@ try {
         "tests/test_pvg_prime_simplex_general.py","tests/test_pvg_arithmetic_terrain.py",
         "tests/test_pvg_level_terrain.py","tests/test_pvg_level_flow.py",
         "tests/test_pvg_multiobjective_geometry.py","tests/test_pvg_pareto_frontier_geometry.py",
-        "tests/test_pvg_pareto_explorer.py","tests/test_pvg_pascal_explorer.py",
+        "tests/test_pvg_pareto_explorer.py","tests/test_pvg_pascal_explorer.py","tests/test_pvg_visual_lab.py",
         "tests/test_pvg_local_additive_cell_atlas.py","tests/test_pvg_additive_face_transition_graph.py",
         "tests/test_pvg_iterated_additive_face_dynamics.py","tests/test_pvg_additive_attraction_basins.py",
         "tests/test_pvg_additive_basin_overlap_geometry.py","tests/test_pvg_additive_basin_depth_stability.py",
@@ -90,9 +90,12 @@ try {
     if (@($Pass019.verification.PSObject.Properties | Where-Object { -not [bool]$_.Value }).Count -ne 0) { throw "PASS-019 verification failure" }
     $ExplorerPage=Join-Path $Worktree "web\pvg-pareto-explorer\index.html"
     $PascalPage=Join-Path $Worktree "web\pvg-pareto-explorer\pascal.html"
+    $VisualLabPage=Join-Path $Worktree "web\pvg-pareto-explorer\visual-lab.html"
     if (-not (Test-Path $ExplorerPage)) { throw "PVG Pareto Explorer page missing: $ExplorerPage" }
     if (-not (Test-Path $PascalPage)) { throw "PVG Pascal Explorer page missing: $PascalPage" }
+    if (-not (Test-Path $VisualLabPage)) { throw "PVG Visual Lab page missing: $VisualLabPage" }
     if ((Get-Item $ExplorerPage).Length -lt 10000) { throw "PVG Pareto Explorer page is unexpectedly small" }
+    if ((Get-Item $VisualLabPage).Length -lt 25000) { throw "PVG Visual Lab page is unexpectedly small" }
     $TempRoot=[System.IO.Path]::GetTempPath()
     $Jobs=@(
         @{ Tool="tools/pvg_prime_pair_edge_atlas.py"; Dir="pvg-prime-pair-edge-atlas"; Summary="prime-pair-edge-atlas-primes-le-100-summary.json"; CountField="unordered_pair_count"; Expected=300 },
@@ -108,4 +111,4 @@ try {
     }
 }
 finally { Pop-Location }
-Write-Host ""; Write-Host "PVG inverse-geometry worktree synchronized and verified."; Write-Host "Worktree: $Worktree"; Write-Host "HEAD:     $Head"; Write-Host "Explorer: $Worktree\web\pvg-pareto-explorer\index.html"; Write-Host "Pascal:   $Worktree\web\pvg-pareto-explorer\pascal.html"; Write-Host ""; Write-Host "The canonical worktree branch and all stashes were left untouched."
+Write-Host ""; Write-Host "PVG inverse-geometry worktree synchronized and verified."; Write-Host "Worktree: $Worktree"; Write-Host "HEAD:     $Head"; Write-Host "Explorer: $Worktree\web\pvg-pareto-explorer\index.html"; Write-Host "Pascal:   $Worktree\web\pvg-pareto-explorer\pascal.html"; Write-Host "Visual:   $Worktree\web\pvg-pareto-explorer\visual-lab.html"; Write-Host ""; Write-Host "The canonical worktree branch and all stashes were left untouched."
