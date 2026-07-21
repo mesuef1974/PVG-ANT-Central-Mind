@@ -3,14 +3,15 @@
 from __future__ import annotations
 import argparse, json
 from collections import deque
+from fractions import Fraction
 
 try:
     from .pvg_multiobjective_geometry import analyze as mo_analyze, adjacent
-    from .pvg_level_terrain import parse_primes
+    from .pvg_level_terrain import analyze as terrain_analyze, parse_primes
     from .pvg_inverse_geometry import GeometryInputError
 except ImportError:
     from pvg_multiobjective_geometry import analyze as mo_analyze, adjacent  # type: ignore
-    from pvg_level_terrain import parse_primes  # type: ignore
+    from pvg_level_terrain import analyze as terrain_analyze, parse_primes  # type: ignore
     from pvg_inverse_geometry import GeometryInputError  # type: ignore
 
 
@@ -58,10 +59,15 @@ def _shortest_path(graph, source, target):
     return None
 
 
+def _fraction_value(row, field):
+    raw=row[field]
+    if isinstance(raw,dict): return Fraction(raw['numerator'],raw['denominator'])
+    return Fraction(raw,1)
+
+
 def analyze(primes, level):
     mo=mo_analyze(primes, level)
     frontier=[tuple(x['exponents']) for x in mo['global_pareto_frontier']]
-    frontier_set=set(frontier)
     edges=[(a,b) for i,a in enumerate(frontier) for b in frontier[i+1:] if adjacent(a,b)]
     graph={n:[] for n in frontier}
     for a,b in edges: graph[a].append(b); graph[b].append(a)
@@ -71,13 +77,8 @@ def analyze(primes, level):
     articulations=[n for n in frontier if _component_count(frontier,graph,excluded_node=n)>base]
     bridges=[(a,b) for a,b in edges if _component_count(frontier,graph,excluded_edge=(a,b))>base]
     degrees={n:len(graph[n]) for n in frontier}
-    terrain={tuple(x['exponents']):x for x in __import__('pvg_level_terrain').analyze(primes,level)['points']}
-    peaks={
-      'n': max(frontier,key=lambda x: terrain[x]['n']),
-      'tau': max(frontier,key=lambda x: terrain[x]['tau']),
-      'sigma_over_n': max(frontier,key=lambda x:(terrain[x]['sigma_over_n']['numerator']/terrain[x]['sigma_over_n']['denominator'])),
-      'phi_over_n': max(frontier,key=lambda x:(terrain[x]['phi_over_n']['numerator']/terrain[x]['phi_over_n']['denominator'])),
-    }
+    terrain={tuple(x['exponents']):x for x in terrain_analyze(primes,level)['points']}
+    peaks={field:max(frontier,key=lambda x:_fraction_value(terrain[x],field)) for field in ('n','tau','sigma_over_n','phi_over_n')}
     peak_paths={}
     names=sorted(peaks)
     for i,a in enumerate(names):
