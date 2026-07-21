@@ -2,19 +2,19 @@ from __future__ import annotations
 
 import argparse
 import json
-from collections import Counter, deque
+from collections import Counter
 from itertools import combinations
 
 try:
     from tools.pvg_additive_face_transition_graph import analyze as analyze_one_step
-    from tools.pvg_local_additive_cell_atlas import factorization
+    from tools.pvg_local_additive_cell_atlas import factorint
 except ModuleNotFoundError:
     from pvg_additive_face_transition_graph import analyze as analyze_one_step
-    from pvg_local_additive_cell_atlas import factorization
+    from pvg_local_additive_cell_atlas import factorint
 
 
 def support(n: int) -> tuple[int, ...]:
-    return tuple(int(p) for p, _ in factorization(n)) if n > 1 else tuple()
+    return tuple(sorted(int(p) for p in factorint(n))) if n > 1 else tuple()
 
 
 def successors(face: tuple[int, ...]) -> tuple[tuple[int, ...], ...]:
@@ -42,8 +42,6 @@ def analyze(limit: int = 100, depth: int = 4) -> dict[str, object]:
 
     terminals = sorted(face for face in all_faces if len(face) < 2)
     dimension_distribution = Counter(len(face) for face in all_faces)
-    rank = {face: i for i, layer in enumerate(levels) for face in layer}
-    forward_rank_violations = [(u, v) for u, v in arcs if rank.get(v, depth + 1) <= rank.get(u, -1) and u != v]
     return {
         "schema": "PVG-ITERATED-ADDITIVE-FACE-DYNAMICS-001",
         "classification": "exact finite depth-truncated face dynamics; no asymptotic, termination, or novelty claim",
