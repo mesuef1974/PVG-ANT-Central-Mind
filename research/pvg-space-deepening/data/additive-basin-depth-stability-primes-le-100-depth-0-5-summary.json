@@ -1,478 +1,52 @@
 {
   "basin_size_series": {
-    "13": [
-      0,
-      1,
-      26,
-      34,
-      34,
-      34
-    ],
-    "19": [
-      0,
-      1,
-      17,
-      18,
-      18,
-      18
-    ],
-    "2": [
-      0,
-      12,
-      61,
-      87,
-      91,
-      93
-    ],
-    "3": [
-      0,
-      2,
-      45,
-      57,
-      62,
-      62
-    ],
-    "31": [
-      0,
-      1,
-      7,
-      7,
-      7,
-      7
-    ],
-    "43": [
-      0,
-      1,
-      6,
-      6,
-      6,
-      6
-    ],
-    "5": [
-      0,
-      2,
-      141,
-      153,
-      153,
-      153
-    ],
-    "61": [
-      0,
-      1,
-      3,
-      3,
-      3,
-      3
-    ],
-    "7": [
-      0,
-      2,
-      73,
-      104,
-      118,
-      118
-    ],
-    "73": [
-      0,
-      1,
-      3,
-      3,
-      3,
-      3
-    ]
+    "13": [0, 1, 26, 34, 34, 34],
+    "19": [0, 1, 17, 18, 18, 18],
+    "2": [0, 12, 61, 87, 91, 93],
+    "3": [0, 2, 45, 57, 62, 62],
+    "31": [0, 1, 7, 7, 7, 7],
+    "43": [0, 1, 6, 6, 6, 6],
+    "5": [0, 2, 141, 153, 153, 153],
+    "61": [0, 1, 3, 3, 3, 3],
+    "7": [0, 2, 73, 104, 118, 118],
+    "73": [0, 1, 3, 3, 3, 3]
   },
-  "bounded_closure_depth_distribution": {
-    "0": 0,
-    "1": 24,
-    "2": 161,
-    "3": 90,
-    "4": 23,
-    "5": 2
-  },
+  "bounded_closure_depth_distribution": {"0": 0, "1": 24, "2": 161, "3": 90, "4": 23, "5": 2},
   "caution": "A signature can remain unchanged for one step and change later. Observed stabilization means equality only through the registered max_depth.",
   "classification": "finite verified depth-window evolution through the registered maximum depth; observed stability is not a general stabilization theorem",
   "depth_table": [
-    {
-      "depth": 0,
-      "largest_basin_axes": [],
-      "largest_basin_size": 0,
-      "maximum_weighted_degree": 0,
-      "maximum_weighted_degree_axes": [],
-      "multiple_terminal_start_count": 0,
-      "no_terminal_observed_start_count": 300,
-      "nonempty_endpoint_signature_count": 0,
-      "overlap_component_sizes": [],
-      "overlap_edge_count": 0,
-      "single_terminal_start_count": 0,
-      "strongest_overlap_edge": null,
-      "terminal_axis_count": 0,
-      "unresolved_start_count": 300
-    },
-    {
-      "depth": 1,
-      "largest_basin_axes": [
-        2
-      ],
-      "largest_basin_size": 12,
-      "maximum_weighted_degree": 0,
-      "maximum_weighted_degree_axes": [
-        2,
-        3,
-        5,
-        7,
-        13,
-        19,
-        31,
-        43,
-        61,
-        73
-      ],
-      "multiple_terminal_start_count": 0,
-      "no_terminal_observed_start_count": 276,
-      "nonempty_endpoint_signature_count": 10,
-      "overlap_component_sizes": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1
-      ],
-      "overlap_edge_count": 0,
-      "single_terminal_start_count": 24,
-      "strongest_overlap_edge": null,
-      "terminal_axis_count": 10,
-      "unresolved_start_count": 276
-    },
-    {
-      "depth": 2,
-      "largest_basin_axes": [
-        5
-      ],
-      "largest_basin_size": 141,
-      "maximum_weighted_degree": 108,
-      "maximum_weighted_degree_axes": [
-        5
-      ],
-      "multiple_terminal_start_count": 92,
-      "no_terminal_observed_start_count": 44,
-      "nonempty_endpoint_signature_count": 19,
-      "overlap_component_sizes": [
-        6,
-        1,
-        1,
-        1,
-        1
-      ],
-      "overlap_edge_count": 11,
-      "single_terminal_start_count": 164,
-      "strongest_overlap_edge": {
-        "axes": [
-          2,
-          5
-        ],
-        "key": "{2,5}",
-        "union_size": 162,
-        "weight": 40
-      },
-      "terminal_axis_count": 10,
-      "unresolved_start_count": 115
-    },
-    {
-      "depth": 3,
-      "largest_basin_axes": [
-        5
-      ],
-      "largest_basin_size": 153,
-      "maximum_weighted_degree": 177,
-      "maximum_weighted_degree_axes": [
-        5
-      ],
-      "multiple_terminal_start_count": 102,
-      "no_terminal_observed_start_count": 15,
-      "nonempty_endpoint_signature_count": 19,
-      "overlap_component_sizes": [
-        6,
-        1,
-        1,
-        1,
-        1
-      ],
-      "overlap_edge_count": 12,
-      "single_terminal_start_count": 183,
-      "strongest_overlap_edge": {
-        "axes": [
-          5,
-          7
-        ],
-        "key": "{5,7}",
-        "union_size": 188,
-        "weight": 69
-      },
-      "terminal_axis_count": 10,
-      "unresolved_start_count": 25
-    },
-    {
-      "depth": 4,
-      "largest_basin_axes": [
-        5
-      ],
-      "largest_basin_size": 153,
-      "maximum_weighted_degree": 187,
-      "maximum_weighted_degree_axes": [
-        5
-      ],
-      "multiple_terminal_start_count": 105,
-      "no_terminal_observed_start_count": 2,
-      "nonempty_endpoint_signature_count": 19,
-      "overlap_component_sizes": [
-        6,
-        1,
-        1,
-        1,
-        1
-      ],
-      "overlap_edge_count": 13,
-      "single_terminal_start_count": 193,
-      "strongest_overlap_edge": {
-        "axes": [
-          5,
-          7
-        ],
-        "key": "{5,7}",
-        "union_size": 196,
-        "weight": 75
-      },
-      "terminal_axis_count": 10,
-      "unresolved_start_count": 2
-    },
-    {
-      "depth": 5,
-      "largest_basin_axes": [
-        5
-      ],
-      "largest_basin_size": 153,
-      "maximum_weighted_degree": 187,
-      "maximum_weighted_degree_axes": [
-        5
-      ],
-      "multiple_terminal_start_count": 105,
-      "no_terminal_observed_start_count": 0,
-      "nonempty_endpoint_signature_count": 19,
-      "overlap_component_sizes": [
-        6,
-        1,
-        1,
-        1,
-        1
-      ],
-      "overlap_edge_count": 13,
-      "single_terminal_start_count": 195,
-      "strongest_overlap_edge": {
-        "axes": [
-          5,
-          7
-        ],
-        "key": "{5,7}",
-        "union_size": 196,
-        "weight": 75
-      },
-      "terminal_axis_count": 10,
-      "unresolved_start_count": 0
-    }
+    {"depth": 0, "largest_basin_axes": [], "largest_basin_size": 0, "maximum_weighted_degree": 0, "maximum_weighted_degree_axes": [], "multiple_terminal_start_count": 0, "no_terminal_observed_start_count": 300, "nonempty_endpoint_signature_count": 0, "overlap_component_sizes": [], "overlap_edge_count": 0, "single_terminal_start_count": 0, "strongest_overlap_edge": null, "terminal_axis_count": 0, "unresolved_start_count": 300},
+    {"depth": 1, "largest_basin_axes": [2], "largest_basin_size": 12, "maximum_weighted_degree": 0, "maximum_weighted_degree_axes": [2, 3, 5, 7, 13, 19, 31, 43, 61, 73], "multiple_terminal_start_count": 0, "no_terminal_observed_start_count": 276, "nonempty_endpoint_signature_count": 10, "overlap_component_sizes": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1], "overlap_edge_count": 0, "single_terminal_start_count": 24, "strongest_overlap_edge": null, "terminal_axis_count": 10, "unresolved_start_count": 276},
+    {"depth": 2, "largest_basin_axes": [5], "largest_basin_size": 141, "maximum_weighted_degree": 108, "maximum_weighted_degree_axes": [5], "multiple_terminal_start_count": 92, "no_terminal_observed_start_count": 44, "nonempty_endpoint_signature_count": 19, "overlap_component_sizes": [6, 1, 1, 1, 1], "overlap_edge_count": 11, "single_terminal_start_count": 164, "strongest_overlap_edge": {"axes": [2, 5], "key": "{2,5}", "union_size": 162, "weight": 40}, "terminal_axis_count": 10, "unresolved_start_count": 115},
+    {"depth": 3, "largest_basin_axes": [5], "largest_basin_size": 153, "maximum_weighted_degree": 177, "maximum_weighted_degree_axes": [5], "multiple_terminal_start_count": 102, "no_terminal_observed_start_count": 15, "nonempty_endpoint_signature_count": 19, "overlap_component_sizes": [6, 1, 1, 1, 1], "overlap_edge_count": 12, "single_terminal_start_count": 183, "strongest_overlap_edge": {"axes": [5, 7], "key": "{5,7}", "union_size": 188, "weight": 69}, "terminal_axis_count": 10, "unresolved_start_count": 25},
+    {"depth": 4, "largest_basin_axes": [5], "largest_basin_size": 153, "maximum_weighted_degree": 187, "maximum_weighted_degree_axes": [5], "multiple_terminal_start_count": 105, "no_terminal_observed_start_count": 2, "nonempty_endpoint_signature_count": 19, "overlap_component_sizes": [6, 1, 1, 1, 1], "overlap_edge_count": 13, "single_terminal_start_count": 193, "strongest_overlap_edge": {"axes": [5, 7], "key": "{5,7}", "union_size": 196, "weight": 75}, "terminal_axis_count": 10, "unresolved_start_count": 2},
+    {"depth": 5, "largest_basin_axes": [5], "largest_basin_size": 153, "maximum_weighted_degree": 187, "maximum_weighted_degree_axes": [5], "multiple_terminal_start_count": 105, "no_terminal_observed_start_count": 0, "nonempty_endpoint_signature_count": 19, "overlap_component_sizes": [6, 1, 1, 1, 1], "overlap_edge_count": 13, "single_terminal_start_count": 195, "strongest_overlap_edge": {"axes": [5, 7], "key": "{5,7}", "union_size": 196, "weight": 75}, "terminal_axis_count": 10, "unresolved_start_count": 0}
   ],
   "overlap_weight_series": {
-    "{13,19}": [
-      0,
-      0,
-      0,
-      1,
-      1,
-      1
-    ],
-    "{2,13}": [
-      0,
-      0,
-      4,
-      4,
-      4,
-      4
-    ],
-    "{2,5}": [
-      0,
-      0,
-      40,
-      43,
-      46,
-      46
-    ],
-    "{2,7}": [
-      0,
-      0,
-      34,
-      37,
-      37,
-      37
-    ],
-    "{3,13}": [
-      0,
-      0,
-      1,
-      11,
-      11,
-      11
-    ],
-    "{3,19}": [
-      0,
-      0,
-      0,
-      0,
-      1,
-      1
-    ],
-    "{3,5}": [
-      0,
-      0,
-      20,
-      39,
-      40,
-      40
-    ],
-    "{3,7}": [
-      0,
-      0,
-      8,
-      28,
-      28,
-      28
-    ],
-    "{5,13}": [
-      0,
-      0,
-      10,
-      17,
-      17,
-      17
-    ],
-    "{5,19}": [
-      0,
-      0,
-      8,
-      9,
-      9,
-      9
-    ],
-    "{5,7}": [
-      0,
-      0,
-      30,
-      69,
-      75,
-      75
-    ],
-    "{7,13}": [
-      0,
-      0,
-      4,
-      5,
-      11,
-      11
-    ],
-    "{7,19}": [
-      0,
-      0,
-      1,
-      9,
-      9,
-      9
-    ]
+    "{13,19}": [0, 0, 0, 1, 1, 1],
+    "{2,13}": [0, 0, 4, 4, 4, 4],
+    "{2,5}": [0, 0, 40, 43, 46, 46],
+    "{2,7}": [0, 0, 34, 37, 37, 37],
+    "{3,13}": [0, 0, 1, 11, 11, 11],
+    "{3,19}": [0, 0, 0, 0, 1, 1],
+    "{3,5}": [0, 0, 20, 39, 40, 40],
+    "{3,7}": [0, 0, 8, 28, 28, 28],
+    "{5,13}": [0, 0, 10, 17, 17, 17],
+    "{5,19}": [0, 0, 8, 9, 9, 9],
+    "{5,7}": [0, 0, 30, 69, 75, 75],
+    "{7,13}": [0, 0, 4, 5, 11, 11],
+    "{7,19}": [0, 0, 1, 9, 9, 9]
   },
   "schema": "PVG-ADDITIVE-BASIN-DEPTH-STABILITY-001",
-  "scope": {
-    "depth_values": [
-      0,
-      1,
-      2,
-      3,
-      4,
-      5
-    ],
-    "max_depth": 5,
-    "min_depth": 0,
-    "prime_limit": 100,
-    "start_face_count": 300,
-    "start_family": "all unordered prime-pair faces {p,q} with p<q<=limit"
-  },
-  "stabilization_depth_distribution": {
-    "0": 0,
-    "1": 24,
-    "2": 171,
-    "3": 80,
-    "4": 23,
-    "5": 2
-  },
+  "scope": {"depth_values": [0, 1, 2, 3, 4, 5], "max_depth": 5, "min_depth": 0, "prime_limit": 100, "start_face_count": 300, "start_family": "all unordered prime-pair faces {p,q} with p<q<=limit"},
+  "stabilization_depth_distribution": {"0": 0, "1": 24, "2": 171, "3": 80, "4": 23, "5": 2},
   "step_change_table": [
-    {
-      "became_multiple_terminal_start_count": 0,
-      "became_nonempty_start_count": 24,
-      "changed_start_count": 24,
-      "from_depth": 0,
-      "temporarily_unchanged_start_count": 276,
-      "to_depth": 1,
-      "unchanged_start_count": 276
-    },
-    {
-      "became_multiple_terminal_start_count": 92,
-      "became_nonempty_start_count": 232,
-      "changed_start_count": 232,
-      "from_depth": 1,
-      "temporarily_unchanged_start_count": 44,
-      "to_depth": 2,
-      "unchanged_start_count": 68
-    },
-    {
-      "became_multiple_terminal_start_count": 10,
-      "became_nonempty_start_count": 29,
-      "changed_start_count": 87,
-      "from_depth": 2,
-      "temporarily_unchanged_start_count": 18,
-      "to_depth": 3,
-      "unchanged_start_count": 213
-    },
-    {
-      "became_multiple_terminal_start_count": 3,
-      "became_nonempty_start_count": 13,
-      "changed_start_count": 23,
-      "from_depth": 3,
-      "temporarily_unchanged_start_count": 2,
-      "to_depth": 4,
-      "unchanged_start_count": 277
-    },
-    {
-      "became_multiple_terminal_start_count": 0,
-      "became_nonempty_start_count": 2,
-      "changed_start_count": 2,
-      "from_depth": 4,
-      "temporarily_unchanged_start_count": 0,
-      "to_depth": 5,
-      "unchanged_start_count": 298
-    }
+    {"became_multiple_terminal_start_count": 0, "became_nonempty_start_count": 24, "changed_start_count": 24, "from_depth": 0, "temporarily_unchanged_start_count": 276, "to_depth": 1, "unchanged_start_count": 276},
+    {"became_multiple_terminal_start_count": 92, "became_nonempty_start_count": 232, "changed_start_count": 232, "from_depth": 1, "temporarily_unchanged_start_count": 44, "to_depth": 2, "unchanged_start_count": 68},
+    {"became_multiple_terminal_start_count": 10, "became_nonempty_start_count": 29, "changed_start_count": 87, "from_depth": 2, "temporarily_unchanged_start_count": 18, "to_depth": 3, "unchanged_start_count": 213},
+    {"became_multiple_terminal_start_count": 3, "became_nonempty_start_count": 13, "changed_start_count": 23, "from_depth": 3, "temporarily_unchanged_start_count": 2, "to_depth": 4, "unchanged_start_count": 277},
+    {"became_multiple_terminal_start_count": 0, "became_nonempty_start_count": 2, "changed_start_count": 2, "from_depth": 4, "temporarily_unchanged_start_count": 0, "to_depth": 5, "unchanged_start_count": 298}
   ],
   "unresolved_through_max_depth_count": 0,
-  "verification": {
-    "all_pass016_verifications_hold": true,
-    "basin_sizes_are_nondecreasing": true,
-    "closure_partition_closes": true,
-    "endpoint_sets_are_monotone": true,
-    "final_signatures_match_max_depth": true,
-    "overlap_weights_are_nondecreasing": true,
-    "stabilization_partition_closes": true,
-    "start_family_is_constant_across_depths": true,
-    "transition_partitions_close": true,
-    "unresolved_counts_are_nonincreasing": true
-  }
+  "verification": {"all_pass016_verifications_hold": true, "basin_sizes_are_nondecreasing": true, "closure_partition_closes": true, "endpoint_sets_are_monotone": true, "final_signatures_match_max_depth": true, "overlap_weights_are_nondecreasing": true, "stabilization_partition_closes": true, "start_family_is_constant_across_depths": true, "transition_partitions_close": true, "unresolved_counts_are_nonincreasing": true}
 }
