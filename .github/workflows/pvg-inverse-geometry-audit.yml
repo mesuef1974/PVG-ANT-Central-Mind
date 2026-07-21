@@ -171,10 +171,6 @@ jobs:
           python tools/pvg_prime_tetrahedron_atlas.py --limit 100 --output-dir /tmp/tetrahedron
           python - <<'PY'
           import csv,json
-          from pathlib import import Path
-          PY
-          python - <<'PY'
-          import csv,json
           from pathlib import Path
           g=json.loads(Path('/tmp/tetrahedron/prime-tetrahedron-atlas-primes-le-100-summary.json').read_text())
           c=json.loads(Path('research/pvg-space-deepening/data/prime-tetrahedron-atlas-primes-le-100-summary.json').read_text())
