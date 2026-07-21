@@ -1,0 +1,54 @@
+name: PVG Immersive 3D Visual Lab Audit
+
+on:
+  pull_request:
+    paths:
+      - 'web/pvg-pareto-explorer/visual-lab-3d.html'
+      - 'web/pvg-pareto-explorer/assets/pvg-3d-*.js'
+      - 'web/pvg-pareto-explorer/assets/pvg-3d-style.css'
+      - 'tools/open_pvg_visual_lab_3d.ps1'
+      - 'tests/test_pvg_visual_lab_3d.py'
+      - 'research/pvg-space-deepening/pass-021-pvg-immersive-3d-visual-lab.md'
+      - 'tools/sync_pvg_inverse_geometry_worktree.ps1'
+      - '.github/workflows/pvg-immersive-3d-visual-lab-audit.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'web/pvg-pareto-explorer/visual-lab-3d.html'
+      - 'web/pvg-pareto-explorer/assets/pvg-3d-*.js'
+      - 'web/pvg-pareto-explorer/assets/pvg-3d-style.css'
+      - 'tools/open_pvg_visual_lab_3d.ps1'
+      - 'tests/test_pvg_visual_lab_3d.py'
+      - 'research/pvg-space-deepening/pass-021-pvg-immersive-3d-visual-lab.md'
+      - 'tools/sync_pvg_inverse_geometry_worktree.ps1'
+      - '.github/workflows/pvg-immersive-3d-visual-lab-audit.yml'
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Python syntax
+        run: python -m py_compile tests/test_pvg_visual_lab_3d.py
+      - name: PowerShell syntax
+        shell: pwsh
+        run: |
+          $source = Get-Content -Raw tools/open_pvg_visual_lab_3d.ps1
+          $null = [scriptblock]::Create($source)
+      - name: Immersive 3D lab tests
+        run: python -m unittest -v tests/test_pvg_visual_lab_3d.py
+      - name: Static smoke
+        run: |
+          test -s web/pvg-pareto-explorer/visual-lab-3d.html
+          total=$(( $(wc -c < web/pvg-pareto-explorer/visual-lab-3d.html) + $(wc -c < web/pvg-pareto-explorer/assets/pvg-3d-style.css) + $(wc -c < web/pvg-pareto-explorer/assets/pvg-3d-engine.js) + $(wc -c < web/pvg-pareto-explorer/assets/pvg-3d-scenes.js) ))
+          test "$total" -gt 30000
+          grep -q 'PVG Immersive 3D Visual Lab' web/pvg-pareto-explorer/visual-lab-3d.html
+          grep -q 'function rotate3' web/pvg-pareto-explorer/assets/pvg-3d-scenes.js
+          grep -q 'function drawOverlap' web/pvg-pareto-explorer/assets/pvg-3d-scenes.js
+          grep -q 'function drawTrace' web/pvg-pareto-explorer/assets/pvg-3d-scenes.js
