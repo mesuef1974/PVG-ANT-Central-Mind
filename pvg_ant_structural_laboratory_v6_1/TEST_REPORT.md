@@ -15,8 +15,10 @@ Date: 2026-07-21
 - `factor(360) = 2^3 * 3^2 * 5`
 - `dlog(60,72) = log(30)`
 - `firstPrimes(8) = [2,3,5,7,11,13,17,19]` (17 present, no skip)
+- UI axis choices: `k ∈ {2,3,4,5,6,7,9,12,16,20}`
+- low-dimensional prime sets: `k=2 → {2,3}`, `k=3 → {2,3,5}`, `k=4 → {2,3,5,7}`, `k=5 → {2,3,5,7,11}`
 
-## Mandatory geometry checks (cone, k ∈ {4,7,12,15,20})
+## Mandatory geometry checks (cone, k ∈ {2,3,4,5,6,7,9,12,16,20})
 
 - `|d_j| = 1` for all axes: PASS
 - `d_j · ŷ = cos(θ)` (uniform polar angle): PASS
