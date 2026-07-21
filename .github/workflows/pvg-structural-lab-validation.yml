@@ -34,7 +34,7 @@ jobs:
         run: python tools/verify_pvg_lab_manifests.py
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
       - name: Node tests — v6.0 core
         working-directory: pvg_ant_structural_laboratory_v6_0
         run: node --test

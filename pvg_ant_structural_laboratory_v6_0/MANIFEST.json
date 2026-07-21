@@ -16,8 +16,8 @@
     },
     {
       "path": "data/counterexamples.csv",
-      "size_bytes": 364,
-      "sha256": "79d8f034df432f648b3fa0e0c27bd4721c71ed0ea5cfa9eab87c97b7fca3f8c0"
+      "size_bytes": 359,
+      "sha256": "51a101b34b3ab7ea2be316aa50b93f4d824b0ef793d00f440616f50b974209d9"
     },
     {
       "path": "data/v6-preview.png",
