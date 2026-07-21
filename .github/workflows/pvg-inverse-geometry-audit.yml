@@ -5,8 +5,10 @@ on:
     paths:
       - 'maps/pvg-point-classification-and-inverse-geometry-v1.md'
       - 'maps/pvg-local-neighborhood-and-axis-ratio-geometry-v1.md'
+      - 'research/pvg-space-deepening/README.md'
       - 'tools/pvg_inverse_geometry.py'
       - 'tools/pvg_local_neighborhood.py'
+      - 'tools/sync_pvg_inverse_geometry_worktree.ps1'
       - 'tests/test_pvg_inverse_geometry.py'
       - 'tests/test_pvg_local_neighborhood.py'
       - 'governance/programs/PVG-INVERSE-GEOMETRY-001.md'
@@ -17,8 +19,10 @@ on:
     paths:
       - 'maps/pvg-point-classification-and-inverse-geometry-v1.md'
       - 'maps/pvg-local-neighborhood-and-axis-ratio-geometry-v1.md'
+      - 'research/pvg-space-deepening/README.md'
       - 'tools/pvg_inverse_geometry.py'
       - 'tools/pvg_local_neighborhood.py'
+      - 'tools/sync_pvg_inverse_geometry_worktree.ps1'
       - 'tests/test_pvg_inverse_geometry.py'
       - 'tests/test_pvg_local_neighborhood.py'
       - 'governance/programs/PVG-INVERSE-GEOMETRY-001.md'
@@ -39,6 +43,12 @@ jobs:
           python -m py_compile tools/pvg_local_neighborhood.py
           python -m py_compile tests/test_pvg_inverse_geometry.py
           python -m py_compile tests/test_pvg_local_neighborhood.py
+      - name: PowerShell sync-script syntax check
+        shell: pwsh
+        run: |
+          $source = Get-Content -Raw tools/sync_pvg_inverse_geometry_worktree.ps1
+          $null = [scriptblock]::Create($source)
+          Write-Host 'Safe local worktree sync script syntax: PASS'
       - name: Unit tests
         run: |
           python -m unittest -v tests/test_pvg_inverse_geometry.py
