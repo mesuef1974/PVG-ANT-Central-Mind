@@ -99,7 +99,8 @@ try {
     Invoke-Python312 -PythonArgs @("tools/pvg_local_neighborhood.py", "30", "--steps", "3", "--compact")
     Assert-LastExitCode -FailureMessage "Local-neighborhood smoke test failed"
 
-    $AtlasOutput = Join-Path $env:TEMP "pvg-prime-pair-edge-atlas"
+    $TempRoot = [System.IO.Path]::GetTempPath()
+    $AtlasOutput = Join-Path $TempRoot "pvg-prime-pair-edge-atlas"
     if (Test-Path $AtlasOutput) {
         Remove-Item -Recurse -Force $AtlasOutput
     }
