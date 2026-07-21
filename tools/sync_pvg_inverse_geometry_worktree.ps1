@@ -9,161 +9,88 @@ param(
 $ErrorActionPreference = "Stop"
 
 function Invoke-Git {
-    param(
-        [Parameter(Mandatory = $true)][string]$At,
-        [Parameter(Mandatory = $true)][string[]]$GitArgs
-    )
-
+    param([Parameter(Mandatory=$true)][string]$At,[Parameter(Mandatory=$true)][string[]]$GitArgs)
     & git -C $At @GitArgs
-    if ($LASTEXITCODE -ne 0) {
-        throw "git -C '$At' $($GitArgs -join ' ') failed with exit code $LASTEXITCODE"
-    }
+    if ($LASTEXITCODE -ne 0) { throw "git -C '$At' $($GitArgs -join ' ') failed with exit code $LASTEXITCODE" }
 }
-
 function Invoke-Python312 {
-    param([Parameter(Mandatory = $true)][string[]]$PythonArgs)
-
-    $LauncherName = [System.IO.Path]::GetFileName($Python).ToLowerInvariant()
-    if ($LauncherName -eq "py.exe" -or $LauncherName -eq "py") {
-        & $Python -3.12 @PythonArgs
-    }
-    else {
-        & $Python @PythonArgs
-    }
+    param([Parameter(Mandatory=$true)][string[]]$PythonArgs)
+    $LauncherName=[System.IO.Path]::GetFileName($Python).ToLowerInvariant()
+    if ($LauncherName -eq "py.exe" -or $LauncherName -eq "py") { & $Python -3.12 @PythonArgs }
+    else { & $Python @PythonArgs }
 }
-
 function Assert-LastExitCode {
-    param([Parameter(Mandatory = $true)][string]$FailureMessage)
-
-    if ($LASTEXITCODE -ne 0) {
-        throw "$FailureMessage (exit code $LASTEXITCODE)"
-    }
+    param([Parameter(Mandatory=$true)][string]$FailureMessage)
+    if ($LASTEXITCODE -ne 0) { throw "$FailureMessage (exit code $LASTEXITCODE)" }
 }
 
-if (-not (Test-Path $Repo)) {
-    throw "Canonical repository not found: $Repo"
-}
-
+if (-not (Test-Path $Repo)) { throw "Canonical repository not found: $Repo" }
 Write-Host "Fetching remote state without switching the canonical worktree..."
-Invoke-Git -At $Repo -GitArgs @("fetch", "--prune", $Remote)
-
-$RemoteRef = "$Remote/$Branch"
+Invoke-Git -At $Repo -GitArgs @("fetch","--prune",$Remote)
+$RemoteRef="$Remote/$Branch"
 & git -C $Repo rev-parse --verify $RemoteRef *> $null
-if ($LASTEXITCODE -ne 0) {
-    throw "Remote branch not found: $RemoteRef"
-}
+if ($LASTEXITCODE -ne 0) { throw "Remote branch not found: $RemoteRef" }
 
 if (-not (Test-Path $Worktree)) {
     Write-Host "Creating detached worktree at $Worktree..."
-    Invoke-Git -At $Repo -GitArgs @("worktree", "add", "--detach", $Worktree, $RemoteRef)
-}
-else {
+    Invoke-Git -At $Repo -GitArgs @("worktree","add","--detach",$Worktree,$RemoteRef)
+} else {
     & git -C $Worktree rev-parse --is-inside-work-tree *> $null
-    if ($LASTEXITCODE -ne 0) {
-        throw "Existing path is not a Git worktree: $Worktree"
-    }
-
-    $Dirty = (& git -C $Worktree status --porcelain)
-    if ($LASTEXITCODE -ne 0) {
-        throw "Unable to inspect worktree status: $Worktree"
-    }
-    if ($Dirty) {
-        throw "Inverse-geometry worktree has local changes. Refusing to overwrite them."
-    }
-
+    if ($LASTEXITCODE -ne 0) { throw "Existing path is not a Git worktree: $Worktree" }
+    $Dirty=(& git -C $Worktree status --porcelain)
+    if ($LASTEXITCODE -ne 0) { throw "Unable to inspect worktree status: $Worktree" }
+    if ($Dirty) { throw "Inverse-geometry worktree has local changes. Refusing to overwrite them." }
     Write-Host "Updating detached worktree to $RemoteRef..."
-    Invoke-Git -At $Worktree -GitArgs @("switch", "--detach", $RemoteRef)
+    Invoke-Git -At $Worktree -GitArgs @("switch","--detach",$RemoteRef)
 }
 
-$Head = (& git -C $Worktree rev-parse HEAD).Trim()
-$RemoteHead = (& git -C $Repo rev-parse $RemoteRef).Trim()
-if ($Head -ne $RemoteHead) {
-    throw "Synchronization verification failed: HEAD=$Head remote=$RemoteHead"
-}
+$Head=(& git -C $Worktree rev-parse HEAD).Trim()
+$RemoteHead=(& git -C $Repo rev-parse $RemoteRef).Trim()
+if ($Head -ne $RemoteHead) { throw "Synchronization verification failed: HEAD=$Head remote=$RemoteHead" }
 
-Write-Host "Running PVG point, neighborhood, pair-edge, and prime-triangle tests..."
+Write-Host "Running PVG point, neighborhood, edge, triangle, and triangle-dynamics tests..."
 Push-Location $Worktree
 try {
-    Invoke-Python312 -PythonArgs @("-m", "unittest", "-v", "tests/test_pvg_inverse_geometry.py")
-    Assert-LastExitCode -FailureMessage "Inverse-geometry tests failed"
+    $Suites=@(
+        "tests/test_pvg_inverse_geometry.py",
+        "tests/test_pvg_local_neighborhood.py",
+        "tests/test_pvg_prime_pair_edge_atlas.py",
+        "tests/test_pvg_prime_triangle_atlas.py",
+        "tests/test_pvg_prime_triangle_dynamics.py"
+    )
+    foreach ($Suite in $Suites) {
+        Invoke-Python312 -PythonArgs @("-m","unittest","-v",$Suite)
+        Assert-LastExitCode -FailureMessage "Test suite failed: $Suite"
+    }
 
-    Invoke-Python312 -PythonArgs @("-m", "unittest", "-v", "tests/test_pvg_local_neighborhood.py")
-    Assert-LastExitCode -FailureMessage "Local-neighborhood tests failed"
-
-    Invoke-Python312 -PythonArgs @("-m", "unittest", "-v", "tests/test_pvg_prime_pair_edge_atlas.py")
-    Assert-LastExitCode -FailureMessage "Prime-pair edge atlas tests failed"
-
-    Invoke-Python312 -PythonArgs @("-m", "unittest", "-v", "tests/test_pvg_prime_triangle_atlas.py")
-    Assert-LastExitCode -FailureMessage "Prime-axis triangle atlas tests failed"
-
-    Invoke-Python312 -PythonArgs @("tools/pvg_inverse_geometry.py", "900", "--compact")
+    Invoke-Python312 -PythonArgs @("tools/pvg_inverse_geometry.py","900","--compact")
     Assert-LastExitCode -FailureMessage "Passport smoke test failed"
-
-    Invoke-Python312 -PythonArgs @("tools/pvg_local_neighborhood.py", "30", "--steps", "3", "--compact")
+    Invoke-Python312 -PythonArgs @("tools/pvg_local_neighborhood.py","30","--steps","3","--compact")
     Assert-LastExitCode -FailureMessage "Local-neighborhood smoke test failed"
 
-    $TempRoot = [System.IO.Path]::GetTempPath()
-
-    $PairOutput = Join-Path $TempRoot "pvg-prime-pair-edge-atlas"
-    if (Test-Path $PairOutput) {
-        Remove-Item -Recurse -Force $PairOutput
-    }
-    Invoke-Python312 -PythonArgs @(
-        "tools/pvg_prime_pair_edge_atlas.py",
-        "--limit", "100",
-        "--output-dir", $PairOutput
+    $TempRoot=[System.IO.Path]::GetTempPath()
+    $Jobs=@(
+        @{ Tool="tools/pvg_prime_pair_edge_atlas.py"; Dir="pvg-prime-pair-edge-atlas"; Summary="prime-pair-edge-atlas-primes-le-100-summary.json"; Csv="prime-pair-edge-atlas-primes-le-100.csv"; CountField="unordered_pair_count"; Expected=300 },
+        @{ Tool="tools/pvg_prime_triangle_atlas.py"; Dir="pvg-prime-triangle-atlas"; Summary="prime-triangle-atlas-primes-le-100-summary.json"; Csv="prime-triangle-atlas-primes-le-100.csv"; CountField="unordered_triangle_count"; Expected=2300 },
+        @{ Tool="tools/pvg_prime_triangle_dynamics.py"; Dir="pvg-prime-triangle-dynamics"; Summary="prime-triangle-dynamics-primes-le-100-summary.json"; Csv="prime-triangle-dynamics-primes-le-100.csv"; CountField="unordered_triangle_count"; Expected=2300 }
     )
-    Assert-LastExitCode -FailureMessage "Prime-pair edge atlas generation failed"
-
-    $PairSummaryPath = Join-Path $PairOutput "prime-pair-edge-atlas-primes-le-100-summary.json"
-    $PairCsvPath = Join-Path $PairOutput "prime-pair-edge-atlas-primes-le-100.csv"
-    if (-not (Test-Path $PairSummaryPath) -or -not (Test-Path $PairCsvPath)) {
-        throw "Prime-pair atlas outputs were not created"
-    }
-
-    $PairGenerated = Get-Content -Raw $PairSummaryPath | ConvertFrom-Json
-    if ($PairGenerated.scope.prime_count -ne 25 -or $PairGenerated.scope.unordered_pair_count -ne 300) {
-        throw "Prime-pair atlas scope verification failed"
-    }
-    if ($PairGenerated.distinguished_pairs.both_level_preserved.Count -ne 1) {
-        throw "Prime-pair double-preservation verification failed"
-    }
-
-    $TriangleOutput = Join-Path $TempRoot "pvg-prime-triangle-atlas"
-    if (Test-Path $TriangleOutput) {
-        Remove-Item -Recurse -Force $TriangleOutput
-    }
-    Invoke-Python312 -PythonArgs @(
-        "tools/pvg_prime_triangle_atlas.py",
-        "--limit", "100",
-        "--output-dir", $TriangleOutput
-    )
-    Assert-LastExitCode -FailureMessage "Prime-axis triangle atlas generation failed"
-
-    $TriangleSummaryPath = Join-Path $TriangleOutput "prime-triangle-atlas-primes-le-100-summary.json"
-    $TriangleCsvPath = Join-Path $TriangleOutput "prime-triangle-atlas-primes-le-100.csv"
-    if (-not (Test-Path $TriangleSummaryPath) -or -not (Test-Path $TriangleCsvPath)) {
-        throw "Prime-axis triangle atlas outputs were not created"
-    }
-
-    $TriangleGenerated = Get-Content -Raw $TriangleSummaryPath | ConvertFrom-Json
-    if ($TriangleGenerated.scope.prime_count -ne 25 -or $TriangleGenerated.scope.unordered_triangle_count -ne 2300) {
-        throw "Prime-axis triangle atlas scope verification failed"
-    }
-    if ($TriangleGenerated.distinguished_triangles.all_three_difference_preserved.Count -ne 1) {
-        throw "Prime-axis triangle rigidity verification failed"
-    }
-    $VerificationFailures = @(
-        $TriangleGenerated.verification.PSObject.Properties |
-            Where-Object { -not [bool]$_.Value }
-    )
-    if ($VerificationFailures.Count -ne 0) {
-        throw "Prime-axis triangle composition verification failed"
+    foreach ($Job in $Jobs) {
+        $Output=Join-Path $TempRoot $Job.Dir
+        if (Test-Path $Output) { Remove-Item -Recurse -Force $Output }
+        Invoke-Python312 -PythonArgs @($Job.Tool,"--limit","100","--output-dir",$Output)
+        Assert-LastExitCode -FailureMessage "Atlas generation failed: $($Job.Tool)"
+        $SummaryPath=Join-Path $Output $Job.Summary
+        $CsvPath=Join-Path $Output $Job.Csv
+        if (-not (Test-Path $SummaryPath) -or -not (Test-Path $CsvPath)) { throw "Atlas outputs missing: $($Job.Tool)" }
+        $Generated=Get-Content -Raw $SummaryPath | ConvertFrom-Json
+        if ($Generated.scope.prime_count -ne 25 -or $Generated.scope.($Job.CountField) -ne $Job.Expected) { throw "Atlas scope verification failed: $($Job.Tool)" }
+        if ($Generated.verification) {
+            $Failures=@($Generated.verification.PSObject.Properties | Where-Object { -not [bool]$_.Value })
+            if ($Failures.Count -ne 0) { throw "Atlas verification failed: $($Job.Tool)" }
+        }
     }
 }
-finally {
-    Pop-Location
-}
+finally { Pop-Location }
 
 Write-Host ""
 Write-Host "PVG inverse-geometry worktree synchronized and verified."
