@@ -5,11 +5,13 @@ PROGRAM = PVG-INVERSE-GEOMETRY-001
 PASS = PASS-001
 BRANCH = agent/pvg-point-classification-inverse-geometry-001
 BASE = main
-STATUS = IMPLEMENTED_ON_BRANCH_AWAITING_PR_VALIDATION
+STATUS = CHECKPOINT_PASS_ON_BRANCH
+PR = 63
 ONTOLOGY-V1 = UNCHANGED
 NEW-THEOREM-TARGET = NOT_AUTHORIZED
 DATASET-004 = NOT_AUTHORIZED
 LEAN-EXPANSION = NOT_AUTHORIZED
+MERGE = NOT_AUTHORIZED
 ```
 
 ## Installed on the branch
@@ -33,7 +35,16 @@ Exact inverse location is not emitted without complete certified factorization. 
 records factorization as the computational inverse bottleneck rather than hiding it behind a
 visual embedding.
 
-## Closure condition
+## Validation on the same pre-closure head
 
-Change `STATUS` to `CHECKPOINT_PASS` only after the dedicated workflow, governance gate, and
-review all pass on the same head commit.
+```text
+PVG Inverse Geometry Audit = PASS
+Governance Required Gate = PASS
+Python = 3.12
+Unit tests = 11/11 PASS
+Exact passport smoke test (n=900) = PASS
+Large unfactored input refusal gate (n=2^64) = PASS
+```
+
+The closure commit changes only this checkpoint state. The PR remains draft and unmerged pending
+human review and explicit authorization.
