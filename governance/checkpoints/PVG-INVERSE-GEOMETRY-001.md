@@ -2,7 +2,7 @@
 
 ```text
 PROGRAM = PVG-INVERSE-GEOMETRY-001
-PASSES = PASS-001 + PASS-002 + PASS-003 + PASS-004-PRIME-AXIS-TRIANGLES
+PASSES = PASS-001 + PASS-002 + PASS-003 + PASS-004 + PASS-005-PRIME-TRIANGLE-DYNAMICS
 BRANCH = agent/pvg-point-classification-inverse-geometry-001
 BASE = main
 STATUS = CHECKPOINT_PASS_ON_BRANCH
@@ -19,86 +19,90 @@ MERGE = NOT_AUTHORIZED
 
 ### PASS-001 — exact point passport
 
-Exact labeled support, `omega`, `Omega`, radical, repeat depth, exponent partition, primitive ray,
-divisor box, multiple cone, barycentric position, and directional families.
+Exact support, `omega`, `Omega`, exponent shape, primitive ray, divisor box, multiple cone, barycentric position, and certified inverse geometry.
 
 ### PASS-002 — local neighborhood
 
-Axis-ratio matrix, `A_(s-1)` horizontal geometry, primitive neighbors, gcd axis recovery, horizontal
-distance, pair-lines, simplex vertices, and geometric-mean identities.
+Axis ratios, primitive neighbors, root-lattice directions, gcd axis recovery, horizontal distance, pair-lines, simplex vertices, and geometric-mean identities.
 
 ### PASS-003 — 300 prime-pair edges
 
-For all `p<q<=100`, record ratio, gap, sum, difference, transition supports, defects `kappa_+` and
-`kappa_-`, axis-2 routing, and level-preservation classes.
+For all `p<q<=100`, classify ratios, gaps, sums, differences, supports, level defects, axis-2 routing, and preservation classes.
 
 ### PASS-004 — 2300 prime-axis triangles
 
-For all `p<q<r<=100`:
+For all `p<q<r<=100`, verify ratio and normalized-gap composition, closed holonomy, vertex recovery, axis-2 routing, and `Sx_Dy` profiles.
 
-- verify `(q/p)(r/q)=r/p` and closed holonomy `1`;
-- verify `(q-p)+(r-q)=r-p`;
-- verify normalized-gap composition;
-- recover all three vertices from pair sums;
-- verify complete axis-2 routing;
-- classify each triangle by `Sx_Dy` preservation profile;
-- regenerate deterministic CSV and JSON outputs.
+### PASS-005 — triangle transforms
 
-## Exact PASS-004 findings
+For every registered prime triangle, encode
+
+\[
+T_-(p,q,r)=(q-p,r-q,r-p)
+\]
+
+and
+
+\[
+T_+(p,q,r)=(p+q,q+r,p+r).
+\]
+
+The installed exact classification is:
+
+- `T_-` is invariant under common translation and loses absolute position;
+- `T_+` is injective and exactly invertible from the three labeled pair sums;
+- the common gcd of the sum triple is `2` for all-odd source triangles and `1` for triangles containing axis `2`;
+- `T_+` never produces three prime values;
+- `T_-` produces a distinct prime triangle only from `(2,5,7)`;
+- the unique prime-triangle transition is
+  `(2,5,7) -> (2,3,5)`, followed by terminal triple `(1,2,3)`;
+- no prime-triangle cycle exists.
+
+## Finite PASS-005 counts
 
 ```text
-PRIMES <= 100 = 25
-UNORDERED TRIANGLES = 2300
-CONTAINS AXIS 2 = 276
-ALL ODD = 2024
+PRIME DIFFERENCES PER TRIANGLE
+0 = 1969
+1 = 295
+2 = 35
+3 = 1
 
-SUM-PRESERVED EDGE COUNTS
-0 edges = 2144 triangles
-1 edge  = 128 triangles
-2 edges = 28 triangles
-3 edges = 0 triangles
+PRIME SUMS PER TRIANGLE
+0 = 2144
+1 = 128
+2 = 28
+3 = 0
 
-DIFFERENCE-PRESERVED EDGE COUNTS
-0 edges = 1969 triangles
-1 edge  = 295 triangles
-2 edges = 35 triangles
-3 edges = 1 triangle, namely (2,5,7)
+PRIME DIFFERENCE TRIANGLES = 1
+DETECTED CYCLES = 0
 ```
 
-The unique all-odd triangle with two difference-preserving edges is `(3,5,7)`. The complete profile
-distribution is committed in
-`research/pvg-space-deepening/data/prime-triangle-atlas-primes-le-100-summary.json`.
+The committed deterministic summary is
+`research/pvg-space-deepening/data/prime-triangle-dynamics-primes-le-100-summary.json`.
 
 ## Hard boundaries
 
-The atlas is finite and deterministic. It provides no asymptotic estimate, no factorization speedup,
-no novelty certificate, and no Goldbach, RH, or GRH progress. Exact inverse geometry still requires
-complete certified factorization. No expansion beyond prime bound 100 is authorized here.
+All atlases are finite diagnostics at prime bound `100`. They provide no asymptotic estimate, factorization speedup, originality certificate, or progress on Goldbach, RH, or GRH. Exact inverse geometry still requires complete certified factorization.
 
-## Validation
+## Validation on pre-closure head
 
 ```text
-PRE-CLOSURE HEAD = f4616ef9f818a87556dd58f3ecdc08b9cf24ec76
-PRE-CLOSURE AUDIT = run 33 PASS
-PRE-CLOSURE GOVERNANCE = run 625 PASS
-FINAL HEAD = 21b82eac29df9255181b2c86d063717ab0bd325c
-FINAL AUDIT = run 35 PASS
-FINAL GOVERNANCE = run 627 PASS
-Inverse-geometry tests = 11/11 PASS
-Local-neighborhood tests = 11/11 PASS
-Prime-pair atlas tests = 14/14 PASS
-Prime-triangle atlas tests = 14/14 PASS
-Combined deterministic tests = 50/50 PASS
+HEAD = 1b53d83a9e3de038daeaa1c09fdaa6f93b6568cc
+PVG Inverse Geometry Audit run 42 = PASS
+Governance Required Gate run 634 = PASS
+Python = 3.12
+PASS-001 tests = 11/11 PASS
+PASS-002 tests = 11/11 PASS
+PASS-003 tests = 14/14 PASS
+PASS-004 tests = 14/14 PASS
+PASS-005 tests = 13/13 PASS
+Combined deterministic tests = 63/63 PASS
 Prime-pair records = 300
 Prime-triangle records = 2300
-Committed/generated summaries = PASS
-Ratio and normalized-gap compositions = PASS
-Closed-loop holonomy = PASS
-Vertex recovery = PASS
-Axis-2 triangle routing = PASS
+Triangle-dynamics records = 2300
+All committed/generated summaries = PASS
 Safe PowerShell worktree execution = PASS
-Large unfactored input refusal = PASS
+Large unfactored exact-input refusal = PASS
 ```
 
-PR #63 remains draft and unmerged. The canonical worktree branch, structural-laboratory branch, and
-protected stash remain untouched.
+PR #63 remains draft and unmerged. The canonical worktree branch, structural-laboratory branch, and protected stash remain untouched.
