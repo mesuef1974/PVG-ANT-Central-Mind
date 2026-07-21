@@ -40,6 +40,7 @@ jobs:
           python -m py_compile tools/pvg_prime_triangle_dynamics.py tools/pvg_prime_tetrahedron_atlas.py
           python -m py_compile tools/pvg_prime_simplex_general.py tools/pvg_arithmetic_terrain.py
           python -m py_compile tools/pvg_level_terrain.py tools/pvg_level_flow.py
+          python -m py_compile tools/pvg_multiobjective_geometry.py
           python -m py_compile tests/test_pvg_*.py
       - name: PowerShell sync-script syntax check
         shell: pwsh
@@ -58,6 +59,7 @@ jobs:
           python -m unittest -v tests/test_pvg_arithmetic_terrain.py
           python -m unittest -v tests/test_pvg_level_terrain.py
           python -m unittest -v tests/test_pvg_level_flow.py
+          python -m unittest -v tests/test_pvg_multiobjective_geometry.py
       - name: Core smoke tests
         run: |
           python tools/pvg_inverse_geometry.py 900 --compact > /tmp/passport.json
@@ -66,18 +68,21 @@ jobs:
           python tools/pvg_arithmetic_terrain.py 60 2 3 --factors '2^2,3,5' --compact > /tmp/edge-terrain.json
           python tools/pvg_level_terrain.py '2,3,5' 6 --compact > /tmp/level-terrain.json
           python tools/pvg_level_flow.py '2,3,5' 6 --compact > /tmp/level-flow.json
+          python tools/pvg_multiobjective_geometry.py '2,3,5' 6 --compact > /tmp/multiobjective.json
           python - <<'PY'
           import json
           from pathlib import Path
           a=json.loads(Path('/tmp/passport.json').read_text()); b=json.loads(Path('/tmp/local.json').read_text())
           c=json.loads(Path('/tmp/simplex.json').read_text()); d=json.loads(Path('/tmp/edge-terrain.json').read_text())
           e=json.loads(Path('/tmp/level-terrain.json').read_text()); f=json.loads(Path('/tmp/level-flow.json').read_text())
+          g=json.loads(Path('/tmp/multiobjective.json').read_text())
           assert a['support']==[2,3,5] and a['Omega']==6
           assert {x['neighbor'] for x in b['primitive_horizontal_neighbors']}=={12,18,20,45,50,75}
           assert c['pair_sum_reconstruction']==[2,3,5,7,11] and all(c['verification'].values())
           assert d['before']['n']==60 and d['after']['n']==90 and all(d['verification'].values())
           assert e['point_count']==28 and e['extrema']['tau']['maximum_points']==[[2,2,2]] and all(e['verification'].values())
           assert f['fields']['tau']['global_maxima']==[[2,2,2]] and all(f['verification'].values())
+          assert g['edge_count']==63 and g['global_pareto_frontier_size']==19 and all(g['verification'].values())
           PY
       - name: Prime-pair atlas regeneration
         run: |
