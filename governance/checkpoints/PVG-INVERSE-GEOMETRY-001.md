@@ -2,7 +2,7 @@
 
 ```text
 PROGRAM = PVG-INVERSE-GEOMETRY-001
-PASSES = PASS-001 ... PASS-011-MULTIOBJECTIVE-PARETO-GEOMETRY
+PASSES = PASS-001 ... PASS-012-PARETO-FRONTIER-GEOMETRY
 BRANCH = agent/pvg-point-classification-inverse-geometry-001
 BASE = main
 STATUS = CHECKPOINT_PASS_ON_BRANCH
@@ -28,85 +28,99 @@ MERGE = NOT_AUTHORIZED
 - PASS-009: global scalar terrain on one fixed level.
 - PASS-010: strict scalar flows, plateaus, sinks, and ascent basins.
 - PASS-011: simultaneous edge signatures, global/local Pareto frontiers, and objective conflict.
+- PASS-012: induced graph topology of the global Pareto frontier.
 
-## PASS-011 registered scope
+## PASS-012 registered scope
 
 ```text
 AXES = 2,3,5
 OMEGA LEVEL = 6
 POINT COUNT = 28
-UNDIRECTED HORIZONTAL EDGES = 63
+GLOBAL PARETO FRONTIER = 19 POINTS
 OBJECTIVES = n, tau, sigma(n)/n, phi(n)/n
 ORIENTATION = MAXIMIZE ALL
+ADJACENCY = ONE PRIMITIVE HORIZONTAL TRANSFER
 ```
 
-For every edge `a--b`, PASS-011 records the sign vector
-
-\[
-\left(
-\operatorname{sgn}(n_b-n_a),
-\operatorname{sgn}(\tau_b-\tau_a),
-\operatorname{sgn}\left(\frac{\sigma(b)}b-\frac{\sigma(a)}a\right),
-\operatorname{sgn}\left(\frac{\varphi(b)}b-\frac{\varphi(a)}a\right)
-\right).
-\]
-
-The stored sign orientation is lexicographic in exponent vectors. Pareto dominance is orientation-independent.
-
-## Exact finite results
+## Exact finite frontier geometry
 
 ```text
-Pareto-dominance edges       = 8
-tradeoff-or-equal edges      = 55
-strict-tradeoff edges        = 30
-tradeoff-with-ties edges     = 25
-aligned-decrease-with-ties   = 8
-
-global Pareto frontier size = 19
-local Pareto frontier size  = 21
-globally dominated points   = 9
+frontier vertices = 19
+frontier edges    = 27
+components        = 3
+component sizes   = 17,1,1
+cycle rank        = 11
 ```
 
-The global frontier contains the distinguished scalar-field optima:
+The isolated Pareto-optimal points are
 
 ```text
-(0,0,6) = maximum n and maximum phi(n)/n
-(2,2,2) = maximum tau
-(3,2,1) = maximum sigma(n)/n
+(0,6,0)
+(6,0,0)
 ```
 
-It also contains `(6,0,0)`: being the minimum-size point does not make it globally dominated because no other point weakly improves all four registered objectives with one strict gain.
+The three leaves of the nontrivial component are
 
-Global Pareto efficiency implies local Pareto efficiency. The converse fails in this finite level: two locally nondominated points are dominated by nonadjacent points.
+```text
+(0,4,2)
+(2,4,0)
+(4,0,2)
+```
 
-## Exact conceptual conclusion
+The articulation points are
 
-There is no objective-independent arithmetic ascent direction on the fixed PVG level. Most edges are tradeoffs: improving one registered observable worsens another. A dynamic rule therefore requires a declared scalar field, weighting, priority order, Pareto convention, or other decision rule.
+```text
+(0,3,3)
+(2,2,2)
+(3,0,3)
+(3,2,1)
+(3,3,0)
+```
+
+The bridge edges are
+
+```text
+(0,3,3)--(0,4,2)
+(2,2,2)--(3,2,1)
+(2,4,0)--(3,3,0)
+(3,0,3)--(4,0,2)
+```
+
+## Objective peaks on the frontier
+
+```text
+maximum n          = (0,0,6)
+maximum phi(n)/n   = (0,0,6)
+maximum tau        = (2,2,2)
+maximum sigma(n)/n = (3,2,1)
+```
+
+The distinguished `n`, `tau`, and `sigma(n)/n` optima lie in the connected 17-point component. Therefore a path between those optima can remain globally Pareto efficient at every primitive step. The two isolated frontier vertices show that global nondominance does not imply frontier connectivity.
 
 ## Installed files
 
 ```text
-tools/pvg_multiobjective_geometry.py
-tests/test_pvg_multiobjective_geometry.py
-research/pvg-space-deepening/pass-011-multiobjective-pareto-geometry.md
+tools/pvg_pareto_frontier_geometry.py
+tests/test_pvg_pareto_frontier_geometry.py
+research/pvg-space-deepening/pass-012-pareto-frontier-geometry.md
 ```
 
-The audit workflow and detached-worktree synchronizer execute PASS-011 tests and the `(2,3,5), Omega=6` multiobjective smoke test.
+The audit workflow and detached-worktree synchronizer execute PASS-012 tests and the `(2,3,5), Omega=6` frontier-geometry smoke test.
 
 ## Validation on pre-closure head
 
 ```text
-HEAD = 605a738a1a75e3470a8ae3ce3dc4262c4aebed70
-PVG Inverse Geometry Audit run 82 = PASS
-Governance Required Gate run 674 = PASS
+HEAD = c00b2620d5ae91f22fa2bfcc0da99f4dc678f32f
+PVG Inverse Geometry Audit run 89 = PASS
+Governance Required Gate run 681 = PASS
 Python = 3.12
-PASS-001..010 tests = 116/116 PASS
-PASS-011 tests = 11/11 PASS
-Combined deterministic tests = 127/127 PASS
-Point count = 28
-Edge count = 63
-Global Pareto frontier size = 19
-Local Pareto frontier size = 21
+PASS-001..011 tests = 127/127 PASS
+PASS-012 tests = 10/10 PASS
+Combined deterministic tests = 137/137 PASS
+Frontier size = 19
+Frontier edge count = 27
+Component sizes = 17,1,1
+Cycle rank = 11
 All verification flags = PASS
 Core smoke tests = PASS
 All committed/generated summaries = PASS
@@ -116,6 +130,6 @@ Large unfactored exact-input refusal = PASS
 
 ## Scientific boundary
 
-PASS-011 is an exact finite multiobjective analysis on one declared face and level. Pareto membership depends on the selected objective vector and on the maximize-all convention. It does not install a canonical utility function, an asymptotic Pareto law, a general extremal theorem, an originality certificate, a factorization speedup, or progress on Goldbach, RH, or GRH.
+PASS-012 is an exact finite induced-subgraph analysis for one declared Pareto frontier. Frontier membership depends on the selected objectives and maximize-all convention. The observed connectivity, cycle rank, articulation points, bridges, and path structure are not promoted to general theorems, asymptotic laws, continuous-manifold claims, originality claims, factorization gains, or progress on Goldbach, RH, or GRH.
 
 The closure commit changes checkpoint state only. PR #63 remains draft and unmerged. The canonical worktree branch, structural-laboratory branch, and protected stash remain untouched.
