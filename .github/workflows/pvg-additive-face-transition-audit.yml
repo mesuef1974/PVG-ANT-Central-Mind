@@ -1,0 +1,44 @@
+name: PVG Additive Face Transition Audit
+
+on:
+  pull_request:
+    paths:
+      - 'tools/pvg_additive_face_transition_graph.py'
+      - 'tools/pvg_local_additive_cell_atlas.py'
+      - 'tests/test_pvg_additive_face_transition_graph.py'
+      - 'research/pvg-space-deepening/pass-014-additive-face-transition-graph.md'
+      - '.github/workflows/pvg-additive-face-transition-audit.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'tools/pvg_additive_face_transition_graph.py'
+      - 'tools/pvg_local_additive_cell_atlas.py'
+      - 'tests/test_pvg_additive_face_transition_graph.py'
+      - 'research/pvg-space-deepening/pass-014-additive-face-transition-graph.md'
+      - '.github/workflows/pvg-additive-face-transition-audit.yml'
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Syntax
+        run: python -m py_compile tools/pvg_local_additive_cell_atlas.py tools/pvg_additive_face_transition_graph.py tests/test_pvg_additive_face_transition_graph.py
+      - name: Tests
+        run: python -m unittest -v tests/test_pvg_additive_face_transition_graph.py
+      - name: Smoke
+        run: |
+          python tools/pvg_additive_face_transition_graph.py --limit 100 --compact > /tmp/face-transitions.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('/tmp/face-transitions.json').read_text())
+          assert d['source_face_count']==300
+          assert d['unique_destination_face_count']==52
+          assert d['axis_2_destination_count']==276
+          assert d['destination_faces_ranked'][0]=={'face':[2,3],'key':'{2,3}','indegree':44}
+          assert all(d['verification'].values())
+          PY
