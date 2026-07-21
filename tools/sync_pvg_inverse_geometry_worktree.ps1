@@ -9,11 +9,29 @@ param(
 $ErrorActionPreference = "Stop"
 
 function Invoke-Git {
-    param([string]$At, [string[]]$Args)
-    & git -C $At @Args
+    param(
+        [Parameter(Mandatory = $true)][string]$At,
+        [Parameter(Mandatory = $true)][string[]]$GitArgs
+    )
+
+    & git -C $At @GitArgs
     if ($LASTEXITCODE -ne 0) {
-        throw "git -C '$At' $($Args -join ' ') failed with exit code $LASTEXITCODE"
+        throw "git -C '$At' $($GitArgs -join ' ') failed with exit code $LASTEXITCODE"
     }
+}
+
+function Invoke-Python312 {
+    param([Parameter(ValueFromRemainingArguments = $true)][string[]]$PythonArgs)
+
+    $LauncherName = [System.IO.Path]::GetFileName($Python).ToLowerInvariant()
+    if ($LauncherName -eq "py.exe" -or $LauncherName -eq "py") {
+        & $Python -3.12 @PythonArgs
+    }
+    else {
+        & $Python @PythonArgs
+    }
+
+    return $LASTEXITCODE
 }
 
 if (-not (Test-Path $Repo)) {
@@ -21,7 +39,7 @@ if (-not (Test-Path $Repo)) {
 }
 
 Write-Host "Fetching remote state without switching the canonical worktree..."
-Invoke-Git -At $Repo -Args @("fetch", "--prune", $Remote)
+Invoke-Git -At $Repo -GitArgs @("fetch", "--prune", $Remote)
 
 $RemoteRef = "$Remote/$Branch"
 & git -C $Repo rev-parse --verify $RemoteRef *> $null
@@ -31,7 +49,7 @@ if ($LASTEXITCODE -ne 0) {
 
 if (-not (Test-Path $Worktree)) {
     Write-Host "Creating detached worktree at $Worktree..."
-    Invoke-Git -At $Repo -Args @("worktree", "add", "--detach", $Worktree, $RemoteRef)
+    Invoke-Git -At $Repo -GitArgs @("worktree", "add", "--detach", $Worktree, $RemoteRef)
 }
 else {
     & git -C $Worktree rev-parse --is-inside-work-tree *> $null
@@ -48,7 +66,7 @@ else {
     }
 
     Write-Host "Updating detached worktree to $RemoteRef..."
-    Invoke-Git -At $Worktree -Args @("switch", "--detach", $RemoteRef)
+    Invoke-Git -At $Worktree -GitArgs @("switch", "--detach", $RemoteRef)
 }
 
 $Head = (& git -C $Worktree rev-parse HEAD).Trim()
@@ -60,17 +78,17 @@ if ($Head -ne $RemoteHead) {
 Write-Host "Running PVG inverse-geometry and local-neighborhood tests..."
 Push-Location $Worktree
 try {
-    & $Python -3.12 -m unittest -v tests/test_pvg_inverse_geometry.py
-    if ($LASTEXITCODE -ne 0) { throw "Inverse-geometry tests failed" }
+    $Code = Invoke-Python312 -PythonArgs @("-m", "unittest", "-v", "tests/test_pvg_inverse_geometry.py")
+    if ($Code -ne 0) { throw "Inverse-geometry tests failed" }
 
-    & $Python -3.12 -m unittest -v tests/test_pvg_local_neighborhood.py
-    if ($LASTEXITCODE -ne 0) { throw "Local-neighborhood tests failed" }
+    $Code = Invoke-Python312 -PythonArgs @("-m", "unittest", "-v", "tests/test_pvg_local_neighborhood.py")
+    if ($Code -ne 0) { throw "Local-neighborhood tests failed" }
 
-    & $Python -3.12 tools/pvg_inverse_geometry.py 900 --compact
-    if ($LASTEXITCODE -ne 0) { throw "Passport smoke test failed" }
+    $Code = Invoke-Python312 -PythonArgs @("tools/pvg_inverse_geometry.py", "900", "--compact")
+    if ($Code -ne 0) { throw "Passport smoke test failed" }
 
-    & $Python -3.12 tools/pvg_local_neighborhood.py 30 --steps 3 --compact
-    if ($LASTEXITCODE -ne 0) { throw "Local-neighborhood smoke test failed" }
+    $Code = Invoke-Python312 -PythonArgs @("tools/pvg_local_neighborhood.py", "30", "--steps", "3", "--compact")
+    if ($Code -ne 0) { throw "Local-neighborhood smoke test failed" }
 }
 finally {
     Pop-Location
