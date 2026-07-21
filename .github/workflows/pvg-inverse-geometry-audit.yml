@@ -48,6 +48,7 @@ jobs:
           python -m py_compile tools/pvg_local_additive_cell_atlas.py tools/pvg_additive_face_transition_graph.py
           python -m py_compile tools/pvg_iterated_additive_face_dynamics.py tools/pvg_additive_attraction_basins.py
           python -m py_compile tools/pvg_additive_basin_overlap_geometry.py tools/pvg_additive_basin_depth_stability.py
+          python -m py_compile tools/pvg_prime_bound_expansion_protocol.py
           python -m py_compile tests/test_pvg_*.py
       - name: PowerShell script syntax check
         shell: pwsh
@@ -78,6 +79,7 @@ jobs:
           python -m unittest -v tests/test_pvg_additive_attraction_basins.py
           python -m unittest -v tests/test_pvg_additive_basin_overlap_geometry.py
           python -m unittest -v tests/test_pvg_additive_basin_depth_stability.py
+          python -m unittest -v tests/test_pvg_prime_bound_expansion_protocol.py
       - name: Core smoke tests
         run: |
           python tools/pvg_inverse_geometry.py 900 --compact > /tmp/passport.json
@@ -94,6 +96,7 @@ jobs:
           python tools/pvg_additive_attraction_basins.py --limit 100 --depth 5 --summary-only --compact > /tmp/additive-basins.json
           python tools/pvg_additive_basin_overlap_geometry.py --limit 100 --depth 5 --summary-only --compact > /tmp/additive-overlap.json
           python tools/pvg_additive_basin_depth_stability.py --limit 100 --min-depth 0 --max-depth 5 --summary-only --registered-summary --compact > /tmp/additive-depth-stability.json
+          python tools/pvg_prime_bound_expansion_protocol.py --limits 100,150,200 --depth 5 --summary-only --registered-summary --compact > /tmp/prime-bound-expansion.json
           test -s web/pvg-pareto-explorer/index.html
           test -s web/pvg-pareto-explorer/pascal.html
           python - <<'PY'
@@ -106,6 +109,7 @@ jobs:
           i=json.loads(Path('/tmp/additive-cells.json').read_text()); j=json.loads(Path('/tmp/additive-graph.json').read_text())
           k=json.loads(Path('/tmp/additive-dynamics.json').read_text()); l=json.loads(Path('/tmp/additive-basins.json').read_text())
           m=json.loads(Path('/tmp/additive-overlap.json').read_text()); n=json.loads(Path('/tmp/additive-depth-stability.json').read_text())
+          o=json.loads(Path('/tmp/prime-bound-expansion.json').read_text())
           assert a['support']==[2,3,5] and a['Omega']==6
           assert {x['neighbor'] for x in b['primitive_horizontal_neighbors']}=={12,18,20,45,50,75}
           assert c['pair_sum_reconstruction']==[2,3,5,7,11] and all(c['verification'].values())
@@ -133,6 +137,16 @@ jobs:
           assert n['basin_size_series']['5']==[0,2,141,153,153,153]
           assert [row['overlap_edge_count'] for row in n['depth_table']]==[0,0,11,12,13,13]
           assert n['overlap_weight_series']['{5,7}']==[0,0,30,69,75,75] and all(n['verification'].values())
+          assert o['protocol']['registered_limits']==[100,150,200] and o['protocol']['fixed_depth']==5
+          assert [row['start_face_count'] for row in o['cumulative_table']]==[300,595,1035]
+          assert [row['unresolved_start_count'] for row in o['cumulative_table']]==[0,0,0]
+          assert [row['maximum_signature_rank'] for row in o['cumulative_table']]==[3,4,5]
+          assert [row['overlap_edge_count'] for row in o['cumulative_table']]==[13,18,22]
+          assert [len(row['active_component']) for row in o['cumulative_table']]==[6,8,9]
+          assert o['first_appearance']['endpoint_signatures']['{5,7}']==150
+          assert o['cross_bound_candidates']['largest_basin_axis_series']==[[5],[5],[5]]
+          assert o['cross_bound_candidates']['strongest_overlap_edge_series']==[[5,7],[5,7],[5,7]]
+          assert all(o['verification'].values())
           page=Path('web/pvg-pareto-explorer/index.html').read_text(encoding='utf-8')
           pascal=Path('web/pvg-pareto-explorer/pascal.html').read_text(encoding='utf-8')
           assert 'PVG Pareto Explorer 3D' in page and 'const LEVEL=6' in page and '2**a*3**b*5**c' in page
