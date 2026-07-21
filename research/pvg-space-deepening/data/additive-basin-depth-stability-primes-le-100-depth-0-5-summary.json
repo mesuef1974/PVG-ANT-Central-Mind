@@ -435,7 +435,7 @@
       "unchanged_start_count": 68
     },
     {
-      "became_multiple_terminal_start_count": 39,
+      "became_multiple_terminal_start_count": 10,
       "became_nonempty_start_count": 29,
       "changed_start_count": 87,
       "from_depth": 2,
