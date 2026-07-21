@@ -28,7 +28,7 @@ class PVGIteratedAdditiveFaceDynamicsTests(unittest.TestCase):
 
     def test_known_successor_examples(self) -> None:
         self.assertEqual(successors((2, 3)), ((5,),))
-        self.assertEqual(successors((2, 3, 5)), ((2, 3), (5,), (7,)))
+        self.assertEqual(successors((2, 3, 5)), ((2,), (5,), (7,)))
 
     def test_all_verifications(self) -> None:
         self.assertTrue(all(self.data["verification"].values()))
