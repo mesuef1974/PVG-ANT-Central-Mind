@@ -1,0 +1,72 @@
+name: PVG Prime Bound Expansion Protocol Audit
+
+on:
+  pull_request:
+    paths:
+      - 'tools/pvg_prime_bound_expansion_protocol.py'
+      - 'tests/test_pvg_prime_bound_expansion_protocol.py'
+      - 'research/pvg-space-deepening/pass-019-prime-bound-expansion-protocol.md'
+      - 'research/pvg-space-deepening/data/prime-bound-expansion-protocol-limits-100-150-200-depth-5-summary.json'
+      - '.github/workflows/pvg-prime-bound-expansion-protocol-audit.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'tools/pvg_prime_bound_expansion_protocol.py'
+      - 'tests/test_pvg_prime_bound_expansion_protocol.py'
+      - 'research/pvg-space-deepening/pass-019-prime-bound-expansion-protocol.md'
+      - 'research/pvg-space-deepening/data/prime-bound-expansion-protocol-limits-100-150-200-depth-5-summary.json'
+      - '.github/workflows/pvg-prime-bound-expansion-protocol-audit.yml'
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Syntax check
+        run: |
+          python -m py_compile tools/pvg_prime_bound_expansion_protocol.py
+          python -m py_compile tests/test_pvg_prime_bound_expansion_protocol.py
+      - name: Unit tests
+        run: python -m unittest -v tests/test_pvg_prime_bound_expansion_protocol.py
+      - name: Registered prime-bound pilot smoke test
+        run: |
+          python tools/pvg_prime_bound_expansion_protocol.py \
+            --limits 100,150,200 --depth 5 \
+            --summary-only --registered-summary \
+            > /tmp/pass019.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          generated = json.loads(Path('/tmp/pass019.json').read_text())
+          committed = json.loads(
+              Path(
+                  'research/pvg-space-deepening/data/'
+                  'prime-bound-expansion-protocol-limits-100-150-200-depth-5-summary.json'
+              ).read_text()
+          )
+          assert generated == committed
+          table = generated['cumulative_table']
+          assert [(row['prime_count'], row['start_face_count']) for row in table] == [
+              (25, 300), (35, 595), (46, 1035)
+          ]
+          assert [row['unresolved_start_count'] for row in table] == [0, 0, 0]
+          assert [
+              (row['single_terminal_start_count'], row['multiple_terminal_start_count'])
+              for row in table
+          ] == [(195, 105), (337, 258), (517, 518)]
+          assert [row['terminal_axis_count'] for row in table] == [10, 14, 17]
+          assert [row['endpoint_signature_count'] for row in table] == [19, 29, 38]
+          assert [row['maximum_signature_rank'] for row in table] == [3, 4, 5]
+          assert [row['overlap_edge_count'] for row in table] == [13, 18, 22]
+          assert [len(row['active_component']) for row in table] == [6, 8, 9]
+          assert generated['first_appearance']['endpoint_signatures']['{5,7}'] == 150
+          assert generated['cross_bound_candidates']['largest_basin_axis_series'] == [[5], [5], [5]]
+          assert generated['cross_bound_candidates']['strongest_overlap_edge_series'] == [[5, 7], [5, 7], [5, 7]]
+          assert generated['cohort_table'][0]['start_face_count'] == 295
+          assert generated['cohort_table'][1]['start_face_count'] == 440
+          assert all(generated['verification'].values())
+          PY
