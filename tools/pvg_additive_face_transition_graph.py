@@ -4,7 +4,10 @@ import argparse
 import json
 from collections import Counter
 
-from tools.pvg_local_additive_cell_atlas import analyze as analyze_cells
+try:
+    from tools.pvg_local_additive_cell_atlas import analyze as analyze_cells
+except ModuleNotFoundError:
+    from pvg_local_additive_cell_atlas import analyze as analyze_cells
 
 
 def face_key(axes: list[int] | tuple[int, ...]) -> str:
