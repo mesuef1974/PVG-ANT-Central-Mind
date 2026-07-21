@@ -55,12 +55,20 @@ Factorization remains the computational inverse bottleneck. Neighbor/gcd experim
 exploratory diagnostics only until they beat appropriate classical baselines under a preregistered
 benchmark. Visualization creates no theorem, analytic estimate, or originality certificate.
 
-## Validation on pre-closure head
+## PowerShell synchronization correction
+
+The first user-side run exposed a collision between the function parameter `$Args` and
+PowerShell's automatic `$args` variable. The wrapper was corrected to use `$GitArgs`. A second
+semantic issue in Python output/exit-code handling was also corrected. The CI audit now executes
+the complete worktree-sync script in a temporary repository/worktree rather than checking syntax
+alone.
+
+## Validation on the corrected pre-closure head
 
 ```text
-HEAD = de0ae8c3e1aa652c7fdce1febaafef298367c582
-PVG Inverse Geometry Audit run 11 = PASS
-Governance Required Gate run 603 = PASS
+HEAD = 93645bba92c5e9b6c3927a072c7cc6493e30bbcb
+PVG Inverse Geometry Audit run 15 = PASS
+Governance Required Gate run 607 = PASS
 Python = 3.12
 Inverse-geometry tests = 11/11 PASS
 Local-neighborhood tests = 11/11 PASS
@@ -68,6 +76,7 @@ Combined deterministic tests = 22/22 PASS
 Exact passport smoke test (n=900) = PASS
 Local-neighborhood smoke test (n=30) = PASS
 PowerShell worktree-sync syntax = PASS
+PowerShell worktree-sync execution = PASS
 Large unfactored input refusal gate (n=2^64) = PASS
 ```
 
