@@ -4,7 +4,7 @@ import unittest
 from fractions import Fraction
 from math import comb
 
-from tools.pvg_prime_simplex_general import (
+from tools.pvg_prime_simplex import (
     SimplexInputError,
     all_pair_sums,
     analyze,
@@ -74,6 +74,13 @@ class PrimeSimplexGeneralTests(unittest.TestCase):
     def test_pair_sum_gcd_rule(self) -> None:
         self.assertEqual(analyze([3, 5, 7, 11])["pair_sum_gcd"], 2)
         self.assertEqual(analyze([2, 3, 5, 7])["pair_sum_gcd"], 1)
+
+    def test_pair_sum_gcd_rule_boundary_at_edge(self) -> None:
+        report = analyze([2, 3])
+        self.assertEqual(report["pair_sum_gcd"], 5)
+        self.assertFalse(report["pair_sum_gcd_rule_available"])
+        self.assertIsNone(report["expected_pair_sum_gcd"])
+        self.assertTrue(report["verification"]["pair_sum_gcd_rule_for_m_ge_3"])
 
     def test_axis_two_routing(self) -> None:
         odd = analyze([3, 5, 7, 11, 13])
