@@ -36,7 +36,8 @@ try {
         "tests/test_pvg_level_terrain.py","tests/test_pvg_level_flow.py",
         "tests/test_pvg_multiobjective_geometry.py","tests/test_pvg_pareto_frontier_geometry.py",
         "tests/test_pvg_pareto_explorer.py","tests/test_pvg_pascal_explorer.py",
-        "tests/test_pvg_local_additive_cell_atlas.py"
+        "tests/test_pvg_local_additive_cell_atlas.py","tests/test_pvg_additive_face_transition_graph.py",
+        "tests/test_pvg_iterated_additive_face_dynamics.py","tests/test_pvg_additive_attraction_basins.py"
     )
     foreach ($Suite in $Suites) { Invoke-Python312 -PythonArgs @("-m","unittest","-v",$Suite); Assert-LastExitCode -FailureMessage "Test suite failed: $Suite" }
     Invoke-Python312 -PythonArgs @("tools/pvg_inverse_geometry.py","900","--compact"); Assert-LastExitCode -FailureMessage "Passport smoke test failed"
@@ -48,6 +49,15 @@ try {
     Invoke-Python312 -PythonArgs @("tools/pvg_multiobjective_geometry.py","2,3,5","6","--compact"); Assert-LastExitCode -FailureMessage "Multiobjective geometry smoke test failed"
     Invoke-Python312 -PythonArgs @("tools/pvg_pareto_frontier_geometry.py","2,3,5","6","--compact"); Assert-LastExitCode -FailureMessage "Pareto frontier geometry smoke test failed"
     Invoke-Python312 -PythonArgs @("tools/pvg_local_additive_cell_atlas.py","--limit","100","--compact"); Assert-LastExitCode -FailureMessage "Local additive cell atlas smoke test failed"
+    Invoke-Python312 -PythonArgs @("tools/pvg_additive_face_transition_graph.py","--limit","100","--compact"); Assert-LastExitCode -FailureMessage "Additive face transition graph smoke test failed"
+    Invoke-Python312 -PythonArgs @("tools/pvg_iterated_additive_face_dynamics.py","--limit","100","--depth","4","--compact"); Assert-LastExitCode -FailureMessage "Iterated additive face dynamics smoke test failed"
+    $Pass016Raw=Invoke-Python312 -PythonArgs @("tools/pvg_additive_attraction_basins.py","--limit","100","--depth","5","--summary-only","--compact")
+    Assert-LastExitCode -FailureMessage "Additive attraction basins smoke test failed"
+    $Pass016=($Pass016Raw | Out-String | ConvertFrom-Json)
+    if ($Pass016.scope.start_face_count -ne 300) { throw "PASS-016 start-face count mismatch" }
+    if ($Pass016.single_terminal_start_count -ne 195 -or $Pass016.multiple_terminal_start_count -ne 105) { throw "PASS-016 endpoint multiplicity mismatch" }
+    if ($Pass016.unresolved_start_count -ne 0 -or $Pass016.reappearing_start_count -ne 10 -or $Pass016.observed_cycle_start_count -ne 0) { throw "PASS-016 bounded status mismatch" }
+    if (@($Pass016.verification.PSObject.Properties | Where-Object { -not [bool]$_.Value }).Count -ne 0) { throw "PASS-016 verification flag failure" }
     $ExplorerPage=Join-Path $Worktree "web\pvg-pareto-explorer\index.html"
     $PascalPage=Join-Path $Worktree "web\pvg-pareto-explorer\pascal.html"
     if (-not (Test-Path $ExplorerPage)) { throw "PVG Pareto Explorer page missing: $ExplorerPage" }
