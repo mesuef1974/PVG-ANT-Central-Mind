@@ -7,18 +7,18 @@
   "files": [
     {
       "path": "README.md",
-      "size_bytes": 3778,
-      "sha256": "5dad5cff3e0159a9eb94a184433f727a6f527a169f376459bbceb821fa061845"
+      "size_bytes": 4208,
+      "sha256": "93234676571278e78a0e7022f42064e48d8ffa779f3a1e0f18735fa043582602"
     },
     {
       "path": "TEST_REPORT.md",
-      "size_bytes": 3201,
-      "sha256": "a8aadf407df8400fe678203a48aae574c130daf897b27c431400db88603f92e9"
+      "size_bytes": 3373,
+      "sha256": "dd51df7838ff46efb28a7ea4f7a0e1210593bb7aff9a460f3222e45425539511"
     },
     {
       "path": "index.html",
-      "size_bytes": 4728,
-      "sha256": "3f9751346e0271b1f835719239b4fbb9dc94b9609ce1c4457a19f9d52bd3fdfb"
+      "size_bytes": 4876,
+      "sha256": "3cbb02439dc53bb4d3d7a88701aaafcbad91a98692f412355d28e95eae6fd5ad"
     },
     {
       "path": "package.json",
@@ -57,8 +57,8 @@
     },
     {
       "path": "tests/layout.test.mjs",
-      "size_bytes": 3274,
-      "sha256": "ee34ca8198266e7168c9e335f8a75f66d1438131633209806eda57396e5c7747"
+      "size_bytes": 3491,
+      "sha256": "f125cda9b03e6e27eb44d9a6f52a1a406e8758ea3d8f1010b902b8139cff44e6"
     }
   ]
 }
