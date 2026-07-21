@@ -47,6 +47,7 @@ jobs:
           python -m py_compile tools/pvg_multiobjective_geometry.py tools/pvg_pareto_frontier_geometry.py
           python -m py_compile tools/pvg_local_additive_cell_atlas.py tools/pvg_additive_face_transition_graph.py
           python -m py_compile tools/pvg_iterated_additive_face_dynamics.py tools/pvg_additive_attraction_basins.py
+          python -m py_compile tools/pvg_additive_basin_overlap_geometry.py
           python -m py_compile tests/test_pvg_*.py
       - name: PowerShell script syntax check
         shell: pwsh
@@ -75,6 +76,7 @@ jobs:
           python -m unittest -v tests/test_pvg_additive_face_transition_graph.py
           python -m unittest -v tests/test_pvg_iterated_additive_face_dynamics.py
           python -m unittest -v tests/test_pvg_additive_attraction_basins.py
+          python -m unittest -v tests/test_pvg_additive_basin_overlap_geometry.py
       - name: Core smoke tests
         run: |
           python tools/pvg_inverse_geometry.py 900 --compact > /tmp/passport.json
@@ -89,6 +91,7 @@ jobs:
           python tools/pvg_additive_face_transition_graph.py --limit 100 --compact > /tmp/additive-graph.json
           python tools/pvg_iterated_additive_face_dynamics.py --limit 100 --depth 4 --compact > /tmp/additive-dynamics.json
           python tools/pvg_additive_attraction_basins.py --limit 100 --depth 5 --summary-only --compact > /tmp/additive-basins.json
+          python tools/pvg_additive_basin_overlap_geometry.py --limit 100 --depth 5 --summary-only --compact > /tmp/additive-overlap.json
           test -s web/pvg-pareto-explorer/index.html
           test -s web/pvg-pareto-explorer/pascal.html
           python - <<'PY'
@@ -100,6 +103,7 @@ jobs:
           g=json.loads(Path('/tmp/multiobjective.json').read_text()); h=json.loads(Path('/tmp/frontier.json').read_text())
           i=json.loads(Path('/tmp/additive-cells.json').read_text()); j=json.loads(Path('/tmp/additive-graph.json').read_text())
           k=json.loads(Path('/tmp/additive-dynamics.json').read_text()); l=json.loads(Path('/tmp/additive-basins.json').read_text())
+          m=json.loads(Path('/tmp/additive-overlap.json').read_text())
           assert a['support']==[2,3,5] and a['Omega']==6
           assert {x['neighbor'] for x in b['primitive_horizontal_neighbors']}=={12,18,20,45,50,75}
           assert c['pair_sum_reconstruction']==[2,3,5,7,11] and all(c['verification'].values())
@@ -113,6 +117,13 @@ jobs:
           assert k['layer_face_counts']==[300,52,22,10,4] and k['unique_face_count']==323 and k['unique_arc_count']==338 and all(k['verification'].values())
           assert l['scope']['start_face_count']==300 and l['terminal_count_distribution']=={'0':0,'1':195,'2':13,'3':92}
           assert l['unresolved_start_count']==0 and l['observed_cycle_start_count']==0 and all(l['verification'].values())
+          assert m['scope']=={'prime_limit':100,'depth_bound':5,'start_face_count':300,'terminal_axis_count':10,'endpoint_signature_count':19}
+          assert m['axis_overlap_graph']['edge_count']==13 and m['axis_overlap_graph']['component_sizes']==[6,1,1,1,1]
+          assert m['axis_overlap_graph']['isolated_axes']==[31,43,61,73] and m['axis_overlap_graph']['cycle_rank']==8
+          assert m['axis_overlap_graph']['pair_overlaps'][0]['axes']==[5,7] and m['axis_overlap_graph']['pair_overlaps'][0]['intersection_size']==75
+          assert m['axis_overlap_graph']['weighted_overlap_degree_ranking'][0]['axis']==5 and m['axis_overlap_graph']['weighted_overlap_degree_ranking'][0]['weighted_overlap_degree']==187
+          assert m['signature_poset']['rank_distribution']=={'1':10,'2':1,'3':8} and m['signature_poset']['cover_edge_count']==25
+          assert m['gateway_start_count']==105 and all(m['verification'].values())
           page=Path('web/pvg-pareto-explorer/index.html').read_text(encoding='utf-8')
           pascal=Path('web/pvg-pareto-explorer/pascal.html').read_text(encoding='utf-8')
           assert 'PVG Pareto Explorer 3D' in page and 'const LEVEL=6' in page and '2**a*3**b*5**c' in page
@@ -158,6 +169,10 @@ jobs:
         run: |
           mkdir -p /tmp/tetrahedron
           python tools/pvg_prime_tetrahedron_atlas.py --limit 100 --output-dir /tmp/tetrahedron
+          python - <<'PY'
+          import csv,json
+          from pathlib import import Path
+          PY
           python - <<'PY'
           import csv,json
           from pathlib import Path
