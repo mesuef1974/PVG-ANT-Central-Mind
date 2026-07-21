@@ -1,0 +1,44 @@
+name: PVG Local Additive Cell Audit
+
+on:
+  pull_request:
+    paths:
+      - 'tools/pvg_local_additive_cell_atlas.py'
+      - 'tests/test_pvg_local_additive_cell_atlas.py'
+      - 'research/pvg-space-deepening/pass-013-local-additive-cell-atlas.md'
+      - 'tools/sync_pvg_inverse_geometry_worktree.ps1'
+      - '.github/workflows/pvg-local-additive-cell-audit.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'tools/pvg_local_additive_cell_atlas.py'
+      - 'tests/test_pvg_local_additive_cell_atlas.py'
+      - 'research/pvg-space-deepening/pass-013-local-additive-cell-atlas.md'
+      - 'tools/sync_pvg_inverse_geometry_worktree.ps1'
+      - '.github/workflows/pvg-local-additive-cell-audit.yml'
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Syntax check
+        run: python -m py_compile tools/pvg_local_additive_cell_atlas.py tests/test_pvg_local_additive_cell_atlas.py
+      - name: Unit tests
+        run: python -m unittest -v tests/test_pvg_local_additive_cell_atlas.py
+      - name: Registered-scope smoke test
+        run: |
+          python tools/pvg_local_additive_cell_atlas.py --limit 100 --compact > /tmp/additive-cells.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data=json.loads(Path('/tmp/additive-cells.json').read_text())
+          assert data['cell_count']==300
+          assert data['closed_pascal_cell_count']==8
+          assert data['difference_prime_cell_count']==16
+          assert data['double_preservation_pairs']==[[2,5]]
+          assert all(data['verification'].values())
+          PY
