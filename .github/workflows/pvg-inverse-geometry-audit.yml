@@ -81,6 +81,15 @@ jobs:
           assert {x['vertex'] for x in p['horizontal_simplex_vertices']} == {8,27,125}
           print('PVG local-neighborhood smoke test: PASS')
           PY
+      - name: Execute safe worktree sync script
+        shell: pwsh
+        run: |
+          git fetch --prune origin agent/pvg-point-classification-inverse-geometry-001:refs/remotes/origin/agent/pvg-point-classification-inverse-geometry-001
+          $worktree = Join-Path $env:RUNNER_TEMP 'pvg-inverse-geometry-worktree'
+          ./tools/sync_pvg_inverse_geometry_worktree.ps1 `
+            -Repo $PWD.Path `
+            -Worktree $worktree `
+            -Python 'python'
       - name: Large unfactored input must be refused
         run: |
           set +e
