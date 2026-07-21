@@ -45,6 +45,8 @@ jobs:
           python -m py_compile tools/pvg_prime_simplex_general.py tools/pvg_arithmetic_terrain.py
           python -m py_compile tools/pvg_level_terrain.py tools/pvg_level_flow.py
           python -m py_compile tools/pvg_multiobjective_geometry.py tools/pvg_pareto_frontier_geometry.py
+          python -m py_compile tools/pvg_local_additive_cell_atlas.py tools/pvg_additive_face_transition_graph.py
+          python -m py_compile tools/pvg_iterated_additive_face_dynamics.py tools/pvg_additive_attraction_basins.py
           python -m py_compile tests/test_pvg_*.py
       - name: PowerShell script syntax check
         shell: pwsh
@@ -68,6 +70,11 @@ jobs:
           python -m unittest -v tests/test_pvg_multiobjective_geometry.py
           python -m unittest -v tests/test_pvg_pareto_frontier_geometry.py
           python -m unittest -v tests/test_pvg_pareto_explorer.py
+          python -m unittest -v tests/test_pvg_pascal_explorer.py
+          python -m unittest -v tests/test_pvg_local_additive_cell_atlas.py
+          python -m unittest -v tests/test_pvg_additive_face_transition_graph.py
+          python -m unittest -v tests/test_pvg_iterated_additive_face_dynamics.py
+          python -m unittest -v tests/test_pvg_additive_attraction_basins.py
       - name: Core smoke tests
         run: |
           python tools/pvg_inverse_geometry.py 900 --compact > /tmp/passport.json
@@ -78,7 +85,12 @@ jobs:
           python tools/pvg_level_flow.py '2,3,5' 6 --compact > /tmp/level-flow.json
           python tools/pvg_multiobjective_geometry.py '2,3,5' 6 --compact > /tmp/multiobjective.json
           python tools/pvg_pareto_frontier_geometry.py '2,3,5' 6 --compact > /tmp/frontier.json
+          python tools/pvg_local_additive_cell_atlas.py --limit 100 --compact > /tmp/additive-cells.json
+          python tools/pvg_additive_face_transition_graph.py --limit 100 --compact > /tmp/additive-graph.json
+          python tools/pvg_iterated_additive_face_dynamics.py --limit 100 --depth 4 --compact > /tmp/additive-dynamics.json
+          python tools/pvg_additive_attraction_basins.py --limit 100 --depth 5 --summary-only --compact > /tmp/additive-basins.json
           test -s web/pvg-pareto-explorer/index.html
+          test -s web/pvg-pareto-explorer/pascal.html
           python - <<'PY'
           import json
           from pathlib import Path
@@ -86,6 +98,8 @@ jobs:
           c=json.loads(Path('/tmp/simplex.json').read_text()); d=json.loads(Path('/tmp/edge-terrain.json').read_text())
           e=json.loads(Path('/tmp/level-terrain.json').read_text()); f=json.loads(Path('/tmp/level-flow.json').read_text())
           g=json.loads(Path('/tmp/multiobjective.json').read_text()); h=json.loads(Path('/tmp/frontier.json').read_text())
+          i=json.loads(Path('/tmp/additive-cells.json').read_text()); j=json.loads(Path('/tmp/additive-graph.json').read_text())
+          k=json.loads(Path('/tmp/additive-dynamics.json').read_text()); l=json.loads(Path('/tmp/additive-basins.json').read_text())
           assert a['support']==[2,3,5] and a['Omega']==6
           assert {x['neighbor'] for x in b['primitive_horizontal_neighbors']}=={12,18,20,45,50,75}
           assert c['pair_sum_reconstruction']==[2,3,5,7,11] and all(c['verification'].values())
@@ -94,8 +108,15 @@ jobs:
           assert f['fields']['tau']['global_maxima']==[[2,2,2]] and all(f['verification'].values())
           assert g['edge_count']==63 and g['global_pareto_frontier_size']==19 and all(g['verification'].values())
           assert h['frontier_size']==19 and h['component_sizes']==[17,1,1] and h['cycle_rank']==11 and all(h['verification'].values())
+          assert i['cell_count']==300 and i['closed_pascal_cell_count']==8 and i['difference_prime_cell_count']==16 and i['double_preservation_count']==1 and all(i['verification'].values())
+          assert j['source_face_count']==300 and j['unique_destination_face_count']==52 and all(j['verification'].values())
+          assert k['layer_face_counts']==[300,52,22,10,4] and k['unique_face_count']==323 and k['unique_arc_count']==338 and all(k['verification'].values())
+          assert l['scope']['start_face_count']==300 and l['terminal_count_distribution']=={'0':0,'1':195,'2':13,'3':92}
+          assert l['unresolved_start_count']==0 and l['observed_cycle_start_count']==0 and all(l['verification'].values())
           page=Path('web/pvg-pareto-explorer/index.html').read_text(encoding='utf-8')
-          assert 'PVG Pareto Explorer' in page and 'const AXES=[2,3,5], LEVEL=6' in page
+          pascal=Path('web/pvg-pareto-explorer/pascal.html').read_text(encoding='utf-8')
+          assert 'PVG Pareto Explorer 3D' in page and 'const LEVEL=6' in page and '2**a*3**b*5**c' in page
+          assert 'PVG Pascal' in pascal or 'باسكال' in pascal
           PY
       - name: Prime-pair atlas regeneration
         run: |
