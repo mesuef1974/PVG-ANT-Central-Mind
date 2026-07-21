@@ -36,11 +36,15 @@ jobs:
           node-version: '22'
       - name: Python syntax
         run: python -m py_compile tests/test_pvg_visual_lab_3d.py
-      - name: PowerShell syntax
+      - name: PowerShell syntax and synchronization contract
         shell: pwsh
         run: |
-          $source = Get-Content -Raw tools/open_pvg_visual_lab_3d.ps1
-          $null = [scriptblock]::Create($source)
+          $launcher = Get-Content -Raw tools/open_pvg_visual_lab_3d.ps1
+          $sync = Get-Content -Raw tools/sync_pvg_inverse_geometry_worktree.ps1
+          $null = [scriptblock]::Create($launcher)
+          $null = [scriptblock]::Create($sync)
+          if ($sync -notmatch 'tests/test_pvg_visual_lab_3d.py') { throw 'PASS-021 test is missing from worktree synchronization' }
+          if ($sync -notmatch 'visual-lab-3d.html') { throw 'PASS-021 page is missing from worktree synchronization' }
       - name: Immersive 3D lab tests
         run: python -m unittest -v tests/test_pvg_visual_lab_3d.py
       - name: Static smoke
