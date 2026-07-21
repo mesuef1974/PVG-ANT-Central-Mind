@@ -38,7 +38,7 @@ try {
         "tests/test_pvg_pareto_explorer.py","tests/test_pvg_pascal_explorer.py",
         "tests/test_pvg_local_additive_cell_atlas.py","tests/test_pvg_additive_face_transition_graph.py",
         "tests/test_pvg_iterated_additive_face_dynamics.py","tests/test_pvg_additive_attraction_basins.py",
-        "tests/test_pvg_additive_basin_overlap_geometry.py"
+        "tests/test_pvg_additive_basin_overlap_geometry.py","tests/test_pvg_additive_basin_depth_stability.py"
     )
     foreach ($Suite in $Suites) { Invoke-Python312 -PythonArgs @("-m","unittest","-v",$Suite); Assert-LastExitCode -FailureMessage "Test suite failed: $Suite" }
     Invoke-Python312 -PythonArgs @("tools/pvg_inverse_geometry.py","900","--compact"); Assert-LastExitCode -FailureMessage "Passport smoke test failed"
@@ -68,6 +68,15 @@ try {
     if ($Pass017.axis_overlap_graph.pair_overlaps[0].axes[0] -ne 5 -or $Pass017.axis_overlap_graph.pair_overlaps[0].axes[1] -ne 7 -or $Pass017.axis_overlap_graph.pair_overlaps[0].intersection_size -ne 75) { throw "PASS-017 strongest overlap mismatch" }
     if ($Pass017.signature_poset.cover_edge_count -ne 25 -or ($Pass017.signature_poset.rank_distribution.'1') -ne 10 -or ($Pass017.signature_poset.rank_distribution.'2') -ne 1 -or ($Pass017.signature_poset.rank_distribution.'3') -ne 8) { throw "PASS-017 signature poset mismatch" }
     if ($Pass017.gateway_start_count -ne 105 -or @($Pass017.verification.PSObject.Properties | Where-Object { -not [bool]$_.Value }).Count -ne 0) { throw "PASS-017 verification failure" }
+    $Pass018Raw=Invoke-Python312 -PythonArgs @("tools/pvg_additive_basin_depth_stability.py","--limit","100","--min-depth","0","--max-depth","5","--summary-only","--registered-summary","--compact")
+    Assert-LastExitCode -FailureMessage "Additive basin depth stability smoke test failed"
+    $Pass018=($Pass018Raw | Out-String | ConvertFrom-Json)
+    if ($Pass018.scope.start_face_count -ne 300 -or ($Pass018.scope.depth_values -join ',') -ne '0,1,2,3,4,5') { throw "PASS-018 scope mismatch" }
+    if (($Pass018.depth_table | ForEach-Object { $_.unresolved_start_count }) -join ',' -ne '300,276,115,25,2,0') { throw "PASS-018 unresolved contraction mismatch" }
+    if ($Pass018.stabilization_depth_distribution.'2' -ne 171 -or $Pass018.stabilization_depth_distribution.'5' -ne 2) { throw "PASS-018 stabilization distribution mismatch" }
+    if (($Pass018.basin_size_series.'5' -join ',') -ne '0,2,141,153,153,153') { throw "PASS-018 basin series mismatch" }
+    if (($Pass018.depth_table | ForEach-Object { $_.overlap_edge_count }) -join ',' -ne '0,0,11,12,13,13') { throw "PASS-018 overlap evolution mismatch" }
+    if (@($Pass018.verification.PSObject.Properties | Where-Object { -not [bool]$_.Value }).Count -ne 0) { throw "PASS-018 verification failure" }
     $ExplorerPage=Join-Path $Worktree "web\pvg-pareto-explorer\index.html"
     $PascalPage=Join-Path $Worktree "web\pvg-pareto-explorer\pascal.html"
     if (-not (Test-Path $ExplorerPage)) { throw "PVG Pareto Explorer page missing: $ExplorerPage" }
