@@ -48,7 +48,7 @@ $Head=(& git -C $Worktree rev-parse HEAD).Trim()
 $RemoteHead=(& git -C $Repo rev-parse $RemoteRef).Trim()
 if ($Head -ne $RemoteHead) { throw "Synchronization verification failed: HEAD=$Head remote=$RemoteHead" }
 
-Write-Host "Running PVG point, neighborhood, edge, triangle, dynamics, tetrahedron, and general-simplex tests..."
+Write-Host "Running PVG point, neighborhood, edge, triangle, dynamics, tetrahedron, general-simplex, and arithmetic-terrain tests..."
 Push-Location $Worktree
 try {
     $Suites=@(
@@ -58,7 +58,8 @@ try {
         "tests/test_pvg_prime_triangle_atlas.py",
         "tests/test_pvg_prime_triangle_dynamics.py",
         "tests/test_pvg_prime_tetrahedron_atlas.py",
-        "tests/test_pvg_prime_simplex_general.py"
+        "tests/test_pvg_prime_simplex_general.py",
+        "tests/test_pvg_arithmetic_terrain.py"
     )
     foreach ($Suite in $Suites) {
         Invoke-Python312 -PythonArgs @("-m","unittest","-v",$Suite)
@@ -71,6 +72,8 @@ try {
     Assert-LastExitCode -FailureMessage "Local-neighborhood smoke test failed"
     Invoke-Python312 -PythonArgs @("tools/pvg_prime_simplex_general.py","2,3,5,7,11","--compact")
     Assert-LastExitCode -FailureMessage "General prime-simplex smoke test failed"
+    Invoke-Python312 -PythonArgs @("tools/pvg_arithmetic_terrain.py","60","2","3","--factors","2^2,3,5","--compact")
+    Assert-LastExitCode -FailureMessage "Arithmetic-terrain smoke test failed"
 
     $TempRoot=[System.IO.Path]::GetTempPath()
     $Jobs=@(
