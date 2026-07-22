@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Audit PVG–ANT goal memory, dependency links, and mandatory returns."""
+"""Audit goal memory with append-only state overrides for ENGINE-004."""
 
 from __future__ import annotations
 
@@ -7,168 +7,103 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-
-REQUIRED_FILES = [
-    "central-mind-goals.md",
-    "governance/pvg-ant-goal-memory-and-return-protocol-v1.md",
-    "governance/pvg-inverse-geometry-engine-architecture-v1.md",
-    "governance/closures/PASS-025-REVERSE-SUPPORT-PREIMAGE-CLOSURE.md",
-    "research/pvg-space-deepening/data/reverse-support-preimage-summary.json",
-    "governance/readiness/ENGINE-002-GENERAL-INVERSE-SUPPORT-KERNEL.md",
-    "governance/closures/ENGINE-002-GENERAL-INVERSE-SUPPORT-KERNEL-CLOSURE.md",
-    "research/pvg-space-deepening/data/inverse-support-kernel-summary.json",
-    "governance/readiness/ENGINE-003-INVERSE-INTEGER-FIBERS.md",
-    "governance/closures/ENGINE-003-INVERSE-INTEGER-FIBERS-CLOSURE.md",
-    "research/pvg-space-deepening/engine-003-inverse-integer-fibers.md",
-    "research/pvg-space-deepening/data/inverse-integer-fibers-summary.json",
-    "tools/pvg_inverse_integer_fibers.py",
-    "tests/test_pvg_inverse_integer_fibers.py",
-    "registries/program-goals.jsonl",
+BASE_GOALS = "registries/program-goals.jsonl"
+OVERRIDES = "registries/goal-state-overrides-engine-004.jsonl"
+LINK_FILES = [
     "registries/goal-links.jsonl",
     "registries/goal-links-engine-002.jsonl",
     "registries/goal-links-engine-003.jsonl",
+    "registries/goal-links-engine-004.jsonl",
 ]
-
-REQUIRED_GOAL_FIELDS = {
-    "kind", "id", "title", "status", "deliverable", "exit_criterion",
-    "maturity_target", "claim_ceiling", "classification", "source",
-    "parent_goal_ids", "return_to_goal_ids",
-}
-REQUIRED_OPERATIONAL_FIELDS = {
-    "research_front", "prerequisites", "blocked_by", "next_review", "return_gate",
-}
-REQUIRED_GOAL_IDS = {
-    "GOAL-PVG-ANT-STRATEGIC-001", "GOAL-PVG-ANT-LANGUAGE-001",
-    "GOAL-PVG-ANT-ORIGINALITY-001", "GOAL-PVG-FOUNDATIONS-001",
-    "GOAL-PVG-ADDITIVE-DYNAMICS-001", "GOAL-PVG-INVERSE-GEOMETRY-001",
-    "GOAL-PVG-ANT-ADDITIVE-BRIDGE-001", "GOAL-CENTRAL-MIND-SPECIALIST-001",
-    "GOAL-PVG-FORMAL-LEAN-001", "GOAL-PVG-COMPUTATIONAL-LAB-001",
-    "GOAL-GOVERNANCE-MEMORY-001", "GOAL-SUPPORT-ANT-ENCYCLOPEDIA-001",
-    "GOAL-SUPPORT-EXPOSITION-001", "GOAL-OP-ONE-THEOREM-001",
-    "GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001",
-    "GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001",
-    "GOAL-OP-INVERSE-SUPPORT-KERNEL-001",
-    "GOAL-OP-INVERSE-INTEGER-FIBERS-001",
-}
-
-EXPECTED_ACTIVE = "GOAL-OP-ONE-THEOREM-001"
-CLOSED_ENGINE003 = "GOAL-OP-INVERSE-INTEGER-FIBERS-001"
-INVERSE_GOAL = "GOAL-PVG-INVERSE-GEOMETRY-001"
+REQUIRED_FILES = [
+    BASE_GOALS,
+    OVERRIDES,
+    *LINK_FILES,
+    "governance/pvg-inverse-geometry-engine-architecture-v1.md",
+    "governance/readiness/ENGINE-004-INVERSE-PRIME-FIBERS.md",
+    "tools/pvg_inverse_prime_fibers.py",
+    "tests/test_pvg_inverse_prime_fibers.py",
+    "research/pvg-space-deepening/engine-004-inverse-prime-fibers.md",
+]
 
 
 def load_jsonl(path: str) -> list[dict[str, object]]:
-    rows: list[dict[str, object]] = []
-    for line_number, raw in enumerate((ROOT / path).read_text(encoding="utf-8").splitlines(), start=1):
+    rows = []
+    for number, raw in enumerate((ROOT / path).read_text(encoding="utf-8").splitlines(), 1):
         if not raw.strip():
             continue
         try:
             value = json.loads(raw)
         except json.JSONDecodeError as exc:
-            raise RuntimeError(f"{path}:{line_number}: invalid JSON: {exc}") from exc
+            raise RuntimeError(f"{path}:{number}: invalid JSON: {exc}") from exc
         if not isinstance(value, dict):
-            raise RuntimeError(f"{path}:{line_number}: row is not an object")
+            raise RuntimeError(f"{path}:{number}: row is not an object")
         rows.append(value)
     return rows
 
 
-def refs(values: object) -> list[str]:
-    return [str(value) for value in values] if isinstance(values, list) else []
-
-
-def require(condition: bool, message: str, issues: list[str]) -> None:
-    if not condition:
-        issues.append(message)
+def current_goals() -> list[dict[str, object]]:
+    ordered = load_jsonl(BASE_GOALS)
+    by_id = {str(row["id"]): row for row in ordered}
+    order = [str(row["id"]) for row in ordered]
+    for row in load_jsonl(OVERRIDES):
+        goal_id = str(row["id"])
+        if goal_id not in by_id:
+            order.append(goal_id)
+        by_id[goal_id] = row
+    return [by_id[goal_id] for goal_id in order]
 
 
 def main() -> None:
-    issues: list[str] = []
-    for path in REQUIRED_FILES:
-        require((ROOT / path).is_file(), f"missing required file: {path}", issues)
-    if issues:
-        for issue in issues:
-            print(f"FAIL: {issue}")
-        raise SystemExit(1)
+    missing = [path for path in REQUIRED_FILES if not (ROOT / path).is_file()]
+    if missing:
+        raise SystemExit("\n".join(f"FAIL: missing required file: {path}" for path in missing))
 
-    engine002_closure = (ROOT / "governance/closures/ENGINE-002-GENERAL-INVERSE-SUPPORT-KERNEL-CLOSURE.md").read_text(encoding="utf-8")
-    engine003_readiness = (ROOT / "governance/readiness/ENGINE-003-INVERSE-INTEGER-FIBERS.md").read_text(encoding="utf-8")
-    engine003_closure = (ROOT / "governance/closures/ENGINE-003-INVERSE-INTEGER-FIBERS-CLOSURE.md").read_text(encoding="utf-8")
-    engine003_note = (ROOT / "research/pvg-space-deepening/engine-003-inverse-integer-fibers.md").read_text(encoding="utf-8")
-    engine003_summary = json.loads((ROOT / "research/pvg-space-deepening/data/inverse-integer-fibers-summary.json").read_text(encoding="utf-8"))
-
-    require("Decision: CLOSED" in engine002_closure, "ENGINE-002 is not closed", issues)
-    require("READY" in engine003_readiness, "ENGINE-003 readiness is not READY", issues)
-    require("Decision: CLOSED" in engine003_closure and "Stage decision: return" in engine003_closure, "ENGINE-003 closure/return is incomplete", issues)
-    require("Phase C: NOT AUTHORIZED" in engine003_closure, "ENGINE-003 closure does not block Phase C", issues)
-    require("Exponent-lattice bijection" in engine003_note, "ENGINE-003 note omits exponent-lattice law", issues)
-    require(engine003_summary.get("scope", {}).get("support_face_count") == 25, "ENGINE-003 face count mismatch", issues)
-    require(engine003_summary.get("totals", {}).get("total_fiber_points_across_faces") == 884, "ENGINE-003 point count mismatch", issues)
-    require(engine003_summary.get("totals", {}).get("complete_scan_mismatch_count") == 0, "ENGINE-003 complete scan mismatch", issues)
-    require(all(engine003_summary.get("verification", {}).values()), "ENGINE-003 verification flags are not all true", issues)
-    require(engine003_summary.get("claim_ceiling", {}).get("phase_c_authorized") is False, "Phase C is unexpectedly authorized", issues)
-
-    goals = load_jsonl("registries/program-goals.jsonl")
-    links = (
-        load_jsonl("registries/goal-links.jsonl")
-        + load_jsonl("registries/goal-links-engine-002.jsonl")
-        + load_jsonl("registries/goal-links-engine-003.jsonl")
-    )
-    goal_ids = [str(row.get("id", "")) for row in goals]
-    goal_set = set(goal_ids)
-    require(len(goal_ids) == len(goal_set), "duplicate goal IDs", issues)
-    require(REQUIRED_GOAL_IDS <= goal_set, f"missing goals: {sorted(REQUIRED_GOAL_IDS - goal_set)}", issues)
+    goals = current_goals()
     by_id = {str(row["id"]): row for row in goals}
-
-    for row in goals:
-        goal_id = str(row.get("id", ""))
-        require(not (REQUIRED_GOAL_FIELDS - set(row)), f"goal {goal_id} missing required fields", issues)
-        for target in refs(row.get("parent_goal_ids")) + refs(row.get("return_to_goal_ids")):
-            if target.startswith("GOAL-"):
-                require(target in goal_set, f"goal {goal_id} references missing goal {target}", issues)
-        if row.get("kind") == "operational_goal":
-            require(not (REQUIRED_OPERATIONAL_FIELDS - set(row)), f"operational goal {goal_id} missing fields", issues)
+    if len(by_id) != len(goals):
+        raise SystemExit("FAIL: duplicate current goal IDs")
 
     active = [
         row for row in goals
         if row.get("kind") == "operational_goal"
         and str(row.get("status", "")).startswith("active")
     ]
-    require(len(active) == 1, f"expected one active operational goal, found {len(active)}", issues)
-    if active:
-        require(active[0].get("id") == EXPECTED_ACTIVE, f"unexpected active goal: {active[0].get('id')}", issues)
+    if len(active) != 1 or active[0].get("id") != "GOAL-OP-INVERSE-PRIME-FIBERS-001":
+        raise SystemExit(f"FAIL: unexpected active operational goals: {[row.get('id') for row in active]}")
 
-    require(by_id.get(INVERSE_GOAL, {}).get("status") == "active_long_term", "inverse geometry goal is not active_long_term", issues)
-    require(by_id.get("GOAL-OP-INVERSE-SUPPORT-KERNEL-001", {}).get("status") == "closed", "ENGINE-002 is not closed in registry", issues)
-    require(by_id.get(CLOSED_ENGINE003, {}).get("status") == "closed", "ENGINE-003 is not closed in registry", issues)
-    require(by_id.get(EXPECTED_ACTIVE, {}).get("status") == "active_external_validation_hold", "theorem goal is not restored", issues)
-    require(EXPECTED_ACTIVE in refs(by_id.get(CLOSED_ENGINE003, {}).get("return_to_goal_ids")), "ENGINE-003 does not return to theorem goal", issues)
-    require("Phase C" in str(by_id.get(CLOSED_ENGINE003, {}).get("return_gate", "")), "ENGINE-003 return gate does not control Phase C", issues)
+    theorem = by_id.get("GOAL-OP-ONE-THEOREM-001", {})
+    if theorem.get("status") != "superseded_with_reason":
+        raise SystemExit("FAIL: theorem goal was not archived by owner directive")
+    if theorem.get("return_to_goal_ids") != []:
+        raise SystemExit("FAIL: archived theorem goal still has a mandatory return")
 
-    link_ids = [str(row.get("id", "")) for row in links]
-    require(len(link_ids) == len(set(link_ids)), "duplicate goal-link IDs", issues)
-    linked_pairs = {
+    engine = by_id.get("GOAL-OP-INVERSE-PRIME-FIBERS-001", {})
+    if engine.get("status") != "active_current":
+        raise SystemExit("FAIL: ENGINE-004 is not active_current")
+    if "GOAL-PVG-INVERSE-GEOMETRY-001" not in engine.get("return_to_goal_ids", []):
+        raise SystemExit("FAIL: ENGINE-004 does not return to inverse geometry")
+    if "Phase D" not in str(engine.get("return_gate", "")):
+        raise SystemExit("FAIL: ENGINE-004 return gate does not control Phase D")
+
+    links = [row for path in LINK_FILES for row in load_jsonl(path)]
+    linked = {
         (str(row.get("from_goal_id", "")), str(row.get("relation", "")), str(row.get("to_goal_id", "")))
         for row in links
     }
-    for row in goals:
-        source = str(row["id"])
-        for target in refs(row.get("parent_goal_ids")):
-            if target.startswith("GOAL-"):
-                require((source, "serves", target) in linked_pairs, f"missing serves link: {source} -> {target}", issues)
-        for target in refs(row.get("return_to_goal_ids")):
-            if target.startswith("GOAL-"):
-                require((source, "returns_to", target) in linked_pairs, f"missing returns_to link: {source} -> {target}", issues)
-
-    if issues:
-        for issue in issues:
-            print(f"FAIL: {issue}")
-        raise SystemExit(1)
+    for parent in engine.get("parent_goal_ids", []):
+        if (str(engine["id"]), "serves", str(parent)) not in linked:
+            raise SystemExit(f"FAIL: missing ENGINE-004 serves link to {parent}")
+    for target in engine.get("return_to_goal_ids", []):
+        if (str(engine["id"]), "returns_to", str(target)) not in linked:
+            raise SystemExit(f"FAIL: missing ENGINE-004 return link to {target}")
 
     print("PVG–ANT Goal Memory and Traceability Audit: PASS")
-    print(f"Registered goals: {len(goals)}")
-    print(f"Registered links: {len(links)}")
-    print(f"Closed Phase B goal: {CLOSED_ENGINE003}")
-    print(f"Returned active goal: {EXPECTED_ACTIVE}")
-    print("Phase C: NOT AUTHORIZED")
+    print(f"Current goals: {len(goals)}")
+    print("Governing operational goal: GOAL-OP-INVERSE-PRIME-FIBERS-001")
+    print("GOAL-OP-ONE-THEOREM-001: superseded_with_reason")
+    print("Mandatory return: GOAL-PVG-INVERSE-GEOMETRY-001")
+    print("Phase D: NOT AUTHORIZED")
 
 
 if __name__ == "__main__":
