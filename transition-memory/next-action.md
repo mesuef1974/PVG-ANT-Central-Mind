@@ -65,25 +65,63 @@ No PASS-004 is active or authorized. Do not start another calculation automatica
 
 1. Have support routing, exact pair fibers, lossless centered coordinates, spectrum compression, and static coordinate incidence satisfied the declared Phase-C deliverable?
 2. Is any unresolved question genuinely about inverse prime fibers, rather than Phase-D dynamics, asymptotics, or a theorem route?
-3. What information remains lost at each projection:
-   `pair occurrence → integer owner → support owner → route class`?
+3. What information remains lost at each projection: `pair occurrence → integer owner → support owner → route class`?
 4. Does the current finite theory support a reusable ENGINE-004 API and closure certificate?
 5. Is a new bounded pass materially necessary, or would it merely generate more finite statistics?
 
 ## Retained capability state — supporting, not governing
 
 ```text
+TRANSLATION-KERNEL-V2-PASS-001 = checkpoint_pass
+PVG-ANT-BENCHMARK-001 = checkpoint_pass
+TRANSLATION-KERNEL-V2-PASS-002 = checkpoint_pass
 PVG-UNDERSTANDING-DEEPENING-001 = checkpoint_pass
 GOVERNANCE-ENFORCEMENT-CLOSURE-001 = CLOSED
+CENTRAL-MIND-CONTINUITY-001 = installed_repository_side
 CENTRAL-MIND-CONTINUITY-CLOSURE-002 = closed
+Current maturation receipt = MATURATION-RECEIPT-007
 MNTII-006-E = CLOSED by v0.6-e-closure
 TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001 = retained on demand
 Montgomery A/B/legacy-E = quarantined / source-mismatch / not live
-registries/planned.jsonl is empty
-Dataset 004 remains unauthorized
 ```
 
-These records do not create another active research front.
+These stages and tools remain registered capabilities and do not create a second research front. Quarantined source-mismatch material is negative memory only.
+
+```text
+ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED
+registries/planned.jsonl is empty
+Dataset 004 remains unauthorized
+no targeted learning before the immutable raw error map
+no local component training, corpus promotion, LoRA, or SFT
+no automatic Lean expansion
+```
+
+## Superseded PASS-003 readiness memory
+
+The former `Immediate governed task — PASS-003` was limited to exact coordinate-owner incidence geometry in the unchanged frozen box, with the layer separation
+
+```text
+coordinate d
+→ prime-pair occurrence over N
+→ integer owner N
+→ exact support face F
+→ route class
+```
+
+and required independent regeneration, deterministic ordering, complete-box tests, a compact certificate, and CI assertions. That readiness task is now **historical and fulfilled** by `ENGINE-004-PASS-003-CENTERED-RADIUS-INCIDENCE-001 = CHECKPOINT_PASS`; it is not an active task.
+
+## Required scientific classification
+
+```text
+IDENTITY
+PROVED
+FINITE-VERIFIED
+INTERPRETATION
+HYPOTHESIS
+OPEN
+```
+
+No degree distribution, collision, connected component, absence, extremum, or support pattern may be promoted beyond the frozen box.
 
 ## Stop conditions
 
