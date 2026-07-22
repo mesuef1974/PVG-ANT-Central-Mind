@@ -177,7 +177,7 @@ Historical and supporting source layers remain available on demand:
 - Montgomery MNT-II v0.6;
 - Opera de Cribro v0.7.
 
-The source-grounding-corrected Montgomery story remains in force. Mismatched A/B/legacy-E material remains quarantined.
+The source-grounding-corrected Montgomery story remains in force. The historical v0.6-E Closure Review and `v0.6-e-closure` remain closed and source-grounded. `TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001` remains live. Mismatched A/B/legacy-E material remains quarantined for source-mismatch.
 
 The Lean layer through `LEAN-P3-PASS-008` provides zero-sorry reusable valuation foundations. New Lean work requires a named active need.
 
