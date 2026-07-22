@@ -34,6 +34,7 @@ Updated: 2026-07-22
 active_fixed
 active_long_term
 active_current
+active_external_validation_hold
 active_supporting_nonresearch_front
 queued_next
 paused_governed_return_required
@@ -92,7 +93,7 @@ superseded_with_reason
 
 `GOAL-PVG-ADDITIVE-DYNAMICS-001`
 
-يشمل PASS-013–024 وSYNTHESIS-001: الخلايا الجمعية، انتقال الوجوه، الأحواض، التداخل، استقرار العمق، نمو عمق الإغلاق، ألياف الدعم، السوابق، وخريطة فقد المعلومات.
+يشمل PASS-013–025 وSYNTHESIS-001: الخلايا الجمعية، انتقال الوجوه، الأحواض، التداخل، استقرار العمق، نمو عمق الإغلاق، ألياف الدعم، السوابق العكسية، شاهد العمق 12، وخريطة فقد المعلومات.
 
 ### G4 — Axis addition and ANT bridge
 
@@ -155,16 +156,29 @@ Python والاختبارات والبيانات وCI والمختبرات ال�
 ### O4 — One-Theorem Program 001
 
 `GOAL-OP-ONE-THEOREM-001`  
-**Status:** `paused_governed_return_required`.
+**Status:** `active_external_validation_hold`.
 
-لم يُلغَ. توقفه مؤقت ومقيد. يجب بعد PASS-025 تنفيذ مراجعة عودة صريحة: استئناف O4، إغلاقه بشهادة، أو تبرير تأجيل جديد محدود.
+أُعيدت إليه الجبهة بعد إغلاق PASS-025. يبقى الهدف المجمد `ONE-LEMMA-TARGET-001`، والنتيجة الداخلية ذات \(q,r,W\) الثابتة تحت انتظار التحقق الخارجي.
+
+الحالة الخارجية:
+
+```text
+P8-OUTREACH-DECISION-001 = SENT
+P8-EXTERNAL-REFEREE-001 = SENT_AWAITING_RESPONSE
+priority request = Tsz Ho Chan
+proof request = Etienne Fouvry
+external originality certificate = absent
+independent proof certificate = absent
+```
+
+لا ترسل حزمة جديدة ولا تتصل بالبدلاء دون تفويض صريح من المالك. `SENT` ليست قبولًا أو مراجعة أو تصديقًا.
 
 ### O4A — SYNTHESIS-001 Support-Fiber Dynamics
 
 `GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001`  
 **Status:** `closed`.
 
-أغلقته:
+شهادة الإغلاق:
 
 `governance/closures/SYNTHESIS-001-SUPPORT-FIBER-DYNAMICS-CLOSURE.md`
 
@@ -178,7 +192,7 @@ Python والاختبارات والبيانات وCI والمختبرات ال�
 - مصفوفة `exact / finite / reinterpretation / candidate / open`؛
 - جسر عكسي إلى دوال التمثيل في ANT.
 
-قرار المراجعة:
+قرار المراجعة كان:
 
 ```text
 bounded_extension → PASS-025
@@ -187,19 +201,51 @@ bounded_extension → PASS-025
 ### O4B — PASS-025 Reverse Support-Preimage Generator
 
 `GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001`  
-**Status:** `active_current`.
+**Status:** `closed`.
 
-يبحث موجهًا عن عائلة عمق 12 أو شهادة غياب منتهية، باستعمال السوابق العكسية لأوجه الدعم بدل رفع سقف المسح عشوائيًا.
+شهادة الإغلاق:
 
-المخرجات المطلوبة:
+`governance/closures/PASS-025-REVERSE-SUPPORT-PREIMAGE-CLOSURE.md`
 
-- مولد سوابق دعم عكسي؛
-- ترتيب عائلات مرشحة بحسب العمق؛
-- اختبار أعداد ألياف الدعم لوجود تمثيلات بأوليين مختلفين؛
-- أصغر شاهد عمق 12 أو شهادة غياب منتهية؛
-- مراجعة مرحلة وعودة معرفية.
+النتيجة المسجلة:
 
-لا يوجد `queued_next` بعده. لا يُفتح PASS-026 قبل Stage Review يقرر كيف تخدم النتيجة O4 أو يبرر استمرارًا محدودًا واحدًا.
+```text
+DEPTH_12_WITNESS_FOUND_WITHIN_FROZEN_CLASS
+source pair = {2,27397961}
+source sum = 27397963
+predecessor support = {41,668243}
+seed sum = 668284
+closure depth = 12
+```
+
+المدار:
+
+\[
+\begin{aligned}
+\{2,27397961\}
+&\to\{41,668243\}
+\to\{2,167071\}
+\to\{3,55691\}
+\to\{2,27847\}\\
+&\to\{3,9283\}
+\to\{2,4643\}
+\to\{5,929\}
+\to\{2,467\}
+\to\{7,67\}\\
+&\to\{2,37\}
+\to\{3,13\}
+\to\{2\}.
+\end{aligned}
+\]
+
+الشاهد أصغر فقط داخل الفئة الثنائية والسقوف والترتيب المجمد، وليس عالميًا. كان التشغيل تأكيديًا غير معمى لأن استطلاعًا صغيرًا سبق تجميد السقوف.
+
+قرار المراجعة:
+
+```text
+return → GOAL-OP-ONE-THEOREM-001
+PASS-026 = NOT AUTHORIZED
+```
 
 ### O5 — Formal and publication closure
 
@@ -211,13 +257,16 @@ bounded_extension → PASS-025
 ```text
 Strategic goal: unchanged
 Closed synthesis: SYNTHESIS-001
-Active original research front: PASS-025
-Authorized next front after PASS-025: none
-Mandatory return checkpoint: ONE-THEOREM-001 after PASS-025
+Closed bounded reverse search: PASS-025
+Active original research front: ONE-THEOREM-001 external-validation hold
+Authorized next additive-dynamics pass: none
+PASS-026: not authorized
 PVG native geometry: substantial finite and structural progress
-Support-face dynamics: PASS-013 through PASS-024 synthesized and audited
+Support-face dynamics: PASS-013 through PASS-025 synthesized, tested, and certified
+Depth-12 witness: finite verified inside frozen class
 Full-valuation additive dynamics: not yet developed
 Bidirectional ANT translation: partial and distributed across several programs
+New ANT transfer lemma from PASS-025: none
 Original lemma: none certified
 Original theorem: none certified
 Goldbach progress: none claimed
@@ -297,11 +346,12 @@ ANT problem
 Vocabulary: strong
 Multiplicative exact translation: partial-to-strong
 Native PVG geometry: strong finite foundation; incomplete as a unified theory
-Support-projected additive dynamics: L2 structural simplification with bounded L4 mechanism
+Support-projected additive dynamics: L2 structural simplification with closed bounded L4 mechanism
+Reverse-preimage generation: reusable finite research mechanism
 Full-valuation additive dynamics: open
 ANT reverse translation of support dynamics: candidate bridge, no estimate yet
 Transfer principles: limited; not yet a new certified ANT lemma
-Research mechanism: reverse-preimage search active; originality not certified
+Theorem program: active external-validation hold
 Hidden-set autonomous performance: not fully sealed
 Original lemma: none certified
 Original theorem: none certified
@@ -310,12 +360,12 @@ Original theorem: none certified
 ## 14. Ceiling
 
 - لا تعتبر الترجمة مبرهنة.
-- لا تعتبر التجربة آلية مثبتة.
+- لا تعتبر التجربة آلية مثبتة عامة.
 - لا تعتبر Lean مصدر الأصالة.
 - لا تعتبر المعرفة المتوفرة معرفة تشغيلية قبل readiness audit.
-- لا يعتبر الوصول إلى عمق أكبر قانون نمو أو عدم انتهاء.
+- شاهد العمق 12 لا يثبت عدم محدودية الأعماق ولا انتهاء جميع المدارات.
 - لا يعتبر تمثيل عدد كمجموع أوليين تقدمًا في غولدباخ.
-- لا PASS-026 قبل مراجعة PASS-025.
+- لا PASS-026 ولا هدف مبرهنة ثانٍ.
 - لا RH/GRH progress دون proof certificate.
 - لا يُدعى تدريب شبكة أو اعتماد corpus قبل شهادة مستقلة.
 
