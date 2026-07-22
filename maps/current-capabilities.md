@@ -243,7 +243,20 @@ trained neural network = none
 approved training corpus = none
 ```
 
-## 10. Scientific ceiling
+## 10. Retained source-grounded ANT tools
+
+The installed book-layer substrate remains available on demand without governing the active research program.
+
+```text
+MNTII-006-E = CLOSED
+v0.6-e-closure = PASS
+TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001 = retained live diagnostic
+A/B/legacy-E = quarantined / source-mismatch / not live
+```
+
+The bounded-gaps diagnostic is a retained capability, not a current theorem target. The source-grounding-corrected Montgomery history and its quarantine markers remain binding negative memory.
+
+## 11. Scientific ceiling
 
 The current system provides exact inverse-coordinate theory, a corrected data contract, complete finite verification, and governed computational infrastructure.
 
