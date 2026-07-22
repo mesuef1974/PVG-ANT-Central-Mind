@@ -139,11 +139,14 @@ returns_to
 ## 10. Current controlled sequence
 
 ```text
-ACTIVE:
+CLOSED:
 GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001
 
-NEXT, ONLY AFTER CLOSURE:
+ACTIVE BOUNDED EXTENSION:
 GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001 / PASS-025
+
+NO AUTHORIZED NEXT PASS:
+PASS-026 = PROHIBITED BEFORE STAGE REVIEW
 
 MANDATORY RETURN CHECKPOINT:
 GOAL-OP-ONE-THEOREM-001
@@ -200,8 +203,9 @@ GOAL-OP-ONE-THEOREM-001
 - كان هدف paused بلا `return_gate`;
 - كان هدف queued بلا prerequisites؛
 - غابت نقطة عودة من جبهة مؤقتة؛
-- لم تكن SYNTHESIS-001 الجبهة الحالية المسجلة؛
-- لم يسجل PASS-025 بوصفه التالي فقط لا النشط؛
+- لم تكن PASS-025 الجبهة الحالية المسجلة؛
+- لم تكن SYNTHESIS-001 مغلقة بشهادة؛
+- ظهر PASS-026 بوصفه مصرحًا قبل Stage Review؛
 - اختفى ONE-THEOREM-001 من نقطة العودة الإلزامية.
 
 ## 14. Scientific ceiling
