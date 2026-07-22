@@ -41,12 +41,12 @@ integer cap = 100000
 support faces = 25
 Phase-B integer points = 884
 prime-pair convention = unordered, distinct, p<q
-cap expansion = not authorized inside current checkpoint
+cap expansion = not authorized
 ```
 
-## Exact Phase-C theory now installed
+## PASS-001 — centered-gap coordinates
 
-For every exact-support integer point \(N\in\mathcal N(F)\):
+For every exact-support point \(N\in\mathcal N(F)\):
 
 ```text
 N is even iff 2 belongs to F.
@@ -54,89 +54,143 @@ N is even iff 2 belongs to F.
 2 in F     => every distinct-prime representation is odd+odd.
 ```
 
-For every representation \(p<q\), \(p+q=N\), define the centered-gap coordinate
+For every representation \(p<q\), \(p+q=N\),
 
 \[
-\Delta=q-p.
-\]
-
-Exact reconstruction and identities:
-
-\[
-p=\frac{N-\Delta}{2},\qquad q=\frac{N+\Delta}{2},
+\Delta=q-p,
+\qquad
+p=\frac{N-\Delta}{2},
+\qquad
+q=\frac{N+\Delta}{2},
 \]
 
 \[
-\Delta\equiv N\pmod 2,\qquad N^2-\Delta^2=4pq,
-\qquad \gcd(N,\Delta)=\gcd(N,2).
+\Delta\equiv N\pmod2,
+\qquad
+N^2-\Delta^2=4pq,
+\qquad
+\gcd(N,\Delta)=\gcd(N,2).
 \]
 
-For even \(N\), with \(m=N/2\) and \(d=\Delta/2\):
+For even \(N\), \(m=N/2\), \(d=\Delta/2\):
 
 \[
-p=m-d,\qquad q=m+d,\qquad m^2-d^2=pq,
-\qquad \gcd(m,d)=1.
+p=m-d,
+\qquad
+q=m+d,
+\qquad
+m^2-d^2=pq,
+\qquad
+\gcd(m,d)=1.
 \]
 
-Classification: `IDENTITY / PROVED`. No originality claim.
+Classification: `IDENTITY / PROVED`.
 
-## Data-contract correction
+## PASS-002 — governed centered-radius spectra
 
-`prime_fiber_record(n, support)` rejects mismatched support labels and requires
+\[
+D(N)=
+\begin{cases}
+\{\Delta/2:\Delta\in\Delta_2(N)\},&N\text{ even},\\
+\Delta_2(N),&N\text{ odd}.
+\end{cases}
+\]
+
+Exact recovery:
 
 ```text
-factor_support(n) == support
+N even, N=2m, d in D(N) => (p,q)=(m-d,m+d)
+N odd and represented, d in D(N) => N=d+4 and (p,q)=(2,d+2)
+(N,D(N)) reconstructs the complete distinct-prime fiber
+|D(N)| = |R_2(N)|
+represented odd points have no internal coordinate collision
 ```
 
-before attaching prime-fiber data to an integer point.
+An earlier `Delta/N` implementation was outside the governed object and was removed. No result from it is admitted.
 
-## Registered finite certificate
+Classification: `IDENTITY / PROVED`.
+
+## Frozen finite certificates
+
+### Prime-fiber certificate
 
 ```text
 integer points                         = 884
 representable integer points           = 745
 nonrepresentable integer points        = 139
 unordered distinct-prime pairs         = 218024
-centered-gap coordinates               = 218024
 independent full-scan mismatches        = 0
 maximum multiplicity                   = 1557
 maximum point                          = 97200
 maximum support                        = {2,3,5}
 ```
 
-Support-route decomposition:
+### Spectrum certificate
 
 ```text
-contains axis 2:
-  support faces                        = 11
-  integer points                       = 653
-  representable points                 = 650
-  nonrepresentable points              = 3
-  total representations                = 217929
-
-excludes axis 2:
-  support faces                        = 14
-  integer points                       = 231
-  representable points                 = 95
-  nonrepresentable points              = 136
-  total representations                = 95
+total coordinate occurrences                 = 218024
+unique coordinate values                     = 36797
+unique even-route coordinate values          = 36787
+unique odd-route coordinate values           = 95
+cross-route coordinate values                = 85
+odd-only coordinate values                   = 10
+unique spectra including empty               = 744
+unique nonempty spectra                      = 743
+nonempty spectrum collision classes          = 1
+empty spectrum class size                    = 139
+proper containment edges                     = 2048
+singleton-subset containment edges           = 2038
+non-singleton-subset containment edges       = 10
+shared coordinate values                     = 27799
+even/even shared coordinate values           = 27714
+odd/even shared coordinate values            = 85
+odd/odd shared coordinate values             = 0
 ```
 
-Inside the frozen box, the only nonrepresentable points on supports containing axis 2 are `2,4,6`. This is a finite-box statement only.
+The only nonempty spectrum collision is
 
-## Checkpoint and reproducibility
+\[
+D(5)=D(8)=D(12)=\{1\}.
+\]
+
+Only three non-singleton spectra occur as proper subsets:
+
+\[
+(4,2),
+\qquad
+(9,3),
+\qquad
+(45,33,3).
+\]
+
+The most widely shared coordinate is \(d=7\), occurring at 64 frozen-box points.
+
+Classification: `FINITE-VERIFIED` in the frozen box only.
+
+## Information-loss statement
+
+```text
+(N,D(N)) = lossless for the complete prime-pair fiber
+D(N) alone = generally loses N, midpoint, support label, and pair labels
+```
+
+Classification: exact recovery plus `INTERPRETATION` of the projection.
+
+## Checkpoints and verification
 
 ```text
 ENGINE-004-CENTERED-GAP-COORDINATES-001 = CHECKPOINT_PASS
-ENGINE-004 status after checkpoint = active_current
+ENGINE-004-PASS-002-CENTERED-RADIUS-SPECTRA-001 = CHECKPOINT_PASS
+ENGINE-004 status = active_current
 Stage decision = continue_within_phase_c
 Phase D = NOT AUTHORIZED
-local dedicated tests = 8 PASS
-complete prime-pair checks = 218024 PASS
-compact certificate SHA-256 = 5abfc26288b8e3d9fee33a6372cd8b7066c158b3fc54ce59475e1c8d7a465489
+prime-fiber compact SHA-256 = 5abfc26288b8e3d9fee33a6372cd8b7066c158b3fc54ce59475e1c8d7a465489
+spectrum compact SHA-256 = 4064f2a2be99e92b20d6cc8917d8f4e8ba75ddab3c2b53e4baec7616ae19d468
+PVG Centered-Radius Spectra Audit = SUCCESS
+Governance Required Gate = SUCCESS
 ```
 
-The committed workflow regenerates the certificate, compares its digest and registered fields, runs the complete-box tests, and executes Research Compass and Goal Memory audits.
+The dedicated workflow verifies all 218,024 reconstructions, regenerates the compact certificate, matches the digest and registered fields, and passes honesty, state coherence, Research Compass, and Goal Memory audits.
 
 ## Retained capability and continuity state
 
@@ -149,9 +203,12 @@ GOVERNANCE-ENFORCEMENT-CLOSURE-001 = CLOSED
 CENTRAL-MIND-CONTINUITY-001 = installed_repository_side
 CENTRAL-MIND-CONTINUITY-CLOSURE-002 = closed
 Current maturation receipt = MATURATION-RECEIPT-007
+MNTII-006-E = CLOSED by v0.6-e-closure
+TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001 = retained on demand
+Montgomery A/B/legacy-E = quarantined / source-mismatch / not live
 ```
 
-These are retained supporting capabilities, not active competing fronts.
+These are retained supporting capabilities and negative memory, not active competing fronts.
 
 ```text
 ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED
@@ -161,20 +218,34 @@ approved training corpus = none
 no automatic Lean expansion
 ```
 
+## Current governed next question
+
+Study the exact coordinate-owner incidence geometry inside the same frozen box:
+
+```text
+coordinate d
+→ owning integer points N
+→ owning support faces F
+→ parity-route class
+```
+
+Only exact incidence classes, support intersections, coordinate multiplicity distributions, finite hypergraph invariants, and independent deterministic verification are authorized.
+
 ## Current restrictions
 
 - inverse geometry only;
 - no theorem target or theorem-path return;
 - no Phase D without a separate readiness decision;
-- no bound or cap expansion inside this checkpoint;
+- no bound or cap expansion;
+- no weighted or asymptotic representation analysis;
 - no Goldbach claim or progress;
 - no PNT progress;
 - no RH/GRH progress;
-- no asymptotic or historical-originality claim;
+- no historical-originality or publication-readiness claim;
 - no Dataset 004 or training-program expansion.
 
 ## Scientific ceiling
 
-ENGINE-004 currently supplies exact elementary identities, a corrected inverse-fiber data contract, reproducible finite infrastructure, and a complete frozen-box certificate. No original lemma, theorem, asymptotic estimate, or major-conjecture progress is certified.
+ENGINE-004 supplies exact elementary reconstruction laws, corrected inverse-fiber data contracts, complete finite certificates, and reproducible infrastructure. No original lemma, theorem, asymptotic estimate, or major-conjecture progress is certified.
 
 **Classification:** governed Phase-C inverse geometry; exact/proved identities plus finite verification. ENGINE-004 remains the sole active operational research goal.
