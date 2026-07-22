@@ -40,7 +40,8 @@ try {
         "tests/test_pvg_iterated_additive_face_dynamics.py","tests/test_pvg_additive_attraction_basins.py",
         "tests/test_pvg_additive_basin_overlap_geometry.py","tests/test_pvg_additive_basin_depth_stability.py",
         "tests/test_pvg_prime_bound_expansion_protocol.py","tests/test_pvg_cross_bound_structural_stress_test.py",
-        "tests/test_pvg_minimum_closure_depth_growth.py","tests/test_pvg_deep_orbit_preimage_families.py"
+        "tests/test_pvg_minimum_closure_depth_growth.py","tests/test_pvg_deep_orbit_preimage_families.py",
+        "tests/test_pvg_support_fiber_synthesis.py"
     )
     foreach ($Suite in $Suites) { Invoke-Python312 -PythonArgs @("-m","unittest","-v",$Suite); Assert-LastExitCode -FailureMessage "Test suite failed: $Suite" }
     Invoke-Python312 -PythonArgs @("tools/pvg_inverse_geometry.py","900","--compact"); Assert-LastExitCode -FailureMessage "Passport smoke test failed"
