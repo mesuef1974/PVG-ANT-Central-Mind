@@ -82,7 +82,7 @@ Classification: `IDENTITY / PROVED`. No originality claim.
 
 ## Data-contract correction
 
-`prime_fiber_record(n, support)` now rejects mismatched support labels and requires
+`prime_fiber_record(n, support)` rejects mismatched support labels and requires
 
 ```text
 factor_support(n) == support
@@ -138,6 +138,29 @@ compact certificate SHA-256 = 5abfc26288b8e3d9fee33a6372cd8b7066c158b3fc54ce5947
 
 The committed workflow regenerates the certificate, compares its digest and registered fields, runs the complete-box tests, and executes Research Compass and Goal Memory audits.
 
+## Retained capability and continuity state
+
+```text
+TRANSLATION-KERNEL-V2-PASS-001 = checkpoint_pass
+PVG-ANT-BENCHMARK-001 = checkpoint_pass
+TRANSLATION-KERNEL-V2-PASS-002 = checkpoint_pass
+PVG-UNDERSTANDING-DEEPENING-001 = checkpoint_pass
+GOVERNANCE-ENFORCEMENT-CLOSURE-001 = CLOSED
+CENTRAL-MIND-CONTINUITY-001 = installed_repository_side
+CENTRAL-MIND-CONTINUITY-CLOSURE-002 = closed
+Current maturation receipt = MATURATION-RECEIPT-007
+```
+
+These are retained supporting capabilities, not active competing fronts.
+
+```text
+ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED
+Dataset 004 remains unauthorized
+trained neural network = none
+approved training corpus = none
+no automatic Lean expansion
+```
+
 ## Current restrictions
 
 - inverse geometry only;
@@ -145,9 +168,9 @@ The committed workflow regenerates the certificate, compares its digest and regi
 - no Phase D without a separate readiness decision;
 - no bound or cap expansion inside this checkpoint;
 - no Goldbach claim or progress;
-- no PNT, RH, or GRH claim;
+- no PNT progress;
+- no RH/GRH progress;
 - no asymptotic or historical-originality claim;
-- no automatic Lean expansion;
 - no Dataset 004 or training-program expansion.
 
 ## Scientific ceiling
