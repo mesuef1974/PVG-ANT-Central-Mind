@@ -1,81 +1,63 @@
-# ENGINE-004 PASS-002 — Centered-Radius Spectra
+# ENGINE-004 PASS-002 — Governed Centered-Radius Spectra
 
 ```text
 Goal ID: GOAL-OP-INVERSE-PRIME-FIBERS-001
 Engine: ENGINE-004
 Phase: C — Inverse Prime Fibers
-Status: implementation_checkpoint
+Status: implementation_checkpoint / awaiting complete CI
 Scope: frozen 884-point box only
 Phase D: NOT AUTHORIZED
+Classification: IDENTITY / PROVED / FINITE-VERIFIED after complete audit
 ```
 
-## Object
+## Authorized object
 
-For a fixed integer `N` and every distinct-prime representation
-
-\[
-N=p+q,\qquad p<q,
-\]
-
-define the exact normalized centered radius
+For each centered gap
 
 \[
-\rho_N(p,q)=\frac{q-p}{N}.
+\Delta=q-p,
 \]
 
-The centered-radius spectrum is
+define the governed spectrum
 
 \[
-\Sigma(N)=\left\{\frac{q-p}{N}:\{p,q\}\in\mathcal R_2(N)\right\}.
+D(N)=
+\begin{cases}
+\{\Delta/2:\Delta\in\Delta_2(N)\},&N\text{ even},\\
+\Delta_2(N),&N\text{ odd}.
+\end{cases}
 \]
 
-The implementation stores every radius as a reduced rational number, never as a floating-point approximation.
-
-## Exact identities
-
-For every admitted radius `rho`:
+For even `N=2m`, every gap is `Delta=2d`, and
 
 \[
-0<\rho<1,
+p=m-d,\qquad q=m+d,\qquad \gcd(m,d)=1.
 \]
 
-and the normalized prime coordinates are reconstructed exactly by
+For odd `N`, the prime fiber is empty or consists of `2+(N-2)`, so retaining the unnormalized gap preserves the authorized odd route.
 
-\[
-\frac pN=\frac{1-\rho}{2},
-\qquad
-\frac qN=\frac{1+\rho}{2}.
-\]
+## Governance correction
 
-Thus `rho` is a lossless coordinate for the **relative shape** of one representation, while forgetting the absolute scale `N`.
+An initial implementation used the scale-free ratio `Delta/N`. That coordinate is mathematically valid, but it was not the object authorized by `transition-memory/next-action.md`. It has therefore been removed from this pass. No result from that superseded implementation is promoted.
 
-Equal radii satisfy
+## Finite relations
 
-\[
-\frac{q_1-p_1}{p_1+q_1}
-=
-\frac{q_2-p_2}{p_2+q_2},
-\]
+Inside the unchanged frozen box, compute only:
 
-which means equal ordered prime proportions. It does not imply equal sums or equal prime pairs.
+1. equality classes of nonempty spectra;
+2. strict containment relations;
+3. coordinate collisions across integer points and support faces;
+4. point-to-spectrum compression;
+5. information preserved and lost by the spectrum projection.
 
-## Finite relations to compute
-
-Inside the frozen box only, the analyzer records:
-
-1. **spectrum equality** — two points have identical nonempty rational spectra;
-2. **proper containment** — one spectrum is a strict subset of another;
-3. **radius collision** — the same rational radius occurs at multiple integer points;
-4. **spectrum collision** — multiple integer points share one complete spectrum;
-5. **compression** — the map from representable integer points to unique spectra loses absolute scale.
-
-These are exact finite set relations, not statistical estimates.
+These are exact finite set relations, not asymptotic statements.
 
 ## Implementation
 
 ```text
 tools/pvg_centered_radius_spectra.py
 tests/test_pvg_centered_radius_spectra.py
+.github/workflows/pvg-centered-radius-spectra-audit.yml
 ```
 
 Required commands:
@@ -83,24 +65,17 @@ Required commands:
 ```text
 python -m unittest -v tests/test_pvg_centered_radius_spectra.py
 python tools/pvg_centered_radius_spectra.py --registered-summary --compact
+python tools/honesty_audit.py
+python tools/state_coherence_audit.py
 ```
 
-## Current classification
+## Current claim ceiling
 
 ```text
-Definitions and reconstruction laws: IDENTITY / PROVED
-Frozen-box equality and collision enumeration: FINITE-VERIFIED after successful regeneration
-Interpretation as relative shape compression: INTERPRETATION
+Definitions and parity routing: IDENTITY / PROVED
+Frozen-box enumeration: FINITE-VERIFIED only after complete CI success
+Compression meaning: INTERPRETATION
 Historical originality: NOT CLAIMED
 ```
 
-## Governance ceiling
-
-This pass does not authorize:
-
-- cap expansion;
-- Phase D or orbit dynamics;
-- return to `GOAL-OP-ONE-THEOREM-001`;
-- an asymptotic law;
-- any Goldbach, PNT, RH, or GRH claim;
-- any historical-originality or publication-readiness claim.
+This pass does not authorize cap expansion, Phase D, orbit dynamics, theorem reactivation, an asymptotic law, or any Goldbach, PNT, RH, or GRH claim.
