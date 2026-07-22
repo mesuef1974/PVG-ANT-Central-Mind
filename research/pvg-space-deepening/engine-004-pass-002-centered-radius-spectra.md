@@ -4,7 +4,7 @@
 Goal ID: GOAL-OP-INVERSE-PRIME-FIBERS-001
 Engine: ENGINE-004
 Phase: C — Inverse Prime Fibers
-Status: implementation complete / repository CI pending
+Status: CHECKPOINT_PASS
 Scope: frozen 884-point box only
 Phase D: NOT AUTHORIZED
 Classification: IDENTITY / PROVED / FINITE-VERIFIED / INTERPRETATION
@@ -188,6 +188,7 @@ tools/pvg_centered_radius_spectra.py
 tests/test_pvg_centered_radius_spectra.py
 research/pvg-space-deepening/data/centered-radius-spectra-summary.json
 .github/workflows/pvg-centered-radius-spectra-audit.yml
+governance/checkpoints/ENGINE-004-PASS-002-CENTERED-RADIUS-SPECTRA-001.md
 ```
 
 Commands:
@@ -207,7 +208,7 @@ The compact deterministic output, including its trailing newline, has SHA-256:
 4064f2a2be99e92b20d6cc8917d8f4e8ba75ddab3c2b53e4baec7616ae19d468
 ```
 
-An independent implementation regenerated the same frozen counts and digest before push. Repository CI remains the final operational gate for this pass.
+An independent implementation regenerated the same frozen counts and digest before push. Repository CI then passed the dedicated centered-radius workflow and the aggregate Governance Required Gate at head `a069ed84f21cfac58c36c0d29c13cb218bb21fd8`.
 
 ## 6. Honest conclusions
 
