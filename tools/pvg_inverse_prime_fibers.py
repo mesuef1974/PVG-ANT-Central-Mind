@@ -3,7 +3,6 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
-from typing import Iterable
 
 try:
     from tools.pvg_inverse_integer_fibers import (
@@ -84,45 +83,51 @@ def support_prime_fiber_summary(support: Support, cap: int) -> dict[str, object]
     support = normalize_support(support)
     values = integer_fiber(support, cap)
     records = [prime_fiber_record(value, support) for value in values]
-    representable = [record for record in records if record["representable"]]
     maximum = max(records, key=lambda record: (int(record["representation_count"]), int(record["integer"])), default=None)
+    representable_examples = [record for record in records if record["representable"]][:5]
+    nonrepresentable_examples = [record for record in records if not record["representable"]][:5]
     return {
         "support": list(support),
         "support_key": support_key(support),
         "integer_cap": cap,
         "integer_count": len(values),
-        "representable_integer_count": len(representable),
-        "nonrepresentable_integer_count": len(values) - len(representable),
+        "representable_integer_count": sum(bool(record["representable"]) for record in records),
+        "nonrepresentable_integer_count": sum(not bool(record["representable"]) for record in records),
         "total_representation_count": sum(int(record["representation_count"]) for record in records),
         "maximum_representation_integer": None if maximum is None else maximum["integer"],
         "maximum_representation_count": 0 if maximum is None else maximum["representation_count"],
-        "records": records,
+        "representable_examples": representable_examples,
+        "nonrepresentable_examples": nonrepresentable_examples,
     }
 
 
 def registered_summary() -> dict[str, object]:
     faces = support_universe(REGISTERED_SUPPORT_PRIME_LIMIT, REGISTERED_SUPPORT_FACE_SIZES)
-    records = [support_prime_fiber_summary(face, REGISTERED_INTEGER_CAP) for face in faces]
-    all_integer_records = [record for support_record in records for record in support_record["records"]]
-    independent_matches = [
-        tuple(tuple(pair) for pair in record["prime_pairs"]) == independent_prime_pair_fiber(int(record["integer"]))
-        for record in all_integer_records
-    ]
+    compact_records = [support_prime_fiber_summary(face, REGISTERED_INTEGER_CAP) for face in faces]
+
+    all_records: list[dict[str, object]] = []
+    independent_matches: list[bool] = []
+    for face in faces:
+        for value in integer_fiber(face, REGISTERED_INTEGER_CAP):
+            record = prime_fiber_record(value, face)
+            all_records.append(record)
+            independent_matches.append(
+                tuple(tuple(pair) for pair in record["prime_pairs"]) == independent_prime_pair_fiber(value)
+            )
+
     odd_multiplicity_ok = all(
         int(record["representation_count"]) <= 1
-        for record in all_integer_records
+        for record in all_records
         if int(record["integer"]) % 2 == 1
     )
     parity_routing_ok = all(
-        all((pair[0] == 2) for pair in record["prime_pairs"])
+        all(pair[0] == 2 for pair in record["prime_pairs"])
         if int(record["integer"]) % 2 == 1
-        else all((pair[0] % 2 == 1 and pair[1] % 2 == 1) for pair in record["prime_pairs"])
-        for record in all_integer_records
+        else all(pair[0] % 2 == 1 and pair[1] % 2 == 1 for pair in record["prime_pairs"])
+        for record in all_records
     )
-    global_max = max(
-        all_integer_records,
-        key=lambda record: (int(record["representation_count"]), int(record["integer"])),
-    )
+    global_max = max(all_records, key=lambda record: (int(record["representation_count"]), int(record["integer"])))
+
     return {
         "id": "ENGINE-004-INVERSE-PRIME-FIBERS-SUMMARY-001",
         "classification": "Identity / Finite-Verified / Diagnostic",
@@ -139,10 +144,10 @@ def registered_summary() -> dict[str, object]:
             "separation": "support class, integer point, and representation multiplicity are distinct data layers",
         },
         "totals": {
-            "integer_point_count": len(all_integer_records),
-            "representable_integer_count": sum(bool(record["representable"]) for record in all_integer_records),
-            "nonrepresentable_integer_count": sum(not bool(record["representable"]) for record in all_integer_records),
-            "total_representation_count": sum(int(record["representation_count"]) for record in all_integer_records),
+            "integer_point_count": len(all_records),
+            "representable_integer_count": sum(bool(record["representable"]) for record in all_records),
+            "nonrepresentable_integer_count": sum(not bool(record["representable"]) for record in all_records),
+            "total_representation_count": sum(int(record["representation_count"]) for record in all_records),
             "independent_scan_match_count": sum(independent_matches),
             "independent_scan_mismatch_count": len(independent_matches) - sum(independent_matches),
         },
@@ -151,7 +156,7 @@ def registered_summary() -> dict[str, object]:
             "support": global_max["support"],
             "representation_count": global_max["representation_count"],
         },
-        "records": records,
+        "records": compact_records,
         "verification": {
             "all_prime_fibers_match_independent_scan": all(independent_matches),
             "odd_multiplicity_at_most_one": odd_multiplicity_ok,
