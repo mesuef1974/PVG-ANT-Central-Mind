@@ -1,0 +1,58 @@
+name: PVG Inverse Integer Fibers Audit
+
+on:
+  pull_request:
+    paths:
+      - 'governance/readiness/ENGINE-003-INVERSE-INTEGER-FIBERS.md'
+      - 'tools/pvg_inverse_integer_fibers.py'
+      - 'tests/test_pvg_inverse_integer_fibers.py'
+      - 'research/pvg-space-deepening/engine-003-inverse-integer-fibers.md'
+      - 'research/pvg-space-deepening/data/inverse-integer-fibers-summary.json'
+      - '.github/workflows/pvg-inverse-integer-fibers-audit.yml'
+      - 'registries/program-goals.jsonl'
+  push:
+    branches: [main]
+    paths:
+      - 'governance/readiness/ENGINE-003-INVERSE-INTEGER-FIBERS.md'
+      - 'tools/pvg_inverse_integer_fibers.py'
+      - 'tests/test_pvg_inverse_integer_fibers.py'
+      - 'research/pvg-space-deepening/engine-003-inverse-integer-fibers.md'
+      - 'research/pvg-space-deepening/data/inverse-integer-fibers-summary.json'
+      - '.github/workflows/pvg-inverse-integer-fibers-audit.yml'
+      - 'registries/program-goals.jsonl'
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Syntax check
+        run: |
+          python -m py_compile tools/pvg_inverse_integer_fibers.py
+          python -m py_compile tests/test_pvg_inverse_integer_fibers.py
+      - name: Unit and complete-box verification
+        run: python -m unittest -v tests/test_pvg_inverse_integer_fibers.py
+      - name: Regenerate registered summary
+        run: |
+          python tools/pvg_inverse_integer_fibers.py \
+            --registered-summary \
+            --output /tmp/inverse-integer-fibers-summary.json \
+            --compact > /tmp/inverse-integer-fibers-stdout.json
+          cmp /tmp/inverse-integer-fibers-summary.json research/pvg-space-deepening/data/inverse-integer-fibers-summary.json
+      - name: Verify scientific ceiling
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          data = json.loads(Path('research/pvg-space-deepening/data/inverse-integer-fibers-summary.json').read_text(encoding='utf-8'))
+          assert data['scope']['support_face_count'] == 25
+          assert data['totals']['total_fiber_points_across_faces'] == 884
+          assert data['totals']['complete_scan_mismatch_count'] == 0
+          assert all(data['verification'].values())
+          assert data['claim_ceiling']['phase_c_authorized'] is False
+          assert data['claim_ceiling']['goldbach_progress'] is False
+          PY
