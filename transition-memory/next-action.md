@@ -174,6 +174,7 @@ Stop and require a new readiness decision before:
 - weighted, averaged, density, or asymptotic representation analysis;
 - ANT translation beyond exact elementary identities;
 - theorem-target activation or theorem-path return;
+- a second theorem target;
 - originality, publication, Goldbach, PNT, RH, or GRH claims.
 
 ## Current ceiling
