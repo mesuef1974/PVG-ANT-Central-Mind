@@ -1,9 +1,10 @@
-# Central Mind Goals v1.1
+# Central Mind Goals v1.2
 
 Registry root: `CENTRAL-MIND-GOALS-001`  
 Machine truth: `registries/program-goals.jsonl`  
 Goal graph: `registries/goal-links.jsonl`  
 Return protocol: `governance/pvg-ant-goal-memory-and-return-protocol-v1.md`  
+Inverse-engine architecture: `governance/pvg-inverse-geometry-engine-architecture-v1.md`  
 Updated: 2026-07-22
 
 ## 1. Vision
@@ -24,7 +25,7 @@ Updated: 2026-07-22
 
 > مبرهنة أصلية واحدة، صحيحة ومتواضعة، تكون فيها PVG ذات دور مادي في اكتشاف النتيجة أو صياغتها أو برهانها.
 
-هذا الهدف لا يتغير بسبب تجربة سلبية، أو ظهور مسار حسابي مثير، أو كتاب جديد، أو Lean pass، أو مختبر بصري.
+هذا الهدف لا يتغير بسبب تجربة سلبية، أو ظهور مسار حسابي مثير، أو كتاب جديد، أو Lean pass، أو مختبر بصري، أو بناء أداة هندسية جديدة.
 
 ## 4. قاعدة عدم ضياع الأهداف
 
@@ -60,20 +61,21 @@ superseded_with_reason
 
 1. إتقان الترجمة الثنائية `PVG ↔ ANT`.
 2. بناء `PVG–ANT Language Kernel` دائم وقابل لإعادة الاستخدام.
-3. تطوير هندسة PVG الأصلية: النقاط، المحاور، الدعم، المستويات، الصناديق، البسيطات، التضاريس، والعمليات.
-4. الفصل الصريح بين متجه التقييم الكامل وإسقاط الدعم وما يفقده كل إسقاط.
-5. تطوير ديناميكيات الوجوه الجمعية: الانتقال، الأحواض، التداخل، الأعماق، ألياف الدعم، والسوابق.
-6. بناء جسر جمع المحاور وألياف الجمع إلى دوال التمثيل وأدوات ANT، مع إبقاء غولدباخ هدفًا تشخيصيًا لا ادعاء حل.
-7. بناء ثلاثة مبادئ نقل معتمدة على الأقل.
-8. استخراج أسئلة أصلية تصمد أمام مراجعة الأدبيات.
-9. إثبات أول لمّة أصلية.
-10. إثبات أو تعميم أول مبرهنة أصلية متواضعة.
-11. بناء عقل متخصص في ANT يترجم ثنائيًا إلى PVG مع فصل `ASSIM/MATH/OPS/CERT/PVG`.
-12. Formalize البنية القابلة لإعادة الاستخدام في Lean عندما تخدم مهمة بحثية مسماة.
-13. الحفاظ على مختبرات حسابية وبصرية قابلة لإعادة الإنتاج دون اعتبار التجربة برهانًا.
-14. إنتاج ورقة رياضية قابلة للمراجعة، لا مجرد تقرير مشروع.
-15. بناء ذاكرة تشغيلية وهدفية تمنع إعادة التعلم والتكرار والتشتت.
-16. الحفاظ على النزاهة: لا Goldbach أو PNT أو RH أو GRH progress دون نتيجة وبرهان مناسبين.
+3. تطوير هندسة PVG المباشرة: النقاط، المحاور، الدعم، المستويات، الصناديق، البسيطات، التضاريس، والعمليات.
+4. بناء هندسة عكسية كاملة لـPVG: سوابق الدعم، ألياف الأعداد، ألياف الأوليات، التحقق المداري، والترجمة التحليلية العكسية.
+5. الفصل الصريح بين متجه التقييم الكامل وإسقاط الدعم وما يفقده كل إسقاط.
+6. تطوير ديناميكيات الوجوه الجمعية: الانتقال، الأحواض، التداخل، الأعماق، ألياف الدعم، والسوابق.
+7. بناء جسر جمع المحاور وألياف الجمع إلى دوال التمثيل وأدوات ANT، مع إبقاء غولدباخ هدفًا تشخيصيًا لا ادعاء حل.
+8. بناء ثلاثة مبادئ نقل معتمدة على الأقل.
+9. استخراج أسئلة أصلية تصمد أمام مراجعة الأدبيات.
+10. إثبات أول لمّة أصلية.
+11. إثبات أو تعميم أول مبرهنة أصلية متواضعة.
+12. بناء عقل متخصص في ANT يترجم ثنائيًا إلى PVG مع فصل `ASSIM/MATH/OPS/CERT/PVG`.
+13. Formalize البنية القابلة لإعادة الاستخدام في Lean عندما تخدم مهمة بحثية مسماة.
+14. الحفاظ على مختبرات حسابية وبصرية قابلة لإعادة الإنتاج دون اعتبار التجربة برهانًا.
+15. إنتاج ورقة رياضية قابلة للمراجعة، لا مجرد تقرير مشروع.
+16. بناء ذاكرة تشغيلية وهدفية تمنع إعادة التعلم والتكرار والتشتت.
+17. الحفاظ على النزاهة: لا Goldbach أو PNT أو RH أو GRH progress دون نتيجة وبرهان مناسبين.
 
 ## 6. Goal portfolio and links
 
@@ -95,37 +97,55 @@ superseded_with_reason
 
 يشمل PASS-013–025 وSYNTHESIS-001: الخلايا الجمعية، انتقال الوجوه، الأحواض، التداخل، استقرار العمق، نمو عمق الإغلاق، ألياف الدعم، السوابق العكسية، شاهد العمق 12، وخريطة فقد المعلومات.
 
-### G4 — Axis addition and ANT bridge
+### G4 — PVG Inverse Geometry Engine
+
+`GOAL-PVG-INVERSE-GEOMETRY-001`
+
+يبني الجناح العكسي للهندسة عبر خمس طبقات:
+
+```text
+Inverse Support
+→ Inverse Integer Fibers
+→ Inverse Prime Fibers
+→ Inverse Orbit Dynamics
+→ Inverse Analytic Translation
+```
+
+يخدم الأسس والديناميكيات ولغة PVG–ANT والجسر الجمعي، ثم يعيد الأسئلة واللمّات المرشحة إلى برنامج الأصالة. حالته `active_long_term` وليست جبهة تشغيلية ثانية.
+
+PASS-025 هي النموذج الأول المعتمد للمراحل الأربع الأولى داخل فئة وسقوف مجمدة، وليست المحرك الكامل.
+
+### G5 — Axis addition and ANT bridge
 
 `GOAL-PVG-ANT-ADDITIVE-BRIDGE-001`
 
 يربط جمع المحاور وألياف المجموع بدوال التمثيل، فون مانغولد، الالتفاف، الشخصيات، فورييه، القنوات الباقية، وغولدباخ بوصفه مجال اختبار.
 
-### G5 — Original lemma/theorem pipeline
+### G6 — Original lemma/theorem pipeline
 
 `GOAL-PVG-ANT-ORIGINALITY-001`
 
-يحفظ الهدف الذي لا يجوز أن تضيع تحته المسارات الحسابية: سؤال أصلي، تدقيق أدبي، لمّة، محاولة برهان، شهادة، وعودة إلى ANT.
+يحفظ الهدف الذي لا يجوز أن تضيع تحته المسارات الحسابية أو الهندسية: سؤال أصلي، تدقيق أدبي، لمّة، محاولة برهان، شهادة، وعودة إلى ANT.
 
-### G6 — Specialist Central Mind
+### G7 — Specialist Central Mind
 
 `GOAL-CENTRAL-MIND-SPECIALIST-001`
 
 استيعاب ANT وتحويل المعرفة إلى مهارات وعقد تشغيلية ثنائية الاتجاه. لا توجد حتى الآن شبكة عصبية مدربة ولا corpus معتمد.
 
-### G7 — Formal Lean layer
+### G8 — Formal Lean layer
 
 `GOAL-PVG-FORMAL-LEAN-001`
 
 Lean أداة تحقق للبنية القابلة لإعادة الاستخدام أو اللمّة النشطة، وليس هدفًا موازيًا مستقلًا ولا مصدر أصالة.
 
-### G8 — Computational and visual laboratories
+### G9 — Computational and visual laboratories
 
 `GOAL-PVG-COMPUTATIONAL-LAB-001`
 
 Python والاختبارات والبيانات وCI والمختبرات الثنائية والثلاثية تخدم الاكتشاف والتفنيد والشرح والشهادة المنتهية.
 
-### G9 — Governance and project memory
+### G10 — Governance and project memory
 
 `GOAL-GOVERNANCE-MEMORY-001`
 
@@ -198,10 +218,19 @@ independent proof certificate = absent
 bounded_extension → PASS-025
 ```
 
-### O4B — PASS-025 Reverse Support-Preimage Generator
+### O4B — PASS-025 Inverse Geometry Engine Prototype
 
 `GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001`  
 **Status:** `closed`.
+
+PASS-025 أعادت صياغة البحث العكسي إلى نموذج من أربع طبقات:
+
+```text
+Phase A — Support Preimages
+Phase B — Integer Fibers
+Phase C — Prime Fibers
+Phase D — Orbit Verification
+```
 
 شهادة الإغلاق:
 
@@ -240,6 +269,13 @@ closure depth = 12
 
 الشاهد أصغر فقط داخل الفئة الثنائية والسقوف والترتيب المجمد، وليس عالميًا. كان التشغيل تأكيديًا غير معمى لأن استطلاعًا صغيرًا سبق تجميد السقوف.
 
+العائد البنيوي:
+
+- أثبت صلاحية خط الأنابيب العكسي حسابيًا؛
+- فصل سوابق الدعم عن الأعداد والتمثيلات الأولية؛
+- قدّم أول prototype معتمد لـ`GOAL-PVG-INVERSE-GEOMETRY-001`؛
+- لم ينتج transfer lemma تحليليًا جديدًا.
+
 قرار المراجعة:
 
 ```text
@@ -256,15 +292,17 @@ PASS-026 = NOT AUTHORIZED
 
 ```text
 Strategic goal: unchanged
-Closed synthesis: SYNTHESIS-001
-Closed bounded reverse search: PASS-025
+New long-term architecture: GOAL-PVG-INVERSE-GEOMETRY-001
+Inverse-engine operational status: no active implementation pass
+First certified inverse prototype: PASS-025 closed
 Active original research front: ONE-THEOREM-001 external-validation hold
-Authorized next additive-dynamics pass: none
+Authorized next additive/inverse pass: none
 PASS-026: not authorized
 PVG native geometry: substantial finite and structural progress
 Support-face dynamics: PASS-013 through PASS-025 synthesized, tested, and certified
 Depth-12 witness: finite verified inside frozen class
-Full-valuation additive dynamics: not yet developed
+Full-valuation additive/inverse dynamics: not yet developed
+Inverse analytic translation: not yet certified at L3
 Bidirectional ANT translation: partial and distributed across several programs
 New ANT transfer lemma from PASS-025: none
 Original lemma: none certified
@@ -284,7 +322,7 @@ Approved training corpus: none
 ANT problem
 → multiplicative core
 → PVG encoding
-→ geometric decomposition
+→ direct or inverse geometric decomposition
 → analytic transform
 → transfer lemma
 → proof/test/negative certificate
@@ -309,17 +347,20 @@ ANT problem
 8. هل نعود إلى الهدف السابق أم نفتح امتدادًا محدودًا؟
 9. ما الهدف الذي توقف أو بقي مؤجلًا؟
 10. هل سجلت العلاقات في `program-goals.jsonl` و`goal-links.jsonl`؟
+11. هل الأداة الجديدة هدف طويل المدى أم جبهة تشغيلية، وهل خُلِط بينهما؟
 
 ## 11. Readiness goal
 
 لا تبدأ مهمة جديدة حتى تصبح prerequisites الحاملة للبرهان `operationally_ready`. النقص يعالج بتعدين موجه للحد الأدنى الكافي، ثم يعاد إلى العقل بصورة تشغيلية.
+
+وجود `GOAL-PVG-INVERSE-GEOMETRY-001` لا يصرح بتنفيذ جديد. كل مرحلة لاحقة من المحرك تحتاج readiness card وهدفًا تشغيليًا وسقفًا وعودة.
 
 ## 12. Progress metrics
 
 المقاييس الحقيقية:
 
 - reusable certified bridges؛
-- transfer lemmas؛
+- direct and inverse transfer lemmas؛
 - originality-audited questions؛
 - proved/refuted lemmas؛
 - maturity level؛
@@ -338,7 +379,8 @@ ANT problem
 - حجم البيانات؛
 - جودة التصور؛
 - أكبر عمق حسابي؛
-- عدد formalized known lemmas.
+- عدد formalized known lemmas؛
+- عدد السوابق التي ولدها المحرك.
 
 ## 13. Current maturity judgment
 
@@ -346,12 +388,12 @@ ANT problem
 Vocabulary: strong
 Multiplicative exact translation: partial-to-strong
 Native PVG geometry: strong finite foundation; incomplete as a unified theory
-Support-projected additive dynamics: L2 structural simplification with closed bounded L4 mechanism
-Reverse-preimage generation: reusable finite research mechanism
-Full-valuation additive dynamics: open
+Support-projected additive dynamics: L2 structural simplification with bounded L4 mechanism
+Inverse Support/Integer/Prime/Orbit prototype: certified bounded L2 mechanism
+Inverse analytic translation: below L3; no transfer lemma yet
+Full-valuation additive and inverse dynamics: open
 ANT reverse translation of support dynamics: candidate bridge, no estimate yet
-Transfer principles: limited; not yet a new certified ANT lemma
-Theorem program: active external-validation hold
+Research mechanism: inverse engine prototype exists; originality not certified
 Hidden-set autonomous performance: not fully sealed
 Original lemma: none certified
 Original theorem: none certified
@@ -360,12 +402,13 @@ Original theorem: none certified
 ## 14. Ceiling
 
 - لا تعتبر الترجمة مبرهنة.
-- لا تعتبر التجربة آلية مثبتة عامة.
+- لا تعتبر التجربة آلية مثبتة خارج نطاقها.
 - لا تعتبر Lean مصدر الأصالة.
 - لا تعتبر المعرفة المتوفرة معرفة تشغيلية قبل readiness audit.
-- شاهد العمق 12 لا يثبت عدم محدودية الأعماق ولا انتهاء جميع المدارات.
+- لا يعتبر الوصول إلى عمق أكبر قانون نمو أو عدم انتهاء.
+- لا يعتبر وجود محرك عكسي تقدمًا تحليليًا حتى ينتج transfer lemma.
 - لا يعتبر تمثيل عدد كمجموع أوليين تقدمًا في غولدباخ.
-- لا PASS-026 ولا هدف مبرهنة ثانٍ.
+- لا PASS-026 قبل مراجعة جديدة وتفويض واضح.
 - لا RH/GRH progress دون proof certificate.
 - لا يُدعى تدريب شبكة أو اعتماد corpus قبل شهادة مستقلة.
 
