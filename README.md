@@ -67,7 +67,7 @@ Strategic goal:
   Original ANT contribution through materially useful PVG.
 
 Closed operational synthesis:
-  GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001 = closed.
+  GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001 status: closed.
   SYNTHESIS-001 integrated PASS-013 through PASS-024.
 
 Active operational goal:
