@@ -133,8 +133,9 @@ A new readiness decision is mandatory before:
 - weighting, averaging, density laws, or asymptotics;
 - ANT translation beyond exact elementary identities;
 - theorem-path reactivation;
+- a second theorem target;
 - originality, publication, Goldbach, PNT, RH, or GRH claims.
 
 ## Current ceiling
 
-The authorized action is governance and mathematical review of ENGINE-004 Phase C. It is not authorization for new computation, Phase D, a theorem program, or a major-conjecture claim.
+The authorized action is governance and mathematical review of ENGINE-004 Phase C. It is not authorization for new computation, Phase D, a theorem program, or a major-conjecture claim. There is no Goldbach or PNT progress and no RH/GRH progress.
