@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 from collections import Counter
+from functools import lru_cache
 from math import gcd
 
 try:
@@ -40,6 +41,13 @@ def primes_up_to(limit: int) -> tuple[int, ...]:
             flags[p * p : limit + 1 : p] = b"\x00" * (((limit - p * p) // p) + 1)
         p += 1
     return tuple(i for i, flag in enumerate(flags) if flag)
+
+
+@lru_cache(maxsize=None)
+def registered_even_radii(n: int) -> frozenset[int]:
+    if n <= 0 or n % 2:
+        raise ValueError("registered even radii require positive even n")
+    return frozenset((q - p) // 2 for p, q in prime_pair_fiber(n))
 
 
 def local_obstruction_record(m: int, d: int, ell: int) -> dict[str, object]:
@@ -105,7 +113,7 @@ def even_coordinate_owner_certificate(n: int, d: int, prime_limit: int = REGISTE
         raise ValueError("radius must satisfy 0<d<n/2")
     left, right = m - d, m + d
     owner = left < right and is_prime(left) and is_prime(right)
-    actual_radii = {((q - p) // 2) for p, q in prime_pair_fiber(n)}
+    actual_radii = registered_even_radii(n)
     signature = local_obstruction_signature(m, d, prime_limit)
     return {
         "integer": n,
@@ -130,13 +138,14 @@ def odd_coordinate_owner_certificate(n: int) -> dict[str, object]:
     d = n - 4
     owner = d > 0 and is_prime(d + 2)
     pairs = prime_pair_fiber(n)
+    expected = ((2, d + 2),) if owner else tuple()
     return {
         "integer": n,
         "radius": d,
         "candidate_pair": [2, d + 2],
         "owner_by_primality": owner,
-        "owner_by_registered_fiber": pairs == ((2, d + 2),) if owner else pairs == tuple(),
-        "owner_equivalence": (pairs == ((2, d + 2),)) == owner,
+        "owner_by_registered_fiber": pairs == expected,
+        "owner_equivalence": pairs == expected,
     }
 
 
@@ -165,19 +174,18 @@ def registered_local_obstruction_summary(prime_limit: int = REGISTERED_SUPPORT_P
                 continue
             m = n // 2
             start = 1 if m % 2 == 0 else 2
+            actual_radii = registered_even_radii(n)
             for d in range(start, m, 2):
                 even_candidate_count += 1
-                cert = even_coordinate_owner_certificate(n, d, prime_limit)
-                owner = bool(cert["owner_by_primality"])
-                owner_equivalence_ok &= bool(cert["owner_equivalence"])
+                left, right = m - d, m + d
+                owner = is_prime(left) and is_prime(right)
+                owner_equivalence_ok &= owner == (d in actual_radii)
                 even_owner_count += int(owner)
-                signature = cert["local_signature"]
+                signature = local_obstruction_signature(m, d, prime_limit)
                 obstructing = tuple(int(p) for p in signature["obstructing_primes"])
                 boundaries = tuple(int(p) for p in signature["boundary_exception_primes"])
-                for ell in obstructing:
-                    obstruction_counts[ell] += 1
-                for ell in boundaries:
-                    boundary_counts[ell] += 1
+                obstruction_counts.update(obstructing)
+                boundary_counts.update(boundaries)
                 if signature["locally_survives"]:
                     even_local_survivor_count += 1
                     even_local_survivor_nonowner_count += int(not owner)
