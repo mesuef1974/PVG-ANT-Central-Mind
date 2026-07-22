@@ -11,21 +11,21 @@ Strategic:
 Closed operational synthesis:
   GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001 status: closed
 
-Active operational:
-  GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001 = active_current
+Closed reverse-preimage pass:
+  GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001 status: closed
+
+Returned active operational goal:
+  GOAL-OP-ONE-THEOREM-001 = active_external_validation_hold
 
 Authorized queued next:
   none
-  PASS-026 = prohibited before PASS-025 Stage Review
-
-Mandatory return:
-  GOAL-OP-ONE-THEOREM-001 = paused_governed_return_required
+  PASS-026 = NOT AUTHORIZED
 
 Publication:
   GOAL-OP-FORMAL-PUBLICATION-001 = blocked
 ```
 
-SYNTHESIS-001 is closed by a certificate. PASS-025 is the sole active original-research front and is restricted to one fixed-cap reverse-preimage search. It does not authorize an adaptive cap increase, a second theorem target, a new dataset, or broad knowledge mining.
+SYNTHESIS-001 and PASS-025 are closed by certificates. The sole active original-research front is again the one-theorem program under external-validation hold.
 
 ## 2. Goal-memory capability
 
@@ -48,8 +48,8 @@ Installed controls:
 - no goal deletion;
 - every detour has a parent, stop rule, and return gate;
 - closed work remains linked to its certificate;
-- ONE-THEOREM-001 remains a mandatory return checkpoint;
-- PASS-026 is forbidden before the PASS-025 Stage Review.
+- PASS-025 fulfilled its return gate;
+- PASS-026 and a second theorem target are not authorized.
 
 ## 3. Governed research cycle
 
@@ -123,65 +123,76 @@ and for a binary face:
 \mathcal T(\{p,q\})=\{\operatorname{supp}(p+q)\}.
 \]
 
-Consequences:
+Consequences include sum-fiber and support-fiber invariance, source/destination separation, exact support-preimage characterization, and separation of representation multiplicity from orbit class.
 
-- equal sums have identical orbit tails from depth 1;
-- equal supports of sums have identical orbit tails from depth 1;
-- distinct source primes do not occur in the support of their sum;
-- exact support preimages are products of positive powers of every prime in the support;
-- representation multiplicity and orbit class are separate data layers.
+## 7. Closed PASS-025 capability
 
-The synthesis also records finite evidence through PASS-024, but no general termination, universal depth, unbounded-depth, or asymptotic theorem.
+`GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001` is closed by:
 
-## 7. Active PASS-025 capability
+`governance/closures/PASS-025-REVERSE-SUPPORT-PREIMAGE-CLOSURE.md`
 
-`GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001` is `active_current` with readiness:
-
-`governance/readiness/PASS-025-REVERSE-SUPPORT-PREIMAGE.md`
-
-Authorized route:
+Installed reusable mechanism:
 
 ```text
-target deep support face
-← support predecessors E with target in T(E)
-← integers n with supp(n)=E
-← distinct-prime representations p+q=n
+target support tail
+← binary prime predecessor support
+← exact-support integers
+← distinct-prime realization
 ← exact forward-orbit verification
-← earliest exposing prime limit
 ```
 
-Required frozen configuration:
+Registered finite scope:
 
 ```text
-target_prime_pair_closure_depth = 12
-reverse_support_depth_budget
-candidate_support_node_cap
-candidate_integer_cap
-prime_pair_realization_cap
-orbit_verification_depth_cap
-ranking_rule
-pruning_rules
+seed integers = 5
+unique binary predecessor supports = 35,936
+candidate exact-support integers = 14,589
+prime-producing candidates = 1,106
+forward-verified promoted witnesses = 25
 ```
 
-The registered pass must produce either:
+First witness inside the frozen class:
 
-- a verified depth-12 witness and full orbit certificate; or
-- a finite negative certificate under the frozen caps.
+\[
+\boxed{\{2,27397961\}}.
+\]
 
-No adaptive extension is allowed inside PASS-025. No PASS-026 is authorized automatically.
+Its verified orbit is:
+
+\[
+\begin{aligned}
+\{2,27397961\}
+&\to\{41,668243\}
+\to\{2,167071\}
+\to\{3,55691\}
+\to\{2,27847\}\\
+&\to\{3,9283\}
+\to\{2,4643\}
+\to\{5,929\}
+\to\{2,467\}
+\to\{7,67\}\\
+&\to\{2,37\}
+\to\{3,13\}
+\to\{2\}.
+\end{aligned}
+\]
+
+The closure depth is 12. Minimality is only inside the frozen binary-predecessor class, caps, and ranking. The confirmatory run was not blinded.
+
+This mechanism materially reduces candidate generation relative to scanning every represented sum up to the witness. It remains a finite computational mechanism, not an analytic transfer lemma or complexity theorem.
 
 ## 8. Computational and visual capability
 
 Installed on the draft branch:
 
 - exact Python analyzers;
-- unit tests and dedicated CI gates;
-- finite JSON summaries;
+- PASS-001–025 tests and dedicated CI gates;
+- deterministic JSON certificates;
 - analytical Visual Lab;
 - immersive 3D Visual Lab;
 - safe detached-worktree synchronization;
-- support-fiber compression and cached orbit tails;
-- audited SYNTHESIS-001 examples and propositions.
+- support-fiber compression and reverse-preimage generation;
+- cap-failure and contamination-accounting safeguards.
 
 These tools support discovery, explanation, counterexample search, and reproducibility. They do not replace proof.
 
@@ -197,19 +208,19 @@ L3 promotions = 0
 
 The translator covers multiplicative structure, Dirichlet/Bell/Euler analysis, Mellin/Perron transfer, residues and characters, sieve information, probability, conductors, uniformity, desmoothing, pretentious tools, dispersion, theorem subsumption, and PVG materiality.
 
-No new translation card is authorized merely to improve a benchmark score. Knowledge activation remains task-driven.
+PASS-025 returned a structural candidate-generation mechanism but no new ANT estimate or certified transfer principle.
 
 ## 10. ANT specialist-mind capability
 
 `GOAL-CENTRAL-MIND-SPECIALIST-001` remains a long-term goal.
 
-The current system provides book ledgers, source-grounded tools, translation knowledge graphs, reasoning routes, `ASSIM/MATH/OPS/CERT/PVG` separation, bounded benchmarks, and negative-result memory.
+The system provides book ledgers, source-grounded tools, translation knowledge graphs, reasoning routes, `ASSIM/MATH/OPS/CERT/PVG` separation, bounded benchmarks, and negative-result memory.
 
 It does not provide a trained neural network, an approved training corpus, or certified general autonomous research performance.
 
 ## 11. Formal Lean capability
 
-The Lean P3 layer through `LEAN-P3-PASS-008` supplies zero-sorry reusable valuation foundations. Lean is available for reusable foundation laws and active load-bearing lemmas, but expansion is not automatic and formalization does not create originality.
+The Lean P3 layer through `LEAN-P3-PASS-008` supplies zero-sorry reusable valuation foundations. Lean expansion is task-driven and formalization does not create originality.
 
 ## 12. Supporting knowledge programs
 
@@ -222,21 +233,23 @@ Available without becoming second active research fronts:
 - visual and public exposition;
 - registered external laboratories.
 
-The source-grounding-corrected Montgomery story remains in force. Closure-reviewed units through `v0.6-e-closure` and beyond remain available, including the live `TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001`. Mismatched Montgomery A/B/legacy-E material remains quarantined for source-mismatch and is not live.
+The source-grounding-corrected Montgomery story remains in force. Closure-reviewed units through `v0.6-e-closure` and beyond remain available, including `TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001`. Mismatched Montgomery A/B/legacy-E material remains quarantined for source-mismatch.
 
 ## 13. Theorem and external-validation state
 
 ```text
-GOAL-OP-ONE-THEOREM-001 = paused_governed_return_required
+GOAL-OP-ONE-THEOREM-001 = active_external_validation_hold
 ONE-LEMMA-TARGET-001 = frozen
 internal fixed-q/fixed-r/fixed-W smooth theorem = proved internally
 P8-OUTREACH-DECISION-001 = SENT
 P8-EXTERNAL-REFEREE-001 = SENT_AWAITING_RESPONSE
+priority request = Tsz Ho Chan
+proof request = Etienne Fouvry
 external originality certificate = absent
 independent proof certificate = absent
 ```
 
-The theorem program is preserved, not superseded. It must be reviewed immediately after PASS-025 before any further additive-dynamics pass.
+PASS-025 returned here by an explicit Stage Review. No further external packet or reserve contact is authorized without an explicit owner decision. `SENT` is not validation.
 
 ## 14. Benchmark and research-model state
 
@@ -251,18 +264,7 @@ Current maturation receipt = MATURATION-RECEIPT-007
 ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED
 ```
 
-Benchmark 002 order remains:
-
-```text
-raw hidden baseline
-→ immutable error map
-→ morphism composer
-→ same-set rerun with contamination accounting
-→ ablation
-→ targeted knowledge and translation learning
-```
-
-No training or targeted learning is authorized before the baseline and error map.
+Benchmark 002 order remains raw hidden baseline, immutable error map, morphism composer, rerun with contamination accounting, ablation, then targeted learning. No training is authorized before the baseline and error map.
 
 ## 15. Continuity and verification
 
@@ -275,6 +277,8 @@ The draft branch does not modify `main` until explicit merge authorization.
 ```text
 No original lemma certified.
 No original theorem certified.
+Depth-12 witness finite and class-bounded.
+No global first depth-12 threshold.
 No general support-dynamics termination theorem.
 No universal closure-depth bound.
 No unbounded-depth theorem.
@@ -291,4 +295,4 @@ No RH progress.
 No GRH progress.
 ```
 
-**Classification:** governed capability snapshot with SYNTHESIS-001 closed, PASS-025 active under fixed caps, and mandatory return to the theorem program preserved.
+**Classification:** governed capability snapshot with SYNTHESIS-001 and PASS-025 closed and the one-theorem program restored to external-validation hold.
