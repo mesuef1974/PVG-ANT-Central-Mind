@@ -11,7 +11,7 @@ Strategic goal:
   Original ANT contribution through materially useful PVG.
 
 Closed operational synthesis:
-  GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001 = closed.
+  GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001 status: closed.
   Closure = SYNTHESIS-001-SUPPORT-FIBER-DYNAMICS-CLOSURE-001.
   Decision = bounded_extension.
   Exact identities, loss map, numerical examples, finite/open matrix,
