@@ -63,7 +63,12 @@ class CenteredRadiusIncidenceTests(unittest.TestCase):
 
     def test_verification_and_ceiling(self) -> None:
         summary = registered_summary()
-        self.assertTrue(all(summary["verification"].values()))
+        verification = summary["verification"]
+        self.assertEqual(verification["independent_index_mismatch_count"], 0)
+        self.assertTrue(verification["all_rows_reconstruct"])
+        self.assertTrue(verification["odd_route_owner_injective"])
+        self.assertTrue(verification["deterministic_ordering"])
+        self.assertTrue(verification["phase_d_not_used"])
         self.assertFalse(any(summary["claim_ceiling"].values()))
 
 
