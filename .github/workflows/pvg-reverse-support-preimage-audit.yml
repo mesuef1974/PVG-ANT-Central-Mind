@@ -9,6 +9,7 @@ on:
       - 'research/pvg-space-deepening/data/reverse-support-preimage-summary.json'
       - 'governance/frozen-config/PASS-025-REVERSE-SUPPORT-PREIMAGE-FROZEN-CONFIG.md'
       - 'governance/readiness/PASS-025-REVERSE-SUPPORT-PREIMAGE.md'
+      - 'governance/closures/PASS-025-REVERSE-SUPPORT-PREIMAGE-CLOSURE.md'
       - 'registries/program-goals.jsonl'
       - 'tools/goal_memory_traceability_audit.py'
       - 'tools/sync_pvg_inverse_geometry_worktree.ps1'
@@ -22,6 +23,7 @@ on:
       - 'research/pvg-space-deepening/data/reverse-support-preimage-summary.json'
       - 'governance/frozen-config/PASS-025-REVERSE-SUPPORT-PREIMAGE-FROZEN-CONFIG.md'
       - 'governance/readiness/PASS-025-REVERSE-SUPPORT-PREIMAGE.md'
+      - 'governance/closures/PASS-025-REVERSE-SUPPORT-PREIMAGE-CLOSURE.md'
       - 'registries/program-goals.jsonl'
       - 'tools/goal_memory_traceability_audit.py'
       - 'tools/sync_pvg_inverse_geometry_worktree.ps1'
@@ -61,7 +63,7 @@ jobs:
           assert data['first_witness']['forward_orbit']['face_closure_depth'] == 12
           assert all(data['verification'].values())
           PY
-      - name: Governance and return gate
+      - name: Closure and theorem-program return
         run: |
           python tools/research_compass_audit.py
           python tools/goal_memory_traceability_audit.py
@@ -80,8 +82,12 @@ jobs:
               if row['kind'] == 'operational_goal'
               and str(row['status']).startswith('active')
           ]
-          assert active == ['GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001']
+          assert active == ['GOAL-OP-ONE-THEOREM-001']
           assert by_id['GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001']['status'] == 'closed'
-          assert by_id['GOAL-OP-ONE-THEOREM-001']['status'] == 'paused_governed_return_required'
-          assert 'No PASS-026' in by_id['GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001']['return_gate']
+          assert by_id['GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001']['status'] == 'closed'
+          assert by_id['GOAL-OP-ONE-THEOREM-001']['status'] == 'active_external_validation_hold'
+          assert 'PASS-026 not authorized' in by_id['GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001']['return_gate']
+          closure = Path('governance/closures/PASS-025-REVERSE-SUPPORT-PREIMAGE-CLOSURE.md').read_text(encoding='utf-8')
+          assert 'Stage decision: return' in closure
+          assert 'PASS-026: NOT AUTHORIZED' in closure
           PY
