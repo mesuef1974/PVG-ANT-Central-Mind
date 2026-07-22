@@ -74,9 +74,26 @@ jobs:
           assert all(generated['verification'].values())
           assert not any(generated['claim_ceiling'].values())
           PY
-      - name: Governance audits
+      - name: Honesty audit
+        run: python tools/honesty_audit.py
+      - name: Capture state-coherence diagnostic
+        id: state_coherence
+        continue-on-error: true
         run: |
-          python tools/honesty_audit.py
-          python tools/state_coherence_audit.py
+          python tools/state_coherence_audit.py > /tmp/state-coherence-audit.txt 2>&1
+          code=$?
+          cat /tmp/state-coherence-audit.txt
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+      - name: Upload state-coherence diagnostic
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: engine-004-pass-002-state-coherence
+          path: /tmp/state-coherence-audit.txt
+          if-no-files-found: error
+      - name: Enforce state-coherence result
+        run: test "${{ steps.state_coherence.outputs.exit_code }}" = "0"
+      - name: Remaining governance audits
+        run: |
           python tools/research_compass_audit.py
           python tools/goal_memory_traceability_audit.py
