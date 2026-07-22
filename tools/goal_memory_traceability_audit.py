@@ -30,6 +30,7 @@ REQUIRED_FILES = [
     "tests/test_pvg_inverse_support_kernel.py",
     "registries/program-goals.jsonl",
     "registries/goal-links.jsonl",
+    "registries/goal-links-engine-002.jsonl",
 ]
 
 REQUIRED_GOAL_FIELDS = {
@@ -131,7 +132,7 @@ def main() -> None:
     require(pass025_summary.get("outcome") == "DEPTH_12_WITNESS_FOUND_WITHIN_FROZEN_CLASS", "PASS-025 registered outcome mismatch", issues)
 
     goals = load_jsonl("registries/program-goals.jsonl")
-    links = load_jsonl("registries/goal-links.jsonl")
+    links = load_jsonl("registries/goal-links.jsonl") + load_jsonl("registries/goal-links-engine-002.jsonl")
     goal_ids = [str(row.get("id", "")) for row in goals]
     goal_id_set = set(goal_ids)
     require(len(goal_ids) == len(goal_id_set), "duplicate goal IDs", issues)
