@@ -15,6 +15,8 @@ REQUIRED_FILES = [
     "central-mind-goals.md",
     "governance/pvg-ant-goal-memory-and-return-protocol-v1.md",
     "governance/readiness/SYNTHESIS-001-SUPPORT-FIBER-DYNAMICS.md",
+    "governance/closures/SYNTHESIS-001-SUPPORT-FIBER-DYNAMICS-CLOSURE.md",
+    "research/pvg-space-deepening/synthesis-001-support-fiber-dynamics.md",
     "registries/program-goals.jsonl",
     "registries/goal-links.jsonl",
 ]
@@ -60,8 +62,8 @@ REQUIRED_GOAL_IDS = {
     "GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001",
 }
 
-EXPECTED_ACTIVE_OPERATIONAL = "GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001"
-EXPECTED_QUEUED_NEXT = "GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001"
+EXPECTED_ACTIVE_OPERATIONAL = "GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001"
+EXPECTED_CLOSED_SYNTHESIS = "GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001"
 MANDATORY_RETURN_GOAL = "GOAL-OP-ONE-THEOREM-001"
 
 
@@ -110,6 +112,9 @@ def main() -> None:
     readiness = (
         ROOT / "governance/readiness/SYNTHESIS-001-SUPPORT-FIBER-DYNAMICS.md"
     ).read_text(encoding="utf-8")
+    closure = (
+        ROOT / "governance/closures/SYNTHESIS-001-SUPPORT-FIBER-DYNAMICS-CLOSURE.md"
+    ).read_text(encoding="utf-8")
 
     require("Central Mind Goals v1.1" in goals_doc, "goals document is not v1.1", issues)
     require("قاعدة عدم ضياع الأهداف" in goals_doc, "goals document omits non-loss rule", issues)
@@ -117,6 +122,8 @@ def main() -> None:
     require("PASS-025" in goals_doc, "goals document omits PASS-025", issues)
     require("Mandatory return rule" in protocol, "return protocol omits mandatory return rule", issues)
     require("READY" in readiness, "SYNTHESIS-001 readiness card is not READY", issues)
+    require("Decision: CLOSED" in closure, "SYNTHESIS-001 closure is not CLOSED", issues)
+    require("bounded_extension" in closure, "SYNTHESIS-001 closure lacks bounded extension decision", issues)
 
     goals = load_jsonl("registries/program-goals.jsonl")
     links = load_jsonl("registries/goal-links.jsonl")
@@ -179,8 +186,18 @@ def main() -> None:
         )
 
     require(
-        by_id.get(EXPECTED_QUEUED_NEXT, {}).get("status") == "queued_next",
-        "PASS-025 goal is not queued_next",
+        by_id.get(EXPECTED_CLOSED_SYNTHESIS, {}).get("status") == "closed",
+        "SYNTHESIS-001 goal is not closed",
+        issues,
+    )
+    require(
+        by_id.get(EXPECTED_ACTIVE_OPERATIONAL, {}).get("status") == "active_current",
+        "PASS-025 goal is not active_current",
+        issues,
+    )
+    require(
+        not by_id.get(EXPECTED_ACTIVE_OPERATIONAL, {}).get("blocked_by"),
+        "PASS-025 remains blocked after synthesis closure",
         issues,
     )
     require(
@@ -190,8 +207,13 @@ def main() -> None:
     )
     require(
         MANDATORY_RETURN_GOAL
-        in goal_refs(by_id.get(EXPECTED_QUEUED_NEXT, {}).get("return_to_goal_ids")),
+        in goal_refs(by_id.get(EXPECTED_ACTIVE_OPERATIONAL, {}).get("return_to_goal_ids")),
         "PASS-025 does not return to ONE-THEOREM-001",
+        issues,
+    )
+    require(
+        "No PASS-026" in str(by_id.get(EXPECTED_ACTIVE_OPERATIONAL, {}).get("return_gate", "")),
+        "PASS-025 return gate does not prohibit automatic PASS-026",
         issues,
     )
 
@@ -233,8 +255,8 @@ def main() -> None:
     print("PVG–ANT Goal Memory and Traceability Audit: PASS")
     print(f"Registered goals: {len(goals)}")
     print(f"Registered links: {len(links)}")
+    print(f"Closed synthesis goal: {EXPECTED_CLOSED_SYNTHESIS}")
     print(f"Active operational goal: {EXPECTED_ACTIVE_OPERATIONAL}")
-    print(f"Queued next goal: {EXPECTED_QUEUED_NEXT}")
     print(f"Mandatory return goal: {MANDATORY_RETURN_GOAL}")
 
 
