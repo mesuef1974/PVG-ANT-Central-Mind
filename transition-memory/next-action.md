@@ -5,53 +5,62 @@ Strategic compass:
   GOAL-PVG-ANT-STRATEGIC-001 = active_fixed.
   Original ANT contribution through materially useful PVG.
 
+Closed prerequisite:
+  GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001 = closed.
+  Closure = SYNTHESIS-001-SUPPORT-FIBER-DYNAMICS-CLOSURE-001.
+  Decision = bounded_extension.
+
 Current active operational goal:
-  GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001 = active_current.
-  Task = SYNTHESIS-001-SUPPORT-FIBER-DYNAMICS.
+  GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001 = active_current.
+  Task = PASS-025-REVERSE-SUPPORT-PREIMAGE.
   Readiness = READY.
   This is the only active original-research front.
 
-Do now — SYNTHESIS-001:
-  1. Freeze common notation for valuation vector, support, face, transition,
-     orbit, bounded closure, sum fiber, and support fiber.
-  2. State and prove the exact two-axis and fiber identities directly from
-     the transition definition.
-  3. Give simple checked examples using 10, 20, 24, 706, and 1774.
-  4. Separate full PVG data nu(n) from the support projection supp(n),
-     and record exactly which exponent and label information is lost.
-  5. Integrate PASS-013 through PASS-024 into one coherent theory map.
-  6. Build the classification matrix:
-       exact | known | reinterpretation | finite verified
-       | candidate mechanism | boundary | open.
-  7. Translate the support-fiber objects back to classical ANT language:
-     representation functions, additive convolution, residue/Fourier
-     channels, and Goldbach-type diagnostics without a Goldbach claim.
-  8. Return reusable definitions and bridges to the language kernel.
-  9. Run the synthesis closure review and goal-memory audits.
+Do now — PASS-025, configuration freeze first:
+  1. Freeze target_prime_pair_closure_depth = 12.
+  2. Freeze reverse_support_depth_budget.
+  3. Freeze candidate_support_node_cap.
+  4. Freeze candidate_integer_cap.
+  5. Freeze prime_pair_realization_cap.
+  6. Freeze orbit_verification_depth_cap.
+  7. Freeze ranking_rule and pruning_rules.
+  8. Store the frozen configuration in the registered output before
+     inspecting the final search result.
 
-SYNTHESIS-001 required deliverables:
-  research/pvg-space-deepening/synthesis-001-support-fiber-dynamics.md
-  exact proposition and example registry inside the synthesis
-  full-valuation versus support-projection loss map
-  finite/open classification matrix
-  ANT reverse-translation map
-  closure review and knowledge-return record
+Then implement the bounded reverse route:
+  1. Select terminal and deep support tails from the PASS-024 cache.
+  2. Generate support predecessors E satisfying target in T(E).
+  3. Rank predecessor supports without changing the frozen caps.
+  4. Generate integers n with exact support E under candidate_integer_cap.
+  5. Test distinct-prime representations p+q=n under the fixed realization cap.
+  6. Forward-verify every candidate orbit with the existing successor rule.
+  7. Record the earliest exposing prime limit.
+  8. Produce exactly one registered outcome:
+       verified depth-12 witness;
+       OR finite negative certificate under the frozen configuration.
+  9. Run dedicated tests, summary regeneration, detached-worktree sync,
+     and the PASS-025 Stage Review.
 
-SYNTHESIS-001 stop rule:
-  Close only when notation is consistent, every statement is classified,
-  all registered finite claims carry bounds, and reusable knowledge has
-  returned to the Central Mind.
+PASS-025 required deliverables:
+  tools/pvg_reverse_support_preimage.py
+  tests/test_pvg_reverse_support_preimage.py
+  research/pvg-space-deepening/pass-025-reverse-support-preimage.md
+  research/pvg-space-deepening/data/reverse-support-preimage-summary.json
+  .github/workflows/pvg-reverse-support-preimage-audit.yml
+  PASS-025 closure or finite-negative-certificate review
 
-Queued next goal — not active yet:
-  GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001 = queued_next.
-  PASS-025 may start only after SYNTHESIS-001 closure.
-  PASS-025 target = reverse support-preimage generator and bounded,
-  targeted search for a depth-12 family or a finite negative certificate.
+PASS-025 stop rule:
+  stop after the one registered fixed-cap run.
+  do not raise any cap after seeing the result.
+  do not open PASS-026 automatically.
+
+Authorized next goal after PASS-025:
+  none.
+  PASS-026 = NOT AUTHORIZED.
 
 Mandatory return after PASS-025:
   GOAL-OP-ONE-THEOREM-001 = paused_governed_return_required.
   ONE-LEMMA-TARGET-001 remains frozen.
-  No PASS-026 is authorized automatically.
   The Stage Review must choose:
     return to ONE-THEOREM-001;
     close a parent goal by certificate;
@@ -95,12 +104,12 @@ Benchmark and research-model track retained:
 
 Planning registry:
   registries/planned.jsonl is empty.
-  PASS-025 is recorded as queued_next in registries/program-goals.jsonl,
-  not as an active research pass and not as authorization to execute.
+  PASS-025 is active_current in registries/program-goals.jsonl.
+  no later PASS is planned or authorized.
 
-Do not do yet:
-  no PASS-025 before SYNTHESIS-001 closure;
-  no PASS-026 before PASS-025 Stage Review;
+Do not do during PASS-025:
+  no adaptive cap increase;
+  no PASS-026;
   no second theorem target;
   no publication claim;
   no broad untargeted book mining;
@@ -120,9 +129,9 @@ Goal-memory law:
   No goal is deleted. It is closed, blocked, paused, or superseded with reason.
 
 Ceiling:
-  synthesis and governance create no theorem;
-  support-fiber identities may be exact consequences of definitions;
-  numerical depth ladders remain finite verified evidence;
+  the registered PASS-025 outcome is finite and cap-dependent;
+  a depth-12 witness is not an unbounded-depth theorem;
+  a finite absence is not a universal depth-11 bound;
   certified originality = absent;
   publication readiness = absent;
   trained neural network = none;
@@ -131,4 +140,4 @@ Ceiling:
   no RH/GRH progress.
 ```
 
-**Classification:** the only authorized next action is SYNTHESIS-001; PASS-025 is queued behind its closure, and ONE-THEOREM-001 remains the mandatory return checkpoint.
+**Classification:** the only authorized next action is the frozen-configuration PASS-025 reverse-preimage search; no PASS-026 is authorized, and ONE-THEOREM-001 remains the mandatory return checkpoint.
