@@ -1,23 +1,51 @@
 # PVG–ANT Central Mind
 
 > **Canonical repository:** `D:\PVG-ANT-Central-Mind`  
-> **Purpose:** build a reusable PVG–ANT research language and use it toward an original, correct, modest contribution to analytic number theory.
+> **Purpose:** build a reusable PVG–ANT research language and a governed native theory of Prime-Valuation Geometry.
+
+## Current governing state
+
+```text
+Governing program:
+  GOAL-PVG-INVERSE-GEOMETRY-001
+
+Active operational goal:
+  GOAL-OP-INVERSE-PRIME-FIBERS-001 = active_current
+
+Engine and phase:
+  ENGINE-004
+  Phase C — Inverse Prime Fibers
+
+Archived theorem route:
+  GOAL-OP-ONE-THEOREM-001 = superseded_with_reason
+  non-governing
+
+Phase D:
+  NOT AUTHORIZED
+```
+
+The owner redirected the project to inverse geometry. The earlier one-theorem program is retained as historical research memory only; it is not the current front.
+
+PR #63 remains open, draft, and unmerged on:
+
+```text
+agent/pvg-point-classification-inverse-geometry-001
+```
+
+`main` remains unchanged until explicit owner authorization.
 
 ## Research compass and goal memory
 
 ```text
-ANT problem
-→ multiplicative core
-→ PVG encoding
-→ geometric decomposition
-→ analytic transform
-→ transfer lemma
-→ proof / test / negative certificate
-→ ANT restatement
-→ originality and PVG-necessity audit
-→ reusable knowledge
+named object or question
+→ readiness card and frozen scope
+→ exact PVG encoding
+→ proved identity / finite test / negative certificate
+→ loss accounting
+→ honest classification
+→ reproducible artifact
 → goal-state update
-→ mandatory return decision
+→ Stage Review
 ```
 
 Canonical references:
@@ -26,13 +54,11 @@ Canonical references:
 - `central-mind-goals.md`
 - `governance/pvg-ant-research-compass-v1.md`
 - `governance/pvg-ant-goal-memory-and-return-protocol-v1.md`
-- `maps/pvg-ant-language-kernel-v1.md`
-- `maps/pvg-ant-common-language-contract-v1.md`
-- `governance/closures/SYNTHESIS-001-SUPPORT-FIBER-DYNAMICS-CLOSURE.md`
-- `governance/frozen-config/PASS-025-REVERSE-SUPPORT-PREIMAGE-FROZEN-CONFIG.md`
-- `governance/closures/PASS-025-REVERSE-SUPPORT-PREIMAGE-CLOSURE.md`
+- `governance/pvg-inverse-geometry-engine-architecture-v1.md`
+- `governance/readiness/ENGINE-004-INVERSE-PRIME-FIBERS.md`
+- `governance/checkpoints/ENGINE-004-CENTERED-GAP-COORDINATES-001.md`
 - `registries/program-goals.jsonl`
-- `registries/goal-links.jsonl`
+- `registries/goal-state-overrides-engine-004.jsonl`
 - `transition-memory/latest-state.md`
 - `transition-memory/next-action.md`
 
@@ -54,278 +80,167 @@ No classification, no claim.
 No certificate, no theorem.
 No readiness gate, no research execution.
 No parent goal, no detour.
-No return gate, no bounded extension.
+No explicit Stage Review, no phase transition.
 No fetched canonical state, no new work branch.
-No RH/GRH progress without a complete proof certificate.
+No Goldbach, PNT, RH, or GRH progress without a complete proof certificate.
 ```
 
-## Current strategic and operational state
+The earlier v0.6 and Coherence Audit 005 controls remain retained compatibility infrastructure; they do not determine the current research front.
+
+## ENGINE-004 frozen box
 
 ```text
-Strategic goal:
-  GOAL-PVG-ANT-STRATEGIC-001 = active_fixed.
-  Original ANT contribution through materially useful PVG.
-
-Closed operational synthesis:
-  GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001 status: closed.
-
-Closed bounded reverse search:
-  GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001 status: closed.
-  PASS-025 outcome = DEPTH_12_WITNESS_FOUND_WITHIN_FROZEN_CLASS.
-
-Returned active operational goal:
-  GOAL-OP-ONE-THEOREM-001 = active_external_validation_hold.
-  ONE-LEMMA-TARGET-001 remains frozen.
-
-Authorized next additive-dynamics pass:
-  none.
-  PASS-026 = NOT AUTHORIZED.
-
-Publication closure:
-  GOAL-OP-FORMAL-PUBLICATION-001 = blocked.
+support prime limit = 11
+support face sizes = 1,2,3
+integer cap = 100000
+support faces = 25
+certified Phase-B integer points = 884
+prime-pair convention = unordered distinct primes p<q
 ```
 
-## PASS-025 result
+No cap expansion is authorized inside the current checkpoint.
 
-The frozen reverse-support search found the source face:
+## Exact inverse prime-fiber structure
+
+For each certified point \(N\in\mathcal N(F)\),
 
 \[
-\boxed{\{2,27397961\}}.
+\mathcal R_2(N)=\{\{p,q\}:p<q,\ p+q=N\}.
 \]
 
-Its verified orbit is:
+The support face controls the parity route:
+
+```text
+2 in F     ⇔ N is even; every distinct-prime pair is odd+odd.
+2 not in F ⇔ N is odd; R_2(N) is empty or {{2,N-2}}.
+```
+
+Support does not determine representation multiplicity.
+
+For each representation define the centered-gap coordinate
 
 \[
-\begin{aligned}
-\{2,27397961\}
-&\to\{41,668243\}
-\to\{2,167071\}
-\to\{3,55691\}
-\to\{2,27847\}\\
-&\to\{3,9283\}
-\to\{2,4643\}
-\to\{5,929\}
-\to\{2,467\}
-\to\{7,67\}\\
-&\to\{2,37\}
-\to\{3,13\}
-\to\{2\}.
-\end{aligned}
+\Delta=q-p.
 \]
 
-Thus the source face has closure depth 12 under the registered transition law.
-
-The search was exhaustive only inside the frozen class:
-
-```text
-known tail = {2,167071}
-one reverse layer
-binary predecessor supports
-seed cap = 5,346,272
-candidate support cap = 50,000
-candidate integer cap = 10^12
-prime realization cap = 10^12
-```
-
-The witness is minimal only under the frozen ranking and class. The run was confirmatory rather than blinded because a small reconnaissance preceded configuration freeze. It is not a global first-depth-12 claim and does not imply unbounded depth or general termination.
-
-## Current PVG geometry branch
-
-Draft PR #63 carries PASS-001 through PASS-025 and SYNTHESIS-001 on:
-
-```text
-agent/pvg-point-classification-inverse-geometry-001
-```
-
-The governed result layer includes:
-
-- exact point passports and native valuation geometry;
-- support, height, simplex, terrain, flow, and Pareto structures;
-- additive cells and face transitions;
-- attraction basins and overlap geometry;
-- closure-depth growth;
-- support-fiber compression and deep orbit witnesses;
-- the closed SYNTHESIS-001 theory;
-- the closed PASS-025 reverse-preimage mechanism;
-- analytical and immersive 3D visual laboratories.
-
-The exact two-axis identity is:
+It is lossless over fixed \(N\):
 
 \[
-\mathcal T(\{p,q\})=\{\operatorname{supp}(p+q)\}.
+p=\frac{N-\Delta}{2},
+\qquad
+q=\frac{N+\Delta}{2}.
 \]
 
-The support projection does not retain the full valuation vector or exponent data.
+Exact identities:
 
-## Goal portfolio
+\[
+\Delta\equiv N\pmod2,
+\qquad
+N^2-\Delta^2=4pq,
+\qquad
+\gcd(N,\Delta)=\gcd(N,2).
+\]
 
-### Core research goals
+For even \(N\), \(m=N/2\) and \(d=\Delta/2\) satisfy
 
-- `GOAL-PVG-ANT-LANGUAGE-001`: bidirectional PVG–ANT translation.
-- `GOAL-PVG-FOUNDATIONS-001`: native full prime-valuation geometry.
-- `GOAL-PVG-ADDITIVE-DYNAMICS-001`: additive support-face dynamics and inverse geometry.
-- `GOAL-PVG-ANT-ADDITIVE-BRIDGE-001`: axis addition, addition fibers, and ANT reverse links.
-- `GOAL-PVG-ANT-ORIGINALITY-001`: original lemma and theorem pipeline.
-- `GOAL-CENTRAL-MIND-SPECIALIST-001`: ANT specialist mind with `ASSIM/MATH/OPS/CERT/PVG` separation.
-- `GOAL-GOVERNANCE-MEMORY-001`: project memory and mandatory return paths.
+\[
+p=m-d,
+\qquad
+q=m+d,
+\qquad
+m^2-d^2=pq,
+\qquad
+\gcd(m,d)=1.
+\]
 
-### Supporting programs
+These are elementary exact identities. No historical originality claim is made.
 
-- `GOAL-PVG-FORMAL-LEAN-001`: task-driven formal verification.
-- `GOAL-PVG-COMPUTATIONAL-LAB-001`: reproducible Python, data, CI, and visual labs.
-- `GOAL-SUPPORT-ANT-ENCYCLOPEDIA-001`: Arabic ANT encyclopedia as knowledge support.
-- `GOAL-SUPPORT-EXPOSITION-001`: rigorous visual and public exposition.
-
-Supporting programs do not create a second active original-research front.
-
-## Theorem and external-validation state
+## Registered finite certificate
 
 ```text
-GOAL-OP-ONE-THEOREM-001 = active_external_validation_hold
-ONE-LEMMA-TARGET-001 = frozen
-P8-OUTREACH-DECISION-001 = SENT
-P8-EXTERNAL-REFEREE-001 = SENT_AWAITING_RESPONSE
-priority request = Tsz Ho Chan
-proof request = Etienne Fouvry
-external originality certificate = absent
-independent proof certificate = absent
+integer points                         = 884
+representable points                   = 745
+nonrepresentable points                = 139
+unordered distinct-prime pairs         = 218024
+centered-gap coordinates               = 218024
+independent-scan mismatches             = 0
+maximum multiplicity                   = 1557
+maximum point                          = 97200
+maximum support                        = {2,3,5}
 ```
 
-The two packets were delivered without bounce. `SENT` is not acceptance, review, validation, or certification. No further packet or reserve contact is authorized without an explicit owner decision.
+Support-route decomposition:
 
-## Capability and benchmark state
+```text
+contains axis 2:
+  faces = 11
+  points = 653
+  representable = 650
+  nonrepresentable = 3
+  representations = 217929
+
+excludes axis 2:
+  faces = 14
+  points = 231
+  representable = 95
+  nonrepresentable = 136
+  representations = 95
+```
+
+Within this frozen box only, the nonrepresentable points on supports containing axis 2 are `2,4,6`.
+
+## Current checkpoint
+
+```text
+ENGINE-004-CENTERED-GAP-COORDINATES-001 = CHECKPOINT_PASS
+ENGINE-004 = active_current
+Stage decision = continue_within_phase_c
+Phase D = NOT AUTHORIZED
+```
+
+The next governed task is exact equality, containment, collision, and compression analysis of centered-gap spectra inside the same 884-point box.
+
+## Retained capability state
 
 ```text
 TRANSLATION-KERNEL-V2-PASS-001 = checkpoint_pass
 PVG-ANT-BENCHMARK-001 = checkpoint_pass
 TRANSLATION-KERNEL-V2-PASS-002 = checkpoint_pass
-PVG-UNDERSTANDING-DEEPENING-001 = checkpoint_pass; ontology frozen
+PVG-UNDERSTANDING-DEEPENING-001 = checkpoint_pass
 GOVERNANCE-ENFORCEMENT-CLOSURE-001 = CLOSED
 CENTRAL-MIND-CONTINUITY-001 = installed_repository_side
 CENTRAL-MIND-CONTINUITY-CLOSURE-002 = closed
 Current maturation receipt = MATURATION-RECEIPT-007
 ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED
+Dataset 004 remains unauthorized
 ```
 
-Benchmark 002 remains governed by measure-before-training and hidden-set separation. No targeted learning, local training, corpus promotion, or model claim is authorized before the raw baseline and immutable error map.
+These are supporting capabilities. They do not create another active research front.
 
-## Formal and knowledge substrate
+## Historical inverse-geometry foundation
 
-Historical and supporting source layers remain available on demand:
+The branch retains:
 
-- Overholt;
-- Tenenbaum;
-- Mileti;
-- Iwaniec–Kowalski;
-- Harman;
-- Montgomery MNT-II v0.6;
-- Opera de Cribro v0.7.
+- exact point passports and native valuation geometry;
+- support, height, simplex, terrain, flow, and Pareto structures;
+- additive cells, face transitions, basins, and overlap geometry;
+- support-fiber synthesis and reverse support preimages;
+- ENGINE-002 inverse support kernel;
+- ENGINE-003 exact integer fibers;
+- PASS-025 as a finite historical inverse-pipeline prototype;
+- deterministic Python tools, tests, JSON certificates, and visual laboratories.
 
-The source-grounding-corrected Montgomery story remains in force. The historical v0.6-E Closure Review and `v0.6-e-closure` remain closed and source-grounded. `TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001` remains live. Mismatched A/B/legacy-E material remains quarantined for source-mismatch.
-
-The Lean layer through `LEAN-P3-PASS-008` provides zero-sorry reusable valuation foundations. New Lean work requires a named load-bearing need.
-
-The Arabic analytic number theory encyclopedia remains a supporting program. Book or chapter count is not a research metric; extracted knowledge must return through the common-language contract.
-
-## Repository structure
-
-| Path | Purpose |
-|---|---|
-| `central-mind-charter.md`, `central-mind-goals.md` | strategic constitution and goal architecture |
-| `governance/` | honesty, readiness, goal memory, stage review, synchronization, and maturation |
-| `registries/` | machine truth for goals, links, skills, books, rules, claims, tools, and evidence |
-| `maps/` | language kernel, common-language contract, capabilities, dependencies, and translations |
-| `research/` | reproducible vertical research and synthesis passes |
-| `formal/lean/` | formal PVG layer when required |
-| `transition-memory/` | latest state and next action |
-| `tools/` | automated guards and safe synchronization tools |
-| `web/` | bounded visual laboratories on the draft branch |
-
-## Knowledge status discipline
-
-```text
-available
-→ indexed
-→ extracted
-→ integrated
-→ operationally_ready for a named task
-```
-
-Every acquired prerequisite returns as:
-
-```text
-source-grounded ANT object
-→ native PVG object
-→ admissible morphism
-→ preserved/lost information
-→ analytic tool and range
-→ wall/certificate
-→ reverse conditions and counterexample
-→ verification
-→ goal link and maturation receipt
-```
-
-## Continuity protocol
-
-```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync_canonical_main.ps1 -Mode Audit
-powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync_canonical_main.ps1 -Mode SafeSync
-powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync_canonical_main.ps1 -Mode PrepareBranch
-```
-
-The repository-side continuity contract and workstation task remain governed by `CENTRAL-MIND-CONTINUITY-CLOSURE-002` and `MATURATION-RECEIPT-007`.
-
-## Guards
-
-```bash
-python tools/honesty_audit.py
-python tools/registry_sync_audit.py
-python tools/no_pdf_audit.py
-python tools/forbidden_promotion_audit.py
-python tools/duplicate_concept_audit.py
-python tools/citation_audit.py
-python tools/state_coherence_audit.py
-python tools/research_compass_audit.py
-python tools/goal_memory_traceability_audit.py
-python tools/legacy_assets_audit.py
-python tools/pvg_core_ontology_audit.py
-python tools/central_mind_continuity_audit.py
-```
-
-## Focus rules
-
-- one active original-research front;
-- theorem program remains on external-validation hold;
-- no deletion of goals;
-- every detour has a parent, stop rule, and return gate;
-- PASS-025 is closed and PASS-026 is not authorized;
-- no second theorem target;
-- minimum sufficient knowledge acquisition;
-- no rebuilding certified bridges;
-- no tool without a named scientific function;
-- no Benchmark 002 learning before the immutable raw error map;
-- Dataset 004 remains unauthorized;
-- no automatic Lean expansion;
-- no broad untargeted book mining.
+PASS-025’s depth-12 witness remains finite and frozen-class dependent. It does not establish global minimality, unbounded depth, or general termination.
 
 ## Scientific ceiling
 
-```text
-No original lemma certified yet.
-No original theorem certified yet.
-Depth-12 witness = finite verified inside frozen class.
-No global minimum depth-12 threshold.
-No general termination theorem for support dynamics.
-No universal closure-depth bound.
-No unbounded-depth theorem.
-No Goldbach progress claimed.
-No PNT progress claimed.
-Hidden-set autonomous performance is not fully sealed.
-No trained neural network.
-No approved training corpus.
-No publication readiness.
-No RH progress.
-No GRH progress.
-```
+- inverse geometry only;
+- exact identities and complete finite verification only;
+- no theorem-route reactivation;
+- no Phase D without a separate readiness decision;
+- no asymptotic estimate;
+- no historical originality or publication-readiness claim;
+- no Goldbach, PNT, RH, or GRH progress;
+- no trained neural network or approved training corpus.
 
-**Classification:** Governance / Research Program landing page.
+**Classification:** governed research infrastructure and exact finite inverse geometry. No original lemma or theorem is certified.
