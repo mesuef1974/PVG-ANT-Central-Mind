@@ -1,4 +1,0 @@
-{"kind":"goal_link","from_goal_id":"GOAL-OP-TWO-PRIME-PLANE-GEOMETRY-001","relation":"serves","to_goal_id":"GOAL-PVG-INVERSE-GEOMETRY-001","source":"PVG-TWO-PRIME-PLANE-GEOMETRY-001 readiness"}
-{"kind":"goal_link","from_goal_id":"GOAL-OP-TWO-PRIME-PLANE-GEOMETRY-001","relation":"serves","to_goal_id":"GOAL-PVG-FOUNDATIONS-001","source":"PVG-TWO-PRIME-PLANE-GEOMETRY-001 readiness"}
-{"kind":"goal_link","from_goal_id":"GOAL-OP-TWO-PRIME-PLANE-GEOMETRY-001","relation":"serves","to_goal_id":"GOAL-PVG-COMPUTATIONAL-LAB-001","source":"PVG-TWO-PRIME-PLANE-GEOMETRY-001 readiness"}
-{"kind":"goal_link","from_goal_id":"GOAL-OP-TWO-PRIME-PLANE-GEOMETRY-001","relation":"returns_to","to_goal_id":"GOAL-PVG-INVERSE-GEOMETRY-001","source":"PVG-TWO-PRIME-PLANE-GEOMETRY-001 readiness"}
