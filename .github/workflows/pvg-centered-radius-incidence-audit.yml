@@ -45,8 +45,12 @@ jobs:
           assert digest == certificate['canonical_compact_sha256']
           for key in ('scope', 'totals', 'degree_distributions', 'maxima', 'route_coordinate_classes', 'largest_support_pair_intersections', 'bipartite_components', 'lossless_cooccurrence_certificate', 'verification', 'claim_ceiling'):
               assert generated[key] == certificate[key]
-          assert generated['verification']['independent_index_mismatch_count'] == 0
-          assert all(generated['verification'].values())
+          verification = generated['verification']
+          assert verification['independent_index_mismatch_count'] == 0
+          assert verification['all_rows_reconstruct']
+          assert verification['odd_route_owner_injective']
+          assert verification['deterministic_ordering']
+          assert verification['phase_d_not_used']
           assert not any(generated['claim_ceiling'].values())
           PY
       - name: Governance audits
