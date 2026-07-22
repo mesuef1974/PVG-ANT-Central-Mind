@@ -10,6 +10,8 @@ on:
       - 'research/pvg-space-deepening/data/inverse-integer-fibers-summary.json'
       - '.github/workflows/pvg-inverse-integer-fibers-audit.yml'
       - 'registries/program-goals.jsonl'
+      - 'registries/goal-links-engine-003.jsonl'
+      - 'tools/goal_memory_traceability_audit.py'
   push:
     branches: [main]
     paths:
@@ -20,6 +22,8 @@ on:
       - 'research/pvg-space-deepening/data/inverse-integer-fibers-summary.json'
       - '.github/workflows/pvg-inverse-integer-fibers-audit.yml'
       - 'registries/program-goals.jsonl'
+      - 'registries/goal-links-engine-003.jsonl'
+      - 'tools/goal_memory_traceability_audit.py'
 
 jobs:
   audit:
@@ -41,13 +45,20 @@ jobs:
             --registered-summary \
             --output /tmp/inverse-integer-fibers-summary.json \
             --compact > /tmp/inverse-integer-fibers-stdout.json
-          cmp /tmp/inverse-integer-fibers-summary.json research/pvg-space-deepening/data/inverse-integer-fibers-summary.json
-      - name: Verify scientific ceiling
-        run: |
           python - <<'PY'
           import json
           from pathlib import Path
-
+          generated = json.loads(Path('/tmp/inverse-integer-fibers-summary.json').read_text(encoding='utf-8'))
+          stored = json.loads(Path('research/pvg-space-deepening/data/inverse-integer-fibers-summary.json').read_text(encoding='utf-8'))
+          assert generated == stored
+          PY
+      - name: Goal memory and scientific ceiling
+        run: |
+          python tools/research_compass_audit.py
+          python tools/goal_memory_traceability_audit.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
           data = json.loads(Path('research/pvg-space-deepening/data/inverse-integer-fibers-summary.json').read_text(encoding='utf-8'))
           assert data['scope']['support_face_count'] == 25
           assert data['totals']['total_fiber_points_across_faces'] == 884
