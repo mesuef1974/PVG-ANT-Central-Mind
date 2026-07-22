@@ -7,6 +7,7 @@ on:
       - 'governance/readiness/SYNTHESIS-001-SUPPORT-FIBER-DYNAMICS.md'
       - 'governance/readiness/PASS-025-REVERSE-SUPPORT-PREIMAGE.md'
       - 'governance/closures/SYNTHESIS-001-SUPPORT-FIBER-DYNAMICS-CLOSURE.md'
+      - 'governance/closures/PASS-025-REVERSE-SUPPORT-PREIMAGE-CLOSURE.md'
       - 'registries/program-goals.jsonl'
       - 'tests/test_pvg_support_fiber_synthesis.py'
       - 'tools/pvg_deep_orbit_preimage_families.py'
@@ -20,6 +21,7 @@ on:
       - 'governance/readiness/SYNTHESIS-001-SUPPORT-FIBER-DYNAMICS.md'
       - 'governance/readiness/PASS-025-REVERSE-SUPPORT-PREIMAGE.md'
       - 'governance/closures/SYNTHESIS-001-SUPPORT-FIBER-DYNAMICS-CLOSURE.md'
+      - 'governance/closures/PASS-025-REVERSE-SUPPORT-PREIMAGE-CLOSURE.md'
       - 'registries/program-goals.jsonl'
       - 'tests/test_pvg_support_fiber_synthesis.py'
       - 'tools/pvg_deep_orbit_preimage_families.py'
@@ -43,7 +45,7 @@ jobs:
         run: |
           python tools/research_compass_audit.py
           python tools/goal_memory_traceability_audit.py
-      - name: Verify synthesis closure and PASS-025 activation
+      - name: Verify closed synthesis, closed PASS-025, and return
         run: |
           python - <<'PY'
           import json
@@ -56,11 +58,10 @@ jobs:
           ]
           by_id = {row['id']: row for row in goals}
           assert by_id['GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001']['status'] == 'closed'
-          assert by_id['GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001']['status'] == 'active_current'
-          assert by_id['GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001']['blocked_by'] == []
-          assert by_id['GOAL-OP-ONE-THEOREM-001']['status'] == 'paused_governed_return_required'
+          assert by_id['GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001']['status'] == 'closed'
+          assert by_id['GOAL-OP-ONE-THEOREM-001']['status'] == 'active_external_validation_hold'
           assert 'GOAL-OP-ONE-THEOREM-001' in by_id['GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001']['return_to_goal_ids']
-          assert 'No PASS-026' in by_id['GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001']['return_gate']
+          assert 'PASS-026 not authorized' in by_id['GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001']['return_gate']
           assert Path('governance/closures/SYNTHESIS-001-SUPPORT-FIBER-DYNAMICS-CLOSURE.md').is_file()
-          assert Path('governance/readiness/PASS-025-REVERSE-SUPPORT-PREIMAGE.md').is_file()
+          assert Path('governance/closures/PASS-025-REVERSE-SUPPORT-PREIMAGE-CLOSURE.md').is_file()
           PY
