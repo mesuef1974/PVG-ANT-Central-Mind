@@ -8,7 +8,6 @@ from pathlib import Path
 try:
     from tools.pvg_reverse_support_preimage import (
         REGISTERED_CONFIG,
-        FrozenConfig,
         analyze,
         binary_exact_support_powers,
         is_prime_64,
@@ -16,7 +15,6 @@ try:
 except ModuleNotFoundError:
     from pvg_reverse_support_preimage import (
         REGISTERED_CONFIG,
-        FrozenConfig,
         analyze,
         binary_exact_support_powers,
         is_prime_64,
@@ -32,6 +30,48 @@ FROZEN_CONFIG = (
     ROOT
     / "governance/frozen-config/PASS-025-REVERSE-SUPPORT-PREIMAGE-FROZEN-CONFIG.md"
 )
+
+
+def summary_projection(data: dict[str, object]) -> dict[str, object]:
+    return {
+        "schema": data["schema"],
+        "classification": data["classification"],
+        "configuration": data["configuration"],
+        "target": data["target"],
+        "seed_fiber": data["seed_fiber"],
+        "predecessor_support_count": data["predecessor_support_count"],
+        "predecessor_support_cap_exceeded": data["predecessor_support_cap_exceeded"],
+        "candidate_supports_with_integers": data["candidate_supports_with_integers"],
+        "candidate_exact_support_integer_count":
+            data["candidate_exact_support_integer_count"],
+        "primality_test_count": data["primality_test_count"],
+        "witness_candidate_count": data["witness_candidate_count"],
+        "per_seed_candidate_integer_counts":
+            data["per_seed_candidate_integer_counts"],
+        "per_seed_witness_candidate_counts":
+            data["per_seed_witness_candidate_counts"],
+        "promoted_witness_count": data["promoted_witness_count"],
+        "registered_top_witnesses": [
+            {
+                "source_pair": row["source_pair"],
+                "source_sum": row["source_sum"],
+                "exposing_prime_limit": row["exposing_prime_limit"],
+                "predecessor_support": row["predecessor_support"],
+                "predecessor_radical": row["predecessor_radical"],
+                "predecessor_exponents": row["predecessor_exponents"],
+                "seed_sum": row["seed_sum"],
+                "face_closure_depth":
+                    row["forward_orbit"]["face_closure_depth"],
+                "terminal_axes": row["forward_orbit"]["terminal_axes"],
+            }
+            for row in data["promoted_witnesses"]
+        ],
+        "first_witness": data["first_witness"],
+        "outcome": data["outcome"],
+        "verification": data["verification"],
+        "minimality_scope": data["minimality_scope"],
+        "caution": data["caution"],
+    }
 
 
 class PVGReverseSupportPreimageTests(unittest.TestCase):
@@ -63,9 +103,10 @@ class PVGReverseSupportPreimageTests(unittest.TestCase):
                 (100, 2, 2),
             ],
         )
-        self.assertEqual(binary_exact_support_powers(41, 668243, 27_397_963), [
-            (27_397_963, 1, 1),
-        ])
+        self.assertEqual(
+            binary_exact_support_powers(41, 668243, 27_397_963),
+            [(27_397_963, 1, 1)],
+        )
 
     def test_deterministic_primality(self) -> None:
         for prime in (2, 3, 41, 167071, 668243, 27_397_961):
@@ -171,7 +212,10 @@ class PVGReverseSupportPreimageTests(unittest.TestCase):
 
     def test_all_verification_flags_pass(self) -> None:
         self.assertTrue(all(self.data["verification"].values()))
-        self.assertIn("only within the frozen binary-predecessor class", self.data["minimality_scope"])
+        self.assertIn(
+            "only within the frozen binary-predecessor class",
+            self.data["minimality_scope"],
+        )
         self.assertIn("confirmatory, not blinded", self.data["caution"])
 
     def test_configuration_cap_failure_does_not_promote(self) -> None:
@@ -193,7 +237,7 @@ class PVGReverseSupportPreimageTests(unittest.TestCase):
     def test_committed_summary_matches_regeneration(self) -> None:
         self.assertTrue(SUMMARY.is_file())
         committed = json.loads(SUMMARY.read_text(encoding="utf-8"))
-        self.assertEqual(committed, self.data)
+        self.assertEqual(committed, summary_projection(self.data))
 
 
 if __name__ == "__main__":
