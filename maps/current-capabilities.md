@@ -9,7 +9,7 @@ Strategic:
   GOAL-PVG-ANT-STRATEGIC-001 = active_fixed
 
 Closed operational synthesis:
-  GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001 = closed
+  GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001 status: closed
 
 Active operational:
   GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001 = active_current
