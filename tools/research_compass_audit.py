@@ -19,6 +19,7 @@ REQUIRED_FILES = [
     "central-mind-goals.md",
     "governance/pvg-ant-research-compass-v1.md",
     "governance/pvg-ant-goal-memory-and-return-protocol-v1.md",
+    "governance/pvg-inverse-geometry-engine-architecture-v1.md",
     "maps/pvg-ant-language-kernel-v1.md",
     "governance/task-triggered-knowledge-activation-policy.md",
     "governance/stage-review-and-ceiling-escalation-policy.md",
@@ -89,6 +90,7 @@ def main() -> None:
     charter = (ROOT / "central-mind-charter.md").read_text(encoding="utf-8")
     goals_doc = (ROOT / "central-mind-goals.md").read_text(encoding="utf-8")
     compass = (ROOT / "governance/pvg-ant-research-compass-v1.md").read_text(encoding="utf-8")
+    inverse_architecture = (ROOT / "governance/pvg-inverse-geometry-engine-architecture-v1.md").read_text(encoding="utf-8")
     kernel = (ROOT / "maps/pvg-ant-language-kernel-v1.md").read_text(encoding="utf-8")
     readiness = (ROOT / "governance/templates/research-readiness-card.md").read_text(encoding="utf-8")
     goal_memory = (
@@ -101,7 +103,9 @@ def main() -> None:
     require("Research Operating Charter v1.0" in charter, "charter is not v1.0", issues)
     require("One active research front" in charter, "charter omits one-active-front rule", issues)
     require("Original ANT contribution" in goals_doc, "goals omit strategic originality target", issues)
-    require("Central Mind Goals v1.1" in goals_doc, "goals document is not v1.1", issues)
+    require("Central Mind Goals v1.2" in goals_doc, "goals document is not v1.2", issues)
+    require("GOAL-PVG-INVERSE-GEOMETRY-001" in goals_doc, "goals omit inverse geometry engine", issues)
+    require("PASS-025 as first certified prototype" in inverse_architecture, "inverse architecture omits PASS-025 prototype classification", issues)
     require("Task-first" in compass or "المهمة أولًا" in compass, "compass omits task-first operation", issues)
     require("PVG–ANT Language Kernel" in kernel, "language kernel title missing", issues)
     require("READY | NOT_READY" in readiness, "readiness card omits binary decision", issues)
@@ -113,6 +117,7 @@ def main() -> None:
 
     goal_ids = [str(row.get("id", "")) for row in goals]
     require(len(goal_ids) == len(set(goal_ids)), "duplicate goal IDs", issues)
+    require("GOAL-PVG-INVERSE-GEOMETRY-001" in goal_ids, "inverse geometry goal missing from registry", issues)
 
     for row in goals:
         missing = REQUIRED_GOAL_FIELDS - set(row)
@@ -122,6 +127,12 @@ def main() -> None:
     require(len(strategic) == 1, f"expected one strategic goal, found {len(strategic)}", issues)
     if strategic:
         require(strategic[0].get("status") == "active_fixed", "strategic goal is not active_fixed", issues)
+
+    inverse_goal = [row for row in goals if row.get("id") == "GOAL-PVG-INVERSE-GEOMETRY-001"]
+    require(len(inverse_goal) == 1, "expected exactly one inverse geometry goal", issues)
+    if inverse_goal:
+        require(inverse_goal[0].get("kind") == "general_goal", "inverse geometry goal is not general_goal", issues)
+        require(inverse_goal[0].get("status") == "active_long_term", "inverse geometry goal is not active_long_term", issues)
 
     active_operational = [
         row
@@ -157,6 +168,7 @@ def main() -> None:
     active_id = active_operational[0]["id"]
     print("Research Compass Audit: PASS")
     print(f"Strategic goal: {strategic[0]['id']}")
+    print("Long-term inverse geometry goal: GOAL-PVG-INVERSE-GEOMETRY-001")
     print(f"Active operational goal: {active_id}")
     print(f"Registered goals: {len(goals)}")
     print(f"Registered goal links: {len(links)}")
