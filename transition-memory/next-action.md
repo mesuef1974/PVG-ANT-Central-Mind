@@ -57,6 +57,11 @@ Mandatory return after PASS-025:
     close a parent goal by certificate;
     or authorize one explicitly bounded extension with a new stop rule.
 
+Historical theorem-hold record retained for continuity audits:
+  GOAL-OP-ONE-THEOREM-001 = active_external_validation_hold.
+  This is the superseded pre-synthesis status, not the current active state.
+  The governing registry status is paused_governed_return_required.
+
 External theorem-validation track retained:
   P8-OUTREACH-DECISION-001 = SENT.
   P8-EXTERNAL-REFEREE-001 = SENT_AWAITING_RESPONSE.
@@ -71,6 +76,10 @@ Capability and knowledge tracks retained:
   TRANSLATION-KERNEL-V2-PASS-001 = checkpoint_pass.
   PVG-ANT-BENCHMARK-001 = checkpoint_pass.
   TRANSLATION-KERNEL-V2-PASS-002 = checkpoint_pass.
+  GOVERNANCE-ENFORCEMENT-CLOSURE-001 = CLOSED.
+  CENTRAL-MIND-CONTINUITY-001 = installed_repository_side.
+  CENTRAL-MIND-CONTINUITY-CLOSURE-002 = closed.
+  Current maturation receipt = MATURATION-RECEIPT-007.
   Lean P3 through PASS-008 remains reusable; no automatic Lean expansion.
   Arabic ANT encyclopedia remains supporting; no broad untargeted mining.
   visual and structural laboratories remain supporting tools only.
@@ -115,7 +124,8 @@ Ceiling:
   publication readiness = absent;
   trained neural network = none;
   approved training corpus = none;
-  no Goldbach, PNT, RH, or GRH progress.
+  no Goldbach, PNT, RH, or GRH progress;
+  no RH/GRH progress.
 ```
 
 **Classification:** the only authorized next action is SYNTHESIS-001; PASS-025 is queued behind its closure, and ONE-THEOREM-001 remains the mandatory return checkpoint.
