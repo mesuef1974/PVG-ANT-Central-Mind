@@ -80,6 +80,9 @@ Capability and knowledge tracks retained:
   CENTRAL-MIND-CONTINUITY-001 = installed_repository_side.
   CENTRAL-MIND-CONTINUITY-CLOSURE-002 = closed.
   Current maturation receipt = MATURATION-RECEIPT-007.
+  Montgomery v0.6-e-closure remains closed and source-grounded.
+  TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001 remains live.
+  Montgomery A/B/legacy-E remain quarantined for source-mismatch.
   Lean P3 through PASS-008 remains reusable; no automatic Lean expansion.
   Arabic ANT encyclopedia remains supporting; no broad untargeted mining.
   visual and structural laboratories remain supporting tools only.
