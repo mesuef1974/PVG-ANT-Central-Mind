@@ -8,11 +8,15 @@ Live capability snapshot. Registries, certificates, maturation receipts, and ben
 Strategic:
   GOAL-PVG-ANT-STRATEGIC-001 = active_fixed
 
-Active operational:
-  GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001 = active_current
+Closed operational synthesis:
+  GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001 = closed
 
-Queued next:
-  GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001 = queued_next
+Active operational:
+  GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001 = active_current
+
+Authorized queued next:
+  none
+  PASS-026 = prohibited before PASS-025 Stage Review
 
 Mandatory return:
   GOAL-OP-ONE-THEOREM-001 = paused_governed_return_required
@@ -21,11 +25,11 @@ Publication:
   GOAL-OP-FORMAL-PUBLICATION-001 = blocked
 ```
 
-The active front is a synthesis and knowledge-return pass. It does not authorize PASS-025, a second theorem target, a new dataset, or broad knowledge mining.
+SYNTHESIS-001 is closed by a certificate. PASS-025 is the sole active original-research front and is restricted to one fixed-cap reverse-preimage search. It does not authorize an adaptive cap increase, a second theorem target, a new dataset, or broad knowledge mining.
 
 ## 2. Goal-memory capability
 
-The mind now has a machine-audited goal graph:
+The mind has a machine-audited goal graph:
 
 ```text
 program-goals.jsonl
@@ -33,7 +37,8 @@ program-goals.jsonl
   → return_to_goal_ids
   → goal-links.jsonl
   → readiness card
-  → Stage Review
+  → execution
+  → closure / Stage Review
   → return | close_parent | bounded_extension
 ```
 
@@ -41,8 +46,8 @@ Installed controls:
 
 - one active operational goal;
 - no goal deletion;
-- every detour has a parent and return gate;
-- queued work cannot become active before prerequisite closure;
+- every detour has a parent, stop rule, and return gate;
+- closed work remains linked to its certificate;
 - ONE-THEOREM-001 remains a mandatory return checkpoint;
 - PASS-026 is forbidden before the PASS-025 Stage Review.
 
@@ -66,8 +71,6 @@ named task
 
 ## 4. Native PVG foundation
 
-The native ontology retains:
-
 ```text
 canonical PVG objects = 20
 canonical morphisms/projections = 24
@@ -76,19 +79,7 @@ PVG-UNDERSTANDING-DEEPENING-001 = checkpoint_pass
 ontology = frozen
 ```
 
-Core capabilities include:
-
-- full valuation vectors;
-- labeled support and Boolean support;
-- exponent/height profiles;
-- total height and support size;
-- log mass;
-- divisor boxes;
-- simplex and face incidence;
-- residue and character fibers;
-- convolution and bilinear decomposition;
-- local prime-axis germs;
-- reconstruction and information-loss levels.
+Core capabilities include full valuation vectors, labeled and Boolean support, exponent and height profiles, total height, log mass, divisor boxes, simplex incidence, residue and character fibers, convolution, bilinear decomposition, local prime-axis germs, and reconstruction/loss levels.
 
 ## 5. Full valuation versus support projection
 
@@ -112,40 +103,74 @@ Installed loss laws include:
 - full Fourier data can be invertible while energy alone is not;
 - support-projected additive dynamics are not the whole PVG geometry.
 
-This distinction is load-bearing for SYNTHESIS-001.
+SYNTHESIS-001 froze this distinction and prevented the support-face program from replacing the full-PVG foundations goal.
 
-## 6. Additive support-face dynamics
+## 6. Closed support-fiber synthesis
 
-Draft PR #63 records PASS-013 through PASS-024.
+`GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001` is closed by:
 
-Current reusable objects:
+`governance/closures/SYNTHESIS-001-SUPPORT-FIBER-DYNAMICS-CLOSURE.md`
 
-- additive cells;
-- face transition `T`;
-- iterated layers;
-- terminal axes;
-- attraction basins;
-- overlap graph and signature poset;
-- bounded closure and stabilization depth;
-- sum fibers and support fibers;
-- inverse/preimage families;
-- finite threshold ladders.
-
-Exact two-axis identity:
+Reusable exact statements include:
 
 \[
-T(\{p,q\})=\operatorname{supp}(p+q).
+\mathcal T(S)=\{\operatorname{supp}(a+b):a,b\in S,\ a<b\},
 \]
 
-Exact consequences:
+and for a binary face:
+
+\[
+\mathcal T(\{p,q\})=\{\operatorname{supp}(p+q)\}.
+\]
+
+Consequences:
 
 - equal sums have identical orbit tails from depth 1;
 - equal supports of sums have identical orbit tails from depth 1;
-- numbers with exact support `F={r_1,...,r_k}` are products `∏ r_i^{e_i}` with every `e_i≥1`.
+- distinct source primes do not occur in the support of their sum;
+- exact support preimages are products of positive powers of every prime in the support;
+- representation multiplicity and orbit class are separate data layers.
 
-Finite registered evidence through PASS-024 reaches closure depth 11 under the stated sum cap. No global termination or universal depth theorem is installed.
+The synthesis also records finite evidence through PASS-024, but no general termination, universal depth, unbounded-depth, or asymptotic theorem.
 
-## 7. Computational and visual capability
+## 7. Active PASS-025 capability
+
+`GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001` is `active_current` with readiness:
+
+`governance/readiness/PASS-025-REVERSE-SUPPORT-PREIMAGE.md`
+
+Authorized route:
+
+```text
+target deep support face
+← support predecessors E with target in T(E)
+← integers n with supp(n)=E
+← distinct-prime representations p+q=n
+← exact forward-orbit verification
+← earliest exposing prime limit
+```
+
+Required frozen configuration:
+
+```text
+target_prime_pair_closure_depth = 12
+reverse_support_depth_budget
+candidate_support_node_cap
+candidate_integer_cap
+prime_pair_realization_cap
+orbit_verification_depth_cap
+ranking_rule
+pruning_rules
+```
+
+The registered pass must produce either:
+
+- a verified depth-12 witness and full orbit certificate; or
+- a finite negative certificate under the frozen caps.
+
+No adaptive extension is allowed inside PASS-025. No PASS-026 is authorized automatically.
+
+## 8. Computational and visual capability
 
 Installed on the draft branch:
 
@@ -155,11 +180,12 @@ Installed on the draft branch:
 - analytical Visual Lab;
 - immersive 3D Visual Lab;
 - safe detached-worktree synchronization;
-- support-fiber compression and cached orbit tails.
+- support-fiber compression and cached orbit tails;
+- audited SYNTHESIS-001 examples and propositions.
 
 These tools support discovery, explanation, counterexample search, and reproducibility. They do not replace proof.
 
-## 8. Translation inventory
+## 9. Translation inventory
 
 ```text
 closed Language Kernel v1 families = 8
@@ -173,40 +199,21 @@ The translator covers multiplicative structure, Dirichlet/Bell/Euler analysis, M
 
 No new translation card is authorized merely to improve a benchmark score. Knowledge activation remains task-driven.
 
-## 9. ANT specialist-mind capability
+## 10. ANT specialist-mind capability
 
 `GOAL-CENTRAL-MIND-SPECIALIST-001` remains a long-term goal.
 
-The current system provides:
+The current system provides book ledgers, source-grounded tools, translation knowledge graphs, reasoning routes, `ASSIM/MATH/OPS/CERT/PVG` separation, bounded benchmarks, and negative-result memory.
 
-- book ledgers and source-grounded tools;
-- translation knowledge graphs;
-- reasoning routes;
-- `ASSIM/MATH/OPS/CERT/PVG` separation;
-- bounded benchmarks;
-- failure and negative-result memory.
+It does not provide a trained neural network, an approved training corpus, or certified general autonomous research performance.
 
-It does not provide:
+## 11. Formal Lean capability
 
-- a trained neural network;
-- an approved training corpus;
-- certified general autonomous research performance.
+The Lean P3 layer through `LEAN-P3-PASS-008` supplies zero-sorry reusable valuation foundations. Lean is available for reusable foundation laws and active load-bearing lemmas, but expansion is not automatic and formalization does not create originality.
 
-## 10. Formal Lean capability
+## 12. Supporting knowledge programs
 
-The Lean P3 layer through `LEAN-P3-PASS-008` supplies zero-sorry reusable valuation foundations.
-
-Lean is available for:
-
-- reusable foundation laws;
-- active load-bearing lemmas;
-- boundary-error prevention.
-
-Lean expansion is not automatic and formalization does not create originality.
-
-## 11. Supporting knowledge programs
-
-The following remain available without becoming second active research fronts:
+Available without becoming second active research fronts:
 
 - Arabic analytic number theory encyclopedia;
 - Overholt, Tenenbaum, Mileti, Iwaniec–Kowalski, Harman;
@@ -217,7 +224,7 @@ The following remain available without becoming second active research fronts:
 
 The source-grounding-corrected Montgomery story remains in force. Closure-reviewed units through `v0.6-e-closure` and beyond remain available, including the live `TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001`. Mismatched Montgomery A/B/legacy-E material remains quarantined for source-mismatch and is not live.
 
-## 12. Theorem and external-validation state
+## 13. Theorem and external-validation state
 
 ```text
 GOAL-OP-ONE-THEOREM-001 = paused_governed_return_required
@@ -229,9 +236,9 @@ external originality certificate = absent
 independent proof certificate = absent
 ```
 
-The paused theorem program is preserved, not superseded. It must be reviewed after SYNTHESIS-001 and PASS-025.
+The theorem program is preserved, not superseded. It must be reviewed immediately after PASS-025 before any further additive-dynamics pass.
 
-## 13. Benchmark and research-model state
+## 14. Benchmark and research-model state
 
 ```text
 TRANSLATION-KERNEL-V2-PASS-001 = checkpoint_pass
@@ -257,27 +264,20 @@ raw hidden baseline
 
 No training or targeted learning is authorized before the baseline and error map.
 
-## 14. Continuity and verification
+## 15. Continuity and verification
 
-The repository retains:
+The repository retains fetched `origin/main` as canonical truth, fast-forward-only main synchronization, separate detached research worktrees, machine-readable maturation receipts, governance-required checks, goal-memory CI, and scientific-ceiling firewalls.
 
-- fetched `origin/main` as canonical truth;
-- fast-forward-only canonical synchronization;
-- separate detached worktrees for draft research;
-- machine-readable maturation receipts;
-- governance-required status checks;
-- goal-memory and traceability CI;
-- scientific-ceiling firewalls.
+The draft branch does not modify `main` until explicit merge authorization.
 
-The active draft branch does not modify `main` until explicit merge authorization.
-
-## 15. Current limits
+## 16. Current limits
 
 ```text
 No original lemma certified.
 No original theorem certified.
 No general support-dynamics termination theorem.
 No universal closure-depth bound.
+No unbounded-depth theorem.
 No asymptotic law for D_min.
 No Goldbach progress.
 No PNT progress.
@@ -285,9 +285,10 @@ No trained neural network.
 No approved corpus.
 Hidden-set autonomous performance not fully sealed.
 Dataset 004 unauthorized.
+PASS-026 unauthorized.
 Publication readiness absent.
 No RH progress.
 No GRH progress.
 ```
 
-**Classification:** governed capability snapshot with SYNTHESIS-001 active and mandatory return to the theorem program preserved.
+**Classification:** governed capability snapshot with SYNTHESIS-001 closed, PASS-025 active under fixed caps, and mandatory return to the theorem program preserved.
