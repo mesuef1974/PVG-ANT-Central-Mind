@@ -3,10 +3,10 @@
 ```text
 Date: 2026-07-22
 Governing program: GOAL-PVG-INVERSE-GEOMETRY-001
-Active operational goal: GOAL-OP-INVERSE-PRIME-FIBERS-001
+Active operational goal: GOAL-OP-INVERSE-PRIME-FIBERS-001 = active_current
 Engine: ENGINE-004
 Phase: C — Inverse Prime Fibers
-Theorem goal: archived / non-governing
+GOAL-OP-ONE-THEOREM-001 = superseded_with_reason / archived / non-governing
 Phase D: NOT AUTHORIZED
 ```
 
@@ -40,7 +40,7 @@ q=m+d
 gcd(m,d)=1
 ```
 
-The exact-support membership guard is now mandatory before a prime-fiber record is issued.
+The exact-support membership guard is mandatory before a prime-fiber record is issued.
 
 ## Immediate governed task
 
@@ -60,6 +60,30 @@ The next bounded pass must compute and certify only:
 4. exact compression ratios relative to the full pair records;
 5. invariants preserved or lost by the spectrum projection;
 6. independent regeneration and deterministic ordering.
+
+## Retained capability state — supporting, not governing
+
+```text
+TRANSLATION-KERNEL-V2-PASS-001 = checkpoint_pass
+PVG-ANT-BENCHMARK-001 = checkpoint_pass
+TRANSLATION-KERNEL-V2-PASS-002 = checkpoint_pass
+PVG-UNDERSTANDING-DEEPENING-001 = checkpoint_pass
+GOVERNANCE-ENFORCEMENT-CLOSURE-001 = CLOSED
+CENTRAL-MIND-CONTINUITY-001 = installed_repository_side
+CENTRAL-MIND-CONTINUITY-CLOSURE-002 = closed
+Current maturation receipt = MATURATION-RECEIPT-007
+```
+
+These stages remain registered capabilities and do not create a second research front.
+
+```text
+ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED
+registries/planned.jsonl is empty
+Dataset 004 remains unauthorized
+no targeted learning before the immutable raw error map
+no local component training, corpus promotion, LoRA, or SFT
+no automatic Lean expansion
+```
 
 ## Required scientific separation
 
@@ -88,15 +112,16 @@ No finite collision, absence, density, or exception may be promoted beyond the f
 
 ## Stop conditions
 
-Stop and request a new readiness decision before any of the following:
+Stop and require a new readiness decision before any of the following:
 
 - Phase D orbit dynamics;
 - a support-prime, face-size, or integer-cap expansion;
 - weighted or asymptotic representation analysis;
 - ANT translation beyond exact elementary identities;
 - opening or reactivating a theorem target;
+- a second theorem target;
 - any originality, publication, Goldbach, PNT, RH, or GRH claim.
 
 ## Current ceiling
 
-The authorized next action is an exact finite geometry/compression analysis of centered-gap spectra inside ENGINE-004. It is not a theorem program, not a major-conjecture program, and not an authorization for Phase D.
+The authorized next action is exact finite geometry and compression analysis of centered-gap spectra inside ENGINE-004. It is not a theorem program, not a major-conjecture program, and not an authorization for Phase D. There is no Goldbach or PNT progress and no RH/GRH progress.
