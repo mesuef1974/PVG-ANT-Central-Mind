@@ -92,7 +92,7 @@ superseded_with_reason
 
 `GOAL-PVG-ADDITIVE-DYNAMICS-001`
 
-يشمل PASS-013–024: الخلايا الجمعية، انتقال الوجوه، الأحواض، التداخل، استقرار العمق، نمو عمق الإغلاق، وألياف الدعم والسوابق.
+يشمل PASS-013–024 وSYNTHESIS-001: الخلايا الجمعية، انتقال الوجوه، الأحواض، التداخل، استقرار العمق، نمو عمق الإغلاق، ألياف الدعم، السوابق، وخريطة فقد المعلومات.
 
 ### G4 — Axis addition and ANT bridge
 
@@ -157,32 +157,49 @@ Python والاختبارات والبيانات وCI والمختبرات ال�
 `GOAL-OP-ONE-THEOREM-001`  
 **Status:** `paused_governed_return_required`.
 
-لم يُلغَ. توقفه مؤقت ومقيد. يجب بعد SYNTHESIS-001 وPASS-025 تنفيذ مراجعة عودة صريحة: استئناف O4، إغلاقه بشهادة، أو تبرير تأجيل جديد محدود.
+لم يُلغَ. توقفه مؤقت ومقيد. يجب بعد PASS-025 تنفيذ مراجعة عودة صريحة: استئناف O4، إغلاقه بشهادة، أو تبرير تأجيل جديد محدود.
 
 ### O4A — SYNTHESIS-001 Support-Fiber Dynamics
 
 `GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001`  
-**Status:** `active_current`.
+**Status:** `closed`.
 
-**المخرج:**
+أغلقته:
 
-- تعريفات موحدة؛
-- قضايا exact من التعريف؛
-- أمثلة عددية بسيطة؛
-- خريطة الفرق بين PVG الكامل وإسقاط الدعم؛
-- مصفوفة `exact / finite / reinterpretation / candidate / open`;
-- ربط PASS-013–024؛
-- ترجمة عكسية إلى ANT؛
-- قائمة أسئلة PASS-025 ذات الأولوية.
+`governance/closures/SYNTHESIS-001-SUPPORT-FIBER-DYNAMICS-CLOSURE.md`
 
-**معيار الإغلاق:** مراجعة SYNTHESIS-001 وشهادة أن كل ادعاء مصنف وأن المعرفة القابلة لإعادة الاستخدام عادت إلى النواة.
+المعرفة المعادة:
+
+- تعريف موحد لمؤثر عائلة الخلفاء؛
+- هوية الوجه الثنائي؛
+- ثبات ألياف المجموع والدعم؛
+- خريطة فقد الأسس؛
+- أمثلة `10,20,24,706,1774`؛
+- مصفوفة `exact / finite / reinterpretation / candidate / open`؛
+- جسر عكسي إلى دوال التمثيل في ANT.
+
+قرار المراجعة:
+
+```text
+bounded_extension → PASS-025
+```
 
 ### O4B — PASS-025 Reverse Support-Preimage Generator
 
 `GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001`  
-**Status:** `queued_next`.
+**Status:** `active_current`.
 
-لا يبدأ قبل إغلاق SYNTHESIS-001. يبحث موجهًا عن عائلة عمق 12 أو شهادة غياب منتهية. لا يُفتح PASS-026 قبل Stage Review يقرر كيف تخدم النتيجة O4 أو يبرر استمرارًا محدودًا.
+يبحث موجهًا عن عائلة عمق 12 أو شهادة غياب منتهية، باستعمال السوابق العكسية لأوجه الدعم بدل رفع سقف المسح عشوائيًا.
+
+المخرجات المطلوبة:
+
+- مولد سوابق دعم عكسي؛
+- ترتيب عائلات مرشحة بحسب العمق؛
+- اختبار أعداد ألياف الدعم لوجود تمثيلات بأوليين مختلفين؛
+- أصغر شاهد عمق 12 أو شهادة غياب منتهية؛
+- مراجعة مرحلة وعودة معرفية.
+
+لا يوجد `queued_next` بعده. لا يُفتح PASS-026 قبل Stage Review يقرر كيف تخدم النتيجة O4 أو يبرر استمرارًا محدودًا واحدًا.
 
 ### O5 — Formal and publication closure
 
@@ -193,11 +210,12 @@ Python والاختبارات والبيانات وCI والمختبرات ال�
 
 ```text
 Strategic goal: unchanged
-Active original research front: SYNTHESIS-001
-Queued next front: PASS-025
+Closed synthesis: SYNTHESIS-001
+Active original research front: PASS-025
+Authorized next front after PASS-025: none
 Mandatory return checkpoint: ONE-THEOREM-001 after PASS-025
 PVG native geometry: substantial finite and structural progress
-Support-face dynamics: PASS-013 through PASS-024 complete on draft branch
+Support-face dynamics: PASS-013 through PASS-024 synthesized and audited
 Full-valuation additive dynamics: not yet developed
 Bidirectional ANT translation: partial and distributed across several programs
 Original lemma: none certified
@@ -279,11 +297,11 @@ ANT problem
 Vocabulary: strong
 Multiplicative exact translation: partial-to-strong
 Native PVG geometry: strong finite foundation; incomplete as a unified theory
-Support-projected additive dynamics: L2-L4 finite structural mechanism
+Support-projected additive dynamics: L2 structural simplification with bounded L4 mechanism
 Full-valuation additive dynamics: open
-ANT reverse translation of support dynamics: incomplete
+ANT reverse translation of support dynamics: candidate bridge, no estimate yet
 Transfer principles: limited; not yet a new certified ANT lemma
-Research mechanism: several finite mechanisms; originality not certified
+Research mechanism: reverse-preimage search active; originality not certified
 Hidden-set autonomous performance: not fully sealed
 Original lemma: none certified
 Original theorem: none certified
@@ -297,6 +315,7 @@ Original theorem: none certified
 - لا تعتبر المعرفة المتوفرة معرفة تشغيلية قبل readiness audit.
 - لا يعتبر الوصول إلى عمق أكبر قانون نمو أو عدم انتهاء.
 - لا يعتبر تمثيل عدد كمجموع أوليين تقدمًا في غولدباخ.
+- لا PASS-026 قبل مراجعة PASS-025.
 - لا RH/GRH progress دون proof certificate.
 - لا يُدعى تدريب شبكة أو اعتماد corpus قبل شهادة مستقلة.
 
