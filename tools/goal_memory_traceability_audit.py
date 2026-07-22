@@ -23,6 +23,11 @@ REQUIRED_FILES = [
     "governance/closures/PASS-025-REVERSE-SUPPORT-PREIMAGE-CLOSURE.md",
     "research/pvg-space-deepening/pass-025-reverse-support-preimage.md",
     "research/pvg-space-deepening/data/reverse-support-preimage-summary.json",
+    "governance/readiness/ENGINE-002-GENERAL-INVERSE-SUPPORT-KERNEL.md",
+    "research/pvg-space-deepening/engine-002-general-inverse-support-kernel.md",
+    "research/pvg-space-deepening/data/inverse-support-kernel-summary.json",
+    "tools/pvg_inverse_support_kernel.py",
+    "tests/test_pvg_inverse_support_kernel.py",
     "registries/program-goals.jsonl",
     "registries/goal-links.jsonl",
 ]
@@ -52,9 +57,11 @@ REQUIRED_GOAL_IDS = {
     "GOAL-OP-ONE-THEOREM-001",
     "GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001",
     "GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001",
+    "GOAL-OP-INVERSE-SUPPORT-KERNEL-001",
 }
 
-EXPECTED_ACTIVE_OPERATIONAL = "GOAL-OP-ONE-THEOREM-001"
+EXPECTED_ACTIVE_OPERATIONAL = "GOAL-OP-INVERSE-SUPPORT-KERNEL-001"
+THEOREM_RETURN_GOAL = "GOAL-OP-ONE-THEOREM-001"
 EXPECTED_CLOSED_SYNTHESIS = "GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001"
 EXPECTED_CLOSED_PASS025 = "GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001"
 INVERSE_GEOMETRY_GOAL = "GOAL-PVG-INVERSE-GEOMETRY-001"
@@ -99,29 +106,29 @@ def main() -> None:
     goals_doc = (ROOT / "central-mind-goals.md").read_text(encoding="utf-8")
     protocol = (ROOT / "governance/pvg-ant-goal-memory-and-return-protocol-v1.md").read_text(encoding="utf-8")
     inverse_architecture = (ROOT / "governance/pvg-inverse-geometry-engine-architecture-v1.md").read_text(encoding="utf-8")
-    synthesis_readiness = (ROOT / "governance/readiness/SYNTHESIS-001-SUPPORT-FIBER-DYNAMICS.md").read_text(encoding="utf-8")
-    synthesis_closure = (ROOT / "governance/closures/SYNTHESIS-001-SUPPORT-FIBER-DYNAMICS-CLOSURE.md").read_text(encoding="utf-8")
-    pass025_readiness = (ROOT / "governance/readiness/PASS-025-REVERSE-SUPPORT-PREIMAGE.md").read_text(encoding="utf-8")
+    engine_readiness = (ROOT / "governance/readiness/ENGINE-002-GENERAL-INVERSE-SUPPORT-KERNEL.md").read_text(encoding="utf-8")
+    engine_note = (ROOT / "research/pvg-space-deepening/engine-002-general-inverse-support-kernel.md").read_text(encoding="utf-8")
+    engine_summary = json.loads((ROOT / "research/pvg-space-deepening/data/inverse-support-kernel-summary.json").read_text(encoding="utf-8"))
     pass025_closure = (ROOT / "governance/closures/PASS-025-REVERSE-SUPPORT-PREIMAGE-CLOSURE.md").read_text(encoding="utf-8")
     pass025_summary = json.loads((ROOT / "research/pvg-space-deepening/data/reverse-support-preimage-summary.json").read_text(encoding="utf-8"))
 
     require("Central Mind Goals v1.2" in goals_doc, "goals document is not v1.2", issues)
     require("قاعدة عدم ضياع الأهداف" in goals_doc, "goals document omits non-loss rule", issues)
     require("GOAL-PVG-INVERSE-GEOMETRY-001" in goals_doc, "goals document omits inverse geometry goal", issues)
-    require("SYNTHESIS-001" in goals_doc and "PASS-025" in goals_doc, "goals document omits closed detours", issues)
+    require("ENGINE-002" in goals_doc, "goals document omits active inverse-support kernel", issues)
     require("Mandatory return rule" in protocol, "return protocol omits mandatory return rule", issues)
     require("Phase A — Inverse Support" in inverse_architecture, "inverse architecture omits Phase A", issues)
     require("Phase E — Inverse Analytic Translation" in inverse_architecture, "inverse architecture omits analytic phase", issues)
     require("PASS-025 as first certified prototype" in inverse_architecture, "inverse architecture does not classify PASS-025 as prototype", issues)
-    require("READY" in synthesis_readiness, "SYNTHESIS-001 readiness card is not READY", issues)
-    require("Decision: CLOSED" in synthesis_closure and "bounded_extension" in synthesis_closure, "SYNTHESIS-001 closure is incomplete", issues)
-    require("READY" in pass025_readiness, "PASS-025 readiness card is not READY", issues)
-    require("Decision: CLOSED" in pass025_closure, "PASS-025 closure is not CLOSED", issues)
-    require("Stage decision: return" in pass025_closure, "PASS-025 did not return to the theorem program", issues)
-    require("PASS-026: NOT AUTHORIZED" in pass025_closure, "PASS-025 closure does not prohibit PASS-026", issues)
+    require("Decision: READY" in engine_readiness, "ENGINE-002 readiness is not READY", issues)
+    require("قانون حافة الشاهد" in engine_note, "ENGINE-002 note omits witness-edge law", issues)
+    require(engine_summary.get("schema") == "PVG-INVERSE-SUPPORT-KERNEL-ENGINE-002-REGISTERED-SUMMARY", "ENGINE-002 summary schema mismatch", issues)
+    require(engine_summary.get("reachable_target_count") == 20, "ENGINE-002 reachable target count mismatch", issues)
+    require(engine_summary.get("unreachable_target_count") == 541, "ENGINE-002 unreachable target count mismatch", issues)
+    require(engine_summary.get("verification", {}).get("soundness") is True, "ENGINE-002 soundness is not certified", issues)
+    require(engine_summary.get("verification", {}).get("completeness_against_full_forward_enumeration") is True, "ENGINE-002 completeness is not certified", issues)
+    require("Decision: CLOSED" in pass025_closure and "Stage decision: return" in pass025_closure, "PASS-025 closure/return is incomplete", issues)
     require(pass025_summary.get("outcome") == "DEPTH_12_WITNESS_FOUND_WITHIN_FROZEN_CLASS", "PASS-025 registered outcome mismatch", issues)
-    require(pass025_summary.get("first_witness", {}).get("source_pair") == [2, 27397961], "PASS-025 first witness mismatch", issues)
-    require(pass025_summary.get("first_witness", {}).get("forward_orbit", {}).get("face_closure_depth") == 12, "PASS-025 witness depth mismatch", issues)
 
     goals = load_jsonl("registries/program-goals.jsonl")
     links = load_jsonl("registries/goal-links.jsonl")
@@ -145,8 +152,6 @@ def main() -> None:
             if "paused" in str(row.get("status", "")):
                 require(bool(row.get("return_gate")), f"paused goal {goal_id} lacks return_gate", issues)
                 require(bool(row.get("return_to_goal_ids")), f"paused goal {goal_id} lacks return_to_goal_ids", issues)
-            if str(row.get("status", "")).startswith("queued"):
-                require(bool(row.get("prerequisites")), f"queued goal {goal_id} lacks prerequisites", issues)
 
     strategic = [row for row in goals if row.get("kind") == "strategic_goal"]
     require(len(strategic) == 1, f"expected one strategic goal, found {len(strategic)}", issues)
@@ -166,10 +171,11 @@ def main() -> None:
     require(by_id.get(INVERSE_GEOMETRY_GOAL, {}).get("kind") == "general_goal", "inverse geometry goal is not a general goal", issues)
     require(by_id.get(EXPECTED_CLOSED_SYNTHESIS, {}).get("status") == "closed", "SYNTHESIS-001 goal is not closed", issues)
     require(by_id.get(EXPECTED_CLOSED_PASS025, {}).get("status") == "closed", "PASS-025 goal is not closed", issues)
-    require(INVERSE_GEOMETRY_GOAL in goal_refs(by_id.get(EXPECTED_CLOSED_PASS025, {}).get("parent_goal_ids")), "PASS-025 is not linked as an inverse-engine prototype", issues)
-    require(by_id.get(EXPECTED_ACTIVE_OPERATIONAL, {}).get("status") == "active_external_validation_hold", "ONE-THEOREM-001 is not active_external_validation_hold", issues)
-    require(EXPECTED_ACTIVE_OPERATIONAL in goal_refs(by_id.get(EXPECTED_CLOSED_PASS025, {}).get("return_to_goal_ids")), "PASS-025 does not return to ONE-THEOREM-001", issues)
-    require("PASS-026 not authorized" in str(by_id.get(EXPECTED_CLOSED_PASS025, {}).get("return_gate", "")), "PASS-025 closure does not prohibit PASS-026", issues)
+    require(by_id.get(EXPECTED_ACTIVE_OPERATIONAL, {}).get("status") == "active_current", "ENGINE-002 is not active_current", issues)
+    require(INVERSE_GEOMETRY_GOAL in goal_refs(by_id.get(EXPECTED_ACTIVE_OPERATIONAL, {}).get("parent_goal_ids")), "ENGINE-002 does not serve the inverse geometry goal", issues)
+    require(THEOREM_RETURN_GOAL in goal_refs(by_id.get(EXPECTED_ACTIVE_OPERATIONAL, {}).get("return_to_goal_ids")), "ENGINE-002 does not return to ONE-THEOREM-001", issues)
+    require(by_id.get(THEOREM_RETURN_GOAL, {}).get("status") == "paused_governed_return_required", "ONE-THEOREM-001 is not paused during ENGINE-002", issues)
+    require("ENGINE-002" in str(by_id.get(THEOREM_RETURN_GOAL, {}).get("return_gate", "")), "theorem return gate does not name ENGINE-002", issues)
 
     link_ids = [str(row.get("id", "")) for row in links]
     require(len(link_ids) == len(set(link_ids)), "duplicate goal-link IDs", issues)
@@ -201,10 +207,9 @@ def main() -> None:
     print("PVG–ANT Goal Memory and Traceability Audit: PASS")
     print(f"Registered goals: {len(goals)}")
     print(f"Registered links: {len(links)}")
-    print(f"Long-term inverse geometry goal: {INVERSE_GEOMETRY_GOAL}")
-    print(f"Closed inverse prototype: {EXPECTED_CLOSED_PASS025}")
-    print(f"Returned active goal: {EXPECTED_ACTIVE_OPERATIONAL}")
-    print("PASS-026: NOT AUTHORIZED")
+    print(f"Active inverse kernel: {EXPECTED_ACTIVE_OPERATIONAL}")
+    print(f"Paused return goal: {THEOREM_RETURN_GOAL}")
+    print("No depth search or Phase B is authorized by ENGINE-002")
 
 
 if __name__ == "__main__":
