@@ -18,6 +18,7 @@ REQUIRED_FILES = [
     "governance/closures/ENGINE-002-GENERAL-INVERSE-SUPPORT-KERNEL-CLOSURE.md",
     "research/pvg-space-deepening/data/inverse-support-kernel-summary.json",
     "governance/readiness/ENGINE-003-INVERSE-INTEGER-FIBERS.md",
+    "governance/closures/ENGINE-003-INVERSE-INTEGER-FIBERS-CLOSURE.md",
     "research/pvg-space-deepening/engine-003-inverse-integer-fibers.md",
     "research/pvg-space-deepening/data/inverse-integer-fibers-summary.json",
     "tools/pvg_inverse_integer_fibers.py",
@@ -50,8 +51,8 @@ REQUIRED_GOAL_IDS = {
     "GOAL-OP-INVERSE-INTEGER-FIBERS-001",
 }
 
-EXPECTED_ACTIVE = "GOAL-OP-INVERSE-INTEGER-FIBERS-001"
-THEOREM_GOAL = "GOAL-OP-ONE-THEOREM-001"
+EXPECTED_ACTIVE = "GOAL-OP-ONE-THEOREM-001"
+CLOSED_ENGINE003 = "GOAL-OP-INVERSE-INTEGER-FIBERS-001"
 INVERSE_GOAL = "GOAL-PVG-INVERSE-GEOMETRY-001"
 
 
@@ -90,13 +91,15 @@ def main() -> None:
 
     engine002_closure = (ROOT / "governance/closures/ENGINE-002-GENERAL-INVERSE-SUPPORT-KERNEL-CLOSURE.md").read_text(encoding="utf-8")
     engine003_readiness = (ROOT / "governance/readiness/ENGINE-003-INVERSE-INTEGER-FIBERS.md").read_text(encoding="utf-8")
+    engine003_closure = (ROOT / "governance/closures/ENGINE-003-INVERSE-INTEGER-FIBERS-CLOSURE.md").read_text(encoding="utf-8")
     engine003_note = (ROOT / "research/pvg-space-deepening/engine-003-inverse-integer-fibers.md").read_text(encoding="utf-8")
     engine003_summary = json.loads((ROOT / "research/pvg-space-deepening/data/inverse-integer-fibers-summary.json").read_text(encoding="utf-8"))
 
     require("Decision: CLOSED" in engine002_closure, "ENGINE-002 is not closed", issues)
     require("READY" in engine003_readiness, "ENGINE-003 readiness is not READY", issues)
+    require("Decision: CLOSED" in engine003_closure and "Stage decision: return" in engine003_closure, "ENGINE-003 closure/return is incomplete", issues)
+    require("Phase C: NOT AUTHORIZED" in engine003_closure, "ENGINE-003 closure does not block Phase C", issues)
     require("Exponent-lattice bijection" in engine003_note, "ENGINE-003 note omits exponent-lattice law", issues)
-    require("Phase C is not authorized" in engine003_note, "ENGINE-003 note does not block Phase C", issues)
     require(engine003_summary.get("scope", {}).get("support_face_count") == 25, "ENGINE-003 face count mismatch", issues)
     require(engine003_summary.get("totals", {}).get("total_fiber_points_across_faces") == 884, "ENGINE-003 point count mismatch", issues)
     require(engine003_summary.get("totals", {}).get("complete_scan_mismatch_count") == 0, "ENGINE-003 complete scan mismatch", issues)
@@ -135,10 +138,10 @@ def main() -> None:
 
     require(by_id.get(INVERSE_GOAL, {}).get("status") == "active_long_term", "inverse geometry goal is not active_long_term", issues)
     require(by_id.get("GOAL-OP-INVERSE-SUPPORT-KERNEL-001", {}).get("status") == "closed", "ENGINE-002 is not closed in registry", issues)
-    require(by_id.get(EXPECTED_ACTIVE, {}).get("status") == "active_current", "ENGINE-003 is not active_current", issues)
-    require(by_id.get(THEOREM_GOAL, {}).get("status") == "paused_governed_return_required", "theorem goal is not paused for ENGINE-003", issues)
-    require(THEOREM_GOAL in refs(by_id.get(EXPECTED_ACTIVE, {}).get("return_to_goal_ids")), "ENGINE-003 does not return to theorem goal", issues)
-    require("Phase C" in str(by_id.get(EXPECTED_ACTIVE, {}).get("return_gate", "")), "ENGINE-003 return gate does not control Phase C", issues)
+    require(by_id.get(CLOSED_ENGINE003, {}).get("status") == "closed", "ENGINE-003 is not closed in registry", issues)
+    require(by_id.get(EXPECTED_ACTIVE, {}).get("status") == "active_external_validation_hold", "theorem goal is not restored", issues)
+    require(EXPECTED_ACTIVE in refs(by_id.get(CLOSED_ENGINE003, {}).get("return_to_goal_ids")), "ENGINE-003 does not return to theorem goal", issues)
+    require("Phase C" in str(by_id.get(CLOSED_ENGINE003, {}).get("return_gate", "")), "ENGINE-003 return gate does not control Phase C", issues)
 
     link_ids = [str(row.get("id", "")) for row in links]
     require(len(link_ids) == len(set(link_ids)), "duplicate goal-link IDs", issues)
@@ -163,8 +166,8 @@ def main() -> None:
     print("PVG–ANT Goal Memory and Traceability Audit: PASS")
     print(f"Registered goals: {len(goals)}")
     print(f"Registered links: {len(links)}")
-    print(f"Active Phase B goal: {EXPECTED_ACTIVE}")
-    print(f"Mandatory return goal: {THEOREM_GOAL}")
+    print(f"Closed Phase B goal: {CLOSED_ENGINE003}")
+    print(f"Returned active goal: {EXPECTED_ACTIVE}")
     print("Phase C: NOT AUTHORIZED")
 
 
