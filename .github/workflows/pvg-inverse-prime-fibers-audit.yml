@@ -1,0 +1,57 @@
+name: PVG Inverse Prime Fibers Audit
+
+on:
+  pull_request:
+    paths:
+      - 'governance/readiness/ENGINE-004-INVERSE-PRIME-FIBERS.md'
+      - 'tools/pvg_inverse_prime_fibers.py'
+      - 'tests/test_pvg_inverse_prime_fibers.py'
+      - 'research/pvg-space-deepening/engine-004-inverse-prime-fibers.md'
+      - '.github/workflows/pvg-inverse-prime-fibers-audit.yml'
+      - 'registries/program-goals.jsonl'
+  push:
+    branches: [main]
+    paths:
+      - 'governance/readiness/ENGINE-004-INVERSE-PRIME-FIBERS.md'
+      - 'tools/pvg_inverse_prime_fibers.py'
+      - 'tests/test_pvg_inverse_prime_fibers.py'
+      - 'research/pvg-space-deepening/engine-004-inverse-prime-fibers.md'
+      - '.github/workflows/pvg-inverse-prime-fibers-audit.yml'
+      - 'registries/program-goals.jsonl'
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Syntax check
+        run: |
+          python -m py_compile tools/pvg_inverse_prime_fibers.py
+          python -m py_compile tests/test_pvg_inverse_prime_fibers.py
+      - name: Unit and complete-box verification
+        run: python -m unittest -v tests/test_pvg_inverse_prime_fibers.py
+      - name: Registered certificate
+        run: |
+          python tools/pvg_inverse_prime_fibers.py --registered-summary --output /tmp/engine004.json --compact > /tmp/engine004-stdout.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data = json.loads(Path('/tmp/engine004.json').read_text(encoding='utf-8'))
+          assert data['totals']['integer_point_count'] == 884
+          assert data['totals']['representable_integer_count'] == 745
+          assert data['totals']['nonrepresentable_integer_count'] == 139
+          assert data['totals']['total_representation_count'] == 218024
+          assert data['totals']['independent_scan_mismatch_count'] == 0
+          assert data['global_maximum']['integer'] == 97200
+          assert data['global_maximum']['representation_count'] == 1557
+          assert all(data['verification'].values())
+          assert data['claim_ceiling']['phase_d_authorized'] is False
+          assert data['claim_ceiling']['goldbach_progress'] is False
+          PY
+      - name: Goal memory
+        run: |
+          python tools/research_compass_audit.py
+          python tools/goal_memory_traceability_audit.py
