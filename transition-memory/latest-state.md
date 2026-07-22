@@ -1,33 +1,58 @@
 # Latest State
 
 ```text
-Operating version:
+Operating governance:
   PVG–ANT Research Compass v1.0.
-
-Current merged baseline before this continuity package:
-  0a092f59abfd4febcde96acaa3197ab5656e049d
-  Governance Enforcement Closure 001.
+  Central Mind Goals v1.1.
+  PVG-ANT-GOAL-MEMORY-RETURN-PROTOCOL-001 = active.
 
 Strategic goal:
   GOAL-PVG-ANT-STRATEGIC-001 = active_fixed.
   Original ANT contribution through materially useful PVG.
 
-Research front:
-  GOAL-OP-ONE-THEOREM-001 = active_external_validation_hold.
-  ONE-LEMMA-TARGET-001 remains frozen.
-  Fixed-q, fixed-r, fixed-W smooth theorem = internally proved.
-  External outreach packets = SENT (both emails delivered, no bounce).
-  P8-OUTREACH-DECISION-001 = SENT
-    (owner PROCEED-TO-SENT and record-SENT authorization 2026-07-13;
-     priority packet to Tsz Ho Chan (Kennesaw State), proof packet to
-     Etienne Fouvry (Paris-Saclay/Orsay); the prior strategic HOLD is superseded).
-  P8-EXTERNAL-REFEREE-001 tracker = SENT_AWAITING_RESPONSE
-    (referees identified by read-only P8-REFEREE-CANDIDATE-VERIFICATION-001;
-     no response yet; SENT is not acceptance, review, or validation).
-  External originality and independent proof certificates = absent.
+Active operational research front:
+  GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001 = active_current.
+  Research front = PVG-SUPPORT-FIBER-DYNAMICS-SYNTHESIS-001.
+  Readiness = READY.
+  Purpose = synthesize PASS-013 through PASS-024 before new computation.
+
+Queued next front:
+  GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001 = queued_next.
+  PASS-025 is blocked until SYNTHESIS-001 closure.
+  PASS-026 is prohibited until the mandatory Stage Review after PASS-025.
+
+Mandatory return checkpoint:
+  GOAL-OP-ONE-THEOREM-001 = paused_governed_return_required.
+  ONE-LEMMA-TARGET-001 remains frozen, not cancelled.
+  After SYNTHESIS-001 and PASS-025, Stage Review must resume, close,
+  or explicitly reauthorize a bounded postponement of ONE-THEOREM-001.
+
+Current inverse-geometry branch:
+  branch = agent/pvg-point-classification-inverse-geometry-001.
+  PR #63 = OPEN / DRAFT / UNMERGED.
+  PASS-001 through PASS-024 = implemented on the draft branch.
+  main = unchanged by the draft branch.
+
+Current synthesis subject:
+  exact two-axis identity: T({p,q}) = supp(p+q).
+  equal sum supports produce identical orbit tails from depth 1.
+  full valuation vectors and support projections are distinct data layers.
+  PASS-024 finite scope: sum cap 400000, maximum checked depth 12.
+  deepest registered witness depth = 11.
+  no global termination or universal depth claim.
+
+Theorem and external-validation track:
+  fixed-q, fixed-r, fixed-W smooth theorem = internally proved.
+  P8-OUTREACH-DECISION-001 = SENT.
+  P8-EXTERNAL-REFEREE-001 = SENT_AWAITING_RESPONSE.
+  priority request = Tsz Ho Chan (Kennesaw State).
+  proof request = Etienne Fouvry (Paris-Saclay/Orsay).
+  both packets delivered without bounce.
+  SENT is not acceptance, review, validation, or certification.
+  external originality certificate = absent.
+  independent proof certificate = absent.
 
 Capability maturation:
-  PVG-ANT-CENTRAL-MIND-MATURATION-002 = active.
   TRANSLATION-KERNEL-V2-PASS-001 = checkpoint_pass.
   PVG-ANT-BENCHMARK-001 = checkpoint_pass.
   TRANSLATION-KERNEL-V2-PASS-002 = checkpoint_pass.
@@ -36,121 +61,87 @@ Capability maturation:
   CENTRAL-MIND-CONTINUITY-001 = installed_repository_side.
   CENTRAL-MIND-CONTINUITY-CLOSURE-002 = closed.
   Current maturation receipt = MATURATION-RECEIPT-007.
-  PVG-ANT-RESEARCH-MODEL-PROGRAM-001 = active
-    (owner order 2026-07-12; stage S1 open (Roadmap v2.2 active as the legal
-     plan of record; Benchmark 002 not started); measure-before-training
-     order binding; mandatory comparison arms ARM-BASE / ARM-LOCAL /
-     ARM-CURRENT / ARM-HYBRID; CURRENT-MIND-FREEZE-MANIFEST-001 recorded;
-     charter governance/programs/PVG-ANT-RESEARCH-MODEL-PROGRAM-001.md).
 
-Governance enforcement:
-  Ruleset governance-required = ACTIVE on refs/heads/main.
-  Required status = governance-gate.
-  Bypass actors = none.
-  Current user can bypass = never.
-  Push-to-main run 29196256748 = completed success.
-  All ten pre-continuity guards PASS from a clean local checkout.
-  Required merge gate = .github/workflows/governance-required-gate.yml.
-  LeanP3Pass009Discovery.lean = absent locally and remotely.
+Goal-memory capability:
+  program goals = registries/program-goals.jsonl.
+  goal links = registries/goal-links.jsonl.
+  active operational goal count = exactly one.
+  every detour requires a parent, stop rule, claim ceiling, knowledge return,
+  and mandatory return gate.
+  no goal is deleted; goals close, block, pause, or supersede with reason.
+  goal-memory audit = installed.
 
-Continuity layer:
-  origin/main = canonical repository truth.
-  Local main update = fast-forward only.
-  Destructive automatic repair = forbidden.
-  Safe sync tool = tools/sync_canonical_main.ps1.
-  Windows task installer = tools/install_canonical_sync_task.ps1.
-  Common language = maps/pvg-ant-common-language-contract-v1.md.
-  Maturation registry = registries/maturation-events.jsonl.
-  Mandatory audit = tools/central_mind_continuity_audit.py.
-  Repository-side installation = present.
-  Workstation task PVG-ANT-Canonical-Sync = installed and verified:
-    RunLevel Limited, PT15M repetition, LastTaskResult = 0.
-  First-run defect (PowerShell 5.1 native stderr under Stop) = fixed in
-    PR #26 after adversarial review; exit code is the single failure signal.
-  strict_required_status_checks_policy = true, verified from ruleset
-    18833305 and rules/branches/main after the change.
-  Operational closure = CENTRAL-MIND-CONTINUITY-CLOSURE-002,
-    certified in audits/central-mind-continuity-closure-002.md.
+Supporting programs retained:
+  GOAL-PVG-ANT-LANGUAGE-001 = active_long_term.
+  GOAL-PVG-FOUNDATIONS-001 = active_long_term.
+  GOAL-PVG-ADDITIVE-DYNAMICS-001 = active_long_term.
+  GOAL-PVG-ANT-ADDITIVE-BRIDGE-001 = active_long_term.
+  GOAL-PVG-ANT-ORIGINALITY-001 = active_long_term.
+  GOAL-CENTRAL-MIND-SPECIALIST-001 = active_long_term.
+  GOAL-PVG-FORMAL-LEAN-001 = active_long_term.
+  GOAL-PVG-COMPUTATIONAL-LAB-001 = active_long_term.
+  GOAL-SUPPORT-ANT-ENCYCLOPEDIA-001 = active_supporting_nonresearch_front.
+  GOAL-SUPPORT-EXPOSITION-001 = active_supporting_nonresearch_front.
 
-Knowledge-to-language law:
-  Knowledge remains indispensable and task-triggered.
-  Every acquired prerequisite must return as:
-    exact ANT object and hypotheses
-    → native PVG object
-    → admissible morphism
-    → preservation/loss
-    → tool/range
-    → wall/certificate
-    → reverse conditions/counterexample
-    → verification
-    → maturation receipt.
-  Broad untargeted book mining remains forbidden.
+Lean state:
+  formal Lean layer through LEAN-P3-PASS-008 remains reusable.
+  project-owned sorry/admit = 0 at the certified baseline.
+  no automatic Lean expansion is authorized.
+  new Lean work requires a named load-bearing need.
 
-Translation inventory:
-  closed Language Kernel v1 families = 8;
-  Pass 001 operational cards = 24;
-  Pass 002 benchmark-directed cards = 12;
-  combined translation inventory = 44;
-  L3 promotions = 0.
-  No new translation cards were added by the continuity package.
+Knowledge and source state:
+  book and ledger substrate remains available on demand.
+  broad untargeted book mining remains forbidden.
+  knowledge returns through the common PVG–ANT language contract.
+  Arabic ANT encyclopedia remains a supporting knowledge program.
+  chapter count is not a research metric.
+  Montgomery A/B/legacy-E source-mismatch quarantine remains in force.
 
-PVG native-language inventory:
-  canonical objects = 20;
-  canonical morphisms/projections = 24;
-  deterministic reconstruction/loss witnesses = 16;
-  data layers = labeled exact, labeled structural, unlabeled shape,
-                scalar observable, population pushforward, analytic certificate;
-  loss levels = LOSS-0 through LOSS-4.
-
-New continuity capability:
-  Every live closed/installed capability stage must have a machine-readable
-  maturation event with knowledge, language, reasoning, certificate,
-  failure-memory, verification, synchronization, and ceiling fields.
-  Current receipt count = 7.
-
-Benchmark state:
-  historical baseline = 662 / 720 = 91.9 percent;
-  post-Pass-002 registry coverage = 702 / 720 = 97.5 percent;
-  these scores are registry coverage, not autonomous model performance.
+Benchmark and research-model state:
+  PVG-ANT-RESEARCH-MODEL-PROGRAM-001 retains its governed roadmap.
   ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED.
-  No hidden prompts, gold keys, raw score, error map, composer, ablation,
-  or targeted learning have been created by this package.
+  no hidden raw baseline or immutable error map has been certified here.
+  no targeted learning before the raw error map.
+  no local component training, corpus promotion, LoRA, or SFT is authorized.
+  trained neural network = none.
+  approved training corpus = none.
 
-Next capability gate:
-  continuity activation and strict hardening = complete;
-  next: design ADVERSARIAL-PVG-ANT-BENCHMARK-002 without adding cards,
-  executed as stage S1 (2026-07-13 to 2026-08-16, advanced per
-  S1-GATE-ADVANCE-DECISION-001) of
-  PVG-ANT-RESEARCH-MODEL-PROGRAM-001 under Roadmap v2.2.
-  Required benchmark order:
-     raw hidden baseline → immutable error map → morphism composer
-     → same-set rerun with contamination accounting → ablation
-     → targeted knowledge and translation learning.
-  External P8 validation = requests SENT 2026-07-13, awaiting referee responses
-  (priority/bibliography review and independent proof review); external
-  certificates still absent (SENT != ACCEPTED != REVIEWED != VALIDATED).
+Continuity state:
+  origin/main remains canonical truth for main.
+  local main update remains fast-forward only.
+  destructive automatic repair remains forbidden.
+  detached research worktree synchronization remains available.
+  workstation continuity task remains certified by
+  CENTRAL-MIND-CONTINUITY-CLOSURE-002.
 
-Restrictions:
-  no second theorem target;
-  no publication claim;
-  no broad book mining;
-  no new statistical dataset;
-  Dataset 004 remains unauthorized;
-  no automatic Lean expansion;
-  no Benchmark 002 learning before the raw error map;
-  no training of local components before CURRENT-MIND-RAW-BASELINE-001
-    and IMMUTABLE-ERROR-MAP-002-A;
-  no Researcher naming before the Hidden-Set-B comparison against
-    ARM-CURRENT with independent review;
-  no RH or GRH expansion.
+Current restrictions:
+  no PASS-025 before SYNTHESIS-001 closure.
+  no PASS-026 before PASS-025 Stage Review.
+  no second theorem target.
+  no publication claim.
+  no broad book mining.
+  no new statistical dataset.
+  Dataset 004 remains unauthorized.
+  no automatic Lean expansion.
+  no Benchmark 002 learning before the immutable raw error map.
+  no training of local components before the governed baseline gates.
+  no Researcher naming before the required hidden-set comparison and review.
+  no Goldbach, PNT, RH, or GRH promotion.
 
-Ceiling:
-  continuity and routing knowledge create no theorem;
-  hidden-set autonomous performance = not measured;
-  certified originality = absent;
-  publication readiness = absent;
-  zero RH progress;
-  zero GRH progress.
+Scientific ceiling:
+  support-fiber identities from the transition definition = exact.
+  registered orbit depths and thresholds = finite verified only.
+  general termination theorem = absent.
+  universal closure-depth bound = absent.
+  asymptotic D_min law = absent.
+  original lemma = none certified.
+  original theorem = none certified.
+  certified originality = absent.
+  publication readiness = absent.
+  Goldbach progress = none claimed.
+  PNT progress = none claimed.
+  RH progress = none.
+  GRH progress = none.
 ```
 
-**Classification:** continuity operationally closed end to end (repository side, workstation task, and strict ruleset mode all verified); Benchmark 002 remains NOT_STARTED.
+**Classification:** governed live state with SYNTHESIS-001 as the sole active operational research front, PASS-025 queued behind its closure, and ONE-THEOREM-001 preserved as a mandatory return checkpoint.
