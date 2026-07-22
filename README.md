@@ -28,9 +28,9 @@ Canonical references:
 - `governance/pvg-ant-goal-memory-and-return-protocol-v1.md`
 - `maps/pvg-ant-language-kernel-v1.md`
 - `maps/pvg-ant-common-language-contract-v1.md`
-- `governance/readiness/SYNTHESIS-001-SUPPORT-FIBER-DYNAMICS.md`
 - `governance/closures/SYNTHESIS-001-SUPPORT-FIBER-DYNAMICS-CLOSURE.md`
-- `governance/readiness/PASS-025-REVERSE-SUPPORT-PREIMAGE.md`
+- `governance/frozen-config/PASS-025-REVERSE-SUPPORT-PREIMAGE-FROZEN-CONFIG.md`
+- `governance/closures/PASS-025-REVERSE-SUPPORT-PREIMAGE-CLOSURE.md`
 - `registries/program-goals.jsonl`
 - `registries/goal-links.jsonl`
 - `transition-memory/latest-state.md`
@@ -68,28 +68,70 @@ Strategic goal:
 
 Closed operational synthesis:
   GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001 status: closed.
-  SYNTHESIS-001 integrated PASS-013 through PASS-024.
 
-Active operational goal:
-  GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001 = active_current.
-  PASS-025 is one bounded reverse-preimage and depth-12 search.
+Closed bounded reverse search:
+  GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001 status: closed.
+  PASS-025 outcome = DEPTH_12_WITNESS_FOUND_WITHIN_FROZEN_CLASS.
 
-Authorized next goal after PASS-025:
+Returned active operational goal:
+  GOAL-OP-ONE-THEOREM-001 = active_external_validation_hold.
+  ONE-LEMMA-TARGET-001 remains frozen.
+
+Authorized next additive-dynamics pass:
   none.
-  PASS-026 is prohibited before Stage Review.
-
-Mandatory return checkpoint:
-  GOAL-OP-ONE-THEOREM-001 = paused_governed_return_required.
-  It is not cancelled. The PASS-025 Stage Review must resume, close,
-  or explicitly reauthorize a bounded postponement.
+  PASS-026 = NOT AUTHORIZED.
 
 Publication closure:
   GOAL-OP-FORMAL-PUBLICATION-001 = blocked.
 ```
 
+## PASS-025 result
+
+The frozen reverse-support search found the source face:
+
+\[
+\boxed{\{2,27397961\}}.
+\]
+
+Its verified orbit is:
+
+\[
+\begin{aligned}
+\{2,27397961\}
+&\to\{41,668243\}
+\to\{2,167071\}
+\to\{3,55691\}
+\to\{2,27847\}\\
+&\to\{3,9283\}
+\to\{2,4643\}
+\to\{5,929\}
+\to\{2,467\}
+\to\{7,67\}\\
+&\to\{2,37\}
+\to\{3,13\}
+\to\{2\}.
+\end{aligned}
+\]
+
+Thus the source face has closure depth 12 under the registered transition law.
+
+The search was exhaustive only inside the frozen class:
+
+```text
+known tail = {2,167071}
+one reverse layer
+binary predecessor supports
+seed cap = 5,346,272
+candidate support cap = 50,000
+candidate integer cap = 10^12
+prime realization cap = 10^12
+```
+
+The witness is minimal only under the frozen ranking and class. The run was confirmatory rather than blinded because a small reconnaissance preceded configuration freeze. It is not a global first-depth-12 claim and does not imply unbounded depth or general termination.
+
 ## Current PVG geometry branch
 
-Draft PR #63 carries PASS-001 through PASS-024 plus SYNTHESIS-001 on:
+Draft PR #63 carries PASS-001 through PASS-025 and SYNTHESIS-001 on:
 
 ```text
 agent/pvg-point-classification-inverse-geometry-001
@@ -103,7 +145,8 @@ The governed result layer includes:
 - attraction basins and overlap geometry;
 - closure-depth growth;
 - support-fiber compression and deep orbit witnesses;
-- a closed support-fiber theory synthesis;
+- the closed SYNTHESIS-001 theory;
+- the closed PASS-025 reverse-preimage mechanism;
 - analytical and immersive 3D visual laboratories.
 
 The exact two-axis identity is:
@@ -112,9 +155,7 @@ The exact two-axis identity is:
 \mathcal T(\{p,q\})=\{\operatorname{supp}(p+q)\}.
 \]
 
-SYNTHESIS-001 also records that this is a support-projected dynamic and does not retain the full valuation vector or exponent data.
-
-PASS-025 now uses the exact support-preimage characterization to generate reverse candidates before testing prime-pair realizations. Its frozen configuration must be recorded before the registered run; no adaptive extension is allowed inside the pass.
+The support projection does not retain the full valuation vector or exponent data.
 
 ## Goal portfolio
 
@@ -137,11 +178,11 @@ PASS-025 now uses the exact support-preimage characterization to generate revers
 
 Supporting programs do not create a second active original-research front.
 
-## Retained theorem and external-validation state
-
-`ONE-LEMMA-TARGET-001` remains frozen under the paused theorem program.
+## Theorem and external-validation state
 
 ```text
+GOAL-OP-ONE-THEOREM-001 = active_external_validation_hold
+ONE-LEMMA-TARGET-001 = frozen
 P8-OUTREACH-DECISION-001 = SENT
 P8-EXTERNAL-REFEREE-001 = SENT_AWAITING_RESPONSE
 priority request = Tsz Ho Chan
@@ -150,7 +191,7 @@ external originality certificate = absent
 independent proof certificate = absent
 ```
 
-SENT is not acceptance, review, or validation.
+The two packets were delivered without bounce. `SENT` is not acceptance, review, validation, or certification. No further packet or reserve contact is authorized without an explicit owner decision.
 
 ## Capability and benchmark state
 
@@ -166,7 +207,7 @@ Current maturation receipt = MATURATION-RECEIPT-007
 ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED
 ```
 
-Benchmark 002 remains governed by measure-before-training and hidden-set separation. No targeted learning, local training, corpus promotion, or model claim is authorized before the required raw baseline and immutable error map.
+Benchmark 002 remains governed by measure-before-training and hidden-set separation. No targeted learning, local training, corpus promotion, or model claim is authorized before the raw baseline and immutable error map.
 
 ## Formal and knowledge substrate
 
@@ -182,7 +223,7 @@ Historical and supporting source layers remain available on demand:
 
 The source-grounding-corrected Montgomery story remains in force. The historical v0.6-E Closure Review and `v0.6-e-closure` remain closed and source-grounded. `TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001` remains live. Mismatched A/B/legacy-E material remains quarantined for source-mismatch.
 
-The Lean layer through `LEAN-P3-PASS-008` provides zero-sorry reusable valuation foundations. New Lean work requires a named active need.
+The Lean layer through `LEAN-P3-PASS-008` provides zero-sorry reusable valuation foundations. New Lean work requires a named load-bearing need.
 
 The Arabic analytic number theory encyclopedia remains a supporting program. Book or chapter count is not a research metric; extracted knowledge must return through the common-language contract.
 
@@ -198,7 +239,7 @@ The Arabic analytic number theory encyclopedia remains a supporting program. Boo
 | `formal/lean/` | formal PVG layer when required |
 | `transition-memory/` | latest state and next action |
 | `tools/` | automated guards and safe synchronization tools |
-| `web/` | bounded visual laboratories on the active draft branch |
+| `web/` | bounded visual laboratories on the draft branch |
 
 ## Knowledge status discipline
 
@@ -232,7 +273,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync_canonical_main.ps
 powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync_canonical_main.ps1 -Mode PrepareBranch
 ```
 
-The repository-side continuity contract and workstation task remain governed by `CENTRAL-MIND-CONTINUITY-CLOSURE-002` and the current receipt `MATURATION-RECEIPT-007`.
+The repository-side continuity contract and workstation task remain governed by `CENTRAL-MIND-CONTINUITY-CLOSURE-002` and `MATURATION-RECEIPT-007`.
 
 ## Guards
 
@@ -251,16 +292,14 @@ python tools/pvg_core_ontology_audit.py
 python tools/central_mind_continuity_audit.py
 ```
 
-The historical Coherence Audit 005 / v0.6 substrate remains protected while the live goal state is derived from `registries/program-goals.jsonl`.
-
 ## Focus rules
 
 - one active original-research front;
-- task first and readiness second;
+- theorem program remains on external-validation hold;
 - no deletion of goals;
 - every detour has a parent, stop rule, and return gate;
-- no PASS extension without Stage Review;
-- PASS-026 is not authorized;
+- PASS-025 is closed and PASS-026 is not authorized;
+- no second theorem target;
 - minimum sufficient knowledge acquisition;
 - no rebuilding certified bridges;
 - no tool without a named scientific function;
@@ -274,6 +313,8 @@ The historical Coherence Audit 005 / v0.6 substrate remains protected while the 
 ```text
 No original lemma certified yet.
 No original theorem certified yet.
+Depth-12 witness = finite verified inside frozen class.
+No global minimum depth-12 threshold.
 No general termination theorem for support dynamics.
 No universal closure-depth bound.
 No unbounded-depth theorem.
