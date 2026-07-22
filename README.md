@@ -217,6 +217,18 @@ Dataset 004 remains unauthorized
 
 These are supporting capabilities. They do not create another active research front.
 
+## Retained source-grounding history
+
+Historical source-grounding safeguards remain active as non-governing capability memory — the source-grounding-corrected Montgomery story includes the `v0.6-E Closure Review` and `v0.6-G Closure Review` tracks, and the quarantine of mismatched A/B/legacy-E material.
+
+```text
+MNTII-006-E = CLOSED by v0.6-e-closure
+TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001 = retained on demand
+A/B/legacy-E = quarantined / source-mismatch / not live
+```
+
+This source history supplies tools and negative memory only. It does not reopen book mining, the theorem route, or a second active research front.
+
 ## Historical inverse-geometry foundation
 
 The branch retains:
