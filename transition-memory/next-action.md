@@ -72,9 +72,12 @@ GOVERNANCE-ENFORCEMENT-CLOSURE-001 = CLOSED
 CENTRAL-MIND-CONTINUITY-001 = installed_repository_side
 CENTRAL-MIND-CONTINUITY-CLOSURE-002 = closed
 Current maturation receipt = MATURATION-RECEIPT-007
+MNTII-006-E = CLOSED by v0.6-e-closure
+TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001 = retained on demand
+Montgomery A/B/legacy-E = quarantined / source-mismatch / not live
 ```
 
-These stages remain registered capabilities and do not create a second research front.
+These stages and tools remain registered capabilities and do not create a second research front. Quarantined source-mismatch material is negative memory only and must not be used as a live source or revived by the ENGINE-004 work.
 
 ```text
 ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED
