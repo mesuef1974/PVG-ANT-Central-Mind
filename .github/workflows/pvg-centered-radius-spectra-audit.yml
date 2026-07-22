@@ -1,0 +1,39 @@
+name: PVG Centered-Radius Spectra Audit
+
+on:
+  pull_request:
+    paths:
+      - "tools/pvg_centered_radius_spectra.py"
+      - "tests/test_pvg_centered_radius_spectra.py"
+      - "research/pvg-space-deepening/engine-004-pass-002-centered-radius-spectra.md"
+      - ".github/workflows/pvg-centered-radius-spectra-audit.yml"
+  workflow_dispatch:
+
+jobs:
+  centered-radius-spectra:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run centered-radius spectrum tests
+        run: python -m unittest -v tests/test_pvg_centered_radius_spectra.py
+      - name: Regenerate compact frozen-box certificate
+        run: python tools/pvg_centered_radius_spectra.py --registered-summary --compact > /tmp/pvg-centered-radius-spectra-summary.json
+      - name: Verify governance ceiling
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          data = json.loads(Path('/tmp/pvg-centered-radius-spectra-summary.json').read_text())
+          assert data['scope']['integer_point_count'] == 884
+          assert data['verification']['all_radii_strictly_between_zero_and_one']
+          assert data['verification']['phase_d_not_used']
+          assert not data['claim_ceiling']['phase_d_authorized']
+          assert not data['claim_ceiling']['goldbach_progress']
+          assert not data['claim_ceiling']['pnt_progress']
+          assert not data['claim_ceiling']['rh_progress']
+          assert not data['claim_ceiling']['grh_progress']
+          PY
