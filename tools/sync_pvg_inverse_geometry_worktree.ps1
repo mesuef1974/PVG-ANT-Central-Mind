@@ -39,7 +39,8 @@ try {
         "tests/test_pvg_local_additive_cell_atlas.py","tests/test_pvg_additive_face_transition_graph.py",
         "tests/test_pvg_iterated_additive_face_dynamics.py","tests/test_pvg_additive_attraction_basins.py",
         "tests/test_pvg_additive_basin_overlap_geometry.py","tests/test_pvg_additive_basin_depth_stability.py",
-        "tests/test_pvg_prime_bound_expansion_protocol.py"
+        "tests/test_pvg_prime_bound_expansion_protocol.py","tests/test_pvg_cross_bound_structural_stress_test.py",
+        "tests/test_pvg_minimum_closure_depth_growth.py"
     )
     foreach ($Suite in $Suites) { Invoke-Python312 -PythonArgs @("-m","unittest","-v",$Suite); Assert-LastExitCode -FailureMessage "Test suite failed: $Suite" }
     Invoke-Python312 -PythonArgs @("tools/pvg_inverse_geometry.py","900","--compact"); Assert-LastExitCode -FailureMessage "Passport smoke test failed"
@@ -88,6 +89,21 @@ try {
     if (($Pass019.cumulative_table | ForEach-Object { $_.overlap_edge_count }) -join ',' -ne '13,18,22') { throw "PASS-019 overlap-edge mismatch" }
     if ($Pass019.first_appearance.endpoint_signatures.'{5,7}' -ne 150) { throw "PASS-019 first-appearance mismatch" }
     if (@($Pass019.verification.PSObject.Properties | Where-Object { -not [bool]$_.Value }).Count -ne 0) { throw "PASS-019 verification failure" }
+    $Pass022Raw=Invoke-Python312 -PythonArgs @("tools/pvg_cross_bound_structural_stress_test.py","--compact")
+    Assert-LastExitCode -FailureMessage "Cross-bound structural stress test failed"
+    $Pass022=($Pass022Raw | Out-String | ConvertFrom-Json)
+    if ($Pass022.first_counterexamples.fixed_depth_closure.prime_limit -ne 400) { throw "PASS-022 depth-wall limit mismatch" }
+    if (($Pass022.first_counterexamples.fixed_depth_closure.start_keys -join ',') -ne '{317,389},{347,359}') { throw "PASS-022 depth-wall faces mismatch" }
+    if ($Pass022.depth_wall_repair.repair_depth -ne 6) { throw "PASS-022 repair-depth mismatch" }
+    if (@($Pass022.verification.PSObject.Properties | Where-Object { -not [bool]$_.Value }).Count -ne 0) { throw "PASS-022 verification failure" }
+    $Pass023Raw=Invoke-Python312 -PythonArgs @("tools/pvg_minimum_closure_depth_growth.py","--summary-only","--registered-summary","--compact")
+    Assert-LastExitCode -FailureMessage "Minimum closure depth growth smoke test failed"
+    $Pass023=($Pass023Raw | Out-String | ConvertFrom-Json)
+    if (($Pass023.minimum_closure_depth_series -join ',') -ne '5,5,5,5,5,5,6,6,6') { throw "PASS-023 minimum-depth series mismatch" }
+    if ($Pass023.first_depth_six_threshold -ne 359 -or $null -ne $Pass023.first_depth_seven_threshold) { throw "PASS-023 threshold mismatch" }
+    if (($Pass023.limit_table[-1].maximum_depth_start_faces | ForEach-Object { $_ -join ',' }) -join ';' -ne '227,479;239,467;257,449;263,443;317,389;347,359') { throw "PASS-023 depth-six faces mismatch" }
+    if ($Pass023.limit_table[-1].maximum_depth_orbit_groups[0].start_sums[0] -ne 706) { throw "PASS-023 common-sum mismatch" }
+    if (@($Pass023.verification.PSObject.Properties | Where-Object { -not [bool]$_.Value }).Count -ne 0) { throw "PASS-023 verification failure" }
     $ExplorerPage=Join-Path $Worktree "web\pvg-pareto-explorer\index.html"
     $PascalPage=Join-Path $Worktree "web\pvg-pareto-explorer\pascal.html"
     $VisualLabPage=Join-Path $Worktree "web\pvg-pareto-explorer\visual-lab.html"
