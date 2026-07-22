@@ -92,9 +92,9 @@ try {
     $Pass022Raw=Invoke-Python312 -PythonArgs @("tools/pvg_cross_bound_structural_stress_test.py","--compact")
     Assert-LastExitCode -FailureMessage "Cross-bound structural stress test failed"
     $Pass022=($Pass022Raw | Out-String | ConvertFrom-Json)
-    if ($Pass022.first_counterexamples.fixed_depth_closure.prime_limit -ne 400) { throw "PASS-022 depth-wall limit mismatch" }
-    if (($Pass022.first_counterexamples.fixed_depth_closure.start_keys -join ',') -ne '{317,389},{347,359}') { throw "PASS-022 depth-wall faces mismatch" }
-    if ($Pass022.depth_wall_repair.repair_depth -ne 6) { throw "PASS-022 repair-depth mismatch" }
+    if ($Pass022.first_counterexamples.fixed_depth_closure -ne 400) { throw "PASS-022 depth-wall limit mismatch" }
+    if (($Pass022.depth_wall_repair.unresolved_start_keys -join ',') -ne '{317,389},{347,359}') { throw "PASS-022 depth-wall faces mismatch" }
+    if ($Pass022.depth_wall_repair.first_closing_depth -ne 6) { throw "PASS-022 repair-depth mismatch" }
     if (@($Pass022.verification.PSObject.Properties | Where-Object { -not [bool]$_.Value }).Count -ne 0) { throw "PASS-022 verification failure" }
     $Pass023Raw=Invoke-Python312 -PythonArgs @("tools/pvg_minimum_closure_depth_growth.py","--summary-only","--registered-summary","--compact")
     Assert-LastExitCode -FailureMessage "Minimum closure depth growth smoke test failed"
