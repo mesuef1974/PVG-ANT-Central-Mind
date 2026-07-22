@@ -10,56 +10,108 @@ GOAL-OP-ONE-THEOREM-001 = superseded_with_reason / archived / non-governing
 Phase D: NOT AUTHORIZED
 ```
 
-## Current checkpoint
-
-`ENGINE-004-CENTERED-GAP-COORDINATES-001` passed inside the unchanged frozen box.
-
-Installed exact structure:
+## Closed current checkpoints
 
 ```text
-prime pair {p,q} over N
-↔ centered gap Delta=q-p
-↔ p=(N-Delta)/2 and q=(N+Delta)/2
+ENGINE-004-CENTERED-GAP-COORDINATES-001 = CHECKPOINT_PASS
+ENGINE-004-PASS-002-CENTERED-RADIUS-SPECTRA-001 = CHECKPOINT_PASS
+Stage decision = continue_within_phase_c
 ```
 
-with
-
-```text
-Delta ≡ N (mod 2)
-N^2-Delta^2 = 4pq
-gcd(N,Delta) = gcd(N,2)
-```
-
-and, for even `N`,
-
-```text
-m=N/2
-d=Delta/2
-p=m-d
-q=m+d
-gcd(m,d)=1
-```
-
-The exact-support membership guard is mandatory before a prime-fiber record is issued.
-
-## Immediate governed task
-
-Continue inside Phase C and the same 884-point frozen box by studying the normalized centered-radius spectra
+PASS-002 installed the governed spectrum
 
 \[
-D(N)=\{\Delta/2:\Delta\in\Delta_2(N)\}
+D(N)=
+\begin{cases}
+\{\Delta/2:\Delta\in\Delta_2(N)\},&N\text{ even},\\
+\Delta_2(N),&N\text{ odd},
+\end{cases}
 \]
 
-for even points, together with the unnormalized gap spectra for odd points.
+with exact reconstruction:
 
-The next bounded pass must compute and certify only:
+```text
+N=2m and d in D(N) => (p,q)=(m-d,m+d)
+N odd and represented => d=N-4 and (p,q)=(2,d+2)
+(N,D(N)) reconstructs the complete distinct-prime fiber
+|D(N)|=|R_2(N)|
+```
 
-1. equality classes of spectra;
-2. strict containment relations;
-3. collisions between different support faces and different integer points;
-4. exact compression ratios relative to the full pair records;
-5. invariants preserved or lost by the spectrum projection;
-6. independent regeneration and deterministic ordering.
+Registered finite facts include:
+
+```text
+218024 coordinate occurrences
+36797 unique coordinates
+27799 shared coordinate values
+85 cross-route coordinate values
+0 odd/odd coordinate collisions
+743 unique nonempty spectra for 745 represented points
+one nonempty spectrum collision: D(5)=D(8)=D(12)={1}
+2048 proper containment edges
+10 containments with non-singleton subset
+```
+
+All are finite-box statements unless explicitly marked `IDENTITY / PROVED`.
+
+## Immediate governed task — PASS-003
+
+Study the exact coordinate-owner incidence geometry in the unchanged frozen box.
+
+Define the owner set of a governed coordinate \(d\):
+
+\[
+\mathcal O(d)=\{N:d\in D(N)\},
+\]
+
+and its support projection
+
+\[
+\mathcal F(d)=\{\operatorname{supp}(N):N\in\mathcal O(d)\}.
+\]
+
+The pass may compute and certify only:
+
+1. the complete coordinate-to-integer incidence relation;
+2. the complete coordinate-to-support-face projection;
+3. owner multiplicity classes \(|\mathcal O(d)|\);
+4. support multiplicity classes \(|\mathcal F(d)|\);
+5. even/even and odd/even route-conditioned ownership;
+6. intersections \(\mathcal O(d_1)\cap\mathcal O(d_2)\) already visible in spectra;
+7. support-face intersection and separation patterns;
+8. exact finite hypergraph degree sequences and connected components, if defined without iteration;
+9. invariants preserved or lost by projection from owners to support faces;
+10. independent regeneration, deterministic ordering, tests, and a compact certificate.
+
+## Preregistered separation of layers
+
+```text
+coordinate d
+→ prime-pair occurrence over N
+→ integer owner N
+→ exact support face F
+→ route class
+```
+
+These layers must not be conflated.
+
+In particular:
+
+- repeated coordinate does not imply repeated prime pair;
+- repeated coordinate does not identify the midpoint;
+- repeated support ownership does not determine the exponent vector;
+- projection from integer owners to support faces can collapse distinct points;
+- graph or hypergraph language is finite incidence language only, not Phase-D orbit dynamics.
+
+## Required outputs
+
+- `tools/pvg_centered_radius_incidence.py` or an equivalently named ENGINE-004 tool;
+- dedicated complete-box tests;
+- independent implementation or independently structured scan;
+- compact deterministic JSON certificate and SHA-256;
+- a mathematical report with exact laws separated from finite observations;
+- a named ENGINE-004 PASS-003 checkpoint;
+- CI assertions for all preregistered totals and claim-ceiling flags;
+- updated transition state and PR body.
 
 ## Retained capability state — supporting, not governing
 
@@ -77,7 +129,7 @@ TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001 = retained on demand
 Montgomery A/B/legacy-E = quarantined / source-mismatch / not live
 ```
 
-These stages and tools remain registered capabilities and do not create a second research front. Quarantined source-mismatch material is negative memory only and must not be used as a live source or revived by the ENGINE-004 work.
+These stages and tools do not create a second research front. Quarantined source-mismatch material is negative memory only.
 
 ```text
 ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED
@@ -88,9 +140,9 @@ no local component training, corpus promotion, LoRA, or SFT
 no automatic Lean expansion
 ```
 
-## Required scientific separation
+## Required scientific classification
 
-Every new statement must be labeled as one of:
+Every statement must be labeled as one of:
 
 ```text
 IDENTITY
@@ -101,30 +153,29 @@ HYPOTHESIS
 OPEN
 ```
 
-No finite collision, absence, density, or exception may be promoted beyond the frozen box.
+No degree distribution, collision, connected component, absence, extremum, or support pattern may be promoted beyond the frozen box.
 
 ## Required implementation discipline
 
-- add a named ENGINE-004 checkpoint or sub-pass;
-- keep the support/integer/pair/spectrum layers separate;
-- preregister the exact finite outputs before interpreting them;
-- add independent verification, deterministic certificate, tests, and CI assertions;
-- update the report, transition memory, PR body, and claim ceiling;
-- push each coherent change to `agent/pvg-point-classification-inverse-geometry-001`;
+- keep the 884-point box unchanged;
+- preregister exact outputs before interpretation;
+- preserve coordinate/pair/integer/support/route separation;
+- add independent verification and deterministic regeneration;
+- run honesty, state coherence, Research Compass, and Goal Memory audits;
+- push every coherent change to `agent/pvg-point-classification-inverse-geometry-001`;
 - keep PR #63 draft and unmerged unless the owner explicitly authorizes otherwise.
 
 ## Stop conditions
 
-Stop and require a new readiness decision before any of the following:
+Stop and require a new readiness decision before:
 
-- Phase D orbit dynamics;
-- a support-prime, face-size, or integer-cap expansion;
-- weighted or asymptotic representation analysis;
+- Phase D orbit dynamics or iterative transitions;
+- support-prime, face-size, or integer-cap expansion;
+- weighted, averaged, density, or asymptotic representation analysis;
 - ANT translation beyond exact elementary identities;
-- opening or reactivating a theorem target;
-- a second theorem target;
-- any originality, publication, Goldbach, PNT, RH, or GRH claim.
+- theorem-target activation or theorem-path return;
+- originality, publication, Goldbach, PNT, RH, or GRH claims.
 
 ## Current ceiling
 
-The authorized next action is exact finite geometry and compression analysis of centered-gap spectra inside ENGINE-004. It is not a theorem program, not a major-conjecture program, and not an authorization for Phase D. There is no Goldbach or PNT progress and no RH/GRH progress.
+The authorized next action is exact finite incidence geometry of centered-radius coordinates inside ENGINE-004. It is not an orbit program, theorem program, major-conjecture program, or authorization for Phase D. There is no Goldbach or PNT progress and no RH/GRH progress.
