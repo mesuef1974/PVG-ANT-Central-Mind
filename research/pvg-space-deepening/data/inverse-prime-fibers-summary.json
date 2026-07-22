@@ -1,0 +1,67 @@
+{
+  "id": "ENGINE-004-INVERSE-PRIME-FIBERS-SUMMARY-001",
+  "classification": "Identity / Proved / Finite-Verified / Diagnostic",
+  "generated_at": "2026-07-22",
+  "canonical_compact_sha256": "5abfc26288b8e3d9fee33a6372cd8b7066c158b3fc54ce59475e1c8d7a465489",
+  "canonical_hash_includes_trailing_newline": true,
+  "scope": {
+    "support_prime_limit": 11,
+    "support_face_sizes": [1, 2, 3],
+    "integer_cap": 100000,
+    "support_face_count": 25
+  },
+  "totals": {
+    "integer_point_count": 884,
+    "representable_integer_count": 745,
+    "nonrepresentable_integer_count": 139,
+    "total_representation_count": 218024,
+    "centered_gap_coordinate_count": 218024,
+    "independent_scan_match_count": 884,
+    "independent_scan_mismatch_count": 0
+  },
+  "support_route_totals": {
+    "contains_axis_2": {
+      "support_face_count": 11,
+      "integer_point_count": 653,
+      "representable_integer_count": 650,
+      "nonrepresentable_integer_count": 3,
+      "total_representation_count": 217929
+    },
+    "excludes_axis_2": {
+      "support_face_count": 14,
+      "integer_point_count": 231,
+      "representable_integer_count": 95,
+      "nonrepresentable_integer_count": 136,
+      "total_representation_count": 95
+    }
+  },
+  "frozen_box_exceptions": {
+    "contains_axis_2_nonrepresentable_integers": [2, 4, 6]
+  },
+  "global_maximum": {
+    "integer": 97200,
+    "support": [2, 3, 5],
+    "representation_count": 1557
+  },
+  "verification": {
+    "all_prime_fibers_match_independent_scan": true,
+    "odd_multiplicity_at_most_one": true,
+    "parity_routing_holds": true,
+    "support_controls_parity_route": true,
+    "odd_support_fiber_reduces_to_n_minus_2_primality": true,
+    "frozen_axis_2_nonrepresentable_points_are_2_4_6": true,
+    "centered_gap_bijection_holds": true,
+    "centered_square_difference_holds": true,
+    "centered_gap_gcd_law_holds": true,
+    "even_radius_coprimality_holds": true,
+    "deterministic_ordering": true
+  },
+  "claim_ceiling": {
+    "historical_originality": false,
+    "phase_d_authorized": false,
+    "goldbach_progress": false,
+    "pnt_progress": false,
+    "rh_progress": false,
+    "grh_progress": false
+  }
+}
