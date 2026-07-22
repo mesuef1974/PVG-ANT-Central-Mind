@@ -3,39 +3,80 @@ name: PVG Centered-Radius Spectra Audit
 on:
   pull_request:
     paths:
-      - "tools/pvg_centered_radius_spectra.py"
-      - "tests/test_pvg_centered_radius_spectra.py"
-      - "research/pvg-space-deepening/engine-004-pass-002-centered-radius-spectra.md"
-      - ".github/workflows/pvg-centered-radius-spectra-audit.yml"
+      - 'tools/pvg_centered_radius_spectra.py'
+      - 'tests/test_pvg_centered_radius_spectra.py'
+      - 'research/pvg-space-deepening/engine-004-pass-002-centered-radius-spectra.md'
+      - 'research/pvg-space-deepening/data/centered-radius-spectra-summary.json'
+      - 'governance/checkpoints/ENGINE-004-PASS-002-CENTERED-RADIUS-SPECTRA-001.md'
+      - '.github/workflows/pvg-centered-radius-spectra-audit.yml'
+      - 'transition-memory/latest-state.md'
+      - 'transition-memory/next-action.md'
   workflow_dispatch:
 
 jobs:
   centered-radius-spectra:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
-      - name: Run centered-radius spectrum tests
+          python-version: '3.12'
+      - name: Syntax check
+        run: |
+          python -m py_compile tools/pvg_centered_radius_spectra.py
+          python -m py_compile tests/test_pvg_centered_radius_spectra.py
+      - name: Complete frozen-box tests
         run: python -m unittest -v tests/test_pvg_centered_radius_spectra.py
-      - name: Regenerate compact frozen-box certificate
+      - name: Regenerate compact certificate
         run: python tools/pvg_centered_radius_spectra.py --registered-summary --compact > /tmp/pvg-centered-radius-spectra-summary.json
-      - name: Verify governance ceiling
+      - name: Verify registered certificate and claim ceiling
         run: |
           python - <<'PY'
+          import hashlib
           import json
           from pathlib import Path
 
-          data = json.loads(Path('/tmp/pvg-centered-radius-spectra-summary.json').read_text())
-          assert data['scope']['integer_point_count'] == 884
-          assert data['verification']['all_coordinates_positive']
-          assert data['verification']['even_coordinates_are_half_gaps']
-          assert data['verification']['odd_coordinates_are_full_gaps']
-          assert data['verification']['phase_d_not_used']
-          assert not data['claim_ceiling']['phase_d_authorized']
-          assert not data['claim_ceiling']['goldbach_progress']
-          assert not data['claim_ceiling']['pnt_progress']
-          assert not data['claim_ceiling']['rh_progress']
-          assert not data['claim_ceiling']['grh_progress']
+          generated_path = Path('/tmp/pvg-centered-radius-spectra-summary.json')
+          generated = json.loads(generated_path.read_text(encoding='utf-8'))
+          certificate = json.loads(
+              Path('research/pvg-space-deepening/data/centered-radius-spectra-summary.json').read_text(encoding='utf-8')
+          )
+          digest = hashlib.sha256(generated_path.read_bytes()).hexdigest()
+
+          assert digest == certificate['canonical_compact_sha256']
+          assert generated['scope'] == certificate['scope']
+          assert generated['totals'] == certificate['totals']
+          assert generated['compression'] == certificate['compression']
+          assert generated['only_nonempty_spectrum_collision'] == certificate['only_nonempty_spectrum_collision']
+          assert generated['verification'] == certificate['verification']
+          assert generated['claim_ceiling'] == certificate['claim_ceiling']
+
+          profile = generated['containment_profile']
+          registered_profile = certificate['containment_profile']
+          assert profile['non_singleton_subset_spectrum_count'] == registered_profile['non_singleton_subset_spectrum_count']
+          assert profile['non_singleton_subset_spectra'] == registered_profile['non_singleton_subset_spectra']
+          assert len(profile['non_singleton_edges']) == registered_profile['non_singleton_subset_containment_edge_count']
+
+          maximum = generated['largest_shared_coordinates'][0]
+          registered_maximum = certificate['maximum_shared_coordinate']
+          assert maximum['coordinate'] == registered_maximum['coordinate']
+          assert maximum['integer_count'] == registered_maximum['integer_count']
+          assert maximum['route_class'] == registered_maximum['route_class']
+
+          assert generated['totals']['representable_point_count'] == 745
+          assert generated['totals']['nonrepresentable_point_count'] == 139
+          assert generated['totals']['total_coordinate_occurrence_count'] == 218024
+          assert generated['totals']['unique_nonempty_spectrum_count'] == 743
+          assert generated['totals']['nonempty_spectrum_collision_class_count'] == 1
+          assert generated['totals']['proper_containment_edge_count'] == 2048
+          assert generated['totals']['non_singleton_subset_containment_edge_count'] == 10
+          assert generated['totals']['odd_odd_shared_coordinate_value_count'] == 0
+          assert all(generated['verification'].values())
+          assert not any(generated['claim_ceiling'].values())
           PY
+      - name: Governance audits
+        run: |
+          python tools/honesty_audit.py
+          python tools/state_coherence_audit.py
+          python tools/research_compass_audit.py
+          python tools/goal_memory_traceability_audit.py
