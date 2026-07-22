@@ -5,10 +5,10 @@ from itertools import combinations
 from pathlib import Path
 
 try:
-    from tools.pvg_deep_orbit_preimage_families import support, successors
+    from tools.pvg_deep_orbit_preimage_families import factor_support as support, successors
     from tools.pvg_local_additive_cell_atlas import factorint, is_prime, primes_up_to
 except ModuleNotFoundError:
-    from pvg_deep_orbit_preimage_families import support, successors
+    from pvg_deep_orbit_preimage_families import factor_support as support, successors
     from pvg_local_additive_cell_atlas import factorint, is_prime, primes_up_to
 
 
