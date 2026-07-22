@@ -159,6 +159,7 @@ PVG-UNDERSTANDING-DEEPENING-001 = checkpoint_pass; ontology frozen
 GOVERNANCE-ENFORCEMENT-CLOSURE-001 = CLOSED
 CENTRAL-MIND-CONTINUITY-001 = installed_repository_side
 CENTRAL-MIND-CONTINUITY-CLOSURE-002 = closed
+Current maturation receipt = MATURATION-RECEIPT-007
 ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED
 ```
 
@@ -232,7 +233,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync_canonical_main.ps
 powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync_canonical_main.ps1 -Mode PrepareBranch
 ```
 
-The repository-side continuity contract and workstation task remain governed by `CENTRAL-MIND-CONTINUITY-CLOSURE-002`.
+The repository-side continuity contract and workstation task remain governed by `CENTRAL-MIND-CONTINUITY-CLOSURE-002` and the current receipt `MATURATION-RECEIPT-007`.
 
 ## Guards
 
