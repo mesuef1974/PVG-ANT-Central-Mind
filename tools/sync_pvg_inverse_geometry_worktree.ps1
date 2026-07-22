@@ -25,7 +25,7 @@ else {
 }
 $Head=(& git -C $Worktree rev-parse HEAD).Trim(); $RemoteHead=(& git -C $Repo rev-parse $RemoteRef).Trim()
 if ($Head -ne $RemoteHead) { throw "Synchronization verification failed: HEAD=$Head remote=$RemoteHead" }
-Write-Host "Running PVG tests through the local visual laboratories..."
+Write-Host "Running PVG tests through PASS-025 and the local visual laboratories..."
 Push-Location $Worktree
 try {
     $Suites=@(
@@ -41,7 +41,7 @@ try {
         "tests/test_pvg_additive_basin_overlap_geometry.py","tests/test_pvg_additive_basin_depth_stability.py",
         "tests/test_pvg_prime_bound_expansion_protocol.py","tests/test_pvg_cross_bound_structural_stress_test.py",
         "tests/test_pvg_minimum_closure_depth_growth.py","tests/test_pvg_deep_orbit_preimage_families.py",
-        "tests/test_pvg_support_fiber_synthesis.py"
+        "tests/test_pvg_support_fiber_synthesis.py","tests/test_pvg_reverse_support_preimage.py"
     )
     foreach ($Suite in $Suites) { Invoke-Python312 -PythonArgs @("-m","unittest","-v",$Suite); Assert-LastExitCode -FailureMessage "Test suite failed: $Suite" }
     Invoke-Python312 -PythonArgs @("tools/pvg_inverse_geometry.py","900","--compact"); Assert-LastExitCode -FailureMessage "Passport smoke test failed"
@@ -113,6 +113,15 @@ try {
     if ($Pass024.first_depth_eleven_threshold -ne 167119 -or $null -ne $Pass024.first_depth_twelve_threshold) { throw "PASS-024 terminal deep-threshold mismatch" }
     if ($Pass024.maximum_observed_prime_pair_closure_depth -ne 11) { throw "PASS-024 maximum-depth mismatch" }
     if (@($Pass024.verification.PSObject.Properties | Where-Object { -not [bool]$_.Value }).Count -ne 0) { throw "PASS-024 verification failure" }
+    $Pass025Raw=Invoke-Python312 -PythonArgs @("tools/pvg_reverse_support_preimage.py","--registered-summary","--compact")
+    Assert-LastExitCode -FailureMessage "Reverse support-preimage smoke test failed"
+    $Pass025=($Pass025Raw | Out-String | ConvertFrom-Json)
+    if ($Pass025.outcome -ne 'DEPTH_12_WITNESS_FOUND_WITHIN_FROZEN_CLASS') { throw "PASS-025 outcome mismatch" }
+    if ($Pass025.predecessor_support_count -ne 35936 -or $Pass025.candidate_exact_support_integer_count -ne 14589 -or $Pass025.witness_candidate_count -ne 1106) { throw "PASS-025 scope mismatch" }
+    if (($Pass025.first_witness.source_pair -join ',') -ne '2,27397961' -or $Pass025.first_witness.source_sum -ne 27397963) { throw "PASS-025 first-witness mismatch" }
+    if (($Pass025.first_witness.predecessor_support -join ',') -ne '41,668243' -or $Pass025.first_witness.seed_sum -ne 668284) { throw "PASS-025 predecessor-seed mismatch" }
+    if ($Pass025.first_witness.forward_orbit.face_closure_depth -ne 12) { throw "PASS-025 closure-depth mismatch" }
+    if (@($Pass025.verification.PSObject.Properties | Where-Object { -not [bool]$_.Value }).Count -ne 0) { throw "PASS-025 verification failure" }
     $ExplorerPage=Join-Path $Worktree "web\pvg-pareto-explorer\index.html"
     $PascalPage=Join-Path $Worktree "web\pvg-pareto-explorer\pascal.html"
     $VisualLabPage=Join-Path $Worktree "web\pvg-pareto-explorer\visual-lab.html"
@@ -139,4 +148,4 @@ try {
     }
 }
 finally { Pop-Location }
-Write-Host ""; Write-Host "PVG inverse-geometry worktree synchronized and verified."; Write-Host "Worktree: $Worktree"; Write-Host "HEAD:     $Head"; Write-Host "Explorer: $Worktree\web\pvg-pareto-explorer\index.html"; Write-Host "Pascal:   $Worktree\web\pvg-pareto-explorer\pascal.html"; Write-Host "Visual:   $Worktree\web\pvg-pareto-explorer\visual-lab.html"; Write-Host "3D Lab:   $Worktree\web\pvg-pareto-explorer\visual-lab-3d.html"; Write-Host ""; Write-Host "The canonical worktree branch and all stashes were left untouched."
+Write-Host ""; Write-Host "PVG inverse-geometry worktree synchronized and verified through PASS-025."; Write-Host "Worktree: $Worktree"; Write-Host "HEAD:     $Head"; Write-Host "Explorer: $Worktree\web\pvg-pareto-explorer\index.html"; Write-Host "Pascal:   $Worktree\web\pvg-pareto-explorer\pascal.html"; Write-Host "Visual:   $Worktree\web\pvg-pareto-explorer\visual-lab.html"; Write-Host "3D Lab:   $Worktree\web\pvg-pareto-explorer\visual-lab-3d.html"; Write-Host ""; Write-Host "The canonical worktree branch and all stashes were left untouched."
