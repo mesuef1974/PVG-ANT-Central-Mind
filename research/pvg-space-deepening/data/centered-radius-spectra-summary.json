@@ -1,0 +1,78 @@
+{
+  "id": "ENGINE-004-CENTERED-RADIUS-SPECTRA-CERTIFICATE-001",
+  "classification": "Identity / Proved / Finite-Verified / Diagnostic",
+  "canonical_compact_sha256": "4064f2a2be99e92b20d6cc8917d8f4e8ba75ddab3c2b53e4baec7616ae19d468",
+  "canonical_hash_includes_trailing_newline": true,
+  "scope": {
+    "support_prime_limit": 11,
+    "support_face_sizes": [1, 2, 3],
+    "integer_cap": 100000,
+    "integer_point_count": 884
+  },
+  "totals": {
+    "representable_point_count": 745,
+    "nonrepresentable_point_count": 139,
+    "total_coordinate_occurrence_count": 218024,
+    "unique_coordinate_value_count": 36797,
+    "unique_even_coordinate_value_count": 36787,
+    "unique_odd_coordinate_value_count": 95,
+    "cross_route_coordinate_value_count": 85,
+    "odd_only_coordinate_value_count": 10,
+    "unique_spectrum_count_including_empty": 744,
+    "unique_nonempty_spectrum_count": 743,
+    "nonempty_spectrum_collision_class_count": 1,
+    "empty_spectrum_class_size": 139,
+    "proper_containment_edge_count": 2048,
+    "singleton_subset_containment_edge_count": 2038,
+    "non_singleton_subset_containment_edge_count": 10,
+    "shared_coordinate_value_count": 27799,
+    "even_even_shared_coordinate_value_count": 27714,
+    "odd_even_shared_coordinate_value_count": 85,
+    "odd_odd_shared_coordinate_value_count": 0
+  },
+  "compression": {
+    "represented_point_to_nonempty_spectrum_ratio": "743/745",
+    "nonempty_collision_excess_point_count": 2,
+    "empty_fiber_collapse": "139 nonrepresentable points map to the empty spectrum",
+    "preserved": "multiplicity and the complete prime-pair fiber when N is retained",
+    "lost_without_N": "the midpoint and integer label are generally lost; coordinate collisions occur across points"
+  },
+  "only_nonempty_spectrum_collision": {
+    "spectrum": [1],
+    "class_size": 3,
+    "members": [
+      {"integer": 5, "support": [5], "route": "odd", "prime_pairs": [[2, 3]]},
+      {"integer": 8, "support": [2], "route": "even", "prime_pairs": [[3, 5]]},
+      {"integer": 12, "support": [2, 3], "route": "even", "prime_pairs": [[5, 7]]}
+    ]
+  },
+  "containment_profile": {
+    "non_singleton_subset_spectrum_count": 3,
+    "non_singleton_subset_spectra": [[4, 2], [9, 3], [45, 33, 3]],
+    "non_singleton_subset_containment_edge_count": 10
+  },
+  "maximum_shared_coordinate": {
+    "coordinate": 7,
+    "integer_count": 64,
+    "route_class": "even_even"
+  },
+  "verification": {
+    "all_coordinates_positive_integers": true,
+    "all_218024_pairs_reconstruct_from_N_and_spectrum": true,
+    "spectrum_cardinality_matches_representation_count": true,
+    "odd_route_coordinates_are_N_minus_4": true,
+    "odd_route_has_no_internal_coordinate_collision": true,
+    "only_nonempty_spectrum_collision_is_1_at_5_8_12": true,
+    "containment_counts_complete": true,
+    "deterministic_ordering": true,
+    "phase_d_not_used": true
+  },
+  "claim_ceiling": {
+    "historical_originality": false,
+    "phase_d_authorized": false,
+    "goldbach_progress": false,
+    "pnt_progress": false,
+    "rh_progress": false,
+    "grh_progress": false
+  }
+}
