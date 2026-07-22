@@ -46,19 +46,20 @@ def normalized_centered_radius_spectrum(n: int) -> Spectrum:
 
 
 def reconstruct_prime_pairs(n: int, spectrum: Spectrum | None = None) -> tuple[PrimePair, ...]:
-    """Reconstruct the complete pair fiber from N and its governed spectrum."""
+    """Reconstruct and validate the complete distinct-prime fiber from N and D(N)."""
     if n <= 0:
         raise ValueError("n must be positive")
-    spectrum = centered_radius_spectrum(n) if spectrum is None else tuple(spectrum)
-    if any(not isinstance(value, int) or value <= 0 for value in spectrum):
+    supplied = centered_radius_spectrum(n) if spectrum is None else tuple(spectrum)
+    if any(not isinstance(value, int) or value <= 0 for value in supplied):
         raise ValueError("spectrum coordinates must be positive integers")
     if n % 2 == 0:
         midpoint = n // 2
-        pairs = tuple((midpoint - radius, midpoint + radius) for radius in spectrum)
+        pairs = tuple((midpoint - radius, midpoint + radius) for radius in supplied)
     else:
-        pairs = tuple((2, radius + 2) for radius in spectrum)
-    if any(not (left < right and left + right == n) for left, right in pairs):
-        raise ValueError("spectrum is incompatible with the supplied integer")
+        pairs = tuple((2, radius + 2) for radius in supplied)
+    canonical = prime_pair_fiber(n)
+    if pairs != canonical:
+        raise ValueError("spectrum does not reconstruct the complete distinct-prime fiber")
     return pairs
 
 
@@ -101,11 +102,7 @@ def registered_points() -> tuple[tuple[int, tuple[int, ...]], ...]:
 
 
 def _member_record(value: int, support: tuple[int, ...], multiplicity: int) -> dict[str, object]:
-    return {
-        "integer": value,
-        "support": list(support),
-        "multiplicity": multiplicity,
-    }
+    return {"integer": value, "support": list(support), "multiplicity": multiplicity}
 
 
 def registered_summary() -> dict[str, object]:
