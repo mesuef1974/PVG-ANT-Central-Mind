@@ -141,22 +141,31 @@ returns_to
 ```text
 CLOSED:
 GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001
-
-ACTIVE BOUNDED EXTENSION:
 GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001 / PASS-025
 
-NO AUTHORIZED NEXT PASS:
-PASS-026 = PROHIBITED BEFORE STAGE REVIEW
+PASS-025 OUTCOME:
+DEPTH_12_WITNESS_FOUND_WITHIN_FROZEN_CLASS
+source pair = {2,27397961}
 
-MANDATORY RETURN CHECKPOINT:
-GOAL-OP-ONE-THEOREM-001
+STAGE DECISION:
+return
+
+RETURNED ACTIVE GOAL:
+GOAL-OP-ONE-THEOREM-001 = active_external_validation_hold
+
+NO AUTHORIZED NEXT PASS:
+PASS-026 = NOT AUTHORIZED
 ```
 
-بعد PASS-025 لا يسمح بفتح PASS-026 تلقائيًا. يجب أن تقرر مراجعة المرحلة هل:
+حقق PASS-025 مخرجه المحدد وأغلق بشهادة. لا يوجد امتداد حسابي تلقائي بعده. تعود الجبهة الحاكمة إلى برنامج المبرهنة، الذي يبقى في انتظار التحقق الخارجي وفق بروتوكول P8.
 
-- النتائج ناضجة لتغذية برنامج المبرهنة؛
-- يوجد امتداد محدود واحد مبرر؛
-- المسار أغلق بشهادة سلبية أو حدود واضحة.
+النتيجة المعادة إلى العقل هي:
+
+- مولد السوابق العكسية؛
+- الربط الأحادي بين وجه السلف وبذرة مجموعه؛
+- شاهد منتهٍ للعمق 12؛
+- فصل واضح بين آلية توليد المرشحين وبين لمّة ANT التحليلية المفقودة؛
+- منع الانتقال إلى PASS-026 لمجرد نجاح البحث المنتهي.
 
 ## 11. Relationship to adjacent programs
 
@@ -203,13 +212,14 @@ GOAL-OP-ONE-THEOREM-001
 - كان هدف paused بلا `return_gate`;
 - كان هدف queued بلا prerequisites؛
 - غابت نقطة عودة من جبهة مؤقتة؛
-- لم تكن PASS-025 الجبهة الحالية المسجلة؛
 - لم تكن SYNTHESIS-001 مغلقة بشهادة؛
-- ظهر PASS-026 بوصفه مصرحًا قبل Stage Review؛
-- اختفى ONE-THEOREM-001 من نقطة العودة الإلزامية.
+- لم تكن PASS-025 مغلقة بشهادة وشاهد مسجل؛
+- لم تعد الجبهة إلى ONE-THEOREM-001؛
+- ظهر PASS-026 بوصفه مخططًا أو مصرحًا؛
+- اختفت حالة P8 الخارجية أو جرى إرسال حزمة جديدة دون تفويض المالك.
 
 ## 14. Scientific ceiling
 
-هذا البروتوكول يحكم العمل ولا يثبت نتيجة رياضية. لا يمنح الأصالة، ولا يحول roadmap إلى برهان، ولا يغير سقف Goldbach أو PNT أو RH أو GRH.
+هذا البروتوكول يحكم العمل ولا يثبت نتيجة رياضية. شاهد العمق 12 نتيجة منتهية داخل فئة بحث مجمدة ومعلومة التلوث، وليس مبرهنة في عدم محدودية الأعماق أو انتهاء المدارات. لا يمنح البروتوكول الأصالة، ولا يحول roadmap إلى برهان، ولا يغير سقف Goldbach أو PNT أو RH أو GRH.
 
 **Honest classification:** Governance / Project Memory / Goal Traceability.
