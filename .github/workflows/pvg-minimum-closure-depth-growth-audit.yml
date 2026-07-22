@@ -31,6 +31,14 @@ jobs:
         run: |
           python -m py_compile tools/pvg_minimum_closure_depth_growth.py
           python -m py_compile tests/test_pvg_minimum_closure_depth_growth.py
+      - name: PowerShell synchronization integration
+        shell: pwsh
+        run: |
+          $source = Get-Content -Raw tools/sync_pvg_inverse_geometry_worktree.ps1
+          $null = [scriptblock]::Create($source)
+          if ($source -notmatch 'test_pvg_cross_bound_structural_stress_test.py') { throw 'PASS-022 suite is missing from synchronization' }
+          if ($source -notmatch 'test_pvg_minimum_closure_depth_growth.py') { throw 'PASS-023 suite is missing from synchronization' }
+          if ($source -notmatch 'tools/pvg_minimum_closure_depth_growth.py') { throw 'PASS-023 smoke test is missing from synchronization' }
       - name: Unit tests
         run: python -m unittest -v tests/test_pvg_minimum_closure_depth_growth.py
       - name: Regenerate registered summary
