@@ -5,8 +5,6 @@
 
 ## Research compass and goal memory
 
-The governing route is:
-
 ```text
 ANT problem
 → multiplicative core
@@ -30,13 +28,11 @@ Canonical references:
 - `governance/pvg-ant-goal-memory-and-return-protocol-v1.md`
 - `maps/pvg-ant-language-kernel-v1.md`
 - `maps/pvg-ant-common-language-contract-v1.md`
-- `governance/task-triggered-knowledge-activation-policy.md`
-- `governance/stage-review-and-ceiling-escalation-policy.md`
-- `governance/templates/research-readiness-card.md`
 - `governance/readiness/SYNTHESIS-001-SUPPORT-FIBER-DYNAMICS.md`
+- `governance/closures/SYNTHESIS-001-SUPPORT-FIBER-DYNAMICS-CLOSURE.md`
+- `governance/readiness/PASS-025-REVERSE-SUPPORT-PREIMAGE.md`
 - `registries/program-goals.jsonl`
 - `registries/goal-links.jsonl`
-- `registries/maturation-events.jsonl`
 - `transition-memory/latest-state.md`
 - `transition-memory/next-action.md`
 
@@ -70,17 +66,21 @@ Strategic goal:
   GOAL-PVG-ANT-STRATEGIC-001 = active_fixed.
   Original ANT contribution through materially useful PVG.
 
-Active operational goal:
-  GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001 = active_current.
-  Purpose: synthesize PASS-013 through PASS-024 before further search.
+Closed operational synthesis:
+  GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001 = closed.
+  SYNTHESIS-001 integrated PASS-013 through PASS-024.
 
-Queued next goal:
-  GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001 = queued_next.
-  PASS-025 may start only after SYNTHESIS-001 closure.
+Active operational goal:
+  GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001 = active_current.
+  PASS-025 is one bounded reverse-preimage and depth-12 search.
+
+Authorized next goal after PASS-025:
+  none.
+  PASS-026 is prohibited before Stage Review.
 
 Mandatory return checkpoint:
   GOAL-OP-ONE-THEOREM-001 = paused_governed_return_required.
-  It is not cancelled. A Stage Review after PASS-025 must resume, close,
+  It is not cancelled. The PASS-025 Stage Review must resume, close,
   or explicitly reauthorize a bounded postponement.
 
 Publication closure:
@@ -89,13 +89,13 @@ Publication closure:
 
 ## Current PVG geometry branch
 
-Draft PR #63 carries PASS-001 through PASS-024 on:
+Draft PR #63 carries PASS-001 through PASS-024 plus SYNTHESIS-001 on:
 
 ```text
 agent/pvg-point-classification-inverse-geometry-001
 ```
 
-The current governed result layer includes:
+The governed result layer includes:
 
 - exact point passports and native valuation geometry;
 - support, height, simplex, terrain, flow, and Pareto structures;
@@ -103,15 +103,18 @@ The current governed result layer includes:
 - attraction basins and overlap geometry;
 - closure-depth growth;
 - support-fiber compression and deep orbit witnesses;
+- a closed support-fiber theory synthesis;
 - analytical and immersive 3D visual laboratories.
 
-The exact two-axis identity used by the current synthesis is:
+The exact two-axis identity is:
 
 \[
-T(\{p,q\})=\operatorname{supp}(p+q).
+\mathcal T(\{p,q\})=\{\operatorname{supp}(p+q)\}.
 \]
 
-This is a support-projected dynamic. It does not retain the full valuation vector or exponent data.
+SYNTHESIS-001 also records that this is a support-projected dynamic and does not retain the full valuation vector or exponent data.
+
+PASS-025 now uses the exact support-preimage characterization to generate reverse candidates before testing prime-pair realizations. Its frozen configuration must be recorded before the registered run; no adaptive extension is allowed inside the pass.
 
 ## Goal portfolio
 
@@ -197,8 +200,6 @@ The Arabic analytic number theory encyclopedia remains a supporting program. Boo
 | `tools/` | automated guards and safe synchronization tools |
 | `web/` | bounded visual laboratories on the active draft branch |
 
-Heavy numerical data, duplicate kernels, and ungoverned external applications remain outside the canonical repository unless explicitly registered.
-
 ## Knowledge status discipline
 
 ```text
@@ -224,8 +225,6 @@ source-grounded ANT object
 ```
 
 ## Continuity protocol
-
-Safe local commands:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync_canonical_main.ps1 -Mode Audit
@@ -261,10 +260,10 @@ The historical Coherence Audit 005 / v0.6 substrate remains protected while the 
 - no deletion of goals;
 - every detour has a parent, stop rule, and return gate;
 - no PASS extension without Stage Review;
+- PASS-026 is not authorized;
 - minimum sufficient knowledge acquisition;
 - no rebuilding certified bridges;
 - no tool without a named scientific function;
-- every stage has a measurable deliverable and closure rule;
 - no Benchmark 002 learning before the immutable raw error map;
 - Dataset 004 remains unauthorized;
 - no automatic Lean expansion;
@@ -277,6 +276,7 @@ No original lemma certified yet.
 No original theorem certified yet.
 No general termination theorem for support dynamics.
 No universal closure-depth bound.
+No unbounded-depth theorem.
 No Goldbach progress claimed.
 No PNT progress claimed.
 Hidden-set autonomous performance is not fully sealed.
