@@ -9,10 +9,14 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+try:
+    from tools.current_goal_state import active_operational_goals, current_goals
+except ModuleNotFoundError:
+    from current_goal_state import active_operational_goals, current_goals
+
 ROOT = Path(__file__).resolve().parent.parent
 ASSETS = ROOT / "registries" / "external-research-assets.jsonl"
 NEGATIVE = ROOT / "registries" / "negative-results.jsonl"
-GOALS = ROOT / "registries" / "program-goals.jsonl"
 KERNEL = ROOT / "maps" / "pvg-ant-language-kernel-v1.md"
 ROUTING = ROOT / "maps" / "legacy-assets-routing.md"
 RECONCILIATION = ROOT / "integration" / "legacy-research-assets-reconciliation-001.md"
@@ -72,7 +76,7 @@ def require(condition: bool, message: str) -> None:
 def main() -> None:
     assets = load_jsonl(ASSETS)
     negatives = load_jsonl(NEGATIVE)
-    goals = load_jsonl(GOALS)
+    goals = current_goals()
     require(len(assets) >= 10, "Expected at least ten reconciled external assets")
     require(len(negatives) >= 5, "Expected at least five negative/closure records")
 
@@ -98,14 +102,7 @@ def main() -> None:
         for field in ["status", "finding", "reopen_condition", "classification", "source"]:
             require(bool(str(row.get(field, "")).strip()), f"{negative_id} missing {field}")
 
-    active_goals = [
-        row
-        for row in goals
-        # Stage Review 001 PR-A: operational goals carry qualified active states
-        # (e.g. active_external_validation_hold); the registry is the truth.
-        if row.get("kind") == "operational_goal"
-        and str(row.get("status", "")).startswith("active")
-    ]
+    active_goals = active_operational_goals(goals)
     require(len(active_goals) == 1, f"Expected one active operational goal, found {len(active_goals)}")
     active_goal_id = str(active_goals[0].get("id", ""))
     require(active_goal_id.startswith("GOAL-OP-"), "Invalid active operational goal ID")
@@ -134,7 +131,7 @@ def main() -> None:
         "legacy_assets_audit: PASS — "
         f"{len(assets)} assets, {len(negatives)} negative records, "
         f"{len(REQUIRED_BRIDGES)} kernel bridges; active goal={active_goal_id}; "
-        "no legacy front activated."
+        "base-plus-override goal state resolved; no legacy front activated."
     )
 
 
