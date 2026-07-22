@@ -1,0 +1,43 @@
+name: PVG Goal Memory and Traceability Audit
+
+on:
+  pull_request:
+    paths:
+      - 'central-mind-goals.md'
+      - 'central-mind-charter.md'
+      - 'registries/program-goals.jsonl'
+      - 'registries/goal-links.jsonl'
+      - 'governance/pvg-ant-goal-memory-and-return-protocol-v1.md'
+      - 'governance/readiness/SYNTHESIS-001-SUPPORT-FIBER-DYNAMICS.md'
+      - 'tools/research_compass_audit.py'
+      - 'tools/goal_memory_traceability_audit.py'
+      - '.github/workflows/pvg-goal-memory-traceability-audit.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'central-mind-goals.md'
+      - 'central-mind-charter.md'
+      - 'registries/program-goals.jsonl'
+      - 'registries/goal-links.jsonl'
+      - 'governance/pvg-ant-goal-memory-and-return-protocol-v1.md'
+      - 'governance/readiness/SYNTHESIS-001-SUPPORT-FIBER-DYNAMICS.md'
+      - 'tools/research_compass_audit.py'
+      - 'tools/goal_memory_traceability_audit.py'
+      - '.github/workflows/pvg-goal-memory-traceability-audit.yml'
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Syntax check
+        run: |
+          python -m py_compile tools/research_compass_audit.py
+          python -m py_compile tools/goal_memory_traceability_audit.py
+      - name: Research compass
+        run: python tools/research_compass_audit.py
+      - name: Goal memory and traceability
+        run: python tools/goal_memory_traceability_audit.py
