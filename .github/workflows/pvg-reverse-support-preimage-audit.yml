@@ -1,0 +1,87 @@
+name: PVG Reverse Support-Preimage Audit
+
+on:
+  pull_request:
+    paths:
+      - 'tools/pvg_reverse_support_preimage.py'
+      - 'tests/test_pvg_reverse_support_preimage.py'
+      - 'research/pvg-space-deepening/pass-025-reverse-support-preimage.md'
+      - 'research/pvg-space-deepening/data/reverse-support-preimage-summary.json'
+      - 'governance/frozen-config/PASS-025-REVERSE-SUPPORT-PREIMAGE-FROZEN-CONFIG.md'
+      - 'governance/readiness/PASS-025-REVERSE-SUPPORT-PREIMAGE.md'
+      - 'registries/program-goals.jsonl'
+      - 'tools/goal_memory_traceability_audit.py'
+      - 'tools/sync_pvg_inverse_geometry_worktree.ps1'
+      - '.github/workflows/pvg-reverse-support-preimage-audit.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'tools/pvg_reverse_support_preimage.py'
+      - 'tests/test_pvg_reverse_support_preimage.py'
+      - 'research/pvg-space-deepening/pass-025-reverse-support-preimage.md'
+      - 'research/pvg-space-deepening/data/reverse-support-preimage-summary.json'
+      - 'governance/frozen-config/PASS-025-REVERSE-SUPPORT-PREIMAGE-FROZEN-CONFIG.md'
+      - 'governance/readiness/PASS-025-REVERSE-SUPPORT-PREIMAGE.md'
+      - 'registries/program-goals.jsonl'
+      - 'tools/goal_memory_traceability_audit.py'
+      - 'tools/sync_pvg_inverse_geometry_worktree.ps1'
+      - '.github/workflows/pvg-reverse-support-preimage-audit.yml'
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Syntax check
+        run: |
+          python -m py_compile tools/pvg_reverse_support_preimage.py
+          python -m py_compile tests/test_pvg_reverse_support_preimage.py
+      - name: PASS-025 unit and regeneration tests
+        run: python -m unittest -v tests/test_pvg_reverse_support_preimage.py
+      - name: Registered CLI certificate
+        run: |
+          python tools/pvg_reverse_support_preimage.py --registered-summary --compact > /tmp/pass025.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          data = json.loads(Path('/tmp/pass025.json').read_text(encoding='utf-8'))
+          assert data['schema'] == 'PVG-REVERSE-SUPPORT-PREIMAGE-001'
+          assert data['outcome'] == 'DEPTH_12_WITNESS_FOUND_WITHIN_FROZEN_CLASS'
+          assert data['predecessor_support_count'] == 35936
+          assert data['candidate_exact_support_integer_count'] == 14589
+          assert data['witness_candidate_count'] == 1106
+          assert data['first_witness']['source_pair'] == [2, 27397961]
+          assert data['first_witness']['source_sum'] == 27397963
+          assert data['first_witness']['predecessor_support'] == [41, 668243]
+          assert data['first_witness']['seed_sum'] == 668284
+          assert data['first_witness']['forward_orbit']['face_closure_depth'] == 12
+          assert all(data['verification'].values())
+          PY
+      - name: Governance and return gate
+        run: |
+          python tools/research_compass_audit.py
+          python tools/goal_memory_traceability_audit.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          goals = [
+              json.loads(line)
+              for line in Path('registries/program-goals.jsonl').read_text(encoding='utf-8').splitlines()
+              if line.strip()
+          ]
+          by_id = {row['id']: row for row in goals}
+          active = [
+              row['id'] for row in goals
+              if row['kind'] == 'operational_goal'
+              and str(row['status']).startswith('active')
+          ]
+          assert active == ['GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001']
+          assert by_id['GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001']['status'] == 'closed'
+          assert by_id['GOAL-OP-ONE-THEOREM-001']['status'] == 'paused_governed_return_required'
+          assert 'No PASS-026' in by_id['GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001']['return_gate']
+          PY
