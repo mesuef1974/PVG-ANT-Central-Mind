@@ -10,173 +10,93 @@ GOAL-OP-ONE-THEOREM-001 = superseded_with_reason / archived / non-governing
 Phase D: NOT AUTHORIZED
 ```
 
-## Closed current checkpoints
+## Closed ENGINE-004 checkpoints
 
 ```text
 ENGINE-004-CENTERED-GAP-COORDINATES-001 = CHECKPOINT_PASS
 ENGINE-004-PASS-002-CENTERED-RADIUS-SPECTRA-001 = CHECKPOINT_PASS
-Stage decision = continue_within_phase_c
+ENGINE-004-PASS-003-CENTERED-RADIUS-INCIDENCE-001 = CHECKPOINT_PASS
+Stage decision = return_to_engine_004_review
 ```
 
-PASS-002 installed the governed spectrum
-
-\[
-D(N)=
-\begin{cases}
-\{\Delta/2:\Delta\in\Delta_2(N)\},&N\text{ even},\\
-\Delta_2(N),&N\text{ odd},
-\end{cases}
-\]
-
-with exact reconstruction:
-
-```text
-N=2m and d in D(N) => (p,q)=(m-d,m+d)
-N odd and represented => d=N-4 and (p,q)=(2,d+2)
-(N,D(N)) reconstructs the complete distinct-prime fiber
-|D(N)|=|R_2(N)|
-```
-
-Registered finite facts include:
-
-```text
-218024 coordinate occurrences
-36797 unique coordinates
-27799 shared coordinate values
-85 cross-route coordinate values
-0 odd/odd coordinate collisions
-743 unique nonempty spectra for 745 represented points
-one nonempty spectrum collision: D(5)=D(8)=D(12)={1}
-2048 proper containment edges
-10 containments with non-singleton subset
-```
-
-All are finite-box statements unless explicitly marked `IDENTITY / PROVED`.
-
-## Immediate governed task — PASS-003
-
-Study the exact coordinate-owner incidence geometry in the unchanged frozen box.
-
-Define the owner set of a governed coordinate \(d\):
+PASS-003 certified the static incidence geometry induced by
 
 \[
 \mathcal O(d)=\{N:d\in D(N)\},
+\qquad
+\mathcal F(d)=\{\operatorname{supp}(N):N\in\mathcal O(d)\}
 \]
 
-and its support projection
+inside the unchanged frozen 884-point box.
 
-\[
-\mathcal F(d)=\{\operatorname{supp}(N):N\in\mathcal O(d)\}.
-\]
-
-The pass may compute and certify only:
-
-1. the complete coordinate-to-integer incidence relation;
-2. the complete coordinate-to-support-face projection;
-3. owner multiplicity classes \(|\mathcal O(d)|\);
-4. support multiplicity classes \(|\mathcal F(d)|\);
-5. even/even and odd/even route-conditioned ownership;
-6. intersections \(\mathcal O(d_1)\cap\mathcal O(d_2)\) already visible in spectra;
-7. support-face intersection and separation patterns;
-8. exact finite hypergraph degree sequences and connected components, if defined without iteration;
-9. invariants preserved or lost by projection from owners to support faces;
-10. independent regeneration, deterministic ordering, tests, and a compact certificate.
-
-## Preregistered separation of layers
+## Registered PASS-003 finite facts
 
 ```text
-coordinate d
-→ prime-pair occurrence over N
-→ integer owner N
-→ exact support face F
-→ route class
+coordinate occurrences                         = 218024
+unique coordinates                             = 36797
+shared coordinate values                       = 27799
+cross-route coordinate values                  = 85
+coordinates collapsing multiple integer owners
+  onto one support face                        = 22423
+support-face pairs with nonzero intersection   = 131
+co-occurrence pair occurrences                 = 78736278
+static bipartite connected components          = 12
+maximum integer-owner degree                   = 64 at d=7
+maximum support-owner degree                   = 8 at d=3,51,2691,3021
 ```
 
-These layers must not be conflated.
+The two large static components contain `620/22828` and `115/13959` integer/coordinate nodes; ten further components are singleton integer-coordinate pairs. These are `FINITE-VERIFIED` static graph facts only, not orbit dynamics.
 
-In particular:
+## Immediate governed action
 
-- repeated coordinate does not imply repeated prime pair;
-- repeated coordinate does not identify the midpoint;
-- repeated support ownership does not determine the exponent vector;
-- projection from integer owners to support faces can collapse distinct points;
-- graph or hypergraph language is finite incidence language only, not Phase-D orbit dynamics.
+Perform an **ENGINE-004 parent review** only.
 
-## Required outputs
+The review must decide one of:
 
-- `tools/pvg_centered_radius_incidence.py` or an equivalently named ENGINE-004 tool;
-- dedicated complete-box tests;
-- independent implementation or independently structured scan;
-- compact deterministic JSON certificate and SHA-256;
-- a mathematical report with exact laws separated from finite observations;
-- a named ENGINE-004 PASS-003 checkpoint;
-- CI assertions for all preregistered totals and claim-ceiling flags;
-- updated transition state and PR body.
+```text
+A. Phase C complete → prepare a Phase-C closure review;
+B. another bounded Phase-C question is justified → create a new readiness card;
+C. evidence is insufficient → record the named gap and stop.
+```
+
+No PASS-004 is active or authorized. Do not start another calculation automatically.
+
+## Parent-review questions
+
+1. Have support routing, exact pair fibers, lossless centered coordinates, spectrum compression, and static coordinate incidence satisfied the declared Phase-C deliverable?
+2. Is any unresolved question genuinely about inverse prime fibers, rather than Phase-D dynamics, asymptotics, or a theorem route?
+3. What information remains lost at each projection:
+   `pair occurrence → integer owner → support owner → route class`?
+4. Does the current finite theory support a reusable ENGINE-004 API and closure certificate?
+5. Is a new bounded pass materially necessary, or would it merely generate more finite statistics?
 
 ## Retained capability state — supporting, not governing
 
 ```text
-TRANSLATION-KERNEL-V2-PASS-001 = checkpoint_pass
-PVG-ANT-BENCHMARK-001 = checkpoint_pass
-TRANSLATION-KERNEL-V2-PASS-002 = checkpoint_pass
 PVG-UNDERSTANDING-DEEPENING-001 = checkpoint_pass
 GOVERNANCE-ENFORCEMENT-CLOSURE-001 = CLOSED
-CENTRAL-MIND-CONTINUITY-001 = installed_repository_side
 CENTRAL-MIND-CONTINUITY-CLOSURE-002 = closed
-Current maturation receipt = MATURATION-RECEIPT-007
 MNTII-006-E = CLOSED by v0.6-e-closure
 TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001 = retained on demand
 Montgomery A/B/legacy-E = quarantined / source-mismatch / not live
-```
-
-These stages and tools do not create a second research front. Quarantined source-mismatch material is negative memory only.
-
-```text
-ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED
 registries/planned.jsonl is empty
 Dataset 004 remains unauthorized
-no targeted learning before the immutable raw error map
-no local component training, corpus promotion, LoRA, or SFT
-no automatic Lean expansion
 ```
 
-## Required scientific classification
-
-Every statement must be labeled as one of:
-
-```text
-IDENTITY
-PROVED
-FINITE-VERIFIED
-INTERPRETATION
-HYPOTHESIS
-OPEN
-```
-
-No degree distribution, collision, connected component, absence, extremum, or support pattern may be promoted beyond the frozen box.
-
-## Required implementation discipline
-
-- keep the 884-point box unchanged;
-- preregister exact outputs before interpretation;
-- preserve coordinate/pair/integer/support/route separation;
-- add independent verification and deterministic regeneration;
-- run honesty, state coherence, Research Compass, and Goal Memory audits;
-- push every coherent change to `agent/pvg-point-classification-inverse-geometry-001`;
-- keep PR #63 draft and unmerged unless the owner explicitly authorizes otherwise.
+These records do not create another active research front.
 
 ## Stop conditions
 
-Stop and require a new readiness decision before:
+A new readiness decision is mandatory before:
 
-- Phase D orbit dynamics or iterative transitions;
+- PASS-004 or another Phase-C subpass;
+- Phase D, iteration, or orbit dynamics;
 - support-prime, face-size, or integer-cap expansion;
-- weighted, averaged, density, or asymptotic representation analysis;
+- weighting, averaging, density laws, or asymptotics;
 - ANT translation beyond exact elementary identities;
-- theorem-target activation or theorem-path return;
-- a second theorem target;
+- theorem-path reactivation;
 - originality, publication, Goldbach, PNT, RH, or GRH claims.
 
 ## Current ceiling
 
-The authorized next action is exact finite incidence geometry of centered-radius coordinates inside ENGINE-004. It is not an orbit program, theorem program, major-conjecture program, or authorization for Phase D. There is no Goldbach or PNT progress and no RH/GRH progress.
+The authorized action is governance and mathematical review of ENGINE-004 Phase C. It is not authorization for new computation, Phase D, a theorem program, or a major-conjecture claim.
