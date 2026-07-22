@@ -1,0 +1,91 @@
+name: PVG Deep Orbit Preimage Families Audit
+
+on:
+  pull_request:
+    paths:
+      - 'tools/pvg_deep_orbit_preimage_families.py'
+      - 'tests/test_pvg_deep_orbit_preimage_families.py'
+      - 'research/pvg-space-deepening/pass-024-deep-orbit-preimage-families.md'
+      - 'research/pvg-space-deepening/data/deep-orbit-preimage-families-summary.json'
+      - 'tools/sync_pvg_inverse_geometry_worktree.ps1'
+      - '.github/workflows/pvg-deep-orbit-preimage-families-audit.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'tools/pvg_deep_orbit_preimage_families.py'
+      - 'tests/test_pvg_deep_orbit_preimage_families.py'
+      - 'research/pvg-space-deepening/pass-024-deep-orbit-preimage-families.md'
+      - 'research/pvg-space-deepening/data/deep-orbit-preimage-families-summary.json'
+      - 'tools/sync_pvg_inverse_geometry_worktree.ps1'
+      - '.github/workflows/pvg-deep-orbit-preimage-families-audit.yml'
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Syntax check
+        run: |
+          python -m py_compile tools/pvg_deep_orbit_preimage_families.py
+          python -m py_compile tests/test_pvg_deep_orbit_preimage_families.py
+      - name: PowerShell synchronization integration
+        shell: pwsh
+        run: |
+          $text = Get-Content -Raw tools/sync_pvg_inverse_geometry_worktree.ps1
+          if ($text -notmatch 'test_pvg_deep_orbit_preimage_families.py') {
+            throw 'PASS-024 test suite is missing from synchronization'
+          }
+          if ($text -notmatch 'pvg_deep_orbit_preimage_families.py') {
+            throw 'PASS-024 smoke verification is missing from synchronization'
+          }
+      - name: Unit tests
+        run: python -m unittest -v tests/test_pvg_deep_orbit_preimage_families.py
+      - name: Regenerate registered summary
+        run: |
+          python tools/pvg_deep_orbit_preimage_families.py \
+            --registered-summary --compact \
+            > /tmp/deep-orbit-preimage-families-summary.json
+          diff -u \
+            research/pvg-space-deepening/data/deep-orbit-preimage-families-summary.json \
+            /tmp/deep-orbit-preimage-families-summary.json
+      - name: Verify decisive findings
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          data = json.loads(
+              Path(
+                  'research/pvg-space-deepening/data/'
+                  'deep-orbit-preimage-families-summary.json'
+              ).read_text(encoding='utf-8')
+          )
+          ladder = [
+              (row['prime_limit_threshold'], row['new_minimum_closure_depth'])
+              for row in data['exact_prime_limit_threshold_ladder_through_sum_cap']
+          ]
+          assert ladder == [
+              (3,1),(7,2),(19,3),(31,4),(73,5),(359,6),
+              (911,7),(5227,8),(23251,9),(63103,10),(167119,11),
+          ]
+          assert data['first_depth_seven_threshold'] == 911
+          assert data['first_depth_eight_threshold'] == 5227
+          assert data['first_depth_nine_threshold'] == 23251
+          assert data['first_depth_ten_threshold'] == 63103
+          assert data['first_depth_eleven_threshold'] == 167119
+          assert data['first_depth_twelve_threshold'] is None
+          assert data['maximum_observed_prime_pair_closure_depth'] == 11
+          deep = {
+              row['new_minimum_closure_depth']: row['witnesses'][0]
+              for row in data['deep_prime_limit_threshold_ladder']
+          }
+          assert deep[7]['sum'] == 1774
+          assert deep[7]['closest_prime_pair'] == [863,911]
+          assert deep[11]['sum'] == 334142
+          assert deep[11]['closest_prime_pair'] == [167023,167119]
+          assert all(data['verification'].values())
+          PY
