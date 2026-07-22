@@ -10,36 +10,58 @@ Strategic goal:
   GOAL-PVG-ANT-STRATEGIC-001 = active_fixed.
   Original ANT contribution through materially useful PVG.
 
-Active operational research front:
-  GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001 = active_current.
-  Research front = PVG-SUPPORT-FIBER-DYNAMICS-SYNTHESIS-001.
-  Readiness = READY.
-  Purpose = synthesize PASS-013 through PASS-024 before new computation.
+Closed operational synthesis:
+  GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001 = closed.
+  Closure = SYNTHESIS-001-SUPPORT-FIBER-DYNAMICS-CLOSURE-001.
+  Decision = bounded_extension.
+  Exact identities, loss map, numerical examples, finite/open matrix,
+  and ANT reverse links were returned to the Central Mind.
 
-Queued next front:
-  GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001 = queued_next.
-  PASS-025 is blocked until SYNTHESIS-001 closure.
-  PASS-026 is prohibited until the mandatory Stage Review after PASS-025.
+Active operational research front:
+  GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001 = active_current.
+  Research front = PVG-REVERSE-SUPPORT-PREIMAGE-001.
+  Task = PASS-025-REVERSE-SUPPORT-PREIMAGE.
+  Readiness = READY.
+  Purpose = one bounded reverse-support-preimage and depth-12 search.
+
+Authorized next front after PASS-025:
+  none.
+  PASS-026 is prohibited until the mandatory PASS-025 Stage Review.
 
 Mandatory return checkpoint:
   GOAL-OP-ONE-THEOREM-001 = paused_governed_return_required.
   ONE-LEMMA-TARGET-001 remains frozen, not cancelled.
-  After SYNTHESIS-001 and PASS-025, Stage Review must resume, close,
-  or explicitly reauthorize a bounded postponement of ONE-THEOREM-001.
+  After PASS-025, Stage Review must resume, close, or explicitly
+  reauthorize a bounded postponement of ONE-THEOREM-001.
 
 Current inverse-geometry branch:
   branch = agent/pvg-point-classification-inverse-geometry-001.
   PR #63 = OPEN / DRAFT / UNMERGED.
-  PASS-001 through PASS-024 = implemented on the draft branch.
+  PASS-001 through PASS-024 and SYNTHESIS-001 = implemented.
+  PASS-025 = active governance state; registered computation not yet complete.
   main = unchanged by the draft branch.
 
-Current synthesis subject:
-  exact two-axis identity: T({p,q}) = supp(p+q).
-  equal sum supports produce identical orbit tails from depth 1.
+Closed synthesis subject:
+  exact successor family:
+    T(S) = {supp(a+b): a,b in S, a<b}.
+  exact binary identity:
+    T({p,q}) = {supp(p+q)}.
+  equal sums and equal sum supports produce identical orbit tails from depth 1.
   full valuation vectors and support projections are distinct data layers.
   PASS-024 finite scope: sum cap 400000, maximum checked depth 12.
   deepest registered witness depth = 11.
   no global termination or universal depth claim.
+
+PASS-025 fixed-governance requirements:
+  target_prime_pair_closure_depth = 12.
+  freeze reverse_support_depth_budget before the registered run.
+  freeze candidate_support_node_cap before the registered run.
+  freeze candidate_integer_cap before the registered run.
+  freeze prime_pair_realization_cap before the registered run.
+  freeze orbit_verification_depth_cap before the registered run.
+  freeze ranking_rule and pruning_rules before the registered run.
+  no adaptive cap extension inside PASS-025.
+  output = verified depth-12 witness OR finite negative certificate.
 
 Theorem and external-validation track:
   fixed-q, fixed-r, fixed-W smooth theorem = internally proved.
@@ -69,6 +91,8 @@ Goal-memory capability:
   every detour requires a parent, stop rule, claim ceiling, knowledge return,
   and mandatory return gate.
   no goal is deleted; goals close, block, pause, or supersede with reason.
+  SYNTHESIS-001 is linked to its closure certificate.
+  PASS-025 is linked to ONE-THEOREM-001 through returns_to.
   goal-memory audit = installed.
 
 Supporting programs retained:
@@ -95,6 +119,8 @@ Knowledge and source state:
   knowledge returns through the common PVG–ANT language contract.
   Arabic ANT encyclopedia remains a supporting knowledge program.
   chapter count is not a research metric.
+  Montgomery v0.6-e-closure remains closed and source-grounded.
+  TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001 remains live.
   Montgomery A/B/legacy-E source-mismatch quarantine remains in force.
 
 Benchmark and research-model state:
@@ -115,7 +141,7 @@ Continuity state:
   CENTRAL-MIND-CONTINUITY-CLOSURE-002.
 
 Current restrictions:
-  no PASS-025 before SYNTHESIS-001 closure.
+  no adaptive PASS-025 cap expansion after results are visible.
   no PASS-026 before PASS-025 Stage Review.
   no second theorem target.
   no publication claim.
@@ -131,8 +157,10 @@ Current restrictions:
 Scientific ceiling:
   support-fiber identities from the transition definition = exact.
   registered orbit depths and thresholds = finite verified only.
+  PASS-025 outcome will be finite and cap-dependent.
   general termination theorem = absent.
   universal closure-depth bound = absent.
+  unbounded-depth theorem = absent.
   asymptotic D_min law = absent.
   original lemma = none certified.
   original theorem = none certified.
@@ -144,4 +172,4 @@ Scientific ceiling:
   GRH progress = none.
 ```
 
-**Classification:** governed live state with SYNTHESIS-001 as the sole active operational research front, PASS-025 queued behind its closure, and ONE-THEOREM-001 preserved as a mandatory return checkpoint.
+**Classification:** governed live state with SYNTHESIS-001 closed, PASS-025 as the sole active bounded research front, no authorized PASS-026, and ONE-THEOREM-001 preserved as the mandatory return checkpoint.
