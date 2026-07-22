@@ -18,11 +18,14 @@ REQUIRED_FILES = [
     "central-mind-charter.md",
     "central-mind-goals.md",
     "governance/pvg-ant-research-compass-v1.md",
+    "governance/pvg-ant-goal-memory-and-return-protocol-v1.md",
     "maps/pvg-ant-language-kernel-v1.md",
     "governance/task-triggered-knowledge-activation-policy.md",
     "governance/stage-review-and-ceiling-escalation-policy.md",
     "governance/templates/research-readiness-card.md",
+    "governance/readiness/SYNTHESIS-001-SUPPORT-FIBER-DYNAMICS.md",
     "registries/program-goals.jsonl",
+    "registries/goal-links.jsonl",
     "registries/rules.jsonl",
 ]
 
@@ -88,13 +91,22 @@ def main() -> None:
     compass = (ROOT / "governance/pvg-ant-research-compass-v1.md").read_text(encoding="utf-8")
     kernel = (ROOT / "maps/pvg-ant-language-kernel-v1.md").read_text(encoding="utf-8")
     readiness = (ROOT / "governance/templates/research-readiness-card.md").read_text(encoding="utf-8")
+    goal_memory = (
+        ROOT / "governance/pvg-ant-goal-memory-and-return-protocol-v1.md"
+    ).read_text(encoding="utf-8")
+    synthesis_readiness = (
+        ROOT / "governance/readiness/SYNTHESIS-001-SUPPORT-FIBER-DYNAMICS.md"
+    ).read_text(encoding="utf-8")
 
     require("Research Operating Charter v1.0" in charter, "charter is not v1.0", issues)
     require("One active research front" in charter, "charter omits one-active-front rule", issues)
     require("Original ANT contribution" in goals_doc, "goals omit strategic originality target", issues)
+    require("Central Mind Goals v1.1" in goals_doc, "goals document is not v1.1", issues)
     require("Task-first" in compass or "المهمة أولًا" in compass, "compass omits task-first operation", issues)
     require("PVG–ANT Language Kernel" in kernel, "language kernel title missing", issues)
     require("READY | NOT_READY" in readiness, "readiness card omits binary decision", issues)
+    require("Mandatory return rule" in goal_memory, "goal-memory protocol omits mandatory return", issues)
+    require("READY" in synthesis_readiness, "SYNTHESIS-001 readiness is not READY", issues)
 
     goals = load_jsonl("registries/program-goals.jsonl")
     require(bool(goals), "program goals registry is empty", issues)
@@ -112,9 +124,8 @@ def main() -> None:
         require(strategic[0].get("status") == "active_fixed", "strategic goal is not active_fixed", issues)
 
     active_operational = [
-        row for row in goals
-        # Stage Review 001 PR-A: operational goals carry qualified active states
-        # (e.g. active_external_validation_hold); the registry is the truth.
+        row
+        for row in goals
         if row.get("kind") == "operational_goal"
         and str(row.get("status", "")).startswith("active")
     ]
@@ -128,11 +139,15 @@ def main() -> None:
     rule_ids = {str(row.get("id", "")) for row in rules}
     require(REQUIRED_RULE_IDS <= rule_ids, f"missing compass rules: {sorted(REQUIRED_RULE_IDS - rule_ids)}", issues)
 
+    links = load_jsonl("registries/goal-links.jsonl")
+    require(bool(links), "goal links registry is empty", issues)
+
     for row in goals:
         if row.get("kind") == "operational_goal":
             require("research_front" in row, f"operational goal {row.get('id')} lacks research_front", issues)
             require("prerequisites" in row, f"operational goal {row.get('id')} lacks prerequisites", issues)
             require("next_review" in row, f"operational goal {row.get('id')} lacks next_review", issues)
+            require("return_gate" in row, f"operational goal {row.get('id')} lacks return_gate", issues)
 
     if issues:
         for issue in issues:
@@ -144,6 +159,7 @@ def main() -> None:
     print(f"Strategic goal: {strategic[0]['id']}")
     print(f"Active operational goal: {active_id}")
     print(f"Registered goals: {len(goals)}")
+    print(f"Registered goal links: {len(links)}")
     print(f"Required operating rules: {len(REQUIRED_RULE_IDS)}")
 
 
