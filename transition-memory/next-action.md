@@ -5,80 +5,80 @@ Strategic compass:
   GOAL-PVG-ANT-STRATEGIC-001 = active_fixed.
   Original ANT contribution through materially useful PVG.
 
-Closed prerequisite:
+Closed detours:
   GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001 status: closed.
   Closure = SYNTHESIS-001-SUPPORT-FIBER-DYNAMICS-CLOSURE-001.
-  Decision = bounded_extension.
 
-Current active operational goal:
-  GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001 = active_current.
-  Task = PASS-025-REVERSE-SUPPORT-PREIMAGE.
-  Readiness = READY.
-  This is the only active original-research front.
-
-Do now — PASS-025, configuration freeze first:
-  1. Freeze target_prime_pair_closure_depth = 12.
-  2. Freeze reverse_support_depth_budget.
-  3. Freeze candidate_support_node_cap.
-  4. Freeze candidate_integer_cap.
-  5. Freeze prime_pair_realization_cap.
-  6. Freeze orbit_verification_depth_cap.
-  7. Freeze ranking_rule and pruning_rules.
-  8. Store the frozen configuration in the registered output before
-     inspecting the final search result.
-
-Then implement the bounded reverse route:
-  1. Select terminal and deep support tails from the PASS-024 cache.
-  2. Generate support predecessors E satisfying target in T(E).
-  3. Rank predecessor supports without changing the frozen caps.
-  4. Generate integers n with exact support E under candidate_integer_cap.
-  5. Test distinct-prime representations p+q=n under the fixed realization cap.
-  6. Forward-verify every candidate orbit with the existing successor rule.
-  7. Record the earliest exposing prime limit.
-  8. Produce exactly one registered outcome:
-       verified depth-12 witness;
-       OR finite negative certificate under the frozen configuration.
-  9. Run dedicated tests, summary regeneration, detached-worktree sync,
-     and the PASS-025 Stage Review.
-
-PASS-025 required deliverables:
-  tools/pvg_reverse_support_preimage.py
-  tests/test_pvg_reverse_support_preimage.py
-  research/pvg-space-deepening/pass-025-reverse-support-preimage.md
-  research/pvg-space-deepening/data/reverse-support-preimage-summary.json
-  .github/workflows/pvg-reverse-support-preimage-audit.yml
-  PASS-025 closure or finite-negative-certificate review
-
-PASS-025 stop rule:
-  stop after the one registered fixed-cap run.
-  do not raise any cap after seeing the result.
-  do not open PASS-026 automatically.
-
-Authorized next goal after PASS-025:
-  none.
+  GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001 status: closed.
+  Closure = PASS-025-REVERSE-SUPPORT-PREIMAGE-CLOSURE-001.
+  Outcome = DEPTH_12_WITNESS_FOUND_WITHIN_FROZEN_CLASS.
+  Stage decision = return.
   PASS-026 = NOT AUTHORIZED.
 
-Mandatory return after PASS-025:
-  GOAL-OP-ONE-THEOREM-001 = paused_governed_return_required.
-  ONE-LEMMA-TARGET-001 remains frozen.
-  The Stage Review must choose:
-    return to ONE-THEOREM-001;
-    close a parent goal by certificate;
-    or authorize one explicitly bounded extension with a new stop rule.
-
-Historical theorem-hold record retained for continuity audits:
+Current active operational goal:
   GOAL-OP-ONE-THEOREM-001 = active_external_validation_hold.
-  This is the superseded pre-synthesis status, not the current active state.
-  The governing registry status is paused_governed_return_required.
+  Frozen target = ONE-LEMMA-TARGET-001.
+  Internal fixed-q, fixed-r, fixed-W smooth theorem = proved internally.
+  This is the only active original-research front.
 
-External theorem-validation track retained:
+Current action:
+  wait for an external priority or proof response under the existing P8 protocol.
+  do not open a new theorem target.
+  do not open PASS-026.
+  do not send another packet or contact a reserve without explicit owner authorization.
+  when a response arrives, log it as a distinct event and apply P8_STOPPING_PROTOCOL.md.
+
+PASS-025 knowledge returned to the theorem program:
+  exact reverse support-preimage generator installed.
+  predecessor support {a,b} maps to exactly one seed a+b.
+  frozen-class depth-12 witness = {2,27397961}.
+  source sum = 27397963 = 41 * 668243.
+  predecessor seed = 668284 = 2^2 * 167071.
+  full closure depth = 12.
+  witness minimality is frozen-class only.
+  registered run was confirmatory, not blinded.
+  no ANT transfer lemma or analytic estimate was produced.
+
+Verified witness orbit:
+  {2,27397961}
+  -> {41,668243}
+  -> {2,167071}
+  -> {3,55691}
+  -> {2,27847}
+  -> {3,9283}
+  -> {2,4643}
+  -> {5,929}
+  -> {2,467}
+  -> {7,67}
+  -> {2,37}
+  -> {3,13}
+  -> {2}.
+
+External theorem-validation track:
   P8-OUTREACH-DECISION-001 = SENT.
   P8-EXTERNAL-REFEREE-001 = SENT_AWAITING_RESPONSE.
   priority request = Tsz Ho Chan.
   proof request = Etienne Fouvry.
-  do not send further packets without explicit owner authorization.
-  log any response as a distinct event under the existing stopping protocol.
+  both packets were delivered without bounce.
+  priority review = absent.
+  independent proof certificate = absent.
+  certified originality = absent.
   SENT is not acceptance, review, validation, or certification.
+
+Response handling:
+  if a priority response arrives:
+    record reviewer, date, scope, and exact classification;
+    do not convert encouragement into an originality certificate;
+    apply the priority branch of the P8 stopping protocol.
+
+  if a proof response arrives:
+    record reviewer, date, objections, and proof classification;
+    preserve every gap or counterexample as failure memory;
+    apply the proof branch of the P8 stopping protocol.
+
+  if no response arrives:
+    remain on hold until the registered follow-up rule or explicit owner decision;
+    do not improvise repeated outreach.
 
 Capability and knowledge tracks retained:
   PVG-UNDERSTANDING-DEEPENING-001 = checkpoint_pass.
@@ -104,13 +104,14 @@ Benchmark and research-model track retained:
 
 Planning registry:
   registries/planned.jsonl is empty.
-  PASS-025 is active_current in registries/program-goals.jsonl.
-  no later PASS is planned or authorized.
+  PASS-025 is closed in registries/program-goals.jsonl.
+  no later additive-dynamics PASS is planned or authorized.
+  no second theorem target is planned or authorized.
 
-Do not do during PASS-025:
-  no adaptive cap increase;
+Do not do while on external-validation hold:
   no PASS-026;
   no second theorem target;
+  no additional external packet without owner authorization;
   no publication claim;
   no broad untargeted book mining;
   no new statistical dataset;
@@ -129,9 +130,8 @@ Goal-memory law:
   No goal is deleted. It is closed, blocked, paused, or superseded with reason.
 
 Ceiling:
-  the registered PASS-025 outcome is finite and cap-dependent;
-  a depth-12 witness is not an unbounded-depth theorem;
-  a finite absence is not a universal depth-11 bound;
+  PASS-025 depth-12 witness is finite and frozen-class dependent;
+  it is not a global minimality or unbounded-depth theorem;
   certified originality = absent;
   publication readiness = absent;
   trained neural network = none;
@@ -140,4 +140,4 @@ Ceiling:
   no RH/GRH progress.
 ```
 
-**Classification:** the only authorized next action is the frozen-configuration PASS-025 reverse-preimage search; no PASS-026 is authorized, and ONE-THEOREM-001 remains the mandatory return checkpoint.
+**Classification:** the only authorized original-research action is handling an external response to ONE-THEOREM-001 under the existing P8 protocol. PASS-025 is closed, PASS-026 is not authorized, and no new outreach or theorem target may be opened without explicit owner authorization.
