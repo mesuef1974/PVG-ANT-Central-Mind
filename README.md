@@ -57,6 +57,8 @@ Canonical references:
 - `governance/pvg-inverse-geometry-engine-architecture-v1.md`
 - `governance/readiness/ENGINE-004-INVERSE-PRIME-FIBERS.md`
 - `governance/checkpoints/ENGINE-004-CENTERED-GAP-COORDINATES-001.md`
+- `governance/checkpoints/ENGINE-004-PASS-002-CENTERED-RADIUS-SPECTRA-001.md`
+- `governance/readiness/ENGINE-004-PASS-003-CENTERED-RADIUS-INCIDENCE.md`
 - `registries/program-goals.jsonl`
 - `registries/goal-state-overrides-engine-004.jsonl`
 - `transition-memory/latest-state.md`
@@ -98,7 +100,7 @@ certified Phase-B integer points = 884
 prime-pair convention = unordered distinct primes p<q
 ```
 
-No cap expansion is authorized inside the current checkpoint.
+No cap expansion is authorized.
 
 ## Exact inverse prime-fiber structure
 
@@ -115,23 +117,13 @@ The support face controls the parity route:
 2 not in F ⇔ N is odd; R_2(N) is empty or {{2,N-2}}.
 ```
 
-Support does not determine representation multiplicity.
-
-For each representation define the centered-gap coordinate
-
-\[
-\Delta=q-p.
-\]
-
-It is lossless over fixed \(N\):
+For \(\Delta=q-p\),
 
 \[
 p=\frac{N-\Delta}{2},
 \qquad
-q=\frac{N+\Delta}{2}.
+q=\frac{N+\Delta}{2},
 \]
-
-Exact identities:
 
 \[
 \Delta\equiv N\pmod2,
@@ -155,7 +147,7 @@ m^2-d^2=pq,
 
 These are elementary exact identities. No historical originality claim is made.
 
-## Registered finite certificate
+## Prime-fiber finite certificate
 
 ```text
 integer points                         = 884
@@ -169,36 +161,73 @@ maximum point                          = 97200
 maximum support                        = {2,3,5}
 ```
 
-Support-route decomposition:
-
-```text
-contains axis 2:
-  faces = 11
-  points = 653
-  representable = 650
-  nonrepresentable = 3
-  representations = 217929
-
-excludes axis 2:
-  faces = 14
-  points = 231
-  representable = 95
-  nonrepresentable = 136
-  representations = 95
-```
-
 Within this frozen box only, the nonrepresentable points on supports containing axis 2 are `2,4,6`.
 
-## Current checkpoint
+## PASS-002 centered-radius spectra
+
+The governed spectrum is
+
+\[
+D(N)=
+\begin{cases}
+\{\Delta/2:\Delta\in\Delta_2(N)\},&N\text{ even},\\
+\Delta_2(N),&N\text{ odd}.
+\end{cases}
+\]
+
+Exact recovery:
+
+```text
+N=2m and d in D(N) => (p,q)=(m-d,m+d)
+N odd and represented => d=N-4 and (p,q)=(2,d+2)
+(N,D(N)) reconstructs the complete distinct-prime fiber
+|D(N)|=|R_2(N)|
+```
+
+Finite certificate:
+
+```text
+total coordinate occurrences                 = 218024
+unique coordinate values                     = 36797
+unique spectra including empty               = 744
+unique nonempty spectra                      = 743
+nonempty spectrum collision classes          = 1
+proper containment edges                     = 2048
+non-singleton-subset containment edges       = 10
+shared coordinate values                     = 27799
+cross-route coordinate values                = 85
+odd/odd shared coordinate values             = 0
+```
+
+The only nonempty complete-spectrum collision is
+
+\[
+D(5)=D(8)=D(12)=\{1\}.
+\]
+
+The most widely shared coordinate is \(d=7\), occurring at 64 frozen-box points.
+
+```text
+(N,D(N)) = lossless for the complete pair fiber
+D(N) alone = generally loses N, midpoint, support label, and pair labels
+```
+
+Classification: exact/proved recovery plus finite-verified frozen-box geometry.
+
+## Checkpoints and next pass
 
 ```text
 ENGINE-004-CENTERED-GAP-COORDINATES-001 = CHECKPOINT_PASS
+ENGINE-004-PASS-002-CENTERED-RADIUS-SPECTRA-001 = CHECKPOINT_PASS
+ENGINE-004-PASS-003-CENTERED-RADIUS-INCIDENCE = READY
 ENGINE-004 = active_current
 Stage decision = continue_within_phase_c
 Phase D = NOT AUTHORIZED
+PVG Centered-Radius Spectra Audit = SUCCESS
+Governance Required Gate = SUCCESS
 ```
 
-The next governed task is exact equality, containment, collision, and compression analysis of centered-gap spectra inside the same 884-point box.
+PASS-003 is restricted to static coordinate-owner incidence geometry inside the same 884-point box. It does not authorize iteration, orbit dynamics, cap expansion, or asymptotics.
 
 ## Retained capability state
 
@@ -231,16 +260,7 @@ This source history supplies tools and negative memory only. It does not reopen 
 
 ## Historical inverse-geometry foundation
 
-The branch retains:
-
-- exact point passports and native valuation geometry;
-- support, height, simplex, terrain, flow, and Pareto structures;
-- additive cells, face transitions, basins, and overlap geometry;
-- support-fiber synthesis and reverse support preimages;
-- ENGINE-002 inverse support kernel;
-- ENGINE-003 exact integer fibers;
-- PASS-025 as a finite historical inverse-pipeline prototype;
-- deterministic Python tools, tests, JSON certificates, and visual laboratories.
+The branch retains exact point passports, native valuation geometry, support/height/simplex structures, additive cells, support-fiber synthesis, reverse support preimages, ENGINE-002, ENGINE-003, deterministic tools, tests, certificates, and visual laboratories.
 
 PASS-025’s depth-12 witness remains finite and frozen-class dependent. It does not establish global minimality, unbounded depth, or general termination.
 
@@ -250,7 +270,7 @@ PASS-025’s depth-12 witness remains finite and frozen-class dependent. It does
 - exact identities and complete finite verification only;
 - no theorem-route reactivation;
 - no Phase D without a separate readiness decision;
-- no asymptotic estimate;
+- no cap expansion or asymptotic estimate;
 - no historical originality or publication-readiness claim;
 - no Goldbach, PNT, RH, or GRH progress;
 - no trained neural network or approved training corpus.
