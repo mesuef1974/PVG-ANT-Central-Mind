@@ -18,72 +18,84 @@ ENGINE-004-PASS-002-CENTERED-RADIUS-SPECTRA-001 = CHECKPOINT_PASS
 ENGINE-004-PASS-003-CENTERED-RADIUS-INCIDENCE-001 = CHECKPOINT_PASS
 ```
 
-## Parent-review decision
+## Reopen decision
 
 ```text
-ENGINE-004-PHASE-C-PARENT-REVIEW-001
-Decision = A — PHASE_C_DELIVERABLE_SATISFIED
-Recommended next action = prepare Phase-C closure review
-PASS-004 = NOT AUTHORIZED
+ENGINE-004-PHASE-C-REOPEN-LOCAL-OBSTRUCTIONS-001
+Decision = REOPEN_PHASE_C_WITH_NAMED_GAP
+ENGINE-004 PASS-004 = ACTIVE_CURRENT_SUBPASS
+Prior Phase-C closure review = SUSPENDED
 ```
 
-The review found that support routing, exact pair fibers, lossless centered coordinates, spectrum structure, static incidence, reusable APIs, independent verification, and deterministic certificates satisfy the declared ENGINE-004 Phase-C deliverable.
-
-No named unresolved question remains that is both required by Phase C and confined to the unchanged frozen box. Additional statistics would not close a declared structural gap. Iteration, dynamics, weighting, asymptotics, cap expansion, and theorem-target work remain outside scope.
+The named gap is explanatory, not statistical: PASS-003 computed coordinate-owner sets but did not organize the exact local congruence obstructions, boundary exceptions, and local-survival/actual-ownership separation for midpoint-radius candidates.
 
 ## Immediate governed action
 
+Implement and certify only:
+
 ```text
-ENGINE-004-PHASE-C-CLOSURE-REVIEW-001 = READY_FOR_CLOSURE_REVIEW
+ENGINE-004 PASS-004 — LOCAL OBSTRUCTION GEOMETRY
 ```
 
-Perform the closure review only. The authorized decisions are:
+Required objects:
 
 ```text
-CLOSE_PHASE_C
-BLOCK_CLOSURE_WITH_NAMED_DEFECT
-RETURN_FOR_CORRECTION_ONLY
+local_obstruction_record(m,d,ell)
+local_obstruction_signature(m,d,prime_limit)
+boundary_exception_record(m,d,ell)
+even_coordinate_owner_certificate(N,d)
+odd_coordinate_owner_certificate(N)
+registered_local_obstruction_summary()
 ```
 
-The closure review must verify the required CI and governance gates on the reviewed head before closing the operational goal and returning control to `GOAL-PVG-INVERSE-GEOMETRY-001`.
+The default local-prime ceiling is the unchanged registered support-prime limit `11`, giving local odd primes `3,5,7,11`. This is a finite diagnostic choice, not a canonical or asymptotic cutoff.
 
-No new computation, PASS-004, Phase D work, or scope expansion is authorized.
+## Exact laws under review
 
-## Registered PASS-003 finite facts
+For even `N=2m`:
 
 ```text
-coordinate occurrences                         = 218024
-unique coordinates                             = 36797
-shared coordinate values                       = 27799
-cross-route coordinate values                  = 85
-coordinates collapsing multiple integer owners
-  onto one support face                        = 22423
-support-face pairs with nonzero intersection   = 131
-co-occurrence pair occurrences                 = 78736278
-static bipartite connected components          = 12
-maximum integer-owner degree                   = 64 at d=7
-maximum support-owner degree                   = 8 at d=3,51,2691,3021
+d in D(N) iff m-d and m+d are distinct primes
+m^2-d^2 = (m-d)(m+d)
+actual ownership implies gcd(m,d)=1
+ell | m^2-d^2 iff m ≡ d (mod ell) or m ≡ -d (mod ell)
 ```
 
-These are `FINITE-VERIFIED` facts inside the frozen 884-point box only.
+A residue hit is a non-ownership certificate except when the divisible reconstructed factor equals `ell` itself. Those cases must be recorded as boundary exceptions.
 
-## Information-loss ledger
+For odd `N`:
 
 ```text
-pair occurrence -> integer owner:
-  loses the selected pair unless the fiber or D(N) is retained.
+d=N-4
+d in D(N) iff d+2=N-2 is prime
+```
 
-integer owner -> support owner:
-  loses exponent vector and integer identity.
+## Required negative result
 
-support owner -> route class:
-  loses support labels except whether axis 2 is present.
+The pass must retain an explicit counterexample showing:
 
-D(N) without N:
-  generally loses midpoint, integer label, support label, and pair labels.
+```text
+local survival under finitely many tested primes does not imply ownership
+```
 
-(N,D(N)):
-  lossless for the complete distinct-prime fiber.
+Therefore PASS-004 does not authorize a primality test claim.
+
+## Successor candidate — not active
+
+```text
+ENGINE-005-LOCAL-NEIGHBORHOOD-GEOMETRY = CANDIDATE_SUCCESSOR
+```
+
+The candidate may later study the local PVG environment of `x+k`, but it is not active until PASS-004 closes or is stopped by an explicit review. No training, classifier, feature promotion, or primality claim is authorized now.
+
+## Frozen domain
+
+```text
+support primes <= 11
+support face sizes = 1,2,3
+integer cap = 100000
+integer points = 884
+no support or cap expansion
 ```
 
 ## Retained capability state — supporting, not governing
@@ -128,10 +140,11 @@ OPEN
 
 A new readiness decision is mandatory before:
 
-- PASS-004 or another Phase-C subpass;
+- closing PASS-004 or opening any later subpass;
+- activating ENGINE-005;
 - Phase D, iteration, or orbit dynamics;
 - support-prime, face-size, or integer-cap expansion;
-- weighting, averaging, density laws, or asymptotics;
+- weighting, averaging, density laws, singular series, or asymptotics;
 - ANT translation beyond exact elementary identities;
 - theorem-path reactivation;
 - a second theorem target;
@@ -139,4 +152,4 @@ A new readiness decision is mandatory before:
 
 ## Current ceiling
 
-The authorized action is the ENGINE-004 Phase-C closure review. It is not authorization for new computation, Phase D, a theorem program, or a major-conjecture claim. There is no Goldbach or PNT progress and no RH/GRH progress.
+The authorized action is implementation and finite certification of ENGINE-004 PASS-004 only. It is not authorization for a new primality test, Phase D, a theorem program, or a major-conjecture claim. There is no Goldbach or PNT progress and no RH/GRH progress.
