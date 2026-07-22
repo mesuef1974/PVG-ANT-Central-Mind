@@ -215,7 +215,7 @@ The following remain available without becoming second active research fronts:
 - visual and public exposition;
 - registered external laboratories.
 
-The source-grounding-corrected Montgomery story remains in force. Mismatched A/B/legacy-E material remains quarantined.
+The source-grounding-corrected Montgomery story remains in force. Closure-reviewed units through `v0.6-e-closure` and beyond remain available, including the live `TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001`. Mismatched Montgomery A/B/legacy-E material remains quarantined for source-mismatch and is not live.
 
 ## 12. Theorem and external-validation state
 
