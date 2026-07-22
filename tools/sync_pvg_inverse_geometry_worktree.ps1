@@ -40,7 +40,7 @@ try {
         "tests/test_pvg_iterated_additive_face_dynamics.py","tests/test_pvg_additive_attraction_basins.py",
         "tests/test_pvg_additive_basin_overlap_geometry.py","tests/test_pvg_additive_basin_depth_stability.py",
         "tests/test_pvg_prime_bound_expansion_protocol.py","tests/test_pvg_cross_bound_structural_stress_test.py",
-        "tests/test_pvg_minimum_closure_depth_growth.py"
+        "tests/test_pvg_minimum_closure_depth_growth.py","tests/test_pvg_deep_orbit_preimage_families.py"
     )
     foreach ($Suite in $Suites) { Invoke-Python312 -PythonArgs @("-m","unittest","-v",$Suite); Assert-LastExitCode -FailureMessage "Test suite failed: $Suite" }
     Invoke-Python312 -PythonArgs @("tools/pvg_inverse_geometry.py","900","--compact"); Assert-LastExitCode -FailureMessage "Passport smoke test failed"
@@ -104,6 +104,14 @@ try {
     if (($Pass023.limit_table[-1].maximum_depth_start_faces | ForEach-Object { $_ -join ',' }) -join ';' -ne '227,479;239,467;257,449;263,443;317,389;347,359') { throw "PASS-023 depth-six faces mismatch" }
     if ($Pass023.limit_table[-1].maximum_depth_orbit_groups[0].start_sums[0] -ne 706) { throw "PASS-023 common-sum mismatch" }
     if (@($Pass023.verification.PSObject.Properties | Where-Object { -not [bool]$_.Value }).Count -ne 0) { throw "PASS-023 verification failure" }
+    $Pass024Raw=Invoke-Python312 -PythonArgs @("tools/pvg_deep_orbit_preimage_families.py","--registered-summary","--compact")
+    Assert-LastExitCode -FailureMessage "Deep orbit preimage family smoke test failed"
+    $Pass024=($Pass024Raw | Out-String | ConvertFrom-Json)
+    if ($Pass024.first_depth_seven_threshold -ne 911 -or $Pass024.first_depth_eight_threshold -ne 5227) { throw "PASS-024 shallow deep-threshold mismatch" }
+    if ($Pass024.first_depth_nine_threshold -ne 23251 -or $Pass024.first_depth_ten_threshold -ne 63103) { throw "PASS-024 middle deep-threshold mismatch" }
+    if ($Pass024.first_depth_eleven_threshold -ne 167119 -or $null -ne $Pass024.first_depth_twelve_threshold) { throw "PASS-024 terminal deep-threshold mismatch" }
+    if ($Pass024.maximum_observed_prime_pair_closure_depth -ne 11) { throw "PASS-024 maximum-depth mismatch" }
+    if (@($Pass024.verification.PSObject.Properties | Where-Object { -not [bool]$_.Value }).Count -ne 0) { throw "PASS-024 verification failure" }
     $ExplorerPage=Join-Path $Worktree "web\pvg-pareto-explorer\index.html"
     $PascalPage=Join-Path $Worktree "web\pvg-pareto-explorer\pascal.html"
     $VisualLabPage=Join-Path $Worktree "web\pvg-pareto-explorer\visual-lab.html"
