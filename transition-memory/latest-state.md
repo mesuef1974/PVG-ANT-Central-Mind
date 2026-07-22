@@ -13,64 +13,84 @@ Strategic goal:
 Closed operational synthesis:
   GOAL-OP-SUPPORT-FIBER-SYNTHESIS-001 status: closed.
   Closure = SYNTHESIS-001-SUPPORT-FIBER-DYNAMICS-CLOSURE-001.
-  Decision = bounded_extension.
-  Exact identities, loss map, numerical examples, finite/open matrix,
-  and ANT reverse links were returned to the Central Mind.
+  Stage decision = bounded_extension to PASS-025.
 
-Active operational research front:
-  GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001 = active_current.
-  Research front = PVG-REVERSE-SUPPORT-PREIMAGE-001.
-  Task = PASS-025-REVERSE-SUPPORT-PREIMAGE.
-  Readiness = READY.
-  Purpose = one bounded reverse-support-preimage and depth-12 search.
+Closed reverse-preimage pass:
+  GOAL-OP-REVERSE-SUPPORT-PREIMAGE-001 status: closed.
+  Closure = PASS-025-REVERSE-SUPPORT-PREIMAGE-CLOSURE-001.
+  Stage decision = return.
+  Outcome = DEPTH_12_WITNESS_FOUND_WITHIN_FROZEN_CLASS.
+  PASS-026 = NOT AUTHORIZED.
 
-Authorized next front after PASS-025:
-  none.
-  PASS-026 is prohibited until the mandatory PASS-025 Stage Review.
-
-Mandatory return checkpoint:
-  GOAL-OP-ONE-THEOREM-001 = paused_governed_return_required.
-  ONE-LEMMA-TARGET-001 remains frozen, not cancelled.
-  After PASS-025, Stage Review must resume, close, or explicitly
-  reauthorize a bounded postponement of ONE-THEOREM-001.
+Returned active operational research front:
+  GOAL-OP-ONE-THEOREM-001 = active_external_validation_hold.
+  Research front = PVG-ONE-THEOREM-PROGRAM.
+  Frozen target = ONE-LEMMA-TARGET-001.
+  Internal fixed-q, fixed-r, fixed-W smooth theorem = proved internally.
+  External priority and proof certificates remain absent.
 
 Current inverse-geometry branch:
   branch = agent/pvg-point-classification-inverse-geometry-001.
   PR #63 = OPEN / DRAFT / UNMERGED.
-  PASS-001 through PASS-024 and SYNTHESIS-001 = implemented.
-  PASS-025 = active governance state; registered computation not yet complete.
+  PASS-001 through PASS-025 and SYNTHESIS-001 = implemented and tested.
   main = unchanged by the draft branch.
 
-Closed synthesis subject:
-  exact successor family:
-    T(S) = {supp(a+b): a,b in S, a<b}.
-  exact binary identity:
-    T({p,q}) = {supp(p+q)}.
-  equal sums and equal sum supports produce identical orbit tails from depth 1.
-  full valuation vectors and support projections are distinct data layers.
-  PASS-024 finite scope: sum cap 400000, maximum checked depth 12.
-  deepest registered witness depth = 11.
-  no global termination or universal depth claim.
+PASS-025 registered finite result:
+  frozen tail support = {2,167071}.
+  frozen tail support closure depth = 10.
+  reverse layers = 1.
+  predecessor class = binary prime faces only.
+  seed integer cap = 5,346,272.
+  candidate support node cap = 50,000.
+  candidate integer cap = 10^12.
+  prime realization cap = 10^12.
+  seed integer count = 5.
+  unique predecessor supports = 35,936.
+  exact-support candidate integers = 14,589.
+  prime-producing witness candidates = 1,106.
+  forward-verified promoted witnesses = 25.
 
-PASS-025 fixed-governance requirements:
-  target_prime_pair_closure_depth = 12.
-  freeze reverse_support_depth_budget before the registered run.
-  freeze candidate_support_node_cap before the registered run.
-  freeze candidate_integer_cap before the registered run.
-  freeze prime_pair_realization_cap before the registered run.
-  freeze orbit_verification_depth_cap before the registered run.
-  freeze ranking_rule and pruning_rules before the registered run.
-  no adaptive cap extension inside PASS-025.
-  output = verified depth-12 witness OR finite negative certificate.
+First witness inside the frozen class:
+  source pair = {2,27397961}.
+  source sum = 27397963.
+  predecessor support = {41,668243}.
+  predecessor seed = 668284 = 2^2 * 167071.
+  source-face closure depth = 12.
+
+Verified orbit:
+  {2,27397961}
+  -> {41,668243}
+  -> {2,167071}
+  -> {3,55691}
+  -> {2,27847}
+  -> {3,9283}
+  -> {2,4643}
+  -> {5,929}
+  -> {2,467}
+  -> {7,67}
+  -> {2,37}
+  -> {3,13}
+  -> {2}.
+
+PASS-025 interpretation:
+  exact reverse construction = installed.
+  predecessor support maps to exactly one seed a+b.
+  reverse support-preimage generation = reusable finite mechanism.
+  witness minimality = frozen class and ranking only.
+  registered run = confirmatory, not blinded.
+  global minimum depth-12 threshold = not claimed.
+  unbounded-depth theorem = absent.
+  general termination theorem = absent.
+  new ANT estimate or transfer lemma = absent.
 
 Theorem and external-validation track:
-  fixed-q, fixed-r, fixed-W smooth theorem = internally proved.
   P8-OUTREACH-DECISION-001 = SENT.
   P8-EXTERNAL-REFEREE-001 = SENT_AWAITING_RESPONSE.
   priority request = Tsz Ho Chan (Kennesaw State).
   proof request = Etienne Fouvry (Paris-Saclay/Orsay).
   both packets delivered without bounce.
   SENT is not acceptance, review, validation, or certification.
+  do not send further packets or contact reserves without explicit owner authorization.
   external originality certificate = absent.
   independent proof certificate = absent.
 
@@ -88,11 +108,9 @@ Goal-memory capability:
   program goals = registries/program-goals.jsonl.
   goal links = registries/goal-links.jsonl.
   active operational goal count = exactly one.
-  every detour requires a parent, stop rule, claim ceiling, knowledge return,
-  and mandatory return gate.
-  no goal is deleted; goals close, block, pause, or supersede with reason.
-  SYNTHESIS-001 is linked to its closure certificate.
-  PASS-025 is linked to ONE-THEOREM-001 through returns_to.
+  SYNTHESIS-001 and PASS-025 are linked to closure certificates.
+  PASS-025 fulfilled returns_to GOAL-OP-ONE-THEOREM-001.
+  no later additive-dynamics pass is queued or authorized.
   goal-memory audit = installed.
 
 Supporting programs retained:
@@ -114,7 +132,6 @@ Lean state:
   new Lean work requires a named load-bearing need.
 
 Knowledge and source state:
-  book and ledger substrate remains available on demand.
   broad untargeted book mining remains forbidden.
   knowledge returns through the common PVG–ANT language contract.
   Arabic ANT encyclopedia remains a supporting knowledge program.
@@ -136,14 +153,14 @@ Continuity state:
   origin/main remains canonical truth for main.
   local main update remains fast-forward only.
   destructive automatic repair remains forbidden.
-  detached research worktree synchronization remains available.
+  detached research worktree synchronization through PASS-025 = verified.
   workstation continuity task remains certified by
   CENTRAL-MIND-CONTINUITY-CLOSURE-002.
 
 Current restrictions:
-  no adaptive PASS-025 cap expansion after results are visible.
-  no PASS-026 before PASS-025 Stage Review.
+  no PASS-026.
   no second theorem target.
+  no further external packet without owner authorization.
   no publication claim.
   no broad book mining.
   no new statistical dataset.
@@ -155,9 +172,9 @@ Current restrictions:
   no Goldbach, PNT, RH, or GRH promotion.
 
 Scientific ceiling:
-  support-fiber identities from the transition definition = exact.
-  registered orbit depths and thresholds = finite verified only.
-  PASS-025 outcome will be finite and cap-dependent.
+  support-fiber identities = exact.
+  PASS-025 depth-12 witness = finite verified inside frozen class.
+  global minimality = absent.
   general termination theorem = absent.
   universal closure-depth bound = absent.
   unbounded-depth theorem = absent.
@@ -172,4 +189,4 @@ Scientific ceiling:
   GRH progress = none.
 ```
 
-**Classification:** governed live state with SYNTHESIS-001 closed, PASS-025 as the sole active bounded research front, no authorized PASS-026, and ONE-THEOREM-001 preserved as the mandatory return checkpoint.
+**Classification:** governed live state with SYNTHESIS-001 and PASS-025 closed, a finite depth-12 witness certified inside the frozen class, and ONE-THEOREM-001 restored as the sole active operational front under external-validation hold.
