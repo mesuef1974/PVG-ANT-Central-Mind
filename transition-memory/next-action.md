@@ -16,18 +16,38 @@ Phase D: NOT AUTHORIZED
 ENGINE-004-CENTERED-GAP-COORDINATES-001 = CHECKPOINT_PASS
 ENGINE-004-PASS-002-CENTERED-RADIUS-SPECTRA-001 = CHECKPOINT_PASS
 ENGINE-004-PASS-003-CENTERED-RADIUS-INCIDENCE-001 = CHECKPOINT_PASS
-Stage decision = return_to_engine_004_review
 ```
 
-PASS-003 certified the static incidence geometry induced by
+## Parent-review decision
 
-\[
-\mathcal O(d)=\{N:d\in D(N)\},
-\qquad
-\mathcal F(d)=\{\operatorname{supp}(N):N\in\mathcal O(d)\}
-\]
+```text
+ENGINE-004-PHASE-C-PARENT-REVIEW-001
+Decision = A — PHASE_C_DELIVERABLE_SATISFIED
+Recommended next action = prepare Phase-C closure review
+PASS-004 = NOT AUTHORIZED
+```
 
-inside the unchanged frozen 884-point box.
+The review found that support routing, exact pair fibers, lossless centered coordinates, spectrum structure, static incidence, reusable APIs, independent verification, and deterministic certificates satisfy the declared ENGINE-004 Phase-C deliverable.
+
+No named unresolved question remains that is both required by Phase C and confined to the unchanged frozen box. Additional statistics would not close a declared structural gap. Iteration, dynamics, weighting, asymptotics, cap expansion, and theorem-target work remain outside scope.
+
+## Immediate governed action
+
+```text
+ENGINE-004-PHASE-C-CLOSURE-REVIEW-001 = READY_FOR_CLOSURE_REVIEW
+```
+
+Perform the closure review only. The authorized decisions are:
+
+```text
+CLOSE_PHASE_C
+BLOCK_CLOSURE_WITH_NAMED_DEFECT
+RETURN_FOR_CORRECTION_ONLY
+```
+
+The closure review must verify the required CI and governance gates on the reviewed head before closing the operational goal and returning control to `GOAL-PVG-INVERSE-GEOMETRY-001`.
+
+No new computation, PASS-004, Phase D work, or scope expansion is authorized.
 
 ## Registered PASS-003 finite facts
 
@@ -45,29 +65,26 @@ maximum integer-owner degree                   = 64 at d=7
 maximum support-owner degree                   = 8 at d=3,51,2691,3021
 ```
 
-The two large static components contain `620/22828` and `115/13959` integer/coordinate nodes; ten further components are singleton integer-coordinate pairs. These are `FINITE-VERIFIED` static graph facts only, not orbit dynamics.
+These are `FINITE-VERIFIED` facts inside the frozen 884-point box only.
 
-## Immediate governed action
-
-Perform an **ENGINE-004 parent review** only.
-
-The review must decide one of:
+## Information-loss ledger
 
 ```text
-A. Phase C complete → prepare a Phase-C closure review;
-B. another bounded Phase-C question is justified → create a new readiness card;
-C. evidence is insufficient → record the named gap and stop.
+pair occurrence -> integer owner:
+  loses the selected pair unless the fiber or D(N) is retained.
+
+integer owner -> support owner:
+  loses exponent vector and integer identity.
+
+support owner -> route class:
+  loses support labels except whether axis 2 is present.
+
+D(N) without N:
+  generally loses midpoint, integer label, support label, and pair labels.
+
+(N,D(N)):
+  lossless for the complete distinct-prime fiber.
 ```
-
-No PASS-004 is active or authorized. Do not start another calculation automatically.
-
-## Parent-review questions
-
-1. Have support routing, exact pair fibers, lossless centered coordinates, spectrum compression, and static coordinate incidence satisfied the declared Phase-C deliverable?
-2. Is any unresolved question genuinely about inverse prime fibers, rather than Phase-D dynamics, asymptotics, or a theorem route?
-3. What information remains lost at each projection: `pair occurrence → integer owner → support owner → route class`?
-4. Does the current finite theory support a reusable ENGINE-004 API and closure certificate?
-5. Is a new bounded pass materially necessary, or would it merely generate more finite statistics?
 
 ## Retained capability state — supporting, not governing
 
@@ -85,7 +102,7 @@ TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001 = retained on demand
 Montgomery A/B/legacy-E = quarantined / source-mismatch / not live
 ```
 
-These stages and tools remain registered capabilities and do not create a second research front. Quarantined source-mismatch material is negative memory only.
+These stages and tools remain registered capabilities and do not create a second research front.
 
 ```text
 ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED
@@ -95,20 +112,6 @@ no targeted learning before the immutable raw error map
 no local component training, corpus promotion, LoRA, or SFT
 no automatic Lean expansion
 ```
-
-## Superseded PASS-003 readiness memory
-
-The former `Immediate governed task — PASS-003` was limited to exact coordinate-owner incidence geometry in the unchanged frozen box, with the layer separation
-
-```text
-coordinate d
-→ prime-pair occurrence over N
-→ integer owner N
-→ exact support face F
-→ route class
-```
-
-and required independent regeneration, deterministic ordering, complete-box tests, a compact certificate, and CI assertions. That readiness task is now **historical and fulfilled** by `ENGINE-004-PASS-003-CENTERED-RADIUS-INCIDENCE-001 = CHECKPOINT_PASS`; it is not an active task.
 
 ## Required scientific classification
 
@@ -120,8 +123,6 @@ INTERPRETATION
 HYPOTHESIS
 OPEN
 ```
-
-No degree distribution, collision, connected component, absence, extremum, or support pattern may be promoted beyond the frozen box.
 
 ## Stop conditions
 
@@ -138,4 +139,4 @@ A new readiness decision is mandatory before:
 
 ## Current ceiling
 
-The authorized action is governance and mathematical review of ENGINE-004 Phase C. It is not authorization for new computation, Phase D, a theorem program, or a major-conjecture claim. There is no Goldbach or PNT progress and no RH/GRH progress.
+The authorized action is the ENGINE-004 Phase-C closure review. It is not authorization for new computation, Phase D, a theorem program, or a major-conjecture claim. There is no Goldbach or PNT progress and no RH/GRH progress.
