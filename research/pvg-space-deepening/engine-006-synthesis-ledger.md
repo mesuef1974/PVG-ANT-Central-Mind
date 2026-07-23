@@ -69,16 +69,16 @@ The ledger does not certify novelty. A new geometric phrase does not create a ne
 ## 3. Classification totals
 
 ```text
-IDENTITY         = 8
+IDENTITY         = 7
 PROVED           = 12
 FINITE-VERIFIED  = 9
 INTERPRETATION   = 2
 HYPOTHESIS       = 0
-OPEN             = 2
+OPEN             = 3
 TOTAL            = 33
 ```
 
-The absence of `HYPOTHESIS` rows is deliberate. ENGINE-004 closed without admitting a preregistered predictive mechanism. Candidate causal or general-law statements remain `OPEN`, not hypotheses supported by the completed certificates.
+The absence of `HYPOTHESIS` rows is deliberate. ENGINE-004 closed without admitting a preregistered predictive mechanism. Candidate causal, general-law, and independent-theory statements remain `OPEN`, not hypotheses supported by the completed certificates.
 
 ## 4. Redundancy consolidation
 
