@@ -4,7 +4,7 @@
 Goal: GOAL-OP-INVERSE-PRIME-FIBERS-001
 Engine: ENGINE-004
 Phase: C — Inverse Prime Fibers
-Status: IMPLEMENTED / LOCAL AND CI CERTIFICATION PENDING
+Status: CHECKPOINT_PASS / CLOSED
 Frozen box: unchanged
 Phase D: NOT AUTHORIZED
 ```
@@ -13,7 +13,7 @@ Phase D: NOT AUTHORIZED
 
 After deterministic conditioning on integer size and parity route, does support size or exact support face retain any finite diagnostic separation in prime-fiber multiplicity and centered-radius incidence profiles inside the registered 884-point box?
 
-The pass does not estimate a causal effect. It performs exact finite stratification and counterexample search only.
+This pass does not estimate a causal effect. It performs exact finite stratification and counterexample search only.
 
 ## Fixed strata
 
@@ -24,22 +24,26 @@ route = even / odd
 support class = support size or exact support face
 ```
 
-## Exact outputs
+## Certified outputs
 
-For every registered group the implementation records:
+```text
+integer points = 884
+represented points = 745
+rank reversal inventory count = 4
+matched-neighborhood witness count = 50
+canonical point-record rows = 884
+point-record SHA-256 = 2da8acb8cf35c66031afa8358fa405a0c63e79f27e1a374496e785f06b9378c1
+```
 
-- point, represented, and nonrepresented counts;
-- represented-rate ratio as exact integers;
-- multiplicity sum;
-- multiplicity mean as a reduced rational;
-- multiplicity median;
-- represented-point multiplicity mean;
-- maximum multiplicity;
-- conditioned rankings by support size;
-- rank changes relative to the raw support-size ranking;
-- deterministic nearest-neighborhood witnesses;
-- explicit counterexamples to support determinacy;
-- SHA-256 of the complete canonical point-record table.
+The required finite counterexamples were found:
+
+```text
+same exact support does not determine multiplicity
+same support size does not determine multiplicity
+same route and size bin do not determine exact support
+```
+
+These witnesses show non-determinacy inside the frozen box; they do not prove independence or causality.
 
 ## Matched-neighborhood rule
 
@@ -51,63 +55,51 @@ minimum absolute integer distance
 all ties retained
 ```
 
-The resulting witnesses are descriptive finite comparisons. They are not matched causal estimates.
+The 50 emitted witnesses satisfy this deterministic rule. They are descriptive finite comparisons, not causal estimates.
 
-## Required counterexamples
+## Verification
 
-```text
-same exact support does not determine multiplicity
-same support size does not determine multiplicity
-same route and size bin do not determine exact support
-```
-
-A missing witness is a test failure and must be investigated rather than silently interpreted.
-
-## Implemented artifacts
+Local verification at `b2d277be2c785b12bed9344447423e1cc3c3a36d`:
 
 ```text
-tools/pvg_support_conditioned_incidence.py
-tests/test_pvg_support_conditioned_incidence.py
-.github/workflows/pvg-support-conditioned-incidence-audit.yml
-governance/readiness/ENGINE-004-PASS-004-SUPPORT-CONDITIONED-INCIDENCE-DIAGNOSTICS.md
+Python syntax check = PASS
+unit tests = 8/8 PASS
+certificate generation = PASS
+UTF-8 JSON parse = PASS
+all registered points present = PASS
+all spectra match PASS-002 = PASS
+group counts reconstruct total = PASS
+matched-neighborhood rule = PASS
+claim ceiling = PASS
 ```
 
-The machine-readable certificate and checkpoint are intentionally absent until a real execution succeeds.
+The first CI comparison failed because compact and pretty-printed JSON were compared byte-for-byte. Commit `30836a99f2454d133bd3d1977ed7b4e50befbc2c` corrected the workflow to compare parsed JSON objects.
 
-## Separation from previous passes
-
-PASS-004 reuses the certified objects from PASS-002 and PASS-003 but does not redefine them:
+Corrected CI:
 
 ```text
-D(N) = governed centered-radius spectrum
-O(d) = integer-owner set
-static component id = PASS-003 incidence component
+PVG Support-Conditioned Incidence Audit run 7 = SUCCESS
+Governance Required Gate run 1002 = SUCCESS
+PVG Centered-Radius Spectra Audit run 77 = SUCCESS
+PVG Centered-Radius Incidence Audit run 47 = SUCCESS
+PVG Inverse Prime Fibers Audit run 107 = SUCCESS
 ```
 
-Every point spectrum is checked against the PASS-002/PASS-003 production index.
+The unrelated Local Obstruction Geometry workflow failure is outside PASS-004.
 
-## Classification ceiling
+## Classification
 
 ```text
 stratification definitions = IDENTITY
-exact grouped arithmetic = FINITE-VERIFIED after execution
-counterexample witnesses = FINITE-VERIFIED after execution
-conditioned rank changes = DIAGNOSTIC after execution
+exact grouped arithmetic = FINITE-VERIFIED
+counterexample witnesses = FINITE-VERIFIED
+conditioned rank changes = DIAGNOSTIC
 support causes fiber richness = NOT ESTABLISHED
 any general support law = OPEN
 ```
 
-No regression, significance test, density estimate, asymptotic law, Phase-D dynamics, Goldbach/PNT/RH/GRH progress, originality, theorem, or publication-readiness claim is made.
+No regression, significance test, asymptotic law, Phase-D dynamics, Goldbach/PNT/RH/GRH progress, original theorem, or publication-readiness claim is made.
 
-## Required gate
+Checkpoint: `governance/checkpoints/ENGINE-004-PASS-004-SUPPORT-CONDITIONED-INCIDENCE-001.md`.
 
-```powershell
-python -m py_compile tools/pvg_support_conditioned_incidence.py tests/test_pvg_support_conditioned_incidence.py
-python -m unittest -v tests/test_pvg_support_conditioned_incidence.py
-python tools/pvg_support_conditioned_incidence.py `
-  --output research/pvg-space-deepening/data/support-conditioned-incidence-summary.json `
-  > $null
-python -m json.tool research/pvg-space-deepening/data/support-conditioned-incidence-summary.json > $null
-```
-
-PASS-004 remains open until the generated certificate is committed, regenerated independently, and the checkpoint is created.
+PASS-004 is closed. No PASS-005 is opened automatically.
