@@ -1,108 +1,69 @@
-# ENGINE-004 PASS-004 — Local Obstruction Geometry Readiness
+# Deferred Candidate — Local Obstruction Geometry
 
 ```text
-Task ID: ENGINE-004-PASS-004-LOCAL-OBSTRUCTION-GEOMETRY
-Goal ID: GOAL-OP-INVERSE-PRIME-FIBERS-001
-Engine: ENGINE-004
-Phase: C — Inverse Prime Fibers
-Decision: READY
-Status: ACTIVE_CURRENT_SUBPASS
-Date: 2026-07-22
+Former identity: ENGINE-004-PASS-004-LOCAL-OBSTRUCTION-GEOMETRY
+Replacement identity: CANDIDATE-LOCAL-OBSTRUCTION-GEOMETRY-001
+Parent program: GOAL-PVG-INVERSE-GEOMETRY-001
+Former engine: ENGINE-004
+Status: DEFERRED_CANDIDATE / NON-GOVERNING
+Decision: QUARANTINED_FROM_PHASE_C
+Date: 2026-07-23
 Phase D: NOT AUTHORIZED
 ```
 
-## Research question
+## Governance correction
 
-Can coordinate ownership be explained exactly by midpoint-radius arithmetic and local congruence obstructions, rather than only enumerated?
+This work was previously assigned the duplicate identity `ENGINE-004 PASS-004` while the admitted PASS-004 is **Support-Conditioned Incidence Diagnostics**.
 
-For even \(N=2m\), define
+The duplicate identity is withdrawn. This document does not authorize an active subpass, does not block the scientifically complete Phase C deliverable, and does not create PASS-005.
 
-\[
-P_-(m,d)=m-d,
-\qquad
-P_+(m,d)=m+d.
-\]
+## Candidate question
 
-The governed owner relation is
+Can centered-radius coordinate ownership be explained by midpoint-radius arithmetic and local congruence obstructions, rather than only enumerated?
 
-\[
-d\in D(2m)
-\iff
-P_-(m,d),P_+(m,d)\text{ are distinct primes}.
-\]
-
-For odd \(N\),
-
-\[
-d\in D(N)
-\iff
-N=d+4\text{ and }d+2\text{ is prime}.
-\]
-
-## Required exact objects
+For even `N=2m`, the candidate studies
 
 ```text
-local_obstruction_record(m,d,ell)
-local_obstruction_signature(m,d,prime_limit)
-boundary_exception_record(m,d,ell)
-even_coordinate_owner_certificate(N,d)
-odd_coordinate_owner_certificate(N,d)
-registered_local_obstruction_summary()
+P_-(m,d)=m-d
+P_+(m,d)=m+d
 ```
 
-## Exact identities to prove and verify
+and the exact owner condition that both factors are distinct primes. For odd `N`, ownership reduces to the registered-point condition and primality of `N-2`.
 
-1. \(d\in D(2m)\iff m-d,m+d\) are distinct primes.
-2. \(m^2-d^2=(m-d)(m+d)\).
-3. If \(d\in D(2m)\), then \(0<d<m\) and \(\gcd(m,d)=1\).
-4. For every odd prime \(\ell\),
-   \[
-   \ell\mid m^2-d^2\iff m\equiv d\pmod\ell\text{ or }m\equiv-d\pmod\ell.
-   \]
-5. If \(m\equiv d\pmod\ell\), then \(\ell\mid m-d\); primality permits this only when \(m-d=\ell\).
-6. If \(m\equiv-d\pmod\ell\), then \(\ell\mid m+d\); primality permits this only when \(m+d=\ell\).
-7. Away from these boundary equalities, any residue hit is an exact certificate of non-ownership.
-8. Odd-route ownership is equivalent to the single primality test on \(d+2\), together with registered-point membership of \(d+4\).
+## Preserved exact content
 
-## Frozen domain
+The following elementary facts remain available as non-governing candidate material:
+
+1. `d in D(2m)` iff `m-d` and `m+d` are distinct primes.
+2. `m^2-d^2=(m-d)(m+d)`.
+3. Actual ownership implies `0<d<m` and `gcd(m,d)=1`.
+4. For odd prime `ell`, `ell | m^2-d^2` iff `m = +/-d (mod ell)`.
+5. A residue hit away from the boundary equalities `m-d=ell` and `m+d=ell` certifies non-ownership.
+6. Finite local survival is necessary relative to the tested primes but is not sufficient for simultaneous primality.
+
+## Quarantine rule
 
 ```text
-support primes <= 11
-support face sizes = 1,2,3
-integer cap = 100000
-integer points = 884
-coordinate occurrences = 218024
+active ENGINE-004 subpass = false
+required for Phase-C closure = false
+workflow required check = false
+new dataset or experiment authorized = false
+successor activation = requires a separate parent decision
 ```
 
-No domain expansion is permitted.
+The existing implementation and tests may be preserved for future repair. Their current failing audit is not admitted evidence and is isolated from PR-required checks.
 
-## Required finite outputs
-
-- complete owner/non-owner verification for all registered \((N,d)\) candidates used by the pass;
-- counts of obstruction certificates by local prime \(\ell\), separated from boundary exceptions;
-- exact inventory of boundary exceptions;
-- support-conditioned obstruction signatures;
-- independent reconstruction from prime-pair fibers;
-- deterministic certificate and SHA-256;
-- explicit statement of what local obstruction data does not decide.
-
-## Non-claims
-
-A finite collection of local obstruction tests is generally necessary but not sufficient for simultaneous primality of \(m-d\) and \(m+d\). The pass must not market local survival as ownership, primality, or a global representation theorem.
-
-## Stop rule
-
-Stop after exact local-obstruction identities and frozen-box certification. Do not open weighted sieves, densities, singular series, asymptotics, graph dynamics, or Phase D.
-
-## Claim ceiling
+## Scientific ceiling
 
 ```text
+exact residue/factor laws = IDENTITY / PROVED where already established
+finite candidate counts = NOT ADMITTED until a future repaired checkpoint
+local signatures = DIAGNOSTIC CANDIDATE
+primality-test interpretation = NOT ADMITTED
+general density or asymptotics = NOT AUTHORIZED
+Goldbach/PNT/RH/GRH progress = false
 historical originality = false
-original lemma/theorem = false
-Phase D authorized = false
-Goldbach progress = false
-PNT progress = false
-RH progress = false
-GRH progress = false
 publication readiness = false
 ```
+
+**Classification:** deferred non-governing candidate; not an ENGINE-004 pass.
