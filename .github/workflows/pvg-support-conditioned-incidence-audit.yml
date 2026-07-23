@@ -55,8 +55,15 @@ jobs:
           PY
       - name: Compare committed certificate when present
         run: |
-          if [ -f research/pvg-space-deepening/data/support-conditioned-incidence-summary.json ]; then
-            cmp /tmp/support-conditioned-incidence.json research/pvg-space-deepening/data/support-conditioned-incidence-summary.json
-          else
-            echo 'Committed certificate pending; implementation audit only.'
-          fi
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          committed_path = Path('research/pvg-space-deepening/data/support-conditioned-incidence-summary.json')
+          if committed_path.exists():
+              generated = json.loads(Path('/tmp/support-conditioned-incidence.json').read_text(encoding='utf-8'))
+              committed = json.loads(committed_path.read_text(encoding='utf-8'))
+              assert generated == committed
+          else:
+              print('Committed certificate pending; implementation audit only.')
+          PY
