@@ -1,0 +1,5438 @@
+{
+  "bit_length_conditioned_by_support_size": [
+    {
+      "group": {
+        "bit_length": 10,
+        "route": "even",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 11,
+        "multiplicity_mean": "11",
+        "multiplicity_median": "11",
+        "multiplicity_sum": 11,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "11",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 10,
+        "route": "even",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 33,
+        "multiplicity_mean": "305/13",
+        "multiplicity_median": "21",
+        "multiplicity_sum": 305,
+        "nonrepresented_count": 0,
+        "point_count": 13,
+        "represented_count": 13,
+        "represented_multiplicity_mean": "305/13",
+        "represented_rate": "13/13"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 10,
+        "route": "even",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 48,
+        "multiplicity_mean": "349/11",
+        "multiplicity_median": "31.5",
+        "multiplicity_sum": 698,
+        "nonrepresented_count": 0,
+        "point_count": 22,
+        "represented_count": 22,
+        "represented_multiplicity_mean": "349/11",
+        "represented_rate": "22/22"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 11,
+        "route": "even",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 22,
+        "multiplicity_mean": "22",
+        "multiplicity_median": "22",
+        "multiplicity_sum": 22,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "22",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 11,
+        "route": "even",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 58,
+        "multiplicity_mean": "113/3",
+        "multiplicity_median": "36",
+        "multiplicity_sum": 565,
+        "nonrepresented_count": 0,
+        "point_count": 15,
+        "represented_count": 15,
+        "represented_multiplicity_mean": "113/3",
+        "represented_rate": "15/15"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 11,
+        "route": "even",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 81,
+        "multiplicity_mean": "1474/29",
+        "multiplicity_median": "49",
+        "multiplicity_sum": 1474,
+        "nonrepresented_count": 0,
+        "point_count": 29,
+        "represented_count": 29,
+        "represented_multiplicity_mean": "1474/29",
+        "represented_rate": "29/29"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 12,
+        "route": "even",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 25,
+        "multiplicity_mean": "25",
+        "multiplicity_median": "25",
+        "multiplicity_sum": 25,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "25",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 12,
+        "route": "even",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 92,
+        "multiplicity_mean": "983/16",
+        "multiplicity_median": "54.5",
+        "multiplicity_sum": 983,
+        "nonrepresented_count": 0,
+        "point_count": 16,
+        "represented_count": 16,
+        "represented_multiplicity_mean": "983/16",
+        "represented_rate": "16/16"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 12,
+        "route": "even",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 128,
+        "multiplicity_mean": "841/10",
+        "multiplicity_median": "82.5",
+        "multiplicity_sum": 3364,
+        "nonrepresented_count": 0,
+        "point_count": 40,
+        "represented_count": 40,
+        "represented_multiplicity_mean": "841/10",
+        "represented_rate": "40/40"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 13,
+        "route": "even",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 53,
+        "multiplicity_mean": "53",
+        "multiplicity_median": "53",
+        "multiplicity_sum": 53,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "53",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 13,
+        "route": "even",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 161,
+        "multiplicity_mean": "1936/19",
+        "multiplicity_median": "95",
+        "multiplicity_sum": 1936,
+        "nonrepresented_count": 0,
+        "point_count": 19,
+        "represented_count": 19,
+        "represented_multiplicity_mean": "1936/19",
+        "represented_rate": "19/19"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 13,
+        "route": "even",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 230,
+        "multiplicity_mean": "7024/49",
+        "multiplicity_median": "141",
+        "multiplicity_sum": 7024,
+        "nonrepresented_count": 0,
+        "point_count": 49,
+        "represented_count": 49,
+        "represented_multiplicity_mean": "7024/49",
+        "represented_rate": "49/49"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 14,
+        "route": "even",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 76,
+        "multiplicity_mean": "76",
+        "multiplicity_median": "76",
+        "multiplicity_sum": 76,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "76",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 14,
+        "route": "even",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 277,
+        "multiplicity_mean": "877/5",
+        "multiplicity_median": "156.0",
+        "multiplicity_sum": 3508,
+        "nonrepresented_count": 0,
+        "point_count": 20,
+        "represented_count": 20,
+        "represented_multiplicity_mean": "877/5",
+        "represented_rate": "20/20"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 14,
+        "route": "even",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 384,
+        "multiplicity_mean": "14151/59",
+        "multiplicity_median": "239",
+        "multiplicity_sum": 14151,
+        "nonrepresented_count": 0,
+        "point_count": 59,
+        "represented_count": 59,
+        "represented_multiplicity_mean": "14151/59",
+        "represented_rate": "59/59"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 15,
+        "route": "even",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 151,
+        "multiplicity_mean": "151",
+        "multiplicity_median": "151",
+        "multiplicity_sum": 151,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "151",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 15,
+        "route": "even",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 474,
+        "multiplicity_mean": "6551/22",
+        "multiplicity_median": "278.5",
+        "multiplicity_sum": 6551,
+        "nonrepresented_count": 0,
+        "point_count": 22,
+        "represented_count": 22,
+        "represented_multiplicity_mean": "6551/22",
+        "represented_rate": "22/22"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 15,
+        "route": "even",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 647,
+        "multiplicity_mean": "29053/71",
+        "multiplicity_median": "416",
+        "multiplicity_sum": 29053,
+        "nonrepresented_count": 0,
+        "point_count": 71,
+        "represented_count": 71,
+        "represented_multiplicity_mean": "29053/71",
+        "represented_rate": "71/71"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 16,
+        "route": "even",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 244,
+        "multiplicity_mean": "244",
+        "multiplicity_median": "244",
+        "multiplicity_sum": 244,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "244",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 16,
+        "route": "even",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 831,
+        "multiplicity_mean": "6055/12",
+        "multiplicity_median": "467.5",
+        "multiplicity_sum": 12110,
+        "nonrepresented_count": 0,
+        "point_count": 24,
+        "represented_count": 24,
+        "represented_multiplicity_mean": "6055/12",
+        "represented_rate": "24/24"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 16,
+        "route": "even",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 1135,
+        "multiplicity_mean": "29327/41",
+        "multiplicity_median": "719.0",
+        "multiplicity_sum": 58654,
+        "nonrepresented_count": 0,
+        "point_count": 82,
+        "represented_count": 82,
+        "represented_multiplicity_mean": "29327/41",
+        "represented_rate": "82/82"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 17,
+        "route": "even",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 435,
+        "multiplicity_mean": "435",
+        "multiplicity_median": "435",
+        "multiplicity_sum": 435,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "435",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 17,
+        "route": "even",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 1185,
+        "multiplicity_mean": "809",
+        "multiplicity_median": "740.5",
+        "multiplicity_sum": 11326,
+        "nonrepresented_count": 0,
+        "point_count": 14,
+        "represented_count": 14,
+        "represented_multiplicity_mean": "809",
+        "represented_rate": "14/14"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 17,
+        "route": "even",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 1557,
+        "multiplicity_mean": "64320/59",
+        "multiplicity_median": "1148",
+        "multiplicity_sum": 64320,
+        "nonrepresented_count": 0,
+        "point_count": 59,
+        "represented_count": 59,
+        "represented_multiplicity_mean": "64320/59",
+        "represented_rate": "59/59"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 2,
+        "route": "even",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 0,
+        "multiplicity_mean": "0",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 0,
+        "nonrepresented_count": 1,
+        "point_count": 1,
+        "represented_count": 0,
+        "represented_multiplicity_mean": null,
+        "represented_rate": "0/1"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 3,
+        "route": "even",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 0,
+        "multiplicity_mean": "0",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 0,
+        "nonrepresented_count": 1,
+        "point_count": 1,
+        "represented_count": 0,
+        "represented_multiplicity_mean": null,
+        "represented_rate": "0/1"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 3,
+        "route": "even",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 0,
+        "multiplicity_mean": "0",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 0,
+        "nonrepresented_count": 1,
+        "point_count": 1,
+        "represented_count": 0,
+        "represented_multiplicity_mean": null,
+        "represented_rate": "0/1"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 4,
+        "route": "even",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1",
+        "multiplicity_median": "1",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 4,
+        "route": "even",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1",
+        "multiplicity_median": "1",
+        "multiplicity_sum": 3,
+        "nonrepresented_count": 0,
+        "point_count": 3,
+        "represented_count": 3,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "3/3"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 5,
+        "route": "even",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 2,
+        "multiplicity_mean": "2",
+        "multiplicity_median": "2",
+        "multiplicity_sum": 2,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "2",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 5,
+        "route": "even",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 3,
+        "multiplicity_mean": "11/5",
+        "multiplicity_median": "2",
+        "multiplicity_sum": 11,
+        "nonrepresented_count": 0,
+        "point_count": 5,
+        "represented_count": 5,
+        "represented_multiplicity_mean": "11/5",
+        "represented_rate": "5/5"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 5,
+        "route": "even",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 3,
+        "multiplicity_mean": "3",
+        "multiplicity_median": "3",
+        "multiplicity_sum": 3,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "3",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 6,
+        "route": "even",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 2,
+        "multiplicity_mean": "2",
+        "multiplicity_median": "2",
+        "multiplicity_sum": 2,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "2",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 6,
+        "route": "even",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 5,
+        "multiplicity_mean": "27/7",
+        "multiplicity_median": "4",
+        "multiplicity_sum": 27,
+        "nonrepresented_count": 0,
+        "point_count": 7,
+        "represented_count": 7,
+        "represented_multiplicity_mean": "27/7",
+        "represented_rate": "7/7"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 6,
+        "route": "even",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 6,
+        "multiplicity_mean": "5",
+        "multiplicity_median": "5.0",
+        "multiplicity_sum": 10,
+        "nonrepresented_count": 0,
+        "point_count": 2,
+        "represented_count": 2,
+        "represented_multiplicity_mean": "5",
+        "represented_rate": "2/2"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 7,
+        "route": "even",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 5,
+        "multiplicity_mean": "5",
+        "multiplicity_median": "5",
+        "multiplicity_sum": 5,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "5",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 7,
+        "route": "even",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 8,
+        "multiplicity_mean": "45/8",
+        "multiplicity_median": "6.0",
+        "multiplicity_sum": 45,
+        "nonrepresented_count": 0,
+        "point_count": 8,
+        "represented_count": 8,
+        "represented_multiplicity_mean": "45/8",
+        "represented_rate": "8/8"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 7,
+        "route": "even",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 12,
+        "multiplicity_mean": "8",
+        "multiplicity_median": "8",
+        "multiplicity_sum": 56,
+        "nonrepresented_count": 0,
+        "point_count": 7,
+        "represented_count": 7,
+        "represented_multiplicity_mean": "8",
+        "represented_rate": "7/7"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 8,
+        "route": "even",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 3,
+        "multiplicity_mean": "3",
+        "multiplicity_median": "3",
+        "multiplicity_sum": 3,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "3",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 8,
+        "route": "even",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 13,
+        "multiplicity_mean": "101/11",
+        "multiplicity_median": "9",
+        "multiplicity_sum": 101,
+        "nonrepresented_count": 0,
+        "point_count": 11,
+        "represented_count": 11,
+        "represented_multiplicity_mean": "101/11",
+        "represented_rate": "11/11"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 8,
+        "route": "even",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 18,
+        "multiplicity_mean": "119/10",
+        "multiplicity_median": "12.5",
+        "multiplicity_sum": 119,
+        "nonrepresented_count": 0,
+        "point_count": 10,
+        "represented_count": 10,
+        "represented_multiplicity_mean": "119/10",
+        "represented_rate": "10/10"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 9,
+        "route": "even",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 8,
+        "multiplicity_mean": "8",
+        "multiplicity_median": "8",
+        "multiplicity_sum": 8,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "8",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 9,
+        "route": "even",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 23,
+        "multiplicity_mean": "46/3",
+        "multiplicity_median": "14.0",
+        "multiplicity_sum": 184,
+        "nonrepresented_count": 0,
+        "point_count": 12,
+        "represented_count": 12,
+        "represented_multiplicity_mean": "46/3",
+        "represented_rate": "12/12"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 9,
+        "route": "even",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 29,
+        "multiplicity_mean": "155/8",
+        "multiplicity_median": "19.0",
+        "multiplicity_sum": 310,
+        "nonrepresented_count": 0,
+        "point_count": 16,
+        "represented_count": 16,
+        "represented_multiplicity_mean": "155/8",
+        "represented_rate": "16/16"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 10,
+        "route": "odd",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/2",
+        "multiplicity_median": "0.5",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 1,
+        "point_count": 2,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/2"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 10,
+        "route": "odd",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/7",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 6,
+        "point_count": 7,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/7"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 10,
+        "route": "odd",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "4/5",
+        "multiplicity_median": "1",
+        "multiplicity_sum": 4,
+        "nonrepresented_count": 1,
+        "point_count": 5,
+        "represented_count": 4,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "4/5"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 11,
+        "route": "odd",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 0,
+        "multiplicity_mean": "0",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 0,
+        "nonrepresented_count": 1,
+        "point_count": 1,
+        "represented_count": 0,
+        "represented_multiplicity_mean": null,
+        "represented_rate": "0/1"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 11,
+        "route": "odd",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "8/11",
+        "multiplicity_median": "1",
+        "multiplicity_sum": 8,
+        "nonrepresented_count": 3,
+        "point_count": 11,
+        "represented_count": 8,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "8/11"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 11,
+        "route": "odd",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/5",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 4,
+        "point_count": 5,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/5"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 12,
+        "route": "odd",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/3",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 2,
+        "point_count": 3,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/3"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 12,
+        "route": "odd",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "5/9",
+        "multiplicity_median": "1",
+        "multiplicity_sum": 5,
+        "nonrepresented_count": 4,
+        "point_count": 9,
+        "represented_count": 5,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "5/9"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 12,
+        "route": "odd",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "3/4",
+        "multiplicity_median": "1.0",
+        "multiplicity_sum": 6,
+        "nonrepresented_count": 2,
+        "point_count": 8,
+        "represented_count": 6,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "6/8"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 13,
+        "route": "odd",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 0,
+        "multiplicity_mean": "0",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 0,
+        "nonrepresented_count": 1,
+        "point_count": 1,
+        "represented_count": 0,
+        "represented_multiplicity_mean": null,
+        "represented_rate": "0/1"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 13,
+        "route": "odd",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "7/10",
+        "multiplicity_median": "1.0",
+        "multiplicity_sum": 7,
+        "nonrepresented_count": 3,
+        "point_count": 10,
+        "represented_count": 7,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "7/10"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 13,
+        "route": "odd",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/3",
+        "multiplicity_median": "0.0",
+        "multiplicity_sum": 4,
+        "nonrepresented_count": 8,
+        "point_count": 12,
+        "represented_count": 4,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "4/12"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 14,
+        "route": "odd",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/2",
+        "multiplicity_median": "0.5",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 1,
+        "point_count": 2,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/2"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 14,
+        "route": "odd",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/6",
+        "multiplicity_median": "0.0",
+        "multiplicity_sum": 2,
+        "nonrepresented_count": 10,
+        "point_count": 12,
+        "represented_count": 2,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "2/12"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 14,
+        "route": "odd",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "6/13",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 6,
+        "nonrepresented_count": 7,
+        "point_count": 13,
+        "represented_count": 6,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "6/13"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 15,
+        "route": "odd",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/2",
+        "multiplicity_median": "0.5",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 1,
+        "point_count": 2,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/2"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 15,
+        "route": "odd",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "3/11",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 3,
+        "nonrepresented_count": 8,
+        "point_count": 11,
+        "represented_count": 3,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "3/11"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 15,
+        "route": "odd",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/4",
+        "multiplicity_median": "0.0",
+        "multiplicity_sum": 4,
+        "nonrepresented_count": 12,
+        "point_count": 16,
+        "represented_count": 4,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "4/16"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 16,
+        "route": "odd",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 0,
+        "multiplicity_mean": "0",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 0,
+        "nonrepresented_count": 1,
+        "point_count": 1,
+        "represented_count": 0,
+        "represented_multiplicity_mean": null,
+        "represented_rate": "0/1"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 16,
+        "route": "odd",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/8",
+        "multiplicity_median": "0.0",
+        "multiplicity_sum": 2,
+        "nonrepresented_count": 14,
+        "point_count": 16,
+        "represented_count": 2,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "2/16"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 16,
+        "route": "odd",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "8/19",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 8,
+        "nonrepresented_count": 11,
+        "point_count": 19,
+        "represented_count": 8,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "8/19"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 17,
+        "route": "odd",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 0,
+        "multiplicity_mean": "0",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 0,
+        "nonrepresented_count": 1,
+        "point_count": 1,
+        "represented_count": 0,
+        "represented_multiplicity_mean": null,
+        "represented_rate": "0/1"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 17,
+        "route": "odd",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/9",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 8,
+        "point_count": 9,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/9"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 17,
+        "route": "odd",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "5/14",
+        "multiplicity_median": "0.0",
+        "multiplicity_sum": 5,
+        "nonrepresented_count": 9,
+        "point_count": 14,
+        "represented_count": 5,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "5/14"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 2,
+        "route": "odd",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 0,
+        "multiplicity_mean": "0",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 0,
+        "nonrepresented_count": 1,
+        "point_count": 1,
+        "represented_count": 0,
+        "represented_multiplicity_mean": null,
+        "represented_rate": "0/1"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 3,
+        "route": "odd",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1",
+        "multiplicity_median": "1.0",
+        "multiplicity_sum": 2,
+        "nonrepresented_count": 0,
+        "point_count": 2,
+        "represented_count": 2,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "2/2"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 4,
+        "route": "odd",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/2",
+        "multiplicity_median": "0.5",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 1,
+        "point_count": 2,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/2"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 4,
+        "route": "odd",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1",
+        "multiplicity_median": "1",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 5,
+        "route": "odd",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/2",
+        "multiplicity_median": "0.5",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 1,
+        "point_count": 2,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/2"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 5,
+        "route": "odd",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1",
+        "multiplicity_median": "1",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 6,
+        "route": "odd",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1",
+        "multiplicity_median": "1",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 6,
+        "route": "odd",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "4/5",
+        "multiplicity_median": "1",
+        "multiplicity_sum": 4,
+        "nonrepresented_count": 1,
+        "point_count": 5,
+        "represented_count": 4,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "4/5"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 7,
+        "route": "odd",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/3",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 2,
+        "point_count": 3,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/3"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 7,
+        "route": "odd",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "2/3",
+        "multiplicity_median": "1",
+        "multiplicity_sum": 2,
+        "nonrepresented_count": 1,
+        "point_count": 3,
+        "represented_count": 2,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "2/3"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 7,
+        "route": "odd",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1",
+        "multiplicity_median": "1",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 8,
+        "route": "odd",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1",
+        "multiplicity_median": "1",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 8,
+        "route": "odd",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/3",
+        "multiplicity_median": "0.0",
+        "multiplicity_sum": 2,
+        "nonrepresented_count": 4,
+        "point_count": 6,
+        "represented_count": 2,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "2/6"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 8,
+        "route": "odd",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1",
+        "multiplicity_median": "1.0",
+        "multiplicity_sum": 2,
+        "nonrepresented_count": 0,
+        "point_count": 2,
+        "represented_count": 2,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "2/2"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 9,
+        "route": "odd",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 0,
+        "multiplicity_mean": "0",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 0,
+        "nonrepresented_count": 1,
+        "point_count": 1,
+        "represented_count": 0,
+        "represented_multiplicity_mean": null,
+        "represented_rate": "0/1"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 9,
+        "route": "odd",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/3",
+        "multiplicity_median": "0.0",
+        "multiplicity_sum": 2,
+        "nonrepresented_count": 4,
+        "point_count": 6,
+        "represented_count": 2,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "2/6"
+      }
+    },
+    {
+      "group": {
+        "bit_length": 9,
+        "route": "odd",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "2/3",
+        "multiplicity_median": "1",
+        "multiplicity_sum": 2,
+        "nonrepresented_count": 1,
+        "point_count": 3,
+        "represented_count": 2,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "2/3"
+      }
+    }
+  ],
+  "claim_ceiling": {
+    "cap_or_support_expansion": false,
+    "causal_support_effect": false,
+    "density_or_asymptotic_law": false,
+    "goldbach_progress": false,
+    "grh_progress": false,
+    "original_lemma_theorem": false,
+    "phase_d_authorized": false,
+    "pnt_progress": false,
+    "publication_readiness": false,
+    "regression_or_significance_test": false,
+    "rh_progress": false
+  },
+  "classification": "Finite-Verified candidate / Diagnostic / Counterexample search",
+  "conditioned_by_exact_support": [
+    {
+      "group": {
+        "decimal_bin": "1-9",
+        "route": "even",
+        "support_key": "{2,3}"
+      },
+      "summary": {
+        "maximum_multiplicity": 0,
+        "multiplicity_mean": "0",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 0,
+        "nonrepresented_count": 1,
+        "point_count": 1,
+        "represented_count": 0,
+        "represented_multiplicity_mean": null,
+        "represented_rate": "0/1"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1-9",
+        "route": "even",
+        "support_key": "{2}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/3",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 2,
+        "point_count": 3,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/3"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10-99",
+        "route": "even",
+        "support_key": "{2,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 4,
+        "multiplicity_mean": "3",
+        "multiplicity_median": "3",
+        "multiplicity_sum": 9,
+        "nonrepresented_count": 0,
+        "point_count": 3,
+        "represented_count": 3,
+        "represented_multiplicity_mean": "3",
+        "represented_rate": "3/3"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10-99",
+        "route": "even",
+        "support_key": "{2,3,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 6,
+        "multiplicity_mean": "6",
+        "multiplicity_median": "6",
+        "multiplicity_sum": 6,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "6",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10-99",
+        "route": "even",
+        "support_key": "{2,3,5}"
+      },
+      "summary": {
+        "maximum_multiplicity": 9,
+        "multiplicity_mean": "6",
+        "multiplicity_median": "6",
+        "multiplicity_sum": 18,
+        "nonrepresented_count": 0,
+        "point_count": 3,
+        "represented_count": 3,
+        "represented_multiplicity_mean": "6",
+        "represented_rate": "3/3"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10-99",
+        "route": "even",
+        "support_key": "{2,3,7}"
+      },
+      "summary": {
+        "maximum_multiplicity": 8,
+        "multiplicity_mean": "6",
+        "multiplicity_median": "6.0",
+        "multiplicity_sum": 12,
+        "nonrepresented_count": 0,
+        "point_count": 2,
+        "represented_count": 2,
+        "represented_multiplicity_mean": "6",
+        "represented_rate": "2/2"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10-99",
+        "route": "even",
+        "support_key": "{2,3}"
+      },
+      "summary": {
+        "maximum_multiplicity": 7,
+        "multiplicity_mean": "33/8",
+        "multiplicity_median": "4.5",
+        "multiplicity_sum": 33,
+        "nonrepresented_count": 0,
+        "point_count": 8,
+        "represented_count": 8,
+        "represented_multiplicity_mean": "33/8",
+        "represented_rate": "8/8"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10-99",
+        "route": "even",
+        "support_key": "{2,5,7}"
+      },
+      "summary": {
+        "maximum_multiplicity": 5,
+        "multiplicity_mean": "5",
+        "multiplicity_median": "5",
+        "multiplicity_sum": 5,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "5",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10-99",
+        "route": "even",
+        "support_key": "{2,5}"
+      },
+      "summary": {
+        "maximum_multiplicity": 4,
+        "multiplicity_mean": "14/5",
+        "multiplicity_median": "3",
+        "multiplicity_sum": 14,
+        "nonrepresented_count": 0,
+        "point_count": 5,
+        "represented_count": 5,
+        "represented_multiplicity_mean": "14/5",
+        "represented_rate": "5/5"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10-99",
+        "route": "even",
+        "support_key": "{2,7}"
+      },
+      "summary": {
+        "maximum_multiplicity": 3,
+        "multiplicity_mean": "9/4",
+        "multiplicity_median": "2.5",
+        "multiplicity_sum": 9,
+        "nonrepresented_count": 0,
+        "point_count": 4,
+        "represented_count": 4,
+        "represented_multiplicity_mean": "9/4",
+        "represented_rate": "4/4"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10-99",
+        "route": "even",
+        "support_key": "{2}"
+      },
+      "summary": {
+        "maximum_multiplicity": 5,
+        "multiplicity_mean": "3",
+        "multiplicity_median": "2",
+        "multiplicity_sum": 9,
+        "nonrepresented_count": 0,
+        "point_count": 3,
+        "represented_count": 3,
+        "represented_multiplicity_mean": "3",
+        "represented_rate": "3/3"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "even",
+        "support_key": "{2,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 18,
+        "multiplicity_mean": "37/3",
+        "multiplicity_median": "12.0",
+        "multiplicity_sum": 74,
+        "nonrepresented_count": 0,
+        "point_count": 6,
+        "represented_count": 6,
+        "represented_multiplicity_mean": "37/3",
+        "represented_rate": "6/6"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "even",
+        "support_key": "{2,3,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 34,
+        "multiplicity_mean": "22",
+        "multiplicity_median": "23.0",
+        "multiplicity_sum": 176,
+        "nonrepresented_count": 0,
+        "point_count": 8,
+        "represented_count": 8,
+        "represented_multiplicity_mean": "22",
+        "represented_rate": "8/8"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "even",
+        "support_key": "{2,3,5}"
+      },
+      "summary": {
+        "maximum_multiplicity": 48,
+        "multiplicity_mean": "223/8",
+        "multiplicity_median": "28.0",
+        "multiplicity_sum": 446,
+        "nonrepresented_count": 0,
+        "point_count": 16,
+        "represented_count": 16,
+        "represented_multiplicity_mean": "223/8",
+        "represented_rate": "16/16"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "even",
+        "support_key": "{2,3,7}"
+      },
+      "summary": {
+        "maximum_multiplicity": 39,
+        "multiplicity_mean": "262/11",
+        "multiplicity_median": "22",
+        "multiplicity_sum": 262,
+        "nonrepresented_count": 0,
+        "point_count": 11,
+        "represented_count": 11,
+        "represented_multiplicity_mean": "262/11",
+        "represented_rate": "11/11"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "even",
+        "support_key": "{2,3}"
+      },
+      "summary": {
+        "maximum_multiplicity": 33,
+        "multiplicity_mean": "20",
+        "multiplicity_median": "19",
+        "multiplicity_sum": 300,
+        "nonrepresented_count": 0,
+        "point_count": 15,
+        "represented_count": 15,
+        "represented_multiplicity_mean": "20",
+        "represented_rate": "15/15"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "even",
+        "support_key": "{2,5,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 25,
+        "multiplicity_mean": "73/5",
+        "multiplicity_median": "14",
+        "multiplicity_sum": 73,
+        "nonrepresented_count": 0,
+        "point_count": 5,
+        "represented_count": 5,
+        "represented_multiplicity_mean": "73/5",
+        "represented_rate": "5/5"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "even",
+        "support_key": "{2,5,7}"
+      },
+      "summary": {
+        "maximum_multiplicity": 26,
+        "multiplicity_mean": "121/7",
+        "multiplicity_median": "18",
+        "multiplicity_sum": 121,
+        "nonrepresented_count": 0,
+        "point_count": 7,
+        "represented_count": 7,
+        "represented_multiplicity_mean": "121/7",
+        "represented_rate": "7/7"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "even",
+        "support_key": "{2,5}"
+      },
+      "summary": {
+        "maximum_multiplicity": 21,
+        "multiplicity_mean": "12",
+        "multiplicity_median": "11",
+        "multiplicity_sum": 108,
+        "nonrepresented_count": 0,
+        "point_count": 9,
+        "represented_count": 9,
+        "represented_multiplicity_mean": "12",
+        "represented_rate": "9/9"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "even",
+        "support_key": "{2,7,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 19,
+        "multiplicity_mean": "35/3",
+        "multiplicity_median": "8",
+        "multiplicity_sum": 35,
+        "nonrepresented_count": 0,
+        "point_count": 3,
+        "represented_count": 3,
+        "represented_multiplicity_mean": "35/3",
+        "represented_rate": "3/3"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "even",
+        "support_key": "{2,7}"
+      },
+      "summary": {
+        "maximum_multiplicity": 20,
+        "multiplicity_mean": "101/8",
+        "multiplicity_median": "12.0",
+        "multiplicity_sum": 101,
+        "nonrepresented_count": 0,
+        "point_count": 8,
+        "represented_count": 8,
+        "represented_multiplicity_mean": "101/8",
+        "represented_rate": "8/8"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "even",
+        "support_key": "{2}"
+      },
+      "summary": {
+        "maximum_multiplicity": 11,
+        "multiplicity_mean": "22/3",
+        "multiplicity_median": "8",
+        "multiplicity_sum": 22,
+        "nonrepresented_count": 0,
+        "point_count": 3,
+        "represented_count": 3,
+        "represented_multiplicity_mean": "22/3",
+        "represented_rate": "3/3"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "even",
+        "support_key": "{2,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 94,
+        "multiplicity_mean": "431/8",
+        "multiplicity_median": "48.0",
+        "multiplicity_sum": 431,
+        "nonrepresented_count": 0,
+        "point_count": 8,
+        "represented_count": 8,
+        "represented_multiplicity_mean": "431/8",
+        "represented_rate": "8/8"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "even",
+        "support_key": "{2,3,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 209,
+        "multiplicity_mean": "2643/23",
+        "multiplicity_median": "112",
+        "multiplicity_sum": 2643,
+        "nonrepresented_count": 0,
+        "point_count": 23,
+        "represented_count": 23,
+        "represented_multiplicity_mean": "2643/23",
+        "represented_rate": "23/23"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "even",
+        "support_key": "{2,3,5}"
+      },
+      "summary": {
+        "maximum_multiplicity": 261,
+        "multiplicity_mean": "2651/19",
+        "multiplicity_median": "126.5",
+        "multiplicity_sum": 5302,
+        "nonrepresented_count": 0,
+        "point_count": 38,
+        "represented_count": 38,
+        "represented_multiplicity_mean": "2651/19",
+        "represented_rate": "38/38"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "even",
+        "support_key": "{2,3,7}"
+      },
+      "summary": {
+        "maximum_multiplicity": 223,
+        "multiplicity_mean": "1802/15",
+        "multiplicity_median": "111.5",
+        "multiplicity_sum": 3604,
+        "nonrepresented_count": 0,
+        "point_count": 30,
+        "represented_count": 30,
+        "represented_multiplicity_mean": "1802/15",
+        "represented_rate": "30/30"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "even",
+        "support_key": "{2,3}"
+      },
+      "summary": {
+        "maximum_multiplicity": 197,
+        "multiplicity_mean": "296/3",
+        "multiplicity_median": "89",
+        "multiplicity_sum": 2072,
+        "nonrepresented_count": 0,
+        "point_count": 21,
+        "represented_count": 21,
+        "represented_multiplicity_mean": "296/3",
+        "represented_rate": "21/21"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "even",
+        "support_key": "{2,5,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 140,
+        "multiplicity_mean": "1051/14",
+        "multiplicity_median": "76.0",
+        "multiplicity_sum": 1051,
+        "nonrepresented_count": 0,
+        "point_count": 14,
+        "represented_count": 14,
+        "represented_multiplicity_mean": "1051/14",
+        "represented_rate": "14/14"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "even",
+        "support_key": "{2,5,7}"
+      },
+      "summary": {
+        "maximum_multiplicity": 147,
+        "multiplicity_mean": "1631/19",
+        "multiplicity_median": "82",
+        "multiplicity_sum": 1631,
+        "nonrepresented_count": 0,
+        "point_count": 19,
+        "represented_count": 19,
+        "represented_multiplicity_mean": "1631/19",
+        "represented_rate": "19/19"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "even",
+        "support_key": "{2,5}"
+      },
+      "summary": {
+        "maximum_multiplicity": 106,
+        "multiplicity_mean": "821/14",
+        "multiplicity_median": "51.0",
+        "multiplicity_sum": 821,
+        "nonrepresented_count": 0,
+        "point_count": 14,
+        "represented_count": 14,
+        "represented_multiplicity_mean": "821/14",
+        "represented_rate": "14/14"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "even",
+        "support_key": "{2,7,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 130,
+        "multiplicity_mean": "137/2",
+        "multiplicity_median": "64.0",
+        "multiplicity_sum": 822,
+        "nonrepresented_count": 0,
+        "point_count": 12,
+        "represented_count": 12,
+        "represented_multiplicity_mean": "137/2",
+        "represented_rate": "12/12"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "even",
+        "support_key": "{2,7}"
+      },
+      "summary": {
+        "maximum_multiplicity": 127,
+        "multiplicity_mean": "685/11",
+        "multiplicity_median": "55",
+        "multiplicity_sum": 685,
+        "nonrepresented_count": 0,
+        "point_count": 11,
+        "represented_count": 11,
+        "represented_multiplicity_mean": "685/11",
+        "represented_rate": "11/11"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "even",
+        "support_key": "{2}"
+      },
+      "summary": {
+        "maximum_multiplicity": 76,
+        "multiplicity_mean": "44",
+        "multiplicity_median": "39.0",
+        "multiplicity_sum": 176,
+        "nonrepresented_count": 0,
+        "point_count": 4,
+        "represented_count": 4,
+        "represented_multiplicity_mean": "44",
+        "represented_rate": "4/4"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "even",
+        "support_key": "{2,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 638,
+        "multiplicity_mean": "4105/13",
+        "multiplicity_median": "265",
+        "multiplicity_sum": 4105,
+        "nonrepresented_count": 0,
+        "point_count": 13,
+        "represented_count": 13,
+        "represented_multiplicity_mean": "4105/13",
+        "represented_rate": "13/13"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "even",
+        "support_key": "{2,3,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1317,
+        "multiplicity_mean": "28807/43",
+        "multiplicity_median": "626",
+        "multiplicity_sum": 28807,
+        "nonrepresented_count": 0,
+        "point_count": 43,
+        "represented_count": 43,
+        "represented_multiplicity_mean": "28807/43",
+        "represented_rate": "43/43"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "even",
+        "support_key": "{2,3,5}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1557,
+        "multiplicity_mean": "5559/7",
+        "multiplicity_median": "722.5",
+        "multiplicity_sum": 55590,
+        "nonrepresented_count": 0,
+        "point_count": 70,
+        "represented_count": 70,
+        "represented_multiplicity_mean": "5559/7",
+        "represented_rate": "70/70"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "even",
+        "support_key": "{2,3,7}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1442,
+        "multiplicity_mean": "41038/57",
+        "multiplicity_median": "651",
+        "multiplicity_sum": 41038,
+        "nonrepresented_count": 0,
+        "point_count": 57,
+        "represented_count": 57,
+        "represented_multiplicity_mean": "41038/57",
+        "represented_rate": "57/57"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "even",
+        "support_key": "{2,3}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1185,
+        "multiplicity_mean": "16519/29",
+        "multiplicity_median": "527",
+        "multiplicity_sum": 16519,
+        "nonrepresented_count": 0,
+        "point_count": 29,
+        "represented_count": 29,
+        "represented_multiplicity_mean": "16519/29",
+        "represented_rate": "29/29"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "even",
+        "support_key": "{2,5,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 874,
+        "multiplicity_mean": "11552/27",
+        "multiplicity_median": "395",
+        "multiplicity_sum": 11552,
+        "nonrepresented_count": 0,
+        "point_count": 27,
+        "represented_count": 27,
+        "represented_multiplicity_mean": "11552/27",
+        "represented_rate": "27/27"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "even",
+        "support_key": "{2,5,7}"
+      },
+      "summary": {
+        "maximum_multiplicity": 940,
+        "multiplicity_mean": "4426/9",
+        "multiplicity_median": "438.0",
+        "multiplicity_sum": 17704,
+        "nonrepresented_count": 0,
+        "point_count": 36,
+        "represented_count": 36,
+        "represented_multiplicity_mean": "4426/9",
+        "represented_rate": "36/36"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "even",
+        "support_key": "{2,5}"
+      },
+      "summary": {
+        "maximum_multiplicity": 671,
+        "multiplicity_mean": "6562/19",
+        "multiplicity_median": "312",
+        "multiplicity_sum": 6562,
+        "nonrepresented_count": 0,
+        "point_count": 19,
+        "represented_count": 19,
+        "represented_multiplicity_mean": "6562/19",
+        "represented_rate": "19/19"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "even",
+        "support_key": "{2,7,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 773,
+        "multiplicity_mean": "8338/21",
+        "multiplicity_median": "353",
+        "multiplicity_sum": 8338,
+        "nonrepresented_count": 0,
+        "point_count": 21,
+        "represented_count": 21,
+        "represented_multiplicity_mean": "8338/21",
+        "represented_rate": "21/21"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "even",
+        "support_key": "{2,7}"
+      },
+      "summary": {
+        "maximum_multiplicity": 645,
+        "multiplicity_mean": "5002/15",
+        "multiplicity_median": "309",
+        "multiplicity_sum": 5002,
+        "nonrepresented_count": 0,
+        "point_count": 15,
+        "represented_count": 15,
+        "represented_multiplicity_mean": "5002/15",
+        "represented_rate": "15/15"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "even",
+        "support_key": "{2}"
+      },
+      "summary": {
+        "maximum_multiplicity": 435,
+        "multiplicity_mean": "830/3",
+        "multiplicity_median": "244",
+        "multiplicity_sum": 830,
+        "nonrepresented_count": 0,
+        "point_count": 3,
+        "represented_count": 3,
+        "represented_multiplicity_mean": "830/3",
+        "represented_rate": "3/3"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100000-100000",
+        "route": "even",
+        "support_key": "{2,5}"
+      },
+      "summary": {
+        "maximum_multiplicity": 810,
+        "multiplicity_mean": "810",
+        "multiplicity_median": "810",
+        "multiplicity_sum": 810,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "810",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1-9",
+        "route": "odd",
+        "support_key": "{3}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/2",
+        "multiplicity_median": "0.5",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 1,
+        "point_count": 2,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/2"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1-9",
+        "route": "odd",
+        "support_key": "{5}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1",
+        "multiplicity_median": "1",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1-9",
+        "route": "odd",
+        "support_key": "{7}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1",
+        "multiplicity_median": "1",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10-99",
+        "route": "odd",
+        "support_key": "{11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 0,
+        "multiplicity_mean": "0",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 0,
+        "nonrepresented_count": 1,
+        "point_count": 1,
+        "represented_count": 0,
+        "represented_multiplicity_mean": null,
+        "represented_rate": "0/1"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10-99",
+        "route": "odd",
+        "support_key": "{3,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1",
+        "multiplicity_median": "1.0",
+        "multiplicity_sum": 2,
+        "nonrepresented_count": 0,
+        "point_count": 2,
+        "represented_count": 2,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "2/2"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10-99",
+        "route": "odd",
+        "support_key": "{3,5}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1",
+        "multiplicity_median": "1",
+        "multiplicity_sum": 3,
+        "nonrepresented_count": 0,
+        "point_count": 3,
+        "represented_count": 3,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "3/3"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10-99",
+        "route": "odd",
+        "support_key": "{3,7}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1",
+        "multiplicity_median": "1.0",
+        "multiplicity_sum": 2,
+        "nonrepresented_count": 0,
+        "point_count": 2,
+        "represented_count": 2,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "2/2"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10-99",
+        "route": "odd",
+        "support_key": "{3}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/2",
+        "multiplicity_median": "0.5",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 1,
+        "point_count": 2,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/2"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10-99",
+        "route": "odd",
+        "support_key": "{5,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1",
+        "multiplicity_median": "1",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10-99",
+        "route": "odd",
+        "support_key": "{5,7}"
+      },
+      "summary": {
+        "maximum_multiplicity": 0,
+        "multiplicity_mean": "0",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 0,
+        "nonrepresented_count": 1,
+        "point_count": 1,
+        "represented_count": 0,
+        "represented_multiplicity_mean": null,
+        "represented_rate": "0/1"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10-99",
+        "route": "odd",
+        "support_key": "{5}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1",
+        "multiplicity_median": "1",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10-99",
+        "route": "odd",
+        "support_key": "{7,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 0,
+        "multiplicity_mean": "0",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 0,
+        "nonrepresented_count": 1,
+        "point_count": 1,
+        "represented_count": 0,
+        "represented_multiplicity_mean": null,
+        "represented_rate": "0/1"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10-99",
+        "route": "odd",
+        "support_key": "{7}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1",
+        "multiplicity_median": "1",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "odd",
+        "support_key": "{11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 0,
+        "multiplicity_mean": "0",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 0,
+        "nonrepresented_count": 1,
+        "point_count": 1,
+        "represented_count": 0,
+        "represented_multiplicity_mean": null,
+        "represented_rate": "0/1"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "odd",
+        "support_key": "{3,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 0,
+        "multiplicity_mean": "0",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 0,
+        "nonrepresented_count": 3,
+        "point_count": 3,
+        "represented_count": 0,
+        "represented_multiplicity_mean": null,
+        "represented_rate": "0/3"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "odd",
+        "support_key": "{3,5,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "2/3",
+        "multiplicity_median": "1",
+        "multiplicity_sum": 2,
+        "nonrepresented_count": 1,
+        "point_count": 3,
+        "represented_count": 2,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "2/3"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "odd",
+        "support_key": "{3,5,7}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "4/5",
+        "multiplicity_median": "1",
+        "multiplicity_sum": 4,
+        "nonrepresented_count": 1,
+        "point_count": 5,
+        "represented_count": 4,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "4/5"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "odd",
+        "support_key": "{3,5}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "3/5",
+        "multiplicity_median": "1",
+        "multiplicity_sum": 3,
+        "nonrepresented_count": 2,
+        "point_count": 5,
+        "represented_count": 3,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "3/5"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "odd",
+        "support_key": "{3,7,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1",
+        "multiplicity_median": "1.0",
+        "multiplicity_sum": 2,
+        "nonrepresented_count": 0,
+        "point_count": 2,
+        "represented_count": 2,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "2/2"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "odd",
+        "support_key": "{3,7}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/4",
+        "multiplicity_median": "0.0",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 3,
+        "point_count": 4,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/4"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "odd",
+        "support_key": "{3}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1",
+        "multiplicity_median": "1.0",
+        "multiplicity_sum": 2,
+        "nonrepresented_count": 0,
+        "point_count": 2,
+        "represented_count": 2,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "2/2"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "odd",
+        "support_key": "{5,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 0,
+        "multiplicity_mean": "0",
+        "multiplicity_median": "0.0",
+        "multiplicity_sum": 0,
+        "nonrepresented_count": 2,
+        "point_count": 2,
+        "represented_count": 0,
+        "represented_multiplicity_mean": null,
+        "represented_rate": "0/2"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "odd",
+        "support_key": "{5,7,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1",
+        "multiplicity_median": "1",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "odd",
+        "support_key": "{5,7}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/3",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 2,
+        "point_count": 3,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/3"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "odd",
+        "support_key": "{5}"
+      },
+      "summary": {
+        "maximum_multiplicity": 0,
+        "multiplicity_mean": "0",
+        "multiplicity_median": "0.0",
+        "multiplicity_sum": 0,
+        "nonrepresented_count": 2,
+        "point_count": 2,
+        "represented_count": 0,
+        "represented_multiplicity_mean": null,
+        "represented_rate": "0/2"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "odd",
+        "support_key": "{7,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 0,
+        "multiplicity_mean": "0",
+        "multiplicity_median": "0.0",
+        "multiplicity_sum": 0,
+        "nonrepresented_count": 2,
+        "point_count": 2,
+        "represented_count": 0,
+        "represented_multiplicity_mean": null,
+        "represented_rate": "0/2"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "odd",
+        "support_key": "{7}"
+      },
+      "summary": {
+        "maximum_multiplicity": 0,
+        "multiplicity_mean": "0",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 0,
+        "nonrepresented_count": 1,
+        "point_count": 1,
+        "represented_count": 0,
+        "represented_multiplicity_mean": null,
+        "represented_rate": "0/1"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "odd",
+        "support_key": "{11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 0,
+        "multiplicity_mean": "0",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 0,
+        "nonrepresented_count": 1,
+        "point_count": 1,
+        "represented_count": 0,
+        "represented_multiplicity_mean": null,
+        "represented_rate": "0/1"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "odd",
+        "support_key": "{3,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/2",
+        "multiplicity_median": "0.5",
+        "multiplicity_sum": 3,
+        "nonrepresented_count": 3,
+        "point_count": 6,
+        "represented_count": 3,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "3/6"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "odd",
+        "support_key": "{3,5,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "3/8",
+        "multiplicity_median": "0.0",
+        "multiplicity_sum": 3,
+        "nonrepresented_count": 5,
+        "point_count": 8,
+        "represented_count": 3,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "3/8"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "odd",
+        "support_key": "{3,5,7}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/2",
+        "multiplicity_median": "0.5",
+        "multiplicity_sum": 5,
+        "nonrepresented_count": 5,
+        "point_count": 10,
+        "represented_count": 5,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "5/10"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "odd",
+        "support_key": "{3,5}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "7/9",
+        "multiplicity_median": "1",
+        "multiplicity_sum": 7,
+        "nonrepresented_count": 2,
+        "point_count": 9,
+        "represented_count": 7,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "7/9"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "odd",
+        "support_key": "{3,7,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/3",
+        "multiplicity_median": "0.0",
+        "multiplicity_sum": 2,
+        "nonrepresented_count": 4,
+        "point_count": 6,
+        "represented_count": 2,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "2/6"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "odd",
+        "support_key": "{3,7}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/2",
+        "multiplicity_median": "0.5",
+        "multiplicity_sum": 4,
+        "nonrepresented_count": 4,
+        "point_count": 8,
+        "represented_count": 4,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "4/8"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "odd",
+        "support_key": "{3}"
+      },
+      "summary": {
+        "maximum_multiplicity": 0,
+        "multiplicity_mean": "0",
+        "multiplicity_median": "0.0",
+        "multiplicity_sum": 0,
+        "nonrepresented_count": 2,
+        "point_count": 2,
+        "represented_count": 0,
+        "represented_multiplicity_mean": null,
+        "represented_rate": "0/2"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "odd",
+        "support_key": "{5,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "3/4",
+        "multiplicity_median": "1.0",
+        "multiplicity_sum": 3,
+        "nonrepresented_count": 1,
+        "point_count": 4,
+        "represented_count": 3,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "3/4"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "odd",
+        "support_key": "{5,7,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/2",
+        "multiplicity_median": "0.5",
+        "multiplicity_sum": 2,
+        "nonrepresented_count": 2,
+        "point_count": 4,
+        "represented_count": 2,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "2/4"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "odd",
+        "support_key": "{5,7}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "3/5",
+        "multiplicity_median": "1",
+        "multiplicity_sum": 3,
+        "nonrepresented_count": 2,
+        "point_count": 5,
+        "represented_count": 3,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "3/5"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "odd",
+        "support_key": "{5}"
+      },
+      "summary": {
+        "maximum_multiplicity": 0,
+        "multiplicity_mean": "0",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 0,
+        "nonrepresented_count": 1,
+        "point_count": 1,
+        "represented_count": 0,
+        "represented_multiplicity_mean": null,
+        "represented_rate": "0/1"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "odd",
+        "support_key": "{7,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/3",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 2,
+        "point_count": 3,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/3"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "odd",
+        "support_key": "{7}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1",
+        "multiplicity_median": "1",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "odd",
+        "support_key": "{11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1",
+        "multiplicity_median": "1",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "odd",
+        "support_key": "{3,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "2/7",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 2,
+        "nonrepresented_count": 5,
+        "point_count": 7,
+        "represented_count": 2,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "2/7"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "odd",
+        "support_key": "{3,5,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/2",
+        "multiplicity_median": "0.5",
+        "multiplicity_sum": 8,
+        "nonrepresented_count": 8,
+        "point_count": 16,
+        "represented_count": 8,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "8/16"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "odd",
+        "support_key": "{3,5,7}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "9/22",
+        "multiplicity_median": "0.0",
+        "multiplicity_sum": 9,
+        "nonrepresented_count": 13,
+        "point_count": 22,
+        "represented_count": 9,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "9/22"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "odd",
+        "support_key": "{3,5}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "4/13",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 4,
+        "nonrepresented_count": 9,
+        "point_count": 13,
+        "represented_count": 4,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "4/13"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "odd",
+        "support_key": "{3,7,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "5/13",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 5,
+        "nonrepresented_count": 8,
+        "point_count": 13,
+        "represented_count": 5,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "5/13"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "odd",
+        "support_key": "{3,7}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/9",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 8,
+        "point_count": 9,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/9"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "odd",
+        "support_key": "{3}"
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/2",
+        "multiplicity_median": "0.5",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 1,
+        "point_count": 2,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/2"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "odd",
+        "support_key": "{5,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 0,
+        "multiplicity_mean": "0",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 0,
+        "nonrepresented_count": 5,
+        "point_count": 5,
+        "represented_count": 0,
+        "represented_multiplicity_mean": null,
+        "represented_rate": "0/5"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "odd",
+        "support_key": "{5,7,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 0,
+        "multiplicity_mean": "0",
+        "multiplicity_median": "0.0",
+        "multiplicity_sum": 0,
+        "nonrepresented_count": 8,
+        "point_count": 8,
+        "represented_count": 0,
+        "represented_multiplicity_mean": null,
+        "represented_rate": "0/8"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "odd",
+        "support_key": "{5,7}"
+      },
+      "summary": {
+        "maximum_multiplicity": 0,
+        "multiplicity_mean": "0",
+        "multiplicity_median": "0.0",
+        "multiplicity_sum": 0,
+        "nonrepresented_count": 6,
+        "point_count": 6,
+        "represented_count": 0,
+        "represented_multiplicity_mean": null,
+        "represented_rate": "0/6"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "odd",
+        "support_key": "{5}"
+      },
+      "summary": {
+        "maximum_multiplicity": 0,
+        "multiplicity_mean": "0",
+        "multiplicity_median": "0.0",
+        "multiplicity_sum": 0,
+        "nonrepresented_count": 2,
+        "point_count": 2,
+        "represented_count": 0,
+        "represented_multiplicity_mean": null,
+        "represented_rate": "0/2"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "odd",
+        "support_key": "{7,11}"
+      },
+      "summary": {
+        "maximum_multiplicity": 0,
+        "multiplicity_mean": "0",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 0,
+        "nonrepresented_count": 3,
+        "point_count": 3,
+        "represented_count": 0,
+        "represented_multiplicity_mean": null,
+        "represented_rate": "0/3"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "odd",
+        "support_key": "{7}"
+      },
+      "summary": {
+        "maximum_multiplicity": 0,
+        "multiplicity_mean": "0",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 0,
+        "nonrepresented_count": 1,
+        "point_count": 1,
+        "represented_count": 0,
+        "represented_multiplicity_mean": null,
+        "represented_rate": "0/1"
+      }
+    }
+  ],
+  "conditioned_by_support_size": [
+    {
+      "group": {
+        "decimal_bin": "1-9",
+        "route": "even",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/3",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 2,
+        "point_count": 3,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/3"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1-9",
+        "route": "even",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 0,
+        "multiplicity_mean": "0",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 0,
+        "nonrepresented_count": 1,
+        "point_count": 1,
+        "represented_count": 0,
+        "represented_multiplicity_mean": null,
+        "represented_rate": "0/1"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10-99",
+        "route": "even",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 5,
+        "multiplicity_mean": "3",
+        "multiplicity_median": "2",
+        "multiplicity_sum": 9,
+        "nonrepresented_count": 0,
+        "point_count": 3,
+        "represented_count": 3,
+        "represented_multiplicity_mean": "3",
+        "represented_rate": "3/3"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10-99",
+        "route": "even",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 7,
+        "multiplicity_mean": "13/4",
+        "multiplicity_median": "3.0",
+        "multiplicity_sum": 65,
+        "nonrepresented_count": 0,
+        "point_count": 20,
+        "represented_count": 20,
+        "represented_multiplicity_mean": "13/4",
+        "represented_rate": "20/20"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10-99",
+        "route": "even",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 9,
+        "multiplicity_mean": "41/7",
+        "multiplicity_median": "6",
+        "multiplicity_sum": 41,
+        "nonrepresented_count": 0,
+        "point_count": 7,
+        "represented_count": 7,
+        "represented_multiplicity_mean": "41/7",
+        "represented_rate": "7/7"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "even",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 11,
+        "multiplicity_mean": "22/3",
+        "multiplicity_median": "8",
+        "multiplicity_sum": 22,
+        "nonrepresented_count": 0,
+        "point_count": 3,
+        "represented_count": 3,
+        "represented_multiplicity_mean": "22/3",
+        "represented_rate": "3/3"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "even",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 33,
+        "multiplicity_mean": "583/38",
+        "multiplicity_median": "13.5",
+        "multiplicity_sum": 583,
+        "nonrepresented_count": 0,
+        "point_count": 38,
+        "represented_count": 38,
+        "represented_multiplicity_mean": "583/38",
+        "represented_rate": "38/38"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "even",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 48,
+        "multiplicity_mean": "1113/50",
+        "multiplicity_median": "20.0",
+        "multiplicity_sum": 1113,
+        "nonrepresented_count": 0,
+        "point_count": 50,
+        "represented_count": 50,
+        "represented_multiplicity_mean": "1113/50",
+        "represented_rate": "50/50"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "even",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 76,
+        "multiplicity_mean": "44",
+        "multiplicity_median": "39.0",
+        "multiplicity_sum": 176,
+        "nonrepresented_count": 0,
+        "point_count": 4,
+        "represented_count": 4,
+        "represented_multiplicity_mean": "44",
+        "represented_rate": "4/4"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "even",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 197,
+        "multiplicity_mean": "4009/54",
+        "multiplicity_median": "66.5",
+        "multiplicity_sum": 4009,
+        "nonrepresented_count": 0,
+        "point_count": 54,
+        "represented_count": 54,
+        "represented_multiplicity_mean": "4009/54",
+        "represented_rate": "54/54"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "even",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 261,
+        "multiplicity_mean": "15053/136",
+        "multiplicity_median": "99.5",
+        "multiplicity_sum": 15053,
+        "nonrepresented_count": 0,
+        "point_count": 136,
+        "represented_count": 136,
+        "represented_multiplicity_mean": "15053/136",
+        "represented_rate": "136/136"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "even",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 435,
+        "multiplicity_mean": "830/3",
+        "multiplicity_median": "244",
+        "multiplicity_sum": 830,
+        "nonrepresented_count": 0,
+        "point_count": 3,
+        "represented_count": 3,
+        "represented_multiplicity_mean": "830/3",
+        "represented_rate": "3/3"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "even",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 1185,
+        "multiplicity_mean": "8047/19",
+        "multiplicity_median": "359.0",
+        "multiplicity_sum": 32188,
+        "nonrepresented_count": 0,
+        "point_count": 76,
+        "represented_count": 76,
+        "represented_multiplicity_mean": "8047/19",
+        "represented_rate": "76/76"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "even",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 1557,
+        "multiplicity_mean": "163029/254",
+        "multiplicity_median": "563.0",
+        "multiplicity_sum": 163029,
+        "nonrepresented_count": 0,
+        "point_count": 254,
+        "represented_count": 254,
+        "represented_multiplicity_mean": "163029/254",
+        "represented_rate": "254/254"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100000-100000",
+        "route": "even",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 810,
+        "multiplicity_mean": "810",
+        "multiplicity_median": "810",
+        "multiplicity_sum": 810,
+        "nonrepresented_count": 0,
+        "point_count": 1,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "810",
+        "represented_rate": "1/1"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1-9",
+        "route": "odd",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "3/4",
+        "multiplicity_median": "1.0",
+        "multiplicity_sum": 3,
+        "nonrepresented_count": 1,
+        "point_count": 4,
+        "represented_count": 3,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "3/4"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10-99",
+        "route": "odd",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "3/5",
+        "multiplicity_median": "1",
+        "multiplicity_sum": 3,
+        "nonrepresented_count": 2,
+        "point_count": 5,
+        "represented_count": 3,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "3/5"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10-99",
+        "route": "odd",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "4/5",
+        "multiplicity_median": "1.0",
+        "multiplicity_sum": 8,
+        "nonrepresented_count": 2,
+        "point_count": 10,
+        "represented_count": 8,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "8/10"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "odd",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/3",
+        "multiplicity_median": "0.0",
+        "multiplicity_sum": 2,
+        "nonrepresented_count": 4,
+        "point_count": 6,
+        "represented_count": 2,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "2/6"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "odd",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "5/19",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 5,
+        "nonrepresented_count": 14,
+        "point_count": 19,
+        "represented_count": 5,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "5/19"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "100-999",
+        "route": "odd",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "9/11",
+        "multiplicity_median": "1",
+        "multiplicity_sum": 9,
+        "nonrepresented_count": 2,
+        "point_count": 11,
+        "represented_count": 9,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "9/11"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "odd",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/5",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 1,
+        "nonrepresented_count": 4,
+        "point_count": 5,
+        "represented_count": 1,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "1/5"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "odd",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "3/5",
+        "multiplicity_median": "1",
+        "multiplicity_sum": 21,
+        "nonrepresented_count": 14,
+        "point_count": 35,
+        "represented_count": 21,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "21/35"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "1000-9999",
+        "route": "odd",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "3/7",
+        "multiplicity_median": "0.0",
+        "multiplicity_sum": 12,
+        "nonrepresented_count": 16,
+        "point_count": 28,
+        "represented_count": 12,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "12/28"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "odd",
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "1/3",
+        "multiplicity_median": "0.0",
+        "multiplicity_sum": 2,
+        "nonrepresented_count": 4,
+        "point_count": 6,
+        "represented_count": 2,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "2/6"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "odd",
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "7/43",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 7,
+        "nonrepresented_count": 36,
+        "point_count": 43,
+        "represented_count": 7,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "7/43"
+      }
+    },
+    {
+      "group": {
+        "decimal_bin": "10000-99999",
+        "route": "odd",
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 1,
+        "multiplicity_mean": "22/59",
+        "multiplicity_median": "0",
+        "multiplicity_sum": 22,
+        "nonrepresented_count": 37,
+        "point_count": 59,
+        "represented_count": 22,
+        "represented_multiplicity_mean": "1",
+        "represented_rate": "22/59"
+      }
+    }
+  ],
+  "conditioned_rank_tables": [
+    {
+      "ranking": [
+        {
+          "class": 1,
+          "multiplicity_mean": "1/3",
+          "multiplicity_sum": 1,
+          "point_count": 3
+        },
+        {
+          "class": 2,
+          "multiplicity_mean": "0",
+          "multiplicity_sum": 0,
+          "point_count": 1
+        }
+      ],
+      "stratum": {
+        "decimal_bin": "1-9",
+        "route": "even"
+      }
+    },
+    {
+      "ranking": [
+        {
+          "class": 3,
+          "multiplicity_mean": "41/7",
+          "multiplicity_sum": 41,
+          "point_count": 7
+        },
+        {
+          "class": 2,
+          "multiplicity_mean": "13/4",
+          "multiplicity_sum": 65,
+          "point_count": 20
+        },
+        {
+          "class": 1,
+          "multiplicity_mean": "3",
+          "multiplicity_sum": 9,
+          "point_count": 3
+        }
+      ],
+      "stratum": {
+        "decimal_bin": "10-99",
+        "route": "even"
+      }
+    },
+    {
+      "ranking": [
+        {
+          "class": 3,
+          "multiplicity_mean": "1113/50",
+          "multiplicity_sum": 1113,
+          "point_count": 50
+        },
+        {
+          "class": 2,
+          "multiplicity_mean": "583/38",
+          "multiplicity_sum": 583,
+          "point_count": 38
+        },
+        {
+          "class": 1,
+          "multiplicity_mean": "22/3",
+          "multiplicity_sum": 22,
+          "point_count": 3
+        }
+      ],
+      "stratum": {
+        "decimal_bin": "100-999",
+        "route": "even"
+      }
+    },
+    {
+      "ranking": [
+        {
+          "class": 3,
+          "multiplicity_mean": "15053/136",
+          "multiplicity_sum": 15053,
+          "point_count": 136
+        },
+        {
+          "class": 2,
+          "multiplicity_mean": "4009/54",
+          "multiplicity_sum": 4009,
+          "point_count": 54
+        },
+        {
+          "class": 1,
+          "multiplicity_mean": "44",
+          "multiplicity_sum": 176,
+          "point_count": 4
+        }
+      ],
+      "stratum": {
+        "decimal_bin": "1000-9999",
+        "route": "even"
+      }
+    },
+    {
+      "ranking": [
+        {
+          "class": 3,
+          "multiplicity_mean": "163029/254",
+          "multiplicity_sum": 163029,
+          "point_count": 254
+        },
+        {
+          "class": 2,
+          "multiplicity_mean": "8047/19",
+          "multiplicity_sum": 32188,
+          "point_count": 76
+        },
+        {
+          "class": 1,
+          "multiplicity_mean": "830/3",
+          "multiplicity_sum": 830,
+          "point_count": 3
+        }
+      ],
+      "stratum": {
+        "decimal_bin": "10000-99999",
+        "route": "even"
+      }
+    },
+    {
+      "ranking": [
+        {
+          "class": 2,
+          "multiplicity_mean": "810",
+          "multiplicity_sum": 810,
+          "point_count": 1
+        }
+      ],
+      "stratum": {
+        "decimal_bin": "100000-100000",
+        "route": "even"
+      }
+    },
+    {
+      "ranking": [
+        {
+          "class": 1,
+          "multiplicity_mean": "3/4",
+          "multiplicity_sum": 3,
+          "point_count": 4
+        }
+      ],
+      "stratum": {
+        "decimal_bin": "1-9",
+        "route": "odd"
+      }
+    },
+    {
+      "ranking": [
+        {
+          "class": 2,
+          "multiplicity_mean": "4/5",
+          "multiplicity_sum": 8,
+          "point_count": 10
+        },
+        {
+          "class": 1,
+          "multiplicity_mean": "3/5",
+          "multiplicity_sum": 3,
+          "point_count": 5
+        }
+      ],
+      "stratum": {
+        "decimal_bin": "10-99",
+        "route": "odd"
+      }
+    },
+    {
+      "ranking": [
+        {
+          "class": 3,
+          "multiplicity_mean": "9/11",
+          "multiplicity_sum": 9,
+          "point_count": 11
+        },
+        {
+          "class": 1,
+          "multiplicity_mean": "1/3",
+          "multiplicity_sum": 2,
+          "point_count": 6
+        },
+        {
+          "class": 2,
+          "multiplicity_mean": "5/19",
+          "multiplicity_sum": 5,
+          "point_count": 19
+        }
+      ],
+      "stratum": {
+        "decimal_bin": "100-999",
+        "route": "odd"
+      }
+    },
+    {
+      "ranking": [
+        {
+          "class": 2,
+          "multiplicity_mean": "3/5",
+          "multiplicity_sum": 21,
+          "point_count": 35
+        },
+        {
+          "class": 3,
+          "multiplicity_mean": "3/7",
+          "multiplicity_sum": 12,
+          "point_count": 28
+        },
+        {
+          "class": 1,
+          "multiplicity_mean": "1/5",
+          "multiplicity_sum": 1,
+          "point_count": 5
+        }
+      ],
+      "stratum": {
+        "decimal_bin": "1000-9999",
+        "route": "odd"
+      }
+    },
+    {
+      "ranking": [
+        {
+          "class": 3,
+          "multiplicity_mean": "22/59",
+          "multiplicity_sum": 22,
+          "point_count": 59
+        },
+        {
+          "class": 1,
+          "multiplicity_mean": "1/3",
+          "multiplicity_sum": 2,
+          "point_count": 6
+        },
+        {
+          "class": 2,
+          "multiplicity_mean": "7/43",
+          "multiplicity_sum": 7,
+          "point_count": 43
+        }
+      ],
+      "stratum": {
+        "decimal_bin": "10000-99999",
+        "route": "odd"
+      }
+    }
+  ],
+  "counterexamples": {
+    "same_exact_support_does_not_determine_multiplicity": {
+      "group": "{11}",
+      "left": [
+        11,
+        0
+      ],
+      "right": [
+        14641,
+        1
+      ]
+    },
+    "same_size_bin_does_not_determine_support": {
+      "decimal_bin": "1-9",
+      "route": "even",
+      "support_examples": [
+        "{2,3}",
+        "{2}"
+      ]
+    },
+    "same_support_size_does_not_determine_multiplicity": {
+      "group": 1,
+      "left": [
+        2,
+        0
+      ],
+      "right": [
+        5,
+        1
+      ]
+    }
+  },
+  "id": "ENGINE-004-PASS-004-SUPPORT-CONDITIONED-INCIDENCE-SUMMARY-001",
+  "matched_neighborhood_witnesses": [
+    {
+      "decimal_bin": "1-9",
+      "distance": 2,
+      "left": {
+        "integer": 4,
+        "multiplicity": 0,
+        "support": [
+          2
+        ],
+        "support_size": 1
+      },
+      "right": {
+        "integer": 6,
+        "multiplicity": 0,
+        "support": [
+          2,
+          3
+        ],
+        "support_size": 2
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "1-9",
+      "distance": 2,
+      "left": {
+        "integer": 6,
+        "multiplicity": 0,
+        "support": [
+          2,
+          3
+        ],
+        "support_size": 2
+      },
+      "right": {
+        "integer": 8,
+        "multiplicity": 1,
+        "support": [
+          2
+        ],
+        "support_size": 1
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "10-99",
+      "distance": 2,
+      "left": {
+        "integer": 14,
+        "multiplicity": 1,
+        "support": [
+          2,
+          7
+        ],
+        "support_size": 2
+      },
+      "right": {
+        "integer": 16,
+        "multiplicity": 2,
+        "support": [
+          2
+        ],
+        "support_size": 1
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "10-99",
+      "distance": 2,
+      "left": {
+        "integer": 16,
+        "multiplicity": 2,
+        "support": [
+          2
+        ],
+        "support_size": 1
+      },
+      "right": {
+        "integer": 18,
+        "multiplicity": 2,
+        "support": [
+          2,
+          3
+        ],
+        "support_size": 2
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "10-99",
+      "distance": 2,
+      "left": {
+        "integer": 28,
+        "multiplicity": 2,
+        "support": [
+          2,
+          7
+        ],
+        "support_size": 2
+      },
+      "right": {
+        "integer": 30,
+        "multiplicity": 3,
+        "support": [
+          2,
+          3,
+          5
+        ],
+        "support_size": 3
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "10-99",
+      "distance": 2,
+      "left": {
+        "integer": 30,
+        "multiplicity": 3,
+        "support": [
+          2,
+          3,
+          5
+        ],
+        "support_size": 3
+      },
+      "right": {
+        "integer": 32,
+        "multiplicity": 2,
+        "support": [
+          2
+        ],
+        "support_size": 1
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "10-99",
+      "distance": 2,
+      "left": {
+        "integer": 40,
+        "multiplicity": 3,
+        "support": [
+          2,
+          5
+        ],
+        "support_size": 2
+      },
+      "right": {
+        "integer": 42,
+        "multiplicity": 4,
+        "support": [
+          2,
+          3,
+          7
+        ],
+        "support_size": 3
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "10-99",
+      "distance": 2,
+      "left": {
+        "integer": 42,
+        "multiplicity": 4,
+        "support": [
+          2,
+          3,
+          7
+        ],
+        "support_size": 3
+      },
+      "right": {
+        "integer": 44,
+        "multiplicity": 3,
+        "support": [
+          2,
+          11
+        ],
+        "support_size": 2
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "10-99",
+      "distance": 2,
+      "left": {
+        "integer": 64,
+        "multiplicity": 5,
+        "support": [
+          2
+        ],
+        "support_size": 1
+      },
+      "right": {
+        "integer": 66,
+        "multiplicity": 6,
+        "support": [
+          2,
+          3,
+          11
+        ],
+        "support_size": 3
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "10-99",
+      "distance": 2,
+      "left": {
+        "integer": 70,
+        "multiplicity": 5,
+        "support": [
+          2,
+          5,
+          7
+        ],
+        "support_size": 3
+      },
+      "right": {
+        "integer": 72,
+        "multiplicity": 6,
+        "support": [
+          2,
+          3
+        ],
+        "support_size": 2
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "10-99",
+      "distance": 2,
+      "left": {
+        "integer": 88,
+        "multiplicity": 4,
+        "support": [
+          2,
+          11
+        ],
+        "support_size": 2
+      },
+      "right": {
+        "integer": 90,
+        "multiplicity": 9,
+        "support": [
+          2,
+          3,
+          5
+        ],
+        "support_size": 3
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "100-999",
+      "distance": 2,
+      "left": {
+        "integer": 108,
+        "multiplicity": 8,
+        "support": [
+          2,
+          3
+        ],
+        "support_size": 2
+      },
+      "right": {
+        "integer": 110,
+        "multiplicity": 6,
+        "support": [
+          2,
+          5,
+          11
+        ],
+        "support_size": 3
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "100-999",
+      "distance": 2,
+      "left": {
+        "integer": 110,
+        "multiplicity": 6,
+        "support": [
+          2,
+          5,
+          11
+        ],
+        "support_size": 3
+      },
+      "right": {
+        "integer": 112,
+        "multiplicity": 7,
+        "support": [
+          2,
+          7
+        ],
+        "support_size": 2
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "100-999",
+      "distance": 2,
+      "left": {
+        "integer": 126,
+        "multiplicity": 10,
+        "support": [
+          2,
+          3,
+          7
+        ],
+        "support_size": 3
+      },
+      "right": {
+        "integer": 128,
+        "multiplicity": 3,
+        "support": [
+          2
+        ],
+        "support_size": 1
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "100-999",
+      "distance": 2,
+      "left": {
+        "integer": 196,
+        "multiplicity": 9,
+        "support": [
+          2,
+          7
+        ],
+        "support_size": 2
+      },
+      "right": {
+        "integer": 198,
+        "multiplicity": 13,
+        "support": [
+          2,
+          3,
+          11
+        ],
+        "support_size": 3
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "100-999",
+      "distance": 2,
+      "left": {
+        "integer": 198,
+        "multiplicity": 13,
+        "support": [
+          2,
+          3,
+          11
+        ],
+        "support_size": 3
+      },
+      "right": {
+        "integer": 200,
+        "multiplicity": 8,
+        "support": [
+          2,
+          5
+        ],
+        "support_size": 2
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "100-999",
+      "distance": 2,
+      "left": {
+        "integer": 240,
+        "multiplicity": 18,
+        "support": [
+          2,
+          3,
+          5
+        ],
+        "support_size": 3
+      },
+      "right": {
+        "integer": 242,
+        "multiplicity": 8,
+        "support": [
+          2,
+          11
+        ],
+        "support_size": 2
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "100-999",
+      "distance": 2,
+      "left": {
+        "integer": 243,
+        "multiplicity": 1,
+        "support": [
+          3
+        ],
+        "support_size": 1
+      },
+      "right": {
+        "integer": 245,
+        "multiplicity": 0,
+        "support": [
+          5,
+          7
+        ],
+        "support_size": 2
+      },
+      "route": "odd"
+    },
+    {
+      "decimal_bin": "100-999",
+      "distance": 2,
+      "left": {
+        "integer": 250,
+        "multiplicity": 9,
+        "support": [
+          2,
+          5
+        ],
+        "support_size": 2
+      },
+      "right": {
+        "integer": 252,
+        "multiplicity": 16,
+        "support": [
+          2,
+          3,
+          7
+        ],
+        "support_size": 3
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "100-999",
+      "distance": 2,
+      "left": {
+        "integer": 350,
+        "multiplicity": 13,
+        "support": [
+          2,
+          5,
+          7
+        ],
+        "support_size": 3
+      },
+      "right": {
+        "integer": 352,
+        "multiplicity": 10,
+        "support": [
+          2,
+          11
+        ],
+        "support_size": 2
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "100-999",
+      "distance": 2,
+      "left": {
+        "integer": 448,
+        "multiplicity": 13,
+        "support": [
+          2,
+          7
+        ],
+        "support_size": 2
+      },
+      "right": {
+        "integer": 450,
+        "multiplicity": 27,
+        "support": [
+          2,
+          3,
+          5
+        ],
+        "support_size": 3
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "1000-9999",
+      "distance": 2,
+      "left": {
+        "integer": 4800,
+        "multiplicity": 150,
+        "support": [
+          2,
+          3,
+          5
+        ],
+        "support_size": 3
+      },
+      "right": {
+        "integer": 4802,
+        "multiplicity": 64,
+        "support": [
+          2,
+          7
+        ],
+        "support_size": 2
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "1000-9999",
+      "distance": 2,
+      "left": {
+        "integer": 8748,
+        "multiplicity": 173,
+        "support": [
+          2,
+          3
+        ],
+        "support_size": 2
+      },
+      "right": {
+        "integer": 8750,
+        "multiplicity": 138,
+        "support": [
+          2,
+          5,
+          7
+        ],
+        "support_size": 3
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "1-9",
+      "distance": 4,
+      "left": {
+        "integer": 2,
+        "multiplicity": 0,
+        "support": [
+          2
+        ],
+        "support_size": 1
+      },
+      "right": {
+        "integer": 6,
+        "multiplicity": 0,
+        "support": [
+          2,
+          3
+        ],
+        "support_size": 2
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "10-99",
+      "distance": 4,
+      "left": {
+        "integer": 11,
+        "multiplicity": 0,
+        "support": [
+          11
+        ],
+        "support_size": 1
+      },
+      "right": {
+        "integer": 15,
+        "multiplicity": 1,
+        "support": [
+          3,
+          5
+        ],
+        "support_size": 2
+      },
+      "route": "odd"
+    },
+    {
+      "decimal_bin": "10-99",
+      "distance": 4,
+      "left": {
+        "integer": 12,
+        "multiplicity": 1,
+        "support": [
+          2,
+          3
+        ],
+        "support_size": 2
+      },
+      "right": {
+        "integer": 16,
+        "multiplicity": 2,
+        "support": [
+          2
+        ],
+        "support_size": 1
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "10-99",
+      "distance": 4,
+      "left": {
+        "integer": 16,
+        "multiplicity": 2,
+        "support": [
+          2
+        ],
+        "support_size": 1
+      },
+      "right": {
+        "integer": 20,
+        "multiplicity": 2,
+        "support": [
+          2,
+          5
+        ],
+        "support_size": 2
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "10-99",
+      "distance": 4,
+      "left": {
+        "integer": 21,
+        "multiplicity": 1,
+        "support": [
+          3,
+          7
+        ],
+        "support_size": 2
+      },
+      "right": {
+        "integer": 25,
+        "multiplicity": 1,
+        "support": [
+          5
+        ],
+        "support_size": 1
+      },
+      "route": "odd"
+    },
+    {
+      "decimal_bin": "10-99",
+      "distance": 4,
+      "left": {
+        "integer": 32,
+        "multiplicity": 2,
+        "support": [
+          2
+        ],
+        "support_size": 1
+      },
+      "right": {
+        "integer": 36,
+        "multiplicity": 4,
+        "support": [
+          2,
+          3
+        ],
+        "support_size": 2
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "10-99",
+      "distance": 4,
+      "left": {
+        "integer": 45,
+        "multiplicity": 1,
+        "support": [
+          3,
+          5
+        ],
+        "support_size": 2
+      },
+      "right": {
+        "integer": 49,
+        "multiplicity": 1,
+        "support": [
+          7
+        ],
+        "support_size": 1
+      },
+      "route": "odd"
+    },
+    {
+      "decimal_bin": "10-99",
+      "distance": 4,
+      "left": {
+        "integer": 56,
+        "multiplicity": 3,
+        "support": [
+          2,
+          7
+        ],
+        "support_size": 2
+      },
+      "right": {
+        "integer": 60,
+        "multiplicity": 6,
+        "support": [
+          2,
+          3,
+          5
+        ],
+        "support_size": 3
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "10-99",
+      "distance": 4,
+      "left": {
+        "integer": 60,
+        "multiplicity": 6,
+        "support": [
+          2,
+          3,
+          5
+        ],
+        "support_size": 3
+      },
+      "right": {
+        "integer": 64,
+        "multiplicity": 5,
+        "support": [
+          2
+        ],
+        "support_size": 1
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "10-99",
+      "distance": 4,
+      "left": {
+        "integer": 77,
+        "multiplicity": 0,
+        "support": [
+          7,
+          11
+        ],
+        "support_size": 2
+      },
+      "right": {
+        "integer": 81,
+        "multiplicity": 1,
+        "support": [
+          3
+        ],
+        "support_size": 1
+      },
+      "route": "odd"
+    },
+    {
+      "decimal_bin": "10-99",
+      "distance": 4,
+      "left": {
+        "integer": 80,
+        "multiplicity": 4,
+        "support": [
+          2,
+          5
+        ],
+        "support_size": 2
+      },
+      "right": {
+        "integer": 84,
+        "multiplicity": 8,
+        "support": [
+          2,
+          3,
+          7
+        ],
+        "support_size": 3
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "10-99",
+      "distance": 4,
+      "left": {
+        "integer": 84,
+        "multiplicity": 8,
+        "support": [
+          2,
+          3,
+          7
+        ],
+        "support_size": 3
+      },
+      "right": {
+        "integer": 88,
+        "multiplicity": 4,
+        "support": [
+          2,
+          11
+        ],
+        "support_size": 2
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "100-999",
+      "distance": 4,
+      "left": {
+        "integer": 128,
+        "multiplicity": 3,
+        "support": [
+          2
+        ],
+        "support_size": 1
+      },
+      "right": {
+        "integer": 132,
+        "multiplicity": 9,
+        "support": [
+          2,
+          3,
+          11
+        ],
+        "support_size": 3
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "100-999",
+      "distance": 4,
+      "left": {
+        "integer": 140,
+        "multiplicity": 7,
+        "support": [
+          2,
+          5,
+          7
+        ],
+        "support_size": 3
+      },
+      "right": {
+        "integer": 144,
+        "multiplicity": 11,
+        "support": [
+          2,
+          3
+        ],
+        "support_size": 2
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "100-999",
+      "distance": 4,
+      "left": {
+        "integer": 176,
+        "multiplicity": 7,
+        "support": [
+          2,
+          11
+        ],
+        "support_size": 2
+      },
+      "right": {
+        "integer": 180,
+        "multiplicity": 14,
+        "support": [
+          2,
+          3,
+          5
+        ],
+        "support_size": 3
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "100-999",
+      "distance": 4,
+      "left": {
+        "integer": 216,
+        "multiplicity": 13,
+        "support": [
+          2,
+          3
+        ],
+        "support_size": 2
+      },
+      "right": {
+        "integer": 220,
+        "multiplicity": 9,
+        "support": [
+          2,
+          5,
+          11
+        ],
+        "support_size": 3
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "100-999",
+      "distance": 4,
+      "left": {
+        "integer": 220,
+        "multiplicity": 9,
+        "support": [
+          2,
+          5,
+          11
+        ],
+        "support_size": 3
+      },
+      "right": {
+        "integer": 224,
+        "multiplicity": 7,
+        "support": [
+          2,
+          7
+        ],
+        "support_size": 2
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "100-999",
+      "distance": 4,
+      "left": {
+        "integer": 252,
+        "multiplicity": 16,
+        "support": [
+          2,
+          3,
+          7
+        ],
+        "support_size": 3
+      },
+      "right": {
+        "integer": 256,
+        "multiplicity": 8,
+        "support": [
+          2
+        ],
+        "support_size": 1
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "100-999",
+      "distance": 4,
+      "left": {
+        "integer": 392,
+        "multiplicity": 11,
+        "support": [
+          2,
+          7
+        ],
+        "support_size": 2
+      },
+      "right": {
+        "integer": 396,
+        "multiplicity": 21,
+        "support": [
+          2,
+          3,
+          11
+        ],
+        "support_size": 3
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "100-999",
+      "distance": 4,
+      "left": {
+        "integer": 396,
+        "multiplicity": 21,
+        "support": [
+          2,
+          3,
+          11
+        ],
+        "support_size": 3
+      },
+      "right": {
+        "integer": 400,
+        "multiplicity": 14,
+        "support": [
+          2,
+          5
+        ],
+        "support_size": 2
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "100-999",
+      "distance": 4,
+      "left": {
+        "integer": 480,
+        "multiplicity": 29,
+        "support": [
+          2,
+          3,
+          5
+        ],
+        "support_size": 3
+      },
+      "right": {
+        "integer": 484,
+        "multiplicity": 14,
+        "support": [
+          2,
+          11
+        ],
+        "support_size": 2
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "100-999",
+      "distance": 4,
+      "left": {
+        "integer": 486,
+        "multiplicity": 23,
+        "support": [
+          2,
+          3
+        ],
+        "support_size": 2
+      },
+      "right": {
+        "integer": 490,
+        "multiplicity": 19,
+        "support": [
+          2,
+          5,
+          7
+        ],
+        "support_size": 3
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "100-999",
+      "distance": 4,
+      "left": {
+        "integer": 500,
+        "multiplicity": 13,
+        "support": [
+          2,
+          5
+        ],
+        "support_size": 2
+      },
+      "right": {
+        "integer": 504,
+        "multiplicity": 27,
+        "support": [
+          2,
+          3,
+          7
+        ],
+        "support_size": 3
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "100-999",
+      "distance": 4,
+      "left": {
+        "integer": 700,
+        "multiplicity": 24,
+        "support": [
+          2,
+          5,
+          7
+        ],
+        "support_size": 3
+      },
+      "right": {
+        "integer": 704,
+        "multiplicity": 18,
+        "support": [
+          2,
+          11
+        ],
+        "support_size": 2
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "100-999",
+      "distance": 4,
+      "left": {
+        "integer": 896,
+        "multiplicity": 20,
+        "support": [
+          2,
+          7
+        ],
+        "support_size": 2
+      },
+      "right": {
+        "integer": 900,
+        "multiplicity": 48,
+        "support": [
+          2,
+          3,
+          5
+        ],
+        "support_size": 3
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "1000-9999",
+      "distance": 4,
+      "left": {
+        "integer": 9600,
+        "multiplicity": 261,
+        "support": [
+          2,
+          3,
+          5
+        ],
+        "support_size": 3
+      },
+      "right": {
+        "integer": 9604,
+        "multiplicity": 127,
+        "support": [
+          2,
+          7
+        ],
+        "support_size": 2
+      },
+      "route": "even"
+    },
+    {
+      "decimal_bin": "10000-99999",
+      "distance": 4,
+      "left": {
+        "integer": 17496,
+        "multiplicity": 310,
+        "support": [
+          2,
+          3
+        ],
+        "support_size": 2
+      },
+      "right": {
+        "integer": 17500,
+        "multiplicity": 247,
+        "support": [
+          2,
+          5,
+          7
+        ],
+        "support_size": 3
+      },
+      "route": "even"
+    }
+  ],
+  "rank_reversal_inventory": [
+    {
+      "conditioned_order": [
+        1,
+        2
+      ],
+      "raw_restricted_order": [
+        2,
+        1
+      ],
+      "stratum": {
+        "decimal_bin": "1-9",
+        "route": "even"
+      }
+    },
+    {
+      "conditioned_order": [
+        3,
+        1,
+        2
+      ],
+      "raw_restricted_order": [
+        3,
+        2,
+        1
+      ],
+      "stratum": {
+        "decimal_bin": "100-999",
+        "route": "odd"
+      }
+    },
+    {
+      "conditioned_order": [
+        2,
+        3,
+        1
+      ],
+      "raw_restricted_order": [
+        3,
+        2,
+        1
+      ],
+      "stratum": {
+        "decimal_bin": "1000-9999",
+        "route": "odd"
+      }
+    },
+    {
+      "conditioned_order": [
+        3,
+        1,
+        2
+      ],
+      "raw_restricted_order": [
+        3,
+        2,
+        1
+      ],
+      "stratum": {
+        "decimal_bin": "10000-99999",
+        "route": "odd"
+      }
+    }
+  ],
+  "raw_by_support_size": [
+    {
+      "group": {
+        "support_size": 1
+      },
+      "summary": {
+        "maximum_multiplicity": 435,
+        "multiplicity_mean": "1049/42",
+        "multiplicity_median": "1.0",
+        "multiplicity_sum": 1049,
+        "nonrepresented_count": 17,
+        "point_count": 42,
+        "represented_count": 25,
+        "represented_multiplicity_mean": "1049/25",
+        "represented_rate": "25/42"
+      }
+    },
+    {
+      "group": {
+        "support_size": 2
+      },
+      "summary": {
+        "maximum_multiplicity": 1185,
+        "multiplicity_mean": "37696/297",
+        "multiplicity_median": "14",
+        "multiplicity_sum": 37696,
+        "nonrepresented_count": 67,
+        "point_count": 297,
+        "represented_count": 230,
+        "represented_multiplicity_mean": "18848/115",
+        "represented_rate": "230/297"
+      }
+    },
+    {
+      "group": {
+        "support_size": 3
+      },
+      "summary": {
+        "maximum_multiplicity": 1557,
+        "multiplicity_mean": "179279/545",
+        "multiplicity_median": "172",
+        "multiplicity_sum": 179279,
+        "nonrepresented_count": 55,
+        "point_count": 545,
+        "represented_count": 490,
+        "represented_multiplicity_mean": "179279/490",
+        "represented_rate": "490/545"
+      }
+    }
+  ],
+  "record_certificate": {
+    "row_count": 884,
+    "sha256": "2da8acb8cf35c66031afa8358fa405a0c63e79f27e1a374496e785f06b9378c1"
+  },
+  "scope": {
+    "decimal_bins": [
+      "1-9",
+      "10-99",
+      "100-999",
+      "1000-9999",
+      "10000-99999",
+      "100000-100000"
+    ],
+    "integer_cap": 100000,
+    "integer_point_count": 884,
+    "represented_point_count": 745,
+    "support_face_sizes": [
+      1,
+      2,
+      3
+    ],
+    "support_prime_limit": 11
+  },
+  "verification": {
+    "all_registered_points_present": true,
+    "all_spectra_match_pass_002": true,
+    "deterministic_ordering": true,
+    "group_counts_reconstruct_total": true,
+    "matched_witnesses_respect_route_and_decimal_bin": true,
+    "phase_d_not_used": true
+  }
+}
