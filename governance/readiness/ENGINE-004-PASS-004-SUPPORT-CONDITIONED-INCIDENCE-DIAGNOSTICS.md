@@ -7,17 +7,11 @@ Goal ID: GOAL-OP-INVERSE-PRIME-FIBERS-001
 Parent program: GOAL-PVG-INVERSE-GEOMETRY-001
 Engine: ENGINE-004
 Phase: C — Inverse Prime Fibers
-Decision: READY
-Status: ACTIVE_CURRENT_SUBPASS / IMPLEMENTED / CERTIFICATION PENDING
+Decision: COMPLETED
+Status: CHECKPOINT_PASS / CLOSED
 Date: 2026-07-23
 Phase D: NOT AUTHORIZED
 ```
-
-## Research question
-
-Inside the unchanged frozen box, does support information retain any finite diagnostic separation in prime-fiber and centered-radius incidence profiles after deterministic conditioning on integer size and parity route?
-
-This is not a causal question and does not presuppose a positive result.
 
 ## Frozen domain
 
@@ -30,40 +24,45 @@ integer points = 884
 represented points = 745
 ```
 
-No expansion is permitted.
+No expansion occurred.
 
-## Preregistered strata
-
-```text
-decimal bins = [1,9], [10,99], [100,999], [1000,9999], [10000,99999], [100000,100000]
-bit-length strata = floor(log2 N)+1
-parity routes = even, odd
-```
-
-## Implemented artifacts
+## Certified artifacts
 
 ```text
 tool = tools/pvg_support_conditioned_incidence.py
 tests = tests/test_pvg_support_conditioned_incidence.py
 report = research/pvg-space-deepening/engine-004-pass-004-support-conditioned-incidence.md
+certificate = research/pvg-space-deepening/data/support-conditioned-incidence-summary.json
 workflow = .github/workflows/pvg-support-conditioned-incidence-audit.yml
-certificate = research/pvg-space-deepening/data/support-conditioned-incidence-summary.json (pending)
-checkpoint = governance/checkpoints/ENGINE-004-PASS-004-SUPPORT-CONDITIONED-INCIDENCE-001.md (not created)
+checkpoint = governance/checkpoints/ENGINE-004-PASS-004-SUPPORT-CONDITIONED-INCIDENCE-001.md
 ```
+
+## Certified outputs
+
+```text
+rank reversal inventory count = 4
+matched-neighborhood witness count = 50
+canonical point-record rows = 884
+point-record SHA-256 = 2da8acb8cf35c66031afa8358fa405a0c63e79f27e1a374496e785f06b9378c1
+```
+
+Required counterexamples were found for exact-support determinacy, support-size determinacy, and support determinacy within a fixed parity/decimal stratum.
 
 ## Closure gate
 
 ```text
 PYTHON COMPILE = PASS
-UNIT TESTS = PASS
-all 884 points represented exactly once
-support sizes exactly 1,2,3
-all group partitions reconstruct 884
-all required counterexample witnesses present
+UNIT TESTS = 8/8 PASS
+all 884 points represented exactly once = PASS
+support sizes exactly 1,2,3 = PASS
+all group partitions reconstruct 884 = PASS
+all required counterexample witnesses present = PASS
 matched-neighborhood rule audit = PASS
 prior spectrum consistency = PASS
-UTF-8 certificate committed
-independent regeneration = byte-exact match
+UTF-8 certificate committed = PASS
+semantic JSON regeneration match = PASS
+PVG Support-Conditioned Incidence Audit run 7 = SUCCESS
+Governance Required Gate run 1002 = SUCCESS
 claim ceiling = PASS
 ```
 
@@ -83,4 +82,6 @@ GRH progress = false
 publication readiness = false
 ```
 
-**Honest classification:** implementation checkpoint. Exact finite findings remain pending until execution and certificate verification succeed.
+**Honest classification:** exact finite support-conditioned diagnostics completed. No causal or general law is certified.
+
+PASS-004 is closed. No PASS-005 is opened automatically.
