@@ -28,34 +28,21 @@ ENGINE-004-PHASE-C-FINAL-CLOSURE-REVIEW-001
 research/pvg-space-deepening/engine-006-synthesis-ledger.md
 ```
 
-The ledger records one row per consolidated material claim with:
+The ledger contains one row per consolidated material claim with its source, object, statement, classification, basis, standard antecedent, information gain, information loss, and scope ceiling.
+
+## Audited inventory result
 
 ```text
-claim id
-source artifact
-object
-statement
-classification
-proof/certificate basis
-standard antecedent
-information added
-information lost
-scope ceiling
-```
-
-## Inventory result
-
-```text
-IDENTITY         = 8
+IDENTITY         = 7
 PROVED           = 12
 FINITE-VERIFIED  = 9
 INTERPRETATION   = 2
 HYPOTHESIS       = 0
-OPEN             = 2
+OPEN             = 3
 TOTAL            = 33
 ```
 
-The two open claims are:
+The open claims are:
 
 ```text
 E6-C030 causal or independent support effect
@@ -63,19 +50,7 @@ E6-C031 general support-to-multiplicity law
 E6-C033 independent-theory status
 ```
 
-Correction: the inventory has three `OPEN` rows, not two. Therefore the audited totals are:
-
-```text
-IDENTITY         = 8
-PROVED           = 12
-FINITE-VERIFIED  = 8
-INTERPRETATION   = 2
-HYPOTHESIS       = 0
-OPEN             = 3
-TOTAL            = 33
-```
-
-This checkpoint adopts the corrected totals. The ledger summary must be corrected before WP-2 opens.
+No predictive mechanism was admitted by ENGINE-004, so no row is classified `HYPOTHESIS`.
 
 ## Material synthesis finding
 
@@ -90,11 +65,11 @@ prime pair
   -> route projection
 ```
 
-The coordinate, spectrum, and incidence presentations are equivalent when the necessary base labels are retained. Support and route maps are projections that lose information. Frozen-box counts describe one certified registry only.
+The coordinate, spectrum, and incidence presentations are lossless only when the required base labels are retained. Support and route maps are lossy projections. Frozen-box counts describe one certified registry only.
 
 ## Redundancy finding
 
-The following are not separate mathematical structures:
+The following are useful presentations but not independent mathematical structures:
 
 ```text
 centered gap and centered radius
@@ -104,7 +79,7 @@ support owner and support projection
 static component and graph connected component
 ```
 
-They may remain useful terms, but cannot be counted as separate theorems or independent evidence of a new theory.
+They cannot be counted as separate theorems or as independent evidence of a new theory.
 
 ## Honest classification
 
@@ -116,15 +91,15 @@ causal/general support laws = OPEN
 independent new theory = OPEN
 ```
 
-No hypothesis, original theorem, novelty, publication-readiness, Goldbach, PNT, RH, or GRH claim is admitted.
+No original theorem, novelty, publication-readiness, Goldbach, PNT, RH, or GRH claim is admitted.
 
 ## Stage decision
 
 ```text
-WP-1 = CHECKPOINT_PASS WITH ONE DOCUMENT CORRECTION REQUIRED
+WP-1 = CHECKPOINT_PASS / CLOSED
 WP-2 = NOT YET OPENED
-ENGINE-006 = ACTIVE_CURRENT
+ENGINE-006 = RETURN_TO_PARENT_REVIEW
 Phase D = NOT AUTHORIZED
 ```
 
-The next permitted action is correction of the classification totals in the ledger, followed by an ENGINE-006 parent review deciding whether WP-2 may open. No numerical work is authorized.
+The next permitted action is an ENGINE-006 parent review deciding whether WP-2 Minimal Ontology should open. No numerical work or automatic continuation is authorized.
