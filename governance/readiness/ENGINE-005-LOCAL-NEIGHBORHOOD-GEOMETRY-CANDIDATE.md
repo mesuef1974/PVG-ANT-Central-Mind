@@ -3,9 +3,9 @@
 ```text
 Candidate ID: ENGINE-005-LOCAL-NEIGHBORHOOD-GEOMETRY
 Parent program: GOAL-PVG-INVERSE-GEOMETRY-001
-Current governing engine remains: ENGINE-004
+Current governing engine: ENGINE-004 pending Phase-C administrative closure
 Status: CANDIDATE_SUCCESSOR / NOT_ACTIVE
-Date: 2026-07-22
+Date: 2026-07-23
 Phase D: NOT AUTHORIZED
 Primality-test claim: NOT AUTHORIZED
 ```
@@ -22,140 +22,68 @@ contain stable, out-of-sample information that distinguishes primes from careful
 
 This is a falsifiable classification question, not a primality theorem and not an authorization to train a production classifier.
 
-## Exact objects
+## Exact candidate objects
 
-For fixed neighborhood radius `h` and local-prime ceiling `P`, define:
+For fixed neighborhood radius `h` and local-prime ceiling `P`, the candidate may later define:
 
-1. **Truncated valuation field**
-   \[
-   V_{h,P}(x)=\left(\nu_p(x+k)\right)_{|k|\le h,\ p\le P}.
-   \]
+1. truncated valuation field `V_{h,P}(x)`;
+2. smallest-killer map `K_x(k)`;
+3. residue-obstruction field `R_{h,P}(x)`;
+4. support shadow `S_{h,P}(x)`;
+5. local survival mask `L_{h,P}(x;k)`.
 
-2. **Smallest-killer map**
-   \[
-   K_x(k)=\min\{p\in\mathbb P:p\mid x+k\},
-   \]
-   when such a prime is found below the governed ceiling; otherwise record `UNRESOLVED`.
+For every prime `p<=P` and offset `k`, the exact identity
 
-3. **Residue-obstruction field**
-   \[
-   R_{h,P}(x)=\left((x+k)\bmod p\right)_{|k|\le h,\ p\le P}.
-   \]
+\[
+p\mid x+k \iff x\equiv-k\pmod p
+\]
 
-4. **Support shadow**
-   \[
-   S_{h,P}(x)=\left(\{p\le P:p\mid x+k\}\right)_{|k|\le h}.
-   \]
+shows that the local divisibility pattern is periodic modulo the corresponding prime wheel. This creates a major confounding risk: apparent discrimination may merely reproduce elementary residue-wheel information.
 
-5. **Local survival mask**
-   \[
-   L_{h,P}(x;k)=1
-   \]
-   exactly when no prime `p<=P` divides `x+k`, with boundary handling for `x+k=p`.
-
-## Immediate scientific hypotheses
+## Governance relation
 
 ```text
-H0: After matching by magnitude, parity, and small-prime residue class,
-    the proposed neighborhood features do not distinguish primes from composites
-    beyond sampling noise or leakage.
-
-H1: At least one preregistered feature family retains stable out-of-sample
-    discriminatory information after leakage controls and matched sampling.
+ENGINE-004 Phase-C scientific deliverable = COMPLETE
+ENGINE-004 administrative closure = correction-only review in progress
+CANDIDATE-LOCAL-OBSTRUCTION-GEOMETRY-001 = DEFERRED / NON-GOVERNING
+ENGINE-005 activation = NOT AUTHORIZED
 ```
 
-No claim stronger than finite experimental discrimination is allowed.
+The earlier statement that `ENGINE-004 PASS-004 — Local Obstruction Geometry` was active is withdrawn. That material now has a unique deferred candidate identity and does not control this candidate.
 
-## Required controls
+ENGINE-005 may be activated only after:
 
-The first experiment must compare odd primes against at least three matched composite classes:
+1. final Phase-C closure;
+2. explicit parent selection of a successor engine;
+3. a new readiness card freezing domain, data, controls, and claim ceiling.
 
-1. odd semiprimes of comparable magnitude;
-2. odd composites with no prime factor `<=P`;
-3. pseudoprime/adversarial composites where feasible.
+## Mandatory future controls
 
-Mandatory leakage controls:
+Any future pilot must:
 
-- remove the center value `k=0` from every feature used for classification;
-- do not include the primality label, factorization, `x mod x`, or any feature that directly tests divisibility of `x`;
-- match or stratify by digit length, parity, and residue classes modulo a preregistered wheel;
-- split by disjoint numeric intervals, not random row splits alone;
-- evaluate on a held-out magnitude range;
+- remove center information `k=0` from classification features;
+- match magnitude, parity, and preregistered residue classes;
+- use disjoint numeric intervals for validation;
+- include residue-only and magnitude-only baselines;
 - include label-shuffle and feature-permutation null tests;
-- compare against residue-only and magnitude-only baselines.
-
-## Preregistered pilot
-
-```text
-center classes: prime / matched composite
-neighborhood radii h: 16, 32, 64
-local-prime ceilings P: 29, 97, 251
-center feature k=0: forbidden
-initial numeric domain: bounded and declared before generation
-training use: prohibited until raw deterministic dataset and split manifest are frozen
-```
-
-The first pass is data generation and descriptive validation only. Any classifier pass requires a separate readiness card.
-
-## Exact identities and guaranteed structure
-
-For every prime `p<=P` and offset `k`:
-
-\[
-p\mid x+k \iff x\equiv-k\pmod p.
-\]
-
-Hence the local divisibility pattern is periodic in `x` modulo
-
-\[
-W_P=\prod_{p\le P}p.
-\]
-
-This periodicity is an exact identity and creates a major confounding risk: apparent class separation may merely reproduce residue-wheel structure already known from elementary sieving.
-
-## Required outputs of the feasibility pass
-
-- deterministic generator for `V`, `K`, `R`, `S`, and `L`;
-- matched prime/composite sampling manifest;
-- interval-disjoint train/validation/test partitions, even if no model is trained;
-- duplicate and leakage audit;
-- feature invariance and wheel-periodicity audit;
-- descriptive summaries by class and magnitude band;
-- explicit negative results;
-- compact hashes for every generated artifact;
-- a decision: `ADVANCE`, `REDESIGN`, or `KILL`.
+- prohibit a primality-test or theorem claim.
 
 ## Kill criteria
 
-Kill or redesign the path if any of the following occurs:
-
-1. class separation disappears after matching residue classes and magnitude;
-2. performance is explained by forbidden center information or data leakage;
-3. held-out interval performance collapses to baseline;
-4. features add no stable information beyond a standard small-prime sieve;
-5. results vary materially under harmless changes of sampling seed or interval;
-6. computational cost scales worse than the information gained.
+Kill or redesign the path if any apparent signal disappears after residue and magnitude matching, depends on leakage, collapses out of interval, or adds no stable information beyond a standard small-prime sieve.
 
 ## Claim ceiling
 
 ```text
-IDENTITY: exact congruence and periodicity laws
-PROVED: elementary consequences only
-FINITE-VERIFIED: deterministic pilot summaries
-INTERPRETATION: geometric language for the local field
-HYPOTHESIS: possible prime/composite discrimination
-OPEN: existence of any stable nontrivial signal
-
+IDENTITY = exact congruence and periodicity laws
+PROVED = elementary consequences only
+FINITE-VERIFIED = none yet under ENGINE-005
+HYPOTHESIS = possible nontrivial local signal
+OPEN = existence of stable incremental information
 new primality criterion = false
-primality proof = false
-probable-prime test = false
-Goldbach progress = false
-PNT progress = false
-RH/GRH progress = false
+Goldbach/PNT/RH/GRH progress = false
 historical originality = false
 publication readiness = false
 ```
 
-## Governance relation to current work
-
-`ENGINE-004 PASS-004 — Local Obstruction Geometry` remains the only active subpass. This candidate may become the next engine only after PASS-004 closes and an explicit parent review authorizes activation.
+**Classification:** successor candidate only; inactive.
