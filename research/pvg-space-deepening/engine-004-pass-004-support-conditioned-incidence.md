@@ -36,14 +36,12 @@ For every registered group the implementation records:
 - represented-point multiplicity mean;
 - maximum multiplicity;
 - conditioned rankings by support size;
-- rank reversals relative to the raw support-size ranking;
+- rank changes relative to the raw support-size ranking;
 - deterministic nearest-neighborhood witnesses;
 - explicit counterexamples to support determinacy;
 - SHA-256 of the complete canonical point-record table.
 
 ## Matched-neighborhood rule
-
-For each point, comparison candidates must have:
 
 ```text
 same parity route
@@ -57,8 +55,6 @@ The resulting witnesses are descriptive finite comparisons. They are not matched
 
 ## Required counterexamples
 
-The implementation searches for witnesses showing:
-
 ```text
 same exact support does not determine multiplicity
 same support size does not determine multiplicity
@@ -66,6 +62,17 @@ same route and size bin do not determine exact support
 ```
 
 A missing witness is a test failure and must be investigated rather than silently interpreted.
+
+## Implemented artifacts
+
+```text
+tools/pvg_support_conditioned_incidence.py
+tests/test_pvg_support_conditioned_incidence.py
+.github/workflows/pvg-support-conditioned-incidence-audit.yml
+governance/readiness/ENGINE-004-PASS-004-SUPPORT-CONDITIONED-INCIDENCE-DIAGNOSTICS.md
+```
+
+The machine-readable certificate and checkpoint are intentionally absent until a real execution succeeds.
 
 ## Separation from previous passes
 
