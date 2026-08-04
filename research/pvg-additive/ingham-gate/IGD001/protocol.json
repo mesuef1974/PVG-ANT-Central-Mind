@@ -1,0 +1,76 @@
+{
+  "id": "IGD001",
+  "title": "Ingham gate numerical diagnostic",
+  "date": "2026-08-04",
+  "front": "PVG-Additive",
+  "status": "DIAGNOSTIC-ONLY",
+  "pre_registration": {
+    "status": "TRANSCRIBED-AFTER-EXECUTION-FROM-TIMESTAMPED-PRE-RUN-CONVERSATION",
+    "repository_freeze": "NOT-PERFORMED-BEFORE-RUN",
+    "parameters_changed_after_data": false
+  },
+  "object": "D_h(x) = sum_{n<=x} d(n) d(n+h)",
+  "constants": {
+    "a0": "6/pi^2 = 0.6079271018540267",
+    "K_star": "2*(2*gamma - 1 - 2*zeta'(2)/zeta(2)) = 2.5887066320",
+    "a1_status": "DERIVED / CROSS-CONSISTENT-WITH-TAO / PENDING-PRIMARY-TEXT"
+  },
+  "primary_texts_read": false,
+  "primary_texts": [
+    {"ref": "Ingham 1927, JLMS s1-2(3) 202-208", "doi": "10.1112/jlms/s1-2.3.202", "status": "METADATA-VERIFIED / TEXT-NOT-READ"},
+    {"ref": "Estermann 1931, Crelle 164, 173-182", "doi": "10.1515/crll.1931.164.173", "status": "METADATA-VERIFIED / TEXT-NOT-READ"},
+    {"ref": "Estermann 1932 Berichtigung, Crelle 166, 64", "doi": "10.1515/crll.1932.166.64", "status": "METADATA-VERIFIED / TEXT-NOT-READ"},
+    {"ref": "Motohashi 1994, Ann. Sci. ENS 27(5) 529-572", "status": "CITED / NOT-READ"},
+    {"ref": "Halberstam 1955 I / 1956 II,III", "doi": "10.1112/jlms/s1-30.1.43", "status": "METADATA-VERIFIED / JOINT-EK-LOCATION-UNRESOLVED"}
+  ],
+  "phase1": {
+    "shift": 1,
+    "statistic": "Y_1(x) = D_1(x)/x - a0*log(x)^2",
+    "estimator": "Khat(x1,x2) = (Y_1(x2)-Y_1(x1)) / (a0*log(x2/x1))",
+    "judgment_family": [["1e6", "1e10"], ["1e7", "1e10"], ["1e6", "1e9"]],
+    "primary_estimator": ["1e6", "1e10"],
+    "uncertainty": {
+      "definition": "max-min over judgment family",
+      "tags": ["OPERATIONAL", "INTERNAL-TO-PREREGISTERED-ESTIMATORS", "NOT-A-CONFIDENCE-INTERVAL", "NOT-A-THEORETICAL-ERROR-BOUND"]
+    },
+    "drift_diagnostic": {
+      "pairs": [["1e6", "1e7"], ["1e7", "1e8"], ["1e8", "1e9"], ["1e9", "1e10"]],
+      "acceptance": "d_9 < d_6 and no two consecutive rises at the end",
+      "rejected_criterion": "strict monotone decrease d_6>d_7>d_8>d_9"
+    },
+    "reference_scenarios": {
+      "CLAIMED": 2.5887066,
+      "Z-TERM-OMITTED": 0.3088627,
+      "Z-COEFFICIENT-HALF": 1.4487847,
+      "Z-SIGN-REVERSED": -1.9709812
+    }
+  },
+  "phase2": {
+    "opens_only_on": "K-H1-DATA-CONSISTENT",
+    "blinded_shifts": [2, 6, 12, 30],
+    "calibration_shifts_declared_but_not_run": [3, 4, 5, 8],
+    "first_order": "R_h(x) = sigma_{-1}(h) - 4*sigma'_{-1}(h)/log x + O(1/log^2 x)",
+    "slope": "M_h -> -4*sigma'_{-1}(h)",
+    "second_order": "Q_h -> 2*K*rho_h + 4*tau_h"
+  },
+  "computation": {
+    "X_max": 10000000000,
+    "checkpoints": [1000000, 10000000, 100000000, 1000000000, 10000000000],
+    "segment_size": 1000000,
+    "language": "C / gcc / OpenMP",
+    "sum_type": "uint64",
+    "validation": "independent O(x log x) divisor count at x=1e6"
+  },
+  "verdict_vocabulary": [
+    "K-H1-DATA-CONSISTENT",
+    "K-H1-DATA-INCONSISTENT",
+    "K-H1-INSUFFICIENT-RANGE",
+    "K-H1-IMPLEMENTATION-ERROR-SUSPECTED"
+  ],
+  "invariants": {
+    "INGHAM-GATE": "NOT-ATTEMPTED",
+    "PVG-CONTRIBUTION": "NOT-SHOWN",
+    "PVG-ADDITIVE": "NOT-OPENED",
+    "numeric_pass_never_promotes": "PENDING-PRIMARY-TEXT -> PRIMARY-VERIFIED"
+  }
+}
