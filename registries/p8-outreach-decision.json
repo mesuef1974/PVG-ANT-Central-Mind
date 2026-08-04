@@ -4,7 +4,10 @@
   "title": "One-Theorem 001 external outreach decision record",
   "status": "SENT",
   "decision_deadline_utc": "2026-07-19T20:59:59Z",
-  "allowed_states_after_deadline": ["SENT", "HOLD_AUTHORIZED"],
+  "allowed_states_after_deadline": [
+    "SENT",
+    "HOLD_AUTHORIZED"
+  ],
   "sent": {
     "priority_packet_sent_utc": "2026-07-13T03:50:00Z",
     "proof_packet_sent_utc": "2026-07-13T03:47:00Z",
@@ -33,5 +36,32 @@
   },
   "classification": "Diagnostic",
   "source": "Stage Review 001 PR-A; CEO order AUTHORIZE CENTRAL-MIND STAGE REVIEW 001 + CONTINUITY CLOSURE; CEO order AUTHORIZE P8 STRATEGIC HOLD AND START MODEL PROGRAM (2026-07-12); CEO decision P8 PROCEED-TO-SENT and CEO authorization to record SENT (2026-07-13): priority packet emailed to Tsz Ho Chan (tchan4@kennesaw.edu, Kennesaw State University) and proof packet to Etienne Fouvry (math.u-psud.fr, Universite Paris-Saclay/Orsay), both delivered without bounce; referees identified via read-only P8-REFEREE-CANDIDATE-VERIFICATION-001. The prior hold block is retained as historical record. SENT records only that the requests were sent; it is not acceptance, review, or validation.",
-  "sent_note": "SENT != ACCEPTED != REVIEWED != VALIDATED. The prior hold (below) is superseded by this SENT decision."
+  "sent_note": "SENT != ACCEPTED != REVIEWED != VALIDATED. The prior hold (below) is superseded by this SENT decision.",
+  "priority_validation": {
+    "status": "PARTIAL_NEGATIVE_PRIORITY_HIT",
+    "recorded_utc": "2026-08-04T19:20:00Z",
+    "certificate": "research/one-theorem/001/P8_EXTERNAL_VALIDATION_003_PRIORITY_HIT.md",
+    "external_record": {
+      "id": "OEIS-A361430",
+      "source_repository": "oeis/oeisdata",
+      "source_path": "seq/A361/A361430.seq",
+      "source_blob_sha": "b23e04d49f58b47e01246fd0d28e788f651c312d",
+      "sequence_origin_date": "2023-03-11"
+    },
+    "exact_result": "I_1(n) = A361430(n) for every n >= 1",
+    "closed_negative_scope": [
+      "observable novelty for r=1",
+      "q=1 r=1 local Bell series novelty",
+      "q=1 r=1 untwisted 2/3 zeta-layer structure novelty",
+      "broad q=1 r=1 summatory-layer novelty"
+    ],
+    "remaining_open_scope": [
+      "priority of the family I_r for r>=2",
+      "priority and significance of the q>1 arithmetic-progression theorem",
+      "published proof provenance for the A361430 summatory formula",
+      "exact comparison of the smooth remainder threshold 2r+2"
+    ],
+    "gate_effect": "priority gate narrowed but not fully closed; proof-referee gate remains open",
+    "scientific_ceiling": "known r=1 base case; surviving claims are extensions with classical analytic machinery and high routineness risk; no L5/L6 promotion"
+  }
 }
