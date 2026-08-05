@@ -5,7 +5,8 @@
 under `governance/programs/BENCHMARK-002-SEALING-PROTOCOL-001.md` (§2, §3, §8, §9),
 `BENCHMARK-002-DISTRIBUTION-MATRIX-001.md`, `BENCHMARK-002-FROZEN-SCORING-RUBRIC-001.md`,
 and `BENCHMARK-002-ROLE-SEPARATION-RECEIPT-001.md`.
-**Status:** STAGING — Set A authored and machine-validated. This is **not** the sealed G1
+**Status:** STAGING — Set A authored and machine-validated; concealment defect found and
+contained 2026-08-05 (see §5 correction and BENCHMARK-002-HIDDEN-A-CONTAINMENT-DEFECT-001). This is **not** the sealed G1
 `HIDDEN-A-MANIFEST` bundle; sealing (SHA-256-MANIFEST over the full bundle, LEAKAGE-AUDIT,
 ENVIRONMENT-FREEZE-RECEIPT, BENCHMARK-002-SEALED) remains ahead. Set B is authored separately
 in an isolated session and is **not** touched here.
@@ -92,7 +93,10 @@ arithmetic-function projections, freshly framed — none reproduces a project ca
 ```
 R1/R2 (this session) authored A prompts, expected_structure, rubric fields, tags, and gold keys
        on the control head — a session that is NEVER an answering (R3) context.
-gold keys (R2)  →  A-keys.jsonl  : OWNER-HELD, .gitignored, never committed, never in R3 context.
+gold keys (R2)  →  A-keys.jsonl  : OWNER-HELD, .gitignored, never in R3 context.
+       CORRECTION 2026-08-05: the key FILE was never committed, but the generator that
+       deterministically re-emits it WAS. The keys were therefore disclosed as generator
+       source from 3235fd7 to 3133c80. See BENCHMARK-002-HIDDEN-A-CONTAINMENT-DEFECT-001.
 key-hashes      →  HIDDEN-A-KEY-HASHES.txt : committed BEFORE any scoring run (§9, §4.4).
 R3 (ARM-CURRENT 6960cb5) will receive PROMPTS ONLY at S2; never expected_structure, never keys.
 R4 receives the frozen rubric + prompts + frozen responses + keys + metadata only POST-freeze.
@@ -102,10 +106,12 @@ B: not present in this session in any form (authored later in isolation; only ci
 
 ## 6. File inventory (this staging directory)
 ```
-author_hidden_a.py          authoring + machine-validation generator (R1/R2 artifact)
+author_hidden_a.py          WITHDRAWN 2026-08-05 to owner custody outside the repository:
+                            it carried all 48 gold keys as plaintext literals (remedy R2)
 A-prompts.jsonl             R3-facing: case_id · capability_target · tier · prompt · leakage_class
 A-scoring-metadata.jsonl    R4-facing: full schema MINUS gold key
-A-keys.jsonl                R2 gold keys — OWNER-HELD, gitignored (NOT committed)
+A-keys.jsonl                R2 gold keys — OWNER-HELD, gitignored (file never committed;
+                            but see the correction in §5 — the generator was)
 HIDDEN-A-KEY-HASHES.txt     SHA-256 per case + aggregate (committed)
 HIDDEN-A-MANIFEST.md        this manifest (committed; no keys)
 .gitignore                  excludes A-keys.jsonl
@@ -114,8 +120,11 @@ HIDDEN-A-MANIFEST.md        this manifest (committed; no keys)
 AGGREGATE A key hash (SHA-256 over per-case case_id:hash lines):
 1987512d402007909b840bbc80bddfc33cee2ba1ae8aa69b6ceca945b1f88fd6
 ```
-Regeneration is deterministic: `python author_hidden_a.py` re-emits identical files and the same
-aggregate hash, so the committed hashes bind the exact keys held in owner custody.
+Regeneration from the generator is deterministic, so the committed hashes bind the exact keys held
+in owner custody. That same determinism is what made committing the generator a disclosure rather
+than a convenience: the aggregate above was re-derived from the tracked tree alone on 2026-08-05
+and matched exactly. A hash over re-derivable keys is a fixity commitment, not concealment.
+The generator now lives in owner custody and regeneration is no longer possible from this tree.
 
 ## 7. What remains before G1 (BENCHMARK-002-SEALED)
 ```
