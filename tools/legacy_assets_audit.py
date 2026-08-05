@@ -7,6 +7,7 @@ mathematical truth of external research claims.
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -128,7 +129,18 @@ def main() -> None:
         active_goal_id in next_action_text,
         f"Next action does not identify active goal {active_goal_id}",
     )
-    require("Dataset 004" in next_action_text, "Dataset 004 prohibition disappeared")
+    # The prohibition, not the string. `"Dataset 004" in text` was satisfied by
+    # "Dataset 004 is hereby AUTHORIZED" -- the guard confirmed the topic was mentioned,
+    # never that it was still forbidden.
+    require(
+        bool(re.search(r"Dataset 004\s+(?:remains|is|stays)\s+(?:un|not\s+)authoriz",
+                       next_action_text, re.I)),
+        "Dataset 004 prohibition disappeared or was weakened",
+    )
+    require(
+        not re.search(r"Dataset 004[^.\n]{0,40}\bauthorized\b", next_action_text, re.I),
+        "Dataset 004 is stated as authorized",
+    )
 
     print(
         "legacy_assets_audit: PASS — "

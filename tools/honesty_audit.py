@@ -26,12 +26,20 @@ STATUS_KINDS = {"book", "planned", "frontier", "question", "external_research_as
 CLASSIFY_DIRS = ("installed-skills", "ledgers")
 
 FORBIDDEN = [
-    r"proves?\s+(the\s+)?rh", r"proof\s+of\s+rh", r"progress\s+toward",
+    r"proves?\s+(the\s+)?rh", r"proof\s+of\s+rh",
+    # Scoped to the target. Bare `progress toward` also matched "progress toward a fuller
+    # book overlay", which is a coverage statement, not a claim about RH -- it passed only
+    # because an unrelated "not" happened to share the line.
+    r"progress\s+towards?\s+(?:\w+\s+){0,3}?(?:rh|grh|riemann|the\s+proof|a\s+proof|the\s+theorem)",
     r"approaching\s+rh", r"break\s*through", r"secured\s+path",
     r"يبرهن\s+rh", r"تقدّم\s+نحو", r"اقتراب\s+من",
 ]
 FORBIDDEN_RE = [re.compile(p, re.IGNORECASE) for p in FORBIDDEN]
 NEG = re.compile(r"\bno\b|\bnot\b|\bnone\b|does not|n't|\bzero\b|\bnever\b|without|لا\s|بلا|دون|no-progress|forbidden", re.IGNORECASE)
+# Characters before a forbidden match within which a negation still governs it.
+NEG_WINDOW = 32
+# A phrase named inside quotes is a mention, not an assertion -- e.g. a list of banned words.
+MENTION_RE = re.compile(r"""["'“”«»`]""")
 CLASSIFY_RE = re.compile(r"classification", re.IGNORECASE)
 
 FORBIDDEN_EXEMPT_DIRS = ("governance", "tools", "transition-memory")
@@ -98,12 +106,23 @@ def scan_markdown():
         exempt = top in FORBIDDEN_EXEMPT_DIRS or relp in {p.replace('\\', '/') for p in FORBIDDEN_EXEMPT_FILES}
         if not exempt:
             for i, line in enumerate(text.splitlines(), 1):
-                if NEG.search(line):
-                    continue
                 for rx in FORBIDDEN_RE:
-                    if rx.search(line):
-                        issues.append(f"[forbidden] {relp}:{i}: {line.strip()[:80]}")
-                        break
+                    m = rx.search(line)
+                    if not m:
+                        continue
+                    # A negation exempts the phrase only when it GOVERNS it -- i.e. sits in the
+                    # window immediately before the match ("no secured path", "does not prove RH").
+                    # Skipping the whole line let ceiling boilerplate license anything sharing it:
+                    # "This work proves RH, with zero RH progress" passed, because `zero` appeared
+                    # somewhere on the line. Negation is local; the exemption must be too.
+                    if NEG.search(line[max(0, m.start() - NEG_WINDOW):m.start()]):
+                        continue
+                    # Quoted on both sides => the phrase is being named, not claimed.
+                    before, after = line[:m.start()], line[m.end():]
+                    if MENTION_RE.search(before[-3:]) and MENTION_RE.search(after[:3]):
+                        continue
+                    issues.append(f"[forbidden] {relp}:{i}: {line.strip()[:80]}")
+                    break
     return issues
 
 

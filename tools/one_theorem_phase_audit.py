@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -85,7 +86,17 @@ def main() -> None:
     for phrase in forbidden:
         require(phrase.lower() not in lowered, f"Forbidden promotion found: {phrase}")
 
-    require("READY" in texts[READINESS.name], "Target readiness is not recorded")
+    # `"READY" in text` is satisfied by NOT_READY, which contains it. The check confirmed the
+    # substring, not the decision -- so a target flipped to NOT_READY would have passed silently.
+    readiness = texts[READINESS.name]
+    require(
+        bool(re.search(r"^\s*(?:Decision:\s*)?READY\b", readiness, re.M)),
+        "Target readiness is not recorded as an affirmative READY decision",
+    )
+    require(
+        not re.search(r"\bNOT[_\s]READY\b", readiness, re.I),
+        "Target readiness records NOT_READY",
+    )
     print(
         "one_theorem_phase_audit: PASS — P0-P6 artifacts include a complete manual proof candidate without originality promotion"
     )
