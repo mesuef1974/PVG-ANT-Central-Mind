@@ -62,11 +62,11 @@ access to the repository holds the answer key to Set A.
 
 ## 3. Why every guard passed
 
-`tools/hidden_a_staging_guard.py` carries an explicit leakage bar and reports
+`tools/hidden_set_staging_guard.py` carries an explicit leakage bar and reports
 `PASS: ... no plaintext key leakage` against the defective tree. The bar is blind by construction:
 
 ```python
-# tools/hidden_a_staging_guard.py:74
+# the pre-hardening bar, as it stood at 3133c80
 if f.startswith("benchmarks/pvg-ant-002/staging/hidden-a/") and f.endswith(".jsonl"):
     ...  # scan for a plaintext "gold" field
 ```

@@ -1,6 +1,7 @@
-name: Hidden A Staging Guard
+name: Hidden Set Staging Guard
 
-# Protects the committed STEP A artifacts of ADVERSARIAL-PVG-ANT-BENCHMARK-002:
+# Protects the committed hidden-set staging artifacts of ADVERSARIAL-PVG-ANT-BENCHMARK-002
+# (Set A, and Set B before any B artifact exists):
 # blocks any plaintext gold-key leakage and re-checks the frozen invariants (axis counts,
 # closed vocabularies, quota minima, key-hash shape) WITHOUT the owner-held gold keys.
 # Standalone workflow — does not touch the required governance-gate.
@@ -9,8 +10,8 @@ on:
   pull_request:
     paths:
       - "benchmarks/pvg-ant-002/**"
-      - "tools/hidden_a_staging_guard.py"
-      - ".github/workflows/hidden-a-staging-guard.yml"
+      - "tools/hidden_set_staging_guard.py"
+      - ".github/workflows/hidden-set-staging-guard.yml"
   workflow_dispatch:
 
 jobs:
@@ -25,5 +26,5 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Run Hidden A staging guard
-        run: python tools/hidden_a_staging_guard.py
+      - name: Run hidden-set staging guard
+        run: python tools/hidden_set_staging_guard.py
