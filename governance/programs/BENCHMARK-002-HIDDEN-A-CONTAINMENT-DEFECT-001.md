@@ -1,8 +1,10 @@
 # BENCHMARK-002-HIDDEN-A-CONTAINMENT-DEFECT-001
 
 **Stage:** S1 (open 2026-07-13, window to 2026-08-16) of `PVG-ANT-RESEARCH-MODEL-PROGRAM-001`.
-**Classification:** Negative Certificate — governance / concealment defect in the STEP A staging
-artifacts of `ADVERSARIAL-PVG-ANT-BENCHMARK-002`.
+**Classification:** Diagnostic — a negative certificate on a governance / concealment defect in the
+STEP A staging artifacts of `ADVERSARIAL-PVG-ANT-BENCHMARK-002`. `Negative Certificate` is not a
+member of the closed vocabulary in `governance/classification-system.md`; amending that vocabulary
+is a governance act of its own and is not attempted here.
 **Governs:** `BENCHMARK-002-SEALING-PROTOCOL-001.md` §0, §9; `BENCHMARK-002-ROLE-SEPARATION-RECEIPT-001.md`
 §4.4; `HIDDEN-A-MANIFEST-001` (staging) §5, §6.
 **Scope of this artifact:** the defect, its reproduction, its exact blast radius, and the binding
