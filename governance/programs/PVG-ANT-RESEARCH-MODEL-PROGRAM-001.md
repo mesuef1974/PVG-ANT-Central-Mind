@@ -1,7 +1,8 @@
 # PVG–ANT Research Model Program 001
 
 **Program ID:** `PVG-ANT-RESEARCH-MODEL-PROGRAM-001`
-**Status:** active — stage S1 open; Roadmap v2.2 is the legal dashboard; Benchmark 002 not started
+**Status:** active — stage S1 open (window closes 2026-08-16); Roadmap v2.2 is the legal dashboard;
+Benchmark 002 = S1_IN_PROGRESS (STEP A authored, STEP B not started, nothing measured)
 **Authorization:** owner order "AUTHORIZE P8 STRATEGIC HOLD AND START MODEL PROGRAM" (2026-07-12)
 **Plan of record:** Roadmap v2.2 Dual-Track (`PVG_ANT_Model_Roadmap/index.html`, sync-governed; supersedes v2.1 at `PVG_ANT_Model_Roadmap/historical/index-v2.1-superseded.html`; source of truth `registries/dashboard-source-of-truth.json`)
 **Classification:** Diagnostic (capability program; creates no theorem)
@@ -100,8 +101,8 @@ Stage S1 executes the registered protocol
 benchmark, not two. The immutable order stands: raw hidden baseline →
 immutable error map → morphism composer → same-set rerun with contamination
 accounting → PVG-materiality ablation → targeted learning only from named
-failure clusters. `ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED` until
-its own package opens.
+failure clusters. `ADVERSARIAL-PVG-ANT-BENCHMARK-002` opened as its own package on 2026-07-13 and is
+`S1_IN_PROGRESS`: STEP A authored, STEP B not started, no baseline run.
 
 ## Prohibitions (owner order 2026-07-12)
 

@@ -38,7 +38,8 @@ Capability maturation:
   Current maturation receipt = MATURATION-RECEIPT-007.
   PVG-ANT-RESEARCH-MODEL-PROGRAM-001 = active
     (owner order 2026-07-12; stage S1 open (Roadmap v2.2 active as the legal
-     plan of record; Benchmark 002 not started); measure-before-training
+     plan of record; Benchmark 002 STEP A done, STEP B not started);
+     measure-before-training
      order binding; mandatory comparison arms ARM-BASE / ARM-LOCAL /
      ARM-CURRENT / ARM-HYBRID; CURRENT-MIND-FREEZE-MANIFEST-001 recorded;
      charter governance/programs/PVG-ANT-RESEARCH-MODEL-PROGRAM-001.md).
@@ -112,14 +113,32 @@ Benchmark state:
   historical baseline = 662 / 720 = 91.9 percent;
   post-Pass-002 registry coverage = 702 / 720 = 97.5 percent;
   these scores are registry coverage, not autonomous model performance.
-  ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED.
-  No hidden prompts, gold keys, raw score, error map, composer, ablation,
-  or targeted learning have been created by this package.
+  ADVERSARIAL-PVG-ANT-BENCHMARK-002 = S1_IN_PROGRESS (corrected 2026-08-05;
+    the prior NOT_STARTED reading was stale from PR #40 onward).
+  STEP A = authored and machine-validated: 48 cases, frozen twelve-axis matrix
+    met exactly, all seven cross-cutting quotas met, tiers B0=32 / B1=15 / B2=1.
+  STEP B = NOT_STARTED. No B artifact of any kind exists in the repository.
+  Set-A concealment was DEFECTIVE at the staging commit and is now contained:
+    the committed generator carried all 48 gold keys and re-derived the committed
+    aggregate hash from the tree alone, while every guard passed
+    (BENCHMARK-002-HIDDEN-A-CONTAINMENT-DEFECT-001; NEG-BENCH002-HIDDEN-A-CONTAINMENT-001).
+    Blast radius bounded: ARM-CURRENT at 6960cb5 strictly predates the authoring
+    head 3235fd7 and holds no Set-A material, so nothing is baked into the measured
+    mind; the open channel was live retrieval on the 16 B1/B2 cases.
+    Remedy = environment pin to 6960cb5 (RULE-HIDDEN-SET-ENVIRONMENT-PIN-001),
+    generator withdrawn to owner custody, staging guard hardened to content bars.
+    Set A is RETAINED, not re-authored.
+  No raw score, error map, composer, ablation, or targeted learning exists.
+  G1 sealing NOT reached.
 
 Next capability gate:
   continuity activation and strict hardening = complete;
-  next: design ADVERSARIAL-PVG-ANT-BENCHMARK-002 without adding cards,
-  executed as stage S1 (2026-07-13 to 2026-08-16, advanced per
+  next: STEP B — author Hidden Set B (48) in a fully isolated session, encrypt
+  prompts and keys offline, commit ciphertext + SHA-256 only (no B generator, in
+  any language, reaches the tree); then LEAKAGE-AUDIT over A and B, calibration
+  cases, ENVIRONMENT-FREEZE-RECEIPT carrying the 6960cb5 pin as an explicit field,
+  SHA-256-MANIFEST → BENCHMARK-002-SEALED.
+  Executed as stage S1 (2026-07-13 to 2026-08-16, advanced per
   S1-GATE-ADVANCE-DECISION-001) of
   PVG-ANT-RESEARCH-MODEL-PROGRAM-001 under Roadmap v2.2.
   Required benchmark order:
@@ -153,4 +172,4 @@ Ceiling:
   zero GRH progress.
 ```
 
-**Classification:** continuity operationally closed end to end (repository side, workstation task, and strict ruleset mode all verified); Benchmark 002 remains NOT_STARTED.
+**Classification:** continuity operationally closed end to end (repository side, workstation task, and strict ruleset mode all verified); Benchmark 002 is S1_IN_PROGRESS — STEP A authored and retained under a contained concealment defect, STEP B not started, G1 sealing not reached, no run and no score.

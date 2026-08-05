@@ -37,7 +37,36 @@ REQUIRED_RULE_IDS = {
     "RULE-CANONICAL-SYNC-001",
     "RULE-STAGE-MATURATION-RECEIPT-001",
     "RULE-KNOWLEDGE-TO-TRANSLATION-001",
+    "RULE-HIDDEN-SET-ENVIRONMENT-PIN-001",
+    "RULE-CONCEALMENT-IS-CONTENT-NOT-FILENAME-001",
 }
+
+CONTAINMENT_DEFECT_DOC = (
+    "governance/programs/BENCHMARK-002-HIDDEN-A-CONTAINMENT-DEFECT-001.md"
+)
+
+# Evidence paths for the Benchmark 002 status derivation (§ derive_benchmark_002_status).
+B002_A_PROMPTS = "benchmarks/pvg-ant-002/staging/hidden-a/A-prompts.jsonl"
+B002_B_GLOB = "benchmarks/pvg-ant-002/**/*hidden-b*"
+B002_SEALED = "governance/programs/BENCHMARK-002-SEALED-001.md"
+B002_RAW_BASELINE = "benchmarks/pvg-ant-002/CURRENT-MIND-RAW-BASELINE-001.md"
+
+
+def derive_benchmark_002_status() -> str:
+    """Read the status off the tree, never off a state file.
+
+    The state files are then required to MATCH this. A guard that pins the claim
+    instead of comparing it will enforce whatever was true when it was written.
+    """
+    if (ROOT / B002_RAW_BASELINE).exists():
+        return "S2_MEASURED"
+    if (ROOT / B002_SEALED).exists():
+        return "SEALED"
+    if list(ROOT.glob(B002_B_GLOB)):
+        return "S1_IN_PROGRESS_B_AUTHORED"
+    if (ROOT / B002_A_PROMPTS).exists():
+        return "S1_IN_PROGRESS"
+    return "NOT_STARTED"
 
 REQUIRED_STAGE_IDS = {
     "TRANSLATION-KERNEL-V2-PASS-001",
@@ -218,21 +247,37 @@ def main() -> None:
 
     latest_state = live_documents["transition-memory/latest-state.md"]
     next_action = live_documents["transition-memory/next-action.md"]
-    require(
-        "ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED" in latest_state,
-        "latest-state does not preserve Benchmark 002 as NOT_STARTED",
-        issues,
-    )
-    require(
-        "ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED" in next_action,
-        "next-action does not preserve Benchmark 002 as NOT_STARTED",
-        issues,
-    )
+    # Benchmark 002 status is DERIVED from the tree and the state files must match it.
+    # This check previously required the literal string NOT_STARTED in both files. That
+    # proxy survived STEP A being authored and merged, so the guard spent three weeks
+    # enforcing a false status and failing the moment the truth was written down. A
+    # continuity guard must compare a claim against evidence, never pin the claim.
+    benchmark_002_status = derive_benchmark_002_status()
+    declaration = f"ADVERSARIAL-PVG-ANT-BENCHMARK-002 = {benchmark_002_status}"
+    # Every live-truth file, not just the two transition-memory pointers: the stale
+    # NOT_STARTED had propagated to README.md and current-capabilities.md unchecked.
+    for relative_path, document in sorted(live_documents.items()):
+        if "ADVERSARIAL-PVG-ANT-BENCHMARK-002" not in document:
+            continue
+        require(
+            declaration in document,
+            f"{relative_path} must declare '{declaration}' (status derived from the tree)",
+            issues,
+        )
     require(
         "ADVERSARIAL-PVG-ANT-BENCHMARK-002" not in registered_stage_ids,
         "Benchmark 002 has a maturation receipt before its raw baseline",
         issues,
     )
+    # A concealment defect must stay visible in the live state while it is contained,
+    # so a future reader cannot mistake "guard passes" for "Set A was always concealed".
+    if (ROOT / CONTAINMENT_DEFECT_DOC).exists():
+        for name, document in (("latest-state", latest_state), ("next-action", next_action)):
+            require(
+                "6960cb5" in document and "concealment" in document.lower(),
+                f"{name} omits the contained Set-A concealment defect and its environment pin",
+                issues,
+            )
 
     sync_policy = read("governance/canonical-repository-sync-policy.md")
     maturation_policy = read("governance/continuous-mind-maturation-policy.md")
@@ -329,7 +374,7 @@ def main() -> None:
     print(f"Maturation receipts: {len(events)}")
     print(f"Registered stages: {len(stage_ids)}")
     print(f"Current receipt: {CURRENT_RECEIPT}")
-    print("Benchmark 002: NOT_STARTED")
+    print(f"Benchmark 002: {derive_benchmark_002_status()} (derived from the tree)")
     print("Workstation scheduled-task activation: external fact, not inferred")
 
 
