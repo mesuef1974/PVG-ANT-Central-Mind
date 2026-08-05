@@ -5,9 +5,15 @@ Hidden Set A staging guard (CI-runnable WITHOUT the gold keys).
 Protects the committed STEP A artifacts of ADVERSARIAL-PVG-ANT-BENCHMARK-002 under
 `benchmarks/pvg-ant-002/staging/hidden-a/`:
 
-  1. LEAKAGE BAR (SEALING-PROTOCOL §9 / ROLE-SEPARATION §4.4):
-     fail if any plaintext A gold-key file is tracked in git; fail if any committed file appears
-     to carry a plaintext `"gold"` field; confirm `A-keys.jsonl` is gitignored.
+  1. LEAKAGE BAR (SEALING-PROTOCOL §9 / ROLE-SEPARATION §4.4,
+     hardened by BENCHMARK-002-HIDDEN-A-CONTAINMENT-DEFECT-001 R3/R4):
+     fail if any plaintext A gold-key file is tracked in git; fail if ANY tracked file under
+     `benchmarks/` or `tools/` carries key material in any serialization, regardless of
+     extension; fail if the staging directory holds any file outside its declared inventory
+     (above all executable source, which can re-emit the keys it was authored from);
+     confirm `A-keys.jsonl` is gitignored.
+     The pre-hardening bar scanned only `.jsonl` and matched on filenames, so the committed
+     `.py` generator holding all 48 keys passed it and CI reported a clean tree.
   2. FROZEN INVARIANTS (DISTRIBUTION-MATRIX §1/§2, SEALING §3/§5/§8):
      re-derive per-axis counts, closed fatal-code vocabulary, closed leakage vocabulary
      (LEAK-0 only), rubric-weight sums, and the cross-cutting quota minima from the committed
@@ -41,6 +47,31 @@ LEAK_VALUES = {
 TIERS = {"B0", "B1", "B2"}
 AXIS_TARGET_A = {1: 4, 2: 3, 3: 3, 4: 5, 5: 5, 6: 5, 7: 3, 8: 3, 9: 3, 10: 4, 11: 5, 12: 5}
 
+# Key material in any serialization: JSON field, dict key, or Python assignment/kwarg.
+GOLD_MARKER = re.compile(r"""["']gold["']\s*:|\bgold\s*=""")
+
+# A reference to a hidden-set key file, by path or by content.
+KEYFILE_REF = re.compile(r"[AB]-keys\.jsonl")
+
+
+def _refs_hidden_keyfile(root, f):
+    try:
+        with open(os.path.join(root, f), encoding="utf-8") as fh:
+            return bool(KEYFILE_REF.search(fh.read()))
+    except (UnicodeDecodeError, OSError):
+        return False
+
+# Files permitted to live in a hidden-set staging directory. Anything else -- above all
+# executable source, which can re-emit the keys it was authored from -- is barred outright,
+# because a content pattern only catches key material that still calls itself "gold".
+STAGING_ALLOWED = {
+    "A-prompts.jsonl",          # R3-facing: prompts only
+    "A-scoring-metadata.jsonl", # R4-facing: full schema minus the gold key
+    "HIDDEN-A-KEY-HASHES.txt",  # SHA-256 commitments
+    "HIDDEN-A-MANIFEST.md",     # manifest, no keys
+    ".gitignore",
+}
+
 
 def git_tracked_files():
     out = subprocess.run(["git", "ls-files"], cwd=ROOT, capture_output=True, text=True)
@@ -64,19 +95,48 @@ def main():
         if re.search(r"hidden-[ab].*keys?\.jsonl$", f, re.I) and "hash" not in f.lower():
             errs.append(f"LEAKAGE: suspected tracked key file: {f}")
 
+    # Structural bar: the staging directory carries declared artifacts only, no code.
+    for f in tracked:
+        if f.startswith("benchmarks/pvg-ant-002/staging/hidden-a/"):
+            base = os.path.basename(f)
+            if base not in STAGING_ALLOWED:
+                errs.append(
+                    f"LEAKAGE: undeclared file in the hidden-A staging directory: {f} "
+                    f"(allowed: {', '.join(sorted(STAGING_ALLOWED))})"
+                )
+
     for name, path in (("A-prompts.jsonl", PROMPTS), ("A-scoring-metadata.jsonl", META)):
         rel = os.path.relpath(path, ROOT).replace("\\", "/")
         if rel not in tracked:
             errs.append(f"missing committed artifact: {rel}")
 
-    # Any committed file under the staging dir must not carry a plaintext gold key.
-    for f in tracked:
-        if f.startswith("benchmarks/pvg-ant-002/staging/hidden-a/") and f.endswith(".jsonl"):
+    # Content bar. Scope is the HIDDEN benchmark (002) only: Benchmark 001 is a deliberately
+    # open set whose gold answers are legitimately committed, and SEALING §Prohibitions forbids
+    # modifying it. Within scope the bar is content-based and extension-blind -- the original
+    # scanned only `.jsonl`, so the `.py` generator holding all 48 keys passed it
+    # (BENCHMARK-002-HIDDEN-A-CONTAINMENT-DEFECT-001 §3, remedy R3/R4).
+    SELF = os.path.relpath(os.path.abspath(__file__), ROOT).replace("\\", "/")
+
+    def scan(f, why):
+        try:
             with open(os.path.join(ROOT, f), encoding="utf-8") as fh:
                 for i, ln in enumerate(fh, 1):
-                    if ln.strip() and '"gold"' in ln:
-                        errs.append(f"LEAKAGE: committed {f}:{i} carries a plaintext \"gold\" field")
-                        break
+                    if GOLD_MARKER.search(ln):
+                        errs.append(f"LEAKAGE: tracked {f}:{i} carries key material ({why}); "
+                                    f"hidden-set keys are owner-held, only hashes commit")
+                        return
+        except (UnicodeDecodeError, OSError):
+            return
+
+    for f in tracked:
+        if f == SELF:
+            continue
+        if f.startswith("benchmarks/pvg-ant-002/"):
+            scan(f, "inside the hidden benchmark tree")
+        elif KEYFILE_REF.search(f) or _refs_hidden_keyfile(ROOT, f):
+            # A generator can sit anywhere. Anything outside the benchmark tree that both names
+            # a hidden key file and carries key material is a generator by any other name.
+            scan(f, "an out-of-tree file referencing a hidden key file")
 
     if not os.path.exists(PROMPTS) or not os.path.exists(META):
         for e in errs:

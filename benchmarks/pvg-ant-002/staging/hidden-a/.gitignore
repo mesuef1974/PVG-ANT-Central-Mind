@@ -2,3 +2,10 @@
 # A gold keys are held OUTSIDE the answering process (owner custody, R2).
 # Only the SHA-256 key-hashes are committed. Never commit plaintext A keys.
 A-keys.jsonl
+
+# BENCHMARK-002-HIDDEN-A-CONTAINMENT-DEFECT-001 remedy R2/R3:
+# Excluding the key FILE while committing the SOURCE that deterministically re-emits it is
+# not concealment -- author_hidden_a.py disclosed all 48 keys and every guard still passed.
+# This directory carries declared artifacts only; no code, in any language. The generator
+# lives in owner custody outside the repository.
+*.py
