@@ -12,7 +12,19 @@ import os, re, sys, json, glob
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 NEEDS_CERT = ("New Theorem", "Candidate Mechanism")
-TRIVIAL = {"", "-", "none", "missing", "pending", "n/a", "na", "tbd"}
+TRIVIAL = {"", "-", "none", "missing", "pending", "n/a", "na", "tbd",
+           # Bare affirmations assert a certificate exists without naming one. "Certificate: yes"
+           # satisfied the old check, so the guard confirmed the FIELD was filled, never that a
+           # certificate was cited.
+           "yes", "true", "ok", "okay", "done", "complete", "completed", "present", "有", "نعم"}
+
+# A real certificate names something checkable: an artifact id, a path, or a named class.
+CERT_REFERENCE_RE = re.compile(
+    r"[A-Z][A-Z0-9]+-[A-Z0-9-]{3,}"          # e.g. MATURATION-RECEIPT-007, NEG-...-001
+    r"|[\w./-]+\.(?:md|lean|py|json|jsonl)"   # a file it can be read in
+    r"|\b(?:Known|Identity|Reinterpretation|Diagnostic|Boundary|Open Problem"
+    r"|Candidate Mechanism|New Theorem|Missing Certificate)\b"
+)
 CERT_RE = re.compile(r"certificate\s*[:=]\s*(.*)", re.IGNORECASE)
 # an assertion that THIS file's classification IS one of the promoted kinds.
 # Requires the value to START with the promoted stamp (after optional ** / spaces),
@@ -52,6 +64,11 @@ def main():
             val = re.sub(r"[*`.]", "", val).strip()
             if val in TRIVIAL:
                 problems.append(f"[promo] {rel(path)}: classification is promoted but no real Certificate: field")
+            elif not CERT_REFERENCE_RE.search(m.group(1) if m else ""):
+                problems.append(
+                    f"[promo] {rel(path)}: Certificate: field names nothing checkable "
+                    f"(needs an artifact id, a path, or a named certificate class)"
+                )
     if problems:
         print(f"FAIL - {len(problems)} issue(s):")
         for p in problems:
