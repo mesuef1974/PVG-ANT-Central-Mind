@@ -1,0 +1,62 @@
+{
+  "id": "IGD001_EXECUTION_RECEIPT",
+  "pass": "IGD001",
+  "date": "2026-08-04",
+  "kind": "DIAGNOSTIC-EXECUTION-RECEIPT",
+  "not_a": ["GATE-PASS", "THEOREM-VERIFICATION", "PRIMARY-TEXT-VERIFICATION", "REPOSITORY-FREEZE"],
+  "base_commit": "6ee20dc08f59c498920d1654934c3aeb33b09ee8",
+  "branch": "agent/ingham-gate-diagnostic-igd001",
+  "environment": {
+    "os": "Windows 11 Home 10.0.26200",
+    "compiler": "gcc.exe (MinGW-W64 x86_64-ucrt-posix-seh, r8) 13.2.0",
+    "compile_flags": "-O3 -march=native -fopenmp",
+    "threads": 20,
+    "python": "3.12.10"
+  },
+  "runs": [
+    {"binary": "d1", "arg": "10", "elapsed_s": 187.57, "purpose": "h=1 only, first pass"},
+    {"binary": "dmulti", "arg": "10", "elapsed_s": 198.74, "purpose": "h in {1,2,6,12,30}, single pass"},
+    {"binary": "brute", "arg": "1000000", "purpose": "independent cross-check"}
+  ],
+  "cross_validation": {
+    "x": 1000000,
+    "D_1_segmented_sieve": 137253454,
+    "D_1_independent_direct_count": 137253454,
+    "agree": true
+  },
+  "sha256": {
+    "src/d1.c": "8978e215ce13a8f39e9cb08018b5fdafeeadcb24b5bb772b1f215d0fdb583633",
+    "src/dmulti.c": "9c597659a6ce43623dc2ce5c9be9e4e62da51cb0c00c280ff9d4578bdc66592f",
+    "src/brute.c": "c282b68a168568b5959c9462474d41d166e66cae43ff1dfba0f9ef142800d81d",
+    "data/dmulti_out.txt": "748868a5ee506317c381eee3b907466fb5ed9ead11285582e47257ba43aed783"
+  },
+  "results": {
+    "K_star": 2.5887066320,
+    "Khat_1e6_1e10": 2.58840201,
+    "Khat_1e7_1e10": 2.58876010,
+    "Khat_1e6_1e9": 2.58831470,
+    "U_K_judgment": 0.00044541,
+    "drift_d6": 0.00137889,
+    "drift_d7": 0.00006524,
+    "drift_d8": 0.00013785,
+    "drift_d9": 0.00004267,
+    "C1_star_predicted": -0.8625768,
+    "C1_measured": -0.8625592,
+    "residual_over_predicted_Q": [0.8833, 0.8865, 0.8877, 0.8889],
+    "residual_ratio_spread_across_shifts": 0.0056
+  },
+  "verdicts": {
+    "K-H1": "DATA-CONSISTENT",
+    "C1-STAR": "NUMERICALLY-CORROBORATED-AT-H1",
+    "FIRST-ORDER-ALONE": "INSUFFICIENT-AT-XMAX-1E10",
+    "TWO-TERM-WITH-PREDICTED-Q": "STRONGLY-DATA-CONSISTENT / ZERO-FITTED-PARAMETERS",
+    "H-DEPENDENCE": "STRONGLY-CORROBORATED-ON-H-2-6-12-30",
+    "THIRD-ORDER-INTERPRETATION": "CONSISTENT-WITH-O(1/LOG^3-X) / NOT-UNIQUELY-IDENTIFIED",
+    "M-H-ORIGINAL": "UNFIT-AT-THIS-RANGE / QUADRATIC-CONTAMINATION",
+    "M-H-CORRECTED": "POST-RUN-DIAGNOSTIC / ALSO-UNFIT-AT-THIS-RANGE",
+    "INGHAM-GATE": "NOT-ATTEMPTED",
+    "PVG-CONTRIBUTION": "NOT-SHOWN",
+    "PVG-ADDITIVE": "NOT-OPENED"
+  },
+  "reverification": "python analysis/verify_igd001.py  (exit 0 = all reported quantities reproduce)"
+}
