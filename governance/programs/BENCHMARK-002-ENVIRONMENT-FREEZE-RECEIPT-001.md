@@ -3,8 +3,9 @@
 **Stage:** S1 (window closes 2026-08-16) of `PVG-ANT-RESEARCH-MODEL-PROGRAM-001`.
 **Operationalizes:** `BENCHMARK-002-SEALING-PROTOCOL-001.md` §10, extended by
 `BENCHMARK-002-HIDDEN-A-CONTAINMENT-DEFECT-001.md` remedy R1.
-**Status:** `INCOMPLETE — NOT VALID FOR ANY RUN.` Field 14 is settled. Fields 1–13 record the
-answering environment and are owner-supplied facts about a run that has not happened.
+**Status:** `INCOMPLETE — NOT VALID FOR ANY RUN.` Field 14 is settled. Fields 1–13 are proposed
+where they are decisions and left open where they are observations; none is in force until the
+owner ratifies.
 **Classification:** Diagnostic (evaluation-environment receipt; creates no theorem).
 **Ceiling:** capability measurement only — zero RH progress, zero GRH progress, no secured path.
 
@@ -83,31 +84,84 @@ tree, and 489 files available — a functional workspace for tier B1 retrieval.
 Any deviation in this field does not produce a degraded measurement. It produces **no** hidden
 measurement, because the answering process could read the answers.
 
-## Fields 1–13 — answering environment (UNSET)
+## Fields 1–13 — answering environment (PROPOSED, awaiting owner ratification)
 
 Per `SEALING` §10, a change in any single field produces a NEW named run and never overwrites a
-prior baseline. Record each explicitly; `UNSET` is a blocker, never a default.
+prior baseline.
+
+Two kinds of field are mixed here and the distinction is load-bearing. Fields **2, 4, 13** and the
+model identity in field 1 are *observations*: they can only be recorded from the run that happens,
+and proposing values for them would be fabrication. Everything else is a *decision*, and a decision
+can be made now, in the open, before anyone knows which way it favours the result. Freezing the
+decisions in advance is the point of a freeze receipt — settling them after seeing a score is how a
+baseline becomes unfalsifiable.
 
 ```
- 1  model / provider / version        UNSET
- 2  system prompt hash                UNSET
- 3  memory / context manifest         UNSET   (must exclude A keys and all B material)
- 4  context-window limit              UNSET
- 5  allowed tools and tool versions   UNSET   (B0 reasoning · B1 +repo retrieval · B2 +full governed)
- 6  temperature                       UNSET
- 7  top_p                             UNSET
- 8  max_tokens                        UNSET
- 9  seed (where supported)            UNSET
-10  stop sequences                    UNSET
-11  timeout policy                    UNSET
-12  attempt and repetition counts     UNSET
-13  date and execution environment    UNSET
+ 1  model / provider / version        PENDING-OWNER
+       decided : exactly one named model for the whole run; no mid-run substitution, no
+                 fallback tier, no router. A different model is a different named run.
+       observed: the exact provider model id and version string, verbatim.
+
+ 2  system prompt hash                PENDING-RUN
+       decided : SHA-256 over the exact bytes of the system prompt as sent, recorded before
+                 the first case.
+       observed: the digest.
+
+ 3  memory / context manifest         PROPOSED: empty
+       no persistent memory, no project memory files, no CLAUDE.md or equivalent injection,
+       no prior-session carryover, no retrieval index built over any head other than 6960cb5.
+       The answering context begins at zero and holds only: the case prompt, the tier's tool
+       affordances, and (tiers B1/B2) the pinned workspace of field 14.
+       This is the field the Set-A defect would have travelled through. It carries no A key
+       and no B material by construction, because it carries nothing.
+
+ 4  context-window limit              PENDING-RUN — record the model's actual limit as-is
+
+ 5  allowed tools and tool versions   PROPOSED
+       B0  (32 cases)  no tools. Reasoning only. No retrieval, no execution, no network.
+       B1  (15 cases)  + read-only retrieval over the field-14 workspace ONLY: read, grep,
+                       glob. No network. No git history commands (`log --all`, `show` on
+                       unreachable objects) — the workspace has one commit, and this bar keeps
+                       it that way even if the construction is later relaxed by accident.
+       B2  ( 1 case)   + the governed external engines named in the case (exact prime counting).
+                       Record each engine's version string.
+
+ 6  temperature                       PROPOSED: 0
+ 7  top_p                             PROPOSED: 1
+ 8  max_tokens                        PROPOSED: 8192 per case
+       enough for a structured answer with certificate reasoning; a truncation is recorded as
+       a truncation and never silently rescored.
+
+ 9  seed                              PROPOSED: 20260805 where supported;
+       where unsupported, record the literal string "unsupported" — never omit the field, and
+       never imply determinism the provider does not offer.
+
+10  stop sequences                    PROPOSED: none
+
+11  timeout policy                    PROPOSED: 15 minutes wall clock per case.
+       On timeout the case is recorded as NO-ANSWER and scored as such. It is never retried,
+       never extended, and never dropped from the denominator.
+
+12  attempt and repetition counts     PROPOSED: exactly 1 attempt per case.
+       No retries, no regeneration, no best-of-n, no human re-prompting, no "the model was
+       having a bad run". The first answer is the answer. This single field is what separates
+       a measurement from a demonstration, and it is the one most likely to be quietly bent
+       once a disappointing number appears.
+
+13  date and execution environment    PENDING-RUN — recorded at execution
 ```
+
+### Ratification
+
+The `PROPOSED` values above are not in force. They become field values when the owner ratifies
+them, in writing, in this file. Until then this receipt remains `INCOMPLETE` and the gate below
+stays closed — a proposal is not a decision, and this document does not get to promote its own.
 
 ## Gate
 
 ```
-[ ] fields 1-13 recorded explicitly, no UNSET remaining
+[ ] fields 1-13 recorded explicitly: every PROPOSED value ratified by the owner, every
+    PENDING-RUN value observed and written down, nothing left PENDING-OWNER
 [x] field 14 settled, with a binding construction procedure and five executed checks
 [ ] answering workspace rebuilt by that procedure and re-verified immediately before the run,
     not once per session -- a workspace that was correct yesterday proves nothing today
