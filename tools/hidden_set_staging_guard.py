@@ -1,19 +1,22 @@
 #!/usr/bin/env python3
 """
-Hidden Set A staging guard (CI-runnable WITHOUT the gold keys).
+Hidden-set staging guard for ADVERSARIAL-PVG-ANT-BENCHMARK-002 (CI-runnable WITHOUT any keys).
 
-Protects the committed STEP A artifacts of ADVERSARIAL-PVG-ANT-BENCHMARK-002 under
-`benchmarks/pvg-ant-002/staging/hidden-a/`:
+Protects the committed staging artifacts under `benchmarks/pvg-ant-002/staging/` — `hidden-a/`
+(STEP A, already authored) and `hidden-b/` (STEP B, guarded before it exists):
 
   1. LEAKAGE BAR (SEALING-PROTOCOL §9 / ROLE-SEPARATION §4.4,
      hardened by BENCHMARK-002-HIDDEN-A-CONTAINMENT-DEFECT-001 R3/R4):
      fail if any plaintext A gold-key file is tracked in git; fail if ANY tracked file under
      `benchmarks/` or `tools/` carries key material in any serialization, regardless of
-     extension; fail if the staging directory holds any file outside its declared inventory
-     (above all executable source, which can re-emit the keys it was authored from);
+     extension; fail if either staging directory holds any file outside its declared
+     inventory (above all executable source, which can re-emit the keys it was authored from);
      confirm `A-keys.jsonl` is gitignored.
      The pre-hardening bar scanned only `.jsonl` and matched on filenames, so the committed
      `.py` generator holding all 48 keys passed it and CI reported a clean tree.
+     Set B is covered BEFORE any B artifact exists: only ciphertext, its SHA-256 manifest, and
+     case-free metadata may appear there, since SEALING §9 encrypts B prompts AND keys. A bar
+     installed after the commit it was meant to stop is how Set A came to be disclosed.
   2. FROZEN INVARIANTS (DISTRIBUTION-MATRIX §1/§2, SEALING §3/§5/§8):
      re-derive per-axis counts, closed fatal-code vocabulary, closed leakage vocabulary
      (LEAK-0 only), rubric-weight sums, and the cross-cutting quota minima from the committed
@@ -61,16 +64,30 @@ def _refs_hidden_keyfile(root, f):
     except (UnicodeDecodeError, OSError):
         return False
 
+STAGING_ROOT = "benchmarks/pvg-ant-002/staging/"
+STAGING_A = STAGING_ROOT + "hidden-a/"
+STAGING_B = STAGING_ROOT + "hidden-b/"
+
 # Files permitted to live in a hidden-set staging directory. Anything else -- above all
 # executable source, which can re-emit the keys it was authored from -- is barred outright,
 # because a content pattern only catches key material that still calls itself "gold".
-STAGING_ALLOWED = {
+STAGING_A_ALLOWED = {
     "A-prompts.jsonl",          # R3-facing: prompts only
     "A-scoring-metadata.jsonl", # R4-facing: full schema minus the gold key
     "HIDDEN-A-KEY-HASHES.txt",  # SHA-256 commitments
     "HIDDEN-A-MANIFEST.md",     # manifest, no keys
     ".gitignore",
 }
+
+# Set B is stricter than Set A by protocol, not by degree. SEALING §9 requires BOTH B prompts
+# and B keys to be encrypted offline, so nothing in plaintext belongs here at all: only the
+# ciphertext, its SHA-256 manifest, and case-free metadata. Enforced BEFORE any B artifact
+# exists (CONTAINMENT-DEFECT-001 R4) -- a bar installed after the commit it was meant to stop
+# is what let Set A through.
+STAGING_B_ALLOWED_PREFIX = "HIDDEN-B-"
+STAGING_B_ALLOWED_EXACT = {".gitignore"}
+# Extensions that cannot be ciphertext or a hash manifest, so cannot legitimately appear.
+PLAINTEXT_EXTENSIONS = (".py", ".ipynb", ".jsonl", ".json", ".csv", ".ps1", ".sh", ".js", ".ts")
 
 
 def git_tracked_files():
@@ -95,15 +112,37 @@ def main():
         if re.search(r"hidden-[ab].*keys?\.jsonl$", f, re.I) and "hash" not in f.lower():
             errs.append(f"LEAKAGE: suspected tracked key file: {f}")
 
-    # Structural bar: the staging directory carries declared artifacts only, no code.
+    # Structural bar: each staging directory carries its declared artifacts only, no code.
     for f in tracked:
-        if f.startswith("benchmarks/pvg-ant-002/staging/hidden-a/"):
-            base = os.path.basename(f)
-            if base not in STAGING_ALLOWED:
+        if not f.startswith(STAGING_ROOT):
+            continue
+        base = os.path.basename(f)
+        if f.startswith(STAGING_A):
+            if base not in STAGING_A_ALLOWED:
                 errs.append(
                     f"LEAKAGE: undeclared file in the hidden-A staging directory: {f} "
-                    f"(allowed: {', '.join(sorted(STAGING_ALLOWED))})"
+                    f"(allowed: {', '.join(sorted(STAGING_A_ALLOWED))})"
                 )
+        elif f.startswith(STAGING_B):
+            if base in STAGING_B_ALLOWED_EXACT:
+                continue
+            if not base.startswith(STAGING_B_ALLOWED_PREFIX):
+                errs.append(
+                    f"LEAKAGE: undeclared file in the hidden-B staging directory: {f} "
+                    f"(SEALING §9: ciphertext + SHA-256 manifest + case-free metadata only, "
+                    f"named {STAGING_B_ALLOWED_PREFIX}*)"
+                )
+            if f.lower().endswith(PLAINTEXT_EXTENSIONS):
+                errs.append(
+                    f"LEAKAGE: plaintext-capable file in the hidden-B staging directory: {f} "
+                    f"(B prompts AND keys are encrypted offline; this extension cannot be "
+                    f"ciphertext or a hash manifest)"
+                )
+        else:
+            errs.append(
+                f"LEAKAGE: unrecognized hidden-set staging directory: {f} "
+                f"(only hidden-a/ and hidden-b/ are declared)"
+            )
 
     for name, path in (("A-prompts.jsonl", PROMPTS), ("A-scoring-metadata.jsonl", META)):
         rel = os.path.relpath(path, ROOT).replace("\\", "/")
@@ -220,12 +259,12 @@ def main():
             errs.append("key-hashes: case ids do not match the committed cases")
 
     if errs:
-        print("=== HIDDEN-A STAGING GUARD: BREACHES ===")
+        print("=== HIDDEN-SET STAGING GUARD: BREACHES ===")
         for e in errs:
             print("  FAIL:", e)
         sys.exit(1)
-    print("HIDDEN-A staging guard PASS: 48 cases, frozen invariants hold, no plaintext key leakage,"
-          " key-hashes well-formed.")
+    print("Hidden-set staging guard PASS: A = 48 cases, frozen invariants hold, "
+          "no plaintext key leakage in A or B staging, key-hashes well-formed.")
 
 
 if __name__ == "__main__":
