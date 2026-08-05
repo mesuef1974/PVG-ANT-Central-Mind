@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PVG Immersive 3D Visual Lab</title>
+<link rel="stylesheet" href="./assets/pvg-3d-style.css">
+
+</head>
+<body>
+<div class="app">
+<header class="top"><div><h1>PVG Immersive 3D Visual Lab</h1><p>معمل مشهدي لفضاء التقييمات الأولية، الجمع الباسكالي، الأحواض، التداخل، الاستقرار، والتوسع</p></div><div class="badges"><span class="badge">PASS-021</span><span class="badge">SELF-CONTAINED 3D</span><span class="badge">FINITE VERIFIED</span><span class="badge">NO GENERAL THEOREM</span></div></header>
+<div class="shell">
+<aside class="side">
+<h2>المشهد والتجربة</h2>
+<div class="scene-nav" id="sceneNav">
+<button data-scene="space" class="active">فضاء PVG</button><button data-scene="pascal">الهوية الباسكالية</button>
+<button data-scene="basins">أحواض الجذب</button><button data-scene="overlap">كوكبة التداخل</button>
+<button data-scene="stability">الاستقرار</button><button data-scene="expansion">توسيع الحد</button>
+<button data-scene="trace">تتبع وجه</button><button data-scene="story">جولة موجهة</button>
+</div>
+<div class="control"><label for="bound">حد الأوليات L</label><select id="bound"><option>100</option><option>150</option><option>200</option></select></div>
+<div class="control"><label for="depth">عمق الديناميكا D: <span id="depthLabel">5</span></label><input id="depth" type="range" min="0" max="5" value="5"></div>
+<div class="control"><label for="omega">مستوى Ω في مشهد الفضاء: <span id="omegaLabel">6</span></label><input id="omega" type="range" min="1" max="8" value="6"></div>
+<div class="control"><label for="speed">سرعة الحركة</label><input id="speed" type="range" min="0" max="100" value="45"></div>
+<div class="checks"><label class="check"><input id="labels" type="checkbox" checked> التسميات</label><label class="check"><input id="autoRotate" type="checkbox" checked> دوران تلقائي</label><label class="check"><input id="trails" type="checkbox" checked> المسارات</label><label class="check"><input id="planes" type="checkbox" checked> المستويات</label></div>
+<div class="trace-panel" id="tracePanel"><div class="control"><label for="traceInput">وجه البداية</label><input id="traceInput" type="text" value="{37,97}"></div><div class="trace-row"><button class="btn" id="traceRun">شغّل المسار</button><button class="btn" id="traceReset">إعادة</button></div></div>
+<div class="scene-nav"><button id="resetCamera">إعادة الكاميرا</button><button id="pauseMotion">إيقاف الحركة</button></div>
+<div class="notice">سحب: تدوير · Shift + سحب: تحريك · عجلة الفأرة: تكبير. انقر عقدة أو نقطة لتثبيت تفسيرها.</div>
+<div class="footer-note">كل الحسابات منتهية ومقيدة بـ L≤200 وD≤5. الغياب في نافذة منتهية لا يعني الاستحالة.</div>
+</aside>
+<main class="stage" id="stage"><canvas id="scene"></canvas><div id="tooltip" class="tooltip"></div>
+<div class="hud">
+<div class="hud-card scene-title"><h2 id="sceneTitle">فضاء PVG</h2><p id="sceneDescription"></p></div>
+<div class="hud-card scene-state" id="sceneState"></div>
+<div class="hud-card legend" id="legend"></div>
+<div class="hud-card story" id="storyBox"></div>
+<div class="floating-controls"><button id="zoomIn">+</button><button id="zoomOut">−</button><button id="nextScene">›</button></div>
+</div></main>
+</div></div>
+<script src="./assets/pvg-3d-engine.js"></script>
+<script src="./assets/pvg-3d-scenes.js"></script>
+</body></html>

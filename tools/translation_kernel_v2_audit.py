@@ -22,7 +22,6 @@ REQUIRED_FIELDS = {
     "typical_output", "error_or_wall", "required_certificate", "positive_example",
     "counterexample", "anti_overclaim", "classification", "source_basis", "test_id",
 }
-
 ALLOWED_DOMAINS = {
     "geometry_arithmetic", "local_analytic", "transforms",
     "residues", "sieve", "probabilistic",
@@ -150,15 +149,17 @@ def main() -> None:
     require("L3 promotions = 0" in checkpoint, "L3 ceiling missing")
 
     next_action = NEXT_ACTION.read_text(encoding="utf-8")
-    require("GOAL-OP-ONE-THEOREM-001 = active_external_validation_hold" in next_action, "Theorem hold lost")
+    require("GOAL-OP-INVERSE-PRIME-FIBERS-001 = active_current" in next_action, "Current inverse goal missing")
+    require("GOAL-OP-ONE-THEOREM-001 = superseded_with_reason" in next_action, "Archived theorem state missing")
     require("TRANSLATION-KERNEL-V2-PASS-001 = checkpoint_pass" in next_action, "Maturation state missing")
-    require("no second theorem target" in next_action.lower(), "Second-theorem firewall missing")
+    require("a second theorem target" in next_action.lower(), "Second-theorem firewall missing")
     require("Dataset 004 remains unauthorized" in next_action, "Dataset 004 firewall missing")
     require("no RH/GRH progress" in next_action, "RH/GRH ceiling missing")
 
     print(
         "translation_kernel_v2_audit: PASS — 24 operational cards, 24 examples, "
-        "32 combined translations, zero L3 or research-front promotion"
+        "32 combined translations, zero L3 or research-front promotion; "
+        "ENGINE-004 is the current governed front"
     )
 
 

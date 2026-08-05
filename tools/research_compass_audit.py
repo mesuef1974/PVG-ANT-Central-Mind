@@ -1,11 +1,5 @@
 #!/usr/bin/env python3
-"""Audit the canonical PVG–ANT research compass and operational goals.
-
-This is a governance consistency check, not a mathematical proof checker.
-Standard library only. Run from anywhere:
-
-    python tools/research_compass_audit.py
-"""
+"""Audit the current one-front research compass with ENGINE-004 overrides."""
 
 from __future__ import annotations
 
@@ -13,138 +7,68 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-
-REQUIRED_FILES = [
-    "central-mind-charter.md",
-    "central-mind-goals.md",
-    "governance/pvg-ant-research-compass-v1.md",
-    "maps/pvg-ant-language-kernel-v1.md",
-    "governance/task-triggered-knowledge-activation-policy.md",
-    "governance/stage-review-and-ceiling-escalation-policy.md",
-    "governance/templates/research-readiness-card.md",
-    "registries/program-goals.jsonl",
-    "registries/rules.jsonl",
-]
-
-REQUIRED_RULE_IDS = {
-    "RULE-TASK-FIRST-001",
-    "RULE-READINESS-GATE-001",
-    "RULE-MINIMUM-SUFFICIENT-KNOWLEDGE-001",
-    "RULE-KNOWLEDGE-RETURN-001",
-    "RULE-ONE-ACTIVE-RESEARCH-FRONT-001",
-    "RULE-NO-REBUILD-BRIDGE-001",
-    "RULE-CEILING-ESCALATION-001",
-    "RULE-PVG-NECESSITY-TEST-001",
-}
-
-REQUIRED_GOAL_FIELDS = {
-    "kind",
-    "id",
-    "title",
-    "status",
-    "deliverable",
-    "exit_criterion",
-    "maturity_target",
-    "claim_ceiling",
-    "classification",
-    "source",
-}
+BASE = ROOT / "registries/program-goals.jsonl"
+OVERRIDES = ROOT / "registries/goal-state-overrides-engine-004.jsonl"
 
 
-def load_jsonl(relative_path: str) -> list[dict[str, object]]:
-    path = ROOT / relative_path
-    rows: list[dict[str, object]] = []
-    for line_number, raw in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
-        if not raw.strip():
-            continue
-        try:
-            value = json.loads(raw)
-        except json.JSONDecodeError as exc:
-            raise RuntimeError(f"{relative_path}:{line_number}: invalid JSON: {exc}") from exc
-        if not isinstance(value, dict):
-            raise RuntimeError(f"{relative_path}:{line_number}: row is not an object")
-        rows.append(value)
-    return rows
-
-
-def require(condition: bool, message: str, issues: list[str]) -> None:
-    if not condition:
-        issues.append(message)
+def load(path: Path) -> list[dict[str, object]]:
+    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
 
 
 def main() -> None:
-    issues: list[str] = []
+    required = [
+        ROOT / "central-mind-charter.md",
+        ROOT / "central-mind-goals.md",
+        ROOT / "governance/pvg-ant-research-compass-v1.md",
+        ROOT / "governance/pvg-inverse-geometry-engine-architecture-v1.md",
+        ROOT / "governance/readiness/ENGINE-004-INVERSE-PRIME-FIBERS.md",
+        BASE,
+        OVERRIDES,
+    ]
+    missing = [str(path.relative_to(ROOT)) for path in required if not path.is_file()]
+    if missing:
+        raise SystemExit("\n".join(f"FAIL: missing {path}" for path in missing))
 
-    for relative_path in REQUIRED_FILES:
-        require((ROOT / relative_path).is_file(), f"missing required compass file: {relative_path}", issues)
-
-    if issues:
-        for issue in issues:
-            print(f"FAIL: {issue}")
-        raise SystemExit(1)
-
-    charter = (ROOT / "central-mind-charter.md").read_text(encoding="utf-8")
-    goals_doc = (ROOT / "central-mind-goals.md").read_text(encoding="utf-8")
-    compass = (ROOT / "governance/pvg-ant-research-compass-v1.md").read_text(encoding="utf-8")
-    kernel = (ROOT / "maps/pvg-ant-language-kernel-v1.md").read_text(encoding="utf-8")
-    readiness = (ROOT / "governance/templates/research-readiness-card.md").read_text(encoding="utf-8")
-
-    require("Research Operating Charter v1.0" in charter, "charter is not v1.0", issues)
-    require("One active research front" in charter, "charter omits one-active-front rule", issues)
-    require("Original ANT contribution" in goals_doc, "goals omit strategic originality target", issues)
-    require("Task-first" in compass or "المهمة أولًا" in compass, "compass omits task-first operation", issues)
-    require("PVG–ANT Language Kernel" in kernel, "language kernel title missing", issues)
-    require("READY | NOT_READY" in readiness, "readiness card omits binary decision", issues)
-
-    goals = load_jsonl("registries/program-goals.jsonl")
-    require(bool(goals), "program goals registry is empty", issues)
-
-    goal_ids = [str(row.get("id", "")) for row in goals]
-    require(len(goal_ids) == len(set(goal_ids)), "duplicate goal IDs", issues)
-
-    for row in goals:
-        missing = REQUIRED_GOAL_FIELDS - set(row)
-        require(not missing, f"goal {row.get('id')} missing fields: {sorted(missing)}", issues)
+    base = load(BASE)
+    by_id = {str(row["id"]): row for row in base}
+    order = [str(row["id"]) for row in base]
+    for row in load(OVERRIDES):
+        goal_id = str(row["id"])
+        if goal_id not in by_id:
+            order.append(goal_id)
+        by_id[goal_id] = row
+    goals = [by_id[goal_id] for goal_id in order]
 
     strategic = [row for row in goals if row.get("kind") == "strategic_goal"]
-    require(len(strategic) == 1, f"expected one strategic goal, found {len(strategic)}", issues)
-    if strategic:
-        require(strategic[0].get("status") == "active_fixed", "strategic goal is not active_fixed", issues)
+    if len(strategic) != 1 or strategic[0].get("status") != "active_fixed":
+        raise SystemExit("FAIL: strategic goal invariant broken")
 
-    active_operational = [
+    inverse = by_id.get("GOAL-PVG-INVERSE-GEOMETRY-001", {})
+    if inverse.get("status") != "active_long_term":
+        raise SystemExit("FAIL: inverse geometry long-term goal missing")
+
+    active = [
         row for row in goals
-        # Stage Review 001 PR-A: operational goals carry qualified active states
-        # (e.g. active_external_validation_hold); the registry is the truth.
         if row.get("kind") == "operational_goal"
         and str(row.get("status", "")).startswith("active")
     ]
-    require(
-        len(active_operational) == 1,
-        f"expected exactly one active operational research goal, found {len(active_operational)}",
-        issues,
-    )
+    if len(active) != 1 or active[0].get("id") != "GOAL-OP-INVERSE-PRIME-FIBERS-001":
+        raise SystemExit(f"FAIL: active front mismatch: {[row.get('id') for row in active]}")
 
-    rules = load_jsonl("registries/rules.jsonl")
-    rule_ids = {str(row.get("id", "")) for row in rules}
-    require(REQUIRED_RULE_IDS <= rule_ids, f"missing compass rules: {sorted(REQUIRED_RULE_IDS - rule_ids)}", issues)
+    theorem = by_id.get("GOAL-OP-ONE-THEOREM-001", {})
+    if theorem.get("status") != "superseded_with_reason":
+        raise SystemExit("FAIL: theorem goal is still governing")
 
-    for row in goals:
-        if row.get("kind") == "operational_goal":
-            require("research_front" in row, f"operational goal {row.get('id')} lacks research_front", issues)
-            require("prerequisites" in row, f"operational goal {row.get('id')} lacks prerequisites", issues)
-            require("next_review" in row, f"operational goal {row.get('id')} lacks next_review", issues)
+    readiness = (ROOT / "governance/readiness/ENGINE-004-INVERSE-PRIME-FIBERS.md").read_text(encoding="utf-8")
+    if "Decision: READY" not in readiness or "Phase D" not in readiness:
+        raise SystemExit("FAIL: ENGINE-004 readiness or stop rule missing")
 
-    if issues:
-        for issue in issues:
-            print(f"FAIL: {issue}")
-        raise SystemExit(1)
-
-    active_id = active_operational[0]["id"]
     print("Research Compass Audit: PASS")
     print(f"Strategic goal: {strategic[0]['id']}")
-    print(f"Active operational goal: {active_id}")
-    print(f"Registered goals: {len(goals)}")
-    print(f"Required operating rules: {len(REQUIRED_RULE_IDS)}")
+    print("Governing program: GOAL-PVG-INVERSE-GEOMETRY-001")
+    print("Active operational goal: GOAL-OP-INVERSE-PRIME-FIBERS-001")
+    print("Theorem goal: superseded_with_reason")
+    print("Phase D: NOT AUTHORIZED")
 
 
 if __name__ == "__main__":

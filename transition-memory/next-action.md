@@ -1,113 +1,155 @@
 # Next Action
 
 ```text
-Strategic compass:
-  GOAL-PVG-ANT-STRATEGIC-001 = active_fixed.
-  Original ANT contribution through materially useful PVG.
-
-Current theorem program:
-  GOAL-OP-ONE-THEOREM-001 = active_external_validation_hold.
-  Frozen target = ONE-LEMMA-TARGET-001.
-  Internal fixed-q, fixed-r, fixed-W smooth theorem = proved internally.
-  P8-EXTERNAL-REFEREE-001 packets = SENT 2026-07-13 (both delivered, no bounce);
-    tracker = SENT_AWAITING_RESPONSE.
-  P8-OUTREACH-DECISION-001 = SENT
-    (owner PROCEED-TO-SENT + record-SENT authorization 2026-07-13; prior HOLD superseded;
-     priority = Tsz Ho Chan (Kennesaw State), proof = Etienne Fouvry (Paris-Saclay/Orsay)).
-  Priority review, proof referee, and certified originality = absent (awaiting responses).
-
-Capability-maturation state:
-  TRANSLATION-KERNEL-V2-PASS-001 = checkpoint_pass.
-  PVG-ANT-BENCHMARK-001 = checkpoint_pass.
-  TRANSLATION-KERNEL-V2-PASS-002 = checkpoint_pass.
-  PVG-UNDERSTANDING-DEEPENING-001 = checkpoint_pass; ontology frozen.
-  GOVERNANCE-ENFORCEMENT-CLOSURE-001 = CLOSED.
-  CENTRAL-MIND-CONTINUITY-001 = installed_repository_side.
-  CENTRAL-MIND-CONTINUITY-CLOSURE-002 = closed.
-  Current maturation receipt = MATURATION-RECEIPT-007.
-  PVG-ANT-RESEARCH-MODEL-PROGRAM-001 = active (stage S1 open; Roadmap v2.2
-    active as the legal plan of record; Benchmark 002 not started; owner order 2026-07-12;
-    ARM-CURRENT frozen via CURRENT-MIND-FREEZE-MANIFEST-001).
-  Translation inventory = 44; native objects = 20; morphisms = 24.
-  planned.jsonl = empty (no queued research passes registered).
-  Montgomery A/B/legacy-E quarantine (source-mismatch) remains in force.
-
-Continuity activation = COMPLETE (2026-07-12):
-  scheduled task installed and verified with a successful run;
-  SafeSync -AsJson = clean tree, branch main, head equal to origin/main,
-  ahead 0, behind 0;
-  strict up-to-date mode active on ruleset governance-required;
-  evidence in audits/central-mind-continuity-closure-002.md.
-
-Knowledge and maturation operating law:
-  Every stage begins with a named task and prerequisite gap map.
-  Every acquired prerequisite returns through the sixteen-field
-  PVG-ANT common-language contract.
-  Every closed/installed stage appends a maturation receipt recording:
-    knowledge, language, reasoning, certificate, failure memory,
-    verification, synchronization, and unchanged scientific ceiling.
-  Book/file/card counts alone are not maturity.
-
-External P8 track (requests SENT 2026-07-13; awaiting referee responses):
-  1. Priority/bibliography request sent to Tsz Ho Chan (Kennesaw State);
-     independent proof request sent to Etienne Fouvry (Paris-Saclay/Orsay);
-     both emails delivered without bounce. SENT is not acceptance/review/validation.
-  2. Do not send further packets or contact reserves without new explicit
-     authorization; the assistant never sends — the owner sends manually.
-  3. Log any reply as a distinct event (tracker response_received/outcome);
-     the decision tree in P8_STOPPING_PROTOCOL.md governs it, no renegotiation.
-  4. Record exactly one terminal theorem classification after responses.
-
-Next internal package after continuity activation:
-  ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED.
-  It runs as stage S1 (2026-07-13 to 2026-08-16, advanced per S1-GATE-ADVANCE-DECISION-001) of
-  PVG-ANT-RESEARCH-MODEL-PROGRAM-001: design and seal A (≥48) and
-  B (≥48, encrypted) per the registered protocol, then the raw baseline
-  of ARM-CURRENT on A (stage S2) before any architecture, corpus,
-  or training decision.
-
-Benchmark 002 order — immutable:
-  1. Design at least 48 new held-out cases; prompts separated from gold keys.
-  2. Commit gold-key hashes before any answering run.
-  3. Run the raw hidden baseline without new translation cards or gold access.
-  4. Freeze the raw score and produce the immutable error map.
-  5. Only then build the morphism-composer tool.
-  6. Rerun the same set with contamination accounting.
-  7. Run PVG-materiality ablation.
-  8. Activate targeted knowledge and translation learning only from named
-     failure clusters.
-
-Benchmark separation rules:
-  no card additions before the first error map;
-  no gold answers in the answering process;
-  no modification of Benchmark 001;
-  registry coverage and autonomous reasoning reported separately;
-  every invalid reverse inference receives a counterexample or named
-  missing certificate;
-  no L3 promotion from benchmark success.
-
-Do not do yet:
-  no second theorem target;
-  no publication claim;
-  no broad untargeted book mining;
-  no new statistical dataset;
-  Dataset 004 remains unauthorized;
-  no automatic Lean expansion;
-  no Benchmark 002 targeted learning before the raw error map;
-  no training of local components (corpus, LoRA, SFT) before
-    CURRENT-MIND-RAW-BASELINE-001 and IMMUTABLE-ERROR-MAP-002-A;
-  no Researcher naming before the Hidden-Set-B comparison against
-    ARM-CURRENT with independent review;
-  no RH or GRH expansion.
-
-Ceiling:
-  synchronization and maturation governance create no theorem;
-  hidden-set autonomous performance = not measured;
-  certified originality = absent;
-  publication readiness = absent;
-  no RH/GRH progress;
-  zero RH progress;
-  zero GRH progress.
+Date: 2026-07-22
+Governing program: GOAL-PVG-INVERSE-GEOMETRY-001
+Active operational goal: GOAL-OP-INVERSE-PRIME-FIBERS-001 = active_current
+Engine: ENGINE-004
+Phase: C — Inverse Prime Fibers
+GOAL-OP-ONE-THEOREM-001 = superseded_with_reason / archived / non-governing
+Phase D: NOT AUTHORIZED
 ```
 
-**Classification:** continuity operationally closed; the next internal package is only the design phase of Adversarial Benchmark 002; external P8 validation requests were SENT 2026-07-13 (priority to Tsz Ho Chan, proof to Etienne Fouvry, both delivered) and now await referee responses — SENT is not acceptance, review, or validation.
+## Closed ENGINE-004 checkpoints
+
+```text
+ENGINE-004-CENTERED-GAP-COORDINATES-001 = CHECKPOINT_PASS
+ENGINE-004-PASS-002-CENTERED-RADIUS-SPECTRA-001 = CHECKPOINT_PASS
+ENGINE-004-PASS-003-CENTERED-RADIUS-INCIDENCE-001 = CHECKPOINT_PASS
+```
+
+## Reopen decision
+
+```text
+ENGINE-004-PHASE-C-REOPEN-LOCAL-OBSTRUCTIONS-001
+Decision = REOPEN_PHASE_C_WITH_NAMED_GAP
+ENGINE-004 PASS-004 = ACTIVE_CURRENT_SUBPASS
+Prior Phase-C closure review = SUSPENDED
+```
+
+The named gap is explanatory, not statistical: PASS-003 computed coordinate-owner sets but did not organize the exact local congruence obstructions, boundary exceptions, and local-survival/actual-ownership separation for midpoint-radius candidates.
+
+## Immediate governed action
+
+Implement and certify only:
+
+```text
+ENGINE-004 PASS-004 — LOCAL OBSTRUCTION GEOMETRY
+```
+
+Required objects:
+
+```text
+local_obstruction_record(m,d,ell)
+local_obstruction_signature(m,d,prime_limit)
+boundary_exception_record(m,d,ell)
+even_coordinate_owner_certificate(N,d)
+odd_coordinate_owner_certificate(N)
+registered_local_obstruction_summary()
+```
+
+The default local-prime ceiling is the unchanged registered support-prime limit `11`, giving local odd primes `3,5,7,11`. This is a finite diagnostic choice, not a canonical or asymptotic cutoff.
+
+## Exact laws under review
+
+For even `N=2m`:
+
+```text
+d in D(N) iff m-d and m+d are distinct primes
+m^2-d^2 = (m-d)(m+d)
+actual ownership implies gcd(m,d)=1
+ell | m^2-d^2 iff m ≡ d (mod ell) or m ≡ -d (mod ell)
+```
+
+A residue hit is a non-ownership certificate except when the divisible reconstructed factor equals `ell` itself. Those cases must be recorded as boundary exceptions.
+
+For odd `N`:
+
+```text
+d=N-4
+d in D(N) iff d+2=N-2 is prime
+```
+
+## Required negative result
+
+The pass must retain an explicit counterexample showing:
+
+```text
+local survival under finitely many tested primes does not imply ownership
+```
+
+Therefore PASS-004 does not authorize a primality test claim.
+
+## Successor candidate — not active
+
+```text
+ENGINE-005-LOCAL-NEIGHBORHOOD-GEOMETRY = CANDIDATE_SUCCESSOR
+```
+
+The candidate may later study the local PVG environment of `x+k`, but it is not active until PASS-004 closes or is stopped by an explicit review. No training, classifier, feature promotion, or primality claim is authorized now.
+
+## Frozen domain
+
+```text
+support primes <= 11
+support face sizes = 1,2,3
+integer cap = 100000
+integer points = 884
+no support or cap expansion
+```
+
+## Retained capability state — supporting, not governing
+
+```text
+TRANSLATION-KERNEL-V2-PASS-001 = checkpoint_pass
+PVG-ANT-BENCHMARK-001 = checkpoint_pass
+TRANSLATION-KERNEL-V2-PASS-002 = checkpoint_pass
+PVG-UNDERSTANDING-DEEPENING-001 = checkpoint_pass
+GOVERNANCE-ENFORCEMENT-CLOSURE-001 = CLOSED
+CENTRAL-MIND-CONTINUITY-001 = installed_repository_side
+CENTRAL-MIND-CONTINUITY-CLOSURE-002 = closed
+Current maturation receipt = MATURATION-RECEIPT-007
+MNTII-006-E = CLOSED by v0.6-e-closure
+TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001 = retained on demand
+Montgomery A/B/legacy-E = quarantined / source-mismatch / not live
+```
+
+These stages and tools remain registered capabilities and do not create a second research front.
+
+```text
+ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED
+registries/planned.jsonl is empty
+Dataset 004 remains unauthorized
+no targeted learning before the immutable raw error map
+no local component training, corpus promotion, LoRA, or SFT
+no automatic Lean expansion
+```
+
+## Required scientific classification
+
+```text
+IDENTITY
+PROVED
+FINITE-VERIFIED
+INTERPRETATION
+HYPOTHESIS
+OPEN
+```
+
+## Stop conditions
+
+A new readiness decision is mandatory before:
+
+- closing PASS-004 or opening any later subpass;
+- activating ENGINE-005;
+- Phase D, iteration, or orbit dynamics;
+- support-prime, face-size, or integer-cap expansion;
+- weighting, averaging, density laws, singular series, or asymptotics;
+- ANT translation beyond exact elementary identities;
+- theorem-path reactivation;
+- a second theorem target;
+- originality, publication, Goldbach, PNT, RH, or GRH claims.
+
+## Current ceiling
+
+The authorized action is implementation and finite certification of ENGINE-004 PASS-004 only. It is not authorization for a new primality test, Phase D, a theorem program, or a major-conjecture claim. There is no Goldbach or PNT progress and no RH/GRH progress.

@@ -1,0 +1,61 @@
+name: PVG Centered-Radius Incidence Audit
+
+on:
+  pull_request:
+    paths:
+      - 'tools/pvg_centered_radius_incidence.py'
+      - 'tests/test_pvg_centered_radius_incidence.py'
+      - 'research/pvg-space-deepening/engine-004-pass-003-centered-radius-incidence.md'
+      - 'research/pvg-space-deepening/data/centered-radius-incidence-summary.json'
+      - 'governance/readiness/ENGINE-004-PASS-003-CENTERED-RADIUS-INCIDENCE.md'
+      - 'governance/checkpoints/ENGINE-004-PASS-003-CENTERED-RADIUS-INCIDENCE-001.md'
+      - '.github/workflows/pvg-centered-radius-incidence-audit.yml'
+      - 'transition-memory/latest-state.md'
+      - 'transition-memory/next-action.md'
+  workflow_dispatch:
+
+jobs:
+  centered-radius-incidence:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Syntax check
+        run: |
+          python -m py_compile tools/pvg_centered_radius_incidence.py
+          python -m py_compile tests/test_pvg_centered_radius_incidence.py
+      - name: Complete frozen-box incidence tests
+        run: python -m unittest -v tests/test_pvg_centered_radius_incidence.py
+      - name: Regenerate compact certificate
+        run: python tools/pvg_centered_radius_incidence.py --registered-summary --compact > /tmp/pvg-centered-radius-incidence-summary.json
+      - name: Verify certificate and claim ceiling
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          from pathlib import Path
+
+          generated_path = Path('/tmp/pvg-centered-radius-incidence-summary.json')
+          generated = json.loads(generated_path.read_text(encoding='utf-8'))
+          certificate = json.loads(Path('research/pvg-space-deepening/data/centered-radius-incidence-summary.json').read_text(encoding='utf-8'))
+          digest = hashlib.sha256(generated_path.read_bytes()).hexdigest()
+
+          assert digest == certificate['canonical_compact_sha256']
+          for key in ('scope', 'totals', 'degree_distributions', 'maxima', 'route_coordinate_classes', 'largest_support_pair_intersections', 'bipartite_components', 'lossless_cooccurrence_certificate', 'verification', 'claim_ceiling'):
+              assert generated[key] == certificate[key]
+          verification = generated['verification']
+          assert verification['independent_index_mismatch_count'] == 0
+          assert verification['all_rows_reconstruct']
+          assert verification['odd_route_owner_injective']
+          assert verification['deterministic_ordering']
+          assert verification['phase_d_not_used']
+          assert not any(generated['claim_ceiling'].values())
+          PY
+      - name: Governance audits
+        run: |
+          python tools/honesty_audit.py
+          python tools/state_coherence_audit.py
+          python tools/research_compass_audit.py
+          python tools/goal_memory_traceability_audit.py

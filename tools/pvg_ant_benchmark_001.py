@@ -230,13 +230,15 @@ def main() -> None:
     require("False originality promotion = 0" in checkpoint, "Originality guard missing")
 
     require("PVG-ANT-BENCHMARK-001 = checkpoint_pass" in next_action, "Next-action benchmark state missing")
-    require("GOAL-OP-ONE-THEOREM-001 = active_external_validation_hold" in next_action, "Theorem hold lost")
+    require("GOAL-OP-INVERSE-PRIME-FIBERS-001 = active_current" in next_action, "Current inverse goal missing")
+    require("GOAL-OP-ONE-THEOREM-001 = superseded_with_reason" in next_action, "Archived theorem state missing")
     require("Dataset 004 remains unauthorized" in next_action, "Dataset firewall lost")
     require("no RH/GRH progress" in next_action, "Scientific ceiling lost")
 
     print(
         "pvg_ant_benchmark_001: PASS — 60 cases, 662/720 coverage baseline, "
-        "reverse-control and tool-routing gaps identified without model-performance or originality claims"
+        "reverse-control and tool-routing gaps identified without model-performance or originality claims; "
+        "ENGINE-004 is the current governed front"
     )
 
 

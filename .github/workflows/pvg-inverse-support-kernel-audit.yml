@@ -1,0 +1,101 @@
+name: PVG Inverse Support Kernel Audit
+
+on:
+  pull_request:
+    paths:
+      - 'tools/pvg_inverse_support_kernel.py'
+      - 'tests/test_pvg_inverse_support_kernel.py'
+      - 'research/pvg-space-deepening/engine-002-general-inverse-support-kernel.md'
+      - 'research/pvg-space-deepening/data/inverse-support-kernel-summary.json'
+      - 'governance/readiness/ENGINE-002-GENERAL-INVERSE-SUPPORT-KERNEL.md'
+      - 'registries/program-goals.jsonl'
+      - 'registries/goal-links.jsonl'
+      - '.github/workflows/pvg-inverse-support-kernel-audit.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'tools/pvg_inverse_support_kernel.py'
+      - 'tests/test_pvg_inverse_support_kernel.py'
+      - 'research/pvg-space-deepening/engine-002-general-inverse-support-kernel.md'
+      - 'research/pvg-space-deepening/data/inverse-support-kernel-summary.json'
+      - 'governance/readiness/ENGINE-002-GENERAL-INVERSE-SUPPORT-KERNEL.md'
+      - 'registries/program-goals.jsonl'
+      - 'registries/goal-links.jsonl'
+      - '.github/workflows/pvg-inverse-support-kernel-audit.yml'
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Syntax check
+        run: |
+          python -m py_compile tools/pvg_inverse_support_kernel.py
+          python -m py_compile tests/test_pvg_inverse_support_kernel.py
+      - name: Unit and completeness tests
+        run: python -m unittest -v tests/test_pvg_inverse_support_kernel.py
+      - name: Regenerate registered analysis
+        run: |
+          python tools/pvg_inverse_support_kernel.py \
+            --registered-summary \
+            --output /tmp/engine-002-full.json \
+            --compact > /tmp/engine-002-stdout.json
+      - name: Compare registered certificate fields
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          generated = json.loads(Path('/tmp/engine-002-full.json').read_text(encoding='utf-8'))
+          registered = json.loads(Path('research/pvg-space-deepening/data/inverse-support-kernel-summary.json').read_text(encoding='utf-8'))
+
+          scalar_keys = [
+              'predecessor_face_count',
+              'brute_force_pair_evaluation_count',
+              'target_count',
+              'reachable_target_count',
+              'unreachable_target_count',
+              'reachable_target_size_distribution',
+              'predecessor_incidence_count_by_face_size',
+          ]
+          for key in scalar_keys:
+              assert generated[key] == registered[key], (key, generated[key], registered[key])
+
+          assert generated['registered_box'] == registered['registered_box']
+          assert generated['compression_laws'] == registered['compression_laws']
+          assert generated['verification']['soundness'] is True
+          assert generated['verification']['completeness_against_full_forward_enumeration'] is True
+          assert generated['verification']['deduplication'] is True
+          assert generated['verification']['determinism'] is True
+          assert generated['verification']['soundness_failures'] == []
+          assert generated['verification']['completeness_failures'] == []
+
+          compact_generated = {
+              row['target_key']: {
+                  'witness_edge_count': row['witness_edge_count'],
+                  'predecessor_count': row['predecessor_count'],
+                  'predecessor_count_by_size': row['predecessor_count_by_size'],
+                  'support_fiber_numbers': row['compression_certificate']['support_fiber_numbers'],
+              }
+              for row in generated['reachable_targets']
+          }
+          compact_registered = {
+              row['target_key']: {
+                  'witness_edge_count': row['witness_edge_count'],
+                  'predecessor_count': row['predecessor_count'],
+                  'predecessor_count_by_size': row['predecessor_count_by_size'],
+                  'support_fiber_numbers': row['support_fiber_numbers'],
+              }
+              for row in registered['reachable_targets']
+          }
+          assert compact_generated == compact_registered
+          assert len(compact_generated) == 20
+          assert registered['unreachable_certificate']['count'] == generated['unreachable_target_count']
+          PY
+      - name: Goal-memory and return gates
+        run: |
+          python tools/research_compass_audit.py
+          python tools/goal_memory_traceability_audit.py

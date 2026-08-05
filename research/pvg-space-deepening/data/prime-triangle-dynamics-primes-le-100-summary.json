@@ -1,0 +1,66 @@
+{
+  "distinguished_dynamics": {
+    "cycles": [],
+    "prime_difference_transitions": [
+      {
+        "chain": [
+          {
+            "prime_triangle_target": [2, 3, 5],
+            "raw_difference_triple": [3, 2, 5],
+            "source": [2, 5, 7],
+            "step": 1
+          },
+          {
+            "prime_triangle_target": null,
+            "raw_difference_triple": [1, 2, 3],
+            "source": [2, 3, 5],
+            "step": 2
+          }
+        ],
+        "source": [2, 5, 7],
+        "target": [2, 3, 5]
+      }
+    ]
+  },
+  "exact_laws": [
+    "T_minus(p,q,r)=(q-p,r-q,r-p) satisfies d3=d1+d2",
+    "T_minus is invariant under common translation and therefore loses absolute position",
+    "T_plus(p,q,r)=(p+q,q+r,p+r) is injective on labeled triangles",
+    "T_plus inverse is p=(s_pq+s_pr-s_qr)/2 and cyclic analogues",
+    "the three sums have gcd 2 for all-odd prime triangles and gcd 1 for triangles containing axis 2",
+    "T_plus never produces three prime values",
+    "T_minus produces a distinct prime triangle iff the source is (2,5,7)",
+    "the unique prime-triangle transition is (2,5,7)->(2,3,5), then the next difference triple is (1,2,3)"
+  ],
+  "finite_counts": {
+    "detected_cycle_count": 0,
+    "difference_gcd_distribution": {
+      "1": 188, "2": 1168, "3": 59, "4": 292, "5": 14, "6": 285,
+      "7": 3, "8": 67, "9": 5, "10": 58, "11": 1, "12": 60,
+      "13": 1, "14": 23, "15": 1, "16": 10, "17": 1, "18": 21,
+      "19": 1, "20": 8, "22": 4, "24": 7, "26": 3, "27": 1,
+      "28": 3, "29": 1, "30": 8, "34": 1, "36": 3, "38": 1,
+      "40": 1, "42": 1
+    },
+    "difference_prime_count_distribution": {"0": 1969, "1": 295, "2": 35, "3": 1},
+    "prime_difference_triangle_count": 1,
+    "sum_gcd_distribution": {"1": 276, "2": 2024},
+    "sum_prime_count_distribution": {"0": 2144, "1": 128, "2": 28}
+  },
+  "schema": "PVG-PRIME-TRIANGLE-DYNAMICS-001",
+  "scientific_classification": "exact elementary transform identities plus a finite deterministic atlas; no asymptotic, novelty, or major-conjecture claim",
+  "scope": {
+    "prime_count": 25,
+    "prime_limit": 100,
+    "primes": [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97],
+    "unordered_triangle_count": 2300
+  },
+  "verification": {
+    "all_difference_relations": true,
+    "all_sum_gcd_rules": true,
+    "all_sum_recoveries": true,
+    "no_detected_cycles": true,
+    "no_sum_prime_triangles": true,
+    "unique_prime_difference_source": true
+  }
+}

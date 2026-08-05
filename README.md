@@ -1,25 +1,51 @@
 # PVG–ANT Central Mind
 
 > **Canonical repository:** `D:\PVG-ANT-Central-Mind`  
-> **Purpose:** build a reusable PVG–ANT research language and use it toward an original, correct, modest contribution to analytic number theory.
+> **Purpose:** build a reusable PVG–ANT research language and a governed native theory of Prime-Valuation Geometry.
 
-## Research compass v1.0
-
-The project is no longer measured by the number of books, units, or files. Knowledge, Lean, Python, R, literature search, experiments, and external legacy laboratories are activated only when an active research task requires them.
-
-The governing route is:
+## Current governing state
 
 ```text
-ANT problem
-→ multiplicative core
-→ PVG encoding
-→ geometric decomposition
-→ analytic transform
-→ transfer lemma
-→ proof / test / negative certificate
-→ ANT restatement
-→ originality and PVG-necessity audit
-→ reusable knowledge
+Governing program:
+  GOAL-PVG-INVERSE-GEOMETRY-001
+
+Active operational goal:
+  GOAL-OP-INVERSE-PRIME-FIBERS-001 = active_current
+
+Engine and phase:
+  ENGINE-004
+  Phase C — Inverse Prime Fibers
+
+Archived theorem route:
+  GOAL-OP-ONE-THEOREM-001 = superseded_with_reason
+  non-governing
+
+Phase D:
+  NOT AUTHORIZED
+```
+
+The owner redirected the project to inverse geometry. The earlier one-theorem program is retained as historical research memory only; it is not the current front.
+
+PR #63 remains open, draft, and unmerged on:
+
+```text
+agent/pvg-point-classification-inverse-geometry-001
+```
+
+`main` remains unchanged until explicit owner authorization.
+
+## Research compass and goal memory
+
+```text
+named object or question
+→ readiness card and frozen scope
+→ exact PVG encoding
+→ proved identity / finite test / negative certificate
+→ loss accounting
+→ honest classification
+→ reproducible artifact
+→ goal-state update
+→ Stage Review
 ```
 
 Canonical references:
@@ -27,20 +53,16 @@ Canonical references:
 - `central-mind-charter.md`
 - `central-mind-goals.md`
 - `governance/pvg-ant-research-compass-v1.md`
-- `maps/pvg-ant-language-kernel-v1.md`
-- `governance/task-triggered-knowledge-activation-policy.md`
-- `governance/stage-review-and-ceiling-escalation-policy.md`
-- `governance/canonical-repository-sync-policy.md`
-- `governance/continuous-mind-maturation-policy.md`
-- `maps/pvg-ant-common-language-contract-v1.md`
-- `governance/templates/research-readiness-card.md`
-- `governance/templates/maturation-receipt.md`
+- `governance/pvg-ant-goal-memory-and-return-protocol-v1.md`
+- `governance/pvg-inverse-geometry-engine-architecture-v1.md`
+- `governance/readiness/ENGINE-004-INVERSE-PRIME-FIBERS.md`
+- `governance/checkpoints/ENGINE-004-CENTERED-GAP-COORDINATES-001.md`
+- `governance/checkpoints/ENGINE-004-PASS-002-CENTERED-RADIUS-SPECTRA-001.md`
+- `governance/readiness/ENGINE-004-PASS-003-CENTERED-RADIUS-INCIDENCE.md`
 - `registries/program-goals.jsonl`
-- `registries/maturation-events.jsonl`
-- `integration/legacy-research-assets-reconciliation-001.md`
-- `maps/legacy-assets-routing.md`
-- `registries/external-research-assets.jsonl`
-- `registries/negative-results.jsonl`
+- `registries/goal-state-overrides-engine-004.jsonl`
+- `transition-memory/latest-state.md`
+- `transition-memory/next-action.md`
 
 ## Supreme law
 
@@ -59,209 +81,198 @@ No registry, no entry.
 No classification, no claim.
 No certificate, no theorem.
 No readiness gate, no research execution.
-No maturation receipt, no stage-maturity claim.
+No parent goal, no detour.
+No explicit Stage Review, no phase transition.
 No fetched canonical state, no new work branch.
-No RH/GRH progress without a complete proof certificate.
+No Goldbach, PNT, RH, or GRH progress without a complete proof certificate.
 ```
 
-## Current strategic state
+The earlier v0.6 and Coherence Audit 005 controls remain retained compatibility infrastructure; they do not determine the current research front.
+
+## ENGINE-004 frozen box
 
 ```text
-Current merged governance baseline:
-  0a092f5 — Governance Enforcement Closure 001.
-
-Latest formal baseline:
-  56e00f4 — Add Lean P3 valuation mass geometry (LEAN-P3-PASS-008).
-
-Latest closed research baseline:
-  a0f93f4 — Close Dataset 003 independent replication.
-
-Strategic goal:
-  GOAL-PVG-ANT-STRATEGIC-001 — original ANT contribution through materially useful PVG.
-
-Active operational goal:
-  GOAL-OP-ONE-THEOREM-001 — external-validation hold
-  (P8 outreach prepared, not sent; originality not certified).
-
-Active capability program:
-  PVG-ANT-CENTRAL-MIND-MATURATION-002 — active.
-  GOVERNANCE-ENFORCEMENT-CLOSURE-001 = CLOSED.
-  CENTRAL-MIND-CONTINUITY-001 = installed_repository_side.
-  CENTRAL-MIND-CONTINUITY-CLOSURE-002 = closed.
-  Current maturation receipt = MATURATION-RECEIPT-007.
-  ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED.
-
-Closed operational goals:
-  GOAL-OP-SCALE-HETEROGENEITY-CLOSE-001;
-  GOAL-OP-LANGUAGE-KERNEL-V1-001;
-  GOAL-OP-ORIGINAL-LEMMA-SELECTION-001.
-
-Blocked until external validation:
-  GOAL-OP-FORMAL-PUBLICATION-001.
+support prime limit = 11
+support face sizes = 1,2,3
+integer cap = 100000
+support faces = 25
+certified Phase-B integer points = 884
+prime-pair convention = unordered distinct primes p<q
 ```
 
-Current maturity:
+No cap expansion is authorized.
+
+## Exact inverse prime-fiber structure
+
+For each certified point \(N\in\mathcal N(F)\),
+
+\[
+\mathcal R_2(N)=\{\{p,q\}:p<q,\ p+q=N\}.
+\]
+
+The support face controls the parity route:
 
 ```text
-Vocabulary                         strong
-Exact multiplicative translation   partial-to-strong
-Structural simplification          partial
-Transfer principles                one internally proved (I_r observable)
-Research mechanism                 one complete internal crossing; not repeated
-Continuity discipline              operationally closed (workstation task verified; strict gate mode active)
-Original lemma                     none certified
-Original theorem                   none certified
+2 in F     ⇔ N is even; every distinct-prime pair is odd+odd.
+2 not in F ⇔ N is odd; R_2(N) is empty or {{2,N-2}}.
 ```
 
-## Repository structure
+For \(\Delta=q-p\),
 
-| Path | Purpose |
-|---|---|
-| `central-mind-charter.md`, `central-mind-goals.md` | strategic constitution and goals |
-| `governance/` | honesty, readiness, stage review, claims, synchronization, maturation, book/source protocols |
-| `registries/` | machine truth: skills, books, rules, goals, claims, tools, fronts, walls, external assets, negative results, maturation events |
-| `maps/` | language kernel, common-language contract, legacy routing, capabilities, dependency and translation maps |
-| `integration/` | controlled reconciliation and knowledge-return passes |
-| `installed-skills/` | operational math and governance interfaces |
-| `ledgers/books/`, `ledgers/imports/` | mined source knowledge and integration layers |
-| `research/` | reproducible vertical research passes |
-| `formal/lean/` | formal PVG layer when required by active lemmas |
-| `transition-memory/` | current state and next action |
-| `tools/` | automated guards and safe local synchronization tools |
+\[
+p=\frac{N-\Delta}{2},
+\qquad
+q=\frac{N+\Delta}{2},
+\]
 
-The local PDF library, heavy numerical data, GPU engines, HTML applications, and duplicate formal kernels remain excluded from the canonical Git repository.
+\[
+\Delta\equiv N\pmod2,
+\qquad
+N^2-\Delta^2=4pq,
+\qquad
+\gcd(N,\Delta)=\gcd(N,2).
+\]
 
-## Knowledge status discipline
+For even \(N\), \(m=N/2\) and \(d=\Delta/2\) satisfy
+
+\[
+p=m-d,
+\qquad
+q=m+d,
+\qquad
+m^2-d^2=pq,
+\qquad
+\gcd(m,d)=1.
+\]
+
+These are elementary exact identities. No historical originality claim is made.
+
+## Prime-fiber finite certificate
 
 ```text
-available
-→ indexed
-→ extracted
-→ integrated
-→ operationally_ready for a named task
+integer points                         = 884
+representable points                   = 745
+nonrepresentable points                = 139
+unordered distinct-prime pairs         = 218024
+centered-gap coordinates               = 218024
+independent-scan mismatches             = 0
+maximum multiplicity                   = 1557
+maximum point                          = 97200
+maximum support                        = {2,3,5}
 ```
 
-Local availability is not integration; integration is not task-specific mastery.
+Within this frozen box only, the nonrepresentable points on supports containing axis 2 are `2,4,6`.
 
-Knowledge is indispensable, but it enters the operating mind only through the common-language contract:
+## PASS-002 centered-radius spectra
+
+The governed spectrum is
+
+\[
+D(N)=
+\begin{cases}
+\{\Delta/2:\Delta\in\Delta_2(N)\},&N\text{ even},\\
+\Delta_2(N),&N\text{ odd}.
+\end{cases}
+\]
+
+Exact recovery:
 
 ```text
-source-grounded ANT object
-→ native PVG object
-→ admissible morphism
-→ preserved/lost information
-→ analytic tool and range
-→ wall/certificate
-→ reverse conditions and counterexample
-→ verification
-→ maturation receipt
+N=2m and d in D(N) => (p,q)=(m-d,m+d)
+N odd and represented => d=N-4 and (p,q)=(2,d+2)
+(N,D(N)) reconstructs the complete distinct-prime fiber
+|D(N)|=|R_2(N)|
 ```
 
-This preserves task-triggered acquisition while preventing knowledge starvation and preventing book count from masquerading as maturity.
+Finite certificate:
 
-## Continuity protocol
-
-The repository-side continuity layer is installed under `CENTRAL-MIND-CONTINUITY-001` (`MATURATION-RECEIPT-006`) and operationally closed under `CENTRAL-MIND-CONTINUITY-CLOSURE-002` (`MATURATION-RECEIPT-007`).
-
-It couples:
-
-1. fetched `origin/main` as canonical truth and fast-forward-only local main;
-2. a machine-readable maturation receipt for every closed stage;
-3. a sixteen-field common PVG–ANT language contract for knowledge return;
-4. a required continuity audit in `governance-gate`.
-
-Safe local commands:
-
-```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync_canonical_main.ps1 -Mode Audit
-powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync_canonical_main.ps1 -Mode SafeSync
-powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync_canonical_main.ps1 -Mode PrepareBranch
+```text
+total coordinate occurrences                 = 218024
+unique coordinate values                     = 36797
+unique spectra including empty               = 744
+unique nonempty spectra                      = 743
+nonempty spectrum collision classes          = 1
+proper containment edges                     = 2048
+non-singleton-subset containment edges       = 10
+shared coordinate values                     = 27799
+cross-route coordinate values                = 85
+odd/odd shared coordinate values             = 0
 ```
 
-One-time workstation activation:
+The only nonempty complete-spectrum collision is
 
-```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File tools/install_canonical_sync_task.ps1
+\[
+D(5)=D(8)=D(12)=\{1\}.
+\]
+
+The most widely shared coordinate is \(d=7\), occurring at 64 frozen-box points.
+
+```text
+(N,D(N)) = lossless for the complete pair fiber
+D(N) alone = generally loses N, midpoint, support label, and pair labels
 ```
 
-Repository CI verifies the scripts and policy; it cannot infer workstation state by itself. The workstation fact is therefore certified operator-side: the `PVG-ANT-Canonical-Sync` task is installed, RunLevel Limited, repeating every 15 minutes, with a verified successful run, and ruleset `governance-required` enforces strict up-to-date mode. Evidence: `audits/central-mind-continuity-closure-002.md`.
+Classification: exact/proved recovery plus finite-verified frozen-box geometry.
 
-## Installed knowledge substrate
+## Checkpoints and next pass
 
-The repository retains the completed/validated layers from Overholt, Tenenbaum, Mileti, Iwaniec–Kowalski, Harman, Montgomery MNT-II v0.6, and Opera de Cribro v0.7. Their purpose is to supply prerequisites and tools on demand, not to define project success.
-
-Historical source-grounding safeguards remain active — the source-grounding-corrected Montgomery story: the v0.6-E Closure Review and v0.6-G Closure Review tracks, and the quarantine of mismatched A/B/legacy-E material.
-
-The Lean P3 layer through PASS 008 supplies reusable formal infrastructure. It formalizes known valuation geometry and is not itself original ANT progress. New Lean work requires an active research lemma.
-
-## Federated legacy research estate
-
-Legacy projects from `D:\The All` and reviewed archives are registered as external assets rather than parallel live projects.
-
-The reconciliation imported:
-
-- six reusable language bridges;
-- a routing contract for external laboratories;
-- canonical finite-example and bridge-ablation roles;
-- negative-result memory that blocks repeated dead ends;
-- design patterns for formal walls and missing certificates.
-
-No old open-problem execution, Nyman–Beurling production run, zeta island, or Dataset 004 has been activated.
-
-## Reproducible research state
-
-The local-prime-density program completed:
-
-- VRP001 / Dataset 001–002;
-- a pre-data frozen Dataset 003 protocol;
-- independent execution through `10^8`;
-- Python/R agreement and CI;
-- closure as `UNRESOLVED IN INDEPENDENT REPLICATION`.
-
-This is a research-method success and an unresolved scientific result. It is not a confirmed PVG signal and not a theorem.
-
-## Guards
-
-```bash
-python tools/honesty_audit.py
-python tools/registry_sync_audit.py
-python tools/no_pdf_audit.py
-python tools/forbidden_promotion_audit.py
-python tools/duplicate_concept_audit.py
-python tools/citation_audit.py
-python tools/state_coherence_audit.py
-python tools/research_compass_audit.py
-python tools/legacy_assets_audit.py
-python tools/pvg_core_ontology_audit.py
-python tools/central_mind_continuity_audit.py
+```text
+ENGINE-004-CENTERED-GAP-COORDINATES-001 = CHECKPOINT_PASS
+ENGINE-004-PASS-002-CENTERED-RADIUS-SPECTRA-001 = CHECKPOINT_PASS
+ENGINE-004-PASS-003-CENTERED-RADIUS-INCIDENCE = READY
+ENGINE-004 = active_current
+Stage decision = continue_within_phase_c
+Phase D = NOT AUTHORIZED
+PVG Centered-Radius Spectra Audit = SUCCESS
+Governance Required Gate = SUCCESS
 ```
 
-All of the above run as parallel jobs of the required merge gate `.github/workflows/governance-required-gate.yml` on every pull request and push to `main`. The aggregate `governance-gate` job fails if any guard fails. Ruleset `governance-required` requires this status on `main` with no bypass actors.
+PASS-003 is restricted to static coordinate-owner incidence geometry inside the same 884-point box. It does not authorize iteration, orbit dynamics, cap expansion, or asymptotics.
 
-## Focus rules
+## Retained capability state
 
-- one active original-research front;
-- task first, prerequisite audit second;
-- minimum sufficient knowledge acquisition;
-- every acquired prerequisite returns through the shared PVG–ANT language;
-- no rebuilding certified bridges;
-- no external asset without a named missing function;
-- no tool without a named scientific function;
-- every stage has a measurable deliverable, closure rule, and maturation receipt;
-- every work branch begins from a fetched canonical state;
-- the ceiling rises only after a tested maturity level;
-- no Benchmark 002 learning before the immutable raw error map.
+```text
+TRANSLATION-KERNEL-V2-PASS-001 = checkpoint_pass
+PVG-ANT-BENCHMARK-001 = checkpoint_pass
+TRANSLATION-KERNEL-V2-PASS-002 = checkpoint_pass
+PVG-UNDERSTANDING-DEEPENING-001 = checkpoint_pass
+GOVERNANCE-ENFORCEMENT-CLOSURE-001 = CLOSED
+CENTRAL-MIND-CONTINUITY-001 = installed_repository_side
+CENTRAL-MIND-CONTINUITY-CLOSURE-002 = closed
+Current maturation receipt = MATURATION-RECEIPT-007
+ADVERSARIAL-PVG-ANT-BENCHMARK-002 = NOT_STARTED
+Dataset 004 remains unauthorized
+```
+
+These are supporting capabilities. They do not create another active research front.
+
+## Retained source-grounding history
+
+Historical source-grounding safeguards remain active as non-governing capability memory — the source-grounding-corrected Montgomery story includes the `v0.6-E Closure Review` and `v0.6-G Closure Review` tracks, and the quarantine of mismatched A/B/legacy-E material.
+
+```text
+MNTII-006-E = CLOSED by v0.6-e-closure
+TOOL-MONTGOMERY-BOUNDED-GAPS-DIAGNOSTIC-001 = retained on demand
+A/B/legacy-E = quarantined / source-mismatch / not live
+```
+
+This source history supplies tools and negative memory only. It does not reopen book mining, the theorem route, or a second active research front.
+
+## Historical inverse-geometry foundation
+
+The branch retains exact point passports, native valuation geometry, support/height/simplex structures, additive cells, support-fiber synthesis, reverse support preimages, ENGINE-002, ENGINE-003, deterministic tools, tests, certificates, and visual laboratories.
+
+PASS-025’s depth-12 witness remains finite and frozen-class dependent. It does not establish global minimality, unbounded depth, or general termination.
 
 ## Scientific ceiling
 
-```text
-No original lemma certified yet.
-No original theorem certified yet.
-No claim that PVG predicts local prime counts.
-Hidden-set autonomous performance is not measured.
-Benchmark 002 is not started.
-No RH progress.
-No GRH progress.
-```
+- inverse geometry only;
+- exact identities and complete finite verification only;
+- no theorem-route reactivation;
+- no Phase D without a separate readiness decision;
+- no cap expansion or asymptotic estimate;
+- no historical originality or publication-readiness claim;
+- no Goldbach, PNT, RH, or GRH progress;
+- no trained neural network or approved training corpus.
 
-**Classification:** Governance / Research Program landing page.
+**Classification:** governed research infrastructure and exact finite inverse geometry. No original lemma or theorem is certified.

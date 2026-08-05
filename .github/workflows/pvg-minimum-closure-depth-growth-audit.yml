@@ -1,0 +1,82 @@
+name: PVG Minimum Closure Depth Growth Audit
+
+on:
+  pull_request:
+    paths:
+      - 'tools/pvg_minimum_closure_depth_growth.py'
+      - 'tests/test_pvg_minimum_closure_depth_growth.py'
+      - 'research/pvg-space-deepening/pass-023-minimum-closure-depth-growth.md'
+      - 'research/pvg-space-deepening/data/minimum-closure-depth-growth-summary.json'
+      - 'tools/sync_pvg_inverse_geometry_worktree.ps1'
+      - '.github/workflows/pvg-minimum-closure-depth-growth-audit.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'tools/pvg_minimum_closure_depth_growth.py'
+      - 'tests/test_pvg_minimum_closure_depth_growth.py'
+      - 'research/pvg-space-deepening/pass-023-minimum-closure-depth-growth.md'
+      - 'research/pvg-space-deepening/data/minimum-closure-depth-growth-summary.json'
+      - 'tools/sync_pvg_inverse_geometry_worktree.ps1'
+      - '.github/workflows/pvg-minimum-closure-depth-growth-audit.yml'
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Syntax check
+        run: |
+          python -m py_compile tools/pvg_minimum_closure_depth_growth.py
+          python -m py_compile tests/test_pvg_minimum_closure_depth_growth.py
+      - name: PowerShell synchronization integration
+        shell: pwsh
+        run: |
+          $source = Get-Content -Raw tools/sync_pvg_inverse_geometry_worktree.ps1
+          $null = [scriptblock]::Create($source)
+          if ($source -notmatch 'test_pvg_cross_bound_structural_stress_test.py') { throw 'PASS-022 suite is missing from synchronization' }
+          if ($source -notmatch 'test_pvg_minimum_closure_depth_growth.py') { throw 'PASS-023 suite is missing from synchronization' }
+          if ($source -notmatch 'tools/pvg_minimum_closure_depth_growth.py') { throw 'PASS-023 smoke test is missing from synchronization' }
+      - name: Unit tests
+        run: python -m unittest -v tests/test_pvg_minimum_closure_depth_growth.py
+      - name: Regenerate registered summary
+        run: |
+          python tools/pvg_minimum_closure_depth_growth.py \
+            --summary-only --registered-summary --compact \
+            > /tmp/minimum-closure-depth-growth-summary.json
+          diff -u \
+            research/pvg-space-deepening/data/minimum-closure-depth-growth-summary.json \
+            /tmp/minimum-closure-depth-growth-summary.json
+      - name: Verify decisive findings
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          data = json.loads(
+              Path('research/pvg-space-deepening/data/minimum-closure-depth-growth-summary.json')
+              .read_text(encoding='utf-8')
+          )
+          assert data['minimum_closure_depth_series'] == [5,5,5,5,5,5,6,6,6]
+          ladder = [
+              (row['prime_limit_threshold'], row['new_minimum_closure_depth'])
+              for row in data['exact_threshold_ladder_through_maximum_limit']
+          ]
+          assert ladder == [(3,1),(7,2),(19,3),(31,4),(73,5),(359,6)]
+          assert data['first_depth_six_threshold'] == 359
+          assert data['first_depth_seven_threshold'] is None
+          assert data['no_depth_seven_required_through_maximum_limit'] is True
+          row500 = data['limit_table'][-1]
+          assert row500['maximum_depth_start_faces'] == [
+              [227,479],[239,467],[257,449],[263,443],[317,389],[347,359]
+          ]
+          group = row500['maximum_depth_orbit_groups'][0]
+          assert group['start_sums'] == [706]
+          assert group['orbit_tail_from_depth_1'] == [
+              [[2,353]], [[5,71]], [[2,19]], [[3,7]], [[2,5]], [[7]]
+          ]
+          assert row500['maximum_closure_minus_stabilization_gap'] == 3
+          assert all(data['verification'].values())
+          PY

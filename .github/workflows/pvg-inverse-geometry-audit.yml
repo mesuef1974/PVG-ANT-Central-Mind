@@ -1,0 +1,215 @@
+name: PVG Inverse Geometry Audit
+
+on:
+  pull_request:
+    paths:
+      - 'maps/pvg-point-classification-and-inverse-geometry-v1.md'
+      - 'maps/pvg-local-neighborhood-and-axis-ratio-geometry-v1.md'
+      - 'research/pvg-space-deepening/**'
+      - 'web/pvg-pareto-explorer/**'
+      - 'tools/pvg_*.py'
+      - 'tools/open_pvg_pareto_explorer.ps1'
+      - 'tools/sync_pvg_inverse_geometry_worktree.ps1'
+      - 'tests/test_pvg_*.py'
+      - 'governance/programs/PVG-INVERSE-GEOMETRY-001.md'
+      - 'governance/checkpoints/PVG-INVERSE-GEOMETRY-001.md'
+      - '.github/workflows/pvg-inverse-geometry-audit.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'maps/pvg-point-classification-and-inverse-geometry-v1.md'
+      - 'maps/pvg-local-neighborhood-and-axis-ratio-geometry-v1.md'
+      - 'research/pvg-space-deepening/**'
+      - 'web/pvg-pareto-explorer/**'
+      - 'tools/pvg_*.py'
+      - 'tools/open_pvg_pareto_explorer.ps1'
+      - 'tools/sync_pvg_inverse_geometry_worktree.ps1'
+      - 'tests/test_pvg_*.py'
+      - 'governance/programs/PVG-INVERSE-GEOMETRY-001.md'
+      - 'governance/checkpoints/PVG-INVERSE-GEOMETRY-001.md'
+      - '.github/workflows/pvg-inverse-geometry-audit.yml'
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Syntax check
+        run: |
+          python -m py_compile tools/pvg_inverse_geometry.py tools/pvg_local_neighborhood.py
+          python -m py_compile tools/pvg_prime_pair_edge_atlas.py tools/pvg_prime_triangle_atlas.py
+          python -m py_compile tools/pvg_prime_triangle_dynamics.py tools/pvg_prime_tetrahedron_atlas.py
+          python -m py_compile tools/pvg_prime_simplex_general.py tools/pvg_arithmetic_terrain.py
+          python -m py_compile tools/pvg_level_terrain.py tools/pvg_level_flow.py
+          python -m py_compile tools/pvg_multiobjective_geometry.py tools/pvg_pareto_frontier_geometry.py
+          python -m py_compile tools/pvg_local_additive_cell_atlas.py tools/pvg_additive_face_transition_graph.py
+          python -m py_compile tools/pvg_iterated_additive_face_dynamics.py tools/pvg_additive_attraction_basins.py
+          python -m py_compile tools/pvg_additive_basin_overlap_geometry.py tools/pvg_additive_basin_depth_stability.py
+          python -m py_compile tools/pvg_prime_bound_expansion_protocol.py
+          python -m py_compile tests/test_pvg_*.py
+      - name: PowerShell script syntax check
+        shell: pwsh
+        run: |
+          $syncSource = Get-Content -Raw tools/sync_pvg_inverse_geometry_worktree.ps1
+          $launcherSource = Get-Content -Raw tools/open_pvg_pareto_explorer.ps1
+          $null = [scriptblock]::Create($syncSource)
+          $null = [scriptblock]::Create($launcherSource)
+      - name: Unit tests
+        run: |
+          python -m unittest -v tests/test_pvg_inverse_geometry.py
+          python -m unittest -v tests/test_pvg_local_neighborhood.py
+          python -m unittest -v tests/test_pvg_prime_pair_edge_atlas.py
+          python -m unittest -v tests/test_pvg_prime_triangle_atlas.py
+          python -m unittest -v tests/test_pvg_prime_triangle_dynamics.py
+          python -m unittest -v tests/test_pvg_prime_tetrahedron_atlas.py
+          python -m unittest -v tests/test_pvg_prime_simplex_general.py
+          python -m unittest -v tests/test_pvg_arithmetic_terrain.py
+          python -m unittest -v tests/test_pvg_level_terrain.py
+          python -m unittest -v tests/test_pvg_level_flow.py
+          python -m unittest -v tests/test_pvg_multiobjective_geometry.py
+          python -m unittest -v tests/test_pvg_pareto_frontier_geometry.py
+          python -m unittest -v tests/test_pvg_pareto_explorer.py
+          python -m unittest -v tests/test_pvg_pascal_explorer.py
+          python -m unittest -v tests/test_pvg_local_additive_cell_atlas.py
+          python -m unittest -v tests/test_pvg_additive_face_transition_graph.py
+          python -m unittest -v tests/test_pvg_iterated_additive_face_dynamics.py
+          python -m unittest -v tests/test_pvg_additive_attraction_basins.py
+          python -m unittest -v tests/test_pvg_additive_basin_overlap_geometry.py
+          python -m unittest -v tests/test_pvg_additive_basin_depth_stability.py
+          python -m unittest -v tests/test_pvg_prime_bound_expansion_protocol.py
+      - name: Core smoke tests
+        run: |
+          python tools/pvg_inverse_geometry.py 900 --compact > /tmp/passport.json
+          python tools/pvg_local_neighborhood.py 30 --steps 3 --compact > /tmp/local.json
+          python tools/pvg_prime_simplex_general.py '2,3,5,7,11' --compact > /tmp/simplex.json
+          python tools/pvg_arithmetic_terrain.py 60 2 3 --factors '2^2,3,5' --compact > /tmp/edge-terrain.json
+          python tools/pvg_level_terrain.py '2,3,5' 6 --compact > /tmp/level-terrain.json
+          python tools/pvg_level_flow.py '2,3,5' 6 --compact > /tmp/level-flow.json
+          python tools/pvg_multiobjective_geometry.py '2,3,5' 6 --compact > /tmp/multiobjective.json
+          python tools/pvg_pareto_frontier_geometry.py '2,3,5' 6 --compact > /tmp/frontier.json
+          python tools/pvg_local_additive_cell_atlas.py --limit 100 --compact > /tmp/additive-cells.json
+          python tools/pvg_additive_face_transition_graph.py --limit 100 --compact > /tmp/additive-graph.json
+          python tools/pvg_iterated_additive_face_dynamics.py --limit 100 --depth 4 --compact > /tmp/additive-dynamics.json
+          python tools/pvg_additive_attraction_basins.py --limit 100 --depth 5 --summary-only --compact > /tmp/additive-basins.json
+          python tools/pvg_additive_basin_overlap_geometry.py --limit 100 --depth 5 --summary-only --compact > /tmp/additive-overlap.json
+          python tools/pvg_additive_basin_depth_stability.py --limit 100 --min-depth 0 --max-depth 5 --summary-only --registered-summary --compact > /tmp/additive-depth-stability.json
+          python tools/pvg_prime_bound_expansion_protocol.py --limits 100,150,200 --depth 5 --summary-only --registered-summary --compact > /tmp/prime-bound-expansion.json
+          test -s web/pvg-pareto-explorer/index.html
+          test -s web/pvg-pareto-explorer/pascal.html
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          a=json.loads(Path('/tmp/passport.json').read_text()); b=json.loads(Path('/tmp/local.json').read_text())
+          c=json.loads(Path('/tmp/simplex.json').read_text()); d=json.loads(Path('/tmp/edge-terrain.json').read_text())
+          e=json.loads(Path('/tmp/level-terrain.json').read_text()); f=json.loads(Path('/tmp/level-flow.json').read_text())
+          g=json.loads(Path('/tmp/multiobjective.json').read_text()); h=json.loads(Path('/tmp/frontier.json').read_text())
+          i=json.loads(Path('/tmp/additive-cells.json').read_text()); j=json.loads(Path('/tmp/additive-graph.json').read_text())
+          k=json.loads(Path('/tmp/additive-dynamics.json').read_text()); l=json.loads(Path('/tmp/additive-basins.json').read_text())
+          m=json.loads(Path('/tmp/additive-overlap.json').read_text()); n=json.loads(Path('/tmp/additive-depth-stability.json').read_text())
+          o=json.loads(Path('/tmp/prime-bound-expansion.json').read_text())
+          assert a['support']==[2,3,5] and a['Omega']==6
+          assert {x['neighbor'] for x in b['primitive_horizontal_neighbors']}=={12,18,20,45,50,75}
+          assert c['pair_sum_reconstruction']==[2,3,5,7,11] and all(c['verification'].values())
+          assert d['before']['n']==60 and d['after']['n']==90 and all(d['verification'].values())
+          assert e['point_count']==28 and e['extrema']['tau']['maximum_points']==[[2,2,2]] and all(e['verification'].values())
+          assert f['fields']['tau']['global_maxima']==[[2,2,2]] and all(f['verification'].values())
+          assert g['edge_count']==63 and g['global_pareto_frontier_size']==19 and all(g['verification'].values())
+          assert h['frontier_size']==19 and h['component_sizes']==[17,1,1] and h['cycle_rank']==11 and all(h['verification'].values())
+          assert i['cell_count']==300 and i['closed_pascal_cell_count']==8 and i['difference_prime_cell_count']==16 and i['double_preservation_count']==1 and all(i['verification'].values())
+          assert j['source_face_count']==300 and j['unique_destination_face_count']==52 and all(j['verification'].values())
+          assert k['layer_face_counts']==[300,52,22,10,4] and k['unique_face_count']==323 and k['unique_arc_count']==338 and all(k['verification'].values())
+          assert l['scope']['start_face_count']==300 and l['terminal_count_distribution']=={'0':0,'1':195,'2':13,'3':92}
+          assert l['unresolved_start_count']==0 and l['observed_cycle_start_count']==0 and all(l['verification'].values())
+          assert m['scope']=={'prime_limit':100,'depth_bound':5,'start_face_count':300,'terminal_axis_count':10,'endpoint_signature_count':19}
+          assert m['axis_overlap_graph']['edge_count']==13 and m['axis_overlap_graph']['component_sizes']==[6,1,1,1,1]
+          assert m['axis_overlap_graph']['isolated_axes']==[31,43,61,73] and m['axis_overlap_graph']['cycle_rank']==8
+          assert m['axis_overlap_graph']['pair_overlaps'][0]['axes']==[5,7] and m['axis_overlap_graph']['pair_overlaps'][0]['intersection_size']==75
+          assert m['axis_overlap_graph']['weighted_overlap_degree_ranking'][0]['axis']==5 and m['axis_overlap_graph']['weighted_overlap_degree_ranking'][0]['weighted_overlap_degree']==187
+          assert m['signature_poset']['rank_distribution']=={'1':10,'2':1,'3':8} and m['signature_poset']['cover_edge_count']==25
+          assert m['gateway_start_count']==105 and all(m['verification'].values())
+          assert n['scope']['start_face_count']==300 and n['scope']['depth_values']==[0,1,2,3,4,5]
+          assert [row['unresolved_start_count'] for row in n['depth_table']]==[300,276,115,25,2,0]
+          assert n['stabilization_depth_distribution']=={'0':0,'1':24,'2':171,'3':80,'4':23,'5':2}
+          assert n['bounded_closure_depth_distribution']=={'0':0,'1':24,'2':161,'3':90,'4':23,'5':2}
+          assert n['basin_size_series']['5']==[0,2,141,153,153,153]
+          assert [row['overlap_edge_count'] for row in n['depth_table']]==[0,0,11,12,13,13]
+          assert n['overlap_weight_series']['{5,7}']==[0,0,30,69,75,75] and all(n['verification'].values())
+          assert o['protocol']['registered_limits']==[100,150,200] and o['protocol']['fixed_depth']==5
+          assert [row['start_face_count'] for row in o['cumulative_table']]==[300,595,1035]
+          assert [row['unresolved_start_count'] for row in o['cumulative_table']]==[0,0,0]
+          assert [row['maximum_signature_rank'] for row in o['cumulative_table']]==[3,4,5]
+          assert [row['overlap_edge_count'] for row in o['cumulative_table']]==[13,18,22]
+          assert [len(row['active_component']) for row in o['cumulative_table']]==[6,8,9]
+          assert o['first_appearance']['endpoint_signatures']['{5,7}']==150
+          assert o['cross_bound_candidates']['largest_basin_axis_series']==[[5],[5],[5]]
+          assert o['cross_bound_candidates']['strongest_overlap_edge_series']==[[5,7],[5,7],[5,7]]
+          assert all(o['verification'].values())
+          page=Path('web/pvg-pareto-explorer/index.html').read_text(encoding='utf-8')
+          pascal=Path('web/pvg-pareto-explorer/pascal.html').read_text(encoding='utf-8')
+          assert 'PVG Pareto Explorer 3D' in page and 'const LEVEL=6' in page and '2**a*3**b*5**c' in page
+          assert 'PVG Pascal' in pascal or 'باسكال' in pascal
+          PY
+      - name: Prime-pair atlas regeneration
+        run: |
+          mkdir -p /tmp/pair
+          python tools/pvg_prime_pair_edge_atlas.py --limit 100 --output-dir /tmp/pair
+          python - <<'PY'
+          import csv,json
+          from pathlib import Path
+          g=json.loads(Path('/tmp/pair/prime-pair-edge-atlas-primes-le-100-summary.json').read_text())
+          c=json.loads(Path('research/pvg-space-deepening/data/prime-pair-edge-atlas-primes-le-100-summary.json').read_text())
+          assert g==c
+          with Path('/tmp/pair/prime-pair-edge-atlas-primes-le-100.csv').open(newline='') as h: assert len(list(csv.DictReader(h)))==300
+          PY
+      - name: Prime-triangle atlas regeneration
+        run: |
+          mkdir -p /tmp/triangle
+          python tools/pvg_prime_triangle_atlas.py --limit 100 --output-dir /tmp/triangle
+          python - <<'PY'
+          import csv,json
+          from pathlib import Path
+          g=json.loads(Path('/tmp/triangle/prime-triangle-atlas-primes-le-100-summary.json').read_text())
+          c=json.loads(Path('research/pvg-space-deepening/data/prime-triangle-atlas-primes-le-100-summary.json').read_text())
+          assert g==c and all(g['verification'].values())
+          with Path('/tmp/triangle/prime-triangle-atlas-primes-le-100.csv').open(newline='') as h: assert len(list(csv.DictReader(h)))==2300
+          PY
+      - name: Prime-triangle dynamics regeneration
+        run: |
+          mkdir -p /tmp/dynamics
+          python tools/pvg_prime_triangle_dynamics.py --limit 100 --output-dir /tmp/dynamics
+          python - <<'PY'
+          import csv,json
+          from pathlib import Path
+          g=json.loads(Path('/tmp/dynamics/prime-triangle-dynamics-primes-le-100-summary.json').read_text())
+          c=json.loads(Path('research/pvg-space-deepening/data/prime-triangle-dynamics-primes-le-100-summary.json').read_text())
+          assert g==c and all(g['verification'].values())
+          with Path('/tmp/dynamics/prime-triangle-dynamics-primes-le-100.csv').open(newline='') as h: assert len(list(csv.DictReader(h)))==2300
+          PY
+      - name: Prime-tetrahedron atlas regeneration
+        run: |
+          mkdir -p /tmp/tetrahedron
+          python tools/pvg_prime_tetrahedron_atlas.py --limit 100 --output-dir /tmp/tetrahedron
+          python - <<'PY'
+          import csv,json
+          from pathlib import Path
+          g=json.loads(Path('/tmp/tetrahedron/prime-tetrahedron-atlas-primes-le-100-summary.json').read_text())
+          c=json.loads(Path('research/pvg-space-deepening/data/prime-tetrahedron-atlas-primes-le-100-summary.json').read_text())
+          assert g==c and all(g['verification'].values())
+          with Path('/tmp/tetrahedron/prime-tetrahedron-atlas-primes-le-100.csv').open(newline='') as h: assert len(list(csv.DictReader(h)))==12650
+          PY
+      - name: Execute safe worktree sync script
+        shell: pwsh
+        run: |
+          git fetch --prune origin agent/pvg-point-classification-inverse-geometry-001:refs/remotes/origin/agent/pvg-point-classification-inverse-geometry-001
+          $worktree = Join-Path $env:RUNNER_TEMP 'pvg-inverse-geometry-worktree'
+          ./tools/sync_pvg_inverse_geometry_worktree.ps1 -Repo $PWD.Path -Worktree $worktree -Python 'python'
+      - name: Large unfactored input must be refused
+        run: |
+          set +e
+          python tools/pvg_inverse_geometry.py 18446744073709551616 --compact > /tmp/refusal.json
+          code=$?
+          set -e
+          test "$code" -eq 2

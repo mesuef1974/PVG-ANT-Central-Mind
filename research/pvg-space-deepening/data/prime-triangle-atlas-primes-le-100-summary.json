@@ -1,0 +1,115 @@
+{
+  "definitions": {
+    "axis_triangle": "three distinct prime axes p<q<r",
+    "normalized_gap": "delta(a,b)=(b-a)/(b+a)",
+    "normalized_gap_composition": "delta(p,r)=(delta(p,q)+delta(q,r))/(1+delta(p,q)delta(q,r))",
+    "preservation_profile": "Sx_Dy counts sum- and difference-preserving edges",
+    "ratio_holonomy": "(q/p)(r/q)(p/r)=1"
+  },
+  "distinguished_triangles": {
+    "all_odd_two_difference_preserved": [
+      [
+        3,
+        5,
+        7
+      ]
+    ],
+    "all_three_difference_preserved": [
+      [
+        2,
+        5,
+        7
+      ]
+    ],
+    "ratio_and_gap_composition_example": [
+      2,
+      3,
+      5
+    ]
+  },
+  "exact_laws": [
+    "axis-ratio transport is path independent: (q/p)(r/q)=r/p",
+    "closed multiplicative holonomy around every prime-axis triangle is 1",
+    "additive gaps compose: (q-p)+(r-q)=r-p",
+    "normalized gaps obey the fractional composition law",
+    "three pair sums recover the three prime vertices uniquely",
+    "all-odd triangles route all six reduced sum/difference transitions through axis 2",
+    "when a triangle contains axis 2, only the opposite odd-odd edge routes through axis 2",
+    "an all-odd triangle has at most two difference-preserving edges, with equality only for (3,5,7)",
+    "all three differences are prime only for the triangle (2,5,7)",
+    "no triangle has three sum-preserving edges"
+  ],
+  "finite_counts": {
+    "difference_preserved_edge_count_distribution": {
+      "0": 1969,
+      "1": 295,
+      "2": 35,
+      "3": 1
+    },
+    "parity_class": {
+      "all_odd": 2024,
+      "contains_axis_2": 276
+    },
+    "preservation_profile_distribution": {
+      "S0_D0": 1885,
+      "S0_D1": 237,
+      "S0_D2": 22,
+      "S1_D0": 63,
+      "S1_D1": 52,
+      "S1_D2": 12,
+      "S1_D3": 1,
+      "S2_D0": 21,
+      "S2_D1": 6,
+      "S2_D2": 1
+    },
+    "sum_preserved_edge_count_distribution": {
+      "0": 2144,
+      "1": 128,
+      "2": 28
+    },
+    "triangles_containing_the_unique_double_preserved_edge_2_5": 23,
+    "triangles_with_two_sum_preserved_edges": 28
+  },
+  "schema": "PVG-PRIME-TRIANGLE-ATLAS-001",
+  "scientific_classification": "exact elementary triangle identities plus a finite deterministic atlas; no asymptotic, novelty, or major-conjecture claim",
+  "scope": {
+    "prime_count": 25,
+    "prime_limit": 100,
+    "primes": [
+      2,
+      3,
+      5,
+      7,
+      11,
+      13,
+      17,
+      19,
+      23,
+      29,
+      31,
+      37,
+      41,
+      43,
+      47,
+      53,
+      59,
+      61,
+      67,
+      71,
+      73,
+      79,
+      83,
+      89,
+      97
+    ],
+    "unordered_triangle_count": 2300
+  },
+  "verification": {
+    "all_additive_gap_compositions": true,
+    "all_axis_two_routing_checks": true,
+    "all_closed_holonomies_equal_one": true,
+    "all_normalized_gap_compositions": true,
+    "all_ratio_compositions": true,
+    "all_vertex_recoveries": true
+  }
+}

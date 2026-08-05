@@ -1,0 +1,69 @@
+name: PVG Support-Conditioned Incidence Audit
+
+on:
+  pull_request:
+    paths:
+      - 'tools/pvg_support_conditioned_incidence.py'
+      - 'tests/test_pvg_support_conditioned_incidence.py'
+      - 'research/pvg-space-deepening/engine-004-pass-004-support-conditioned-incidence.md'
+      - 'research/pvg-space-deepening/data/support-conditioned-incidence-summary.json'
+      - '.github/workflows/pvg-support-conditioned-incidence-audit.yml'
+      - 'governance/readiness/ENGINE-004-PASS-004-SUPPORT-CONDITIONED-INCIDENCE-DIAGNOSTICS.md'
+      - 'governance/checkpoints/ENGINE-004-PASS-004-SUPPORT-CONDITIONED-INCIDENCE-001.md'
+  push:
+    branches: [main]
+    paths:
+      - 'tools/pvg_support_conditioned_incidence.py'
+      - 'tests/test_pvg_support_conditioned_incidence.py'
+      - 'research/pvg-space-deepening/engine-004-pass-004-support-conditioned-incidence.md'
+      - 'research/pvg-space-deepening/data/support-conditioned-incidence-summary.json'
+      - '.github/workflows/pvg-support-conditioned-incidence-audit.yml'
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Syntax check
+        run: |
+          python -m py_compile tools/pvg_support_conditioned_incidence.py
+          python -m py_compile tests/test_pvg_support_conditioned_incidence.py
+      - name: Unit tests
+        run: python -m unittest -v tests/test_pvg_support_conditioned_incidence.py
+      - name: Generate deterministic candidate certificate
+        run: |
+          python tools/pvg_support_conditioned_incidence.py --compact > /tmp/support-conditioned-incidence.json
+          python -m json.tool /tmp/support-conditioned-incidence.json > /dev/null
+      - name: Verify frozen scope and ceiling
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          payload = json.loads(Path('/tmp/support-conditioned-incidence.json').read_text(encoding='utf-8'))
+          assert payload['scope']['integer_point_count'] == 884
+          assert payload['scope']['represented_point_count'] == 745
+          assert payload['scope']['support_face_sizes'] == [1, 2, 3]
+          assert all(payload['verification'].values())
+          assert not any(payload['claim_ceiling'].values())
+          assert payload['counterexamples']['same_exact_support_does_not_determine_multiplicity'] is not None
+          assert payload['counterexamples']['same_support_size_does_not_determine_multiplicity'] is not None
+          assert payload['counterexamples']['same_size_bin_does_not_determine_support'] is not None
+          PY
+      - name: Compare committed certificate when present
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          committed_path = Path('research/pvg-space-deepening/data/support-conditioned-incidence-summary.json')
+          if committed_path.exists():
+              generated = json.loads(Path('/tmp/support-conditioned-incidence.json').read_text(encoding='utf-8'))
+              committed = json.loads(committed_path.read_text(encoding='utf-8'))
+              assert generated == committed
+          else:
+              print('Committed certificate pending; implementation audit only.')
+          PY

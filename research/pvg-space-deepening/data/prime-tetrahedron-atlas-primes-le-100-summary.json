@@ -1,0 +1,79 @@
+{
+  "distinguished_tetrahedra": {
+    "maximum_difference_preservation": [
+      [2, 3, 5, 7],
+      [2, 5, 7, 13],
+      [2, 5, 7, 19],
+      [2, 5, 7, 31],
+      [2, 5, 7, 43],
+      [2, 5, 7, 61],
+      [2, 5, 7, 73]
+    ],
+    "maximum_sum_preservation_count": 56
+  },
+  "exact_laws": [
+    "all ratio transports between fixed endpoints agree",
+    "all four triangular face holonomies equal 1",
+    "consecutive additive gaps compose to every longer gap",
+    "six pair sums recover all four vertices exactly",
+    "gcd of all pair sums is 2 for all-odd tetrahedra and 1 when axis 2 is present",
+    "difference data is translation invariant and requires an anchor for absolute recovery",
+    "axis-2 routing is determined edgewise by whether the edge is incident to axis 2",
+    "at most three sum-preserving edges can occur because all such edges are incident to axis 2"
+  ],
+  "finite_counts": {
+    "all_odd": 10626,
+    "contains_axis_2": 2024,
+    "difference_preserved_edge_count_distribution": {
+      "0": 9386,
+      "1": 2607,
+      "2": 537,
+      "3": 113,
+      "4": 7
+    },
+    "maximum_difference_preserved_edges_observed": 4,
+    "maximum_sum_preserved_edges": 3,
+    "preservation_profile_distribution": {
+      "S0_D0": 8910,
+      "S0_D1": 2004,
+      "S0_D2": 237,
+      "S0_D3": 35,
+      "S1_D0": 252,
+      "S1_D1": 423,
+      "S1_D2": 219,
+      "S1_D3": 60,
+      "S1_D4": 6,
+      "S2_D0": 189,
+      "S2_D1": 165,
+      "S2_D2": 75,
+      "S2_D3": 18,
+      "S2_D4": 1,
+      "S3_D0": 35,
+      "S3_D1": 15,
+      "S3_D2": 6
+    },
+    "sum_preserved_edge_count_distribution": {
+      "0": 11186,
+      "1": 960,
+      "2": 448,
+      "3": 56
+    }
+  },
+  "schema": "PVG-PRIME-TETRAHEDRON-ATLAS-001",
+  "scientific_classification": "exact elementary identities plus finite bound-100 diagnostics; no asymptotic or novelty claim",
+  "scope": {
+    "edge_count_per_tetrahedron": 6,
+    "prime_count": 25,
+    "prime_limit": 100,
+    "triangle_face_count_per_tetrahedron": 4,
+    "unordered_tetrahedron_count": 12650
+  },
+  "verification": {
+    "all_axis_two_routing": true,
+    "all_face_holonomies": true,
+    "all_gap_compositions": true,
+    "all_path_independence": true,
+    "all_sum_gcd_rules": true,
+    "all_vertex_recoveries": true
+  }
+}

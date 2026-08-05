@@ -1,0 +1,61 @@
+name: PVG Additive Basin Depth Stability Audit
+
+on:
+  pull_request:
+    paths:
+      - 'tools/pvg_additive_basin_depth_stability.py'
+      - 'tests/test_pvg_additive_basin_depth_stability.py'
+      - 'research/pvg-space-deepening/pass-018-additive-basin-depth-stability.md'
+      - 'research/pvg-space-deepening/data/additive-basin-depth-stability-primes-le-100-depth-0-5-summary.json'
+      - '.github/workflows/pvg-additive-basin-depth-stability-audit.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'tools/pvg_additive_basin_depth_stability.py'
+      - 'tests/test_pvg_additive_basin_depth_stability.py'
+      - 'research/pvg-space-deepening/pass-018-additive-basin-depth-stability.md'
+      - 'research/pvg-space-deepening/data/additive-basin-depth-stability-primes-le-100-depth-0-5-summary.json'
+      - '.github/workflows/pvg-additive-basin-depth-stability-audit.yml'
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Syntax check
+        run: |
+          python -m py_compile tools/pvg_additive_basin_depth_stability.py
+          python -m py_compile tests/test_pvg_additive_basin_depth_stability.py
+      - name: Unit tests
+        run: python -m unittest -v tests/test_pvg_additive_basin_depth_stability.py
+      - name: Registered depth-window smoke test
+        run: |
+          python tools/pvg_additive_basin_depth_stability.py \
+            --limit 100 --min-depth 0 --max-depth 5 \
+            --summary-only --registered-summary \
+            > /tmp/pass018.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          generated = json.loads(Path('/tmp/pass018.json').read_text())
+          committed = json.loads(
+              Path(
+                  'research/pvg-space-deepening/data/'
+                  'additive-basin-depth-stability-primes-le-100-depth-0-5-summary.json'
+              ).read_text()
+          )
+          assert generated == committed
+          assert generated['scope']['start_face_count'] == 300
+          assert generated['scope']['depth_values'] == [0, 1, 2, 3, 4, 5]
+          assert [row['unresolved_start_count'] for row in generated['depth_table']] == [300, 276, 115, 25, 2, 0]
+          assert generated['stabilization_depth_distribution'] == {'0': 0, '1': 24, '2': 171, '3': 80, '4': 23, '5': 2}
+          assert generated['bounded_closure_depth_distribution'] == {'0': 0, '1': 24, '2': 161, '3': 90, '4': 23, '5': 2}
+          assert [row['overlap_edge_count'] for row in generated['depth_table']] == [0, 0, 11, 12, 13, 13]
+          assert generated['basin_size_series']['5'] == [0, 2, 141, 153, 153, 153]
+          assert generated['overlap_weight_series']['{5,7}'] == [0, 0, 30, 69, 75, 75]
+          assert all(generated['verification'].values())
+          PY

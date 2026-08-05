@@ -1,0 +1,77 @@
+name: PVG Cross-Bound Structural Stress Test Audit
+
+on:
+  pull_request:
+    paths:
+      - 'tools/pvg_cross_bound_structural_stress_test.py'
+      - 'tests/test_pvg_cross_bound_structural_stress_test.py'
+      - 'research/pvg-space-deepening/pass-022-cross-bound-structural-stress-test.md'
+      - 'research/pvg-space-deepening/data/cross-bound-structural-stress-test-summary.json'
+      - 'tools/pvg_prime_bound_expansion_protocol.py'
+      - 'tools/pvg_additive_attraction_basins.py'
+      - 'tools/sync_pvg_inverse_geometry_worktree.ps1'
+      - '.github/workflows/pvg-cross-bound-structural-stress-test-audit.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'tools/pvg_cross_bound_structural_stress_test.py'
+      - 'tests/test_pvg_cross_bound_structural_stress_test.py'
+      - 'research/pvg-space-deepening/pass-022-cross-bound-structural-stress-test.md'
+      - 'research/pvg-space-deepening/data/cross-bound-structural-stress-test-summary.json'
+      - 'tools/pvg_prime_bound_expansion_protocol.py'
+      - 'tools/pvg_additive_attraction_basins.py'
+      - 'tools/sync_pvg_inverse_geometry_worktree.ps1'
+      - '.github/workflows/pvg-cross-bound-structural-stress-test-audit.yml'
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Syntax check
+        run: |
+          python -m py_compile tools/pvg_cross_bound_structural_stress_test.py
+          python -m py_compile tests/test_pvg_cross_bound_structural_stress_test.py
+      - name: Unit tests
+        run: python -m unittest -v tests/test_pvg_cross_bound_structural_stress_test.py
+      - name: Regenerate registered stress summary
+        run: |
+          python tools/pvg_cross_bound_structural_stress_test.py > /tmp/pass022.json
+      - name: Verify committed summary and decisive findings
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          generated = json.loads(Path('/tmp/pass022.json').read_text())
+          committed = json.loads(
+              Path(
+                  'research/pvg-space-deepening/data/'
+                  'cross-bound-structural-stress-test-summary.json'
+              ).read_text()
+          )
+          assert generated == committed
+          assert generated['protocol']['registered_limits'] == [100,150,200,250,300,400]
+          assert generated['protocol']['fixed_depth'] == 5
+          assert generated['stress_summary'] == {
+              'last_fully_closed_limit': 300,
+              'first_fixed_depth_wall_limit': 400,
+              'fixed_depth_wall_found': True,
+              'decisive_result': 'DEPTH-WALL',
+          }
+          assert [row['unresolved_start_count'] for row in generated['cumulative_table']] == [0,0,0,0,0,2]
+          assert generated['depth_wall_repair']['unresolved_start_keys'] == ['{317,389}','{347,359}']
+          assert generated['depth_wall_repair']['first_closing_depth'] == 6
+          assert all(
+              row['terminal_axes_after_repair'] == [7]
+              for row in generated['depth_wall_repair']['unresolved_start_details']
+          )
+          assert generated['first_counterexamples']['fixed_depth_closure'] == 400
+          for key, value in generated['first_counterexamples'].items():
+              if key != 'fixed_depth_closure':
+                  assert value is None
+          assert all(generated['verification'].values())
+          PY

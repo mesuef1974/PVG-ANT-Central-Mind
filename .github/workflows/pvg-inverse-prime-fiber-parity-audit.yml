@@ -1,0 +1,35 @@
+name: PVG Inverse Prime-Fiber Parity Audit
+
+on:
+  push:
+    paths:
+      - "tools/pvg_inverse_prime_fiber_parity.py"
+      - "tools/pvg_inverse_prime_fibers.py"
+      - "tools/pvg_inverse_integer_fibers.py"
+      - "tests/test_pvg_inverse_prime_fiber_parity.py"
+      - "research/pvg-space-deepening/engine-004-pass-001-support-parity-stratification.md"
+      - ".github/workflows/pvg-inverse-prime-fiber-parity-audit.yml"
+  pull_request:
+    paths:
+      - "tools/pvg_inverse_prime_fiber_parity.py"
+      - "tools/pvg_inverse_prime_fibers.py"
+      - "tools/pvg_inverse_integer_fibers.py"
+      - "tests/test_pvg_inverse_prime_fiber_parity.py"
+      - "research/pvg-space-deepening/engine-004-pass-001-support-parity-stratification.md"
+      - ".github/workflows/pvg-inverse-prime-fiber-parity-audit.yml"
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run support-parity identity tests
+        run: python -m unittest tests.test_pvg_inverse_prime_fiber_parity -v
+      - name: Regenerate representative certificates
+        run: |
+          python tools/pvg_inverse_prime_fiber_parity.py --support 2,3,5 --cap 100000 --compact
+          python tools/pvg_inverse_prime_fiber_parity.py --support 3,5,7 --cap 100000 --compact
