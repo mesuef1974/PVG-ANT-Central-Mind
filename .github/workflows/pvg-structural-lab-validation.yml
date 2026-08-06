@@ -1,0 +1,60 @@
+name: pvg-structural-lab-validation
+
+on:
+  pull_request:
+    paths:
+      - 'research/pvg-structural-laboratory/validation/**'
+      - 'registries/pvg-structural-laboratory-experiments.jsonl'
+      - 'integration/PVG-STRUCTURAL-LAB-V6-INTEGRATION.md'
+      - 'governance/checkpoints/PVG-STRUCTURAL-LAB-V6-INTEGRATION-001.md'
+      - 'pvg_ant_structural_laboratory_v6_0/**'
+      - 'pvg_ant_structural_laboratory_v6_1/**'
+      - 'tools/verify_pvg_lab_manifests.py'
+      - '.github/workflows/pvg-structural-lab-validation.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'research/pvg-structural-laboratory/validation/**'
+      - 'registries/pvg-structural-laboratory-experiments.jsonl'
+      - 'integration/PVG-STRUCTURAL-LAB-V6-INTEGRATION.md'
+      - 'governance/checkpoints/PVG-STRUCTURAL-LAB-V6-INTEGRATION-001.md'
+      - 'pvg_ant_structural_laboratory_v6_0/**'
+      - 'pvg_ant_structural_laboratory_v6_1/**'
+      - 'tools/verify_pvg_lab_manifests.py'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify lab MANIFEST integrity (size + sha256, no missing/extra)
+        run: python tools/verify_pvg_lab_manifests.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Node tests — v6.0 core
+        working-directory: pvg_ant_structural_laboratory_v6_0
+        run: node --test
+      - name: Node tests — v6.1 layout geometry and distortion
+        working-directory: pvg_ant_structural_laboratory_v6_1
+        run: node --test
+      - name: Run independent validation tests
+        working-directory: research/pvg-structural-laboratory/validation
+        run: python -m unittest -v
+      - name: Recompute summary and verify reference gates
+        working-directory: research/pvg-structural-laboratory/validation
+        run: |
+          python pvg_lab_validation.py > /tmp/pvg-lab-validation-summary.json
+          python - <<'PY'
+          import json, math
+          z=json.load(open('/tmp/pvg-lab-validation-summary.json'))
+          assert z['counts']=={'train':60,'holdout':66}
+          assert z['reference']['psi_100_5']==34
+          assert abs(z['reference']['dlog_60_72']-math.log(30))<1e-12
+          assert abs(z['correlations']['partial_pi_max_share'])<0.35
+          assert z['counterexamples']['near_B'] is not None
+          print('PVG structural laboratory validation PASS')
+          PY

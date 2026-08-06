@@ -1,0 +1,3 @@
+# Canonical line endings for versioned PVG web laboratories
+pvg_ant_structural_laboratory_v6_*/** text eol=lf
+pvg_ant_structural_laboratory_v6_*/**/*.png -text

@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PVG–ANT Structural Laboratory v6.0</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><div class="logo">PA</div><div><h1>PVG–ANT Structural Laboratory v6.0</h1><div class="sub">Exact arithmetic core · independent validation · additive Fourier fibers</div></div></div>
+  <div class="topStatus"><span class="statusDot"></span><span>Validated diagnostics · additive fibers · PVG-LAB-006 · 20 يوليو 2026</span></div>
+</header>
+
+<section class="hero"><div class="heroBox">
+  <div class="eyebrow">PVG RESEARCH OPERATING SYSTEM · VERSION 5.5</div>
+  <h2>فضاء التقييمات الأولية: من الترميز الدقيق إلى مختبر تحليلي قابل للقياس</h2>
+  <p>هذه النسخة تفصل بوضوح بين النواة الحسابية، والإكمال الجبري، والاسترخاء التحليلي، وألياف الجمع. وتضيف أطلس خطأ تجريبيًا للأعداد الملساء يقارن العد الدقيق بحجم البسيط، وتقريب نقطة السرج، وخط أساس ديكمان ρ(u)، عبر شبكة من قيم (x,y)، مع إبقاء كل ادعاء داخل درجته العلمية الصحيحة.</p>
+  <div class="heroChips">
+    <span>تقابل حسابي بلا فقد</span><span>نوافذ Πᵧ وشهادة Tᵧ</span><span>هندسة شكل قابلة للمقارنة</span><span>تدقيق كمي للإسقاط 3D</span><span>Ψ(x,y): عد دقيق ومقارنات</span><span>نقطة السرج تفاعلية</span><span>خريطة خطأ (x,y)</span><span>Dickman ρ(u) baseline</span><span>𝓑 وعزم هندسي معياري</span><span>البعد الفعّال للتباين</span><span class="warn">لا ادعاء بمبرهنة جديدة</span>
+  </div>
+</div></section>
+
+<nav class="tabs" aria-label="أقسام الأطلس">
+<button class="tab active" data-view="space">بنية فضاء PVG</button>
+<button class="tab" data-view="lab">المختبر القياسي</button>
+<button class="tab" data-view="smooth">مختبر الأعداد الملساء</button>
+<button class="tab" data-view="validation">التحقق المستقل</button>
+<button class="tab" data-view="additive">مختبر ألياف الجمع</button>
+<button class="tab" data-view="pvg">المستكشف ثلاثي الأبعاد</button>
+<button class="tab" data-view="relations">خريطة ANT العلائقية</button>
+<button class="tab" data-view="bridges">وضع الجسر ANT↔PVG</button>
+<button class="tab" data-view="concepts">المخطط المفاهيمي</button>
+<button class="tab" data-view="frontier">الجبهات الحمراء</button>
+</nav>
+
+<main class="wrap">
+<section class="view active" id="view-space">
+  <div class="note"><strong>قاعدة الحوكمة:</strong> تمثيل هندسي ≠ ثابت رياضي ≠ نتيجة تحليلية ≠ برهان. كل بطاقة أدناه تحدد نوع الكائن وما الذي يحق لنا استنتاجه منه.</div>
+  <div class="governance">
+    <div class="govCard"><b>4</b><span>فضاءات منفصلة وظيفيًا، لا فضاء واحد غامض.</span></div>
+    <div class="govCard"><b>7</b><span>وحدات بحثية من النواة إلى المختبر التحليلي وألياف الجمع.</span></div>
+    <div class="govCard"><b>1</b><span>مختبر تحليلي أول: الأعداد الملساء ونقطة السرج.</span></div>
+    <div class="govCard"><b>0</b><span>مبرهنات جديدة معتمدة حتى الآن؛ الجدة غير مثبتة.</span></div>
+  </div>
+
+  <div class="sectionTitle"><div><h2>طبقات الفضاء</h2><p>توسعات مضبوطة، لكل منها مجال استعمال وحدود استنتاج.</p></div></div>
+  <div class="spaceGrid">
+    <article class="spaceCard" style="--accent:var(--green)"><span class="classTag">EXACT CORE</span><h3>النواة الحسابية</h3><div class="symbol">𝒱ℕ = ⨁ₚ ℕ₀ eₚ</div><p>مونويد تبادلي حر يقابل الأعداد الصحيحة الموجبة تقابلًا تامًا. الضرب يتحول إلى جمع إحداثي.</p><p><b>يحفظ:</b> التحليل الأولي كاملًا. <b>لا يتيح:</b> الطرح العام.</p></article>
+    <article class="spaceCard" style="--accent:var(--blue)"><span class="classTag">EXACT GROUP</span><h3>الإكمال الجبري</h3><div class="symbol">𝒱ℚ = ⨁ₚ ℤ eₚ</div><p>إكمال غروتينديك للنواة، ويقابل المجموعة الضربية للأعداد النسبية الموجبة.</p><p><b>تنبيه:</b> الإشارة منفصلة، والصفر نقطة شاذة لا متجه منتهٍ.</p></article>
+    <article class="spaceCard" style="--accent:var(--amber)"><span class="classTag assist">ANALYTIC AUXILIARY</span><h3>الاسترخاء التحليلي</h3><div class="symbol">𝒳log = ℓ¹(𝒫, log p)</div><p>فضاء حقيقي موزون للتحسين والتقريب ونقطة السرج. لا يمثل تحليلًا أوليًا جديدًا للأعداد الحقيقية.</p><p><b>وظيفته:</b> التحليل؛ <b>ليس:</b> فضاء أعداد.</p></article>
+    <article class="spaceCard" style="--accent:var(--pink)"><span class="classTag nonlinear">NONLINEAR FIBER</span><h3>فضاء ألياف الجمع</h3><div class="symbol">ℱᴷ_N = {(v₁,…,vₖ): Σ Φ(vⱼ)=N}</div><p>الجمع لا يصبح جمع متجهات. المسائل الجمعية تُدرس كعلاقات وقوع لاخطية فوق العدد N.</p><p><b>مثال:</b> غولدباخ حافة بين محوري أوليين داخل ليف محدد.</p></article>
+  </div>
+
+  <div class="sectionTitle"><div><h2>الهويات البنيوية الأساسية</h2><p>هذه هويات معروفة ودقيقة؛ قيمتها أنها تؤسس لغة العمل وتمنع الاستنتاجات الزائفة.</p></div></div>
+  <div class="identityGrid">
+    <article class="card formulaList">
+      <div class="formulaRow"><div class="formula">ν(mn)=ν(m)+ν(n)</div><small>خطية الضرب</small></div>
+      <div class="formulaRow"><div class="formula">a|b ⇔ ν(a)≤ν(b)</div><small>القسمة = ترتيب إحداثي</small></div>
+      <div class="formulaRow"><div class="formula">ν(gcd)=ν(a)∧ν(b)</div><small>الالتقاء الشبكي</small></div>
+      <div class="formulaRow"><div class="formula">ν(lcm)=ν(a)∨ν(b)</div><small>الاتحاد الشبكي</small></div>
+    </article>
+    <article class="card formulaList">
+      <div class="formulaRow"><div class="formula">H(v)=Σₚvₚlog p=log n</div><small>الحجم اللوغاريتمي</small></div>
+      <div class="formulaRow"><div class="formula">dlog(u,v)=Σₚ|uₚ−vₚ|log p</div><small>مترية موزونة</small></div>
+      <div class="formulaRow"><div class="formula">dlog(ν(m),ν(n))=log(lcm/gcd)</div><small>هوية حسابية مادية</small></div>
+      <div class="formulaRow"><div class="formula">σₚ(v)=vₚlog p/H(v)</div><small>فصل الحجم عن الشكل</small></div>
+    </article>
+  </div>
+
+  <div class="sectionTitle"><div><h2>برنامج البناء البحثي</h2><p>كل وحدة تبدأ بالهويات المعروفة، ثم تُقاس فائدتها قبل أي ادعاء بالجدة.</p></div></div>
+  <div class="moduleGrid" id="moduleGrid"></div>
+
+  <div class="sectionTitle"><div><h2>أول سؤال تحليلي مادي</h2></div></div>
+  <div class="researchCallout"><h3>PVG-SMOOTH-001 — الأعداد الملساء</h3><p>يحوّل الشرط <code>P⁺(n)≤y</code> و<code>n≤x</code> إلى عدّ نقاط شبكية داخل نصف فضاء موزون: <code>Σₚ≤y αₚlog p≤log x</code>. القياس المائل يجعل الإحداثيات مستقلة هندسيًا، وتظهر نقطة السرج كشرط مطابقة متوسط الارتفاع مع الحد. التحدي الجديد المحتمل ليس التمثيل، بل اشتقاق حد خطأ صريح من هندسة الأوزان والعزوم.</p></div>
+</section>
+
+<section class="view" id="view-lab">
+  <div class="note"><strong>مختبر قياسي:</strong> غيّر العددين والنافذة الأولية. القيم هنا هويات حسابية أو تعريفات محسوبة، وليست استنتاجات توزيع أو براهين تحليلية.</div>
+  <div class="labControls">
+    <label>العدد m<input id="labM" type="number" min="1" max="10000000" value="360"></label>
+    <label>العدد n<input id="labN" type="number" min="1" max="10000000" value="840"></label>
+    <label>نافذة p ≤ y<select id="labY"><option>2</option><option>3</option><option selected>5</option><option>7</option><option>11</option><option>13</option><option>17</option><option>19</option><option>23</option><option>29</option><option>31</option><option>47</option><option>97</option></select></label>
+    <label>معامل النواة α<input id="labAlpha" type="number" min="0.05" max="3" step="0.05" value="0.5"></label>
+    <button class="btn" id="labCompute">احسب</button><button class="btn" id="labSwap">بدّل</button>
+  </div>
+  <div class="labGrid">
+    <article class="labCard" id="labObjects"></article>
+    <article class="labCard" id="labMetric"></article>
+    <article class="labCard full" id="labWindow"></article>
+    <article class="labCard wide" id="labShape"></article>
+    <article class="labCard counterexample" id="labAddition"></article>
+    <article class="labCard full auditCard" id="labProjection"></article>
+  </div>
+</section>
+
+<section class="view" id="view-smooth">
+  <div class="note"><strong>PVG-SMOOTH-001/002/003:</strong> التمثيل الشبكي والعد الدقيق هويتان حسابيتان. حجم البسيط، ونقطة السرج، وxρ(u) خطوط تقريبية للمقارنة؛ لا تحمل الصفحة حد خطأ مبرهنًا أو ادعاء جدة.</div>
+  <div class="smoothControls">
+    <label>حد العد x<input id="smoothX" type="number" min="2" max="1000000000" value="10000"></label>
+    <label>النافذة y<select id="smoothY"><option>2</option><option>3</option><option selected>5</option><option>7</option><option>11</option><option>13</option><option>17</option><option>19</option><option>23</option><option>29</option><option>31</option><option>37</option><option>41</option><option>43</option><option>47</option></select></label>
+    <label>ميزانية العد<select id="smoothBudget"><option value="100000">100 ألف عقدة</option><option value="500000" selected>500 ألف عقدة</option><option value="2000000">2 مليون عقدة</option></select></label>
+    <button class="btn" id="smoothCompute">شغّل التجربة</button><button class="btn" id="smoothExport">تصدير JSON</button>
+  </div>
+  <div class="smoothStatus" id="smoothStatus">جاهز للحساب.</div>
+  <div class="smoothSummary" id="smoothSummary"></div>
+  <div class="smoothGrid">
+    <article class="smoothCard wide"><h3>هندسة نصف الفضاء الموزون</h3><div id="smoothFormula"></div><div class="smoothCanvasWrap"><canvas id="smoothCanvas"></canvas></div><div class="miniNote" id="smoothGeometryNote"></div></article>
+    <article class="smoothCard" id="smoothApprox"></article>
+    <article class="smoothCard full"><h3>ملف المقارنة عبر قيم x</h3><div class="smoothProfileWrap"><canvas id="smoothProfileCanvas"></canvas></div><div class="chartLegend"><span><i style="background:#25b77a"></i>العد الدقيق</span><span><i style="background:#4f83ff"></i>نقطة السرج</span><span><i style="background:#f5a524"></i>حجم البسيط</span><span><i style="background:#8b5cf6"></i>ديكمان xρ(u)</span></div></article>
+    <article class="smoothCard full errorLab">
+      <h3>PVG-SMOOTH-002 — أطلس الخطأ على شبكة (x,y)</h3>
+      <div class="errorControls">
+        <label>أقصى x للشبكة<select id="errorXMax"><option value="10000">10⁴</option><option value="100000" selected>10⁵</option><option value="1000000">10⁶</option><option value="10000000">10⁷</option></select></label>
+        <label>مجموعة النوافذ y<select id="errorYSet"><option value="core" selected>2،3،5،7،11،19</option><option value="extended">3،5،7،11،19،29،47</option><option value="dense">2،3،5،7،11،13،17،19،23،29،37،47</option></select></label>
+        <label>طريقة عرض الخريطة<select id="errorMode"><option value="winner" selected>أفضل تقريب في الخلية</option><option value="saddle">خطأ نقطة السرج</option><option value="dickman">خطأ ديكمان</option><option value="volume">خطأ حجم البسيط</option></select></label>
+        <label>ميزانية كل صف<select id="errorBudget"><option value="500000">500 ألف</option><option value="2000000" selected>2 مليون</option><option value="10000000">10 ملايين</option></select></label>
+        <button class="btn" id="errorCompute">حلّل الشبكة</button><button class="btn" id="errorExport">تصدير CSV</button>
+      </div>
+      <div class="errorStatus" id="errorStatus">جاهز لبناء شبكة الخطأ.</div>
+      <div class="errorSummary" id="errorSummary"></div>
+      <div class="errorGridWrap"><canvas id="errorHeatmap"></canvas></div>
+      <div class="miniNote errorHover" id="errorHover">مرّر المؤشر فوق خلية لقراءة القيم، وانقرها لنقلها إلى التجربة المفردة.</div>
+      <div id="errorReport"></div>
+    </article>
+    <article class="smoothCard full certificateLab">
+      <h3>PVG-SMOOTH-003 — مختبر الشهادة الهندسية لخطأ نقطة السرج</h3>
+      <div class="certificateControls">
+        <label>المؤشر الأفقي<select id="certificateMetric"><option value="berry" selected>𝓑: مجموع العزوم المطلقة الثالثة / φ₂^(3/2)</option><option value="skew">الالتواء المعياري الموقّع</option><option value="maxshare">حصة أكبر محور من التباين</option><option value="neff">البعد الفعّال للتباين</option></select></label>
+        <button class="btn" id="certificateExport">تصدير تشخيصات CSV</button>
+      </div>
+      <div class="diagnosticFormula">𝓑(x,y) = [ Σ_{p≤y} (log p)³ Eα|ν_p−Eαν_p|³ ] / φ₂(α,y)^{3/2}<br>max-share = max_p Varα(ν_p log p) / φ₂ · n_eff = φ₂² / Σ_p Varα(ν_p log p)²</div>
+      <div class="certificateSummary" id="certificateSummary"></div>
+      <div class="certificateGrid">
+        <div><div class="certificateCanvasWrap"><canvas id="certificateScatter"></canvas></div><div class="miniNote certificateHover" id="certificateHover">مرّر المؤشر فوق نقطة لقراءة الحالة.</div></div>
+        <div id="certificateReport"></div>
+      </div>
+      <div class="miniNote">الارتباط التجريبي ليس حدًا من نوع Berry–Esseen ولا يثبت أن 𝓑 تسيطر على الخطأ. هدف الوحدة هو اختبار صلاحية المؤشر وتحديد الأمثلة المضادة قبل محاولة أي مبرهنة.</div>
+    </article>
+    <article class="smoothCard" id="smoothSample"></article>
+    <article class="smoothCard wide" id="smoothClaim"></article>
+  </div>
+</section>
+
+<section class="view" id="view-pvg">
+<div class="note"><strong>طريقة القراءة:</strong> كل عدد n يُبنى من عوامله الأولية. الاتجاهات محاور أولية، والموضع يعتمد على νₚ(n) وlog p. الرسم تشخيصي وليس برهانًا تحليليًا. <strong>اسحب لتدوير الفضاء، وShift + سحب للتحريك، وعجلة الفأرة للتقريب.</strong></div>
+<div class="axisControls">
+<div class="rangeWrap"><span>المجال 1 →</span><input type="range" id="maxN" min="50" max="600" value="251"><b id="maxNVal">251</b></div>
+<select id="heightMode"><option value="log">الارتفاع: log n</option><option value="omega">الارتفاع: Ω(n)</option><option value="radial">متجه التقييمات</option></select>
+<select id="labelMode"><option value="axes">تسميات المحاور</option><option value="primepowers">القوى الأولية</option><option value="none">بلا تسميات</option></select>
+<select id="axisLimit"><option value="19">محاور حتى 19</option><option value="47" selected>محاور حتى 47</option><option value="97">محاور حتى 97</option><option value="0">كل المحاور في المجال</option></select>
+<select id="pvgWindow"><option value="0" selected>نافذة: الكل</option><option value="2">p≤2</option><option value="3">p≤3</option><option value="5">p≤5</option><option value="7">p≤7</option><option value="11">p≤11</option><option value="19">p≤19</option><option value="47">p≤47</option><option value="97">p≤97</option></select>
+<button class="btn" id="autoRotate">تشغيل الدوران</button><button class="btn" id="resetPVG">إعادة الكاميرا</button>
+</div>
+<div class="axisLegend" id="axisLegend"></div>
+<div class="two">
+<div class="card canvasCard"><canvas id="pvgCanvas"></canvas><div class="pvgInfo" id="pvgHover">حرّك المؤشر أو انقر نقطة</div></div>
+<aside class="card detail" id="pvgDetail"></aside>
+</div>
+</section>
+
+<section class="view" id="view-relations">
+<div class="toolbar"><input class="search" id="relSearch" placeholder="بحث في مفاهيم ANT..."><select id="relDomain"><option value="all">كل المجالات</option></select><button class="btn" id="resetRel">إعادة ضبط</button></div>
+<div class="two">
+<div class="card canvasCard"><svg id="relSvg" viewBox="0 0 1180 760"></svg></div>
+<aside class="card detail" id="relDetail"></aside>
+</div>
+</section>
+
+<section class="view" id="view-bridges"><div class="note">هنا يظهر الجسر الحقيقي: ما يُحفظ، ما يُفقد، وما الشهادة المطلوبة.</div><div class="bridgeGrid" id="bridgeGrid"></div></section>
+<section class="view" id="view-concepts"><div class="conceptGrid" id="conceptGrid"></div></section>
+
+<section class="view" id="view-validation">
+  <div class="note"><strong>PVG-SMOOTH-004:</strong> هذه الوحدة تفصل شبكة المعايرة عن شبكة تحقق غير متداخلة، وتحسب ارتباطات جزئية وأمثلة مضادة. لا تُعاد معايرة الحدود على مجموعة التحقق.</div>
+  <div class="v6Controls">
+    <label>أقصى x<input id="v6ValXMax" type="number" min="1000" max="1000000" value="100000"></label>
+    <label>ميزانية الصف<input id="v6ValBudget" type="number" min="100000" max="10000000" value="3000000"></label>
+    <button class="btn" id="v6RunValidation">شغّل التحقق</button>
+    <button class="btn" id="v6ExportValidation">تصدير JSON</button>
+  </div>
+  <div class="v6Status" id="v6ValidationStatus">جاهز.</div>
+  <div class="v6Summary" id="v6ValidationSummary"></div>
+  <div class="v6Grid">
+    <article class="v6Card wide" id="v6Calibration"></article>
+    <article class="v6Card" id="v6Partial"></article>
+    <article class="v6Card full" id="v6Counterexamples"></article>
+  </div>
+</section>
+
+<section class="view" id="view-additive">
+  <div class="note"><strong>PVG-ADDITIVE-001:</strong> الجمع لا يصبح جمع متجهات. الوحدة تبني الليف ℱ<sub>N</sub>={(ν(x),ν(N−x))}، ثم تفككه حسب الأولية والبواقي وقنوات فورييه.</div>
+  <div class="v6Controls additiveControls">
+    <label>العدد N<input id="v6AddN" type="number" min="4" max="200000" value="100"></label>
+    <label>المعيار q<input id="v6AddQ" type="number" min="2" max="31" value="5"></label>
+    <label>العرض<select id="v6AddMode"><option value="all">كل أزواج الليف</option><option value="goldbach" selected>أزواج أولي–أولي</option><option value="primepower">يتضمن قوة أولية</option></select></label>
+    <button class="btn" id="v6RunAdditive">حلّل الليف</button>
+    <button class="btn" id="v6ExportAdditive">تصدير JSON</button>
+  </div>
+  <div class="v6Status" id="v6AdditiveStatus">جاهز.</div>
+  <div class="v6Summary" id="v6AdditiveSummary"></div>
+  <div class="v6Grid">
+    <article class="v6Card wide" id="v6FiberTable"></article>
+    <article class="v6Card" id="v6Residues"></article>
+    <article class="v6Card full" id="v6Fourier"></article>
+  </div>
+</section>
+
+<section class="view" id="view-frontier"><div class="note">هذه أمثلة على مناطق يلزم فيها الرجوع إلى المصدر الحديث بدل الاعتماد على الذاكرة الداخلية.</div><div class="frontierGrid" id="frontierGrid"></div></section>
+</main>
+
+<script type="module" src="src/app.js"></script>
+</body>
+</html>
