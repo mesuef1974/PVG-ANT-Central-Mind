@@ -9,8 +9,10 @@ GOVERNANCE-ENFORCEMENT-CLOSURE-001 = CLOSED
 CENTRAL-MIND-CONTINUITY-001 = installed_repository_side
 CENTRAL-MIND-CONTINUITY-CLOSURE-002 = closed
 current maturation receipt = MATURATION-RECEIPT-007
-ADVERSARIAL-PVG-ANT-BENCHMARK-002 = S1_IN_PROGRESS
-  STEP A authored and machine-validated; STEP B not started; G1 sealing not reached
+ADVERSARIAL-PVG-ANT-BENCHMARK-002 = S1_IN_PROGRESS_B_AUTHORED
+  STEP A authored and machine-validated in-tree; STEP B authored and independently verified
+  on the plaintext before sealing, committed as ciphertext only — no B case is re-validatable
+  from this repository; G1 sealing not reached
   Set-A concealment defect contained by the 6960cb5 environment pin, Set A retained
 ```
 
@@ -180,7 +182,7 @@ Benchmark 001 remains an immutable sixty-case historical baseline.
 historical registry coverage = 662 / 720 = 91.9 percent
 post-Pass-002 registry coverage = 702 / 720 = 97.5 percent
 remaining imperfect known cases = 11
-ADVERSARIAL-PVG-ANT-BENCHMARK-002 = S1_IN_PROGRESS (authored, unmeasured)
+ADVERSARIAL-PVG-ANT-BENCHMARK-002 = S1_IN_PROGRESS_B_AUTHORED (A and B authored, unmeasured)
 ```
 
 These are registry-coverage measurements, not autonomous performance on hidden problems.
@@ -252,7 +254,7 @@ Native PVG objects: 20.
 Native PVG morphisms: 24.
 Maturation receipts: 6.
 Hidden-set autonomous performance: not measured.
-Benchmark 002: S1_IN_PROGRESS — STEP A authored, STEP B not started, nothing measured.
+Benchmark 002: S1_IN_PROGRESS_B_AUTHORED — A and B authored and sealed, nothing measured.
 General L3 theorem: absent.
 Internal fixed-q, fixed-r, fixed-W smooth theorem proof: complete.
 External mathematical certification: absent.

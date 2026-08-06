@@ -89,8 +89,10 @@ Active capability program:
   CENTRAL-MIND-CONTINUITY-001 = installed_repository_side.
   CENTRAL-MIND-CONTINUITY-CLOSURE-002 = closed.
   Current maturation receipt = MATURATION-RECEIPT-007.
-  ADVERSARIAL-PVG-ANT-BENCHMARK-002 = S1_IN_PROGRESS
-    (STEP A authored and machine-validated; STEP B not started; G1 sealing not reached;
+  ADVERSARIAL-PVG-ANT-BENCHMARK-002 = S1_IN_PROGRESS_B_AUTHORED
+    (STEP A authored and machine-validated in-tree; STEP B authored, independently verified
+     on the plaintext before sealing, and committed as ciphertext — the repository holds no B
+     case to re-validate; G1 sealing not reached;
      no run, no score. Set-A concealment defect contained by the 6960cb5 environment pin
      rather than by re-authoring — see
      governance/programs/BENCHMARK-002-HIDDEN-A-CONTAINMENT-DEFECT-001.md).

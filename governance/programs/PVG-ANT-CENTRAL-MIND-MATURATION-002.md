@@ -128,8 +128,10 @@ Full-book mining is not the default. Targeted extraction continues whenever an a
 
 ## Next evaluation: Adversarial Benchmark 002
 
-`ADVERSARIAL-PVG-ANT-BENCHMARK-002 = S1_IN_PROGRESS` (STEP A authored and
-machine-validated 2026-07-14; STEP B not started; G1 sealing not reached; no run, no score.
+`ADVERSARIAL-PVG-ANT-BENCHMARK-002 = S1_IN_PROGRESS_B_AUTHORED` (STEP A authored and
+machine-validated 2026-07-14; STEP B authored, independently verified, and sealed 2026-08-06;
+G1 sealing not reached;
+no run, no score.
 Status corrected 2026-08-05 — this line read `NOT_STARTED` for three weeks after STEP A merged.)
 
 Required order:

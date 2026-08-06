@@ -1,0 +1,10 @@
+# SEALING-PROTOCOL §9 / CONTAINMENT-DEFECT-001 R4:
+# B prompts AND keys are encrypted offline. Only ciphertext, its SHA-256 manifest, and
+# case-free metadata may live here. Excluding an output while committing the source that
+# re-emits it is not concealment -- that is how Set A was disclosed.
+*.py
+*.ipynb
+*.jsonl
+*.json
+*.csv
+B-*.jsonl
