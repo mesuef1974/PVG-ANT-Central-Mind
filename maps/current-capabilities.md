@@ -10,8 +10,9 @@ CENTRAL-MIND-CONTINUITY-001 = installed_repository_side
 CENTRAL-MIND-CONTINUITY-CLOSURE-002 = closed
 current maturation receipt = MATURATION-RECEIPT-007
 ADVERSARIAL-PVG-ANT-BENCHMARK-002 = S1_IN_PROGRESS_B_AUTHORED
-  STEP A and STEP B authored and machine-validated; B sealed as ciphertext;
-  G1 sealing not reached
+  STEP A authored and machine-validated in-tree; STEP B authored and independently verified
+  on the plaintext before sealing, committed as ciphertext only — no B case is re-validatable
+  from this repository; G1 sealing not reached
   Set-A concealment defect contained by the 6960cb5 environment pin, Set A retained
 ```
 
