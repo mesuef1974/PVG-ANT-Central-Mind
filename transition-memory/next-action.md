@@ -94,9 +94,12 @@ Next internal package after continuity activation:
     Certificate: governance/programs/BENCHMARK-002-HIDDEN-A-CONTAINMENT-DEFECT-001.md
     Registry:    NEG-BENCH002-HIDDEN-A-CONTAINMENT-001
 
-  Immediate next action = LEAKAGE-AUDIT over A and B. It must record the Set-A containment
-    defect and the B custody deviation, not report a clean screen.
-    Then: 6–10 calibration cases outside the score
+  LEAKAGE-AUDIT = DONE 2026-08-06 (BENCHMARK-002-LEAKAGE-AUDIT-001). Textual screen measured
+    across all four corpora: clear, max 0.022. Conceptual screen is self-reported by each
+    authoring session and NOT independently verified — recorded as a named missing certificate.
+    Set-A concealment failure and the B custody deviation both recorded, not smoothed.
+
+  Immediate next action = 6–10 calibration cases outside the score
     → ENVIRONMENT-FREEZE-RECEIPT completed — field 14 (the 6960cb5 pin) is settled; fields
       1–13 are PROPOSED and need owner ratification, and the answering model must be named
     → SHA-256-MANIFEST → BENCHMARK-002-SEALED → only then S2.
