@@ -26,8 +26,8 @@ Capability-maturation state:
   CENTRAL-MIND-CONTINUITY-CLOSURE-002 = closed.
   Current maturation receipt = MATURATION-RECEIPT-007.
   PVG-ANT-RESEARCH-MODEL-PROGRAM-001 = active (stage S1 open, window closes 2026-08-16;
-    Roadmap v2.2 active as the legal plan of record; Benchmark 002 STEP A done,
-    STEP B not started; owner order 2026-07-12;
+    Roadmap v2.2 active as the legal plan of record; Benchmark 002 STEP A and STEP B
+    both authored and sealed; owner order 2026-07-12;
     ARM-CURRENT frozen via CURRENT-MIND-FREEZE-MANIFEST-001).
   Translation inventory = 44; native objects = 20; morphisms = 24.
   planned.jsonl = empty (no queued research passes registered).
@@ -60,7 +60,7 @@ External P8 track (requests SENT 2026-07-13; awaiting referee responses):
   4. Record exactly one terminal theorem classification after responses.
 
 Next internal package after continuity activation:
-  ADVERSARIAL-PVG-ANT-BENCHMARK-002 = S1_IN_PROGRESS.
+  ADVERSARIAL-PVG-ANT-BENCHMARK-002 = S1_IN_PROGRESS_B_AUTHORED.
   (Corrected 2026-08-05. This file carried NOT_STARTED from PR #40 onward while
    STEP A was authored and merged — the state pointer contradicted the tree.)
   It runs as stage S1 (2026-07-13 to 2026-08-16, advanced per S1-GATE-ADVANCE-DECISION-001) of
@@ -72,7 +72,10 @@ Next internal package after continuity activation:
   STEP A = DONE: 48 cases authored and machine-validated; frozen twelve-axis
     matrix met exactly; all seven cross-cutting quotas met; tiers B0=32/B1=15/B2=1;
     key-hashes committed (AGGREGATE 1987512d…).
-  STEP B = NOT_STARTED: no B artifact of any kind exists in the repository.
+  STEP B = AUTHORED AND SEALED 2026-08-06: 48 cases in a cold session that never read any
+    Set-A file; frozen matrix met exactly; ciphertext + SHA-256 + case-free metadata committed,
+    plaintext owner-custodied. Six schema divergences from Set A found and repaired (four
+    mechanically, two returned to the authoring session because a label cannot be guessed).
 
   Set-A concealment defect (found and contained 2026-08-05):
     the committed generator author_hidden_a.py carried all 48 gold keys as plaintext
@@ -91,13 +94,18 @@ Next internal package after continuity activation:
     Certificate: governance/programs/BENCHMARK-002-HIDDEN-A-CONTAINMENT-DEFECT-001.md
     Registry:    NEG-BENCH002-HIDDEN-A-CONTAINMENT-001
 
-  Immediate next action = STEP B: author Hidden Set B (48) in a fully isolated session
-    that carries no A material, encrypt prompts and keys offline, commit ciphertext +
-    SHA-256 only. No B generator, in any language, reaches the tree.
-    Then: LEAKAGE-AUDIT over A and B (recording this defect, not a clean screen)
-    → 6–10 calibration cases outside the score
-    → ENVIRONMENT-FREEZE-RECEIPT with the 6960cb5 pin as an explicit field
+  Immediate next action = LEAKAGE-AUDIT over A and B. It must record the Set-A containment
+    defect and the B custody deviation, not report a clean screen.
+    Then: 6–10 calibration cases outside the score
+    → ENVIRONMENT-FREEZE-RECEIPT completed — field 14 (the 6960cb5 pin) is settled; fields
+      1–13 are PROPOSED and need owner ratification, and the answering model must be named
     → SHA-256-MANIFEST → BENCHMARK-002-SEALED → only then S2.
+
+  Owner-only, blocking G1:
+    1. Ratify the proposed S2 configuration in writing in the freeze receipt.
+    2. Name the model that answers as ARM-CURRENT.
+    3. Take custody of B-CUSTODY-IDENTITY.key. Until it moves, the custodian is not
+       independent and SEALING §9 is met in form only.
 
 Benchmark 002 order — immutable:
   1. Design at least 48 new held-out cases; prompts separated from gold keys.
@@ -143,4 +151,4 @@ Ceiling:
   zero GRH progress.
 ```
 
-**Classification:** continuity operationally closed; Adversarial Benchmark 002 is in its S1 design phase — STEP A authored and retained under a contained concealment defect, STEP B not started, G1 sealing not reached, no run and no score; external P8 validation requests were SENT 2026-07-13 (priority to Tsz Ho Chan, proof to Etienne Fouvry, both delivered) and now await referee responses — SENT is not acceptance, review, or validation.
+**Classification:** continuity operationally closed; Adversarial Benchmark 002 is in its S1 design phase — STEP A authored and retained under a contained concealment defect, STEP B authored and sealed as ciphertext, G1 sealing not reached, no run and no score; external P8 validation requests were SENT 2026-07-13 (priority to Tsz Ho Chan, proof to Etienne Fouvry, both delivered) and now await referee responses — SENT is not acceptance, review, or validation.

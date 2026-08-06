@@ -38,7 +38,7 @@ Capability maturation:
   Current maturation receipt = MATURATION-RECEIPT-007.
   PVG-ANT-RESEARCH-MODEL-PROGRAM-001 = active
     (owner order 2026-07-12; stage S1 open (Roadmap v2.2 active as the legal
-     plan of record; Benchmark 002 STEP A done, STEP B not started);
+     plan of record; Benchmark 002 STEP A and STEP B both authored and sealed);
      measure-before-training
      order binding; mandatory comparison arms ARM-BASE / ARM-LOCAL /
      ARM-CURRENT / ARM-HYBRID; CURRENT-MIND-FREEZE-MANIFEST-001 recorded;
@@ -113,11 +113,17 @@ Benchmark state:
   historical baseline = 662 / 720 = 91.9 percent;
   post-Pass-002 registry coverage = 702 / 720 = 97.5 percent;
   these scores are registry coverage, not autonomous model performance.
-  ADVERSARIAL-PVG-ANT-BENCHMARK-002 = S1_IN_PROGRESS (corrected 2026-08-05;
-    the prior NOT_STARTED reading was stale from PR #40 onward).
+  ADVERSARIAL-PVG-ANT-BENCHMARK-002 = S1_IN_PROGRESS_B_AUTHORED (2026-08-06;
+    corrected from a stale NOT_STARTED on 2026-08-05, advanced when STEP B was authored).
   STEP A = authored and machine-validated: 48 cases, frozen twelve-axis matrix
     met exactly, all seven cross-cutting quotas met, tiers B0=32 / B1=15 / B2=1.
-  STEP B = NOT_STARTED. No B artifact of any kind exists in the repository.
+  STEP B = AUTHORED AND SEALED: 48 cases, frozen matrix met exactly, all quotas met,
+    tiers B0=23 / B1=23 / B2=2; schema normalized onto Set A's frozen encoding after six
+    encoding divergences were found by independent field-by-field comparison; prompts and
+    keys encrypted offline (age), round trip verified; the repository holds ciphertext,
+    its SHA-256 manifest, and case-free metadata only.
+    Custody deviation recorded: the decryption key was generated here per owner direction,
+    never printed, but the custodian is not independent until the owner moves it.
   Set-A concealment was DEFECTIVE at the staging commit and is now contained:
     the committed generator carried all 48 gold keys and re-derived the committed
     aggregate hash from the tree alone, while every guard passed
@@ -133,11 +139,10 @@ Benchmark state:
 
 Next capability gate:
   continuity activation and strict hardening = complete;
-  next: STEP B — author Hidden Set B (48) in a fully isolated session, encrypt
-  prompts and keys offline, commit ciphertext + SHA-256 only (no B generator, in
-  any language, reaches the tree); then LEAKAGE-AUDIT over A and B, calibration
-  cases, ENVIRONMENT-FREEZE-RECEIPT carrying the 6960cb5 pin as an explicit field,
-  SHA-256-MANIFEST → BENCHMARK-002-SEALED.
+  next: LEAKAGE-AUDIT over A and B (must record the Set-A containment defect and the
+  B custody deviation, not a clean screen); then calibration cases, the completed
+  ENVIRONMENT-FREEZE-RECEIPT (field 14 settled; fields 1–13 proposed, awaiting owner
+  ratification and the answering model name), SHA-256-MANIFEST → BENCHMARK-002-SEALED.
   Executed as stage S1 (2026-07-13 to 2026-08-16, advanced per
   S1-GATE-ADVANCE-DECISION-001) of
   PVG-ANT-RESEARCH-MODEL-PROGRAM-001 under Roadmap v2.2.
@@ -172,4 +177,4 @@ Ceiling:
   zero GRH progress.
 ```
 
-**Classification:** continuity operationally closed end to end (repository side, workstation task, and strict ruleset mode all verified); Benchmark 002 is S1_IN_PROGRESS — STEP A authored and retained under a contained concealment defect, STEP B not started, G1 sealing not reached, no run and no score.
+**Classification:** continuity operationally closed end to end (repository side, workstation task, and strict ruleset mode all verified); Benchmark 002 is S1_IN_PROGRESS_B_AUTHORED — STEP A authored and retained under a contained concealment defect, STEP B authored and sealed as ciphertext, G1 sealing not reached, no run and no score.

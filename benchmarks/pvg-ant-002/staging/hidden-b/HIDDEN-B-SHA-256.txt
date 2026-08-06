@@ -1,0 +1,12 @@
+# HIDDEN-B-SHA-256  (SEALING-PROTOCOL §9)
+# Digest over the committed ciphertext. The plaintext bundle it decrypts to is
+# owner-custodied and never enters this repository.
+
+HIDDEN-B-CIPHERTEXT.age  ee3e5d861b6406ff2499440f4586576c6b77f0deedc03f7545dbe3855c8c516d
+
+# Plaintext bundle digest (tar.gz of B-prompts.jsonl + B-scoring-metadata.jsonl + B-keys.jsonl),
+# recorded so a future decryption can be checked against what was sealed:
+BUNDLE-PLAINTEXT         197909e5e0a14e7bb4881d06f374f29433a15a0a11432db1f1e494642b890f39
+
+# Encryption: age v1.3.1, X25519 recipient.
+# Round-trip verified before sealing: decrypt(ciphertext) reproduced the bundle digest exactly.
