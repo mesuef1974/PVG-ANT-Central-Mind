@@ -1,0 +1,27 @@
+{
+  "unit": "RMG-005-B",
+  "status": "PASS",
+  "passed": 8,
+  "total": 8,
+  "scope": {
+    "fourier_grid": 4096,
+    "binary_targets": [20, 30, 50, 100]
+  },
+  "finite_representation_counts": {
+    "20": 4,
+    "30": 6,
+    "50": 8,
+    "100": 12
+  },
+  "checks": [
+    {"name": "registry_count", "pass": true, "detail": 12},
+    {"name": "unique_ids", "pass": true, "detail": 12},
+    {"name": "binary_fourier_identity", "pass": true, "detail": "agreement within floating-point tolerance on all four targets"},
+    {"name": "finite_positive_examples", "pass": true, "detail": {"20":4,"30":6,"50":8,"100":12}},
+    {"name": "certificate_ladder_present", "pass": true, "detail": 1},
+    {"name": "claim_rejections_present", "pass": true, "detail": 2},
+    {"name": "no_goldbach_promotion", "pass": true, "detail": "identity and finite examples are not promoted to a theorem"},
+    {"name": "required_types_present", "pass": true, "detail": ["IDENTITY","DECOMPOSITION","DEPENDENCY","OBJECT","CERTIFICATE_LADDER","CLAIM_REJECTION","PROVENANCE"]}
+  ],
+  "claim_ceiling": "Finite Fourier coefficient extraction only. No new major-arc asymptotic, minor-arc estimate, Goldbach theorem, RH progress, or GRH progress."
+}

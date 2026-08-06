@@ -1,0 +1,86 @@
+{
+  "schema": "pvg.preconditioning.bounded-diagonal.v1",
+  "status": "PASS-WITH-NUMERICAL-CLASSIFICATION",
+  "tau": 4.0,
+  "gauge": "sum(log_weights)=0",
+  "classification": "best values found are computational upper bounds on the bounded optimum",
+  "cases": [
+    {
+      "N": 16,
+      "periods": [5, 11],
+      "matrix_shape": [16, 15],
+      "rank": 15,
+      "raw_kappa": 9.092628594339878,
+      "row_normalized_kappa": 7.862338887982656,
+      "bounded_optimized_kappa": 7.798538872674182,
+      "bounded_sigma_min_positive": 0.28360930568039205,
+      "bounded_sigma_max": 2.211738195000672,
+      "log_weight_min": -2.615568283560448,
+      "log_weight_max": 0.45546910571810717
+    },
+    {
+      "N": 24,
+      "periods": [5, 9, 11],
+      "matrix_shape": [25, 23],
+      "rank": 23,
+      "raw_kappa": 108.71339758236338,
+      "row_normalized_kappa": 92.488429960701,
+      "bounded_optimized_kappa": 84.37831241555985,
+      "bounded_sigma_min_positive": 0.052411535675964974,
+      "bounded_sigma_max": 4.422396931445833,
+      "log_weight_min": -4.121914004783522,
+      "log_weight_max": 0.7936122767520554
+    },
+    {
+      "N": 24,
+      "periods": [7, 9, 11],
+      "matrix_shape": [27, 23],
+      "rank": 23,
+      "raw_kappa": 32.375612700268675,
+      "row_normalized_kappa": 29.526734649057765,
+      "bounded_optimized_kappa": 26.323592047595106,
+      "bounded_sigma_min_positive": 0.19657084248114565,
+      "bounded_sigma_max": 5.174450665925756,
+      "log_weight_min": -4.1407327083289145,
+      "log_weight_max": 0.9513734312263982
+    },
+    {
+      "N": 30,
+      "periods": [5, 7, 9, 11],
+      "matrix_shape": [32, 29],
+      "rank": 29,
+      "raw_kappa": 1938.1830536516804,
+      "row_normalized_kappa": 1763.5913472847137,
+      "bounded_optimized_kappa": 1501.0368515467603,
+      "bounded_sigma_min_positive": 0.004151742095051912,
+      "bounded_sigma_max": 6.231917882790872,
+      "log_weight_min": -4.1049547197344465,
+      "log_weight_max": 0.9355125081522774
+    },
+    {
+      "N": 30,
+      "periods": [7, 8, 9, 11, 12],
+      "matrix_shape": [37, 29],
+      "rank": 29,
+      "raw_kappa": 589.013019951741,
+      "row_normalized_kappa": 507.2448292095843,
+      "bounded_optimized_kappa": 417.8319148816619,
+      "bounded_sigma_min_positive": 0.035910231313799536,
+      "bounded_sigma_max": 15.004440713688277,
+      "log_weight_min": -4.492329362969762,
+      "log_weight_max": 1.9739789548611184
+    }
+  ],
+  "checks": {
+    "rank_preserved_in_all_cases": true,
+    "kernel_preserved_structurally_by_invertible_scaling": true,
+    "bounded_search_improved_on_raw_in_all_cases": true,
+    "bounded_search_improved_on_row_normalization_in_all_cases": true
+  },
+  "notes": [
+    "The optimizer is nonconvex and multi-start; global optimality is not certified.",
+    "The bounded problem has an attained minimum, but the reported values are only the best values found.",
+    "The severe N=30 conditioning remains severe after diagonal scaling.",
+    "The raw N=30 value for periods [7,8,9,11,12] is 589.013019951741 under the reduced-period matrix convention."
+  ]
+}

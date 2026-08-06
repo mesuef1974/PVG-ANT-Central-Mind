@@ -1,0 +1,58 @@
+{
+  "schema": "pvg.certification-margin-aware-pruning.v1",
+  "status": "PASS",
+  "benchmark": {
+    "N": [4, 120],
+    "r": [3, 30],
+    "max_exact_budget": 4
+  },
+  "summary": {
+    "cases": 12987,
+    "precedence_cases": 1077,
+    "old_mismatch": 0,
+    "margin_mismatch": 0,
+    "false_certificates": 0,
+    "old_nodes": 65971,
+    "margin_nodes": 65209,
+    "old_leaves": 13746,
+    "margin_leaves": 13746,
+    "old_prunes": 22227,
+    "margin_prunes": 21846,
+    "margin_stricter_calls": 1126,
+    "margin_calls": 61703,
+    "channels_removed_by_mandatory": 0,
+    "incompatible_channel_pairs": 5998,
+    "improved": 223,
+    "equal": 12764,
+    "worse": 0,
+    "aggregate_node_reduction_percent": 1.1550529778235892
+  },
+  "explicit_tree_improvement_example": {
+    "N": 74,
+    "r": 25,
+    "q": 25,
+    "B": 3,
+    "optimum": 7,
+    "old": {
+      "nodes": 19,
+      "leaves": 2,
+      "prunes": 8,
+      "S": [2, 9, 10]
+    },
+    "margin": {
+      "nodes": 11,
+      "leaves": 2,
+      "prunes": 4,
+      "S": [2, 9, 10]
+    },
+    "node_reduction": 8
+  },
+  "claims": {
+    "exact_optimum_preserved": true,
+    "false_certificates": 0,
+    "uniform_speedup_claim": false,
+    "polynomial_time_claim": false,
+    "goldbach_proof_claim": false,
+    "rh_or_grh_progress_claim": false
+  }
+}

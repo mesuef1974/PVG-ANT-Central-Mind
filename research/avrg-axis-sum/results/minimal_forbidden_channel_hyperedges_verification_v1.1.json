@@ -1,0 +1,49 @@
+{
+  "schema": "pvg.minimal-forbidden-channel-hyperedges.v1.1",
+  "status": "PASS",
+  "benchmark": {
+    "N": [4, 120],
+    "r": [3, 30],
+    "max_exact_budget": 4
+  },
+  "summary": {
+    "optimization_cases": 12987,
+    "optimum_mismatches": 0,
+    "false_certificates": 0,
+    "visited_nodes": 65191,
+    "leaves": 13746,
+    "upper_bound_prunes": 21837,
+    "precedence_prunes": 3506,
+    "bound_calls": 61685,
+    "all_forbidden_families": 11888721,
+    "minimal_forbidden_hyperedges": 6570,
+    "bound_equivalence_failures": 0,
+    "representation_reduction_percent": 99.9447375373684
+  },
+  "minimal_hyperedge_size_distribution": {
+    "2": 5930,
+    "3": 608,
+    "4": 32
+  },
+  "largest_compression_example": {
+    "N": 120,
+    "r": 29,
+    "q": 29,
+    "budget": 4,
+    "optimum": 23,
+    "selected": [2, 12, 13, 14],
+    "all_forbidden_families": 6193152,
+    "minimal_forbidden_hyperedges": 12,
+    "minimal_edge_sizes": {
+      "2": 12
+    },
+    "visited_nodes": 9
+  },
+  "claims": {
+    "exact_optimum_preserved": true,
+    "minimal_bound_equals_full_hypergraph_bound": true,
+    "polynomial_time_claim": false,
+    "goldbach_proof_claim": false,
+    "rh_or_grh_progress_claim": false
+  }
+}

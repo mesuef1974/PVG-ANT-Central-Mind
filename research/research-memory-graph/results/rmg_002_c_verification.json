@@ -1,0 +1,31 @@
+{
+  "unit": "RMG-002-C",
+  "status": "PASS",
+  "summary": {"passed": 12, "total": 12},
+  "scientific_ceiling": "finite coefficient and numerical convergence diagnostics; no analytic continuation, zero-free region, RH or GRH progress",
+  "selected_evidence": {
+    "registry_records": 10,
+    "truncated_zeta_coefficients": 625,
+    "truncated_mobius_coefficients": 16,
+    "zeta_s2_difference": 4.5921194486542305e-05,
+    "zeta_s1_5_difference": 0.0016706603969658396,
+    "harmonic_H1000": 7.485470860550345,
+    "harmonic_H10000": 9.787606036044382,
+    "pvg_reindexing_ant": -0.8462679822799007,
+    "pvg_reindexing_pvg": -0.8462679822799007
+  },
+  "checks": [
+    "CHK-REGISTRY-SCHEMA-002C",
+    "CHK-REGISTRY-UNIQUE-002C",
+    "CHK-TRUNCATED-ZETA-COEFFICIENTS-002C",
+    "CHK-TRUNCATED-MOBIUS-COEFFICIENTS-002C",
+    "CHK-ZETA-S2-APPROX-002C",
+    "CHK-ZETA-S15-APPROX-002C",
+    "CHK-ZETA-S1-DIVERGENCE-DIAGNOSTIC-002C",
+    "CHK-PVG-LOG-HEIGHT-REINDEXING-002C",
+    "CHK-ANTI-COLLAPSE-COVERAGE-002C",
+    "CHK-CERTIFICATE-SCOPE-002C",
+    "CHK-PVG-LOSS-PROFILE-002C",
+    "CHK-NO-RH-PROGRESS-002C"
+  ]
+}

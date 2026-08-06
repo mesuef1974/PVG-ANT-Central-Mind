@@ -1,0 +1,402 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=28mm,headheight=15pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools,amsthm}
+\usepackage{newtxtext,newtxmath}
+\usepackage{microtype}
+\usepackage{booktabs,array,enumitem}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{bookmark}
+
+\definecolor{navy}{HTML}{17365D}
+\definecolor{slate}{HTML}{44546A}
+\definecolor{light}{HTML}{EEF3F8}
+\hypersetup{colorlinks=true,linkcolor=navy,citecolor=navy,urlcolor=navy,pdftitle={Prime-Valuation Addition Fibers: Exact Translation and Reconstruction},pdfsubject={Prime-valuation geometry and finite reconstruction},pdfkeywords={prime valuations, additive fibers, Goldbach, finite Fourier transform, reconstruction}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textsc{Prime-Valuation Addition Fibers}}
+\fancyhead[R]{\small\textsc{Theory Freeze v1.0}}
+\fancyfoot[C]{\small Page \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\titleformat{\section}{\Large\bfseries\color{navy}}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\large\bfseries\color{slate}}{\thesubsection}{0.7em}{}
+\setlist{nosep,leftmargin=1.6em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5.5pt}
+\allowdisplaybreaks
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{openproblem}[theorem]{Open Problem}
+
+\newcommand{\N}{\mathbb N}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Pp}{\mathbb P}
+\newcommand{\F}{\mathcal F}
+\newcommand{\G}{\mathcal G}
+\newcommand{\A}{\mathcal A}
+\newcommand{\ee}{\mathrm e}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\lcm}{\operatorname{lcm}}
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+\vspace*{2.2cm}
+{\sffamily\bfseries\color{navy}\fontsize{25}{31}\selectfont Prime-Valuation Addition Fibers\par}
+\vspace{0.35cm}
+{\sffamily\color{slate}\fontsize{17}{22}\selectfont Exact Translation and Reconstruction\par}
+\vspace{1.2cm}
+\rule{0.72\textwidth}{0.6pt}
+\vspace{1.2cm}
+{\large Integrated research manuscript\par}
+\vspace{0.25cm}
+{\normalsize Theory Freeze v1.0\par}
+\vfill
+\begin{minipage}{0.82\textwidth}
+\colorbox{light}{\parbox{0.94\textwidth}{\small\textbf{Scientific scope.} This manuscript develops an exact finite framework and proves rank and reconstruction statements for explicitly defined residue-channel operators. It does not prove Goldbach, improve circle-method or sieve estimates, establish a literature-priority claim, or constitute progress on RH/GRH.}}
+\end{minipage}
+\vfill
+{\small Compiled \today\par}
+\end{titlepage}
+
+\begin{abstract}
+For an integer $N\ge2$, define the ordered positive addition fiber
+\[
+\F_N^+=\{(a,b)\in\N_{\ge1}^2:a+b=N\}
+\]
+and its image in prime-valuation coordinates
+\[
+\G_N=(\nu\times\nu)(\F_N^+).
+\]
+Because the prime-valuation map is injective on positive integers, this passage loses no information. We develop the counting measure on $\G_N$, prove an exact fiber form of additive convolution, identify the prime and prime-power loci, and define modular difference-channel operators on fiber weights. For a modulus $r$, we prove
+\[
+\rank D_{N,r}=\min\!\left(N-1,\frac r{\gcd(2,r)}\right).
+\]
+For a family of moduli with least common multiple $L$, the corresponding joint-signature operator has rank
+\[
+\rank J_{N;\mathbf r}=\min\!\left(N-1,\frac L{\gcd(2,L)}\right).
+\]
+When the joint operator is injective, all its nonzero singular values equal $1$. The framework separates exact recoding, exact finite-dimensional reconstruction, analytic estimates, and open prime-producing questions.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\section{Introduction}
+Prime-valuation coordinates linearize multiplication:
+\[
+\nu(ab)=\nu(a)+\nu(b).
+\]
+Addition is not linear in these coordinates. For fixed $N$, the relation $a+b=N$ instead defines a finite nonlinear fiber. The purpose of this paper is to isolate that fiber, translate additive convolutions exactly into valuation coordinates, and study what can be reconstructed from modular difference measurements.
+
+The framework has three layers:
+\begin{enumerate}
+\item exact finite geometry of addition fibers;
+\item exact translation of additive convolution into weighted fiber sums;
+\item rank, kernel, and conditioning of residue-channel operators.
+\end{enumerate}
+Goldbach is used only to illustrate the prime-point locus. Analytic estimates required by circle or sieve methods remain external to the finite identities proved here.
+
+\section{Prime-valuation coordinates}
+\begin{definition}[Prime-valuation vector]
+For $n\in\N_{\ge1}$, define
+\[
+\nu(n)=(v_p(n))_{p\in\Pp}\in\N_0^{(\Pp)}.
+\]
+By convention, $\nu(1)=0$.
+\end{definition}
+
+\begin{definition}[Recovery map]
+For finitely supported $x=(x_p)_{p\in\Pp}$, define
+\[
+\rho(x)=\prod_{p\in\Pp}p^{x_p}.
+\]
+\end{definition}
+
+\begin{proposition}[Exact recovery]
+For every $n\ge1$, $\rho(\nu(n))=n$. Consequently, $\nu$ is injective on positive integers.
+\end{proposition}
+\begin{proof}
+This is the uniqueness statement in the fundamental theorem of arithmetic.
+\end{proof}
+
+\section{Ordered addition fibers}
+\begin{definition}[Positive ordered addition fiber]
+For $N\ge2$, define
+\[
+\F_N^+=\{(a,b)\in\N_{\ge1}^2:a+b=N\}.
+\]
+\end{definition}
+
+\begin{definition}[Prime-valuation addition fiber]
+Define
+\[
+\G_N=(\nu\times\nu)(\F_N^+)=\{(\nu(a),\nu(N-a)):1\le a\le N-1\}.
+\]
+Equivalently,
+\[
+\G_N=\{(x,y)\in(\N_0^{(\Pp)})^2:\rho(x)+\rho(y)=N\}.
+\]
+\end{definition}
+
+\begin{theorem}[No-information-loss theorem]
+The map
+\[
+\iota_N:\F_N^+\longrightarrow\G_N,\qquad (a,b)\longmapsto(\nu(a),\nu(b))
+\]
+is a bijection.
+\end{theorem}
+\begin{proof}
+Surjectivity holds by definition. If $(\nu(a),\nu(b))=(\nu(c),\nu(d))$, exact recovery gives $a=c$ and $b=d$.
+\end{proof}
+
+\begin{definition}[Fiber reflection]
+Define $\sigma(x,y)=(y,x)$.
+\end{definition}
+
+\begin{proposition}[Reflection structure]
+The map $\sigma$ preserves $\G_N$ and satisfies $\sigma^2=\mathrm{id}$. If $N$ is odd, all reflection orbits have size two. If $N$ is even, the unique fixed point is
+\[
+(\nu(N/2),\nu(N/2)).
+\]
+\end{proposition}
+\begin{proof}
+Swapping $a$ and $N-a$ preserves their sum. A fixed point requires $a=N-a$.
+\end{proof}
+
+\section{Fiber measure and additive convolution}
+\begin{definition}[Fiber counting measure]
+Define
+\[
+\mu_N=\sum_{a=1}^{N-1}\delta_{(\nu(a),\nu(N-a))}.
+\]
+\end{definition}
+
+\begin{definition}[Valuation lift]
+For an arithmetic function $f:\N\to\C$, define $\widehat f(x)=f(\rho(x))$.
+\end{definition}
+
+\begin{definition}[Additive convolution]
+For arithmetic functions $f,g$, define
+\[
+(f*_+g)(N)=\sum_{a=1}^{N-1}f(a)g(N-a).
+\]
+\end{definition}
+
+\begin{theorem}[Fiber convolution identity]
+For every $N\ge2$,
+\[
+(f*_+g)(N)=\int_{\G_N}\widehat f(x)\widehat g(y)\,d\mu_N(x,y).
+\]
+\end{theorem}
+\begin{proof}
+The right-hand side is
+\[
+\sum_{a=1}^{N-1}f(\rho(\nu(a)))g(\rho(\nu(N-a))),
+\]
+which equals the defining convolution sum by exact recovery.
+\end{proof}
+
+\section{Prime and prime-power loci}
+\begin{definition}[Prime-point locus]
+\[
+\mathcal P_1=\{e_p:p\in\Pp\}.
+\]
+\end{definition}
+\begin{definition}[Prime-power axis locus]
+\[
+\A_1=\{k e_p:p\in\Pp,\ k\ge1\}.
+\]
+\end{definition}
+\begin{proposition}[Von Mangoldt support]
+The lifted von Mangoldt function $\widehat\Lambda$ is supported exactly on $\A_1$, and $\widehat\Lambda(k e_p)=\log p$.
+\end{proposition}
+
+\begin{remark}[Binary Goldbach as an exact intersection statement]
+For even $N\ge4$, binary Goldbach for $N$ is equivalent to
+\[
+\G_N\cap(\mathcal P_1\times\mathcal P_1)\ne\varnothing.
+\]
+This is an exact reformulation, not a proof.
+\end{remark}
+
+\section{Difference channels}
+\begin{definition}[Fiber weight space]
+For fixed $N\ge2$, let $V_N=\C^{N-1}$, with coordinates $w=(w_a)_{1\le a\le N-1}$.
+\end{definition}
+\begin{definition}[Difference coordinate]
+Define $d_N(a)=a-(N-a)=2a-N$. For $r\ge1$, write $d_{N,r}(a)=2a-N\pmod r$.
+\end{definition}
+\begin{definition}[Difference-channel operator]
+Define $D_{N,r}:V_N\to\C^r$ by
+\[
+(D_{N,r}w)_d=\sum_{\substack{1\le a\le N-1\\2a-N\equiv d\pmod r}}w_a,
+\qquad d\in\Z/r\Z.
+\]
+\end{definition}
+
+\begin{theorem}[Single-modulus rank theorem]\label{thm:single-rank}
+For every $N\ge2$ and $r\ge1$,
+\[
+\rank D_{N,r}=\min\!\left(N-1,\frac r{\gcd(2,r)}\right).
+\]
+\end{theorem}
+\begin{proof}
+Each column of the matrix of $D_{N,r}$ is a standard basis vector indexed by $2a-N\pmod r$. Two columns indexed by $a,b$ coincide exactly when
+\[
+2(a-b)\equiv0\pmod r.
+\]
+Writing $g=\gcd(2,r)$, this is equivalent to $a\equiv b\pmod{r/g}$. The consecutive indices $1,\dots,N-1$ meet exactly $\min(N-1,r/g)$ channel classes.
+\end{proof}
+
+\begin{corollary}[Kernel dimension]
+\[
+\dim\ker D_{N,r}=N-1-\min\!\left(N-1,\frac r{\gcd(2,r)}\right).
+\]
+\end{corollary}
+
+\begin{corollary}[Exact injectivity criterion]
+\[
+D_{N,r}\text{ is injective}\iff\frac r{\gcd(2,r)}\ge N-1.
+\]
+Whenever this holds,
+\[
+w_a=(D_{N,r}w)_{2a-N\pmod r}.
+\]
+\end{corollary}
+
+\begin{proposition}[Fourier equivalence]
+Let $F_r$ be the full discrete Fourier transform on $\Z/r\Z$. Then
+\[
+\rank(F_rD_{N,r})=\rank D_{N,r}.
+\]
+\end{proposition}
+\begin{proof}
+The Fourier matrix $F_r$ is invertible.
+\end{proof}
+
+\begin{proposition}[Zero-frequency identity]
+\[
+\sum_{d\bmod r}(D_{N,r}w)_d=\sum_{a=1}^{N-1}w_a.
+\]
+Thus the ordinary total is the zero Fourier coordinate of the complete channel vector.
+\end{proposition}
+
+\section{Joint modulus signatures}
+\begin{definition}[Realized joint-signature set]
+For $\mathbf r=(r_1,\dots,r_s)$, define
+\[
+\Sigma_{N;\mathbf r}=\{(d_{N,r_1}(a),\dots,d_{N,r_s}(a)):1\le a\le N-1\}.
+\]
+\end{definition}
+\begin{definition}[Joint-signature operator]
+Define $J_{N;\mathbf r}:V_N\to\C^{\Sigma_{N;\mathbf r}}$ by
+\[
+(J_{N;\mathbf r}w)_{\boldsymbol\delta}
+=\sum_{\substack{1\le a\le N-1\\(d_{N,r_1}(a),\dots,d_{N,r_s}(a))=\boldsymbol\delta}}w_a.
+\]
+Let $L=\lcm(r_1,\dots,r_s)$.
+\end{definition}
+
+\begin{theorem}[Joint-modulus rank theorem]\label{thm:joint-rank}
+\[
+\rank J_{N;\mathbf r}=\min\!\left(N-1,\frac L{\gcd(2,L)}\right).
+\]
+\end{theorem}
+\begin{proof}
+Two indices $a,b$ have the same joint signature exactly when $2(a-b)\equiv0\pmod{r_j}$ for every $j$, equivalently when $2(a-b)\equiv0\pmod L$. Apply \cref{thm:single-rank} with modulus $L$.
+\end{proof}
+
+\begin{corollary}[Joint reconstruction criterion]
+\[
+J_{N;\mathbf r}\text{ is injective}\iff\frac L{\gcd(2,L)}\ge N-1.
+\]
+\end{corollary}
+\begin{proposition}[Conditioning in the injective case]
+If $J_{N;\mathbf r}$ is injective, then after reordering its realized rows, its matrix is a permutation matrix. Hence all singular values are $1$ and
+\[
+\kappa_2(J_{N;\mathbf r})=1.
+\]
+\end{proposition}
+\begin{definition}[Marginal stacked operator]
+\[
+M_{N;\mathbf r}=\begin{pmatrix}D_{N,r_1}\\ \vdots\\ D_{N,r_s}\end{pmatrix}.
+\]
+The marginal operator stores separate residue marginals, while $J_{N;\mathbf r}$ stores their coupling; they must not be identified.
+\end{definition}
+
+\section{Difference phases}
+\begin{definition}[Difference-phase transform]
+Using $e(t)=\exp(2\pi i t)$, define
+\[
+\A_\alpha w(N)=\sum_{a=1}^{N-1}w_a e(\alpha(2a-N)).
+\]
+\end{definition}
+\begin{proposition}[Phase constancy criterion]
+For $N=2$, the fiber has one index, so $a\mapsto e(\alpha(2a-N))$ is constant for every $\alpha$. For $N\ge3$, it is constant on the full fiber if and only if
+\[
+2\alpha\in\Z.
+\]
+Also, $e(\alpha a)e(\alpha(N-a))=e(\alpha N)$ is always constant on a fixed addition fiber.
+\end{proposition}
+\begin{proof}
+For $N\ge3$, there are consecutive indices. The ratio of consecutive phase values is $e(2\alpha)$, so all values agree exactly when $e(2\alpha)=1$.
+\end{proof}
+
+\section{Worked evidence and computational verification}
+Complete hand-checkable examples are supplied for $N=10,12,24,30$. They verify recovery, reflection structure, fiber convolution, prime-locus intersections, injective and noninjective difference channels, reconstruction, and kernel bases.
+
+A dedicated joint-modulus example uses
+\[
+N=10,\qquad \mathbf r=(3,5),\qquad L=15.
+\]
+Neither $D_{10,3}$ nor $D_{10,5}$ is injective, but $\rank J_{10;(3,5)}=9$, and the injective joint matrix has condition number $1$.
+
+The accompanying verifier checks \cref{thm:single-rank} for $2\le N\le100$ and $1\le r\le100$. Across $9{,}900$ parameter pairs, it reports zero rank mismatches, verifies that the ordinary sum row does not increase complete-channel rank, and checks explicit recovery for every tested odd $r\ge N-1$. This finite verification supports the proof but does not replace it.
+
+\section{Relation to analytic number theory}
+The fiber-convolution identity is exact. Circle-method, residue, and character decompositions may be interpreted as coordinate systems on weighted additive fibers. Their asymptotic usefulness depends on analytic estimates not supplied by the finite recoding itself. The framework separates exact recoding, exact finite-dimensional reconstruction, analytic estimates, and open prime-producing problems.
+
+\section{Literature position}
+The ingredients of the framework have established precedents when considered separately: unique factorization and valuation vectors; additive representation functions and convolutions; residue-class aggregation and finite Fourier transforms; Chinese-remainder coupling; and rank analysis of finite incidence transforms. A focused preliminary review did not identify a source presenting the complete package in the same prime-valuation addition-fiber form. This absence is not evidence of novelty. No novelty or priority claim is authorized without a deeper bibliographic review.
+
+\section{Open problems}
+\begin{openproblem}[Marginal rank]
+Determine the exact rank, kernel, and singular spectrum of $M_{N;\mathbf r}$.
+\end{openproblem}
+\begin{openproblem}[Natural kernel bases]
+Find natural geometric generators for kernels of restricted measurement families.
+\end{openproblem}
+\begin{openproblem}[Restricted stable reconstruction]
+Study stable reconstruction under explicit structured classes of weights or fixed measurement budgets.
+\end{openproblem}
+\begin{openproblem}[Literature priority]
+Complete a deeper bibliographic and citation-chain investigation before any novelty claim.
+\end{openproblem}
+
+\section{Reproducibility and scientific ceiling}
+The companion repository contains the canonical theory, proof audit, dependency audit, evidence crosslinks, four manual examples, a joint-modulus example, and the finite rank verifier. This paper establishes an exact finite framework and rank/reconstruction theorems for explicitly defined channel operators. It does not prove Goldbach, improve circle-method or sieve estimates, establish literature priority, or constitute progress on RH/GRH.
+
+\begin{thebibliography}{9}
+\bibitem{hardywright} G. H. Hardy and E. M. Wright, \emph{An Introduction to the Theory of Numbers}, 6th ed., Oxford University Press, 2008.
+\bibitem{nathanson} M. B. Nathanson, \emph{Additive Number Theory: The Classical Bases}, Springer, 1996.
+\bibitem{taovu} T. Tao and V. Vu, \emph{Additive Combinatorics}, Cambridge University Press, 2006.
+\bibitem{terras} A. Terras, \emph{Fourier Analysis on Finite Groups and Applications}, Cambridge University Press, 1999.
+\end{thebibliography}
+
+\end{document}

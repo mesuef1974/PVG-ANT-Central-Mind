@@ -44,10 +44,22 @@ REQUIRED_GOAL_FIELDS = {
     "status",
     "deliverable",
     "exit_criterion",
-    "maturity_target",
+    "assimilation_target",
+    "math_contribution_target",
+    "operational_target",
+    "certificate_target",
+    "pvg_necessity_target",
     "claim_ceiling",
     "classification",
     "source",
+}
+
+TARGET_PREFIXES = {
+    "assimilation_target": "ASSIM-",
+    "math_contribution_target": "MATH-",
+    "operational_target": "OPS-",
+    "certificate_target": "CERT-",
+    "pvg_necessity_target": "PVG-N",
 }
 
 
@@ -105,6 +117,10 @@ def main() -> None:
     for row in goals:
         missing = REQUIRED_GOAL_FIELDS - set(row)
         require(not missing, f"goal {row.get('id')} missing fields: {sorted(missing)}", issues)
+        require("maturity_target" not in row, f"goal {row.get('id')} still uses deprecated maturity_target", issues)
+        for field, prefix in TARGET_PREFIXES.items():
+            value = str(row.get(field, ""))
+            require(value.startswith(prefix), f"goal {row.get('id')} has invalid {field}: {value}", issues)
 
     strategic = [row for row in goals if row.get("kind") == "strategic_goal"]
     require(len(strategic) == 1, f"expected one strategic goal, found {len(strategic)}", issues)
@@ -113,8 +129,6 @@ def main() -> None:
 
     active_operational = [
         row for row in goals
-        # Stage Review 001 PR-A: operational goals carry qualified active states
-        # (e.g. active_external_validation_hold); the registry is the truth.
         if row.get("kind") == "operational_goal"
         and str(row.get("status", "")).startswith("active")
     ]

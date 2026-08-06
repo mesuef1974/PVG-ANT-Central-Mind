@@ -1,0 +1,41 @@
+% COF Related Work section v0.3
+% Intended for inclusion after the Introduction and before the formal framework.
+
+\section{Relation to Established Optimization Structures}\label{sec:related-work}
+
+The present formulation is assembled from several established strands of finite optimization. Branch-and-bound, admissible node bounds, cardinality-constrained selection, dominance reasoning, precedence constraints, conflict structures, and minimal forbidden families all have substantial prior literatures. Accordingly, this paper does not claim priority for those ingredients in isolation. The purpose of the present abstraction is narrower: to organize them around threshold certificates attached to a separate target set, and to state precisely which conclusions follow from certificate soundness, additivity, dominance, precedence closure, and downward-closed resource feasibility.
+
+\paragraph{Branch-and-bound and finite exact search.}
+The exactness principle used here is the classical one: comprehensive branching together with exact leaf evaluation and valid upper bounds preserves an optimum. The statements in \cref{thm:safe-pruning,thm:bnb-exact} are included to make the dependency chain self-contained, not as claims of a new branch-and-bound theory. The same applies to targetwise optimistic bounds based on selecting the largest remaining contributions under a cardinality budget.
+
+\paragraph{Knapsack, covering, and precedence constraints.}
+Selection under a cardinality or resource budget belongs to the broad knapsack and covering families. Requiring selected objects to contain their ancestors is a standard precedence-constrained structure, often represented by an acyclic directed graph or an order ideal. In the present manuscript, precedence is not an exogenous application constraint alone: it is generated from a feasibility-preserving dominance exchange. The project-specific role of \cref{thm:legal-optimum} is therefore to justify restriction to a precedence-legal canonical search space under explicitly stated exchange hypotheses. Historical priority for this exact formulation is not asserted.
+
+\paragraph{Dominance and exchange.}
+Dominance rules are standard tools in combinatorial optimization. The useful separation here is logical rather than historical: global nonnegativity is sufficient for monotonicity, whereas the one-for-one exchange theorem needs only coordinatewise dominance of the replacing object and preservation of admissibility. The manuscript also records the boundary that dominance is not, by itself, an unconditional deletion rule.
+
+\paragraph{Conflict graphs, hypergraphs, and forbidden sets.}
+Pairwise incompatibility graphs, higher-order conflict hypergraphs, no-good constraints, cover inequalities, and minimal infeasible sets are established combinatorial objects. The construction used here places targets, rather than selectable objects, at the vertices. A target acquires a sound mandatory object set from a certificate-deficit test; precedence closure enlarges that requirement; and a target family is forbidden in the relaxation when the union of its mandatory requirements is outside the residual resource family. Thus the graph and hypergraph are derived from certificate requirements rather than supplied directly as input constraints.
+
+\paragraph{Minimal obstructions and antichain compression.}
+For any finite downward-closed feasible family, its complement is upward closed and is determined by its inclusion-minimal members. The minimal-obstruction theorem and antichain compression in \cref{thm:minimal-obstruction,cor:antichain} are applications of this standard finite-order principle. Their role in the present framework is exact compression of the mandatory-set relaxation; they do not imply that enumerating the antichain is polynomial-time.
+
+\paragraph{Position of the present contribution.}
+The strongest defensible contribution of the current version is the following synthesis:
+\[
+\text{certificate deficit}
+\longrightarrow
+\text{sound mandatory objects}
+\longrightarrow
+\text{precedence closure}
+\longrightarrow
+\text{target-level conflicts}
+\longrightarrow
+\text{minimal forbidden target families}
+\longrightarrow
+\text{admissible exact-search bounds}.
+\]
+This pipeline is proved under explicit hypotheses and realized in a Fourier frequency-retention problem. The current literature audit has not established historical novelty for the full pipeline. A second independent application and a broader bibliographic audit are required before any general transferability or priority claim.
+
+\paragraph{Reference status.}
+The external bibliography is intentionally partial in this version. Standard background categories include classical branch-and-bound, integer and combinatorial optimization, knapsack and covering, precedence-constrained selection, hypergraph theory, and minimal infeasible-set methods. Exact theorem-level antecedents for the target-derived mandatory-conflict pipeline remain under audit.

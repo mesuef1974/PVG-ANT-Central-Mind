@@ -1,0 +1,28 @@
+{
+  "N_range": [
+    2,
+    500
+  ],
+  "counts": {
+    "channel_checks": 409180,
+    "frequency_checks": 409180,
+    "inversion_checks": 204500,
+    "parseval_checks": 19960,
+    "redundancy_checks": 104790
+  },
+  "maximum_absolute_errors": {
+    "channel_reduction": 0.0,
+    "fourier_relation": 8.075754099237706e-10,
+    "frequency_redundancy": 3.025070242437479e-10,
+    "parseval": 4.656612873077393e-10,
+    "reduced_inversion": 1.0374804122166837e-12
+  },
+  "r_range": [
+    1,
+    40
+  ],
+  "schema": "pvg.addition-fibers.effective-period-fourier-verification.v1",
+  "status": "PASS",
+  "tolerance": 1e-08,
+  "total_mismatches": 0
+}

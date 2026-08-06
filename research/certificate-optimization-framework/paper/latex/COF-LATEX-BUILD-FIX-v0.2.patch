@@ -1,0 +1,11 @@
+--- a/research/certificate-optimization-framework/paper/latex/Certificate-Optimization-Framework-Foundations-v0.2.tex
++++ b/research/certificate-optimization-framework/paper/latex/Certificate-Optimization-Framework-Foundations-v0.2.tex
+@@
+-\newcommand{\COF}{\mathrm{COF}}
++\newcommand{\COF}{\ensuremath{\mathrm{COF}}}
+
+# Rationale
+# The original macro used \mathrm outside math mode in the prose occurrence
+# `The \COF{} layer`, causing pdflatex to stop with:
+# `LaTeX Error: \mathrm allowed only in math mode.`
+# The ensuremath wrapper preserves the intended typography in both contexts.

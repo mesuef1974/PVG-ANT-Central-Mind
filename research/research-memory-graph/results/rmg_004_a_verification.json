@@ -1,0 +1,28 @@
+{
+  "unit": "RMG-004-A",
+  "status": "PASS",
+  "passed": 8,
+  "total": 8,
+  "scope": {
+    "truncated_visibility_D": 12,
+    "tested_n_max": 300,
+    "sifted_set_range": 500,
+    "sifting_threshold_z": 11
+  },
+  "checks": [
+    {"name": "registry_count", "pass": true, "detail": 12},
+    {"name": "unique_ids", "pass": true, "detail": 12},
+    {"name": "truncated_profile_indicator_equivalence", "pass": true, "detail": {"D": 12, "n_max": 300}},
+    {"name": "aggregation_kernel_counterexample", "pass": true, "detail": {"A_1": 0, "A_2": 0, "A_3": 0, "A_6": 1}},
+    {"name": "sifted_set_pvg_equivalence", "pass": true, "detail": {"survivors": 115}},
+    {"name": "certificate_types_present", "pass": true, "detail": ["OBJECT", "TRANSLATION", "LOSS_LEDGER", "CERTIFICATE", "SEPARATION_RULE", "BOUNDARY", "CLAIM_REJECTION"]},
+    {"name": "certificate_separation_present", "pass": true, "detail": 2},
+    {"name": "parity_and_prime_rejections", "pass": true, "detail": ["Reject level-of-distribution to primes", "Reject PVG visibility to parity solution"]}
+  ],
+  "scientific_ceiling": {
+    "new_sieve_asymptotic": false,
+    "prime_production": false,
+    "parity_problem_progress": false,
+    "lean_proof_added": false
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "schema": "pvg.local-channel-fourier-verification.v1",
+  "status": "PASS",
+  "N_range": [2, 500],
+  "modulus_range": [1, 25],
+  "channel_checks": 162175,
+  "inversion_mismatches": 0,
+  "reality_mismatches": 0,
+  "reflection_mismatches": 0,
+  "parseval_mismatches": 0,
+  "exact_certificate_count": 33245,
+  "exact_false_certificates": 0,
+  "uniform_certificate_count": 414,
+  "uniform_false_certificates": 0,
+  "prime_positive_channels": 39956,
+  "max_inversion_error": 2.121414155453749e-12,
+  "max_fourier_imaginary_part": 1.0148465718072864e-11,
+  "max_parseval_error": 1.3969838619232178e-09,
+  "uniform_bound": "B=(1/r) sum_{h != 0} |Yhat(h)|",
+  "notes": [
+    "The exact certificate uses the reconstructed local deviation and is equivalent to comparing the local von Mangoldt mass with the local higher-prime-power bound.",
+    "The uniform certificate replaces the signed deviation by an l1 Fourier upper bound and is therefore substantially more conservative.",
+    "No asymptotic estimate for the nonzero Fourier coefficients is claimed by this finite verification."
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "unit": "RMG-002-B",
+  "status": "PASS",
+  "summary": {"passed": 14, "total": 14},
+  "scope": {"integer_range": [1, 300], "coprime_pairs": 2203},
+  "checks": [
+    "CHK-DCA-IDENTITY-001",
+    "CHK-DCA-COMM-001",
+    "CHK-DCA-ASSOC-001",
+    "CHK-DCA-DIST-001",
+    "CHK-DCA-MOBIUS-001",
+    "CHK-DCA-TAU-001",
+    "CHK-DCA-PHI-001",
+    "CHK-DCA-LAMBDA-001",
+    "CHK-DCA-MULT-PRES-001",
+    "CHK-DCA-COMPLETE-NOPRES-001",
+    "CHK-DCA-SCHEMA-001",
+    "CHK-DCA-UNIQUE-001",
+    "CHK-DCA-NEGATIVE-RULE-001",
+    "CHK-DCA-LEAN-CEILING-001"
+  ],
+  "selected_evidence": {
+    "mobius_inverse": "mu * 1 = epsilon for 1<=n<=300",
+    "divisor_count": "1 * 1 = tau for 1<=n<=300",
+    "totient_identity": "phi * 1 = id for 1<=n<=300",
+    "mangoldt_identity": "Lambda * 1 = log for 1<=n<=300",
+    "multiplicativity_closure": "mu*tau multiplicative on 2203 coprime pairs in [1,60]^2",
+    "negative_counterexample": {"tau(4)": 3, "tau(2)^2": 4}
+  },
+  "formalization_state": {
+    "candidate_theorems": 12,
+    "project_owned_lean_proofs_added": 0,
+    "l6_promotion": false
+  },
+  "scientific_ceiling": "finite algebra regression and formalization candidates only; no new ANT theorem and no L6 promotion"
+}

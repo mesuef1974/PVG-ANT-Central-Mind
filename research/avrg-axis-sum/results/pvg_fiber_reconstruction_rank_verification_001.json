@@ -1,0 +1,19 @@
+{
+  "verification": "PVG-FIBER-RECONSTRUCTION-RANK-THEOREM-001",
+  "range": {
+    "N_min": 2,
+    "N_max": 100,
+    "r_min": 1,
+    "r_max": 100
+  },
+  "case_count": 9900,
+  "predicted_rank_formula": "min(N-1, r/gcd(2,r))",
+  "rank_mismatch_count": 0,
+  "maximum_rank_error": 0,
+  "additional_checks": [
+    "ordinary sum row never increased the full difference-channel rank",
+    "for odd r >= N-1, explicit pointwise recovery reproduced test weights exactly"
+  ],
+  "status": "PASS",
+  "scientific_ceiling": "Finite verification supporting an independently proved exact theorem; no Goldbach or asymptotic claim."
+}

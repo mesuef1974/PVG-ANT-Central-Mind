@@ -1,0 +1,23 @@
+{
+  "unit": "RMG-004-B",
+  "status": "PASS",
+  "passed": 9,
+  "total": 9,
+  "checks": [
+    {"name": "registry_count", "pass": true, "detail": 12},
+    {"name": "unique_ids", "pass": true, "detail": 12},
+    {"name": "weighted_divisor_box_identity", "pass": true, "detail": "n<=300"},
+    {"name": "finite_inclusion_exclusion_sift", "pass": true, "detail": {"z": 7, "survivors": 134}},
+    {"name": "pointwise_remainder_bound", "pass": true, "detail": 0.989010989010989},
+    {"name": "aggregate_norm_explicit", "pass": true, "detail": 45.37751763962025},
+    {"name": "sieve_ratio_computable", "pass": true, "detail": 2.880757703367382},
+    {"name": "certificate_types_present", "pass": true, "detail": ["CERTIFICATE", "CLAIM_REJECTION", "PARAMETER", "REMAINDER_OBJECT", "SIEVE_FUNCTION", "SIEVE_WEIGHT", "THEOREM_DEPENDENCY", "TRANSLATION"]},
+    {"name": "claim_rejections_present", "pass": true, "detail": 3}
+  ],
+  "scientific_ceiling": {
+    "fundamental_lemma_proved_here": false,
+    "prime_production_claim": false,
+    "parity_barrier_progress": false,
+    "lean_proof_added": false
+  }
+}

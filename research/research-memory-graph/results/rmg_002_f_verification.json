@@ -1,0 +1,14 @@
+{
+  "checks": [
+    {"check_id": "CHK-F-REGISTRY-COUNT", "evidence": {"records": 12}, "status": "PASS"},
+    {"check_id": "CHK-F-UNIQUE", "evidence": {"unique": 12}, "status": "PASS"},
+    {"check_id": "CHK-F-COMPONENTS", "evidence": {}, "status": "PASS"},
+    {"check_id": "CHK-F-NEGATIVE", "evidence": {}, "status": "PASS"},
+    {"check_id": "CHK-F-BOUNDARY", "evidence": {}, "status": "PASS"},
+    {"check_id": "CHK-F-TRANSLATION", "evidence": {}, "status": "PASS"}
+  ],
+  "scientific_ceiling": "dependency and boundary registry only; no zero recovery and no RH progress",
+  "status": "PASS",
+  "summary": {"passed": 6, "total": 6},
+  "unit": "RMG-002-F"
+}

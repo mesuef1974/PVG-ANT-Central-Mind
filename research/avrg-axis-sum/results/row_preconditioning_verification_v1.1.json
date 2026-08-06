@@ -1,0 +1,71 @@
+{
+  "schema": "pvg.row-preconditioning.verification.v1",
+  "status": "PASS",
+  "tolerance": 1e-10,
+  "cases_checked": 6,
+  "rank_mismatches": 0,
+  "maximum_kernel_projector_error": 0.0,
+  "maximum_frobenius_block_kappa_error": 8.139977580867708e-11,
+  "records": [
+    {
+      "N": 16,
+      "periods": [5, 11],
+      "raw": {"rank": 15, "sigma_min_positive": 0.23742811978921866, "sigma_max": 2.1588457110958035, "kappa_positive": 9.092628594339878},
+      "row_normalized": {"rank": 15, "sigma_min_positive": 0.17987186542349096, "sigma_max": 1.4142135623730951, "kappa_positive": 7.862338887982652},
+      "frobenius_block_normalized": {"rank": 15, "sigma_min_positive": 0.061303676924332196, "sigma_max": 0.557411565740357, "kappa_positive": 9.092628594339883},
+      "row_condition_ratio": 0.8646937248571798,
+      "kernel_projector_error": 0.0
+    },
+    {
+      "N": 16,
+      "periods": [7, 9],
+      "raw": {"rank": 15, "sigma_min_positive": 0.2090569265353069, "sigma_max": 2.093521281289156, "kappa_positive": 10.014120632045111},
+      "row_normalized": {"rank": 15, "sigma_min_positive": 0.1583416806092963, "sigma_max": 1.414213562373095, "kappa_positive": 8.931404270380504},
+      "frobenius_block_normalized": {"rank": 15, "sigma_min_positive": 0.05397826632537009, "sigma_max": 0.5405448704909143, "kappa_positive": 10.014120632045108},
+      "row_condition_ratio": 0.8918810346462251,
+      "kernel_projector_error": 0.0
+    },
+    {
+      "N": 24,
+      "periods": [5, 9, 11],
+      "raw": {"rank": 23, "sigma_min_positive": 0.02849649063994465, "sigma_max": 3.0979503166424167, "kappa_positive": 108.713397582364},
+      "row_normalized": {"rank": 23, "sigma_min_positive": 0.018727216023721557, "sigma_max": 1.7320508075688776, "kappa_positive": 92.4884299607004},
+      "frobenius_block_normalized": {"rank": 23, "sigma_min_positive": 0.005941929048470997, "sigma_max": 0.6459672950526226, "kappa_positive": 108.71339758236356},
+      "row_condition_ratio": 0.8507546633397125,
+      "kernel_projector_error": 0.0
+    },
+    {
+      "N": 24,
+      "periods": [7, 9, 11],
+      "raw": {"rank": 23, "sigma_min_positive": 0.08906420312558158, "sigma_max": 2.8835081458518905, "kappa_positive": 32.375612700268704},
+      "row_normalized": {"rank": 23, "sigma_min_positive": 0.05866042514200419, "sigma_max": 1.7320508075688772, "kappa_positive": 29.526734649057815},
+      "frobenius_block_normalized": {"rank": 23, "sigma_min_positive": 0.018571170128190907, "sigma_max": 0.6012530114611092, "kappa_positive": 32.37561270026875},
+      "row_condition_ratio": 0.912005432064387,
+      "kernel_projector_error": 0.0
+    },
+    {
+      "N": 30,
+      "periods": [5, 7, 9, 11],
+      "raw": {"rank": 29, "sigma_min_positive": 0.0020670146517189447, "sigma_max": 4.00625276961167, "kappa_positive": 1938.1830536518166},
+      "row_normalized": {"rank": 29, "sigma_min_positive": 0.0011340495648717184, "sigma_max": 1.9999999999999998, "kappa_positive": 1763.5913472849275},
+      "frobenius_block_normalized": {"rank": 29, "sigma_min_positive": 0.0003838349847678866, "sigma_max": 0.7439424628757897, "kappa_positive": 1938.1830536517352},
+      "row_condition_ratio": 0.9099199087320812,
+      "kernel_projector_error": 0.0
+    },
+    {
+      "N": 30,
+      "periods": [7, 8, 9, 11, 12],
+      "raw": {"rank": 29, "sigma_min_positive": 0.04136794992668575, "sigma_max": 4.0612313264736555, "kappa_positive": 98.17337657948153},
+      "row_normalized": {"rank": 29, "sigma_min_positive": 0.02494255638760711, "sigma_max": 2.23606797749979, "kappa_positive": 89.64870892747771},
+      "frobenius_block_normalized": {"rank": 29, "sigma_min_positive": 0.007681835451327292, "sigma_max": 0.7541517245847622, "kappa_positive": 98.17337657948107},
+      "row_condition_ratio": 0.9131672155016263,
+      "kernel_projector_error": 0.0
+    }
+  ],
+  "notes": [
+    "Positive diagonal left scaling preserves the exact kernel and rank algebraically.",
+    "Numerical projector comparison is a finite floating-point cross-check.",
+    "Frobenius block normalization is a common scalar in this model and leaves kappa unchanged.",
+    "No global optimality claim is made for row normalization."
+  ]
+}

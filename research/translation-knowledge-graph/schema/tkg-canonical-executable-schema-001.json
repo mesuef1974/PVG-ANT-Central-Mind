@@ -1,0 +1,269 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "TKG-CANONICAL-EXECUTABLE-SCHEMA-001",
+  "title": "Canonical TKG Record Union",
+  "description": "Strict canonical contracts for migrated TKG concept nodes, relation edges, reasoning tasks, claim rejections, and file metadata. Human formulas are descriptive; execution is authorized only by an explicit executable_rule on an authored-ceiling concept node.",
+  "oneOf": [
+    {"$ref": "#/$defs/concept_node"},
+    {"$ref": "#/$defs/relation_edge"},
+    {"$ref": "#/$defs/reasoning_task"},
+    {"$ref": "#/$defs/claim_rejection"},
+    {"$ref": "#/$defs/file_metadata"}
+  ],
+  "$defs": {
+    "nonempty_string": {
+      "type": "string",
+      "minLength": 1
+    },
+    "string_array": {
+      "type": "array",
+      "items": {"type": "string"},
+      "uniqueItems": true
+    },
+    "source_record_locator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "file",
+        "source_id_field",
+        "source_name_field",
+        "source_type_field",
+        "source_ceiling_field"
+      ],
+      "properties": {
+        "file": {"$ref": "#/$defs/nonempty_string"},
+        "line": {"type": ["integer", "null"], "minimum": 1},
+        "source_id_field": {"type": ["string", "null"]},
+        "source_name_field": {"type": ["string", "null"]},
+        "source_type_field": {"type": ["string", "null"]},
+        "source_ceiling_field": {"type": ["string", "null"]}
+      }
+    },
+    "common_provenance": {
+      "type": "object",
+      "required": ["node_id", "canonical_record_type", "source_schema_family", "source_record_locator"],
+      "properties": {
+        "node_id": {"$ref": "#/$defs/nonempty_string"},
+        "canonical_record_type": {
+          "enum": [
+            "CONCEPT_NODE",
+            "THEOREM_NODE",
+            "PVG_OBJECT_NODE",
+            "RELATION_EDGE",
+            "REASONING_TASK",
+            "CLAIM_REJECTION",
+            "FILE_METADATA"
+          ]
+        },
+        "source_schema_family": {
+          "enum": ["FAMILY-A", "FAMILY-B", "CANONICAL"]
+        },
+        "source_record_locator": {"$ref": "#/$defs/source_record_locator"}
+      }
+    },
+    "relation_object": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["relation_type", "target"],
+      "properties": {
+        "relation_type": {"$ref": "#/$defs/nonempty_string"},
+        "target": {"$ref": "#/$defs/nonempty_string"},
+        "conditions": {"$ref": "#/$defs/string_array"}
+      }
+    },
+    "executable_rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["operator_id", "args"],
+      "properties": {
+        "operator_id": {
+          "type": "string",
+          "pattern": "^OP-[A-Z0-9-]+$"
+        },
+        "args": {"type": "object"},
+        "result_symbol": {"type": "string"},
+        "input_contract": {"type": "object"},
+        "output_contract": {"type": "object"}
+      }
+    },
+    "concept_node": {
+      "allOf": [
+        {"$ref": "#/$defs/common_provenance"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "node_id",
+            "canonical_record_type",
+            "source_schema_family",
+            "source_record_locator",
+            "names",
+            "ceiling_status",
+            "claim_ceiling"
+          ],
+          "properties": {
+            "node_id": {"$ref": "#/$defs/nonempty_string"},
+            "canonical_record_type": {
+              "enum": ["CONCEPT_NODE", "THEOREM_NODE", "PVG_OBJECT_NODE"]
+            },
+            "source_schema_family": {
+              "enum": ["FAMILY-A", "FAMILY-B", "CANONICAL"]
+            },
+            "source_record_locator": {"$ref": "#/$defs/source_record_locator"},
+            "names": {
+              "type": "array",
+              "items": {"$ref": "#/$defs/nonempty_string"},
+              "minItems": 1,
+              "uniqueItems": true
+            },
+            "aliases": {"$ref": "#/$defs/string_array"},
+            "equivalent_forms": {"$ref": "#/$defs/string_array"},
+            "formulas": {"$ref": "#/$defs/string_array"},
+            "hypotheses": {"$ref": "#/$defs/string_array"},
+            "relations": {
+              "type": "array",
+              "items": {"$ref": "#/$defs/relation_object"}
+            },
+            "examples": {
+              "type": "array",
+              "items": {"type": "object"}
+            },
+            "counterexamples": {
+              "type": "array",
+              "items": {"type": "object"}
+            },
+            "ceiling_status": {
+              "enum": ["AUTHORED", "NOT_AUTHORED"]
+            },
+            "claim_ceiling": {
+              "type": ["string", "null"]
+            },
+            "executable_rule": {"$ref": "#/$defs/executable_rule"}
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {"ceiling_status": {"const": "AUTHORED"}},
+                "required": ["ceiling_status"]
+              },
+              "then": {
+                "properties": {
+                  "claim_ceiling": {"type": "string", "minLength": 1}
+                }
+              },
+              "else": {
+                "properties": {
+                  "claim_ceiling": {"type": "null"}
+                },
+                "not": {"required": ["executable_rule"]}
+              }
+            },
+            {
+              "if": {"required": ["executable_rule"]},
+              "then": {
+                "properties": {
+                  "ceiling_status": {"const": "AUTHORED"},
+                  "claim_ceiling": {"type": "string", "minLength": 1}
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "relation_edge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "node_id",
+        "canonical_record_type",
+        "source_schema_family",
+        "source_record_locator",
+        "source",
+        "target",
+        "relation_type"
+      ],
+      "properties": {
+        "node_id": {"$ref": "#/$defs/nonempty_string"},
+        "canonical_record_type": {"const": "RELATION_EDGE"},
+        "source_schema_family": {"enum": ["FAMILY-A", "FAMILY-B", "CANONICAL"]},
+        "source_record_locator": {"$ref": "#/$defs/source_record_locator"},
+        "source": {"$ref": "#/$defs/nonempty_string"},
+        "target": {"$ref": "#/$defs/nonempty_string"},
+        "relation_type": {"$ref": "#/$defs/nonempty_string"},
+        "statement": {"type": "string"},
+        "conditions": {"$ref": "#/$defs/string_array"},
+        "claim_ceiling": {"type": ["string", "null"]},
+        "ceiling_status": {"enum": ["AUTHORED", "NOT_AUTHORED", "NOT_APPLICABLE"]}
+      }
+    },
+    "reasoning_task": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "node_id",
+        "canonical_record_type",
+        "source_schema_family",
+        "source_record_locator",
+        "prompt"
+      ],
+      "properties": {
+        "node_id": {"$ref": "#/$defs/nonempty_string"},
+        "canonical_record_type": {"const": "REASONING_TASK"},
+        "source_schema_family": {"enum": ["FAMILY-A", "FAMILY-B", "CANONICAL"]},
+        "source_record_locator": {"$ref": "#/$defs/source_record_locator"},
+        "prompt": {"$ref": "#/$defs/nonempty_string"},
+        "expected_route": {"$ref": "#/$defs/string_array"},
+        "failure_modes": {"$ref": "#/$defs/string_array"},
+        "claim_ceiling": {"type": ["string", "null"]},
+        "ceiling_status": {"enum": ["AUTHORED", "NOT_AUTHORED", "NOT_APPLICABLE"]}
+      }
+    },
+    "claim_rejection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "node_id",
+        "canonical_record_type",
+        "source_schema_family",
+        "source_record_locator",
+        "claim",
+        "decision",
+        "reason"
+      ],
+      "properties": {
+        "node_id": {"$ref": "#/$defs/nonempty_string"},
+        "canonical_record_type": {"const": "CLAIM_REJECTION"},
+        "source_schema_family": {"enum": ["FAMILY-A", "FAMILY-B", "CANONICAL"]},
+        "source_record_locator": {"$ref": "#/$defs/source_record_locator"},
+        "claim": {"$ref": "#/$defs/nonempty_string"},
+        "decision": {"const": "REJECT"},
+        "reason": {"$ref": "#/$defs/nonempty_string"},
+        "claim_ceiling": {"type": ["string", "null"]},
+        "ceiling_status": {"enum": ["AUTHORED", "NOT_AUTHORED", "NOT_APPLICABLE"]}
+      }
+    },
+    "file_metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "node_id",
+        "canonical_record_type",
+        "source_schema_family",
+        "source_record_locator",
+        "metadata_kind"
+      ],
+      "properties": {
+        "node_id": {"$ref": "#/$defs/nonempty_string"},
+        "canonical_record_type": {"const": "FILE_METADATA"},
+        "source_schema_family": {"enum": ["FAMILY-A", "FAMILY-B", "CANONICAL"]},
+        "source_record_locator": {"$ref": "#/$defs/source_record_locator"},
+        "metadata_kind": {
+          "enum": ["TAXONOMY", "DEPENDENCY_GRAPH", "QUERY_CAPABILITY", "CLAIM_CEILING_DECLARATION", "OTHER"]
+        },
+        "payload": {"type": "object"}
+      }
+    }
+  },
+  "$comment": "Migration is strict: legacy fields are not accepted beside canonical fields. Missing authored ceilings must remain claim_ceiling=null with ceiling_status=NOT_AUTHORED. Such concept nodes are ineligible for executable_rule."
+}

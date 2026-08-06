@@ -1,0 +1,18 @@
+{
+  "checks": [
+    {"check_id":"CHK-PNT-REGISTRY-001","status":"PASS","evidence":{"records":11}},
+    {"check_id":"CHK-PNT-LADDER-001","status":"PASS","evidence":{"levels":[0,1,2,3]}},
+    {"check_id":"CHK-PNT-EQUIVALENCE-COVERAGE-001","status":"PASS","evidence":{"targets":["ANT-PI-001","ANT-PSI-001","ANT-THETA-001"]}},
+    {"check_id":"CHK-PNT-FINITE-OBSERVABLES-001","status":"PASS","evidence":{"samples":{"100":{"pi_log_over_x":1.151292546497023,"theta_over_x":0.8372839039906392,"psi_over_x":0.940453112293574},"1000":{"pi_log_over_x":1.160502886868999,"theta_over_x":0.9562452651200589,"psi_over_x":0.9966809122471753},"10000":{"pi_log_over_x":1.131950831715873,"theta_over_x":0.9895991379156988,"psi_over_x":1.0013396693263115},"100000":{"pi_log_over_x":1.1043198105999443,"theta_over_x":0.9968538926861255,"psi_over_x":1.0005156402565796}}}},
+    {"check_id":"CHK-PNT-THETA-PSI-ORDER-001","status":"PASS","evidence":{"identity":"theta<=psi"}},
+    {"check_id":"CHK-PNT-ANTI-COLLAPSE-001","status":"PASS","evidence":{"rules":3}},
+    {"check_id":"CHK-PNT-RH-CONDITIONAL-001","status":"PASS","evidence":{"requires":["RH","explicit-formula and truncation certificates"]}},
+    {"check_id":"CHK-PNT-ZFR-CERTIFICATE-001","status":"PASS","evidence":{"requires":["zero-free region and contour estimates"]}},
+    {"check_id":"CHK-PNT-NO-L6-001","status":"PASS","evidence":{"formal_proofs_added":0}},
+    {"check_id":"CHK-PNT-CLAIM-CEILING-001","status":"PASS","evidence":{"ceiling":"no RH progress"}}
+  ],
+  "scientific_ceiling":"finite diagnostics and known implication graph only; no new PNT error term, zero-free region, RH, or GRH progress",
+  "status":"PASS",
+  "summary":{"passed":10,"total":10},
+  "unit":"RMG-002-E"
+}
