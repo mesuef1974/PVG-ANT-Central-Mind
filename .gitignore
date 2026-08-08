@@ -18,3 +18,6 @@ Tenenbaum_PVG_ANT_extraction_status/
 Books_catalog.md
 Books_catalog.csv
 *.stackdump
+
+# Local governance gate receipts (machine-local evidence, not repository truth)
+artifacts/local-governance-gate/

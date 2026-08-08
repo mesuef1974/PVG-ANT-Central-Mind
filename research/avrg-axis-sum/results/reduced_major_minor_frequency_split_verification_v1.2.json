@@ -1,0 +1,30 @@
+{
+  "schema": "pvg.reduced-major-minor-frequency.verification.v1",
+  "status": "PASS",
+  "N_range": [2, 300],
+  "r_range": [1, 20],
+  "K_values": [0, 1, 2, 3],
+  "effective_channels": 46345,
+  "channel_checks": 185380,
+  "bound_mismatches": 0,
+  "certificate_counts": {
+    "0": 419,
+    "1": 2216,
+    "2": 5415,
+    "3": 6749
+  },
+  "false_certificate_counts": {
+    "0": 0,
+    "1": 0,
+    "2": 0,
+    "3": 0
+  },
+  "prime_positive_channels": 15833,
+  "observations": [
+    "Selecting the largest-magnitude nonzero frequencies minimizes the residual L2 energy for fixed K.",
+    "Using three exact major frequencies increased successful channel certificates from 419 to 6749 on the declared benchmark.",
+    "No false prime-channel certificate was observed.",
+    "The remaining gap to 15833 prime-positive channels shows that the uniform L2 minor bound is still not sharp enough for all channels.",
+    "These are finite computational results, not an asymptotic major-arc or minor-arc estimate."
+  ]
+}

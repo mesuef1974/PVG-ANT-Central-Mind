@@ -1,0 +1,14 @@
+{
+  "schema": "pvg.von-mangoldt-additive-fiber-verification.v1",
+  "status": "PASS",
+  "N_range": [2, 200],
+  "r_range": [1, 40],
+  "mass_checks": 7960,
+  "symmetry_checks": 163180,
+  "support_checks": 2315,
+  "decomposition_checks": 183080,
+  "mismatch_count": 0,
+  "first_mismatches": [],
+  "classification": "finite verification supporting exact proved identities",
+  "scientific_ceiling": "No Goldbach, sieve, major-arc, minor-arc, RH, or GRH progress is claimed."
+}

@@ -1,0 +1,45 @@
+{
+  "schema": "pvg.channel-weighted-phase-tail-bound.v1",
+  "status": "PASS",
+  "N_range": [2, 300],
+  "r_range": [1, 20],
+  "K_values": [0, 1, 2, 3],
+  "effective_channels": 46345,
+  "prime_positive_channels": 15833,
+  "results": {
+    "0": {
+      "uniform_certificates": 1316,
+      "phase_certificates": 2260,
+      "uniform_false": 0,
+      "phase_false": 0,
+      "bound_mismatches": 0
+    },
+    "1": {
+      "uniform_certificates": 5634,
+      "phase_certificates": 7358,
+      "uniform_false": 0,
+      "phase_false": 0,
+      "bound_mismatches": 0
+    },
+    "2": {
+      "uniform_certificates": 8471,
+      "phase_certificates": 9813,
+      "uniform_false": 0,
+      "phase_false": 0,
+      "bound_mismatches": 0
+    },
+    "3": {
+      "uniform_certificates": 10319,
+      "phase_certificates": 11177,
+      "uniform_false": 0,
+      "phase_false": 0,
+      "bound_mismatches": 0
+    }
+  },
+  "observations": [
+    "The channel-weighted phase bound dominated the uniform paired-energy bound in every tested channel.",
+    "At K=3, certified channels increased from 10319 to 11177 without false certificates.",
+    "At K=0, certified channels increased from 1316 to 2260.",
+    "The results are finite computations and do not constitute an asymptotic Goldbach theorem."
+  ]
+}

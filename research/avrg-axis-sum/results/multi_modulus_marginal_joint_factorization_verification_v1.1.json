@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "cases_checked": 925,
+  "mismatch_count": 0,
+  "maximum_observed_rank_gap": 16,
+  "scope": {
+    "three_moduli": "all combinations from 2..8, 2 <= N <= 25",
+    "four_moduli": "all combinations from 2..6, 2 <= N <= 18"
+  },
+  "checked_identities": [
+    "M = B J",
+    "rank(J) = number of realized signatures",
+    "rank(M) = rank(B)",
+    "rank(J)-rank(M) = dim ker(B)"
+  ],
+  "classification": "finite verification supporting proved identities; not a substitute for proof"
+}

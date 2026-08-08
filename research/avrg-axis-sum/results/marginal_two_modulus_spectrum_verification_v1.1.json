@@ -1,0 +1,25 @@
+{
+  "verification": "MARGINAL-TWO-MODULUS-SPECTRUM-CONDITIONING-v1.1",
+  "ranges": {
+    "r_min": 1,
+    "r_max": 30,
+    "s_min": 1,
+    "s_max": 30,
+    "N_min": 2,
+    "N_max": 41,
+    "complete_period_count_min": 1,
+    "complete_period_count_max": 5
+  },
+  "general_cases_checked": 36000,
+  "full_period_cases_checked": 4500,
+  "checks": [
+    "M M^T equals the signless Laplacian D+A",
+    "bipartite sign conjugation maps D+A to the ordinary Laplacian D-A",
+    "signless and ordinary Laplacian spectra agree numerically",
+    "full-period positive singular values match the explicit K_{m,n} multiplicity formula"
+  ],
+  "maximum_absolute_error": 7.105427357601002e-15,
+  "mismatch_count": 0,
+  "status": "PASS",
+  "scientific_ceiling": "Finite verification of independently proved exact finite-dimensional results; no Goldbach, asymptotic, RH, GRH, novelty, or priority claim."
+}

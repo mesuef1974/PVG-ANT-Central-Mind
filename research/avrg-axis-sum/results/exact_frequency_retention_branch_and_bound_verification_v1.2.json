@@ -1,0 +1,26 @@
+{
+  "schema": "pvg.additive-fiber.exact-frequency-retention-branch-and-bound.v1.2",
+  "status": "PASS",
+  "benchmark": {
+    "N_range": [2, 120],
+    "r_range": [1, 20],
+    "budgets": [0, 1, 2, 3, 4],
+    "optimization_instances": 11900
+  },
+  "results": {
+    "optimal_value_mismatches": 0,
+    "false_certificates": 0,
+    "branch_and_bound_nodes_visited": 15152,
+    "branch_and_bound_pruned_nodes": 8734,
+    "branch_and_bound_leaf_evaluations": 4752,
+    "exhaustive_leaf_evaluations": 86751,
+    "leaf_reduction_fraction": 0.9452225334578276,
+    "leaf_reduction_percent": 94.52225334578276
+  },
+  "interpretation": [
+    "The admissible channelwise upper bound preserved the exact optimum in every tested instance.",
+    "Branch-and-bound evaluated 4,752 complete subsets instead of 86,751 under exhaustive exact-size enumeration.",
+    "The method remains exponential in the worst case; this is a finite computational acceleration, not a complexity breakthrough.",
+    "No Goldbach, RH, or GRH progress is claimed."
+  ]
+}

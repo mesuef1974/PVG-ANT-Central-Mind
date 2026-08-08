@@ -1,0 +1,36 @@
+{
+  "schema": "pvg.signed-secondary-cluster-retention.v1",
+  "status": "PASS",
+  "range": {"N": [2, 300], "r": [1, 20]},
+  "effective_channels": 46345,
+  "prime_positive_channels": 15833,
+  "certificate_counts": {
+    "0": {"0": 3616, "1": 8480, "2": 10512, "3": 11521, "4": 12080},
+    "1": {"0": 8480, "1": 10512, "2": 11521, "3": 12080, "4": 12380},
+    "2": {"0": 10512, "1": 11521, "2": 12080, "3": 12380, "4": 12559},
+    "3": {"0": 11521, "1": 12080, "2": 12380, "3": 12559, "4": 12644}
+  },
+  "fixed_K3_secondary_progression": {
+    "J0": 11521,
+    "J1": 12080,
+    "J2": 12380,
+    "J3": 12559,
+    "J4": 12644,
+    "J6": 12672,
+    "J8": 12672
+  },
+  "best_observed": {
+    "certificates": 12672,
+    "coverage_of_prime_positive_channels": 0.8002273732084886,
+    "configuration": "K=3 plus six or more energy-ordered secondary retained pairs"
+  },
+  "false_certificates": 0,
+  "monotonicity_failures": 0,
+  "observations": [
+    "Exact signed retention monotonically improves or preserves the lower certificate.",
+    "For the declared energy ordering, counts depend only on the total number K+J of retained pairs, not on their exact regrouping into clusters.",
+    "At K=3, adding four signed secondary pairs increases certificates from 11521 to 12644.",
+    "The finite candidate frequency sets saturate near 12672 certificates in this benchmark.",
+    "No asymptotic lower bound or Goldbach theorem is claimed."
+  ]
+}

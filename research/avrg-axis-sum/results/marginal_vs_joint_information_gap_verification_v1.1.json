@@ -1,0 +1,15 @@
+{
+  "theorem": "marginal-versus-joint information-gap theorem",
+  "range": {
+    "N": [2, 50],
+    "r": [1, 20],
+    "s": [1, 20]
+  },
+  "parameter_triples_checked": 19600,
+  "general_mismatch_count": 0,
+  "full_period_cases_checked": 8487,
+  "full_period_mismatch_count": 0,
+  "maximum_observed_rank_gap": 35,
+  "status": "PASS",
+  "classification": "finite computational evidence; not a proof"
+}

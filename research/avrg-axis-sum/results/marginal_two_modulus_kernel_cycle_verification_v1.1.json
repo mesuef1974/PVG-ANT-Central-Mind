@@ -1,0 +1,20 @@
+{
+  "verification": "MARGINAL-TWO-MODULUS-KERNEL-CYCLE-BASIS-v1.1",
+  "range": {
+    "N_min": 2,
+    "N_max": 35,
+    "r_min": 1,
+    "r_max": 16,
+    "s_min": 1,
+    "s_max": 16
+  },
+  "case_count": 8704,
+  "checked_formulas": [
+    "rank(M_{N;(r,s)}) = |U| + |V| - c(G)",
+    "nullity(M_{N;(r,s)}) = |E| - |U| - |V| + c(G)"
+  ],
+  "rank_mismatch_count": 0,
+  "nullity_mismatch_count": 0,
+  "status": "PASS",
+  "scientific_ceiling": "Finite verification of formulas already proved symbolically; no Goldbach, asymptotic prime-distribution, novelty, or RH/GRH claim."
+}

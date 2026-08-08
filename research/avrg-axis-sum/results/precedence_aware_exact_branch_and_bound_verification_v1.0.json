@@ -1,0 +1,61 @@
+{
+  "schema": "pvg.precedence-aware-exact-bnb.v1",
+  "status": "PASS",
+  "benchmark": {
+    "N": [4, 120],
+    "r": [3, 30],
+    "max_budget": 4
+  },
+  "summary": {
+    "optimization_cases": 12987,
+    "cases_with_precedence": 1077,
+    "ordinary_optimum_mismatches": 0,
+    "precedence_optimum_mismatches": 0,
+    "false_certificates": 0,
+    "ordinary_visited_nodes": 65975,
+    "precedence_visited_nodes": 66443,
+    "ordinary_upper_bound_prunes": 22516,
+    "precedence_upper_bound_prunes": 22345,
+    "precedence_constraint_prunes": 426,
+    "precedence_forced_decisions": 1053,
+    "ordinary_leaves": 13746,
+    "precedence_leaves": 13866,
+    "transitive_precedence_edges": 1632,
+    "tree_improved_cases": 16,
+    "tree_equal_cases": 12814,
+    "tree_worse_cases": 157,
+    "aggregate_node_change_percent": 0.7093596059113301,
+    "aggregate_leaf_change_percent": 0.8729812309035355
+  },
+  "explicit_tree_improvement_example": {
+    "N": 33,
+    "r": 24,
+    "q": 12,
+    "budget": 1,
+    "transitive_edges": 1,
+    "optimum": 2,
+    "ordinary": {
+      "selected": [4],
+      "visited_nodes": 5,
+      "leaves": 2,
+      "upper_bound_prunes": 1
+    },
+    "precedence_aware": {
+      "selected": [4],
+      "visited_nodes": 3,
+      "leaves": 1,
+      "upper_bound_prunes": 1,
+      "precedence_prunes": 0
+    },
+    "relations": {
+      "4": [2]
+    }
+  },
+  "claims": {
+    "exact_optimum_preserved": true,
+    "false_certificates": 0,
+    "polynomial_time_claim": false,
+    "goldbach_proof_claim": false,
+    "rh_or_grh_progress_claim": false
+  }
+}

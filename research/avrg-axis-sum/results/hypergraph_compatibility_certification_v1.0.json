@@ -1,0 +1,46 @@
+{
+  "schema": "pvg.hypergraph-compatibility-certification.v1",
+  "status": "PASS",
+  "benchmark": {
+    "N": [4, 120],
+    "r": [3, 30],
+    "max_exact_budget": 4
+  },
+  "summary": {
+    "optimization_cases": 12987,
+    "pairwise_optimum_mismatches": 0,
+    "hypergraph_optimum_mismatches": 0,
+    "false_certificates": 0,
+    "pairwise_visited_nodes": 65209,
+    "hypergraph_visited_nodes": 65191,
+    "improved_cases": 9,
+    "equal_cases": 12978,
+    "worse_cases": 0,
+    "aggregate_node_change_percent": -0.027603244334064622
+  },
+  "explicit_improvement_example": {
+    "N": 44,
+    "r": 13,
+    "q": 13,
+    "budget": 2,
+    "optimum": 4,
+    "pairwise": {
+      "selected": [1, 3],
+      "visited_nodes": 9,
+      "leaves": 1
+    },
+    "hypergraph": {
+      "selected": [1, 3],
+      "visited_nodes": 7,
+      "leaves": 1
+    },
+    "node_reduction": 2
+  },
+  "claims": {
+    "exact_optimum_preserved": true,
+    "uniform_speedup_claim": false,
+    "polynomial_time_claim": false,
+    "goldbach_proof_claim": false,
+    "rh_or_grh_progress_claim": false
+  }
+}

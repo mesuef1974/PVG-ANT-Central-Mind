@@ -1,0 +1,52 @@
+{
+  "schema": "pvg.minimal-forbidden-channel-hyperedges.preliminary.v1",
+  "status": "PASS",
+  "classification": "validated_partial",
+  "benchmark": {
+    "N": [4, 80],
+    "r": [3, 20],
+    "max_exact_budget": 4
+  },
+  "summary": {
+    "optimization_cases": 4697,
+    "optimum_mismatches": 0,
+    "false_certificates": 0,
+    "visited_nodes": 21773,
+    "leaves": 4851,
+    "upper_bound_prunes": 6211,
+    "precedence_prunes": 2173,
+    "bound_mismatches": 0,
+    "forbidden_failures": 0,
+    "minimality_failures": 0,
+    "coverage_failures": 0,
+    "all_forbidden_families": 49815,
+    "minimal_forbidden_families": 986,
+    "representation_reduction_percent": 98.02067650306132,
+    "minimal_hyperedge_size_histogram": {
+      "2": 954,
+      "3": 32
+    }
+  },
+  "explicit_representation_compression_example": {
+    "N": 16,
+    "r": 15,
+    "q": 15,
+    "budget": 2,
+    "all_forbidden_count": 9,
+    "minimal_forbidden_count": 4,
+    "minimal_edges": [[6, 7], [6, 10], [7, 11], [10, 11]],
+    "full_hypergraph_bound": 2,
+    "minimal_cut_bound": 2
+  },
+  "claims": {
+    "minimal_obstruction_theorem_verified_on_benchmark": true,
+    "hypergraph_bound_preserved_on_benchmark": true,
+    "exact_optimum_preserved_on_benchmark": true,
+    "full_active_003_r_benchmark_completed": false,
+    "runtime_speedup_claim": false,
+    "polynomial_time_claim": false,
+    "goldbach_proof_claim": false,
+    "rh_or_grh_progress_claim": false
+  },
+  "next_action": "Replace exhaustive forbidden-family materialization by direct antichain generation and rerun N<=120, r<=30."
+}
